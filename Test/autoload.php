@@ -5,7 +5,8 @@
 
 /**
  * Simple autoloader for Dhl Express source classes.
- * For the standalone package, use /vendor/autoload.php instead.
+ * For the standalone package, use /vendor/autoload.php instead:
+ * $ phpunit --configuration Test/ --bootstrap vendor/autoload.php
  */
 $srcPath = __DIR__ . DIRECTORY_SEPARATOR . '..';
 $includePath = get_include_path();
