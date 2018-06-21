@@ -55,4 +55,10 @@ interface ShipmentResponseInterface
      * @return string
      */
     public function getShipmentIdentificationNumber(): string;
+
+    /**
+     * Obtain the dispatch confirmation number
+     * @return string
+     */
+    public function getDispatchConfirmationNumber(): string;
 }

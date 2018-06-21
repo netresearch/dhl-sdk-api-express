@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/7.0/phpunit.xsd"
+         colors="true"
+         columns="max"
+         stderr="true">
+    <testsuites>
+        <testsuite name="DHL Express API Unit Tests">
+            <directory suffix="Test.php">./Unit</directory>
+        </testsuite>
+        <testsuite name="DHL Express API Integration Tests">
+            <directory suffix="Test.php">./Integration</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
