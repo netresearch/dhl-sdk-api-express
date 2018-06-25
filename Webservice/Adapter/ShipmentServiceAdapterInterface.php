@@ -2,17 +2,15 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api;
+namespace Dhl\Express\Webservice\Adapter;
 
-use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
-use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 
 /**
  * Shipment Service Adapter Interface.
  *
- * DHL Express web services support SOAP and REST access.
+ * DHL Express web services support SOAP and REST access. Choose one.
  *
  * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
@@ -26,20 +24,4 @@ interface ShipmentServiceAdapterInterface
      * @return ShipmentResponseInterface
      */
     public function createShipment(ShipmentRequestInterface $request);
-
-    /**
-     * @param ShipmentDeleteRequestInterface $request
-     * @return ShipmentDeleteResponseInterface
-     */
-    public function deleteShipment(ShipmentDeleteRequestInterface $request);
-
-    /**
-     * @return string
-     */
-    public function getLastRequest();
-
-    /**
-     * @return string
-     */
-    public function getLastResponse();
 }

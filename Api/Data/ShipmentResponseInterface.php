@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Api\Data;
 
-use Dhl\Express\Api\Data\Generic\ResponseMessageInterface;
-
 /**
  * Shipment Response Interface.
  *
@@ -20,11 +18,6 @@ use Dhl\Express\Api\Data\Generic\ResponseMessageInterface;
 interface ShipmentResponseInterface
 {
     /**
-     * @return ResponseMessageInterface[]
-     */
-    public function getMessages(): array;
-
-    /**
      * Obtain the Base64 encoded binary PDF data.
      *
      * @return string
@@ -36,7 +29,7 @@ interface ShipmentResponseInterface
      *
      * Note: The key in the returned array equals the reference numbers
      * as assigned for the shipment request packages.
-     * @see \Dhl\Express\Api\Data\Shipment\PackageInterface::getSequenceNumber()
+     * @see \Dhl\Express\Api\Data\Request\PackageInterface::getSequenceNumber()
      *
      * Example:
      * [

@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data;
+namespace Dhl\Express\Api\Data\Request;
 
 /**
- * Shipment Delete Response Interface.
+ * Shipment Request Package Interface.
  *
- * DTO that carries relevant data for processing the cancellation result.
+ * DTO that carries relevant package data for booking a shipment.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,6 +15,10 @@ namespace Dhl\Express\Api\Data;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface ShipmentDeleteResponseInterface
+interface PackageInterface
 {
+    /**
+     * @return int
+     */
+    public function getSequenceNumber(): int;
 }

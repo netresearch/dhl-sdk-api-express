@@ -6,8 +6,8 @@ namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
-use Dhl\Express\Api\ShipmentServiceAdapterInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**

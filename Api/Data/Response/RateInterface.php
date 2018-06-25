@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Generic;
+namespace Dhl\Express\Api\Data\Response;
 
 /**
- * Shipment Response Message Interface.
+ * Rate Response Item Interface.
  *
- * DTO that carries web service operation result notifications.
+ * DTO that carries web service operation results.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,15 +15,20 @@ namespace Dhl\Express\Api\Data\Generic;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface ResponseMessageInterface
+interface RateInterface
 {
+    /**
+     * @return string
+     */
+    public function getLabel(): string;
+
     /**
      * @return int
      */
-    public function getCode(): int;
+    public function getAmount(): float;
 
     /**
      * @return string
      */
-    public function getMessage(): string;
+    public function getCurrencyCode(): string;
 }

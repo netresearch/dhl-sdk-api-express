@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Shipment;
+namespace Dhl\Express\Api\Data;
 
 /**
- * Shipment Request Package Interface.
+ * Rate Request Interface.
  *
- * DTO that carries relevant package data for booking a shipment.
+ * DTO that carries relevant data for requesting shipping rates.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,10 +15,6 @@ namespace Dhl\Express\Api\Data\Shipment;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface PackageInterface
+interface RateRequestInterface
 {
-    /**
-     * @return int
-     */
-    public function getSequenceNumber(): int;
 }
