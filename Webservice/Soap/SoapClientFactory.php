@@ -19,19 +19,6 @@ class SoapClientFactory
     const WSDL = 'https://wsbexpress.dhl.com/sndpt/expressRateBook?WSDL';
 
     /**
-     * @var AuthHeaderFactory
-     */
-    private $authFactory;
-
-    /**
-     * SoapClientFactory constructor.
-     */
-    public function __construct()
-    {
-        $this->authFactory = new AuthHeaderFactory();
-    }
-
-    /**
      * @param string $username
      * @param string $password
      * @param string $wsdl
@@ -49,7 +36,8 @@ class SoapClientFactory
 
         $client = new \SoapClient($wsdl, $options);
 
-        $authHeader = $this->authFactory->create($username, $password);
+        $authFactory = new AuthHeaderFactory();
+        $authHeader = $authFactory->create($username, $password);
         $client->__setSoapHeaders([$authHeader]);
 
         return $client;

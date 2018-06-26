@@ -10,6 +10,8 @@ use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
+use Dhl\Express\Webservice\Adapter\TraceableInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Shipment Service.
@@ -30,12 +32,21 @@ class ShipmentService implements ShipmentServiceInterface
     private $adapter;
 
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
      * ShipmentService constructor.
      * @param ShipmentServiceAdapterInterface $adapter
+     * @param LoggerInterface $logger
      */
-    public function __construct(ShipmentServiceAdapterInterface $adapter)
-    {
+    public function __construct(
+        ShipmentServiceAdapterInterface $adapter,
+        LoggerInterface $logger
+    ) {
         $this->adapter = $adapter;
+        $this->logger = $logger;
     }
 
     /**
@@ -45,6 +56,12 @@ class ShipmentService implements ShipmentServiceInterface
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
     {
         $response = $this->adapter->createShipment($request);
+
+        if ($this->adapter instanceof TraceableInterface) {
+            $this->logger->debug($this->adapter->getLastRequest());
+            $this->logger->debug($this->adapter->getLastResponse());
+        }
+
         return $response;
     }
 

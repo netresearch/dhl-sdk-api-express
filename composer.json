@@ -13,7 +13,8 @@
   ],
   "require": {
     "php": "^7.1",
-    "ext-soap": "*"
+    "ext-soap": "*",
+    "psr/log": "~1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.0.0"

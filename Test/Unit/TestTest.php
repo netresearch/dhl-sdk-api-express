@@ -19,6 +19,6 @@ class TestTest extends \PHPUnit\Framework\TestCase
      */
     public function pass()
     {
-        $this->assertTrue(true);
+        self::assertTrue(true);
     }
 }
