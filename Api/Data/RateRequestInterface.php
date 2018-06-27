@@ -2,7 +2,14 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api\Data;
+
+use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
+use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
+use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
+use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
 
 /**
  * Rate Request Interface.
@@ -17,4 +24,33 @@ namespace Dhl\Express\Api\Data;
  */
 interface RateRequestInterface
 {
+    /**
+     * @return ShipperAddressInterface
+     */
+    public function getShipperAddress(): ShipperAddressInterface;
+
+    /**
+     * @return string
+     */
+    public function getShipperAccountNumber(): string;
+
+    /**
+     * @return RecipientAddressInterface
+     */
+    public function getRecipientAddress(): RecipientAddressInterface;
+
+    /**
+     * @return ShipmentDetailsInterface
+     */
+    public function getShipmentDetails(): ShipmentDetailsInterface;
+
+    /**
+     * @return PackageInterface[]
+     */
+    public function getPackages(): array;
+
+    /**
+     * @return InsuranceServiceInterface|null
+     */
+    public function getInsuranceService(): ?InsuranceServiceInterface;
 }
