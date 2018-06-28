@@ -17,114 +17,33 @@ use PHPUnit\Framework\TestCase;
 class PackageTest extends TestCase
 {
     /**
-     * @var PackageInterface
+     * @test
      */
-    private $package;
-
-    /**
-     * Setup
-     */
-    protected function setUp()
+    public function propertiesArePopulatedAndAccessible()
     {
-        $this->package = new Package(
-            1,
-            1.123,
-            'cm',
-            1.123,
-            1.123,
-            1.123,
-            'cm',
-            '2010-02-05T14:00:00 GMT+01:00',
-            'NON_DOCUMENTS',
-            'CFR'
+        $package = new Package(
+            $sequenceNumber = 1,
+            $weight         = 1.123,
+            $weightUOM      = 'cm',
+            $length         = 1.123,
+            $width          = 1.123,
+            $height         = 1.123,
+            $dimensionUOM   = 'cm',
+            $readyAtDate    = '2010-02-05T14:00:00 GMT+01:00',
+            $contentType    = 'NON_DOCUMENTS',
+            $termsOfTrade   = 'CFR'
         );
-    }
 
-    /**
-     * @test
-     */
-    public function testPackageType()
-    {
-        $this->assertInstanceOf(PackageInterface::class, $this->package);
-    }
-
-    /**
-     * @test
-     */
-    public function testSequenceNumber()
-    {
-        $this->assertEquals($this->package->getSequenceNumber(), 1);
-    }
-
-    /**
-     * @test
-     */
-    public function testWeight()
-    {
-        $this->assertEquals($this->package->getWeight(), 1.123);
-    }
-
-    /**
-     * @test
-     */
-    public function testWeightUOM()
-    {
-        $this->assertEquals($this->package->getWeightUOM(), 'cm');
-    }
-
-    /**
-     * @test
-     */
-    public function testLength()
-    {
-        $this->assertEquals($this->package->getLength(), 1.123);
-    }
-
-    /**
-     * @test
-     */
-    public function testWidth()
-    {
-        $this->assertEquals($this->package->getWidth(), 1.123);
-    }
-
-    /**
-     * @test
-     */
-    public function testHeight()
-    {
-        $this->assertEquals($this->package->getHeight(), 1.123);
-    }
-
-    /**
-     * @test
-     */
-    public function testDimensionsUOM()
-    {
-        $this->assertEquals($this->package->getDimensionsUOM(), 'cm');
-    }
-
-    /**
-     * @test
-     */
-    public function testReadyAtDate()
-    {
-        $this->assertEquals($this->package->getReadyAtDate(), '2010-02-05T14:00:00 GMT+01:00');
-    }
-
-    /**
-     * @test
-     */
-    public function testContentType()
-    {
-        $this->assertEquals($this->package->getContentType(), 'NON_DOCUMENTS');
-    }
-
-    /**
-     * @test
-     */
-    public function testTermsOfTrade()
-    {
-        $this->assertEquals($this->package->getTermsOfTrade(), 'CFR');
+        $this->assertInstanceOf(PackageInterface::class, $package);
+        $this->assertEquals($sequenceNumber, $package->getSequenceNumber());
+        $this->assertEquals($weight, $package->getWeight());
+        $this->assertEquals($weightUOM, $package->getWeightUOM());
+        $this->assertEquals($length, $package->getLength());
+        $this->assertEquals($width, $package->getWidth());
+        $this->assertEquals($height, $package->getHeight());
+        $this->assertEquals($dimensionUOM, $package->getDimensionsUOM());
+        $this->assertEquals($readyAtDate, $package->getReadyAtDate());
+        $this->assertEquals($contentType, $package->getContentType());
+        $this->assertEquals($termsOfTrade, $package->getTermsOfTrade());
     }
 }

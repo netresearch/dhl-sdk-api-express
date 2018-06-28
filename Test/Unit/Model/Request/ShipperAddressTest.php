@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
@@ -17,51 +16,19 @@ use PHPUnit\Framework\TestCase;
 class ShipperAddressTest extends TestCase
 {
     /**
-     * @var ShipperAddressInterface
+     * @test
      */
-    private $shipperAddress;
-
-    /**
-     * Setup
-     */
-    protected function setUp()
+    public function propertiesArePopulatedAndAccessible()
     {
-        $this->shipperAddress = new ShipperAddress(
-            'Berlin',
-            '12345',
-            49
+        $shipperAddress = new ShipperAddress(
+            $countryCode = 'DE',
+            $postalCode  = '12345',
+            $city        = 'Berlin'
         );
-    }
 
-    /**
-     * @test
-     */
-    public function testRecipientAddressType()
-    {
-        $this->assertInstanceOf(ShipperAddressInterface::class, $this->shipperAddress);
-    }
-
-    /**
-     * @test
-     */
-    public function testCity()
-    {
-        $this->assertEquals($this->shipperAddress->getCity(), 'Berlin');
-    }
-
-    /**
-     * @test
-     */
-    public function testPostalCode()
-    {
-        $this->assertEquals($this->shipperAddress->getPostalCode(), '12345');
-    }
-
-    /**
-     * @test
-     */
-    public function testCountryCode()
-    {
-        $this->assertEquals($this->shipperAddress->getCountryCode(), '49');
+        $this->assertInstanceOf(ShipperAddressInterface::class, $shipperAddress);
+        $this->assertEquals($countryCode, $shipperAddress->getCountryCode());
+        $this->assertEquals($postalCode, $shipperAddress->getPostalCode());
+        $this->assertEquals($city, $shipperAddress->getCity());
     }
 }

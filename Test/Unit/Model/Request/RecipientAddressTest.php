@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
@@ -17,60 +16,21 @@ use PHPUnit\Framework\TestCase;
 class RecipientAddressTest extends TestCase
 {
     /**
-     * @var RecipientAddressInterface
+     * @test
      */
-    private $recipientAddress;
-
-    /**
-     * Setup
-     */
-    protected function setUp()
+    public function propertiesArePopulatedAndAccessible()
     {
-        $this->recipientAddress = new RecipientAddress(
-            'Sample street 5a',
-            'Berlin',
-            '12345',
-            49
+        $recipientAddress = new RecipientAddress(
+            $countryCode = 'DE',
+            $postalCode  = '12345',
+            $city        = 'Berlin',
+            $streetLines = ['Sample street 5a', 'Sample street 5b']
         );
-    }
 
-    /**
-     * @test
-     */
-    public function testRecipientAddressType()
-    {
-        $this->assertInstanceOf(RecipientAddressInterface::class, $this->recipientAddress);
-    }
-
-    /**
-     * @test
-     */
-    public function testStreetLine()
-    {
-        $this->assertEquals($this->recipientAddress->getStreetLine(), 'Sample street 5a');
-    }
-
-    /**
-     * @test
-     */
-    public function testCity()
-    {
-        $this->assertEquals($this->recipientAddress->getCity(), 'Berlin');
-    }
-
-    /**
-     * @test
-     */
-    public function testPostalCode()
-    {
-        $this->assertEquals($this->recipientAddress->getPostalCode(), '12345');
-    }
-
-    /**
-     * @test
-     */
-    public function testCountryCode()
-    {
-        $this->assertEquals($this->recipientAddress->getCountryCode(), '49');
+        $this->assertInstanceOf(RecipientAddressInterface::class, $recipientAddress);
+        $this->assertEquals($countryCode, $recipientAddress->getCountryCode());
+        $this->assertEquals($postalCode, $recipientAddress->getPostalCode());
+        $this->assertEquals($city, $recipientAddress->getCity());
+        $this->assertEquals($streetLines, $recipientAddress->getStreetLines());
     }
 }

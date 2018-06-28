@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Api\Data\Request;
 
 /**
@@ -17,9 +16,9 @@ namespace Dhl\Express\Api\Data\Request;
 interface RecipientAddressInterface
 {
     /**
-     * @return string
+     * @return string[]
      */
-    public function getStreetLine(): string;
+    public function getStreetLines(): array;
 
     /**
      * @return string

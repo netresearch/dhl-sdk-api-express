@@ -8,7 +8,6 @@ namespace Dhl\Express\Model\Request;
 use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * @package  Dhl\Express\Test\Unit
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
@@ -18,36 +17,16 @@ use PHPUnit\Framework\TestCase;
 class InsuranceServiceTest extends TestCase
 {
     /**
-     * @var InsuranceServiceInterface
+     * @test
      */
-    private $insuranceService;
-
-    /**
-     * Setup
-     */
-    protected function setUp()
+    public function propertiesArePopulatedAndAccessible()
     {
-        $this->insuranceService = new InsurancesService(
-            15,
-            'EUR'
+        $insurance = new InsuranceService(
+            $monetaryValue = 15,
+            $currencyCode = 'EUR'
         );
-    }
 
-    /**
-     * @test
-     */
-    public function testValue() {
-
-        $this->assertInstanceOf(InsuranceServiceInterface::class, $this->insuranceService);
-        $this->assertEquals(15.0, $this->insuranceService->getValue());
-    }
-
-    /**
-     * @test
-     */
-    public function testCurrencyCode() {
-
-        $this->assertInstanceOf(InsuranceServiceInterface::class, $this->insuranceService);
-        $this->assertEquals('EUR', $this->insuranceService->getCurrencyCode());
+        $this->assertInstanceOf(InsuranceServiceInterface::class, $insurance);
+        $this->assertEquals($monetaryValue, $insurance->getValue());
     }
 }

@@ -2,16 +2,14 @@
 /**
  * See LICENSE.md for license details.
  */
-
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 
 /**
- * Recipient Adress.
+ * Recipient Address.
  *
- * @package  Dhl\Express\Api
+ * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
@@ -19,9 +17,9 @@ use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 class RecipientAddress implements RecipientAddressInterface
 {
     /**
-     * @var string
+     * @var array
      */
-    private $streetLine;
+    private $streetLines;
 
     /**
      * @var string
@@ -39,26 +37,26 @@ class RecipientAddress implements RecipientAddressInterface
     private $countryCode;
 
     /**
-     * RecipientAdress constructor.
-     * @param string $streetLine
-     * @param string $city
-     * @param string $postalCode
-     * @param string $countryCode
+     * RecipientAddress constructor.
+     * @param string   $countryCode
+     * @param string   $postalCode
+     * @param string   $city
+     * @param string[] $streetLines
      */
-    public function __construct(string $streetLine, string $city, string $postalCode, string $countryCode)
+    public function __construct(string $countryCode, string $postalCode, string $city, array $streetLines)
     {
-        $this->streetLine = $streetLine;
-        $this->city = $city;
-        $this->postalCode = $postalCode;
         $this->countryCode = $countryCode;
+        $this->postalCode = $postalCode;
+        $this->city = $city;
+        $this->streetLines = $streetLines;
     }
 
     /**
-     * @return string
+     * @return string[]
      */
-    public function getStreetLine(): string
+    public function getStreetLines(): array
     {
-        return $this->streetLine;
+        return $this->streetLines;
     }
 
     /**

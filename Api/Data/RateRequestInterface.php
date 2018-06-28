@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Request\ShipperAddressInterface;

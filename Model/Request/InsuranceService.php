@@ -2,21 +2,19 @@
 /**
  * See LICENSE.md for license details.
  */
-
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
 
 /**
- * Shipment Details.
+ * Insurance Service.
  *
- * @package  Dhl\Express\Api
+ * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class InsurancesService implements InsuranceServiceInterface
+class InsuranceService implements InsuranceServiceInterface
 {
     /**
      * @var float
@@ -29,11 +27,11 @@ class InsurancesService implements InsuranceServiceInterface
     private $currencyCode;
 
     /**
-     * InsurancesService constructor.
-     * @param $value
-     * @param $currencyCode
+     * InsuranceService constructor.
+     * @param float  $value
+     * @param string $currencyCode
      */
-    public function __construct($value, $currencyCode)
+    public function __construct(float $value, string $currencyCode)
     {
         $this->value = $value;
         $this->currencyCode = $currencyCode;

@@ -2,8 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\PackageInterface;
@@ -11,7 +9,7 @@ use Dhl\Express\Api\Data\Request\PackageInterface;
 /**
  * Package.
  *
- * @package  Dhl\Express\Api
+ * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
@@ -91,8 +89,8 @@ class Package implements PackageInterface
         string $dimensionsUOM,
         string $readyAtDate,
         string $contentType,
-        string $termsOfTrade)
-    {
+        string $termsOfTrade
+    ) {
         $this->sequenceNumber = $sequenceNumber;
         $this->weight = $weight;
         $this->weightUOM = $weightUOM;
