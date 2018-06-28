@@ -1,0 +1,49 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
+    <env:Header/>
+    <env:Body>
+        <rateresp:RateResponse>
+            <Provider code="DHL">
+                <Notification code="0">
+                    <Message/>
+                </Notification>
+                <Service type="8">
+                    <TotalNet>
+                        <Currency>JPY</Currency>
+                        <Amount>20475.00</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>JPY</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS EASY</ChargeType>
+                            <ChargeAmount>17500.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>2975.00</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2010-12-02T23:59:00</DeliveryTime>
+                </Service>
+                <Service type="P">
+                    <TotalNet>
+                        <Currency>JPY</Currency>
+                        <Amount>20569.00</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>JPY</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS WORLDWIDE</ChargeType>
+                            <ChargeAmount>17580.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>2989.00</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2010-12-02T23:59:00</DeliveryTime>
+                </Service>
+            </Provider>
+        </rateresp:RateResponse>
+    </env:Body>
+</env:Envelope>
+
