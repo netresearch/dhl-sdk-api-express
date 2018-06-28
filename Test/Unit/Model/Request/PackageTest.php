@@ -23,15 +23,15 @@ class PackageTest extends TestCase
     {
         $package = new Package(
             $sequenceNumber = 1,
-            $weight         = 1.123,
-            $weightUOM      = 'cm',
-            $length         = 1.123,
-            $width          = 1.123,
-            $height         = 1.123,
-            $dimensionUOM   = 'cm',
-            $readyAtDate    = '2010-02-05T14:00:00 GMT+01:00',
-            $contentType    = 'NON_DOCUMENTS',
-            $termsOfTrade   = 'CFR'
+            $weight = 1.123,
+            $weightUOM = 'cm',
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = 'cm',
+            $readyAtTimestamp = 238948923,
+            $contentType = 'NON_DOCUMENTS',
+            $termsOfTrade = 'CFR'
         );
 
         $this->assertInstanceOf(PackageInterface::class, $package);
@@ -42,7 +42,7 @@ class PackageTest extends TestCase
         $this->assertEquals($width, $package->getWidth());
         $this->assertEquals($height, $package->getHeight());
         $this->assertEquals($dimensionUOM, $package->getDimensionsUOM());
-        $this->assertEquals($readyAtDate, $package->getReadyAtDate());
+        $this->assertEquals($readyAtTimestamp, $package->getReadyAtTimestamp());
         $this->assertEquals($contentType, $package->getContentType());
         $this->assertEquals($termsOfTrade, $package->getTermsOfTrade());
     }

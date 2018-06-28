@@ -47,7 +47,7 @@ class RateRequestTest extends TestCase
             $width          = 1.123,
             $height         = 1.123,
             $dimensionUOM   = 'cm',
-            $readyAtDate    = '2010-02-05T14:00:00 GMT+01:00',
+            $readyAtDate    = 238948923,
             $contentType    = 'NON_DOCUMENTS',
             $termsOfTrade   = 'CFR'
         );

@@ -26,11 +26,10 @@ $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger)
 
 $requestBuilder = new RateRequestBuilder()
 $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
-$requestBuilder->setHandoverTimestamp($timestamp);
 $requestBuilder->setShipperAccount($accountNumber);
 $requestBuilder->setShipperAddress($countryCode, $postalCode, $city, $etc);
 $requestBuilder->setRecipientAddress($countryCode, $postalCode, $city, $etc);
-$requestBuilder->addPackage($weight, $weightUom, $length, $width, $height, $dimensionsUom);
+$requestBuilder->addPackage($weight, $weightUom, $length, $width, $height, $dimensionsUom, $readyAtDate);
 $request = $requestBuilder->build();
 
 $response = $service->collectRates($request);

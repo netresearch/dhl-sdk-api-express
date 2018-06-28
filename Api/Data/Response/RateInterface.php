@@ -23,7 +23,7 @@ interface RateInterface
     public function getLabel(): string;
 
     /**
-     * @return int
+     * @return float
      */
     public function getAmount(): float;
 

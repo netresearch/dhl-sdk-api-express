@@ -54,9 +54,9 @@ interface PackageInterface
     public function getDimensionsUOM(): string;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getReadyAtDate(): string;
+    public function getReadyAtTimestamp(): int;
 
     /**
      * @return string

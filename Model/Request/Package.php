@@ -52,9 +52,9 @@ class Package implements PackageInterface
     private $dimensionsUOM;
 
     /**
-     * @var string
+     * @var int
      */
-    private $readyAtDate;
+    private $readyAtTimestamp;
 
     /**
      * @var string
@@ -75,7 +75,7 @@ class Package implements PackageInterface
      * @param float $width
      * @param float $height
      * @param string $dimensionsUOM
-     * @param string $readyAtDate
+     * @param int $readyAtTimestamp
      * @param string $contentType
      * @param string $termsOfTrade
      */
@@ -87,7 +87,7 @@ class Package implements PackageInterface
         float $width,
         float $height,
         string $dimensionsUOM,
-        string $readyAtDate,
+        int $readyAtTimestamp,
         string $contentType,
         string $termsOfTrade
     ) {
@@ -98,7 +98,7 @@ class Package implements PackageInterface
         $this->width = $width;
         $this->height = $height;
         $this->dimensionsUOM = $dimensionsUOM;
-        $this->readyAtDate = $readyAtDate;
+        $this->readyAtTimestamp = $readyAtTimestamp;
         $this->contentType = $contentType;
         $this->termsOfTrade = $termsOfTrade;
     }
@@ -160,11 +160,11 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getReadyAtDate(): string
+    public function getReadyAtTimestamp(): int
     {
-        return $this->readyAtDate;
+        return $this->readyAtTimestamp;
     }
 
     /**
