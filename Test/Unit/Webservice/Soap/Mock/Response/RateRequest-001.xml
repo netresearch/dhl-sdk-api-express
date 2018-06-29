@@ -1,49 +1,52 @@
-<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
-    <env:Header/>
-    <env:Body>
-        <rateresp:RateResponse>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <rateresp:RateResponse xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
             <Provider code="DHL">
                 <Notification code="0">
                     <Message/>
                 </Notification>
-                <Service type="8">
+                <Service type="Q">
                     <TotalNet>
-                        <Currency>JPY</Currency>
-                        <Amount>20475.00</Amount>
+                        <Currency>EUR</Currency>
+                        <Amount>331.13</Amount>
                     </TotalNet>
                     <Charges>
-                        <Currency>JPY</Currency>
+                        <Currency>EUR</Currency>
                         <Charge>
-                            <ChargeType>EXPRESS EASY</ChargeType>
-                            <ChargeAmount>17500.00</ChargeAmount>
+                            <ChargeType>MEDICAL EXPRESS</ChargeType>
+                            <ChargeAmount>280.62</ChargeAmount>
                         </Charge>
                         <Charge>
                             <ChargeType>FUEL SURCHARGE</ChargeType>
-                            <ChargeAmount>2975.00</ChargeAmount>
+                            <ChargeAmount>50.51</ChargeAmount>
                         </Charge>
                     </Charges>
-                    <DeliveryTime>2010-12-02T23:59:00</DeliveryTime>
+                    <DeliveryTime>2018-11-30T12:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T16:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
                 </Service>
                 <Service type="P">
                     <TotalNet>
-                        <Currency>JPY</Currency>
-                        <Amount>20569.00</Amount>
+                        <Currency>EUR</Currency>
+                        <Amount>331.13</Amount>
                     </TotalNet>
                     <Charges>
-                        <Currency>JPY</Currency>
+                        <Currency>EUR</Currency>
                         <Charge>
                             <ChargeType>EXPRESS WORLDWIDE</ChargeType>
-                            <ChargeAmount>17580.00</ChargeAmount>
+                            <ChargeAmount>280.62</ChargeAmount>
                         </Charge>
                         <Charge>
                             <ChargeType>FUEL SURCHARGE</ChargeType>
-                            <ChargeAmount>2989.00</ChargeAmount>
+                            <ChargeAmount>50.51</ChargeAmount>
                         </Charge>
                     </Charges>
-                    <DeliveryTime>2010-12-02T23:59:00</DeliveryTime>
+                    <DeliveryTime>2018-11-30T23:59:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T16:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
                 </Service>
             </Provider>
         </rateresp:RateResponse>
-    </env:Body>
-</env:Envelope>
-
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,716 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <rateresp:RateResponse xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
+            <Provider code="DHL">
+                <Notification code="0">
+                    <Message/>
+                </Notification>
+                <Service type="I">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>30.69</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 9:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>YI</ChargeCode>
+                            <ChargeType>9:00 PREMIUM</ChargeType>
+                            <ChargeAmount>20.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>FF</ChargeCode>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>2.92</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AB</ChargeCode>
+                            <ChargeType>SATURDAY PICKUP</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AG</ChargeCode>
+                            <ChargeType>DOMESTIC SATURDAY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>CK</ChargeCode>
+                            <ChargeType>VALUE PACK</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HC</ChargeCode>
+                            <ChargeType>DRY ICE UN1845</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HL</ChargeCode>
+                            <ChargeType>LIMITED QUANTITIES ADR</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IC</ChargeCode>
+                            <ChargeType>CONTRACT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>ID</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IF</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>II</ChargeCode>
+                            <ChargeType>SHIPMENT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>LX</ChargeCode>
+                            <ChargeType>HOLD FOR COLLECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>MA</ChargeCode>
+                            <ChargeType>ADDRESS CORRECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PA</ChargeCode>
+                            <ChargeType>SHIPMENT PREPARATION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PD</ChargeCode>
+                            <ChargeType>DATA ENTRY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SA</ChargeCode>
+                            <ChargeType>DELIVERY SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SC</ChargeCode>
+                            <ChargeType>NAMED SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SF</ChargeCode>
+                            <ChargeType>DIRECT SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T09:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="C">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>42.51</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>MEDICAL EXPRESS DOMESTIC</ChargeType>
+                            <ChargeAmount>38.47</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>FF</ChargeCode>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>4.04</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AG</ChargeCode>
+                            <ChargeType>DOMESTIC SATURDAY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HC</ChargeCode>
+                            <ChargeType>DRY ICE UN1845</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HD</ChargeCode>
+                            <ChargeType>LITHIUM ION PI966 SECTION II</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HE</ChargeCode>
+                            <ChargeType>DANGEROUS GOODS</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HH</ChargeCode>
+                            <ChargeType>EXCEPTED QUANTITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HL</ChargeCode>
+                            <ChargeType>LIMITED QUANTITIES ADR</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HM</ChargeCode>
+                            <ChargeType>LITHIUM METAL PI969 SECTION II</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HV</ChargeCode>
+                            <ChargeType>LITHIUM ION PI967 SECTION II</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HW</ChargeCode>
+                            <ChargeType>LITHIUM METAL PI970 SECTION II</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HY</ChargeCode>
+                            <ChargeType>BIOLOGICAL UN3373</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>II</ChargeCode>
+                            <ChargeType>SHIPMENT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>OO</ChargeCode>
+                            <ChargeType>REMOTE AREA DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PA</ChargeCode>
+                            <ChargeType>SHIPMENT PREPARATION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PD</ChargeCode>
+                            <ChargeType>DATA ENTRY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PT</ChargeCode>
+                            <ChargeType>DATA STAGING 03</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PU</ChargeCode>
+                            <ChargeType>DATA STAGING 06</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PV</ChargeCode>
+                            <ChargeType>DATA STAGING 12</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PW</ChargeCode>
+                            <ChargeType>DATA STAGING 24</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SA</ChargeCode>
+                            <ChargeType>DELIVERY SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SC</ChargeCode>
+                            <ChargeType>NAMED SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UC</ChargeCode>
+                            <ChargeType>AMBIENT NON INSULATED</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UD</ChargeCode>
+                            <ChargeType>AMBIENT INSULATED</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UL</ChargeCode>
+                            <ChargeType>FROZEN ICE STICKS S</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UM</ChargeCode>
+                            <ChargeType>FROZEN ICE STICKS M</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UN</ChargeCode>
+                            <ChargeType>FROZEN ICE STICKS L</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UO</ChargeCode>
+                            <ChargeType>FROZEN ICE PLATES S</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UQ</ChargeCode>
+                            <ChargeType>FROZEN ICE PLATES L</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>US</ChargeCode>
+                            <ChargeType>COMBINATION DRY ICE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UT</ChargeCode>
+                            <ChargeType>FROZEN ICE STICKS E</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>UV</ChargeCode>
+                            <ChargeType>FROZEN ICE PLATES E</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T09:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="O">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>19.64</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 10:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>YJ</ChargeCode>
+                            <ChargeType>10:30 PREMIUM</ChargeType>
+                            <ChargeAmount>10.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>FF</ChargeCode>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>1.87</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AB</ChargeCode>
+                            <ChargeType>SATURDAY PICKUP</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AG</ChargeCode>
+                            <ChargeType>DOMESTIC SATURDAY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>CK</ChargeCode>
+                            <ChargeType>VALUE PACK</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HC</ChargeCode>
+                            <ChargeType>DRY ICE UN1845</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HL</ChargeCode>
+                            <ChargeType>LIMITED QUANTITIES ADR</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HN</ChargeCode>
+                            <ChargeType>ADR LOAD EXEMPTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IC</ChargeCode>
+                            <ChargeType>CONTRACT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>ID</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IF</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>II</ChargeCode>
+                            <ChargeType>SHIPMENT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>LX</ChargeCode>
+                            <ChargeType>HOLD FOR COLLECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>MA</ChargeCode>
+                            <ChargeType>ADDRESS CORRECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PA</ChargeCode>
+                            <ChargeType>SHIPMENT PREPARATION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PD</ChargeCode>
+                            <ChargeType>DATA ENTRY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SA</ChargeCode>
+                            <ChargeType>DELIVERY SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SC</ChargeCode>
+                            <ChargeType>NAMED SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SF</ChargeCode>
+                            <ChargeType>DIRECT SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T10:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="1">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>11.90</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 12:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>YK</ChargeCode>
+                            <ChargeType>12:00 PREMIUM</ChargeType>
+                            <ChargeAmount>3.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>FF</ChargeCode>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>1.13</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AB</ChargeCode>
+                            <ChargeType>SATURDAY PICKUP</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AG</ChargeCode>
+                            <ChargeType>DOMESTIC SATURDAY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>CK</ChargeCode>
+                            <ChargeType>VALUE PACK</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HC</ChargeCode>
+                            <ChargeType>DRY ICE UN1845</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HL</ChargeCode>
+                            <ChargeType>LIMITED QUANTITIES ADR</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HN</ChargeCode>
+                            <ChargeType>ADR LOAD EXEMPTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IC</ChargeCode>
+                            <ChargeType>CONTRACT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>ID</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IF</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>II</ChargeCode>
+                            <ChargeType>SHIPMENT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>LX</ChargeCode>
+                            <ChargeType>HOLD FOR COLLECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>MA</ChargeCode>
+                            <ChargeType>ADDRESS CORRECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PA</ChargeCode>
+                            <ChargeType>SHIPMENT PREPARATION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PD</ChargeCode>
+                            <ChargeType>DATA ENTRY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SA</ChargeCode>
+                            <ChargeType>DELIVERY SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SC</ChargeCode>
+                            <ChargeType>NAMED SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SF</ChargeCode>
+                            <ChargeType>DIRECT SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>YC</ChargeCode>
+                            <ChargeType>NON STACKABLE PALLET</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T12:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="N">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>8.59</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>FF</ChargeCode>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>0.82</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AB</ChargeCode>
+                            <ChargeType>SATURDAY PICKUP</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>AG</ChargeCode>
+                            <ChargeType>DOMESTIC SATURDAY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>CE</ChargeCode>
+                            <ChargeType>PROOF OF IDENTITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>GB</ChargeCode>
+                            <ChargeType>LAPTOP BOX</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>GE</ChargeCode>
+                            <ChargeType>TABLET BOX</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HL</ChargeCode>
+                            <ChargeType>LIMITED QUANTITIES ADR</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>HN</ChargeCode>
+                            <ChargeType>ADR LOAD EXEMPTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IC</ChargeCode>
+                            <ChargeType>CONTRACT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>ID</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>IF</ChargeCode>
+                            <ChargeType>EXTENDED LIABILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>II</ChargeCode>
+                            <ChargeType>SHIPMENT INSURANCE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>JY</ChargeCode>
+                            <ChargeType>COURIER TIME WINDOW</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>KB</ChargeCode>
+                            <ChargeType>CASH ON DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>LX</ChargeCode>
+                            <ChargeType>HOLD FOR COLLECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>MA</ChargeCode>
+                            <ChargeType>ADDRESS CORRECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>OO</ChargeCode>
+                            <ChargeType>REMOTE AREA DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PA</ChargeCode>
+                            <ChargeType>SHIPMENT PREPARATION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PD</ChargeCode>
+                            <ChargeType>DATA ENTRY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PT</ChargeCode>
+                            <ChargeType>DATA STAGING 03</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PU</ChargeCode>
+                            <ChargeType>DATA STAGING 06</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PV</ChargeCode>
+                            <ChargeType>DATA STAGING 12</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>PW</ChargeCode>
+                            <ChargeType>DATA STAGING 24</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>QH</ChargeCode>
+                            <ChargeType>BYPASS INJECTION</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>QY</ChargeCode>
+                            <ChargeType>DROP OFF AT FACILITY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SA</ChargeCode>
+                            <ChargeType>DELIVERY SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SC</ChargeCode>
+                            <ChargeType>NAMED SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SE</ChargeCode>
+                            <ChargeType>CONTRACT SIGNATURE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>SX</ChargeCode>
+                            <ChargeType>SIGNATURE RELEASE</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>TA</ChargeCode>
+                            <ChargeType>DEDICATED DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>TB</ChargeCode>
+                            <ChargeType>EARLY DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>TD</ChargeCode>
+                            <ChargeType>EVENING DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>TE</ChargeCode>
+                            <ChargeType>DELIVERY ON APPOINTMENT</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>TT</ChargeCode>
+                            <ChargeType>SCHEDULED DELIVERY</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                        <Charge>
+                            <ChargeCode>YC</ChargeCode>
+                            <ChargeType>NON STACKABLE PALLET</ChargeType>
+                            <ChargeAmount/>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T23:59:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="7">
+                    <TotalNet>
+                        <Currency/>
+                        <Amount>0.00</Amount>
+                    </TotalNet>
+                    <DeliveryTime>2018-11-27T23:59:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+            </Provider>
+        </rateresp:RateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

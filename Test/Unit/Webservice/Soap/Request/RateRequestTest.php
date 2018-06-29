@@ -1,25 +1,8 @@
 <?php
 namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
 
-use Dhl\Express\Webservice\Soap\Request\RateRequest;
-use Dhl\Express\Webservice\Soap\SoapClientFactory;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Address;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Billing;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\ClientDetail;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Content;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Dimensions;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\DropOffType;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\NextBusinessDay;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Packages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\PaymentInfo;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedPackages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Service;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Services;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Ship;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\RequestValueAddedServices;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\ShipmentPaymentType;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\UnitOfMeasurement;
+use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
+use Dhl\Express\Webservice\Soap\Response\RateResponse;
 
 /**
  * Tests RateRequest
@@ -27,79 +10,94 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\UnitOfMeasurement;
 class RateRequestTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var
+     * Loads the response example from file and return the XML content.
+     * 
+     * @param string $xmlFileFile File name to load
+     *
+     * @return string
      */
-    protected $fixture;
-
-    public function testRateRequest()
+    private function loadResponseXml($xmlFile)
     {
-        ini_set('xdebug.var_display_max_children', -1);
-        ini_set('xdebug.var_display_max_data', -1);
-        ini_set('xdebug.var_display_max_depth', -1);
+        $fileName = realpath(__DIR__ . '/../Mock/Response/' . $xmlFile . '.xml');
 
-
-        $shipperAddress = new Address('Ichikawa-shi, Chiba', '272-0138', 'JP');
-        $shipperAddress->setStreetLines('1-16-24, Minami-gyotoku');
-
-        $recipientAddress = new Address('QINGDAO SHI', '266033', 'CN');
-        $recipientAddress->setStreetLines('63 RENMIN LU, QINGDAO SHI');
-
-        $ship = new Ship($shipperAddress, $recipientAddress);
-
-        $requestedPackages = [
-            new RequestedPackages(2.0, new Dimensions(13, 12.5, 9.1), 1),
-            new RequestedPackages(3.5, new Dimensions(13, 12.1, 4.5), 2),
-        ];
-
-        $packages = new Packages($requestedPackages);
-
-        $requestedShipment = new RequestedShipment(
-            DropOffType::REQUEST_COURIER,
-            $ship,
-            $packages,
-            '2018-07-0217:00:00GMT+01:00',
-            UnitOfMeasurement::SU
-        );
-
-        $specialServices = new Services([
-            (new Service('II'))->setCurrencyCode('EUR')->setServiceValue(24.5),
-            new Service('II'),
-        ]);
-
-        $requestedShipment->setNextBusinessDay(NextBusinessDay::Y)
-            ->setContent(Content::NON_DOCUMENTS)
-            ->setDeclaredValue(55.55)
-            ->setDeclaredValueCurrencyCode('USD')
-            ->setPaymentInfo(PaymentInfo::DDP)
-            ->setAccount('XXXXXXXXX')
-            ->setBilling(new Billing('12345678', ShipmentPaymentType::R))
-            ->setSpecialServices($specialServices)
-            ->setRequestValueAddedServices(RequestValueAddedServices::Y);
-
-        $clientDetail = new ClientDetail();
-        $clientDetail->setSso('SSO')
-            ->setPlant('PLANT');
-
-        $rateRequest = new RateRequest($requestedShipment);
-        $rateRequest->setClientDetail($clientDetail);
-
-//var_dump($rateRequest->toArray());
-//        $rateResponse = $this->getClient()->api()->getRateRequest($rateRequest)->post();
-
-        $factory    = new SoapClientFactory();
-        $soapClient = $factory->create('TEST', 'TEST');
-
-        try {
-            $response = $soapClient->getRateRequest($rateRequest);
-
-var_dump($response);
-        } catch (\SoapFault $ex) {
-var_dump('EXCEPTION', $ex->getMessage());
+        if (file_exists($fileName)) {
+            return file_get_contents($fileName);
         }
 
-var_dump($soapClient->__getLastRequest());
-var_dump($soapClient->__getLastResponse());
-//var_dump($soapClient->__getLastResponseHeaders());
-exit;
+        return '';
+    }
+
+    /**
+     * Data provider to return the available rateRequest response test cases.
+     *
+     * @return array
+     */
+    public function rateResponseProvider()
+    {
+        return [
+            ['RateRequest-001'],
+            ['RateRequest-002'],
+            ['RateRequest-003'],
+        ];
+    }
+
+    /**
+     * Tests the class mapping of the mandatory response values of the rateRequest response.
+     *
+     * @param string $responseXml Response XML loaded from test file
+     *
+     * @throws \ReflectionException
+     * @dataProvider rateResponseProvider
+     */
+    public function testRateRequestResponseClassMapping($responseXml)
+    {
+         $soapClientMock = $this->getMockFromWsdl(
+            __DIR__ . '/../Wsdl/expressRateBook.wsdl',
+            TestSoapClient::class,
+            '',
+            [
+                '__doRequest',
+            ]
+        );
+
+        $soapClientMock->expects(self::any())
+            ->method('__doRequest')
+            ->will(self::returnValue($this->loadResponseXml($responseXml)));
+
+        /** @var RateResponse $response */
+        $response = $soapClientMock->__soapCall('getRateRequest', []);
+
+        // Test mandatory types
+        $this->assertInternalType('array', $response->getProvider());
+
+        foreach ($response->getProvider() as $provider) {
+            $this->assertInstanceOf(RateResponse\Provider::class, $provider);
+            $this->assertInternalType('string', $provider->getCode());
+
+            $this->assertInstanceOf(RateResponse\Notification::class, $provider->getNotification());
+            $this->assertInternalType('string', $provider->getNotification()->getMessage());
+            $this->assertInternalType('int', $provider->getNotification()->getCode());
+
+            $this->assertInternalType('array', $provider->getService());
+
+            foreach ($provider->getService() as $service) {
+                $this->assertInstanceOf(RateResponse\Service::class, $service);
+                $this->assertInternalType('string', $service->getType());
+                $this->assertInstanceOf(RateResponse\TotalNet::class, $service->getTotalNet());
+                $this->assertInternalType('string', $service->getTotalNet()->getCurrency());
+                $this->assertInternalType('float', $service->getTotalNet()->getAmount());
+
+                if ($service->getCharges()) {
+                    $this->assertInstanceOf(RateResponse\Charges::class, $service->getCharges());
+                    $this->assertInternalType('string', $service->getCharges()->getCurrency());
+
+                    foreach ($service->getCharges()->getCharge() as $charge) {
+                        $this->assertInstanceOf(RateResponse\Charge::class, $charge);
+                        $this->assertInternalType('string', $charge->getChargeType());
+                        $this->assertInternalType('float', $charge->getChargeAmount());
+                    }
+                }
+            }
+        }
     }
 }

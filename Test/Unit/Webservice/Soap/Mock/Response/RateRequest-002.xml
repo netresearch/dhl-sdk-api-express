@@ -1,0 +1,133 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <rateresp:RateResponse xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
+            <Provider code="DHL">
+                <Notification code="0">
+                    <Message/>
+                </Notification>
+                <Service type="I">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>30.69</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 9:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>9:00 PREMIUM</ChargeType>
+                            <ChargeAmount>20.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>2.92</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T09:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="C">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>42.51</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>MEDICAL EXPRESS DOMESTIC</ChargeType>
+                            <ChargeAmount>38.47</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>4.04</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T09:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="O">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>19.64</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 10:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>10:30 PREMIUM</ChargeType>
+                            <ChargeAmount>10.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>1.87</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T10:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="1">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>11.90</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC 12:00</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>12:00 PREMIUM</ChargeType>
+                            <ChargeAmount>3.00</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>1.13</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T12:00:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="N">
+                    <TotalNet>
+                        <Currency>EUR</Currency>
+                        <Amount>8.59</Amount>
+                    </TotalNet>
+                    <Charges>
+                        <Currency>EUR</Currency>
+                        <Charge>
+                            <ChargeType>EXPRESS DOMESTIC</ChargeType>
+                            <ChargeAmount>7.77</ChargeAmount>
+                        </Charge>
+                        <Charge>
+                            <ChargeType>FUEL SURCHARGE</ChargeType>
+                            <ChargeAmount>0.82</ChargeAmount>
+                        </Charge>
+                    </Charges>
+                    <DeliveryTime>2018-11-27T23:59:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+                <Service type="7">
+                    <TotalNet>
+                        <Currency/>
+                        <Amount>0.00</Amount>
+                    </TotalNet>
+                    <DeliveryTime>2018-11-27T23:59:00</DeliveryTime>
+                    <CutoffTime>2018-11-26T19:30:00</CutoffTime>
+                    <NextBusinessDayInd>N</NextBusinessDayInd>
+                </Service>
+            </Provider>
+        </rateresp:RateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

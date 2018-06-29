@@ -1,0 +1,56 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <SOAP-ENV:Header>
+        <ns2:Security SOAP-ENV:mustUnderstand="1">
+            <ns2:UsernameToken>
+                <ns2:Username>DeveloperTest</ns2:Username>
+                <ns2:Password>G!7sI^0dC^7w</ns2:Password>
+                <ns2:Nonce>wuDIWFtphh4rP1RaQiXnhrEwSeY=</ns2:Nonce>
+                <ns3:Created>2018-06-29T08:21:14Z</ns3:Created>
+            </ns2:UsernameToken>
+        </ns2:Security>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:RateRequest>
+            <RequestedShipment>
+                <DropOffType>REGULAR_PICKUP</DropOffType>
+                <Ship>
+                    <Shipper>
+                        <StreetLines>Mustergasse 1</StreetLines>
+                        <City>Musterhausen</City>
+                        <PostalCode>04289</PostalCode>
+                        <CountryCode>DE</CountryCode>
+                    </Shipper>
+                    <Recipient>
+                        <StreetLines>Musterstraße 1</StreetLines>
+                        <City>Berlin</City>
+                        <PostalCode>10115</PostalCode>
+                        <CountryCode>DE</CountryCode>
+                    </Recipient>
+                </Ship>
+                <Packages>
+                    <RequestedPackages number="1">
+                        <Weight>
+                            <Value>1</Value>
+                        </Weight>
+                        <Dimensions>
+                            <Length>1</Length>
+                            <Width>1</Width>
+                            <Height>1</Height>
+                        </Dimensions>
+                    </RequestedPackages>
+                </Packages>
+                <ShipTimestamp>2018-11-26T12:00:00GMT-06:00</ShipTimestamp>
+                <UnitOfMeasurement>SI</UnitOfMeasurement>
+                <RequestValueAddedServices>Y</RequestValueAddedServices>
+                <SpecialServices>
+                    <Service>
+                        <ServiceType>II</ServiceType>
+                        <ServiceValue>999</ServiceValue>
+                        <CurrencyCode>EUR</CurrencyCode>
+                    </Service>
+                </SpecialServices>
+                <Account>143816942</Account>
+            </RequestedShipment>
+        </ns1:RateRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
