@@ -25,7 +25,7 @@ class Notification
     /**
      * Notification code: valid values are 0=SUCCESS, other value=ERROR
      *
-     * @var string
+     * @var int
      */
     private $code;
 
@@ -34,7 +34,7 @@ class Notification
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->Message;
     }
@@ -42,10 +42,10 @@ class Notification
     /**
      * Returns the notification code.
      *
-     * @return string
+     * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
-        return $this->code;
+        return (int) $this->code;
     }
 }

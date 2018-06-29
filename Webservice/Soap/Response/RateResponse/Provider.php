@@ -32,7 +32,7 @@ class Provider
     /**
      * List of services.
      *
-     * @var Service[]
+     * @var array|Service[]
      */
     private $Service;
 
@@ -41,7 +41,7 @@ class Provider
      *
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -51,7 +51,7 @@ class Provider
      *
      * @return Notification
      */
-    public function getNotification()
+    public function getNotification(): Notification
     {
         return $this->Notification;
     }
@@ -59,9 +59,9 @@ class Provider
     /**
      * Returns the list of services.
      *
-     * @return Service[]
+     * @return array|Service[]
      */
-    public function getService()
+    public function getService(): array
     {
         return $this->Service;
     }

@@ -23,9 +23,9 @@ class Service
     private $TotalNet;
 
     /**
-     * Charges section.
+     * Charges section. Could be null!
      *
-     * @var Charges
+     * @var null|Charges
      */
     private $Charges;
 
@@ -60,7 +60,7 @@ class Service
      * requested on weekend), the indicator will be set to Y.  If it is on the same business day as
      * requested, the value is set to N.
      *
-     * @var string
+     * @var null|string
      */
     private $NextBusinessDayInd;
 
@@ -74,7 +74,7 @@ class Service
     /**
      * The rate type of the charges for this package. Possible returned rate types are: PAYOR_ACCOUNT, RATED_ACCOUNT.
      *
-     * @var string
+     * @var null|string
      */
     private $account;
 
@@ -83,7 +83,7 @@ class Service
      *
      * @return TotalNet
      */
-    public function getTotalNet()
+    public function getTotalNet(): TotalNet
     {
         return $this->TotalNet;
     }
@@ -91,9 +91,9 @@ class Service
     /**
      * Returns the charges section.
      *
-     * @return Charges
+     * @return null|Charges
      */
-    public function getCharges()
+    public function getCharges(): ?Charges
     {
         return $this->Charges;
     }
@@ -103,7 +103,7 @@ class Service
      *
      * @return null|false|\DateTime
      */
-    public function getDeliveryTime()
+    public function getDeliveryTime(): mixed
     {
         if ($this->DeliveryTime === null) {
             return null;
@@ -121,7 +121,7 @@ class Service
      *
      * @return null|false|\DateTime
      */
-    public function getCutoffTime()
+    public function getCutoffTime(): mixed
     {
         if ($this->CutoffTime === null) {
             return null;
@@ -137,9 +137,9 @@ class Service
     /**
      * Returns the next business day indicator.
      *
-     * @return string
+     * @return null|string
      */
-    public function getNextBusinessDayInd()
+    public function getNextBusinessDayInd(): ?string
     {
         return $this->NextBusinessDayInd;
     }
@@ -149,7 +149,7 @@ class Service
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -157,9 +157,9 @@ class Service
     /**
      * Returns the account.
      *
-     * @return string
+     * @return null|string
      */
-    public function getAccount()
+    public function getAccount(): ?string
     {
         return $this->account;
     }

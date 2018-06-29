@@ -25,7 +25,7 @@ class TotalNet
     /**
      * This is the total prize of the rated shipment for the product listed.
      *
-     * @var string
+     * @var float
      */
     private $Amount;
 
@@ -34,7 +34,7 @@ class TotalNet
      *
      * @return string
      */
-    public function getCurrency()
+    public function getCurrency(): string
     {
         return $this->Currency;
     }
@@ -42,10 +42,10 @@ class TotalNet
     /**
      * Returns the amount.
      *
-     * @return string
+     * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
-        return $this->Amount;
+        return (float) $this->Amount;
     }
 }

@@ -19,7 +19,7 @@ class Charge
      * Special service or extra charge code – this is the code you would have to use in the ShipmentRequest
      * message if you wish to add an optional Service such as Insurance.
      *
-     * @var string 
+     * @var null|string
      */
     private $ChargeCode;
 
@@ -33,16 +33,16 @@ class Charge
     /**
      * The charge amount of the line item charge.
      * 
-     * @var string 
+     * @var float
      */
     private $ChargeAmount;
 
     /**
      * Returns the charge code.
      *
-     * @return string
+     * @return null|string
      */
-    public function getChargeCode()
+    public function getChargeCode(): ?string
     {
         return $this->ChargeCode;
     }
@@ -52,7 +52,7 @@ class Charge
      *
      * @return string
      */
-    public function getChargeType()
+    public function getChargeType(): string
     {
         return $this->ChargeType;
     }
@@ -60,10 +60,10 @@ class Charge
     /**
      * Returns the charge amount.
      *
-     * @return string
+     * @return float
      */
-    public function getChargeAmount()
+    public function getChargeAmount(): float
     {
-        return $this->ChargeAmount;
+        return (float) $this->ChargeAmount;
     }
 }

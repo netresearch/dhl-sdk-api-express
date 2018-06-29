@@ -25,7 +25,7 @@ class Charges
     /**
      * List of charge sections.
      *
-     * @var Charge[]
+     * @var array|Charge[]
      */
     private $Charge;
 
@@ -34,7 +34,7 @@ class Charges
      *
      * @return string
      */
-    public function getCurrency()
+    public function getCurrency(): string
     {
         return $this->Currency;
     }
@@ -42,9 +42,9 @@ class Charges
     /**
      * Returns list of charge sections.
      *
-     * @return Charge[]
+     * @return array|Charge[]
      */
-    public function getCharge()
+    public function getCharge(): array
     {
         return $this->Charge;
     }
