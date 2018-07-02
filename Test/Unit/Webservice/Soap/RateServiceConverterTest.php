@@ -11,7 +11,7 @@ use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
 use Dhl\Express\Model\Request\SpecialService;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Service;
+use Dhl\Express\Webservice\Soap\Request\Value\Service;
 use PHPUnit\Framework\TestCase;
 use Dhl\Express\Webservice\Soap\Request\RateRequest as soapRateRequest;
 
