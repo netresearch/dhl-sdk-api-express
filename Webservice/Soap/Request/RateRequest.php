@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request;
 
-use Dhl\Express\Webservice\Soap\Request\RateRequest\ClientDetail;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
+use Dhl\Express\Webservice\Soap\Request\Value\ClientDetail;
+use Dhl\Express\Webservice\Soap\Request\Value\RateRequest\RequestedShipment;
 
 /**
  * The rate request.

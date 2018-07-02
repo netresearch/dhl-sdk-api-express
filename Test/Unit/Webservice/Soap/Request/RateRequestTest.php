@@ -6,23 +6,7 @@ namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
 
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Request\RateRequest;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Address;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Billing;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\ClientDetail;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Service;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Services;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Content;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Dimensions;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\DropOffType;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\NextBusinessDay;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Packages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\PaymentInfo;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedPackages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Ship;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\RequestValueAddedServices;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\ShipmentPaymentType;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\UnitOfMeasurement;
+use Dhl\Express\Webservice\Soap\Request\Value;
 
 /**
  * Tests RateRequest
@@ -36,45 +20,45 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function testRateRequestXmlMapping()
     {
-        $shipperAddress = new Address('Ichikawa-shi, Chiba', '272-0138', 'JP');
+        $shipperAddress = new Value\Address('Ichikawa-shi, Chiba', '272-0138', 'JP');
         $shipperAddress->setStreetLines('1-16-24, Minami-gyotoku');
 
-        $recipientAddress = new Address('QINGDAO SHI', '266033', 'CN');
+        $recipientAddress = new Value\Address('QINGDAO SHI', '266033', 'CN');
         $recipientAddress->setStreetLines('63 RENMIN LU, QINGDAO SHI');
 
-        $ship = new Ship($shipperAddress, $recipientAddress);
+        $ship = new Value\Ship($shipperAddress, $recipientAddress);
 
         $requestedPackages = [
-            new RequestedPackages(2.5, new Dimensions(1, 2, 3), 1),
-            new RequestedPackages(3.5, new Dimensions(4, 5, 6), 2),
+            new Value\RequestedPackages(2.5, new Value\Dimensions(1, 2, 3), 1),
+            new Value\RequestedPackages(3.5, new Value\Dimensions(4, 5, 6), 2),
         ];
 
-        $packages = new Packages($requestedPackages);
+        $packages = new Value\Packages($requestedPackages);
 
-        $requestedShipment = new RequestedShipment(
-            DropOffType::REQUEST_COURIER,
+        $requestedShipment = new Value\RateRequest\RequestedShipment(
+            Value\DropOffType::REQUEST_COURIER,
             $ship,
             $packages,
             '2020-01-01T12:00:00GMT-06:00',
-            UnitOfMeasurement::SU
+            Value\UnitOfMeasurement::SU
         );
 
-        $specialServices = new Services([
-            (new Service('II'))->setCurrencyCode('EUR')->setServiceValue(24.5),
-            (new Service('II')),
+        $specialServices = new Value\Services([
+            (new Value\Service('II'))->setCurrencyCode('EUR')->setServiceValue(24.5),
+            (new Value\Service('II')),
         ]);
 
-        $requestedShipment->setNextBusinessDay(NextBusinessDay::Y)
-            ->setContent(Content::NON_DOCUMENTS)
+        $requestedShipment->setNextBusinessDay(Value\NextBusinessDay::Y)
+            ->setContent(Value\Content::NON_DOCUMENTS)
             ->setDeclaredValue('200')
             ->setDeclaredValueCurrencyCode('USD')
-            ->setPaymentInfo(PaymentInfo::DDP)
+            ->setPaymentInfo(Value\PaymentInfo::DDP)
             ->setAccount('1234567890')
-            ->setBilling(new Billing('12345678', ShipmentPaymentType::R))
+            ->setBilling(new Value\Billing('12345678', Value\ShipmentPaymentType::R))
             ->setSpecialServices($specialServices)
-            ->setRequestValueAddedServices(RequestValueAddedServices::Y);
+            ->setRequestValueAddedServices(Value\RequestValueAddedServices::Y);
 
-        $clientDetail = new ClientDetail();
+        $clientDetail = new Value\ClientDetail();
         $clientDetail->setSso('SSO')
             ->setPlant('PLANT');
 
@@ -108,14 +92,14 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
                 // RequestShipment
                 $this->assertSame(1, (int) $xPath->evaluate('count(//RequestedShipment)'));
-                $this->assertSame(DropOffType::REQUEST_COURIER, $xPath->query('//RequestedShipment/DropOffType/text()')->item(0)->textContent);
-                $this->assertSame(NextBusinessDay::Y, $xPath->query('//RequestedShipment/NextBusinessDay/text()')->item(0)->textContent);
+                $this->assertSame(Value\DropOffType::REQUEST_COURIER, $xPath->query('//RequestedShipment/DropOffType/text()')->item(0)->textContent);
+                $this->assertSame(Value\NextBusinessDay::Y, $xPath->query('//RequestedShipment/NextBusinessDay/text()')->item(0)->textContent);
                 $this->assertSame('2020-01-01T12:00:00GMT-06:00', $xPath->query('//RequestedShipment/ShipTimestamp/text()')->item(0)->textContent);
-                $this->assertSame(UnitOfMeasurement::SU, $xPath->query('//RequestedShipment/UnitOfMeasurement/text()')->item(0)->textContent);
-                $this->assertSame(Content::NON_DOCUMENTS, $xPath->query('//RequestedShipment/Content/text()')->item(0)->textContent);
+                $this->assertSame(Value\UnitOfMeasurement::SU, $xPath->query('//RequestedShipment/UnitOfMeasurement/text()')->item(0)->textContent);
+                $this->assertSame(Value\Content::NON_DOCUMENTS, $xPath->query('//RequestedShipment/Content/text()')->item(0)->textContent);
                 $this->assertSame('200', $xPath->query('//RequestedShipment/DeclaredValue/text()')->item(0)->textContent);
                 $this->assertSame('USD', $xPath->query('//RequestedShipment/DeclaredValueCurrencyCode/text()')->item(0)->textContent);
-                $this->assertSame(PaymentInfo::DDP, $xPath->query('//RequestedShipment/PaymentInfo/text()')->item(0)->textContent);
+                $this->assertSame(Value\PaymentInfo::DDP, $xPath->query('//RequestedShipment/PaymentInfo/text()')->item(0)->textContent);
                 $this->assertSame('1234567890', $xPath->query('//RequestedShipment/Account/text()')->item(0)->textContent);
 
                 // Ship address
@@ -152,7 +136,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 // Billing
                 $this->assertSame(1, $xPath->query('//Billing')->length);
                 $this->assertSame('12345678', $xPath->query('//Billing/ShipperAccountNumber/text()')->item(0)->textContent);
-                $this->assertSame(ShipmentPaymentType::R, $xPath->query('//Billing/ShippingPaymentType/text()')->item(0)->textContent);
+                $this->assertSame(Value\ShipmentPaymentType::R, $xPath->query('//Billing/ShippingPaymentType/text()')->item(0)->textContent);
 
                 // SpecialServices
                 $this->assertSame(1, $xPath->query('//SpecialServices')->length);
