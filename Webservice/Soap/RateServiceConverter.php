@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Webservice\Converter\RateServiceConverterInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest;
@@ -66,9 +67,14 @@ class RateServiceConverter implements RateServiceConverterInterface
         $requestedShipment->setPaymentInfo($rateRequest->getShipmentDetails()->getTermsOfTrade());
         $requestedShipment->setContent($rateRequest->getShipmentDetails()->getContentType());
 
-        $specialService = new Service('IN');
-
-        $specialServices = new Services([$specialService]);
+        $specialServicesList = [];
+        /**
+         * @var SpecialServiceInterface $specialService
+         */
+        foreach ($rateRequest->getSpecialServices() as $specialService) {
+            $specialServicesList[] = new Service($specialService->getServiceType());
+        }
+        $specialServices = new Services($specialServicesList);
         $requestedShipment->setSpecialServices($specialServices);
 
         $streetLines = $rateRequest->getRecipientAddress()->getStreetLines();
