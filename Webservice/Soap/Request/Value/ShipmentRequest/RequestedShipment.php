@@ -5,7 +5,10 @@
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\Request\Value\PaymentInfo;
+use Dhl\Express\Webservice\Soap\Request\Value\PickupLocation;
+use Dhl\Express\Webservice\Soap\Request\Value\PickupLocationCloseTime;
 use Dhl\Express\Webservice\Soap\Request\Value\ShipTimestamp;
+use Dhl\Express\Webservice\Soap\Request\Value\SpecialPickupInstruction;
 
 /**
  * The requested shipment.
@@ -33,21 +36,29 @@ class RequestedShipment
     private $ShipTimestamp;
 
     /**
+     * The pickup location close time.
+     *
      * @var null|PickupLocationCloseTime
      */
     private $PickupLocationCloseTime;
 
     /**
+     * The special pickup instruction.
+     *
      * @var null|SpecialPickupInstruction
      */
     private $SpecialPickupInstruction;
 
     /**
+     * The pickup location.
+     *
      * @var null|PickupLocation
      */
     private $PickupLocation;
 
     /**
+     * The payment info.
+     *
      * @var PaymentInfo
      */
     private $PaymentInfo;
@@ -144,57 +155,72 @@ class RequestedShipment
     }
 
     /**
-     * @return PickupLocationCloseTime
+     * Returns the pickup location close time.
+     *
+     * @return null|PickupLocationCloseTime
      */
-    public function getPickupLocationCloseTime()
+    public function getPickupLocationCloseTime(): ?PickupLocationCloseTime
     {
-      return $this->PickupLocationCloseTime;
+        return $this->PickupLocationCloseTime;
     }
 
     /**
-     * @param PickupLocationCloseTime $PickupLocationCloseTime
+     * Sets the pickup location close time.
+     *
+     * @param string $pickupLocationCloseTime The pickup location close time
+     *
      * @return self
      */
-    public function setPickupLocationCloseTime($PickupLocationCloseTime)
+    public function setPickupLocationCloseTime(string $pickupLocationCloseTime): RequestedShipment
     {
-      $this->PickupLocationCloseTime = $PickupLocationCloseTime;
-      return $this;
+        $this->PickupLocationCloseTime = new PickupLocationCloseTime($pickupLocationCloseTime);
+        return $this;
     }
 
     /**
-     * @return SpecialPickupInstruction
+     * Returns the special pickup instruction.
+     *
+     * @return null|SpecialPickupInstruction
      */
-    public function getSpecialPickupInstruction()
+    public function getSpecialPickupInstruction(): ?SpecialPickupInstruction
     {
-      return $this->SpecialPickupInstruction;
+        return $this->SpecialPickupInstruction;
     }
 
     /**
-     * @param SpecialPickupInstruction $SpecialPickupInstruction
+     * Sets the special pickup instruction
+     *
+     * @param string $specialPickupInstruction The special pickup instruction
+     *
      * @return self
      */
-    public function setSpecialPickupInstruction($SpecialPickupInstruction)
+    public function setSpecialPickupInstruction(string $specialPickupInstruction): RequestedShipment
     {
-      $this->SpecialPickupInstruction = $SpecialPickupInstruction;
-      return $this;
+        $this->SpecialPickupInstruction = new SpecialPickupInstruction($specialPickupInstruction);
+        return $this;
     }
 
     /**
-     * @return PickupLocation
+     * Returns the pickup location.
+     *
+     * @return null|PickupLocation
      */
-    public function getPickupLocation()
+    public function getPickupLocation(): ?PickupLocation
     {
-      return $this->PickupLocation;
+        return $this->PickupLocation;
     }
 
     /**
-     * @param PickupLocation $PickupLocation
+     * Sets the pickup location.
+     *
+     * @param string $pickupLocation The pickup location
+     *
      * @return self
      */
-    public function setPickupLocation($PickupLocation)
+    public function setPickupLocation(string $pickupLocation): RequestedShipment
     {
-      $this->PickupLocation = $PickupLocation;
-      return $this;
+        $this->PickupLocation = new PickupLocation($pickupLocation);
+        return $this;
     }
 
     /**

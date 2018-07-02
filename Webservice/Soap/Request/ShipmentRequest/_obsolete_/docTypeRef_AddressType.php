@@ -15,6 +15,11 @@ class docTypeRef_AddressType
      */
     protected $StreetName = null;
 
+
+
+
+
+
     /**
      * @var StreetNumber $StreetNumber
      */
@@ -29,6 +34,11 @@ class docTypeRef_AddressType
      * @var StreetLines3 $StreetLines3
      */
     protected $StreetLines3 = null;
+
+
+
+
+
 
     /**
      * @var City $City

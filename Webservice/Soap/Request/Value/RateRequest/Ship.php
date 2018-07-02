@@ -2,7 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\RateRequest;
+
+use Dhl\Express\Webservice\Soap\Request\Value\Address;
 
 /**
  * The Ship section outlines the shipper and receiver for the specific rate request. In the context to rate

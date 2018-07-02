@@ -26,7 +26,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
         $recipientAddress = new Value\Address('QINGDAO SHI', '266033', 'CN');
         $recipientAddress->setStreetLines('63 RENMIN LU, QINGDAO SHI');
 
-        $ship = new Value\Ship($shipperAddress, $recipientAddress);
+        $ship = new Value\RateRequest\Ship($shipperAddress, $recipientAddress);
 
         $requestedPackages = [
             new Value\RequestedPackages(2.5, new Value\Dimensions(1, 2, 3), 1),

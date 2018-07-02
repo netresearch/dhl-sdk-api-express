@@ -5,7 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\Request\Value;
 
 /**
- * An shippers/recipients address.
+ * An address.
  * 
  * @api
  * @package  Dhl\Express\Api
@@ -16,63 +16,63 @@ namespace Dhl\Express\Webservice\Soap\Request\Value;
 class Address
 {
     /**
-     * The shippers/recipients street address.
+     * The street address.
      * 
      * @var null|StreetLines
      */
     private $StreetLines;
 
     /**
-     * Additional shippers/recipients street address information preferably room or floor.
-     *
-     * @var null|StreetLines
-     */
-    private $StreetLines2;
-
-    /**
-     * Additional shippers/recipients street address information preferably department name.
-     *
-     * @var null|StreetLines
-     */
-    private $StreetLines3;
-
-    /**
-     * The shippers/recipients street name.
+     * The street name.
      *
      * @var null|StreetLines
      */
     private $StreetName;
 
     /**
-     * The shippers/recipients street number.
+     * Additional street address information preferably room or floor.
+     *
+     * @var null|StreetLines
+     */
+    private $StreetLines2;
+
+    /**
+     * Additional street address information preferably department name.
+     *
+     * @var null|StreetLines
+     */
+    private $StreetLines3;
+
+    /**
+     * The street number.
      *
      * @var null|StreetNumber
      */
     private $StreetNumber;
 
     /**
-     * The shippers/recipients city.
+     * The city.
      *
      * @var City
      */
     private $City;
 
     /**
-     * The shippers/recipients state/province code.
+     * The state/province code.
      *
      * @var null|StateOrProvinceCode
      */
     private $StateOrProvinceCode;
 
     /**
-     * The shippers/recipients postal code.
+     * The postal code.
      *
      * @var PostalCode
      */
     private $PostalCode;
 
     /**
-     * The shippers/recipients country code.
+     * The country code.
      *
      * @var CountryCode
      */
@@ -81,9 +81,9 @@ class Address
     /**
      * Constructor.
      *
-     * @param string $city        The shippers/recipients city
-     * @param string $postalCode  The shippers/recipients postal code
-     * @param string $countryCode The shippers/recipients country code
+     * @param string $city        The city
+     * @param string $postalCode  The postal code
+     * @param string $countryCode The country code
      */
     public function __construct(string $city, string $postalCode, string $countryCode)
     {
@@ -93,7 +93,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients street address.
+     * Returns the street address.
      *
      * @return null|StreetLines
      */
@@ -103,9 +103,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients street address.
+     * Sets the street address.
      *
-     * @param string $streetLines The shippers/recipients street address
+     * @param string $streetLines The street address
      *
      * @return self
      */
@@ -116,7 +116,7 @@ class Address
     }
 
     /**
-     * Returns the additional shippers/recipients street address information, preferably room or floor.
+     * Returns the additional street address information, preferably room or floor.
      *
      * @return null|StreetLines
      */
@@ -126,10 +126,9 @@ class Address
     }
 
     /**
-     * Sets the additional shippers/recipients street address information, preferably room or floor.
+     * Sets the additional street address information, preferably room or floor.
      *
-     * @param string $streetLines2 The additional shippers/recipients street address information,
-     *                             preferably room or floor
+     * @param string $streetLines2 The additional street address information, preferably room or floor
      *
      * @return self
      */
@@ -140,7 +139,7 @@ class Address
     }
 
     /**
-     * Returns the additional shippers/recipients street address information, preferably department name.
+     * Returns the additional street address information, preferably department name.
      *
      * @return null|StreetLines
      */
@@ -150,10 +149,9 @@ class Address
     }
 
     /**
-     * Sets the additional shippers/recipients street address information, preferably department name.
+     * Sets the additional street address information, preferably department name.
      *
-     * @param string $streetLines3 The additional shippers/recipients street address information,
-     *                             preferably department name
+     * @param string $streetLines3 The additional street address information, preferably department name
      *
      * @return self
      */
@@ -164,7 +162,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients street name.
+     * Returns the street name.
      *
      * @return null|StreetLines
      */
@@ -174,9 +172,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients street name.
+     * Sets the street name.
      *
-     * @param string $streetName The shippers/recipients street name
+     * @param string $streetName The street name
      *
      * @return self
      */
@@ -187,7 +185,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients street number.
+     * Returns the street number.
      *
      * @return null|StreetNumber
      */
@@ -197,7 +195,7 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients street number.
+     * Sets the street number.
      *
      * @param string $streetNumber
      *
@@ -210,7 +208,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients city.
+     * Returns the city.
      *
      * @return City
      */
@@ -220,9 +218,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients street number.
+     * Sets the street number.
      *
-     * @param string $city The shippers/recipients street number
+     * @param string $city The street number
      *
      * @return self
      */
@@ -233,7 +231,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients state or province code.
+     * Returns the state or province code.
      *
      * @return null|StateOrProvinceCode
      */
@@ -243,9 +241,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients state or province code.
+     * Sets the state or province code.
      *
-     * @param string $stateOrProvinceCode The shippers/recipients state or province code
+     * @param string $stateOrProvinceCode The state or province code
      *
      * @return self
      */
@@ -256,7 +254,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients postal code.
+     * Returns the postal code.
      *
      * @return PostalCode
      */
@@ -266,9 +264,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients postal code.
+     * Sets the postal code.
      *
-     * @param string $postalCode The shippers/recipients postal code
+     * @param string $postalCode The postal code
      *
      * @return self
      */
@@ -279,7 +277,7 @@ class Address
     }
 
     /**
-     * Returns the shippers/recipients country code.
+     * Returns the country code.
      *
      * @return CountryCode
      */
@@ -289,9 +287,9 @@ class Address
     }
 
     /**
-     * Sets the shippers/recipients country code.
+     * Sets the country code.
      *
-     * @param string $countryCode The shippers/recipients country code
+     * @param string $countryCode The country code
      *
      * @return self
      */

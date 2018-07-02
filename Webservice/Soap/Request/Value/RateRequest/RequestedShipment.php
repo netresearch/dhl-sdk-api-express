@@ -15,7 +15,6 @@ use Dhl\Express\Webservice\Soap\Request\Value\Packages;
 use Dhl\Express\Webservice\Soap\Request\Value\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Request\Value\RequestValueAddedServices;
 use Dhl\Express\Webservice\Soap\Request\Value\Services;
-use Dhl\Express\Webservice\Soap\Request\Value\Ship;
 use Dhl\Express\Webservice\Soap\Request\Value\ShipTimestamp;
 use Dhl\Express\Webservice\Soap\Request\Value\UnitOfMeasurement;
 
