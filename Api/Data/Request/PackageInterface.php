@@ -29,11 +29,6 @@ interface PackageInterface
     public function getWeight(): float;
 
     /**
-     * @return string
-     */
-    public function getWeightUOM(): string;
-
-    /**
      * @return float
      */
     public function getLength(): float;
@@ -47,24 +42,4 @@ interface PackageInterface
      * @return float
      */
     public function getHeight(): float;
-
-    /**
-     * @return string
-     */
-    public function getDimensionsUOM(): string;
-
-    /**
-     * @return int
-     */
-    public function getReadyAtTimestamp(): int;
-
-    /**
-     * @return string
-     */
-    public function getContentType(): string;
-
-    /**
-     * @return string
-     */
-    public function getTermsOfTrade(): string;
 }

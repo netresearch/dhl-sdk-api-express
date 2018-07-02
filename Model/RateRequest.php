@@ -5,11 +5,11 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
+use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 
 /**
  * Rate Request.
@@ -47,18 +47,18 @@ class RateRequest implements RateRequestInterface
     private $packages;
 
     /**
-     * @var InsuranceServiceInterface
+     * @var SpecialServiceInterface[]
      */
-    private $insuranceService;
+    private $specialServices;
 
     /**
      * RateRequest constructor.
-     * @param ShipperAddressInterface   $shipperAddress
-     * @param string                    $shipperAccountNumber
+     * @param ShipperAddressInterface $shipperAddress
+     * @param string $shipperAccountNumber
      * @param RecipientAddressInterface $RecipientAddress
-     * @param ShipmentDetailsInterface  $shipmentDetails
-     * @param PackageInterface[]        $packages
-     * @param InsuranceServiceInterface $insuranceService
+     * @param ShipmentDetailsInterface $shipmentDetails
+     * @param PackageInterface[] $packages
+     * @param SpecialServiceInterface[] $specialServices
      */
     public function __construct(
         ShipperAddressInterface $shipperAddress,
@@ -66,14 +66,14 @@ class RateRequest implements RateRequestInterface
         RecipientAddressInterface $RecipientAddress,
         ShipmentDetailsInterface $shipmentDetails,
         array $packages,
-        InsuranceServiceInterface $insuranceService
+        array $specialServices
     ) {
         $this->shipperAddress = $shipperAddress;
         $this->shipperAccountNumber = $shipperAccountNumber;
         $this->RecipientAddress = $RecipientAddress;
         $this->shipmentDetails = $shipmentDetails;
         $this->packages = $packages;
-        $this->insuranceService = $insuranceService;
+        $this->specialServices = $specialServices;
     }
 
     /**
@@ -117,10 +117,10 @@ class RateRequest implements RateRequestInterface
     }
 
     /**
-     * @return InsuranceServiceInterface
+     * @return SpecialServiceInterface[]
      */
-    public function getInsuranceService(): InsuranceServiceInterface
+    public function getSpecialServices(): array
     {
-        return $this->insuranceService;
+        return $this->specialServices;
     }
 }

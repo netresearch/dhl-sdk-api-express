@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
 use Dhl\Express\Webservice\Soap\ArrayInterface;
@@ -16,18 +17,18 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Services implements ArrayInterface
+class Services implements ArrayInterface, \Countable
 {
     /**
      * The list of special services.
-     * 
+     *
      * @var array|Service[] $Service
      */
     private $Service = [];
 
     /**
      * Constructor.
-     * 
+     *
      * @param array|Service[] $service The special services
      */
     public function __construct(array $service)
@@ -47,7 +48,7 @@ class Services implements ArrayInterface
 
     /**
      * Sets the special services.
-     * 
+     *
      * @param Service[] $service The special services
      *
      * @return self
@@ -73,5 +74,10 @@ class Services implements ArrayInterface
                 $this->getService()
             )
         );
+    }
+
+    public function count()
+    {
+        return count($this->Service);
     }
 }

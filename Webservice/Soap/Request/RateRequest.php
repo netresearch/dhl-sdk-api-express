@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Request;
 
 use Dhl\Express\Webservice\Soap\ArrayInterface;
@@ -21,14 +22,14 @@ class RateRequest implements ArrayInterface
 {
     /**
      * Client detail instance.
-     * 
+     *
      * @var null|ClientDetail
      */
     private $ClientDetail;
 
     /**
      * Requested shipment instance.
-     * 
+     *
      * @var RequestedShipment
      */
     private $RequestedShipment;
@@ -45,7 +46,7 @@ class RateRequest implements ArrayInterface
 
     /**
      * Returns the client detail instance.
-     * 
+     *
      * @return null|ClientDetail
      */
     public function getClientDetail(): ?ClientDetail
@@ -55,7 +56,7 @@ class RateRequest implements ArrayInterface
 
     /**
      * Sets the client detail instance.
-     * 
+     *
      * @param ClientDetail $clientDetail
      *
      * @return self
@@ -68,7 +69,7 @@ class RateRequest implements ArrayInterface
 
     /**
      * Returns the requested shipment instance.
-     * 
+     *
      * @return RequestedShipment
      */
     public function getRequestedShipment(): RequestedShipment
@@ -78,7 +79,7 @@ class RateRequest implements ArrayInterface
 
     /**
      * Sets the requested shipment instance.
-     * 
+     *
      * @param RequestedShipment $requestedShipment The requested shipment instance
      *
      * @return self
@@ -97,7 +98,7 @@ class RateRequest implements ArrayInterface
     public function toArray()
     {
         return [
-            'ClientDetail'      => $this->getClientDetail() ? $this->getClientDetail()->toArray() : null,
+            'ClientDetail' => $this->getClientDetail() ? $this->getClientDetail()->toArray() : null,
             'RequestedShipment' => $this->getRequestedShipment()->toArray(),
         ];
     }

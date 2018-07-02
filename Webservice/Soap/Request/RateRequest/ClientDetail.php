@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
 use Dhl\Express\Webservice\Soap\ArrayInterface;
@@ -38,20 +39,20 @@ class ClientDetail implements ArrayInterface
      */
     public function getSso(): ?string
     {
-      return $this->sso;
+        return $this->sso;
     }
 
     /**
      * Sets the SSO value.
      *
      * @param string $sso The SSO value
-     *                   
+     *
      * @return self
      */
     public function setSso(?string $sso): ClientDetail
     {
-      $this->sso = $sso;
-      return $this;
+        $this->sso = $sso;
+        return $this;
     }
 
     /**
@@ -61,20 +62,20 @@ class ClientDetail implements ArrayInterface
      */
     public function getPlant(): ?string
     {
-      return $this->plant;
+        return $this->plant;
     }
 
     /**
      * Sets the plant value.
      *
      * @param string $plant The plant value
-     *                     
+     *
      * @return self
      */
     public function setPlant(?string $plant): ClientDetail
     {
-      $this->plant = $plant;
-      return $this;
+        $this->plant = $plant;
+        return $this;
     }
 
     /**
@@ -85,7 +86,7 @@ class ClientDetail implements ArrayInterface
     public function toArray()
     {
         return [
-            'sso'   => $this->getSso() ?: null,
+            'sso' => $this->getSso() ?: null,
             'plant' => $this->getPlant() ?: null,
         ];
     }
