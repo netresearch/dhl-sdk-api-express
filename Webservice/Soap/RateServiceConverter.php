@@ -10,16 +10,16 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Webservice\Converter\RateServiceConverterInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Services;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Service;
+use Dhl\Express\Webservice\Soap\Request\Value\Services;
+use Dhl\Express\Webservice\Soap\Request\Value\Service;
 use Dhl\Express\Webservice\Soap\Response\RateResponse;
 use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedPackages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Ship;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Address;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Packages;
-use Dhl\Express\Webservice\Soap\Request\RateRequest\Dimensions;
+use Dhl\Express\Webservice\Soap\Request\Value\RequestedPackages;
+use Dhl\Express\Webservice\Soap\Request\Value\RateRequest\RequestedShipment;
+use Dhl\Express\Webservice\Soap\Request\Value\RateRequest\Ship;
+use Dhl\Express\Webservice\Soap\Request\Value\Address;
+use Dhl\Express\Webservice\Soap\Request\Value\Packages;
+use Dhl\Express\Webservice\Soap\Request\Value\Dimensions;
 
 /**
  * Service Service Converter Interface.

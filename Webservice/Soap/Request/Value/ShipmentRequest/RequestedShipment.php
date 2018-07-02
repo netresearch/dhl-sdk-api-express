@@ -9,6 +9,11 @@ use Dhl\Express\Webservice\Soap\Request\Value\PickupLocation;
 use Dhl\Express\Webservice\Soap\Request\Value\PickupLocationCloseTime;
 use Dhl\Express\Webservice\Soap\Request\Value\ShipTimestamp;
 use Dhl\Express\Webservice\Soap\Request\Value\SpecialPickupInstruction;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_DangerousGoods;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_InternationDetailType;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_OnDemandDeliveryOptions;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_PackagesType;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ShipType;
 
 /**
  * The requested shipment.
@@ -98,8 +103,14 @@ class RequestedShipment
      * @param docTypeRef_ShipType $ship
      * @param docTypeRef_PackagesType $packages
      */
-    public function __construct(ShipmentInfo $shipmentInfo, string $shipTimestamp, $paymentInfo, $internationalDetail, $ship, $packages)
-    {
+    public function __construct(
+        ShipmentInfo $shipmentInfo,
+        string $shipTimestamp,
+        $paymentInfo,
+        $internationalDetail,
+        $ship,
+        $packages
+    ) {
         $this->setShipmentInfo($shipmentInfo)
             ->setShipTimestamp($shipTimestamp)
             ->setPaymentInfo($paymentInfo)
@@ -228,7 +239,7 @@ class RequestedShipment
      */
     public function getPaymentInfo()
     {
-      return $this->PaymentInfo;
+        return $this->PaymentInfo;
     }
 
     /**
@@ -237,8 +248,8 @@ class RequestedShipment
      */
     public function setPaymentInfo($PaymentInfo)
     {
-      $this->PaymentInfo = $PaymentInfo;
-      return $this;
+        $this->PaymentInfo = $PaymentInfo;
+        return $this;
     }
 
     /**
@@ -246,7 +257,7 @@ class RequestedShipment
      */
     public function getInternationalDetail()
     {
-      return $this->InternationalDetail;
+        return $this->InternationalDetail;
     }
 
     /**
@@ -255,8 +266,8 @@ class RequestedShipment
      */
     public function setInternationalDetail($InternationalDetail)
     {
-      $this->InternationalDetail = $InternationalDetail;
-      return $this;
+        $this->InternationalDetail = $InternationalDetail;
+        return $this;
     }
 
     /**
@@ -264,7 +275,7 @@ class RequestedShipment
      */
     public function getOnDemandDeliveryOptions()
     {
-      return $this->OnDemandDeliveryOptions;
+        return $this->OnDemandDeliveryOptions;
     }
 
     /**
@@ -273,8 +284,8 @@ class RequestedShipment
      */
     public function setOnDemandDeliveryOptions($OnDemandDeliveryOptions)
     {
-      $this->OnDemandDeliveryOptions = $OnDemandDeliveryOptions;
-      return $this;
+        $this->OnDemandDeliveryOptions = $OnDemandDeliveryOptions;
+        return $this;
     }
 
     /**
@@ -282,7 +293,7 @@ class RequestedShipment
      */
     public function getShip()
     {
-      return $this->Ship;
+        return $this->Ship;
     }
 
     /**
@@ -291,8 +302,8 @@ class RequestedShipment
      */
     public function setShip($Ship)
     {
-      $this->Ship = $Ship;
-      return $this;
+        $this->Ship = $Ship;
+        return $this;
     }
 
     /**
@@ -300,7 +311,7 @@ class RequestedShipment
      */
     public function getPackages()
     {
-      return $this->Packages;
+        return $this->Packages;
     }
 
     /**
@@ -309,8 +320,8 @@ class RequestedShipment
      */
     public function setPackages($Packages)
     {
-      $this->Packages = $Packages;
-      return $this;
+        $this->Packages = $Packages;
+        return $this;
     }
 
     /**
@@ -318,7 +329,7 @@ class RequestedShipment
      */
     public function getDangerousGoods()
     {
-      return $this->DangerousGoods;
+        return $this->DangerousGoods;
     }
 
     /**
@@ -327,8 +338,7 @@ class RequestedShipment
      */
     public function setDangerousGoods($DangerousGoods)
     {
-      $this->DangerousGoods = $DangerousGoods;
-      return $this;
+        $this->DangerousGoods = $DangerousGoods;
+        return $this;
     }
-
 }
