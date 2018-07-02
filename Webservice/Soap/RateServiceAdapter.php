@@ -25,19 +25,41 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     private $client;
 
     /**
+     * @var RateRequestMapper
+     */
+    private $requestMapper;
+
+    /**
+     * @var RateResponseMapper
+     */
+    private $responseMapper;
+
+    /**
+     * RateServiceAdapter constructor.
+     * @param \SoapClient $client
+     * @param RateRequestMapper $requestMapper
+     * @param RateResponseMapper $responseMapper
+     */
+    public function __construct(
+        \SoapClient $client,
+        RateRequestMapper $requestMapper,
+        RateResponseMapper $responseMapper
+    ) {
+        $this->client = $client;
+        $this->requestMapper = $requestMapper;
+        $this->responseMapper = $responseMapper;
+    }
+
+    /**
      * @param RateRequestInterface $request
      * @return RateResponseInterface
      */
     public function collectRates(RateRequestInterface $request)
     {
-        // (1) convert RateRequestInterface to \Dhl\Express\Webservice\Soap\Request\RateRequest
-        $soapRequest = $request;
-
-        // (2) perform soap call
+        $soapRequest = $this->requestMapper->map($request);
         $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
+        $response = $this->responseMapper->map($soapResponse);
 
-        // (3) convert \Dhl\Express\Webservice\Soap\Response\RateResponse to \Dhl\Express\Api\Data\RateResponseInterface
-        $response = $soapResponse;
         return $response;
     }
 
@@ -46,8 +68,13 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
      */
     public function getLastRequest(): string
     {
-        // todo(nr): also return request headers
-        return $this->client->__getLastRequest();
+        $lastRequest = sprintf(
+            "%s\n%s",
+            $this->client->__getLastRequestHeaders(),
+            $this->client->__getLastRequest()
+        );
+
+        return $lastRequest;
     }
 
     /**
@@ -55,7 +82,12 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
      */
     public function getLastResponse(): string
     {
-        // todo(nr): also return response headers
-        return $this->client->__getLastResponse();
+        $lastResponse = sprintf(
+            "%s\n%s",
+            $this->client->__getLastResponseHeaders(),
+            $this->client->__getLastResponse()
+        );
+
+        return $lastResponse;
     }
 }
