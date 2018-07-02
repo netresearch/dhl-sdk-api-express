@@ -1,5 +1,5 @@
 <?php
-namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
+namespace Dhl\Express\Test\Unit\Webservice\Soap\Response;
 
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Response\RateResponse;
@@ -7,7 +7,7 @@ use Dhl\Express\Webservice\Soap\Response\RateResponse;
 /**
  * Tests RateRequest
  */
-class RateRequestTest extends \PHPUnit\Framework\TestCase
+class RateRequestResponseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Loads the response example from file and return the XML content.
