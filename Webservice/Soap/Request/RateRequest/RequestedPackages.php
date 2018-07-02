@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * A requested package.
  *
@@ -15,7 +13,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class RequestedPackages implements ArrayInterface
+class RequestedPackages
 {
     /**
      * Sum of the weight of the individual pieces/packages the rating request is for.
@@ -119,21 +117,5 @@ class RequestedPackages implements ArrayInterface
     {
         $this->number = $number;
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'RequestedPackages' => [
-                '@number'    => (string) $this->getNumber(),
-                'Weight'     => $this->getWeight()->toArray(),
-                'Dimensions' => $this->getDimensions()->toArray(),
-            ],
-        ];
     }
 }

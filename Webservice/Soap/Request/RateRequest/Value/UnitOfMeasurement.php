@@ -9,6 +9,12 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
 /**
  * The unit of measurement for the dimensions of the package.
  *
+ * SI = the preferred system of weights and measures for Italian trade and commerce;
+ * SU = the preferred system of weights and measures for U.S. trade and commerce;
+ *
+ * Weight unit: if Type is SI it can be KG (kilograms), if Type is SU it can be LB (pounds).
+ * Dimension unit: if Type is SI it can be CM, if Type is SU it can be IN (inch)
+ *
  * @api
  * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>

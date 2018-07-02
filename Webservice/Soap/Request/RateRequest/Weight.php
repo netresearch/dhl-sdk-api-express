@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * The weight of the package.
  *
@@ -15,7 +13,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Weight implements ArrayInterface
+class Weight
 {
     /**
      * The value.
@@ -55,17 +53,5 @@ class Weight implements ArrayInterface
     {
         $this->Value = $value;
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'Value' => $this->getValue(),
-        ];
     }
 }

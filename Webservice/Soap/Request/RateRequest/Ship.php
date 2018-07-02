@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * The Ship section outlines the shipper and receiver for the specific rate request. In the context to rate
  * requests, the street address elements are not critical, since capability and rate are determined based on
@@ -17,7 +15,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Ship implements ArrayInterface
+class Ship
 {
     /**
      * The shipper address.
@@ -89,18 +87,5 @@ class Ship implements ArrayInterface
     {
         $this->Recipient = $address;
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'Shipper'   => $this->getShipper()->toArray(),
-            'Recipient' => $this->getRecipient()->toArray(),
-        ];
     }
 }

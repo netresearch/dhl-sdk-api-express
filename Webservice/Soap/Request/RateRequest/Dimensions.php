@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Dimension;
 
 /**
@@ -16,7 +15,7 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Dimension;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Dimensions implements ArrayInterface
+class Dimensions
 {
     /**
      * Length of the piece listed.
@@ -120,19 +119,5 @@ class Dimensions implements ArrayInterface
     {
         $this->Height = new Dimension($height);
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'Length' => $this->getLength()->getValue(),
-            'Width'  => $this->getWidth()->getValue(),
-            'Height' => $this->getHeight()->getValue(),
-        ];
     }
 }

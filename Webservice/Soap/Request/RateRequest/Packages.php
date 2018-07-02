@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * The Packages section details the weight and dimensions of the individual pieces of the shipment.
  * For example, the shipper may tender a single shipment with multiple pieces, and each piece may have a
@@ -18,7 +16,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Packages implements ArrayInterface
+class Packages
 {
     /**
      * The list of requested packages.
@@ -58,22 +56,5 @@ class Packages implements ArrayInterface
     {
         $this->RequestedPackages = $requestedPackages;
         return $this;
-    }
-
-    /**
-     * Returns an array representation of this collection.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return array_values(
-            array_map(
-                function (RequestedPackages $requestedPackages) {
-                    return $requestedPackages->toArray();
-                },
-                $this->getRequestedPackages()
-            )
-        );
     }
 }

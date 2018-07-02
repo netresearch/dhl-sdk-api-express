@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Account;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Content;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\CurrencyCode;
@@ -25,7 +24,7 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\UnitOfMeasurement;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class RequestedShipment implements ArrayInterface
+class RequestedShipment
 {
     /**
      * The DropOffType is used to indicate whether a scheduled pickup is required as part of the
@@ -497,29 +496,5 @@ class RequestedShipment implements ArrayInterface
     {
         $this->RequestValueAddedServices = new RequestValueAddedServices($requestValueAddedServices);
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'DropOffType'               => (string) $this->getDropOffType(),
-            'NextBusinessDay'           => (string) $this->getNextBusinessDay() ?: null,
-            'Ship'                      => $this->getShip()->toArray(),
-            'Packages'                  => $this->getPackages()->toArray(),
-            'ShipTimestamp'             => (string) $this->getShipTimestamp(),
-            'UnitOfMeasurement'         => (string) $this->getUnitOfMeasurement(),
-            'Content'                   => (string) $this->getContent() ?: null,
-            'DeclaredValue'             => $this->getDeclaredValue() ? $this->getDeclaredValue()->getValue() : null,
-            'DeclaredValueCurrencyCode' => (string) $this->getDeclaredValueCurrencyCode() ?: null,
-            'Account'                   => (string) $this->getAccount() ?: null,
-            'Billing'                   => $this->getBilling() ? $this->getBilling()->toArray() : null,
-            'SpecialServices'           => $this->getSpecialServices() ? $this->getSpecialServices()->toArray() : null,
-            'RequestValueAddedServices' => (string) $this->getRequestValueAddedServices() ?: null,
-        ];
     }
 }

@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\ClientDetail;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
 
@@ -17,17 +16,17 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\RequestedShipment;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class RateRequest implements ArrayInterface
+class RateRequest
 {
     /**
-     * Client detail instance.
+     * The client detail instance.
      * 
      * @var null|ClientDetail
      */
     private $ClientDetail;
 
     /**
-     * Requested shipment instance.
+     * The requested shipment instance.
      * 
      * @var RequestedShipment
      */
@@ -56,7 +55,7 @@ class RateRequest implements ArrayInterface
     /**
      * Sets the client detail instance.
      * 
-     * @param ClientDetail $clientDetail
+     * @param ClientDetail $clientDetail The client detail instance
      *
      * @return self
      */
@@ -87,18 +86,5 @@ class RateRequest implements ArrayInterface
     {
         $this->RequestedShipment = $requestedShipment;
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'ClientDetail'      => $this->getClientDetail() ? $this->getClientDetail()->toArray() : null,
-            'RequestedShipment' => $this->getRequestedShipment()->toArray(),
-        ];
     }
 }

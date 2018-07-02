@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Account;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\ShipmentPaymentType;
 
@@ -20,7 +19,7 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\ShipmentPaymentType;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Billing implements ArrayInterface
+class Billing
 {
     /**
      * The DHL account number used for the shipment. Used as the shipper account number.
@@ -123,19 +122,5 @@ class Billing implements ArrayInterface
     {
         $this->BillingAccountNumber = new Account($billingAccountNumber);
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'ShipperAccountNumber' => (string) $this->getShipperAccountNumber(),
-            'ShippingPaymentType'  => (string) $this->getShippingPaymentType(),
-            'BillingAccountNumber' => (string) $this->getBillingAccountNumber() ?: null,
-        ];
     }
 }

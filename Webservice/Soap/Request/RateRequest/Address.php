@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\City;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\CountryCode;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\PostalCode;
@@ -21,7 +20,7 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\StreetNumber;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Address implements ArrayInterface
+class Address
 {
     /**
      * The shippers/recipients street address.
@@ -307,25 +306,5 @@ class Address implements ArrayInterface
     {
         $this->CountryCode = new CountryCode($countryCode);
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'StreetLines'         => (string) $this->getStreetLines() ?: null,
-            'StreetName'          => (string) $this->getStreetName() ?: null,
-            'StreetNumber'        => (string) $this->getStreetNumber() ?: null,
-            'StreetLines2'        => (string) $this->getStreetLines2() ?: null,
-            'StreetLines3'        => (string) $this->getStreetLines3() ?: null,
-            'City'                => (string) $this->getCity(),
-            'StateOrProvinceCode' => (string) $this->getStateOrProvinceCode() ?: null,
-            'PostalCode'          => (string) $this->getPostalCode(),
-            'CountryCode'         => (string) $this->getCountryCode(),
-        ];
     }
 }

@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * The ClientDetail is an optional node for reference use, and does not affect functionality
  *
@@ -15,7 +13,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class ClientDetail implements ArrayInterface
+class ClientDetail
 {
     /**
      * This field is for internal use only.
@@ -38,7 +36,7 @@ class ClientDetail implements ArrayInterface
      */
     public function getSso(): ?string
     {
-      return $this->sso;
+        return $this->sso;
     }
 
     /**
@@ -50,8 +48,8 @@ class ClientDetail implements ArrayInterface
      */
     public function setSso(?string $sso): ClientDetail
     {
-      $this->sso = $sso;
-      return $this;
+        $this->sso = $sso;
+        return $this;
     }
 
     /**
@@ -61,7 +59,7 @@ class ClientDetail implements ArrayInterface
      */
     public function getPlant(): ?string
     {
-      return $this->plant;
+        return $this->plant;
     }
 
     /**
@@ -73,20 +71,7 @@ class ClientDetail implements ArrayInterface
      */
     public function setPlant(?string $plant): ClientDetail
     {
-      $this->plant = $plant;
-      return $this;
-    }
-
-    /**
-     * Returns a array representation used for JSON encoding of the object.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'sso'   => $this->getSso() ?: null,
-            'plant' => $this->getPlant() ?: null,
-        ];
+        $this->plant = $plant;
+        return $this;
     }
 }

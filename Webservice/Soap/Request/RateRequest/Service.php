@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\CurrencyCode;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Date;
 use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Money;
@@ -21,7 +20,7 @@ use Dhl\Express\Webservice\Soap\Request\RateRequest\Value\Text;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Service implements ArrayInterface
+class Service
 {
     /**
      * Enter II if you wish to get a quote for Insurance with your prospect shipment. If not needed
@@ -243,23 +242,5 @@ class Service implements ArrayInterface
     {
         $this->TextInstruction = new Text($textInstruction);
         return $this;
-    }
-
-    /**
-     * Returns a array representation of the object used for JSON encoding.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'ServiceType'     => (string) $this->getServiceType(),
-            'ServiceValue'    => $this->getServiceValue() ? $this->getServiceValue()->getValue() : null,
-            'CurrencyCode'    => (string) $this->getCurrencyCode() ?: null,
-            'PaymentCode'     => (string) $this->getPaymentCode() ?: null,
-            'StartDate'       => (string) $this->getStartDate() ?: null,
-            'EndDate'         => (string) $this->getEndDate() ?: null,
-            'TextInstruction' => (string) $this->getTextInstruction() ?: null,
-        ];
     }
 }

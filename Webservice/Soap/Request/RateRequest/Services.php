@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\RateRequest;
 
-use Dhl\Express\Webservice\Soap\ArrayInterface;
-
 /**
  * The SpecialServices section communicates additional shipping services, such as
  * Insurance (or Shipment Value Protection).
@@ -16,7 +14,7 @@ use Dhl\Express\Webservice\Soap\ArrayInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Services implements ArrayInterface
+class Services
 {
     /**
      * The list of special services.
@@ -56,22 +54,5 @@ class Services implements ArrayInterface
     {
         $this->Service = $service;
         return $this;
-    }
-
-    /**
-     * Returns an array representation of this collection.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return array_values(
-            array_map(
-                function (Service $service) {
-                    return $service->toArray();
-                },
-                $this->getService()
-            )
-        );
     }
 }
