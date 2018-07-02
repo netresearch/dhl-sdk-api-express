@@ -8,7 +8,7 @@ use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
+use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 
 /**
  * Rate Request Interface.
@@ -49,7 +49,7 @@ interface RateRequestInterface
     public function getPackages(): array;
 
     /**
-     * @return InsuranceServiceInterface|null
+     * @return SpecialServiceInterface[]
      */
-    public function getInsuranceService(): ?InsuranceServiceInterface;
+    public function getSpecialServices(): array;
 }

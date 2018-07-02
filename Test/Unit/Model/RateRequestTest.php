@@ -37,27 +37,30 @@ class RateRequestTest extends TestCase
             $streetLines = ['Sample street 5a', 'Sample street 5b']
         );
 
-        $shipmentDetails = new ShipmentDetails($unscheduledPickup = true);
+        $shipmentDetails = new ShipmentDetails(
+            $unscheduledPickup = true,
+            $termsOfTrade = 'CFR',
+            $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
+            $dimensionUOM   = 'SU',
+            $weightUOM   = 'SI',
+            $readyAtDate    = 238948923
+        );
 
         $package = new Package(
             $sequenceNumber = 1,
             $weight         = 1.123,
-            $weightUOM      = 'cm',
             $length         = 1.123,
             $width          = 1.123,
-            $height         = 1.123,
-            $dimensionUOM   = 'cm',
-            $readyAtDate    = 238948923,
-            $contentType    = 'NON_DOCUMENTS',
-            $termsOfTrade   = 'CFR'
+            $height         = 1.123
         );
 
         $packages = [$package, $package];
 
-        $insurance = new InsuranceService(
-            $monetaryValue = 15,
-            $currencyCode = 'EUR'
-        );
+        $specialServices = [
+            new SpecialService(
+                $serviceType = 'IN'
+            )
+        ];
 
         $rateRequest = new RateRequest(
             $shipperAddress,
@@ -65,7 +68,7 @@ class RateRequestTest extends TestCase
             $recipientAddress,
             $shipmentDetails,
             $packages,
-            $insurance
+            $specialServices
         );
 
         $this->assertInstanceOf(RateRequestInterface::class, $rateRequest);
@@ -74,6 +77,6 @@ class RateRequestTest extends TestCase
         $this->assertEquals($recipientAddress, $rateRequest->getRecipientAddress());
         $this->assertEquals($shipmentDetails, $rateRequest->getShipmentDetails());
         $this->assertEquals($packages, $rateRequest->getPackages());
-        $this->assertEquals($insurance, $rateRequest->getInsuranceService());
+        $this->assertEquals($specialServices, $rateRequest->getSpecialServices());
     }
 }

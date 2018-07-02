@@ -43,7 +43,7 @@ class ClientDetail
      * Sets the SSO value.
      *
      * @param string $sso The SSO value
-     *                   
+     *
      * @return self
      */
     public function setSso(string $sso): ClientDetail
@@ -66,7 +66,7 @@ class ClientDetail
      * Sets the plant value.
      *
      * @param string $plant The plant value
-     *                     
+     *
      * @return self
      */
     public function setPlant(string $plant): ClientDetail

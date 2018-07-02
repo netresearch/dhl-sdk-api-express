@@ -5,7 +5,7 @@
 namespace Dhl\Express\Api\Data\Request;
 
 /**
- * Insurance Service Interface.
+ * Special Service Interface.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -13,15 +13,10 @@ namespace Dhl\Express\Api\Data\Request;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface InsuranceServiceInterface
+interface SpecialServiceInterface
 {
-    /**
-     * @return float
-     */
-    public function getValue(): float;
-
     /**
      * @return string
      */
-    public function getCurrencyCode(): string;
+    public function getServiceType(): string;
 }

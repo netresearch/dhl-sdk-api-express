@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Request;
 
 use Dhl\Express\Webservice\Soap\Request\Value\ClientDetail;
@@ -44,7 +45,7 @@ class RateRequest
 
     /**
      * Returns the client detail instance.
-     * 
+     *
      * @return null|ClientDetail
      */
     public function getClientDetail(): ?ClientDetail
@@ -54,7 +55,7 @@ class RateRequest
 
     /**
      * Sets the client detail instance.
-     * 
+     *
      * @param ClientDetail $clientDetail The client detail instance
      *
      * @return self
@@ -67,7 +68,7 @@ class RateRequest
 
     /**
      * Returns the requested shipment instance.
-     * 
+     *
      * @return RequestedShipment
      */
     public function getRequestedShipment(): RequestedShipment
@@ -77,7 +78,7 @@ class RateRequest
 
     /**
      * Sets the requested shipment instance.
-     * 
+     *
      * @param RequestedShipment $requestedShipment The requested shipment instance
      *
      * @return self

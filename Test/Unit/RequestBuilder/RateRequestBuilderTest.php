@@ -6,11 +6,11 @@
 namespace Dhl\Express\RequestBuilder;
 
 use Dhl\Express\Model\RateRequest;
-use Dhl\Express\Model\Request\InsuranceService;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
+use Dhl\Express\Model\Request\SpecialService;
 
 /**
  * @package  Dhl\Express\Test\Unit
@@ -42,50 +42,49 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->addPackage(
             $sequenceNumber = 1,
             $weight = 1.123,
-            $weightUOM = 'cm',
             $length = 1.123,
             $width = 1.123,
-            $height = 1.123,
-            $dimensionUOM = 'cm',
-            $readyAtTimestamp = 238948923,
-            $contentType = 'NON_DOCUMENTS',
-            $termsOfTrade = 'CFR'
+            $height = 1.123
         );
 
-        $requestBuilder->setInsurance(
-            $monetaryValue = 15,
-            $currencyCode = 'EUR'
+        $requestBuilder->addSpecialService(
+            new SpecialService('IN')
         );
+
+        $requestBuilder->setTermsOfTrade($termsOfTrade = 'CFR');
+        $requestBuilder->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS);
+        $requestBuilder->setDimensionsUOM('SU');
+        $requestBuilder->setWeightUOM('SI');
+        $requestBuilder->setReadyAtTimestamp(238948923);
 
         $request = $requestBuilder->build();
 
         $this->assertInstanceOf(RateRequest::class, $request);
 
         $this->assertEquals(
-            new ShipmentDetails($unscheduledPickup),
+            new ShipmentDetails(
+                $unscheduledPickup,
+                $termsOfTrade = 'CFR',
+                $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
+                $dimensionUOM = 'SU',
+                $weightUOM = 'SI',
+                $readyAtTimestamp = 238948923
+            ),
             $request->getShipmentDetails()
         );
 
         $this->assertEquals(
-            new InsuranceService(
-                $monetaryValue = 15,
-                $currencyCode = 'EUR'
-            ),
-            $request->getInsuranceService()
+            [new SpecialService('IN')],
+            $request->getSpecialServices()
         );
 
         $this->assertEquals(
             [new Package(
                 $sequenceNumber = 1,
                 $weight = 1.123,
-                $weightUOM = 'cm',
                 $length = 1.123,
                 $width = 1.123,
-                $height = 1.123,
-                $dimensionUOM = 'cm',
-                $readyAtTimestamp = 238948923,
-                $contentType = 'NON_DOCUMENTS',
-                $termsOfTrade = 'CFR'
+                $height = 1.123
             )],
             $request->getPackages()
         );

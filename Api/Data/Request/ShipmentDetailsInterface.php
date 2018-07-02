@@ -16,6 +16,11 @@ namespace Dhl\Express\Api\Data\Request;
 interface ShipmentDetailsInterface
 {
     /**
+     * @return string
+     */
+    public function getTermsOfTrade(): string;
+
+    /**
      * @return boolean
      */
     public function isUnscheduledPickup(): bool;
@@ -24,4 +29,24 @@ interface ShipmentDetailsInterface
      * @return boolean
      */
     public function isRegularPickup(): bool;
+
+    /**
+     * @return string
+     */
+    public function getContentType(): string;
+
+    /**
+     * @return string
+     */
+    public function getDimensionsUOM(): string;
+
+    /**
+     * @return string
+     */
+    public function getWeightUOM(): string;
+
+    /**
+     * @return int
+     */
+    public function getReadyAtTimestamp(): int;
 }

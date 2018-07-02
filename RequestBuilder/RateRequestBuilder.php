@@ -9,9 +9,9 @@ use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
+use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 use Dhl\Express\Api\RateRequestBuilderInterface;
 use Dhl\Express\Model\RateRequest;
-use Dhl\Express\Model\Request\InsuranceService;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
@@ -43,9 +43,9 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     private $packages;
 
     /**
-     * @var InsuranceService
+     * @var SpecialServiceInterface[]
      */
-    private $insuranceService;
+    private $specialServices;
 
     /**
      * @var bool
@@ -56,6 +56,30 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * @var string
      */
     private $shipperAccountNumber;
+
+    /**
+     * @var string
+     */
+    private $termsOfTrade;
+
+    /**
+     * @var string
+     */
+    private $contentType;
+    /**
+     * @var string
+     */
+    private $dimensionsUOM;
+
+    /**
+     * @var string
+     */
+    private $weightUOM;
+
+    /**
+     * @var int
+     */
+    private $readyAtTimestamp;
 
     /**
      * @param string $countryCode
@@ -87,50 +111,34 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @param int $sequenceNumber
      * @param float $weight
-     * @param string $weightUOM
      * @param float $length
      * @param float $width
      * @param float $height
-     * @param string $dimensionsUOM
-     * @param int $readyAtTimestamp
-     * @param string $contentType
-     * @param string $termsOfTrade
      * @return void
      */
     public function addPackage(
         int $sequenceNumber,
         float $weight,
-        string $weightUOM,
         float $length,
         float $width,
-        float $height,
-        string $dimensionsUOM,
-        int $readyAtTimestamp,
-        string $contentType,
-        string $termsOfTrade
+        float $height
     ): void {
         $this->packages[] = new Package(
             $sequenceNumber,
             $weight,
-            $weightUOM,
             $length,
             $width,
-            $height,
-            $dimensionsUOM,
-            $readyAtTimestamp,
-            $contentType,
-            $termsOfTrade
+            $height
         );
     }
 
     /**
-     * @param float $value
-     * @param string $currencyCode
+     * @param SpecialServiceInterface $specialService
      * @return void
      */
-    public function setInsurance(float $value, string $currencyCode): void
+    public function addSpecialService(SpecialServiceInterface $specialService): void
     {
-        $this->insuranceService = new InsuranceService($value, $currencyCode);
+        $this->specialServices[] = $specialService;
     }
 
     /**
@@ -152,11 +160,58 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     }
 
     /**
+     * @param string $termsOfTrade
+     */
+    public function setTermsOfTrade(string $termsOfTrade): void
+    {
+        $this->termsOfTrade = $termsOfTrade;
+    }
+
+    /**
+     * @param string $contentType
+     */
+    public function setContentType(string $contentType): void
+    {
+        $this->contentType = $contentType;
+    }
+
+    /**
+     * @param string $dimensionsUOM
+     */
+    public function setDimensionsUOM(string $dimensionsUOM): void
+    {
+        $this->dimensionsUOM = $dimensionsUOM;
+    }
+
+    /**
+     * @param string $weightUOM
+     */
+    public function setWeightUOM(string $weightUOM): void
+    {
+        $this->weightUOM = $weightUOM;
+    }
+
+    /**
+     * @param int $readyAtTimestamp
+     */
+    public function setReadyAtTimestamp(int $readyAtTimestamp): void
+    {
+        $this->readyAtTimestamp = $readyAtTimestamp;
+    }
+
+    /**
      * @return RateRequestInterface
      */
     public function build(): RateRequestInterface
     {
-        $shipmentDetails = new ShipmentDetails($this->unscheduledPickup);
+        $shipmentDetails = new ShipmentDetails(
+            $this->unscheduledPickup,
+            $this->termsOfTrade,
+            $this->contentType,
+            $this->dimensionsUOM,
+            $this->weightUOM,
+            $this->readyAtTimestamp
+        );
 
         $request = new RateRequest(
             $this->shipperAddress,
@@ -164,7 +219,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             $this->recipientAddress,
             $shipmentDetails,
             $this->packages,
-            $this->insuranceService
+            $this->specialServices
         );
 
         return $request;

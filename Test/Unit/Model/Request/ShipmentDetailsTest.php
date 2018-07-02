@@ -18,26 +18,47 @@ class ShipmentDetailsTest extends TestCase
     /**
      * @test
      */
-    public function defineUnscheduledPickup()
+    public function defineUnscheduledPickupWithDocuments()
     {
         /** @var ShipmentDetailsInterface $shipmentDetails */
-        $shipmentDetails = new ShipmentDetails($unscheduledPickup = true);
+        $shipmentDetails = new ShipmentDetails(
+            $unscheduledPickup = true,
+            $termsOfTrade = 'CFR',
+            $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
+            $dimensionUOM = 'SU',
+            $weightUOM = 'SI',
+            $readyAtTimestamp = 238948923
+        );
 
         $this->assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
         $this->assertFalse($shipmentDetails->isRegularPickup());
         $this->assertTrue($shipmentDetails->isUnscheduledPickup());
+        $this->assertEquals($termsOfTrade, $shipmentDetails->getTermsOfTrade());
+        $this->assertEquals($contentType, $shipmentDetails->getContentType());
+        $this->assertEquals($dimensionUOM, $shipmentDetails->getDimensionsUOM());
+        $this->assertEquals($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
     }
 
     /**
      * @test
      */
-    public function defineRegularPickup()
+    public function defineRegularPickupWithoutDocuments()
     {
         /** @var ShipmentDetailsInterface $shipmentDetails */
-        $shipmentDetails = new ShipmentDetails($unscheduledPickup = false);
+        $shipmentDetails = new ShipmentDetails(
+            $unscheduledPickup = false,
+            $termsOfTrade = 'CFR',
+            $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
+            $dimensionUOM = 'SU',
+            $weightUOM = 'SI',
+            $readyAtTimestamp = 238948923
+        );
 
         $this->assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
         $this->assertTrue($shipmentDetails->isRegularPickup());
         $this->assertFalse($shipmentDetails->isUnscheduledPickup());
+        $this->assertEquals($termsOfTrade, $shipmentDetails->getTermsOfTrade());
+        $this->assertEquals($contentType, $shipmentDetails->getContentType());
+        $this->assertEquals($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
     }
 }

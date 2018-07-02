@@ -27,11 +27,6 @@ class Package implements PackageInterface
     private $weight;
 
     /**
-     * @var string
-     */
-    private $weightUOM;
-
-    /**
      * @var float
      */
     private $length;
@@ -47,60 +42,25 @@ class Package implements PackageInterface
     private $height;
 
     /**
-     * @var string
-     */
-    private $dimensionsUOM;
-
-    /**
-     * @var int
-     */
-    private $readyAtTimestamp;
-
-    /**
-     * @var string
-     */
-    private $contentType;
-
-    /**
-     * @var string
-     */
-    private $termsOfTrade;
-
-    /**
      * Package constructor.
      * @param int $sequenceNumber
      * @param float $weight
-     * @param string $weightUOM
      * @param float $length
      * @param float $width
      * @param float $height
-     * @param string $dimensionsUOM
-     * @param int $readyAtTimestamp
-     * @param string $contentType
-     * @param string $termsOfTrade
      */
     public function __construct(
         int $sequenceNumber,
         float $weight,
-        string $weightUOM,
         float $length,
         float $width,
-        float $height,
-        string $dimensionsUOM,
-        int $readyAtTimestamp,
-        string $contentType,
-        string $termsOfTrade
+        float $height
     ) {
         $this->sequenceNumber = $sequenceNumber;
         $this->weight = $weight;
-        $this->weightUOM = $weightUOM;
         $this->length = $length;
         $this->width = $width;
         $this->height = $height;
-        $this->dimensionsUOM = $dimensionsUOM;
-        $this->readyAtTimestamp = $readyAtTimestamp;
-        $this->contentType = $contentType;
-        $this->termsOfTrade = $termsOfTrade;
     }
 
     /**
@@ -117,14 +77,6 @@ class Package implements PackageInterface
     public function getWeight(): float
     {
         return $this->weight;
-    }
-
-    /**
-     * @return string
-     */
-    public function getWeightUOM(): string
-    {
-        return $this->weightUOM;
     }
 
     /**
@@ -149,37 +101,5 @@ class Package implements PackageInterface
     public function getHeight(): float
     {
         return $this->height;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDimensionsUOM(): string
-    {
-        return $this->dimensionsUOM;
-    }
-
-    /**
-     * @return int
-     */
-    public function getReadyAtTimestamp(): int
-    {
-        return $this->readyAtTimestamp;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContentType(): string
-    {
-        return $this->contentType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTermsOfTrade(): string
-    {
-        return $this->termsOfTrade;
     }
 }

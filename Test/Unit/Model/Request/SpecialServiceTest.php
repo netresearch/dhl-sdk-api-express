@@ -5,7 +5,7 @@
 
 namespace Dhl\Express\Model\Request;
 
-use Dhl\Express\Api\Data\Request\InsuranceServiceInterface;
+use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,19 +14,18 @@ use PHPUnit\Framework\TestCase;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class InsuranceServiceTest extends TestCase
+class SpecialServiceTest extends TestCase
 {
     /**
      * @test
      */
     public function propertiesArePopulatedAndAccessible()
     {
-        $insurance = new InsuranceService(
-            $monetaryValue = 15,
-            $currencyCode = 'EUR'
+        $service = new SpecialService(
+            $serviceType = 'IN'
         );
 
-        $this->assertInstanceOf(InsuranceServiceInterface::class, $insurance);
-        $this->assertEquals($monetaryValue, $insurance->getValue());
+        $this->assertInstanceOf(SpecialServiceInterface::class, $service);
+        $this->assertEquals($serviceType, $service->getServiceType());
     }
 }

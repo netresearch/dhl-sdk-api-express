@@ -14,18 +14,18 @@ namespace Dhl\Express\Webservice\Soap\Request\Value;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Services
+class Services implements \Countable
 {
     /**
      * The list of special services.
-     * 
+     *
      * @var array|Service[] $Service
      */
     private $Service = [];
 
     /**
      * Constructor.
-     * 
+     *
      * @param array|Service[] $service The special services
      */
     public function __construct(array $service)
@@ -45,7 +45,7 @@ class Services
 
     /**
      * Sets the special services.
-     * 
+     *
      * @param Service[] $service The special services
      *
      * @return self
@@ -54,5 +54,10 @@ class Services
     {
         $this->Service = $service;
         return $this;
+    }
+
+    public function count()
+    {
+        return count($this->Service);
     }
 }

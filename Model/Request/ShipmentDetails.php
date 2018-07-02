@@ -16,18 +16,64 @@ use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
  */
 class ShipmentDetails implements ShipmentDetailsInterface
 {
+    const REGULAR_PICKUP = 'REGULAR_PICKUP';
+    const UNSCHEDULED_PICKUP = 'REQUEST_COURIER';
+    const CONTENT_TYPE_DOCUMENTS = 'DOCUMENTS';
+    const CONTENT_TYPE_NON_DOCUMENTS = 'NON_DOCUMENTS';
+
     /**
      * @var bool
      */
     private $unscheduledPickup;
 
     /**
+     * @var string
+     */
+    private $termsOfTrade;
+
+    /**
+     * @var string
+     */
+    private $contentType;
+
+    /**
+     * @var string
+     */
+    private $dimensionsUOM;
+
+    /**
+     * @var string
+     */
+    private $weightUOM;
+
+    /**
+     * @var int
+     */
+    private $readyAtTimestamp;
+
+    /**
      * ShipmentDetails constructor.
      * @param bool $unscheduledPickup
+     * @param string $termsOfTrade
+     * @param string $contentType
+     * @param string $dimensionsUOM
+     * @param string $weightUOM
+     * @param int $readyAtTimestamp
      */
-    public function __construct(bool $unscheduledPickup)
-    {
+    public function __construct(
+        bool $unscheduledPickup,
+        string $termsOfTrade,
+        string $contentType,
+        string $dimensionsUOM,
+        string $weightUOM,
+        int $readyAtTimestamp
+    ) {
         $this->unscheduledPickup = $unscheduledPickup;
+        $this->termsOfTrade = $termsOfTrade;
+        $this->contentType = $contentType;
+        $this->dimensionsUOM = $dimensionsUOM;
+        $this->weightUOM = $weightUOM;
+        $this->readyAtTimestamp = $readyAtTimestamp;
     }
 
     /**
@@ -44,5 +90,45 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function isUnscheduledPickup(): bool
     {
         return $this->unscheduledPickup;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTermsOfTrade(): string
+    {
+        return $this->termsOfTrade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType(): string
+    {
+        return $this->contentType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDimensionsUOM(): string
+    {
+        return $this->dimensionsUOM;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWeightUOM(): string
+    {
+        return $this->weightUOM;
+    }
+
+    /**
+     * @return int
+     */
+    public function getReadyAtTimestamp(): int
+    {
+        return $this->readyAtTimestamp;
     }
 }
