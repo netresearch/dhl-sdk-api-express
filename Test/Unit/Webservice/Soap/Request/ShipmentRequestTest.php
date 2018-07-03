@@ -5,17 +5,23 @@
 namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
 
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
-use Dhl\Express\Webservice\Soap\Request\ShipmentRequest;
-use Dhl\Express\Webservice\Soap\Request\Value;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\InternationalDetail;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Packages;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Packages\RequestedPackages;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\RequestedShipment;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Contact;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\ContactInfo;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo;
+use Dhl\Express\Webservice\Soap\AuthHeaderFactory;
+use Dhl\Express\Webservice\Soap\Type\Common\Content;
+use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
+use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
+use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail\Commodities;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Address;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\LabelType;
 
 /**
  * Tests ShipmentRequest
@@ -34,64 +40,65 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
         ini_set('xdebug.var_display_max_depth', -1);
 
         $shipmentInfo = new ShipmentInfo(
-            Value\DropOffType::REGULAR_PICKUP,
-            'X',
+            DropOffType::REQUEST_COURIER,
+            'U',
             'EUR',
-            Value\UnitOfMeasurement::SI
+            UnitOfMeasurement::SI
         );
 
-        $shipmentInfo->setAccount('12345678')
-            ->setBilling(new Value\Billing('12345678', Value\ShipmentPaymentType::R))
-            ->setLabelType('PDF')
-            ->setLabelTemplate('TEMPLATE')
-            ->setArchiveLabelTemplate('TEMPLATE')
-            ->setSpecialServices(
-                new Value\Services([
-                     (new Value\Service('II'))->setCurrencyCode('EUR')->setServiceValue(123.45)
-                ])
-            );
+        $shipmentInfo->setAccount('XXXXXXXXX')
+            ->setPackagesCount(1)
+            ->setLabelType(LabelType::PDF)
+            ->setLabelTemplate('ECOM26_84_001');
+
+        $internationalDetail = new InternationalDetail(
+            (new Commodities('ppps sd'))
+                ->setNumberOfPieces(1)
+                ->setCountryOfManufacture('CZ')
+                ->setQuantity(1)
+                ->setUnitPrice(10)
+                ->setCustomsValue(1)
+        );
+
+        $internationalDetail->setContent(Content::NON_DOCUMENTS);
 
         $ship = new Ship(
             // Shipper
             new ContactInfo(
-                new Contact('Max Mustermann', 'Musterfirma', '01234-567890'),
-                new Address('Mustergasse 1', 'Musterhausen', '12345', 'DE')
+                (new Contact('John Smith', 'DHL', '003932423423'))
+                    ->setEmailAddress('John.Smith@dhl.com'),
+                new Address('V Parku 2308/10', 'Prague', '14800', 'CZ')
             ),
             // Recipient
             new ContactInfo(
-                new Contact('Maxi Mustermann', 'Musterfirma 2', '01234-567890'),
-                new Address('Musterstraße 1', 'Musterdorf', '67890', 'DE')
+                (new Contact('Jane Smith', 'Deutsche Post DHL', '004922832432423'))
+                    ->setEmailAddress('ane.Smith@dhl.de'),
+                new Address('Via Felice Matteucci 2', 'Firenze', '50127', 'IT')
             )
         );
 
-        $requestedPackages = [
-            new RequestedPackages(2.5, new Value\Dimensions(1, 2, 3), 'REF-1', 1),
-            new RequestedPackages(3.5, new Value\Dimensions(4, 5, 6), 'REF-2', 2),
-        ];
-
-        $packages = new Packages($requestedPackages);
+        $packages = new Packages([
+            (new RequestedPackages(9.0, new Dimensions(46, 34, 31), 'TEST CZ-IT', 1))
+                ->setInsuredValue(10),
+        ]);
 
         $requestedShipment = new RequestedShipment(
             $shipmentInfo,
             '2020-01-01T12:00:00GMT-06:00',
             'DDP',
-            new InternationalDetail(
-                new InternationalDetail\Commodities('TEST')
-            ),
+            $internationalDetail,
             $ship,
             $packages
         );
 
-        $requestedShipment->setPickupLocation('Leipzig')
-            ->setPickupLocationCloseTime('23:45')
-            ->setSpecialPickupInstruction('Liegt unter dem Gartentisch');
-
-        $clientDetail = new Value\ClientDetail();
-        $clientDetail->setSso('SSO')
-            ->setPlant('PLANT');
+        $requestedShipment->setPickupLocation('west wing 3rd Floor')
+            ->setPickupLocationCloseTime('16:12')
+            ->setSpecialPickupInstruction('fragile items');
 
         $shipmentRequest = new ShipmentRequest($requestedShipment);
-        $shipmentRequest->setClientDetail($clientDetail);
+
+//var_dump($shipmentRequest);
+//exit;
 
         $soapClientMock = $this->getMockFromWsdl(
             __DIR__ . '/../Wsdl/expressRateBook.wsdl',
@@ -101,6 +108,11 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
                 '__doRequest',
             ]
         );
+
+//        $authFactory = new AuthHeaderFactory();
+//        $authHeader = $authFactory->create('DeveloperTest', 'G!7sI^0dC^7w');
+//
+//        $soapClientMock->__setSoapHeaders([$authHeader]);
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')

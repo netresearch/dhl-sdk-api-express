@@ -36,7 +36,6 @@ class ClassMap
             'docTypeRef_ChargeType'        => Soap\Response\RateResponse\Charge::class,
 
 
-
 //            'docTypeRef_RateResponseType' => Soap\Type\RateRequest\RateResponseType::class,
 //            'docTypeRef_ClientDetailType3' => Soap\Type\RateRequest\ClientDetail::class,
 //            'docTypeRef_RequestedShipmentType2' => Soap\Type\RateRequest\RequestedShipment::class,
