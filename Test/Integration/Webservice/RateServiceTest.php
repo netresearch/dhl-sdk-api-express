@@ -5,6 +5,8 @@
 namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Mock\SoapClientFake;
+use Dhl\Express\Mock\SoapServiceFactoryFake;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
@@ -17,6 +19,21 @@ use Psr\Log\LoggerInterface;
  */
 class RateServiceTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @param LoggerInterface $logger
+     * @return \Dhl\Express\Api\RateServiceInterface
+     */
+    private function getRateService(LoggerInterface $logger)
+    {
+        /** @var \SoapClient|MockObject $soapClient */
+        $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
+        $serviceFactory = new SoapServiceFactoryFake($soapClient);
+
+        $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
+
+        return $service;
+    }
+
     /**
      * @test
      * @dataProvider requestDataProvider
@@ -65,9 +82,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
             ->expects(self::exactly(2)) // request + response
             ->method('debug')
             ->with(self::isType('string'), self::isType('array')); // message + context array
-
-        $serviceFactory = new SoapServiceFactory();
-        $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
+        $service = $this->getRateService($logger);
 
         $requestBuilder = new RateRequestBuilder();
         $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
@@ -110,6 +125,11 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 '89109', // recipient postal code
                 'Las Vegas', // recipient city
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
+                'kg', // weight unit
+                'cm', // dimensions unit
+                'DDP', // terms of trade
+                'N', // contect type (non-doc)
+                2147472000, // package ready for handover
                 [
                     1 => [ // package sequence number
                         1.2, // package weight
@@ -119,7 +139,9 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                         10, // package height
                         'cm', // package dimensions uom
                     ],
-                ]
+                ],
+                38.99, // insurance amount
+                'EUR', // insurance currency
             ],
         ];
     }

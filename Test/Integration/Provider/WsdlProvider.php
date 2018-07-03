@@ -2,23 +2,21 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test;
+namespace Dhl\Express\Provider;
 
 /**
- * Test PHPUnit is configured properly.
- *
- * @package  Dhl\Express\Test\Unit
+ * @package  Dhl\Express\Test\Provider
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class UnitTest extends \PHPUnit\Framework\TestCase
+class WsdlProvider
 {
     /**
-     * @test
+     * @return string
      */
-    public function pass()
+    public static function getWsdlFile()
     {
-        self::assertTrue(true);
+        return __DIR__ . '/_files/expressRateBook.wsdl';
     }
 }

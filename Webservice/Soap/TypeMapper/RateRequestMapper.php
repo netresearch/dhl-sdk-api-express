@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap;
+namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 

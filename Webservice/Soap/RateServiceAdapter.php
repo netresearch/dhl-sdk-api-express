@@ -8,6 +8,8 @@ use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
+use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 
 /**
  * Rate Service SOAP Adapter.
