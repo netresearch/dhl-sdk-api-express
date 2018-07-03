@@ -18,17 +18,36 @@ use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 class SpecialService implements SpecialServiceInterface
 {
     /**
+     * Service Type Insurance Code
+     */
+    const TYPE_INSURANCE_CODE = 'IN';
+
+    /**
      * @var string
      */
     private $serviceType;
 
     /**
+     * @var float
+     */
+    private $value;
+
+    /**
+     * @var string
+     */
+    private $currencyCode;
+
+    /**
      * Special Service constructor.
      * @param string $serviceType
+     * @param float $value
+     * @param string $currencyCode
      */
-    public function __construct(string $serviceType)
+    public function __construct(string $serviceType, float $value, string $currencyCode)
     {
         $this->serviceType = $serviceType;
+        $this->value = $value;
+        $this->currencyCode = $currencyCode;
     }
 
     /**
@@ -37,5 +56,21 @@ class SpecialService implements SpecialServiceInterface
     public function getServiceType(): string
     {
         return $this->serviceType;
+    }
+
+    /**
+     * @return float
+     */
+    public function getValue(): float
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode(): string
+    {
+        return $this->currencyCode;
     }
 }

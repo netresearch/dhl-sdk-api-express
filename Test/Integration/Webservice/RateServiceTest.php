@@ -30,7 +30,15 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $rPostalCode
      * @param string $rCity
      * @param array $rStreet
+     * @param string $weightUOM
+     * @param string $dimensionsUOM
+     * @param string $termsOfTrade
+     * @param string $contentType
+     * @param int $readyAtTimestamp
      * @param array $packages
+     * @param float $insuranceValue
+     * @param string $insuranceCurrency
+
      */
     public function collectRates(
         bool $isUnscheduledPickup,
@@ -42,7 +50,14 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         string $rPostalCode,
         string $rCity,
         array $rStreet,
-        array $packages
+        string $weightUOM,
+        string $dimensionsUOM,
+        string $termsOfTrade,
+        string $contentType,
+        int $readyAtTimestamp,
+        array $packages,
+        float $insuranceValue,
+        string $insuranceCurrency
     ) {
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
@@ -59,6 +74,11 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->setShipperAccountNumber($accountNumber);
         $requestBuilder->setShipperAddress($sCountryCode, $sPostalCode, $sCity);
         $requestBuilder->setRecipientAddress($rCountryCode, $rPostalCode, $rCity, $rStreet);
+        $requestBuilder->setWeightUOM($weightUOM);
+        $requestBuilder->setDimensionsUOM($dimensionsUOM);
+        $requestBuilder->setTermsOfTrade($termsOfTrade);
+        $requestBuilder->setContentType($contentType);
+        $requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
         foreach ($packages as $seq => $package) {
             $requestBuilder->addPackage(
                 $seq,
@@ -68,6 +88,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 $package['height']
             );
         }
+        $requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
+
         $request = $requestBuilder->build();
 
         $response = $service->collectRates($request);

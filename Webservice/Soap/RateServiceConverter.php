@@ -72,7 +72,10 @@ class RateServiceConverter implements RateServiceConverterInterface
          * @var SpecialServiceInterface $specialService
          */
         foreach ($rateRequest->getSpecialServices() as $specialService) {
-            $specialServicesList[] = new Service($specialService->getServiceType());
+            $service = new Service($specialService->getServiceType());
+            $service->setServiceValue($specialService->getValue());
+            $service->setCurrencyCode($specialService->getCurrencyCode());
+            $specialServicesList[] = $service;
         }
         $specialServices = new Services($specialServicesList);
         $requestedShipment->setSpecialServices($specialServices);

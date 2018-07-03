@@ -16,6 +16,7 @@ use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
+use Dhl\Express\Model\Request\SpecialService;
 
 /**
  * Insurance Service Interface.
@@ -133,12 +134,13 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     }
 
     /**
-     * @param SpecialServiceInterface $specialService
-     * @return void
+     * @param string $serviceType
+     * @param float $value
+     * @param string $currencyCode
      */
-    public function addSpecialService(SpecialServiceInterface $specialService): void
+    private function addSpecialService(string $serviceType, float $value, string $currencyCode): void
     {
-        $this->specialServices[] = $specialService;
+        $this->specialServices[] = new SpecialService($serviceType, $value, $currencyCode);
     }
 
     /**
@@ -197,6 +199,11 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     public function setReadyAtTimestamp(int $readyAtTimestamp): void
     {
         $this->readyAtTimestamp = $readyAtTimestamp;
+    }
+
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency): void
+    {
+        $this->addSpecialService(SpecialService::TYPE_INSURANCE_CODE, $insuranceValue, $insuranceCurrency);
     }
 
     /**

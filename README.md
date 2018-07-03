@@ -29,7 +29,13 @@ $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
 $requestBuilder->setShipperAccount($accountNumber);
 $requestBuilder->setShipperAddress($countryCode, $postalCode, $city, $etc);
 $requestBuilder->setRecipientAddress($countryCode, $postalCode, $city, $etc);
+$requestBuilder->setWeightUOM($weightUOM);
+$requestBuilder->setDimensionsUOM($dimensionsUOM);
+$requestBuilder->setTermsOfTrade($termsOfTrade);
+$requestBuilder->setContentType($contentType);
+$requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
 $requestBuilder->addPackage($weight, $weightUom, $length, $width, $height, $dimensionsUom, $readyAtDate);
+$requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
 $request = $requestBuilder->build();
 
 $response = $service->collectRates($request);

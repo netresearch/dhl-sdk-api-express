@@ -58,7 +58,9 @@ class RateRequestTest extends TestCase
 
         $specialServices = [
             new SpecialService(
-                $serviceType = 'IN'
+                $serviceType = 'IN',
+                $value = 99.99,
+                $currencyCode = 'EU'
             )
         ];
 
