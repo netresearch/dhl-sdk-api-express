@@ -54,7 +54,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
 
     /**
      * @param RateRequestInterface $request
-     * @return RateResponseInterface
+     * @return RateResponseInterfacer
      */
     public function collectRates(RateRequestInterface $request)
     {

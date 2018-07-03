@@ -9,6 +9,8 @@ use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Api\TrackingServiceInterface;
+use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
 use Psr\Log\LoggerInterface;
@@ -35,11 +37,14 @@ class SoapServiceFactory implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): RateServiceInterface
-    {
+    ): RateServiceInterface {
         $clientFactory = new SoapClientFactory();
         $client = $clientFactory->create($username, $password);
-        $adapter = new RateServiceAdapter($client);
+
+        $requestMapper = new RateRequestMapper();
+        $responseMapper = new RateResponseMapper();
+
+        $adapter = new RateServiceAdapter($client, $requestMapper, $responseMapper);
 
         return new RateService($adapter, $logger);
     }

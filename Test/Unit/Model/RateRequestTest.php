@@ -56,13 +56,10 @@ class RateRequestTest extends TestCase
 
         $packages = [$package, $package];
 
-        $specialServices = [
-            new SpecialService(
-                $serviceType = 'IN',
-                $value = 99.99,
-                $currencyCode = 'EU'
-            )
-        ];
+        $insurance = new Insurance(
+            $value = 99.99,
+            $currencyCode = 'EU'
+        );
 
         $rateRequest = new RateRequest(
             $shipperAddress,
@@ -70,7 +67,7 @@ class RateRequestTest extends TestCase
             $recipientAddress,
             $shipmentDetails,
             $packages,
-            $specialServices
+            $insurance
         );
 
         $this->assertInstanceOf(RateRequestInterface::class, $rateRequest);
@@ -79,6 +76,6 @@ class RateRequestTest extends TestCase
         $this->assertEquals($recipientAddress, $rateRequest->getRecipientAddress());
         $this->assertEquals($shipmentDetails, $rateRequest->getShipmentDetails());
         $this->assertEquals($packages, $rateRequest->getPackages());
-        $this->assertEquals($specialServices, $rateRequest->getSpecialServices());
+        $this->assertEquals($insurance, $rateRequest->getInsurance());
     }
 }

@@ -5,11 +5,12 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
+use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
-use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
+use Dhl\Express\Model\Request\Insurance;
 
 /**
  * Rate Request.
@@ -47,9 +48,9 @@ class RateRequest implements RateRequestInterface
     private $packages;
 
     /**
-     * @var SpecialServiceInterface[]
+     * @var Insurance
      */
-    private $specialServices;
+    private $insurance;
 
     /**
      * RateRequest constructor.
@@ -58,7 +59,7 @@ class RateRequest implements RateRequestInterface
      * @param RecipientAddressInterface $RecipientAddress
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param PackageInterface[] $packages
-     * @param SpecialServiceInterface[] $specialServices
+     * @param Insurance $insurance
      */
     public function __construct(
         ShipperAddressInterface $shipperAddress,
@@ -66,14 +67,14 @@ class RateRequest implements RateRequestInterface
         RecipientAddressInterface $RecipientAddress,
         ShipmentDetailsInterface $shipmentDetails,
         array $packages,
-        array $specialServices
+        Insurance $insurance
     ) {
         $this->shipperAddress = $shipperAddress;
         $this->shipperAccountNumber = $shipperAccountNumber;
         $this->RecipientAddress = $RecipientAddress;
         $this->shipmentDetails = $shipmentDetails;
         $this->packages = $packages;
-        $this->specialServices = $specialServices;
+        $this->insurance = $insurance;
     }
 
     /**
@@ -117,10 +118,10 @@ class RateRequest implements RateRequestInterface
     }
 
     /**
-     * @return SpecialServiceInterface[]
+     * @return InsuranceInterface
      */
-    public function getSpecialServices(): array
+    public function getInsurance(): InsuranceInterface
     {
-        return $this->specialServices;
+        return $this->insurance;
     }
 }

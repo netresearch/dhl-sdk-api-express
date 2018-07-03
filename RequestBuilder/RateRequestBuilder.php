@@ -6,20 +6,16 @@
 namespace Dhl\Express\RequestBuilder;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
-use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
-use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 use Dhl\Express\Api\RateRequestBuilderInterface;
 use Dhl\Express\Model\RateRequest;
+use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
-use Dhl\Express\Model\Request\SpecialService;
 
 /**
- * Insurance Service Interface.
+ * Rate Request Builder.
  *
  * @package  Dhl\Express\RequestBuilder
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
@@ -29,58 +25,9 @@ use Dhl\Express\Model\Request\SpecialService;
 class RateRequestBuilder implements RateRequestBuilderInterface
 {
     /**
-     * @var ShipperAddressInterface
+     * @var mixed[]
      */
-    private $shipperAddress;
-
-    /**
-     * @var RecipientAddressInterface
-     */
-    private $recipientAddress;
-
-    /**
-     * @var PackageInterface[]
-     */
-    private $packages;
-
-    /**
-     * @var SpecialServiceInterface[]
-     */
-    private $specialServices;
-
-    /**
-     * @var bool
-     */
-    private $unscheduledPickup;
-
-    /**
-     * @var string
-     */
-    private $shipperAccountNumber;
-
-    /**
-     * @var string
-     */
-    private $termsOfTrade;
-
-    /**
-     * @var string
-     */
-    private $contentType;
-    /**
-     * @var string
-     */
-    private $dimensionsUOM;
-
-    /**
-     * @var string
-     */
-    private $weightUOM;
-
-    /**
-     * @var int
-     */
-    private $readyAtTimestamp;
+    private $data = [];
 
     /**
      * @param string $countryCode
@@ -90,7 +37,14 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setShipperAddress(string $countryCode, string $postalCode, string $city): void
     {
-        $this->shipperAddress = new ShipperAddress($countryCode, $postalCode, $city);
+        $shipperAddress = [
+            'countryCode' => $countryCode,
+            'postalCode' => $postalCode,
+            'city' => $city
+
+        ];
+
+        $this->data['shipperAddress'] = $shipperAddress;
     }
 
     /**
@@ -106,7 +60,14 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         string $city,
         array $streetLines
     ): void {
-        $this->recipientAddress = new RecipientAddress($countryCode, $postalCode, $city, $streetLines);
+        $recipientAddress = [
+            'countryCode' => $countryCode,
+            'postalCode' => $postalCode,
+            'city' => $city,
+            'streetLines' => $streetLines,
+        ];
+
+        $this->data['recipientAddress'] = $recipientAddress;
     }
 
     /**
@@ -124,23 +85,13 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         float $width,
         float $height
     ): void {
-        $this->packages[] = new Package(
-            $sequenceNumber,
-            $weight,
-            $length,
-            $width,
-            $height
-        );
-    }
-
-    /**
-     * @param string $serviceType
-     * @param float $value
-     * @param string $currencyCode
-     */
-    private function addSpecialService(string $serviceType, float $value, string $currencyCode): void
-    {
-        $this->specialServices[] = new SpecialService($serviceType, $value, $currencyCode);
+        $this->data['packages'][] = [
+            'sequenceNumber' => $sequenceNumber,
+            'weight' => $weight,
+            'length' => $length,
+            'width' => $width,
+            'height' => $height
+        ];
     }
 
     /**
@@ -149,7 +100,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setIsUnscheduledPickup(bool $unscheduledPickup): void
     {
-        $this->unscheduledPickup = $unscheduledPickup;
+        $this->data['unscheduledPickup'] = $unscheduledPickup;
     }
 
     /**
@@ -158,7 +109,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setShipperAccountNumber(string $accountNumber): void
     {
-        $this->shipperAccountNumber = $accountNumber;
+        $this->data['shipperAccountNumber'] = $accountNumber;
     }
 
     /**
@@ -166,7 +117,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setTermsOfTrade(string $termsOfTrade): void
     {
-        $this->termsOfTrade = $termsOfTrade;
+        $this->data['termsOfTrade'] = $termsOfTrade;
     }
 
     /**
@@ -174,7 +125,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setContentType(string $contentType): void
     {
-        $this->contentType = $contentType;
+        $this->data['contentType'] = $contentType;
     }
 
     /**
@@ -182,7 +133,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setDimensionsUOM(string $dimensionsUOM): void
     {
-        $this->dimensionsUOM = $dimensionsUOM;
+        $this->data['dimensionsUOM'] = $dimensionsUOM;
     }
 
     /**
@@ -190,7 +141,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setWeightUOM(string $weightUOM): void
     {
-        $this->weightUOM = $weightUOM;
+        $this->data['weightUOM'] = $weightUOM;
     }
 
     /**
@@ -198,12 +149,17 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function setReadyAtTimestamp(int $readyAtTimestamp): void
     {
-        $this->readyAtTimestamp = $readyAtTimestamp;
+        $this->data['readyAtTimestamp'] = $readyAtTimestamp;
     }
 
     public function setInsurance(float $insuranceValue, string $insuranceCurrency): void
     {
-        $this->addSpecialService(SpecialService::TYPE_INSURANCE_CODE, $insuranceValue, $insuranceCurrency);
+        $insurance = [
+            'value' => $insuranceValue,
+            'currencyType' => $insuranceCurrency
+        ];
+
+        $this->data['insurance'] = $insurance;
     }
 
     /**
@@ -211,23 +167,59 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      */
     public function build(): RateRequestInterface
     {
+        // build recipient address
+        $recipientAddress = new RecipientAddress(
+            $this->data['recipientAddress']['countryCode'],
+            $this->data['recipientAddress']['postalCode'],
+            $this->data['recipientAddress']['city'],
+            $this->data['recipientAddress']['streetLines']
+        );
+
+        // build shipper address
+        $shipperAddress = new ShipperAddress(
+            $this->data['recipientAddress']['countryCode'],
+            $this->data['recipientAddress']['postalCode'],
+            $this->data['recipientAddress']['city']
+        );
+
+        // build shipment details
         $shipmentDetails = new ShipmentDetails(
-            $this->unscheduledPickup,
-            $this->termsOfTrade,
-            $this->contentType,
-            $this->dimensionsUOM,
-            $this->weightUOM,
-            $this->readyAtTimestamp
+            $this->data['unscheduledPickup'],
+            $this->data['termsOfTrade'],
+            $this->data['contentType'],
+            $this->data['dimensionsUOM'],
+            $this->data['weightUOM'],
+            $this->data['readyAtTimestamp']
+        );
+
+        // build packages
+        $packages = [];
+        foreach ($this->data['packages'] as $package) {
+            $packages[] = new Package(
+                $package['sequenceNumber'],
+                $package['weight'],
+                $package['length'],
+                $package['width'],
+                $package['height']
+            );
+        }
+
+        // build insurance
+        $insurance = new Insurance(
+            $this->data['insurance']['value'],
+            $this->data['insurance']['currencyType']
         );
 
         $request = new RateRequest(
-            $this->shipperAddress,
-            $this->shipperAccountNumber,
-            $this->recipientAddress,
+            $shipperAddress,
+            $this->data['shipperAccountNumber'],
+            $recipientAddress,
             $shipmentDetails,
-            $this->packages,
-            $this->specialServices
+            $packages,
+            $insurance
         );
+
+        $this->data = [];
 
         return $request;
     }

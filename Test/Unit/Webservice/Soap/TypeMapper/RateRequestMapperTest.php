@@ -3,27 +3,25 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Webservice\Soap;
+namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
+use Dhl\Express\Model\Request\Insurance;
+use PHPUnit\Framework\TestCase;
 use Dhl\Express\Model\RateRequest;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
-use Dhl\Express\Model\Request\SpecialService;
-use Dhl\Express\Webservice\Soap\Request\Value\Service;
-use PHPUnit\Framework\TestCase;
-use Dhl\Express\Webservice\Soap\Request\RateRequest as soapRateRequest;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
+use Dhl\Express\Webservice\Soap\Type\RateRequest as soapRateRequest;
 
 /**
- * Rate Service Converter Interface.
- *
- * @package  Dhl\Express\Api
+ * @package  Dhl\Express\Test\Unit
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class RateServiceConverterTest extends TestCase
+class RateRequestMapperTest extends TestCase
 {
     /**
      * @test
@@ -66,7 +64,7 @@ class RateServiceConverterTest extends TestCase
 
         $packages = [$package, $package];
 
-        $specialServices = [new SpecialService('IN', 99.99, 'EUR')];
+        $insurance = new Insurance(99.99, 'EUR');
 
         $rateRequest = new RateRequest(
             $shipperAddress,
@@ -74,13 +72,13 @@ class RateServiceConverterTest extends TestCase
             $recipientAddress,
             $shipmentDetails,
             $packages,
-            $specialServices
+            $insurance
         );
 
-        // Convert Rate Request to SOAP Rate Request
+        // Map Rate Request to SOAP Rate Request
 
-        $rateServiceConverter = new RateServiceConverter();
-        $soapRateRequest = $rateServiceConverter->convertRequestToSoap($rateRequest);
+        $rateRequestMapper = new RateRequestMapper();
+        $soapRateRequest = $rateRequestMapper->map($rateRequest);
 
         // Assertions
 
@@ -151,8 +149,8 @@ class RateServiceConverterTest extends TestCase
         );
         $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
         $this->assertEquals(
-            $rateServiceConverter->convertShipTimeStringToTimeStamp($shipmentDetails->getReadyAtTimestamp()),
-            (int) $soapRateRequest->getRequestedShipment()->getShipTimestamp()->__toString()
+            $rateRequestMapper->convertShipTimeStringToTimeStamp($shipmentDetails->getReadyAtTimestamp()),
+            (int)$soapRateRequest->getRequestedShipment()->getShipTimestamp()->__toString()
         );
 
         $this->assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());
@@ -163,22 +161,19 @@ class RateServiceConverterTest extends TestCase
         /**
          * @var Service[] $soapSpecialServices
          */
-        $soapSpecialServices = $soapRateRequest->getRequestedShipment()->getSpecialServices();
-        $this->assertSameSize($specialServices, $soapSpecialServices);
-
-        for ($i = 0; $i < count($specialServices); $i++) {
-            $this->assertSame(
-                $specialServices[$i]->getServiceType(),
-                $soapSpecialServices->getService()[$i]->getServiceType()->__toString()
-            );
-            $this->assertSame(
-                $specialServices[$i]->getValue(),
-                $soapSpecialServices->getService()[$i]->getServiceValue()->getValue()
-            );
-            $this->assertSame(
-                $specialServices[$i]->getCurrencyCode(),
-                $soapSpecialServices->getService()[$i]->getCurrencyCode()->__toString()
-            );
+        $soapSpecialServices = $soapRateRequest->getRequestedShipment()->getSpecialServices()->getService();
+        $soapInsurance = null;
+        /**
+         * @var Service $soapService
+         */
+        foreach ($soapSpecialServices as $soapService) {
+            if ($soapService->getServiceType()->__toString() === 'II') {
+                $soapInsurance = $soapService;
+            }
         }
+
+        $this->assertInstanceOf(Service::class, $soapInsurance);
+        $this->assertSame($insurance->getCurrencyCode(), $soapInsurance->getCurrencyCode()->__toString());
+        $this->assertSame($insurance->getValue(), $soapInsurance->getServiceValue()->getValue());
     }
 }

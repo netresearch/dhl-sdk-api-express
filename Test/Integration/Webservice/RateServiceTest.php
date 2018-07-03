@@ -22,6 +22,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @param LoggerInterface $logger
      * @return \Dhl\Express\Api\RateServiceInterface
+     * @throws \ReflectionException
      */
     private function getRateService(LoggerInterface $logger)
     {
@@ -37,7 +38,6 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      * @dataProvider requestDataProvider
-     *
      * @param bool $isUnscheduledPickup
      * @param string $accountNumber
      * @param string $sCountryCode
@@ -55,7 +55,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param array $packages
      * @param float $insuranceValue
      * @param string $insuranceCurrency
-
+     * @throws \ReflectionException
      */
     public function collectRates(
         bool $isUnscheduledPickup,
@@ -127,21 +127,19 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
                 'kg', // weight unit
                 'cm', // dimensions unit
-                'DDP', // terms of trade
-                'N', // contect type (non-doc)
-                2147472000, // package ready for handover
+                'CFR', // terms of trade
+                'DOCUMENTS', // content type
+                238948923, // ready a t timestamp (shipment timestamp)
                 [
                     1 => [ // package sequence number
-                        1.2, // package weight
-                        'kg', // package weight uom
-                        20, // package length
-                        15, // package width
-                        10, // package height
-                        'cm', // package dimensions uom
+                        'weight' => 1.2, // package weight
+                        'length' => 20, // package length
+                        'width' => 15, // package width
+                        'height' => 10 // package height
                     ],
                 ],
-                38.99, // insurance amount
-                'EUR', // insurance currency
+                99.99, // insurance value
+                'EUR' // insurance currency type
             ],
         ];
     }

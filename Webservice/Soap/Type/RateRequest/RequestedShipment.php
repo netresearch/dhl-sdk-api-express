@@ -455,7 +455,7 @@ class RequestedShipment
     /**
      * Returns the special services section.
      *
-     * @return null|Services
+     * @return null|SpecialServices
      */
     public function getSpecialServices(): ?SpecialServices
     {

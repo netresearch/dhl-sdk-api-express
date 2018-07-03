@@ -6,11 +6,11 @@
 namespace Dhl\Express\RequestBuilder;
 
 use Dhl\Express\Model\RateRequest;
+use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
-use Dhl\Express\Model\Request\SpecialService;
 
 /**
  * @package  Dhl\Express\Test\Unit
@@ -75,14 +75,11 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertEquals(
-            [
-                new SpecialService(
-                    'IN',
-                    $value = 99.99,
-                    $currencyCode = 'EU'
-                )
-            ],
-            $request->getSpecialServices()
+            new Insurance(
+                $value = 99.99,
+                $currencyCode = 'EU'
+            ),
+            $request->getInsurance()
         );
 
         $this->assertEquals(
