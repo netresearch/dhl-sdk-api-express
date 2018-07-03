@@ -5,6 +5,9 @@
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship;
 
 use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Address as ShipmentAddress;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\BuildingName;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\CityDistrict;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\CountryName;
 
 /**
  * An buyer address.
@@ -37,22 +40,6 @@ class BuyerAddress extends ShipmentAddress
      * @var null|CountryName
      */
     private $CountryName;
-
-    /**
-     * Constructor.
-     *
-     * @param string $streetLines The street lines
-     * @param string $city        The city
-     * @param string $postalCode  The postal code
-     * @param string $countryCode The country code
-     */
-    public function __construct(string $streetLines, string $city, string $postalCode, string $countryCode)
-    {
-        $this->setStreetLines($streetLines)
-            ->setCity($city)
-            ->setPostalCode($postalCode)
-            ->setCountryCode($countryCode);
-    }
 
     /**
      * Returns the building name.

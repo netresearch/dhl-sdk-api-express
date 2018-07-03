@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\ValueInterface;
+use Dhl\Express\Webservice\Soap\Request\Value\YesNo;
 
 /**
  * The use own shipment identification number flag.
@@ -22,56 +22,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class UseOwnShipmentIdentificationNumber implements ValueInterface
+class UseOwnShipmentIdentificationNumber extends YesNo
 {
-    private const NUMBER_OF_CHARS = 1;
-
-    /**
-     * Yes,
-     *
-     * @var string
-     */
-    public const Y  = 'Y';
-
-    /**
-     * No.
-     *
-     * @var string
-     */
-    public const N = 'N';
-
-    /**
-     * The value.
-     *
-     * @var string
-     */
-    private $value;
-
-    /**
-     * Constructor.
-     *
-     * @param string $value The value
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function __construct($value = self::N)
-    {
-        if ((strlen($value) !== self::NUMBER_OF_CHARS)
-            || !in_array($value, [self::N, self::Y])
-        ) {
-            throw new \InvalidArgumentException('Argument must be either "N" or "Y"');
-        }
-
-        $this->value = $value;
-    }
-
-    /**
-     * Returns the value as string.
-     *
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
 }

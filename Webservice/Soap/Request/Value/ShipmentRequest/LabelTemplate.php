@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\ValueInterface;
+use Dhl\Express\Webservice\Soap\Request\Value\AlphaNumeric;
 
 /**
  * A label template.
@@ -18,38 +18,8 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class LabelTemplate implements ValueInterface
+class LabelTemplate extends AlphaNumeric
 {
-    private const MAX_CHARS = 20;
-
-    /**
-     * The label template.
-     *
-     * @var null|string
-     */
-    private $value;
-
-    /**
-     * Constructor.
-     *
-     * @param null|string $value The value
-     */
-    public function __construct(?string $value)
-    {
-        if (strlen($value) > self::MAX_CHARS) {
-            throw new \InvalidArgumentException('Only values with a maximum of 20 characters are allowed');
-        }
-
-        $this->value = $value;
-    }
-
-    /**
-     * Returns the value as string.
-     *
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    protected const MAX_LENGTH = 20;
 }
+

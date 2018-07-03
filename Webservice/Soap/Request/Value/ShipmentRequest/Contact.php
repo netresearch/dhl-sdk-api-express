@@ -43,11 +43,11 @@ class Contact
     /**
      * Constructor.
      *
-     * @param PersonName  $personName  The person name
-     * @param CompanyName $companyName The company name
-     * @param PhoneNumber $phoneNumber The phone number
+     * @param string $personName  The person name
+     * @param string $companyName The company name
+     * @param string $phoneNumber The phone number
      */
-    public function __construct(PersonName $personName, CompanyName $companyName, PhoneNumber $phoneNumber)
+    public function __construct(string $personName, string $companyName, string $phoneNumber)
     {
         $this->setPersonName($personName)
             ->setCompanyName($companyName)
@@ -55,93 +55,117 @@ class Contact
     }
 
     /**
+     * Returns the person name.
+     * 
      * @return PersonName
      */
-    public function getPersonName()
+    public function getPersonName(): PersonName
     {
-      return $this->PersonName;
+        return $this->PersonName;
     }
 
     /**
-     * @param PersonName $PersonName
-     * @return \Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ContactType
+     * Sets the person name.
+     * 
+     * @param string $personName The person name
+     *                               
+     * @return Contact
      */
-    public function setPersonName($PersonName)
+    public function setPersonName(string $personName): Contact
     {
-      $this->PersonName = $PersonName;
-      return $this;
+        $this->PersonName = new PersonName($personName);
+        return $this;
     }
 
     /**
+     * Returns the company name.
+     *
      * @return CompanyName
      */
-    public function getCompanyName()
+    public function getCompanyName(): CompanyName
     {
-      return $this->CompanyName;
+        return $this->CompanyName;
     }
 
     /**
-     * @param CompanyName $CompanyName
-     * @return \Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ContactType
+     * Sets the company name.
+     *
+     * @param string $companyName The company name
+     *
+     * @return Contact
      */
-    public function setCompanyName($CompanyName)
+    public function setCompanyName(string $companyName): Contact
     {
-      $this->CompanyName = $CompanyName;
-      return $this;
+        $this->CompanyName = new CompanyName($companyName);
+        return $this;
     }
 
     /**
+     * Returns the phone number.
+     *
      * @return PhoneNumber
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): PhoneNumber
     {
-      return $this->PhoneNumber;
+        return $this->PhoneNumber;
     }
 
     /**
-     * @param PhoneNumber $PhoneNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ContactType
+     * Sets the phone number.
+     *
+     * @param string $phoneNumber The phone number
+     *
+     * @return Contact
      */
-    public function setPhoneNumber($PhoneNumber)
+    public function setPhoneNumber(string $phoneNumber): Contact
     {
-      $this->PhoneNumber = $PhoneNumber;
-      return $this;
+        $this->PhoneNumber = new PhoneNumber($phoneNumber);
+        return $this;
     }
 
     /**
-     * @return EmailAddress
+     * Returns the email address.
+     *
+     * @return null|EmailAddress
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?EmailAddress
     {
-      return $this->EmailAddress;
+        return $this->EmailAddress;
     }
 
     /**
-     * @param EmailAddress $EmailAddress
-     * @return \Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ContactType
+     * Sets the email address.
+     *
+     * @param string $emailAddress The email address
+     *
+     * @return Contact
      */
-    public function setEmailAddress($EmailAddress)
+    public function setEmailAddress(string $emailAddress): Contact
     {
-      $this->EmailAddress = $EmailAddress;
-      return $this;
+        $this->EmailAddress = new EmailAddress($emailAddress);
+        return $this;
     }
 
     /**
-     * @return MobilePhoneNumber
+     * Returns the mobile phone number.
+     *
+     * @return null|MobilePhoneNumber
      */
-    public function getMobilePhoneNumber()
+    public function getMobilePhoneNumber(): ?MobilePhoneNumber
     {
-      return $this->MobilePhoneNumber;
+        return $this->MobilePhoneNumber;
     }
 
     /**
-     * @param MobilePhoneNumber $MobilePhoneNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ContactType
+     * Sets the mobile phone number.
+     *
+     * @param string $mobilePhoneNumber The mobile phone number
+     *
+     * @return Contact
      */
-    public function setMobilePhoneNumber($MobilePhoneNumber)
+    public function setMobilePhoneNumber(string $mobilePhoneNumber): Contact
     {
-      $this->MobilePhoneNumber = $MobilePhoneNumber;
-      return $this;
+        $this->MobilePhoneNumber = new MobilePhoneNumber($mobilePhoneNumber);
+        return $this;
     }
-
 }

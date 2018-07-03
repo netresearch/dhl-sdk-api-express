@@ -24,7 +24,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
 class ShipTimestamp implements ValueInterface
 {
     /**
-     * The date.
+     * The date/time.
      *
      * @var string
      */

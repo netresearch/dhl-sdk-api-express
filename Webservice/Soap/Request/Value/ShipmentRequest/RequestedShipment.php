@@ -4,16 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\Request\Value\PaymentInfo;
-use Dhl\Express\Webservice\Soap\Request\Value\PickupLocation;
-use Dhl\Express\Webservice\Soap\Request\Value\PickupLocationCloseTime;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipTimestamp;
-use Dhl\Express\Webservice\Soap\Request\Value\SpecialPickupInstruction;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_DangerousGoods;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_InternationDetailType;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_OnDemandDeliveryOptions;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_PackagesType;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\docTypeRef_ShipType;
 
 /**
  * The requested shipment.
@@ -79,7 +69,7 @@ class RequestedShipment
     private $OnDemandDeliveryOptions;
 
     /**
-     * @var docTypeRef_ShipType
+     * @var Ship
      */
     private $Ship;
 
@@ -100,7 +90,7 @@ class RequestedShipment
      * @param string       $shipTimestamp
      * @param PaymentInfo $paymentInfo
      * @param docTypeRef_InternationDetailType $internationalDetail
-     * @param docTypeRef_ShipType $ship
+     * @param Ship $ship
      * @param docTypeRef_PackagesType $packages
      */
     public function __construct(
@@ -289,20 +279,25 @@ class RequestedShipment
     }
 
     /**
-     * @return docTypeRef_ShipType
+     * Returns the shipper/recipients and optional pickup addresses.
+     *
+     * @return Ship
      */
-    public function getShip()
+    public function getShip(): Ship
     {
         return $this->Ship;
     }
 
     /**
-     * @param docTypeRef_ShipType $Ship
+     * Sets the shipper/recipients and optional pickup addresses.
+     *
+     * @param Ship $ship The ship section
+     *
      * @return self
      */
-    public function setShip($Ship)
+    public function setShip(Ship $ship): RequestedShipment
     {
-        $this->Ship = $Ship;
+        $this->Ship = $ship;
         return $this;
     }
 

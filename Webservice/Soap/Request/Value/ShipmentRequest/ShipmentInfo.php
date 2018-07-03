@@ -3,6 +3,7 @@
  * See LICENSE.md for license details.
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
+
 use Dhl\Express\Webservice\Soap\Request\Value\Account;
 use Dhl\Express\Webservice\Soap\Request\Value\Billing;
 use Dhl\Express\Webservice\Soap\Request\Value\CurrencyCode;

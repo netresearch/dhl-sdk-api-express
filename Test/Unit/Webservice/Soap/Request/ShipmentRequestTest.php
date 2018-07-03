@@ -20,6 +20,10 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateShipmentRequestXmlMapping()
     {
+        ini_set('xdebug.var_display_max_children', -1);
+        ini_set('xdebug.var_display_max_data', -1);
+        ini_set('xdebug.var_display_max_depth', -1);
+
         $shipmentInfo = new Value\ShipmentRequest\ShipmentInfo(
             Value\DropOffType::REGULAR_PICKUP,
             'X',
@@ -30,6 +34,8 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
         $shipmentInfo->setAccount('12345678')
             ->setBilling(new Value\Billing('12345678', Value\ShipmentPaymentType::R))
             ->setLabelType('PDF')
+            ->setLabelTemplate('TEMPLATE')
+            ->setArchiveLabelTemplate('TEMPLATE')
             ->setSpecialServices(
                 new Value\Services([
                      (new Value\Service('II'))->setCurrencyCode('EUR')->setServiceValue(123.45)
@@ -41,6 +47,10 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             '2020-01-01T12:00:00GMT-06:00'
 
         );
+
+        $requestedShipment->setPickupLocation('Leipzig')
+            ->setPickupLocationCloseTime('23:45')
+            ->setInternationalDetail('Liegt unter dem Gartentisch');
 
         $clientDetail = new Value\ClientDetail();
         $clientDetail->setSso('SSO')

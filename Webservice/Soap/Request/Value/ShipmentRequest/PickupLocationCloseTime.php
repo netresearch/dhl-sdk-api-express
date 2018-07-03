@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\ValueInterface;
 

@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Request\Value;
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * A monetary value.
+ * An alpha numeric type.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,33 +15,29 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Money implements ValueInterface
+abstract class AlphaNumeric implements ValueInterface
 {
+    protected const MAX_LENGTH = 999;
+
     /**
-     * The money value.
+     * The street lines.
      *
-     * @var null|float
+     * @var string
      */
     private $value;
 
     /**
      * Constructor.
      *
-     * @param null|float $value The value
+     * @param string $value The value
      */
-    public function __construct(?float $value)
+    public function __construct(string $value)
     {
-        $this->value = $value;
-    }
+        if (strlen($value) > static::MAX_LENGTH) {
+            throw new \InvalidArgumentException('Only values with a maximum of ' . static::MAX_LENGTH . ' characters are allowed');
+        }
 
-    /**
-     * Returns the value.
-     *
-     * @return float|null
-     */
-    public function getValue(): ?float
-    {
-        return $this->value;
+        $this->value = $value;
     }
 
     /**
@@ -51,6 +47,6 @@ class Money implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->getValue();
+        return (string) $this->value;
     }
 }

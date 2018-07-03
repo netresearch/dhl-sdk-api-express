@@ -39,8 +39,8 @@ class ContactInfo
      */
     public function __construct(Contact $contact, ShipmentAddress $address)
     {
-      $this->setContact($contact)
-          ->setAddress($address);
+        $this->setContact($contact)
+            ->setAddress($address);
     }
 
     /**
@@ -73,7 +73,7 @@ class ContactInfo
      */
     public function getAddress(): ShipmentAddress
     {
-      return $this->Address;
+        return $this->Address;
     }
 
     /**

@@ -32,17 +32,17 @@ class BuyerContactInfo
     /**
      * Constructor. 
      * 
-     * @param BuyerContact $contact The contact
-     * @param BuyerAddress $address The address
+     * @param BuyerContact $contact The buyer contact
+     * @param BuyerAddress $address The buyer address
      */
     public function __construct(BuyerContact $contact, BuyerAddress $address)
     {
-      $this->setContact($contact)
-          ->setAddress($address);
+        $this->setContact($contact)
+            ->setAddress($address);
     }
 
     /**
-     * Returns the contact.
+     * Returns the buyer contact.
      * 
      * @return BuyerContact
      */
@@ -52,7 +52,7 @@ class BuyerContactInfo
     }
 
     /**
-     * Sets the contact.
+     * Sets the buyer contact.
      * 
      * @param BuyerContact $contact The contact.
      *                         
@@ -65,19 +65,19 @@ class BuyerContactInfo
     }
 
     /**
-     * Returns the address.
+     * Returns the buyer address.
      *
      * @return BuyerAddress
      */
     public function getAddress(): BuyerAddress
     {
-      return $this->Address;
+        return $this->Address;
     }
 
     /**
-     * Sets the address.
+     * Sets the buyer  address.
      *
-     * @param BuyerAddress $address The address
+     * @param BuyerAddress $address The buyer address
      *
      * @return self
      */
