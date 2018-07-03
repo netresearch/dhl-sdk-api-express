@@ -66,7 +66,7 @@ class RateServiceConverterTest extends TestCase
 
         $packages = [$package, $package];
 
-        $specialServices = [new SpecialService('IN')];
+        $specialServices = [new SpecialService('IN', 99.99, 'EUR')];
 
         $rateRequest = new RateRequest(
             $shipperAddress,
@@ -170,6 +170,14 @@ class RateServiceConverterTest extends TestCase
             $this->assertSame(
                 $specialServices[$i]->getServiceType(),
                 $soapSpecialServices->getService()[$i]->getServiceType()->__toString()
+            );
+            $this->assertSame(
+                $specialServices[$i]->getValue(),
+                $soapSpecialServices->getService()[$i]->getServiceValue()->getValue()
+            );
+            $this->assertSame(
+                $specialServices[$i]->getCurrencyCode(),
+                $soapSpecialServices->getService()[$i]->getCurrencyCode()->__toString()
             );
         }
     }

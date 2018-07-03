@@ -6,7 +6,6 @@
 namespace Dhl\Express\Api;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 
 /**
  * Rate Request Builder.
@@ -57,12 +56,6 @@ interface RateRequestBuilderInterface
     ): void;
 
     /**
-     * @param SpecialServiceInterface $specialService
-     * @return void
-     */
-    public function addSpecialService(SpecialServiceInterface $specialService): void;
-
-    /**
      * @param bool $unscheduledPickup
      * @return void
      */
@@ -73,6 +66,12 @@ interface RateRequestBuilderInterface
      * @return void
      */
     public function setShipperAccountNumber(string $accountNumber): void;
+
+    /**
+     * @param float $insuranceValue
+     * @param string $insuranceCurrency
+     */
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency): void;
 
     /**
      * @return RateRequestInterface

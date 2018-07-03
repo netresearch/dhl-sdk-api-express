@@ -22,10 +22,14 @@ class SpecialServiceTest extends TestCase
     public function propertiesArePopulatedAndAccessible()
     {
         $service = new SpecialService(
-            $serviceType = 'IN'
+            $serviceType = 'IN',
+            $value = 99.99,
+            $currencyCode = 'EU'
         );
 
         $this->assertInstanceOf(SpecialServiceInterface::class, $service);
         $this->assertEquals($serviceType, $service->getServiceType());
+        $this->assertEquals($value, $service->getValue());
+        $this->assertEquals($currencyCode, $service->getCurrencyCode());
     }
 }

@@ -47,8 +47,9 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $height = 1.123
         );
 
-        $requestBuilder->addSpecialService(
-            new SpecialService('IN')
+        $requestBuilder->setInsurance(
+            $insuranceValue = 99.99,
+            $insuranceCurrency = 'EU'
         );
 
         $requestBuilder->setTermsOfTrade($termsOfTrade = 'CFR');
@@ -74,7 +75,13 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertEquals(
-            [new SpecialService('IN')],
+            [
+                new SpecialService(
+                    'IN',
+                    $value = 99.99,
+                    $currencyCode = 'EU'
+                )
+            ],
             $request->getSpecialServices()
         );
 

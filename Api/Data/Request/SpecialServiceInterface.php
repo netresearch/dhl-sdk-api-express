@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api\Data\Request;
 
 /**
@@ -19,4 +20,14 @@ interface SpecialServiceInterface
      * @return string
      */
     public function getServiceType(): string;
+
+    /**
+     * @return float
+     */
+    public function getValue(): float;
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode(): string;
 }
