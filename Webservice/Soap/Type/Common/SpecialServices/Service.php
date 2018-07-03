@@ -25,7 +25,7 @@ class Service
      *
      * @var ServiceType
      */
-    protected $ServiceType;
+    private $ServiceType;
 
     /**
      * Monetary value of service (e.g. Insured Value) – this is needed if you wish to get a quote on
@@ -33,42 +33,42 @@ class Service
      *
      * @var null|Money
      */
-    protected $ServiceValue;
+    private $ServiceValue;
 
     /**
      * Currency code – this is needed if you wish to get a quote on Insurance with your prospect shipment.
      *
      * @var null|CurrencyCode
      */
-    protected $CurrencyCode;
+    private $CurrencyCode;
 
     /**
      * For future use.
      *
      * @var null|PaymentCode
      */
-    protected $PaymentCode;
+    private $PaymentCode;
 
     /**
      * For future use.
      *
      * @var null|Date
      */
-    protected $StartDate;
+    private $StartDate;
 
     /**
      * For future use.
      *
      * @var null|Date
      */
-    protected $EndDate;
+    private $EndDate;
 
     /**
      * For future use.
      *
      * @var null|TextInstruction
      */
-    protected $TextInstruction;
+    private $TextInstruction;
 
     /**
      * Constructor.

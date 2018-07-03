@@ -30,14 +30,14 @@ class RequestedPackages
      *
      * @var Dimensions
      */
-    protected $Dimensions;
+    private $Dimensions;
 
     /**
      * Will be used as Piece Sequence number and returned in the response.
      *
      * @var int
      */
-    protected $number;
+    private $number;
 
     /**
      * Constructor.

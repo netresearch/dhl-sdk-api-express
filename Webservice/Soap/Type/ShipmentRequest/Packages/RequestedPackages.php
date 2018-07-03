@@ -98,75 +98,6 @@ class RequestedPackages
     }
 
     /**
-     * Returns the weight.
-     *
-     * @return Weight
-     */
-    public function getWeight(): Weight
-    {
-        return $this->Weight;
-    }
-
-    /**
-     * Sets the weight.
-     *
-     * @param float $weight The weight
-     *
-     * @return self
-     */
-    public function setWeight(float $weight): RequestedPackages
-    {
-        $this->Weight = new Weight($weight);
-        return $this;
-    }
-
-    /**
-     * Returns the dimensions.
-     *
-     * @return Dimensions
-     */
-    public function getDimensions(): Dimensions
-    {
-        return $this->Dimensions;
-    }
-
-    /**
-     * Sets the dimensions.
-     *
-     * @param Dimensions $dimensions The dimensions
-     *
-     * @return self
-     */
-    public function setDimensions(Dimensions $dimensions): RequestedPackages
-    {
-        $this->Dimensions = $dimensions;
-        return $this;
-    }
-
-    /**
-     * Returns the number.
-     *
-     * @return int
-     */
-    public function getNumber(): int
-    {
-        return $this->number;
-    }
-
-    /**
-     * Sets the number.
-     *
-     * @param int $number The number
-     *
-     * @return self
-     */
-    public function setNumber($number): RequestedPackages
-    {
-        $this->number = $number;
-        return $this;
-    }
-
-    /**
      * Returns the insurance value of the package.
      *
      * @return null|Money
@@ -186,6 +117,29 @@ class RequestedPackages
     public function setInsuredValue(float $insuredValue): RequestedPackages
     {
         $this->InsuredValue = new Money($insuredValue);
+        return $this;
+    }
+
+    /**
+     * Returns the weight.
+     *
+     * @return Weight
+     */
+    public function getWeight(): Weight
+    {
+        return $this->Weight;
+    }
+
+    /**
+     * Sets the weight.
+     *
+     * @param float $weight The weight
+     *
+     * @return self
+     */
+    public function setWeight(float $weight): RequestedPackages
+    {
+        $this->Weight = new Weight($weight);
         return $this;
     }
 
@@ -259,6 +213,29 @@ class RequestedPackages
     }
 
     /**
+     * Returns the dimensions.
+     *
+     * @return Dimensions
+     */
+    public function getDimensions(): Dimensions
+    {
+        return $this->Dimensions;
+    }
+
+    /**
+     * Sets the dimensions.
+     *
+     * @param Dimensions $dimensions The dimensions
+     *
+     * @return self
+     */
+    public function setDimensions(Dimensions $dimensions): RequestedPackages
+    {
+        $this->Dimensions = $dimensions;
+        return $this;
+    }
+
+    /**
      * Returns the customer references.
      *
      * @return CustomerReferences
@@ -278,6 +255,29 @@ class RequestedPackages
     public function setCustomerReferences(string $customerReferences): RequestedPackages
     {
         $this->CustomerReferences = new CustomerReferences($customerReferences);
+        return $this;
+    }
+
+    /**
+     * Returns the number.
+     *
+     * @return int
+     */
+    public function getNumber(): int
+    {
+        return $this->number;
+    }
+
+    /**
+     * Sets the number.
+     *
+     * @param int $number The number
+     *
+     * @return self
+     */
+    public function setNumber($number): RequestedPackages
+    {
+        $this->number = $number;
         return $this;
     }
 }

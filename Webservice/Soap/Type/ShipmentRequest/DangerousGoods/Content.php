@@ -25,21 +25,21 @@ class Content
      *
      * @var ContentId
      */
-    protected $ContentID;
+    private $ContentID;
 
     /**
      * This is a numeric string with up to 7 char (i.e. 1000,00 or 1000.00).
      *
      * @var DryIceTotalNetWeight
      */
-    protected $DryIceTotalNetWeight;
+    private $DryIceTotalNetWeight;
 
     /**
      * Comma separated UN codes – eg. “UN-7843268473”, “7843268473,123”.
      * 
      * @var UNCode
      */
-    protected $UNCode;
+    private $UNCode;
 
     /**
      * Constructor.

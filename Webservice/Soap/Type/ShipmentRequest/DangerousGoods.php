@@ -27,7 +27,7 @@ class DangerousGoods
      *
      * @var Content
      */
-    protected $Content;
+    private $Content;
 
     /**
      * Constructor.
