@@ -53,7 +53,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             ->setDeclaredValue('200')
             ->setDeclaredValueCurrencyCode('USD')
             ->setPaymentInfo(Value\PaymentInfo::DDP)
-            ->setAccount('1234567890')
+            ->setAccount('123456789')
             ->setBilling(new Value\Billing('12345678', Value\ShipmentPaymentType::R))
             ->setSpecialServices($specialServices)
             ->setRequestValueAddedServices(Value\RequestValueAddedServices::Y);
@@ -100,7 +100,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 $this->assertSame('200', $xPath->query('//RequestedShipment/DeclaredValue/text()')->item(0)->textContent);
                 $this->assertSame('USD', $xPath->query('//RequestedShipment/DeclaredValueCurrencyCode/text()')->item(0)->textContent);
                 $this->assertSame(Value\PaymentInfo::DDP, $xPath->query('//RequestedShipment/PaymentInfo/text()')->item(0)->textContent);
-                $this->assertSame('1234567890', $xPath->query('//RequestedShipment/Account/text()')->item(0)->textContent);
+                $this->assertSame('123456789', $xPath->query('//RequestedShipment/Account/text()')->item(0)->textContent);
 
                 // Ship address
                 $this->assertSame('1-16-24, Minami-gyotoku', $xPath->query('//Ship/Shipper/StreetLines/text()')->item(0)->textContent);

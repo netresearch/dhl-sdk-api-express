@@ -4,10 +4,10 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship;
 
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Address as ShipmentAddress;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\BuildingName;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\CityDistrict;
-use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\CountryName;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address as ShipmentAddress;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address\BuildingName;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address\CityDistrict;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address\CountryName;
 
 /**
  * An buyer address.

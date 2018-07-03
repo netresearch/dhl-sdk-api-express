@@ -15,7 +15,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class YesNo implements ValueInterface
+abstract class YesNo implements ValueInterface
 {
     private const NUMBER_OF_CHARS = 1;
 
@@ -31,7 +31,7 @@ class YesNo implements ValueInterface
      * date. For example, if the requested shipment date is a Monday, but the next available pickup date is a
      * Tuesday, this option will not present these services.
      *
-     * @var string|null
+     * @var string
      */
     public const N = 'N';
 
