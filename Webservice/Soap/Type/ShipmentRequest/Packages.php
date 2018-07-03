@@ -4,6 +4,8 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
+
 /**
  * The packages section details the weight and dimensions of the individual pieces of the shipment.
  * For example, the shipper may tender a single shipment with multiple pieces, and each piece may have a
