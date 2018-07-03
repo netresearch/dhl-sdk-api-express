@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Request\Value;
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * A monetary value.
+ * An numeric type.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,21 +15,21 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Money implements ValueInterface
+class Numeric implements ValueInterface
 {
     /**
-     * The money value.
+     * The value.
      *
-     * @var float
+     * @var int
      */
     private $value;
 
     /**
      * Constructor.
      *
-     * @param float $value The value
+     * @param int $value The value
      */
-    public function __construct(float $value)
+    public function __construct(int $value)
     {
         $this->value = $value;
     }
@@ -37,9 +37,9 @@ class Money implements ValueInterface
     /**
      * Returns the value.
      *
-     * @return float
+     * @return int
      */
-    public function getValue(): float
+    public function getValue(): int
     {
         return $this->value;
     }
@@ -51,6 +51,6 @@ class Money implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->getValue();
+        return (string) $this->value;
     }
 }

@@ -9,6 +9,11 @@ use Dhl\Express\Webservice\Soap\Request\Value\Billing;
 use Dhl\Express\Webservice\Soap\Request\Value\CurrencyCode;
 use Dhl\Express\Webservice\Soap\Request\Value\DropOffType;
 use Dhl\Express\Webservice\Soap\Request\Value\Services;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo\LabelTemplate;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo\LabelType;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo\ServiceType;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo\ShipmentIdentificationNumber;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo\UseOwnShipmentIdentificationNumber;
 use Dhl\Express\Webservice\Soap\Request\Value\UnitOfMeasurement;
 
 /**
@@ -33,7 +38,7 @@ class ShipmentInfo
     /**
      * The shipping product requested for this shipment, corresponding to the DHL Global Product codes.
      *
-     * @var ShipmentInfo\ServiceType
+     * @var ServiceType
      */
     private $ServiceType;
 
@@ -198,9 +203,9 @@ class ShipmentInfo
     /**
      * Returns the service type.
      *
-     * @return ShipmentInfo\ServiceType
+     * @return ServiceType
      */
-    public function getServiceType(): ShipmentInfo\ServiceType
+    public function getServiceType(): ServiceType
     {
         return $this->ServiceType;
     }
@@ -214,7 +219,7 @@ class ShipmentInfo
      */
     public function setServiceType(string $serviceType): ShipmentInfo
     {
-        $this->ServiceType = new ShipmentInfo\ServiceType($serviceType);
+        $this->ServiceType = new ServiceType($serviceType);
         return $this;
     }
 

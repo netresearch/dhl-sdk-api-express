@@ -2,12 +2,13 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\OnDemandDeliveryOptions;
 
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * The package content.
+ * The delivery option is to define which on demand delivery option you wish to choose optionally when your
+ * shipment is to be delivered.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,24 +16,20 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Content implements ValueInterface
+class DeliveryOption implements ValueInterface
 {
     /**
-     * Documents.
+     * The pickup location is already served by a regular courier and an additional pickup does
+     * not need to be considered for this service.
      *
      * @var string
      */
-    public const DOCUMENTS  = 'DOCUMENTS';
+    const TV = 'TV';
+    const SW = 'SW';
+    const SX = 'SX';
 
     /**
-     * Non documents.
-     *
-     * @var string
-     */
-    public const NON_DOCUMENTS = 'NON_DOCUMENTS';
-
-    /**
-     * The content.
+     * The delivery option.
      *
      * @var string
      */
@@ -43,10 +40,10 @@ class Content implements ValueInterface
      *
      * @param string $value The value
      */
-    public function __construct($value = self::DOCUMENTS)
+    public function __construct($value = self::TV)
     {
-        if (!in_array($value, [self::DOCUMENTS, self::NON_DOCUMENTS])) {
-            throw new \InvalidArgumentException('Argument must be either "DOCUMENTS" or "NON_DOCUMENTS"');
+        if (!in_array($value, [self::TV, self::SW, self::SX])) {
+            throw new \InvalidArgumentException('Argument must be either "TV", "SW" or "SX"');
         }
 
         $this->value = $value;

@@ -20,7 +20,7 @@ abstract class AlphaNumeric implements ValueInterface
     protected const MAX_LENGTH = 999;
 
     /**
-     * The street lines.
+     * The value.
      *
      * @var string
      */

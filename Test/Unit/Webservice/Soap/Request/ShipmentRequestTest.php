@@ -7,6 +7,15 @@ namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Request\ShipmentRequest;
 use Dhl\Express\Webservice\Soap\Request\Value;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\InternationalDetail;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Packages;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Packages\RequestedPackages;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\RequestedShipment;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Address;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\Contact;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\ContactInfo;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo;
 
 /**
  * Tests ShipmentRequest
@@ -24,7 +33,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
         ini_set('xdebug.var_display_max_data', -1);
         ini_set('xdebug.var_display_max_depth', -1);
 
-        $shipmentInfo = new Value\ShipmentRequest\ShipmentInfo(
+        $shipmentInfo = new ShipmentInfo(
             Value\DropOffType::REGULAR_PICKUP,
             'X',
             'EUR',
@@ -42,15 +51,40 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
                 ])
             );
 
-        $requestedShipment = new Value\ShipmentRequest\RequestedShipment(
-            $shipmentInfo,
-            '2020-01-01T12:00:00GMT-06:00'
+        $ship = new Ship(
+            // Shipper
+            new ContactInfo(
+                new Contact('Max Mustermann', 'Musterfirma', '01234-567890'),
+                new Address('Mustergasse 1', 'Musterhausen', '12345', 'DE')
+            ),
+            // Recipient
+            new ContactInfo(
+                new Contact('Maxi Mustermann', 'Musterfirma 2', '01234-567890'),
+                new Address('Musterstraße 1', 'Musterdorf', '67890', 'DE')
+            )
+        );
 
+        $requestedPackages = [
+            new RequestedPackages(2.5, new Value\Dimensions(1, 2, 3), 'REF-1', 1),
+            new RequestedPackages(3.5, new Value\Dimensions(4, 5, 6), 'REF-2', 2),
+        ];
+
+        $packages = new Packages($requestedPackages);
+
+        $requestedShipment = new RequestedShipment(
+            $shipmentInfo,
+            '2020-01-01T12:00:00GMT-06:00',
+            'DDP',
+            new InternationalDetail(
+                new InternationalDetail\Commodities('TEST')
+            ),
+            $ship,
+            $packages
         );
 
         $requestedShipment->setPickupLocation('Leipzig')
             ->setPickupLocationCloseTime('23:45')
-            ->setInternationalDetail('Liegt unter dem Gartentisch');
+            ->setSpecialPickupInstruction('Liegt unter dem Gartentisch');
 
         $clientDetail = new Value\ClientDetail();
         $clientDetail->setSso('SSO')
@@ -58,10 +92,6 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 
         $shipmentRequest = new ShipmentRequest($requestedShipment);
         $shipmentRequest->setClientDetail($clientDetail);
-
-var_dump($shipmentRequest);
-exit;
-
 
         $soapClientMock = $this->getMockFromWsdl(
             __DIR__ . '/../Wsdl/expressRateBook.wsdl',

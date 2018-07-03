@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\ShipmentInfo;
 
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * The package content.
+ * The label type.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,24 +15,18 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Content implements ValueInterface
+class LabelType implements ValueInterface
 {
     /**
-     * Documents.
-     *
-     * @var string
+     * Possible label types.
      */
-    public const DOCUMENTS  = 'DOCUMENTS';
+    const PDF = 'PDF';
+    const ZPL = 'ZPL';
+    const EPL = 'EPL';
+    const LP2 = 'LP2';
 
     /**
-     * Non documents.
-     *
-     * @var string
-     */
-    public const NON_DOCUMENTS = 'NON_DOCUMENTS';
-
-    /**
-     * The content.
+     * The value of label type.
      *
      * @var string
      */
@@ -43,12 +37,8 @@ class Content implements ValueInterface
      *
      * @param string $value The value
      */
-    public function __construct($value = self::DOCUMENTS)
+    public function __construct($value = self::PDF)
     {
-        if (!in_array($value, [self::DOCUMENTS, self::NON_DOCUMENTS])) {
-            throw new \InvalidArgumentException('Argument must be either "DOCUMENTS" or "NON_DOCUMENTS"');
-        }
-
         $this->value = $value;
     }
 

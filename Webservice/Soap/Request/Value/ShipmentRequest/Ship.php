@@ -5,6 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\BuyerContactInfo as BuyerContactInfo;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\Ship\ContactInfo;
 
 /**
  * The Ship section outlines the shipper, receiver and optional pickup address for the specific shipment request.

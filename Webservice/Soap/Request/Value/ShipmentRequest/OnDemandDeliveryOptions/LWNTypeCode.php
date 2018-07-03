@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\OnDemandDeliveryOptions;
 
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * The package content.
+ * A LWN type code. Mandatory if the delivery option is SW.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,24 +15,26 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Content implements ValueInterface
+class LWNTypeCode implements ValueInterface
 {
+    private const NUMBER_OF_CHARS = 1;
+
     /**
-     * Documents.
+     * Leave with neighbour.
      *
      * @var string
      */
-    public const DOCUMENTS  = 'DOCUMENTS';
+    public const N = 'N';
 
     /**
-     * Non documents.
+     * Leave with concierge.
      *
      * @var string
      */
-    public const NON_DOCUMENTS = 'NON_DOCUMENTS';
+    public const C  = 'C';
 
     /**
-     * The content.
+     * The value.
      *
      * @var string
      */
@@ -42,11 +44,15 @@ class Content implements ValueInterface
      * Constructor.
      *
      * @param string $value The value
+     *
+     * @throws \InvalidArgumentException
      */
-    public function __construct($value = self::DOCUMENTS)
+    public function __construct($value = self::N)
     {
-        if (!in_array($value, [self::DOCUMENTS, self::NON_DOCUMENTS])) {
-            throw new \InvalidArgumentException('Argument must be either "DOCUMENTS" or "NON_DOCUMENTS"');
+        if ((strlen($value) !== self::NUMBER_OF_CHARS)
+            || !in_array($value, [self::N, self::Y])
+        ) {
+            throw new \InvalidArgumentException('Argument must be either "N" or "C"');
         }
 
         $this->value = $value;

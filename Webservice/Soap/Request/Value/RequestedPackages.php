@@ -41,7 +41,7 @@ class RequestedPackages
      *
      * @param float      $weight     The weight of the package
      * @param Dimensions $dimensions The dimensions of the package
-     * @param int        $number     Package number
+     * @param int        $number     The package number
      */
     public function __construct(float $weight, Dimensions $dimensions, int $number)
     {

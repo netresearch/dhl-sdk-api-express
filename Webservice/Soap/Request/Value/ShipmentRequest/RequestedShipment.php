@@ -4,6 +4,8 @@
  */
 namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest;
 
+use Dhl\Express\Webservice\Soap\Request\Value\PaymentInfo;
+use Dhl\Express\Webservice\Soap\Request\Value\ShipTimestamp;
 
 /**
  * The requested shipment.
@@ -59,12 +61,12 @@ class RequestedShipment
     private $PaymentInfo;
 
     /**
-     * @var docTypeRef_InternationDetailType
+     * @var InternationalDetail
      */
     private $InternationalDetail;
 
     /**
-     * @var null|docTypeRef_OnDemandDeliveryOptions
+     * @var null|OnDemandDeliveryOptions
      */
     private $OnDemandDeliveryOptions;
 
@@ -74,32 +76,32 @@ class RequestedShipment
     private $Ship;
 
     /**
-     * @var docTypeRef_PackagesType
+     * @var Packages
      */
     private $Packages;
 
     /**
-     * @var null|docTypeRef_DangerousGoods
+     * @var null|DangerousGoods
      */
     private $DangerousGoods;
 
     /**
      * Constructor.
      *
-     * @param ShipmentInfo $shipmentInfo
-     * @param string       $shipTimestamp
-     * @param PaymentInfo $paymentInfo
-     * @param docTypeRef_InternationDetailType $internationalDetail
-     * @param Ship $ship
-     * @param docTypeRef_PackagesType $packages
+     * @param ShipmentInfo        $shipmentInfo        The shipment info
+     * @param string              $shipTimestamp       The shipping timestamp
+     * @param string              $paymentInfo         The payment info
+     * @param InternationalDetail $internationalDetail The international detail
+     * @param Ship                $ship                The shipper/recipient address section
+     * @param Packages            $packages            The packages section
      */
     public function __construct(
         ShipmentInfo $shipmentInfo,
         string $shipTimestamp,
-        $paymentInfo,
-        $internationalDetail,
-        $ship,
-        $packages
+        string $paymentInfo,
+        InternationalDetail $internationalDetail,
+        Ship $ship,
+        Packages $packages
     ) {
         $this->setShipmentInfo($shipmentInfo)
             ->setShipTimestamp($shipTimestamp)
@@ -225,25 +227,32 @@ class RequestedShipment
     }
 
     /**
+     * Returns the payment info.
+     *
      * @return PaymentInfo
      */
-    public function getPaymentInfo()
+    public function getPaymentInfo(): PaymentInfo
     {
         return $this->PaymentInfo;
     }
 
     /**
-     * @param PaymentInfo $PaymentInfo
+     * Sets the payment info.
+     *
+     * @param string $paymentInfo The payment info
+     *
      * @return self
      */
-    public function setPaymentInfo($PaymentInfo)
+    public function setPaymentInfo(string $paymentInfo): RequestedShipment
     {
-        $this->PaymentInfo = $PaymentInfo;
+        $this->PaymentInfo = new PaymentInfo($paymentInfo);
         return $this;
     }
 
     /**
-     * @return docTypeRef_InternationDetailType
+     * Returns the international detail.
+     *
+     * @return InternationalDetail
      */
     public function getInternationalDetail()
     {
@@ -251,30 +260,38 @@ class RequestedShipment
     }
 
     /**
-     * @param docTypeRef_InternationDetailType $InternationalDetail
+     * Sets the international detail.
+     *
+     * @param InternationalDetail $internationalDetail The international detail
+     *
      * @return self
      */
-    public function setInternationalDetail($InternationalDetail)
+    public function setInternationalDetail(InternationalDetail $internationalDetail): RequestedShipment
     {
-        $this->InternationalDetail = $InternationalDetail;
+        $this->InternationalDetail = $internationalDetail;
         return $this;
     }
 
     /**
-     * @return docTypeRef_OnDemandDeliveryOptions
+     * Returns the on demand delivery options.
+     *
+     * @return null|OnDemandDeliveryOptions
      */
-    public function getOnDemandDeliveryOptions()
+    public function getOnDemandDeliveryOptions(): ?OnDemandDeliveryOptions
     {
         return $this->OnDemandDeliveryOptions;
     }
 
     /**
-     * @param docTypeRef_OnDemandDeliveryOptions $OnDemandDeliveryOptions
+     * Sets the on demand delivery options.
+     *
+     * @param OnDemandDeliveryOptions $onDemandDeliveryOptions The on demand delivery options
+     *
      * @return self
      */
-    public function setOnDemandDeliveryOptions($OnDemandDeliveryOptions)
+    public function setOnDemandDeliveryOptions(OnDemandDeliveryOptions $onDemandDeliveryOptions): RequestedShipment
     {
-        $this->OnDemandDeliveryOptions = $OnDemandDeliveryOptions;
+        $this->OnDemandDeliveryOptions = $onDemandDeliveryOptions;
         return $this;
     }
 
@@ -302,38 +319,48 @@ class RequestedShipment
     }
 
     /**
-     * @return docTypeRef_PackagesType
+     * Returns the packages section.
+     *
+     * @return Packages
      */
-    public function getPackages()
+    public function getPackages(): Packages
     {
         return $this->Packages;
     }
 
     /**
-     * @param docTypeRef_PackagesType $Packages
+     * Sets the packages section.
+     *
+     * @param Packages $packages The packages
+     *
      * @return self
      */
-    public function setPackages($Packages)
+    public function setPackages(Packages $packages): RequestedShipment
     {
-        $this->Packages = $Packages;
+        $this->Packages = $packages;
         return $this;
     }
 
     /**
-     * @return docTypeRef_DangerousGoods
+     * Returns the dangerous goods section.
+     *
+     * @return null|DangerousGoods
      */
-    public function getDangerousGoods()
+    public function getDangerousGoods(): ?DangerousGoods
     {
         return $this->DangerousGoods;
     }
 
     /**
-     * @param docTypeRef_DangerousGoods $DangerousGoods
+     * Sets the dangerous goods section.
+     *
+     * @param DangerousGoods $dangerousGoods The dangerous goods section
+     *
      * @return self
      */
-    public function setDangerousGoods($DangerousGoods)
+    public function setDangerousGoods(DangerousGoods $dangerousGoods): RequestedShipment
     {
-        $this->DangerousGoods = $DangerousGoods;
+        $this->DangerousGoods = $dangerousGoods;
         return $this;
     }
 }

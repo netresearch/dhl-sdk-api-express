@@ -2,10 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Request\Value;
+namespace Dhl\Express\Webservice\Soap\Request\Value\ShipmentRequest\OnDemandDeliveryOptions;
+
+use Dhl\Express\Webservice\Soap\Request\Value\AlphaNumeric;
 
 /**
- * A account type.
+ * The requested delivery date.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -13,7 +15,8 @@ namespace Dhl\Express\Webservice\Soap\Request\Value;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Account extends AlphaNumeric
+class RequestedDeliveryDate extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 9;
+    protected const MAX_LENGTH = 29;
 }
+
