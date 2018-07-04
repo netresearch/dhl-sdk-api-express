@@ -42,17 +42,21 @@ interface RateRequestBuilderInterface
     /**
      * @param int $sequenceNumber
      * @param float $weight
+     * @param string $weightUOM
      * @param float $length
      * @param float $width
      * @param float $height
+     * @param string $dimensionsUOM
      * @return void
      */
     public function addPackage(
         int $sequenceNumber,
         float $weight,
+        string $weightUOM,
         float $length,
         float $width,
-        float $height
+        float $height,
+        string $dimensionsUOM
     ): void;
 
     /**

@@ -49,17 +49,17 @@ class RateRequestMapperTest extends TestCase
             $unscheduledPickup = true,
             $termsOfTrade = 'CFR',
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $dimensionUOM = 'SU',
-            $weightUOM = 'SI',
             $readyAtTimestamp = 238948923
         );
 
         $package = new Package(
             $sequenceNumber = 1,
             $weight = 1.123,
+            $weightUOM = 'KG',
             $length = 1.123,
             $width = 1.123,
-            $height = 1.123
+            $height = 1.123,
+            $dimensionUOM = 'CM'
         );
 
         $packages = [$package, $package];
@@ -134,14 +134,17 @@ class RateRequestMapperTest extends TestCase
         $this->assertEquals($termsOfTrade, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
         $this->assertEquals($contentType, $soapRateRequest->getRequestedShipment()->getContent()->__toString());
         $this->assertEquals(
-            $dimensionUOM,
-            $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()
+            'SI',
+            $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()->__toString()
         );
 
         /**
          * @Todo Test $weightUOM
          */
 
+        /**
+         * @var soapRateRequest\Packages\RequestedPackages $soapPackage
+         */
         $soapPackage = $soapRateRequest->getRequestedShipment()->getPackages()->getRequestedPackages()[0];
         $this->assertSameSize(
             $packages,
@@ -149,8 +152,8 @@ class RateRequestMapperTest extends TestCase
         );
         $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
         $this->assertEquals(
-            $rateRequestMapper->convertShipTimeStringToTimeStamp($shipmentDetails->getReadyAtTimestamp()),
-            (int)$soapRateRequest->getRequestedShipment()->getShipTimestamp()->__toString()
+            $rateRequestMapper->convertShipTimeStampToDateString($shipmentDetails->getReadyAtTimestamp()),
+            $soapRateRequest->getRequestedShipment()->getShipTimestamp()
         );
 
         $this->assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());

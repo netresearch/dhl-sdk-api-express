@@ -34,9 +34,16 @@ class RateRequestMapper
     /**
      * @param RateRequestInterface $rateRequest
      * @return RateRequest
+     * @throws \InvalidArgumentException
      */
     public function map(RateRequestInterface $rateRequest)
     {
+        $this->checkConsistentUOM($rateRequest->getPackages());
+
+        // Since we checked that all packages use the same UOMs, we can just take them from any package
+        $weightUOM = $rateRequest->getPackages()[0]->getWeightUOM();
+        $dimensionsUOM = $rateRequest->getPackages()[0]->getDimensionsUOM();
+
         $requestedShipment = new RequestedShipment(
             $this->getDropOfTypeFromShipDetails(
                 $rateRequest->getShipmentDetails()->isUnscheduledPickup()
@@ -56,10 +63,10 @@ class RateRequestMapper
             new Packages(
                 $this->mapPackages($rateRequest->getPackages())
             ),
-            $this->convertShipTimeStringToTimeStamp(
+            $this->convertShipTimeStampToDateString(
                 $rateRequest->getShipmentDetails()->getReadyAtTimestamp()
             ),
-            $rateRequest->getShipmentDetails()->getDimensionsUOM()
+            $this->mapUOM($weightUOM, $dimensionsUOM)
         );
 
         $requestedShipment->setAccount($rateRequest->getShipperAccountNumber());
@@ -129,12 +136,62 @@ class RateRequestMapper
     }
 
     /**
-     * Convert date string to UNIX timestamp (e.g. to '2018-11-26T12:00:00GMT-06:00' to 238948923)
-     * @param string $shipTime
-     * @return int
+     * Convert UNIX timestamp to (e.g. 238948923 to '2018-11-26T12:00:00GMT-06:00')
+     * @param int $shipTime
+     * @return string
      */
-    public function convertShipTimeStringToTimeStamp(string $shipTime): int
+    public function convertShipTimeStampToDateString(int $shipTime): string
     {
-        return strtotime($shipTime);
+        return date('c', $shipTime);
+    }
+
+    /**
+     * Check if all packages have the same units of measurement (UOM) for weight and dimensions
+     *
+     * @param array $packages
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    private function checkConsistentUOM(array $packages): void
+    {
+        $weightUom = null;
+        $dimensionsUOM = null;
+        foreach ($packages as $package) {
+            if (!$weightUom) {
+                $weightUom = $package->getWeightUOM();
+            }
+            if (!$dimensionsUOM) {
+                $dimensionsUOM = $package->getDimensionsUOM();
+            }
+            if ($weightUom !== $package->getWeightUOM()) {
+                throw new \InvalidArgumentException(
+                    'All packages weights must have a consistent unit of measurement.'
+                );
+            }
+            if ($dimensionsUOM !== $package->getDimensionsUOM()) {
+                throw new \InvalidArgumentException(
+                    'All packages dimensions must have a consistent unit of measurement.'
+                );
+            }
+        }
+    }
+
+    /**
+     * @param $weightUOM
+     * @param $dimensionsUOM
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    private function mapUOM($weightUOM, $dimensionsUOM): string
+    {
+        if ($weightUOM === 'KG' && $dimensionsUOM === 'CM') {
+            return 'SI';
+        }
+        if ($weightUOM === 'LB' && $dimensionsUOM === 'IN') {
+            return 'SU';
+        }
+        throw new \InvalidArgumentException(
+            'All units of measurement have to be consistent (either metric system or US system.'
+        );
     }
 }

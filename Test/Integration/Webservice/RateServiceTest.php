@@ -47,8 +47,6 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $rPostalCode
      * @param string $rCity
      * @param array $rStreet
-     * @param string $weightUOM
-     * @param string $dimensionsUOM
      * @param string $termsOfTrade
      * @param string $contentType
      * @param int $readyAtTimestamp
@@ -67,8 +65,6 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         string $rPostalCode,
         string $rCity,
         array $rStreet,
-        string $weightUOM,
-        string $dimensionsUOM,
         string $termsOfTrade,
         string $contentType,
         int $readyAtTimestamp,
@@ -89,8 +85,6 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->setShipperAccountNumber($accountNumber);
         $requestBuilder->setShipperAddress($sCountryCode, $sPostalCode, $sCity);
         $requestBuilder->setRecipientAddress($rCountryCode, $rPostalCode, $rCity, $rStreet);
-        $requestBuilder->setWeightUOM($weightUOM);
-        $requestBuilder->setDimensionsUOM($dimensionsUOM);
         $requestBuilder->setTermsOfTrade($termsOfTrade);
         $requestBuilder->setContentType($contentType);
         $requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
@@ -98,9 +92,11 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
             $requestBuilder->addPackage(
                 $seq,
                 $package['weight'],
+                $package['weightUOM'],
                 $package['length'],
                 $package['width'],
-                $package['height']
+                $package['height'],
+                $package['dimensionsUOM']
             );
         }
         $requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
@@ -125,17 +121,25 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 '89109', // recipient postal code
                 'Las Vegas', // recipient city
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
-                'kg', // weight unit
-                'cm', // dimensions unit
                 'CFR', // terms of trade
                 'DOCUMENTS', // content type
                 238948923, // ready a t timestamp (shipment timestamp)
                 [
                     1 => [ // package sequence number
                         'weight' => 1.2, // package weight
+                        'weightUOM' => 'kg', // weight unit
                         'length' => 20, // package length
                         'width' => 15, // package width
-                        'height' => 10 // package height
+                        'height' => 10, // package height
+                        'dimensionsUOM' => 'cm' // dimensions unit
+                    ],
+                    2 => [ // package sequence number
+                        'weight' => 1000, // package weight
+                        'weightUOM' => 'g', // weight unit
+                        'length' => 20, // package length
+                        'width' => 15, // package width
+                        'height' => 10, // package height
+                        'dimensionsUOM' => 'm' // dimensions unit
                     ],
                 ],
                 99.99, // insurance value

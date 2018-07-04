@@ -42,4 +42,14 @@ interface PackageInterface
      * @return float
      */
     public function getHeight(): float;
+
+    /**
+     * @return string
+     */
+    public function getDimensionsUOM(): string;
+
+    /**
+     * @return string
+     */
+    public function getWeightUOM(): string;
 }

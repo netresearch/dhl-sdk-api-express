@@ -31,7 +31,7 @@ class RequestedShipment
      * The DropOffType is used to indicate whether a scheduled pickup is required as part of the
      * consideration for the rate request. There are two possible values to indicate whether a pickup
      * is considered.
-     * 
+     *
      * @var DropOffType
      */
     private $DropOffType;
@@ -149,7 +149,7 @@ class RequestedShipment
      * Flag used to request all the existing special services for the requested product in the response message.
      * If the value is "Y" all the additional services available for the product selected will be returned.
      * The default value is "N".
-     * 
+     *
      * @var null|RequestValueAddedServices
      */
     private $RequestValueAddedServices;
@@ -160,14 +160,14 @@ class RequestedShipment
      * @param string    $dropOffType       The drop off type
      * @param Ship      $ship              The ship section containing shippers/recipients address
      * @param Packages  $packages          The packages list
-     * @param \DateTime $shipTimestamp     The ship timestamp
+     * @param string    $shipTimestamp     The ship timestamp
      * @param string    $unitOfMeasurement The unit of measurement
      */
     public function __construct(
         string    $dropOffType,
         Ship      $ship,
         Packages  $packages,
-        \DateTime $shipTimestamp,
+        string    $shipTimestamp,
         string    $unitOfMeasurement
     ) {
         $this->setDropOffType($dropOffType)
@@ -179,7 +179,7 @@ class RequestedShipment
 
     /**
      * Returns the drop off type.
-     * 
+     *
      * @return DropOffType
      */
     public function getDropOffType(): DropOffType
@@ -189,9 +189,9 @@ class RequestedShipment
 
     /**
      * Sets the drop off type.
-     * 
+     *
      * @param string $dropOffType The drop off type
-     *                                 
+     *
      * @return self
      */
     public function setDropOffType(string $dropOffType): RequestedShipment
@@ -274,7 +274,7 @@ class RequestedShipment
      *
      * @return ShipTimestamp
      */
-    public function getShipTimestamp(): ShipTimestamp
+    public function getShipTimestamp(): string
     {
         return $this->ShipTimestamp;
     }
@@ -282,11 +282,11 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param \DateTime $shipTimestamp The ship timestamp
+     * @param string $shipTimestamp The ship timestamp
      *
      * @return self
      */
-    public function setShipTimestamp(\DateTime $shipTimestamp): RequestedShipment
+    public function setShipTimestamp(string $shipTimestamp): RequestedShipment
     {
         $this->ShipTimestamp = new ShipTimestamp($shipTimestamp);
         return $this;

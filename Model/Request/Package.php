@@ -42,25 +42,41 @@ class Package implements PackageInterface
     private $height;
 
     /**
+     * @var string
+     */
+    private $dimensionsUOM;
+
+    /**
+     * @var string
+     */
+    private $weightUOM;
+
+    /**
      * Package constructor.
      * @param int $sequenceNumber
      * @param float $weight
+     * @param string $weightUOM
      * @param float $length
      * @param float $width
      * @param float $height
+     * @param string $dimensionsUOM
      */
     public function __construct(
         int $sequenceNumber,
         float $weight,
+        string $weightUOM,
         float $length,
         float $width,
-        float $height
+        float $height,
+        string $dimensionsUOM
     ) {
         $this->sequenceNumber = $sequenceNumber;
         $this->weight = $weight;
+        $this->weightUOM = $weightUOM;
         $this->length = $length;
         $this->width = $width;
         $this->height = $height;
+        $this->dimensionsUOM = $dimensionsUOM;
     }
 
     /**
@@ -101,5 +117,21 @@ class Package implements PackageInterface
     public function getHeight(): float
     {
         return $this->height;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDimensionsUOM(): string
+    {
+        return $this->dimensionsUOM;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWeightUOM(): string
+    {
+        return $this->weightUOM;
     }
 }

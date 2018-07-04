@@ -26,8 +26,6 @@ class ShipmentDetailsTest extends TestCase
             $unscheduledPickup = true,
             $termsOfTrade = 'CFR',
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $dimensionUOM = 'SU',
-            $weightUOM = 'SI',
             $readyAtTimestamp = 238948923
         );
 
@@ -36,7 +34,6 @@ class ShipmentDetailsTest extends TestCase
         $this->assertTrue($shipmentDetails->isUnscheduledPickup());
         $this->assertEquals($termsOfTrade, $shipmentDetails->getTermsOfTrade());
         $this->assertEquals($contentType, $shipmentDetails->getContentType());
-        $this->assertEquals($dimensionUOM, $shipmentDetails->getDimensionsUOM());
         $this->assertEquals($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
     }
 
@@ -50,8 +47,6 @@ class ShipmentDetailsTest extends TestCase
             $unscheduledPickup = false,
             $termsOfTrade = 'CFR',
             $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-            $dimensionUOM = 'SU',
-            $weightUOM = 'SI',
             $readyAtTimestamp = 238948923
         );
 

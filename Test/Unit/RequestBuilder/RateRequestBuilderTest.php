@@ -42,9 +42,56 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->addPackage(
             $sequenceNumber = 1,
             $weight = 1.123,
+            $weightUOM = 'kg',
             $length = 1.123,
             $width = 1.123,
-            $height = 1.123
+            $height = 1.123,
+            $dimensionUOM = 'Cm'
+        );
+        $requestBuilder->addPackage(
+            $sequenceNumber = 1,
+            $weight = 1.123,
+            $weightUOM = 'Lb',
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = 'in'
+        );
+        $requestBuilder->addPackage(
+            $sequenceNumber = 1,
+            $weight = 1000,
+            $weightUOM = 'g',
+            $length = 10,
+            $width = 10,
+            $height = 10,
+            $dimensionUOM = 'Mm'
+        );
+        $requestBuilder->addPackage(
+            $sequenceNumber = 1,
+            $weight = 16,
+            $weightUOM = 'oz',
+            $length = 0.01,
+            $width = 0.01,
+            $height = 0.01,
+            $dimensionUOM = 'm'
+        );
+        $requestBuilder->addPackage(
+            $sequenceNumber = 1,
+            $weight = 1,
+            $weightUOM = 'Lb',
+            $length = 1,
+            $width = 1,
+            $height = 1,
+            $dimensionUOM = 'Ft'
+        );
+        $requestBuilder->addPackage(
+            $sequenceNumber = 1,
+            $weight = 1,
+            $weightUOM = 'Lb',
+            $length = 1,
+            $width = 1,
+            $height = 1,
+            $dimensionUOM = 'yd'
         );
 
         $requestBuilder->setInsurance(
@@ -54,8 +101,6 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
 
         $requestBuilder->setTermsOfTrade($termsOfTrade = 'CFR');
         $requestBuilder->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS);
-        $requestBuilder->setDimensionsUOM('SU');
-        $requestBuilder->setWeightUOM('SI');
         $requestBuilder->setReadyAtTimestamp(238948923);
 
         $request = $requestBuilder->build();
@@ -67,8 +112,6 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 $unscheduledPickup,
                 $termsOfTrade = 'CFR',
                 $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-                $dimensionUOM = 'SU',
-                $weightUOM = 'SI',
                 $readyAtTimestamp = 238948923
             ),
             $request->getShipmentDetails()
@@ -83,13 +126,62 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertEquals(
-            [new Package(
-                $sequenceNumber = 1,
-                $weight = 1.123,
-                $length = 1.123,
-                $width = 1.123,
-                $height = 1.123
-            )],
+            [
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1.123,
+                    $weightUOM = 'KG',
+                    $length = 1.123,
+                    $width = 1.123,
+                    $height = 1.123,
+                    $dimensionUOM = 'CM'
+                ),
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1.123,
+                    $weightUOM = 'LB',
+                    $length = 1.123,
+                    $width = 1.123,
+                    $height = 1.123,
+                    $dimensionUOM = 'IN'
+                ),
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1,
+                    $weightUOM = 'KG',
+                    $length = 1,
+                    $width = 1,
+                    $height = 1,
+                    $dimensionUOM = 'CM'
+                ),
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1,
+                    $weightUOM = 'LB',
+                    $length = 1,
+                    $width = 1,
+                    $height = 1,
+                    $dimensionUOM = 'CM'
+                ),
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1,
+                    $weightUOM = 'LB',
+                    $length = 12,
+                    $width = 12,
+                    $height = 12,
+                    $dimensionUOM = 'IN'
+                ),
+                new Package(
+                    $sequenceNumber = 1,
+                    $weight = 1,
+                    $weightUOM = 'LB',
+                    $length = 36,
+                    $width = 36,
+                    $height = 36,
+                    $dimensionUOM = 'IN'
+                )
+            ],
             $request->getPackages()
         );
 

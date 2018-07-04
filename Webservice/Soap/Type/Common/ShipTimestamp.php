@@ -33,9 +33,9 @@ class ShipTimestamp implements ValueInterface
     /**
      * Constructor.
      *
-     * @param \DateTime $value The value
+     * @param string $value The value
      */
-    public function __construct(\DateTime $value)
+    public function __construct(string $value)
     {
         $this->value = $value;
     }
@@ -47,6 +47,6 @@ class ShipTimestamp implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value->format('Y-m-d\TH:i:s \G\M\TP');
+        return (string) $this->value;
     }
 }

@@ -36,16 +36,6 @@ interface ShipmentDetailsInterface
     public function getContentType(): string;
 
     /**
-     * @return string
-     */
-    public function getDimensionsUOM(): string;
-
-    /**
-     * @return string
-     */
-    public function getWeightUOM(): string;
-
-    /**
      * @return int
      */
     public function getReadyAtTimestamp(): int;

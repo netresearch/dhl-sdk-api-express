@@ -50,6 +50,7 @@ class RateService implements RateServiceInterface
     /**
      * @param RateRequestInterface $request
      * @return RateResponseInterface
+     * @throws \InvalidArgumentException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {

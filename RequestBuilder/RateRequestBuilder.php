@@ -73,24 +73,32 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @param int $sequenceNumber
      * @param float $weight
+     * @param string $weightUOM
      * @param float $length
      * @param float $width
      * @param float $height
-     * @return void
+     * @param string $dimensionsUOM
      */
     public function addPackage(
         int $sequenceNumber,
         float $weight,
+        string $weightUOM,
         float $length,
         float $width,
-        float $height
+        float $height,
+        string $dimensionsUOM
     ): void {
+        $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
+        $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
+
         $this->data['packages'][] = [
             'sequenceNumber' => $sequenceNumber,
-            'weight' => $weight,
-            'length' => $length,
-            'width' => $width,
-            'height' => $height
+            'weight' => $weightDetails['weight'],
+            'weightUOM' => $weightDetails['uom'],
+            'length' => $dimensionsDetails['length'],
+            'width' => $dimensionsDetails['width'],
+            'height' => $dimensionsDetails['height'],
+            'dimensionsUOM' => $dimensionsDetails['uom']
         ];
     }
 
@@ -126,22 +134,6 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     public function setContentType(string $contentType): void
     {
         $this->data['contentType'] = $contentType;
-    }
-
-    /**
-     * @param string $dimensionsUOM
-     */
-    public function setDimensionsUOM(string $dimensionsUOM): void
-    {
-        $this->data['dimensionsUOM'] = $dimensionsUOM;
-    }
-
-    /**
-     * @param string $weightUOM
-     */
-    public function setWeightUOM(string $weightUOM): void
-    {
-        $this->data['weightUOM'] = $weightUOM;
     }
 
     /**
@@ -187,8 +179,6 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             $this->data['unscheduledPickup'],
             $this->data['termsOfTrade'],
             $this->data['contentType'],
-            $this->data['dimensionsUOM'],
-            $this->data['weightUOM'],
             $this->data['readyAtTimestamp']
         );
 
@@ -198,9 +188,11 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             $packages[] = new Package(
                 $package['sequenceNumber'],
                 $package['weight'],
+                $package['weightUOM'],
                 $package['length'],
                 $package['width'],
-                $package['height']
+                $package['height'],
+                $package['dimensionsUOM']
             );
         }
 
@@ -222,5 +214,49 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         $this->data = [];
 
         return $request;
+    }
+
+    /**
+     * @param $weight
+     * @param $uom
+     * @throws \InvalidArgumentException
+     * @return array
+     */
+    private function normalizeWeight($weight, $uom)
+    {
+        if ($uom === 'KG' || $uom === 'LB') {
+            return ['weight' => $weight, 'uom' => $uom];
+        }
+        if ($uom === 'G') {
+            return ['weight' => $weight / 1000,  'uom' => 'KG'];
+        }
+        if ($uom === 'OZ') {
+            return ['weight' => $weight / 16,  'uom' => 'LB'];
+        }
+        throw new \InvalidArgumentException(
+            'Invalid weight unit of measurement.'
+        );
+    }
+
+    private function normalizeDimensions($length, $width, $height, $uom)
+    {
+        if ($uom === 'CM' || $uom === 'IN') {
+            return ['length' => $length, 'width' => $width, 'height' => $height, 'uom' => $uom];
+        }
+        if ($uom === 'MM') {
+            return ['length' => $length / 10, 'width' => $width / 10, 'height' => $height / 10, 'uom' => 'CM'];
+        }
+        if ($uom === 'M') {
+            return ['length' => $length * 100, 'width' => $width * 100, 'height' => $height * 100, 'uom' => 'CM'];
+        }
+        if ($uom === 'FT') {
+            return ['length' => $length * 12, 'width' => $width * 12, 'height' => $height * 12, 'uom' => 'IN'];
+        }
+        if ($uom === 'YD') {
+            return ['length' => $length * 36, 'width' => $width * 36, 'height' => $height * 36, 'uom' => 'IN'];
+        }
+        throw new \InvalidArgumentException(
+            'Invalid dimensions unit of measurement.'
+        );
     }
 }

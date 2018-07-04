@@ -45,17 +45,17 @@ class RateRequestTest extends TestCase
             $unscheduledPickup = true,
             $termsOfTrade = 'CFR',
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $dimensionUOM   = 'SU',
-            $weightUOM   = 'SI',
-            $readyAtDate    = 238948923
+            $readyAtDate = 238948923
         );
 
         $package = new Package(
             $sequenceNumber = 1,
-            $weight         = 1.123,
-            $length         = 1.123,
-            $width          = 1.123,
-            $height         = 1.123
+            $weight = 1.123,
+            $weightUOM = 'SI',
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = 'SU'
         );
 
         $packages = [$package, $package];
