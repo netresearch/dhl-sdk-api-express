@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Integration\Webservice\Soap\Response;
 
+use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
-use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
@@ -60,7 +60,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
     {
          $soapClientMock = $this->getMockFromWsdl(
              WsdlProvider::getWsdlFile(),
-            TestSoapClient::class,
+            SoapClientFake::class,
             '',
             [
                 '__doRequest',
@@ -69,7 +69,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
-            ->will(self::returnValue($this->loadResponseXml($responseXml)));
+            ->willReturn($this->loadResponseXml($responseXml));
 
         /** @var ShipmentResponse $response */
         $response = $soapClientMock->__soapCall('createShipmentRequest', []);

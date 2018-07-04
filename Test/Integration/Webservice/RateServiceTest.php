@@ -5,9 +5,9 @@
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
-use Dhl\Express\Mock\SoapClientFake;
-use Dhl\Express\Mock\SoapServiceFactoryFake;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
+use Dhl\Express\Test\Integration\Mock\SoapClientFake;
+use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 

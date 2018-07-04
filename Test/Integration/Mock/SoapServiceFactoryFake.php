@@ -2,13 +2,11 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Mock;
+namespace Dhl\Express\Test\Integration\Mock;
 
-use Dhl\Express\Api\PickupServiceInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
-use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Webservice\RateService;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;

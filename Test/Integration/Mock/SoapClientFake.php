@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Mock;
+namespace Dhl\Express\Test\Integration\Mock;
 
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\ClassMap;
@@ -17,23 +17,16 @@ class SoapClientFake extends \SoapClient
 {
     /**
      * SoapClientFake constructor.
-     * @param string $wsdl
-     * @param mixed[] $options
      */
-    public function __construct($wsdl, array $options = null)
+    public function __construct()
     {
-        $wsdl = WsdlProvider::getWsdlFile();
-
-        $clientOptions = [
-            'trace' => true,
-            'classmap' => ClassMap::get(),
-            'features' => \SOAP_SINGLE_ELEMENT_ARRAYS,
-        ];
-
-        if (!empty($options)) {
-            $options = array_merge($options, $clientOptions);
-        }
-
-        parent::__construct($wsdl, $options);
+        parent::__construct(
+            WsdlProvider::getWsdlFile(),
+            [
+                'trace'    => true,
+                'classmap' => ClassMap::get(),
+                'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+            ]
+        );
     }
 }

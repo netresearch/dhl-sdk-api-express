@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Integration\Webservice\Soap\Request;
 
+use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
-use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages;
@@ -102,7 +102,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 
         $soapClientMock = $this->getMockFromWsdl(
             WsdlProvider::getWsdlFile(),
-            TestSoapClient::class,
+            SoapClientFake::class,
             '',
             [
                 '__doRequest',
