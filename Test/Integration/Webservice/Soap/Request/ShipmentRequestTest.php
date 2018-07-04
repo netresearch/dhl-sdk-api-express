@@ -36,24 +36,21 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
     public function testCreateShipmentRequestXmlMapping()
     {
         $shipmentInfo = new ShipmentInfo(
-            DropOffType::REQUEST_COURIER,
-            'U',
-            'EUR',
+            DropOffType::REGULAR_PICKUP,
+            'P',
+            'SGD',
             UnitOfMeasurement::SI
         );
 
-        $shipmentInfo->setAccount('XXXXXXXXX')
-            ->setPackagesCount(1)
-            ->setLabelType(LabelType::PDF)
-            ->setLabelTemplate('ECOM26_84_001');
+        $shipmentInfo->setAccount('XXXXXXXXX');
 
         $internationalDetail = new InternationalDetail(
-            (new Commodities('ppps sd'))
+            (new Commodities('Customer Reference 1'))
                 ->setNumberOfPieces(1)
-                ->setCountryOfManufacture('CZ')
+                ->setCountryOfManufacture('CN')
                 ->setQuantity(1)
-                ->setUnitPrice(10)
-                ->setCustomsValue(1)
+                ->setUnitPrice(5)
+                ->setCustomsValue(10)
         );
 
         $internationalDetail->setContent(Content::NON_DOCUMENTS);
@@ -61,21 +58,22 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
         $ship = new Ship(
             // Shipper
             new ContactInfo(
-                (new Contact('John Smith', 'DHL', '003932423423'))
-                    ->setEmailAddress('John.Smith@dhl.com'),
-                new Address('V Parku 2308/10', 'Prague', '14800', 'CZ')
+                (new Contact('Tester 1', 'DHL', '2175441239'))
+                    ->setEmailAddress('jb@acme.com'),
+                new Address('#05-33 Singapore Post Centre', 'Singapore', '408600', 'SG')
             ),
             // Recipient
             new ContactInfo(
-                (new Contact('Jane Smith', 'Deutsche Post DHL', '004922832432423'))
-                    ->setEmailAddress('ane.Smith@dhl.de'),
-                new Address('Via Felice Matteucci 2', 'Firenze', '50127', 'IT')
+                (new Contact('Tester 2', 'Acme Inc', '88347346643'))
+                    ->setEmailAddress('jackie.chan@eei.com'),
+                (new Address('500 Hunt Valley Road', 'New Kensington PA', '15068', 'US'))
+                    ->setStateOrProvinceCode('PA')
             )
         );
 
         $packages = new Packages([
-            (new RequestedPackages(9.0, new Dimensions(46, 34, 31), 'TEST CZ-IT', 1))
-                ->setInsuredValue(10),
+            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 1', 1)),
+            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 2', 2)),
         ]);
 
         $shipTimestamp = (new \DateTime())
@@ -90,10 +88,6 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             $ship,
             $packages
         );
-
-        $requestedShipment->setPickupLocation('west wing 3rd Floor')
-            ->setPickupLocationCloseTime('16:12')
-            ->setSpecialPickupInstruction('fragile items');
 
         $shipmentRequest = new ShipmentRequest($requestedShipment);
 

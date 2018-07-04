@@ -1,0 +1,80 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <SOAP-ENV:Header></SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:ShipmentRequest>
+            <RequestedShipment>
+                <ShipmentInfo>
+                    <DropOffType>REGULAR_PICKUP</DropOffType>
+                    <ServiceType>P</ServiceType>
+                    <Account>143816942</Account>
+                    <Currency>SGD</Currency>
+                    <UnitOfMeasurement>SI</UnitOfMeasurement>
+                </ShipmentInfo>
+                <ShipTimestamp>2018-07-11T12:30:47GMT+01:00</ShipTimestamp>
+                <PaymentInfo>DDP</PaymentInfo>
+                <InternationalDetail>
+                    <Commodities>
+                        <NumberOfPieces>1</NumberOfPieces>
+                        <Description>Customer Reference 1</Description>
+                        <CountryOfManufacture>CN</CountryOfManufacture>
+                        <Quantity>1</Quantity>
+                        <UnitPrice>5</UnitPrice>
+                        <CustomsValue>10</CustomsValue>
+                    </Commodities>
+                    <Content>NON_DOCUMENTS</Content>
+                </InternationalDetail>
+                <Ship>
+                    <Shipper>
+                        <Contact>
+                            <PersonName>Tester 1</PersonName>
+                            <CompanyName>DHL</CompanyName>
+                            <PhoneNumber>2175441239</PhoneNumber>
+                            <EmailAddress>jb@acme.com</EmailAddress>
+                        </Contact>
+                        <Address>
+                            <StreetLines>#05-33 Singapore Post Centre</StreetLines>
+                            <City>Singapore</City>
+                            <PostalCode>408600</PostalCode>
+                            <CountryCode>SG</CountryCode>
+                        </Address>
+                    </Shipper>
+                    <Recipient>
+                        <Contact>
+                            <PersonName>Tester 2</PersonName>
+                            <CompanyName>Acme Inc</CompanyName>
+                            <PhoneNumber>88347346643</PhoneNumber>
+                            <EmailAddress>jackie.chan@eei.com</EmailAddress>
+                        </Contact>
+                        <Address>
+                            <StreetLines>500 Hunt Valley Road</StreetLines>
+                            <City>New Kensington PA</City>
+                            <StateOrProvinceCode>PA</StateOrProvinceCode>
+                            <PostalCode>15068</PostalCode>
+                            <CountryCode>US</CountryCode>
+                        </Address>
+                    </Recipient>
+                </Ship>
+                <Packages>
+                    <RequestedPackages number="1">
+                        <Weight>2.0</Weight>
+                        <Dimensions>
+                            <Length>1</Length>
+                            <Width>2</Width>
+                            <Height>3</Height>
+                        </Dimensions>
+                        <CustomerReferences>Piece 1</CustomerReferences>
+                    </RequestedPackages>
+                    <RequestedPackages number="2">
+                        <Weight>2.0</Weight>
+                        <Dimensions>
+                            <Length>1</Length>
+                            <Width>2</Width>
+                            <Height>3</Height>
+                        </Dimensions>
+                        <CustomerReferences>Piece 2</CustomerReferences>
+                    </RequestedPackages>
+                </Packages>
+            </RequestedShipment>
+        </ns1:ShipmentRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
