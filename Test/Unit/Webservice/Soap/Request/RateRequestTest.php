@@ -50,13 +50,17 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             new RequestedPackages(3.5, new Dimensions(4, 5, 6), 2),
         ];
 
+        $shipTimestamp = (new \DateTime())
+            ->setTime(10, 0)
+            ->modify('+6 hours');
+
         $packages = new Packages($requestedPackages);
 
         $requestedShipment = new RequestedShipment(
             DropOffType::REQUEST_COURIER,
             $ship,
             $packages,
-            '2020-01-01T12:00:00GMT-06:00',
+            $shipTimestamp,
             UnitOfMeasurement::SU
         );
 
@@ -93,7 +97,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
-            ->with(self::callback(function ($requestXml) {
+            ->with(self::callback(function ($requestXml) use ($shipTimestamp) {
                 self::assertInternalType('string', $requestXml);
 
                 $document = new \DOMDocument();
@@ -111,7 +115,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 $this->assertSame(1, (int) $xPath->evaluate('count(//RequestedShipment)'));
                 $this->assertSame(DropOffType::REQUEST_COURIER, $xPath->query('//RequestedShipment/DropOffType/text()')->item(0)->textContent);
                 $this->assertSame(NextBusinessDay::Y, $xPath->query('//RequestedShipment/NextBusinessDay/text()')->item(0)->textContent);
-                $this->assertSame('2020-01-01T12:00:00GMT-06:00', $xPath->query('//RequestedShipment/ShipTimestamp/text()')->item(0)->textContent);
+                $this->assertSame($shipTimestamp->format('Y-m-d\TH:i:s \G\M\TP'), $xPath->query('//RequestedShipment/ShipTimestamp/text()')->item(0)->textContent);
                 $this->assertSame(UnitOfMeasurement::SU, $xPath->query('//RequestedShipment/UnitOfMeasurement/text()')->item(0)->textContent);
                 $this->assertSame(Content::NON_DOCUMENTS, $xPath->query('//RequestedShipment/Content/text()')->item(0)->textContent);
                 $this->assertSame('200', $xPath->query('//RequestedShipment/DeclaredValue/text()')->item(0)->textContent);

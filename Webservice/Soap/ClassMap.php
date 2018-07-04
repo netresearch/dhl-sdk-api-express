@@ -27,14 +27,20 @@ class ClassMap
     {
         return [
             // getRateRequest response
-            'docTypeRef_RateResponseType'  => Soap\Response\RateResponse::class,
-            'docTypeRef_ProviderType'      => Soap\Response\RateResponse\Provider::class,
-            'docTypeRef_NotificationType3' => Soap\Response\RateResponse\Notification::class,
-            'docTypeRef_ServiceType'       => Soap\Response\RateResponse\Service::class,
-            'docTypeRef_TotalNetType'      => Soap\Response\RateResponse\TotalNet::class,
-            'docTypeRef_ChargesType'       => Soap\Response\RateResponse\Charges::class,
-            'docTypeRef_ChargeType'        => Soap\Response\RateResponse\Charge::class,
+            'docTypeRef_NotificationType3' => Soap\Type\Common\Notification::class,
+            'docTypeRef_RateResponseType'  => Soap\Type\RateResponse::class,
+            'docTypeRef_ProviderType'      => Soap\Type\RateResponse\Provider::class,
+            'docTypeRef_ServiceType'       => Soap\Type\RateResponse\Provider\Service::class,
+            'docTypeRef_TotalNetType'      => Soap\Type\RateResponse\Provider\Service\TotalNet::class,
+            'docTypeRef_ChargesType'       => Soap\Type\RateResponse\Provider\Service\Charges::class,
+            'docTypeRef_ChargeType'        => Soap\Type\RateResponse\Provider\Service\Charges\Charge::class,
 
+            // createShipmentRequest response
+            'docTypeRef_NotificationType2'   => Soap\Type\Common\Notification::class,
+            'docTypeRef_ShipmentDetailType'  => Soap\Type\ShipmentResponse::class,
+            'docTypeRef_PackagesResultsType' => Soap\Type\ShipmentResponse\PackagesResults::class,
+            'docTypeRef_PackageResultType'   => Soap\Type\ShipmentResponse\PackagesResults\PackageResult::class,
+            'docTypeRef_LabelImageType'      => Soap\Type\ShipmentResponse\LabelImage::class,
 
 //            'docTypeRef_RateResponseType' => Soap\Type\RateRequest\RateResponseType::class,
 //            'docTypeRef_ClientDetailType3' => Soap\Type\RateRequest\ClientDetail::class,
@@ -79,9 +85,7 @@ class ClassMap
 //            'docTypeRef_DangerousGoods' => Soap\Type\ShipmentRequest\DangerousGoods::class,
 //            'docTypeRef_Content' => Soap\Type\ShipmentRequest\Content::class,
 //            'docTypeRef_NotificationType2' => Soap\Type\ShipmentRequest\NotificationType2::class,
-//            'docTypeRef_PackagesResultsType' => Soap\Type\ShipmentRequest\PackagesResultsType::class,
-//            'docTypeRef_PackageResultType' => Soap\Type\ShipmentRequest\PackageResultType::class,
-//            'docTypeRef_LabelImageType' => Soap\Type\ShipmentRequest\LabelImageType::class,
+//
         ];
     }
 }

@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
+namespace Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
 
 /**
  * The charge section.

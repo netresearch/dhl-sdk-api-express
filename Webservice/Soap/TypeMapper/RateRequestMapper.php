@@ -7,14 +7,13 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\SpecialServiceInterface;
 use Dhl\Express\Model\Request\ShipmentDetails;
+use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 use Dhl\Express\Webservice\Soap\Type\RateRequest;
-use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;

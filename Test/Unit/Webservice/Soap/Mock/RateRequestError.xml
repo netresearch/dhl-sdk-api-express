@@ -1,7 +1,0 @@
-<rateresp:RateResponse>
-    <Provider code="DHL">
-        <Notification code="1003">
-            <Message>Pick-up service is not provided on this day.</Message>
-        </Notification>
-    </Provider>
-</rateresp:RateResponse>

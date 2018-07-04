@@ -1,0 +1,70 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+namespace Dhl\Express\Webservice\Soap\Type\ShipmentResponse;
+
+/**
+ * The Label Image section of the response provides the label format in the LabelImageFormat field (i.e. PDF),
+ * as well as the base64 encoded label image in the GraphicImage field. The HTML Image is not used.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Rico Sonntag <rico.sonntag@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
+class LabelImage
+{
+    /**
+     * The label image format. Mapped from Request Document. Currently always “PDF”.
+     *
+     * @var null|string
+     */
+    private $LabelImageFormat;
+
+    /**
+     * The graphic image. This field contains the actual label as Base64 Binary. There will be one document
+     * containing all the labels for each package/piece on separate pages.
+     *
+     * @var string
+     */
+    private $GraphicImage;
+
+    /**
+     * The HTML image. Currently not used.
+     *
+     * @var string
+     */
+    private $HTMLImage;
+
+    /**
+     * Returns the label image format.
+     *
+     * @return string
+     */
+    public function getLabelImageFormat(): string
+    {
+      return $this->LabelImageFormat;
+    }
+
+    /**
+     * Returns the graphic image binary.
+     * 
+     * @return string
+     */
+    public function getGraphicImage(): string
+    {
+        return $this->GraphicImage;
+    }
+
+    /**
+     * Returns the HTML image.
+     * 
+     * @return null|string
+     */
+    public function getHTMLImage(): ?string
+    {
+        return $this->HTMLImage;
+    }
+}

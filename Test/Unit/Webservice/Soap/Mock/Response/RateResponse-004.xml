@@ -1,0 +1,12 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <rateresp:RateResponse xmlns:rateresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
+            <Provider code="DHL">
+                <Notification code="1003">
+                    <Message>Pick-up service is not provided on this day.</Message>
+                </Notification>
+            </Provider>
+        </rateresp:RateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

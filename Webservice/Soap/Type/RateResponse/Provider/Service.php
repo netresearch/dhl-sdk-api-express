@@ -2,7 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
+namespace Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
+
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\TotalNet;
 
 /**
  * The service section.
@@ -103,7 +106,7 @@ class Service
      *
      * @return null|false|\DateTime
      */
-    public function getDeliveryTime(): mixed
+    public function getDeliveryTime(): ?\DateTime
     {
         if ($this->DeliveryTime === null) {
             return null;
@@ -121,7 +124,7 @@ class Service
      *
      * @return null|false|\DateTime
      */
-    public function getCutoffTime(): mixed
+    public function getCutoffTime(): ?\DateTime
     {
         if ($this->CutoffTime === null) {
             return null;

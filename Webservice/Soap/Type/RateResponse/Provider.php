@@ -2,7 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
+namespace Dhl\Express\Webservice\Soap\Type\RateResponse;
+
+use Dhl\Express\Webservice\Soap\Type\Common\Notification;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
 
 /**
  * The provider section.
@@ -32,7 +35,7 @@ class Provider
     /**
      * List of services.
      *
-     * @var array|Service[]
+     * @var null|array|Service[]
      */
     private $Service;
 
@@ -59,9 +62,9 @@ class Provider
     /**
      * Returns the list of services.
      *
-     * @return array|Service[]
+     * @return null|array|Service[]
      */
-    public function getService(): array
+    public function getService(): ?array
     {
         return $this->Service;
     }

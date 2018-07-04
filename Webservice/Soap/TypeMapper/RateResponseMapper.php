@@ -6,6 +6,8 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
 
+use Dhl\Express\Webservice\Soap\Response\RateResponse;
+
 /**
  * Rate Request Mapper.
  *
@@ -19,10 +21,11 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 class RateResponseMapper
 {
     /**
-     * @param RateResponseType $rateResponse
+     * @param RateResponse $rateResponse
+     *
      * @return RateResponseInterface
      */
-    public function map(RateResponseType $rateResponse)
+    public function map(RateResponse $rateResponse)
     {
         $rates = [];
 

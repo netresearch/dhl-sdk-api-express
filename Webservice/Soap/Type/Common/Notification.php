@@ -2,10 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
+namespace Dhl\Express\Webservice\Soap\Type\Common;
 
 /**
- * The notification section.
+ * The notification response section.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -23,7 +23,7 @@ class Notification
     private $Message;
 
     /**
-     * Notification code: valid values are 0=SUCCESS, other value=ERROR
+     * Response code: Valid values are 0=SUCCESS, other value=ERROR.
      *
      * @var int
      */
@@ -40,7 +40,7 @@ class Notification
     }
 
     /**
-     * Returns the notification code.
+     * Returns the response code. Success = 0, Error > 0.
      *
      * @return int
      */

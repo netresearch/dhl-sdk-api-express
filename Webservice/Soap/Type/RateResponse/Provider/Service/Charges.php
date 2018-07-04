@@ -2,10 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
+namespace Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
+
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges\Charge;
 
 /**
- * The total net section.
+ * The list of charges section.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -13,24 +15,24 @@ namespace Dhl\Express\Webservice\Soap\Response\RateResponse;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class TotalNet
+class Charges
 {
     /**
-     * This the currency of the rated shipment for the product listed.
+     * This the currency for all line item charges listed in the Charge section
      *
      * @var string
      */
     private $Currency;
 
     /**
-     * This is the total prize of the rated shipment for the product listed.
+     * List of charge sections.
      *
-     * @var float
+     * @var array|Charge[]
      */
-    private $Amount;
+    private $Charge;
 
     /**
-     * Returns the currency.
+     * Returns the currency of all charges.
      *
      * @return string
      */
@@ -40,12 +42,12 @@ class TotalNet
     }
 
     /**
-     * Returns the amount.
+     * Returns list of charge sections.
      *
-     * @return float
+     * @return array|Charge[]
      */
-    public function getAmount(): float
+    public function getCharge(): array
     {
-        return (float) $this->Amount;
+        return $this->Charge;
     }
 }

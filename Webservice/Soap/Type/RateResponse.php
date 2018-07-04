@@ -2,9 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Response;
+namespace Dhl\Express\Webservice\Soap\Type;
 
-use Dhl\Express\Webservice\Soap\Response\RateResponse\Provider;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
 
 /**
  * The rate response. The critical information to derive from this response are the notification codes
@@ -28,7 +28,7 @@ class RateResponse
     /**
      * Returns the list of providers.
      * 
-     * @return array|Provider[]
+     * @return array|Provider[] Array of Provider
      */
     public function getProvider(): array
     {

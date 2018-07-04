@@ -2,10 +2,16 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Webservice\Soap\Response;
+namespace Dhl\Express\Test\Unit\Webservice\Soap\Type;
 
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
-use Dhl\Express\Webservice\Soap\Response\RateResponse;
+use Dhl\Express\Webservice\Soap\Type\Common\Notification;
+use Dhl\Express\Webservice\Soap\Type\RateResponse;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges\Charge;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\TotalNet;
 
 /**
  * Tests RateRequest
@@ -15,11 +21,11 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
     /**
      * Loads the response example from file and return the XML content.
      * 
-     * @param string $xmlFileFile File name to load
+     * @param string $xmlFile File name to load
      *
      * @return string
      */
-    private function loadResponseXml($xmlFile)
+    private function loadResponseXml(string $xmlFile): string
     {
         $fileName = realpath(__DIR__ . '/../Mock/Response/' . $xmlFile . '.xml');
 
@@ -35,12 +41,13 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function rateResponseProvider()
+    public function rateResponseProvider(): array
     {
         return [
-            ['RateRequest-001'],
-            ['RateRequest-002'],
-            ['RateRequest-003'],
+            ['RateResponse-001'],
+            ['RateResponse-002'],
+            ['RateResponse-003'],
+            ['RateResponse-004'],
         ];
     }
 
@@ -52,7 +59,7 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      * @throws \ReflectionException
      * @dataProvider rateResponseProvider
      */
-    public function testRateRequestResponseClassMapping($responseXml)
+    public function testRateResponseClassMapping(string $responseXml)
     {
          $soapClientMock = $this->getMockFromWsdl(
             __DIR__ . '/../Wsdl/expressRateBook.wsdl',
@@ -74,30 +81,32 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
         $this->assertInternalType('array', $response->getProvider());
 
         foreach ($response->getProvider() as $provider) {
-            $this->assertInstanceOf(RateResponse\Provider::class, $provider);
+            $this->assertInstanceOf(Provider::class, $provider);
             $this->assertInternalType('string', $provider->getCode());
 
-            $this->assertInstanceOf(RateResponse\Notification::class, $provider->getNotification());
+            $this->assertInstanceOf(Notification::class, $provider->getNotification());
             $this->assertInternalType('string', $provider->getNotification()->getMessage());
             $this->assertInternalType('int', $provider->getNotification()->getCode());
 
-            $this->assertInternalType('array', $provider->getService());
+            if ($provider->getService()) {
+                $this->assertInternalType('array', $provider->getService());
 
-            foreach ($provider->getService() as $service) {
-                $this->assertInstanceOf(RateResponse\Service::class, $service);
-                $this->assertInternalType('string', $service->getType());
-                $this->assertInstanceOf(RateResponse\TotalNet::class, $service->getTotalNet());
-                $this->assertInternalType('string', $service->getTotalNet()->getCurrency());
-                $this->assertInternalType('float', $service->getTotalNet()->getAmount());
+                foreach ($provider->getService() as $service) {
+                    $this->assertInstanceOf(Service::class, $service);
+                    $this->assertInternalType('string', $service->getType());
+                    $this->assertInstanceOf(TotalNet::class, $service->getTotalNet());
+                    $this->assertInternalType('string', $service->getTotalNet()->getCurrency());
+                    $this->assertInternalType('float', $service->getTotalNet()->getAmount());
 
-                if ($service->getCharges()) {
-                    $this->assertInstanceOf(RateResponse\Charges::class, $service->getCharges());
-                    $this->assertInternalType('string', $service->getCharges()->getCurrency());
+                    if ($service->getCharges()) {
+                        $this->assertInstanceOf(Charges::class, $service->getCharges());
+                        $this->assertInternalType('string', $service->getCharges()->getCurrency());
 
-                    foreach ($service->getCharges()->getCharge() as $charge) {
-                        $this->assertInstanceOf(RateResponse\Charge::class, $charge);
-                        $this->assertInternalType('string', $charge->getChargeType());
-                        $this->assertInternalType('float', $charge->getChargeAmount());
+                        foreach ($service->getCharges()->getCharge() as $charge) {
+                            $this->assertInstanceOf(Charge::class, $charge);
+                            $this->assertInternalType('string', $charge->getChargeType());
+                            $this->assertInternalType('float', $charge->getChargeAmount());
+                        }
                     }
                 }
             }

@@ -157,18 +157,18 @@ class RequestedShipment
     /**
      * Constructor.
      *
-     * @param string   $dropOffType       The drop off type
-     * @param Ship     $ship              The ship section containing shippers/recipients address
-     * @param Packages $packages          The packages list
-     * @param string   $shipTimestamp     The ship timestamp
-     * @param string   $unitOfMeasurement The unit of measurement
+     * @param string    $dropOffType       The drop off type
+     * @param Ship      $ship              The ship section containing shippers/recipients address
+     * @param Packages  $packages          The packages list
+     * @param \DateTime $shipTimestamp     The ship timestamp
+     * @param string    $unitOfMeasurement The unit of measurement
      */
     public function __construct(
-        string   $dropOffType,
-        Ship     $ship,
-        Packages $packages, 
-        string   $shipTimestamp,
-        string   $unitOfMeasurement
+        string    $dropOffType,
+        Ship      $ship,
+        Packages  $packages,
+        \DateTime $shipTimestamp,
+        string    $unitOfMeasurement
     ) {
         $this->setDropOffType($dropOffType)
             ->setShip($ship)
@@ -282,11 +282,11 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param string $shipTimestamp The ship timestamp
+     * @param \DateTime $shipTimestamp The ship timestamp
      *
      * @return self
      */
-    public function setShipTimestamp(string $shipTimestamp): RequestedShipment
+    public function setShipTimestamp(\DateTime $shipTimestamp): RequestedShipment
     {
         $this->ShipTimestamp = new ShipTimestamp($shipTimestamp);
         return $this;

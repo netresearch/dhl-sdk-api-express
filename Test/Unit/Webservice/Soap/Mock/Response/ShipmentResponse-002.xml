@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <shipresp:ShipmentResponse xmlns:shipresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse">
+            <Notification code="1001">
+                <Message>The requested product(s) (X) not available based on your search criteria.(8614)</Message>
+            </Notification>
+            <Notification code="998">
+                <Message>Process failure occurred. Process ID associated for that transaction (8614)</Message>
+            </Notification>
+        </shipresp:ShipmentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

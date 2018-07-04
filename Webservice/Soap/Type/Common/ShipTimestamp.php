@@ -26,27 +26,27 @@ class ShipTimestamp implements ValueInterface
     /**
      * The date/time.
      *
-     * @var string
+     * @var \DateTime
      */
     private $value;
 
     /**
      * Constructor.
      *
-     * @param string $value The value
+     * @param \DateTime $value The value
      */
-    public function __construct(string $value)
+    public function __construct(\DateTime $value)
     {
         $this->value = $value;
     }
 
     /**
-     * Returns the value as string.
+     * Returns the formatted date/time value as string.
      *
      * @return string
      */
     public function __toString(): string
     {
-        return (string) $this->value;
+        return (string) $this->value->format('Y-m-d\TH:i:s \G\M\TP');
     }
 }

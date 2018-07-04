@@ -1,0 +1,21 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <shipresp:ShipmentResponse xmlns:shipresp="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse">
+            <Notification code="0">
+                <Message/>
+            </Notification>
+            <PackagesResult>
+                <PackageResult number="1">
+                    <TrackingNumber>JD012038742880009933</TrackingNumber>
+                </PackageResult>
+            </PackagesResult>
+            <LabelImage>
+                <LabelImageFormat>PDF</LabelImageFormat>
+                <GraphicImage>JVBERi0xLjQKJe…</GraphicImage>
+            </LabelImage>
+            <ShipmentIdentificationNumber>2324866051</ShipmentIdentificationNumber>
+            <DispatchConfirmationNumber>PRG999126012345</DispatchConfirmationNumber>
+        </shipresp:ShipmentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
