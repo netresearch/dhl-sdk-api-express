@@ -2,8 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-
-namespace Dhl\Express\RequestBuilder;
+namespace Dhl\Express\Test\Unit\RequestBuilder;
 
 use Dhl\Express\Model\RateRequest;
 use Dhl\Express\Model\Request\Insurance;
@@ -11,6 +10,7 @@ use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
+use Dhl\Express\RequestBuilder\RateRequestBuilder;
 
 /**
  * @package  Dhl\Express\Test\Unit

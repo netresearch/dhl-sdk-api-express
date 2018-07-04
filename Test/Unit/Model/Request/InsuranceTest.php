@@ -2,10 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-
-namespace Dhl\Express\Model\Request;
+namespace Dhl\Express\Test\Unit\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
+use Dhl\Express\Model\Request\Insurance;
 use PHPUnit\Framework\TestCase;
 
 /**

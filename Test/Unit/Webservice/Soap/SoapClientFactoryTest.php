@@ -2,7 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap;
+namespace Dhl\Express\Test\Unit\Webservice\Soap;
+
+use Dhl\Express\Webservice\Soap\SoapClientFactory;
 
 /**
  * @package Dhl\Express\Test\Unit

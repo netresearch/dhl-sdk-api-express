@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test;
+namespace Dhl\Express\Test\Unit;
 
 /**
  * Test PHPUnit is configured properly.

@@ -2,12 +2,13 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice;
+namespace Dhl\Express\Test\Unit\Webservice;
 
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
+use Dhl\Express\Webservice\ShipmentService;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**

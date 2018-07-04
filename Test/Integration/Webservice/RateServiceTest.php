@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice;
+namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Mock\SoapClientFake;

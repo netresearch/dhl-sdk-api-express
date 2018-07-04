@@ -2,8 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Webservice\Soap\Type;
+namespace Dhl\Express\Test\Integration\Webservice\Soap\Response;
 
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\RateResponse;
@@ -62,7 +63,7 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
     public function testRateResponseClassMapping(string $responseXml)
     {
          $soapClientMock = $this->getMockFromWsdl(
-            __DIR__ . '/../Wsdl/expressRateBook.wsdl',
+             WsdlProvider::getWsdlFile(),
             TestSoapClient::class,
             '',
             [

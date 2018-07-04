@@ -2,10 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
+namespace Dhl\Express\Test\Integration\Webservice\Soap\Request;
 
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
-use Dhl\Express\Webservice\Soap\AuthHeaderFactory;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages;
@@ -100,9 +100,8 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 //var_dump($shipmentRequest);
 //exit;
 
-        /** @var \SoapClient $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(
-            __DIR__ . '/../Wsdl/expressRateBook.wsdl',
+            WsdlProvider::getWsdlFile(),
             TestSoapClient::class,
             '',
             [
@@ -116,10 +115,10 @@ ini_set('xdebug.var_display_max_depth', -1);
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
-            ->with(self::callback(function ($requestXml) use ($shipTimestamp) {
+            ->willReturnCallback(function ($requestXml) use ($shipTimestamp) {
 
 var_dump($requestXml);
-exit;
+//exit;
 
 //                self::assertInternalType('string', $requestXml);
 //
@@ -129,12 +128,10 @@ exit;
 //                $xPath = new \DOMXPath($document);
 //
 //                $this->assertSame(1, (int) $xPath->evaluate('count(//ns1:ShipmentRequest)'));
-//
 
-                return true;
-            }))
-            ->will(self::returnValue(''));
+                return '';
+            });
 
-        $soapClientMock->__soapCall('createShipmentRequest', [ $shipmentRequest ]);
+        $soapClientMock->createShipmentRequest($shipmentRequest);
     }
 }

@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Mock;
 
-use Dhl\Express\Provider\WsdlProvider;
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\ClassMap;
 
 /**

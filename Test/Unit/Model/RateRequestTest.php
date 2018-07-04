@@ -2,11 +2,15 @@
 /**
  * See LICENSE.md for license details.
  */
-
-namespace Dhl\Express\Model\Request;
+namespace Dhl\Express\Test\Unit\Model;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Model\RateRequest;
+use Dhl\Express\Model\Request\Insurance;
+use Dhl\Express\Model\Request\Package;
+use Dhl\Express\Model\Request\RecipientAddress;
+use Dhl\Express\Model\Request\ShipmentDetails;
+use Dhl\Express\Model\Request\ShipperAddress;
 use PHPUnit\Framework\TestCase;
 
 /**

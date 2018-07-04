@@ -2,8 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Webservice\Soap\Request;
+namespace Dhl\Express\Test\Integration\Webservice\Soap\Request;
 
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Test\Unit\Webservice\Soap\TestSoapClient;
 use Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\Type\Common\Billing\ShippingPaymentType;
@@ -19,7 +20,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\RateRequest;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\NextBusinessDay;
-//use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestValueAddedServices;
@@ -87,7 +87,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
         $rateRequest->setClientDetail($clientDetail);
 
         $soapClientMock = $this->getMockFromWsdl(
-            __DIR__ . '/../Wsdl/expressRateBook.wsdl',
+            WsdlProvider::getWsdlFile(),
             TestSoapClient::class,
             '',
             [
@@ -97,7 +97,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
-            ->with(self::callback(function ($requestXml) use ($shipTimestamp) {
+            ->willReturnCallback(function ($requestXml) use ($shipTimestamp) {
                 self::assertInternalType('string', $requestXml);
 
                 $document = new \DOMDocument();
@@ -168,10 +168,9 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
                 $this->assertSame('II', $xPath->query('//SpecialServices/Service[2]/ServiceType/text()')->item(0)->textContent);
 
-                return true;
-            }))
-            ->will(self::returnValue(''));
+                return '';
+            });
 
-        $soapClientMock->__soapCall('getRateRequest', [ $rateRequest ]);
+        $soapClientMock->getRateRequest($rateRequest);
     }
 }

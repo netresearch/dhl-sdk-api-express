@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Provider;
+namespace Dhl\Express\Test\Integration\Provider;
 
 /**
  * @package  Dhl\Express\Test\Provider

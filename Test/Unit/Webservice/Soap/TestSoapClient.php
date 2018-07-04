@@ -4,6 +4,7 @@
  */
 namespace Dhl\Express\Test\Unit\Webservice\Soap;
 
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\ClassMap;
 
 /**
@@ -14,8 +15,6 @@ use Dhl\Express\Webservice\Soap\ClassMap;
  */
 class TestSoapClient extends \SoapClient
 {
-    private const WSDL = __DIR__ . '/Wsdl/expressRateBook.wsdl';
-
     /**
      * Constructor.
      *
@@ -28,6 +27,6 @@ class TestSoapClient extends \SoapClient
             'classmap' => ClassMap::get(),
         ];
 
-        parent::__construct(self::WSDL, $options);
+        parent::__construct(WsdlProvider::getWsdlFile(), $options);
     }
 }

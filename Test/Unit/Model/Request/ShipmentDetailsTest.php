@@ -2,9 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Request;
+namespace Dhl\Express\Test\Unit\Model\Request;
 
 use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
+use Dhl\Express\Model\Request\ShipmentDetails;
 use PHPUnit\Framework\TestCase;
 
 /**
