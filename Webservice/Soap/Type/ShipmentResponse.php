@@ -49,15 +49,15 @@ class ShipmentResponse
     private $ShipmentIdentificationNumber;
 
     /**
-     * The booking reference number. This number should be used when interacting with the DHL customer s
-     * ervice regarding the pickup process.
+     * The booking reference number. This number should be used when interacting with the DHL customer
+     * service regarding the pickup process.
      *
      * @var null|string
      */
     private $DispatchConfirmationNumber;
 
     /**
-     * Returns the response notifcation.
+     * Returns the response notification.
      *
      * @return array|Notification[] Array of Notification
      */

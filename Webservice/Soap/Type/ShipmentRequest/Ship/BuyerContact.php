@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact as ShipmentContact;
 
 /**
- * An buyer contact.
+ * A buyer contact.
  *
  * @api
  * @package  Dhl\Express\Api

@@ -5,7 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\Type\Common;
 
 /**
- * The cient detail is an optional node for reference use, and does not affect functionality.
+ * The client detail is an optional node for reference use, and does not affect functionality.
  *
  * @api
  * @package  Dhl\Express\Api

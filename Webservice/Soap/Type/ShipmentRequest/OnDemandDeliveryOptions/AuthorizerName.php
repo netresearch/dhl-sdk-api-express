@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\OnDemandDeliveryOptio
 use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
 
 /**
- * The authorizer name.
+ * The name of the authorized person.
  *
  * Mandatory if delivery option is SX or SW– this is the person that this authorised to sign and receive
  * the DHL Express shipment.

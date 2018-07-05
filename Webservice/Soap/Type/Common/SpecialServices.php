@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Common;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 
 /**
- * The special ervices section communicates additional shipping services, such as
+ * The special services section communicates additional shipping services, such as
  * Insurance (or Shipment Value Protection).
  *
  * @api

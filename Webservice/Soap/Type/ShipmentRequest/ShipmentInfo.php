@@ -119,7 +119,7 @@ class ShipmentInfo
     /**
      * The LabelType node conveys the label type used in the operation. It is an optional field. This single value
      * corresponds to the label type returned to customer. Customer can send one of the four values in this field
-     * (PDF, ZPL, EPL, LP2). If customer didn’t include this tag, the default is PDF.
+     * (PDF, ZPL, EPL, LP2). If customer did not include this tag, the default is PDF.
      *
      * @var null|LabelType
      */
@@ -416,7 +416,7 @@ class ShipmentInfo
      */
     public function getSendPackage(): ?string
     {
-      return $this->SendPackage;
+        return $this->SendPackage;
     }
 
     /**
@@ -428,8 +428,8 @@ class ShipmentInfo
      */
     public function setSendPackage(string $sendPackage): ShipmentInfo
     {
-      $this->SendPackage = $sendPackage;
-      return $this;
+        $this->SendPackage = $sendPackage;
+        return $this;
     }
 
     /**

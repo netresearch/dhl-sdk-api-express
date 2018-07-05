@@ -17,8 +17,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class LWNTypeCode implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 1;
-
     /**
      * Leave with neighbour.
      *
@@ -49,9 +47,7 @@ class LWNTypeCode implements ValueInterface
      */
     public function __construct($value = self::N)
     {
-        if ((strlen($value) !== self::NUMBER_OF_CHARS)
-            || !in_array($value, [self::N, self::Y])
-        ) {
+        if (!in_array($value, [self::N, self::C])) {
             throw new \InvalidArgumentException('Argument must be either "N" or "C"');
         }
 

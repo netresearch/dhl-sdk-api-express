@@ -81,7 +81,7 @@ class OnDemandDeliveryOptions
 
     /**
      * The requested delivery date. Reserved for future use.
-     * 
+     *
      * @var null|RequestedDeliveryDate
      */
     private $RequestedDeliveryDate;
@@ -98,7 +98,7 @@ class OnDemandDeliveryOptions
 
     /**
      * Returns the delivery option.
-     * 
+     *
      * @return DeliveryOption
      */
     public function getDeliveryOption(): DeliveryOption
@@ -108,7 +108,7 @@ class OnDemandDeliveryOptions
 
     /**
      * Sets the delivery option.
-     * 
+     *
      * @param string $deliveryOption The delivery option
      *
      * @return self
@@ -258,7 +258,7 @@ class OnDemandDeliveryOptions
     }
 
     /**
-     * Returns the authorizer name.
+     * Returns the name of the authorized person.
      *
      * @return null|AuthorizerName
      */
@@ -268,15 +268,15 @@ class OnDemandDeliveryOptions
     }
 
     /**
-     * Sets the authorizer name.
+     * Sets the name of the authorized person.
      *
-     * @param string $authorizerName The authorizer name
+     * @param string $name The name of the authorized person
      *
      * @return self
      */
-    public function setAuthorizerName(string $authorizerName): OnDemandDeliveryOptions
+    public function setAuthorizerName(string $name): OnDemandDeliveryOptions
     {
-        $this->AuthorizerName = new AuthorizerName($authorizerName);
+        $this->AuthorizerName = new AuthorizerName($name);
         return $this;
     }
 

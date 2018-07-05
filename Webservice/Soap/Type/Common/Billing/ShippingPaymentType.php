@@ -7,7 +7,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * The shiping payment type.
+ * The shipping payment type.
  *
  * @api
  * @package  Dhl\Express\Api

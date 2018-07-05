@@ -17,8 +17,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class YesNo implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 1;
-
     /**
      * This case will provide services for the subsequent business day, if available.
      *

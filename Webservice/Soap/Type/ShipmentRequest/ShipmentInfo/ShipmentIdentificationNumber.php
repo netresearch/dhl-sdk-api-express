@@ -8,7 +8,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
 
 /**
  * The shipment identification number does not need to be transmitted in the request as the operation will assign
- * a new number and return it in the response. Only used when UseOwnShipmentdentificationNumber set to Y and this
+ * a new number and return it in the response. Only used when UseOwnShipmentIdentificationNumber set to Y and this
  * feature enabled within client profile.
  *
  * @api

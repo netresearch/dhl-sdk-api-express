@@ -10,7 +10,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * A label template.
  *
  * Any valid DHL Express label template (please contact your DHL Express IT representative for a list of labels)
- * – If this node is left blank then the default DHL ecommerce label template will be used.
+ * – If this node is left blank then the default DHL e-commerce label template will be used.
  *
  * @api
  * @package  Dhl\Express\Api
