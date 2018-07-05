@@ -34,7 +34,7 @@ class OnDemandDeliveryOptions
     private $DeliveryOption;
 
     /**
-     * The location.
+     * The location where exactly to leave the shipment.
      *
      * @var null|Location
      */
@@ -55,26 +55,36 @@ class OnDemandDeliveryOptions
     private $GateCode;
 
     /**
+     * The LWN type code.
+     *
      * @var null|LWNTypeCode
      */
     private $LWNTypeCode;
 
     /**
+     * The neighbour name.
+     *
      * @var null|NeighbourName
      */
     private $NeighbourName;
 
     /**
+     * The neighbour house number.
+     *
      * @var null|NeighbourHouseNumber
      */
     private $NeighbourHouseNumber;
 
     /**
+     * The name of the authorized person.
+     *
      * @var null|AuthorizerName
      */
     private $AuthorizerName;
 
     /**
+     * The selected service point id.
+     *
      * @var null|SelectedServicePointId
      */
     private $SelectedServicePointID;
@@ -89,11 +99,66 @@ class OnDemandDeliveryOptions
     /**
      * Constructor.
      *
-     * @param string $deliveryOption The delivery option
+     * @param string      $deliveryOption         The delivery option
+     * @param null|string $location               The location where exactly to leave the shipment
+     * @param null|string $lwnTypeCode            The LWN type code
+     * @param null|string $neighbourName          The neighbour name
+     * @param null|string $neighbourHouseNumber   The neighbour house number
+     * @param null|string $authorizerName         The name of the authorized person
+     * @param null|string $selectedServicePointId The selected service point id
      */
-    public function __construct(string $deliveryOption)
-    {
+    public function __construct(
+        string $deliveryOption,
+        ?string $location               = null,
+        ?string $lwnTypeCode            = null,
+        ?string $neighbourName          = null,
+        ?string $neighbourHouseNumber   = null,
+        ?string $authorizerName         = null,
+        ?string $selectedServicePointId = null
+    ) {
         $this->setDeliveryOption($deliveryOption);
+
+        if ($deliveryOption === DeliveryOption::SX) {
+            if (empty($location)) {
+                throw new \InvalidArgumentException('The location is required for selected delivery option');
+            }
+        }
+
+        if ($deliveryOption === DeliveryOption::SW) {
+            if (empty($lwnTypeCode)) {
+                throw new \InvalidArgumentException(
+                    'The LWN type code is required for selected delivery option'
+                );
+            }
+
+            if (($lwnTypeCode === LWNTypeCode::N) && empty($neighbourName)) {
+                throw new \InvalidArgumentException(
+                    'The neighbour name is required for LWN type code "' . LWNTypeCode::N . '"'
+                );
+            }
+
+            if (($lwnTypeCode === LWNTypeCode::N) && empty($neighbourHouseNumber)) {
+                throw new \InvalidArgumentException(
+                    'The neighbour house number is required for LWN type code "' . LWNTypeCode::N . '"'
+                );
+            }
+        }
+
+        if (($deliveryOption === DeliveryOption::SW)
+            || ($deliveryOption === DeliveryOption::SX)
+        ) {
+            if (empty($authorizerName)) {
+                throw new \InvalidArgumentException('The name of the authorized person is required');
+            }
+        }
+
+        if ($deliveryOption === DeliveryOption::TV) {
+            if (empty($selectedServicePointId)) {
+                throw new \InvalidArgumentException(
+                    'The selected service point id is required for selected delivery option'
+                );
+            }
+        }
     }
 
     /**

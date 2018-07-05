@@ -69,6 +69,7 @@ class RateRequestMapper
             $this->mapUOM($weightUOM, $dimensionsUOM)
         );
 
+        // TODO If using Billing, the "account" should be leaved out
         $requestedShipment->setAccount($rateRequest->getShipperAccountNumber());
         $requestedShipment->setPaymentInfo($rateRequest->getShipmentDetails()->getTermsOfTrade());
         $requestedShipment->setContent($rateRequest->getShipmentDetails()->getContentType());
