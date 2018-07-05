@@ -55,7 +55,7 @@ class ShipTimestamp implements ValueInterface
 
         // Formatted date/time
         } elseif (is_string($time)) {
-            if (!$this->validateDate($time)) {
+            if (!$this->validateDateTime($time)) {
                 throw new \InvalidArgumentException(
                     'Invalid date given. Required format: YYYY-MM-DDTHH:MM:SS GMT+k'
                 );
@@ -78,7 +78,7 @@ class ShipTimestamp implements ValueInterface
      *
      * @return bool
      */
-    private function validateDate(string $time)
+    private function validateDateTime(string $time)
     {
         $dateTime = \DateTime::createFromFormat(self::FORMAT, $time);
 
@@ -92,6 +92,6 @@ class ShipTimestamp implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value->format(self::FORMAT);
+        return $this->value->format(self::FORMAT);
     }
 }

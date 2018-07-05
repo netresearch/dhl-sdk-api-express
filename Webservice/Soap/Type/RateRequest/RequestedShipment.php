@@ -213,11 +213,11 @@ class RequestedShipment
     /**
      * Sets the next business day.
      *
-     * @param string $nextBusinessDay The next business day
+     * @param string|bool $nextBusinessDay The next business day (either Y/N or true/false)
      *
      * @return self
      */
-    public function setNextBusinessDay(string $nextBusinessDay): RequestedShipment
+    public function setNextBusinessDay($nextBusinessDay): RequestedShipment
     {
         $this->NextBusinessDay = new NextBusinessDay($nextBusinessDay);
         return $this;
@@ -489,12 +489,12 @@ class RequestedShipment
     /**
      * Sets the requested value added services section.
      *
-     * @param string $requestValueAddedServices Whether the requested value added services section should
-     *                                          be included or not
+     * @param string|bool $requestValueAddedServices Whether the requested value added services section should
+     *                                               be included or not (either Y/N or true/false)
      *
      * @return self
      */
-    public function setRequestValueAddedServices(string $requestValueAddedServices): RequestedShipment
+    public function setRequestValueAddedServices($requestValueAddedServices): RequestedShipment
     {
         $this->RequestValueAddedServices = new RequestValueAddedServices($requestValueAddedServices);
         return $this;

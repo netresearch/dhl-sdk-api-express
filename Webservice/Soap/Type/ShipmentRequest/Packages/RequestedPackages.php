@@ -179,11 +179,12 @@ class RequestedPackages
     /**
      * Sets whether to use own piece identification number or not.
      *
-     * @param string $useOwnPieceIdentificationNumber Use own piece identification number or not (Y or N)
+     * @param string|bool $useOwnPieceIdentificationNumber Use own piece identification number or not
+     *                                                     (either Y/N or true/false)
      *
      * @return RequestedPackages
      */
-    public function setUseOwnPieceIdentificationNumber(string $useOwnPieceIdentificationNumber): RequestedPackages
+    public function setUseOwnPieceIdentificationNumber($useOwnPieceIdentificationNumber): RequestedPackages
     {
         $this->UseOwnPieceIdentificationNumber = new UseOwnPieceIdentificationNumber($useOwnPieceIdentificationNumber);
         return $this;

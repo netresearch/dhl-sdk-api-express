@@ -30,17 +30,29 @@ class PickupLocationCloseTime implements ValueInterface
     /**
      * Constructor.
      *
-     * @param string $value The value
+     * @param string $value The time value
      */
     public function __construct(string $value)
     {
-        $dateTime = \DateTime::createFromFormat(self::FORMAT, $value);
-
-        if ($dateTime !== false) {
-            $this->value = $dateTime;
-        } else {
+        if (!$this->validateDateTime($value)) {
             throw new \InvalidArgumentException('The argument must be in the format ' . self::FORMAT);
         }
+
+        $this->value = \DateTime::createFromFormat(self::FORMAT, $value);
+    }
+
+    /**
+     * Validates the given date/time string against the required format.
+     *
+     * @param string $time The time to validate
+     *
+     * @return bool
+     */
+    private function validateDateTime(string $time)
+    {
+        $dateTime = \DateTime::createFromFormat(self::FORMAT, $time);
+
+        return $dateTime && ($dateTime->format(self::FORMAT) === $time);
     }
 
     /**
@@ -50,6 +62,6 @@ class PickupLocationCloseTime implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value->format(self::FORMAT);
+        return $this->value->format(self::FORMAT);
     }
 }

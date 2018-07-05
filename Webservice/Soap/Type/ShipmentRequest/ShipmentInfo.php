@@ -77,7 +77,7 @@ class ShipmentInfo
     /**
      * The unit of measurement for the dimensions of the package.
      *
-     * @var UnitOfMeasurement 
+     * @var UnitOfMeasurement
      */
     private $UnitOfMeasurement;
 
@@ -375,11 +375,12 @@ class ShipmentInfo
     /**
      * Sets the use own shipment identification number flag.
      *
-     * @param null|string $useOwnShipmentIdentificationNumber Whether to use own shipment identification number or not
+     * @param string|bool $useOwnShipmentIdentificationNumber Whether to use own shipment identification number or not
+     *                                                        (either Y/N or true/false)
      *
      * @return self
      */
-    public function setUseOwnShipmentIdentificationNumber(string $useOwnShipmentIdentificationNumber): ShipmentInfo
+    public function setUseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber): ShipmentInfo
     {
         $this->UseOwnShipmentIdentificationNumber = new UseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber);
         return $this;

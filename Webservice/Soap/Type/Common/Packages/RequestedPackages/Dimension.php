@@ -20,7 +20,7 @@ class Dimension implements ValueInterface
     /**
      * The value.
      *
-     * @var null|float
+     * @var float
      */
     private $value;
 

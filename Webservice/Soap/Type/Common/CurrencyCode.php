@@ -22,16 +22,16 @@ class CurrencyCode implements ValueInterface
     /**
      * The currency code.
      *
-     * @var null|string
+     * @var string
      */
     private $value;
 
     /**
      * Constructor.
      *
-     * @param null|string $value The value
+     * @param string $value The value
      */
-    public function __construct(?string $value)
+    public function __construct(string $value)
     {
         if (strlen($value) !== self::NUMBER_OF_CHARS) {
             throw new \InvalidArgumentException('The argument must be a three letter currency code');

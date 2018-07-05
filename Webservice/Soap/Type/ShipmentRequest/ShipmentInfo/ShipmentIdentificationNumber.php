@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 
-use Dhl\Express\Webservice\Soap\Type\Common\YesNo;
+use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
 
 /**
  * The shipment identification number does not need to be transmitted in the request as the operation will assign
@@ -17,6 +17,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\YesNo;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class ShipmentIdentificationNumber extends YesNo
+class ShipmentIdentificationNumber extends AlphaNumeric
 {
 }

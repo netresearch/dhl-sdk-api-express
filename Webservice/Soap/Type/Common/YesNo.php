@@ -38,26 +38,28 @@ class YesNo implements ValueInterface
     /**
      * The value.
      *
-     * @var string
+     * @var bool
      */
     private $value;
 
     /**
      * Constructor.
      *
-     * @param string $value The value
+     * @param string|bool $value The value (either Y/N or true/false)
      *
      * @throws \InvalidArgumentException
      */
     public function __construct($value = self::N)
     {
-        if ((strlen($value) !== self::NUMBER_OF_CHARS)
-            || !in_array($value, [self::N, self::Y])
-        ) {
-            throw new \InvalidArgumentException('Argument must be either "N" or "Y"');
+        if (is_string($value)) {
+            if (!in_array($value, [self::N, self::Y])) {
+                throw new \InvalidArgumentException('Argument must be either Y/N or true/false');
+            }
+
+            $this->value = $value === self::Y ? true : false;
         }
 
-        $this->value = $value;
+        $this->value = (bool) $value;
     }
 
     /**
@@ -67,6 +69,6 @@ class YesNo implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value;
+        return ($this->value ? self::Y : self::N);
     }
 }

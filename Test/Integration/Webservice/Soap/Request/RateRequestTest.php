@@ -69,7 +69,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             (new Service('II')),
         ]);
 
-        $requestedShipment->setNextBusinessDay(NextBusinessDay::Y)
+        $requestedShipment->setNextBusinessDay(true)
             ->setContent(Content::NON_DOCUMENTS)
             ->setDeclaredValue('200')
             ->setDeclaredValueCurrencyCode('USD')
@@ -77,7 +77,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             ->setAccount('123456789')
             ->setBilling(new Billing('12345678', ShippingPaymentType::R))
             ->setSpecialServices($specialServices)
-            ->setRequestValueAddedServices(RequestValueAddedServices::Y);
+            ->setRequestValueAddedServices(true);
 
         $clientDetail = new ClientDetail();
         $clientDetail->setSso('SSO')

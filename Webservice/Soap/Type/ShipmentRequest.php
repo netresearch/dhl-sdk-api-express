@@ -62,11 +62,11 @@ class ShipmentRequest
     /**
      * Sets the message id.
      *
-     * @param null|string $messageId The message id
+     * @param string $messageId The message id
      *
      * @return self
      */
-    public function setMessageId(?string $messageId): ShipmentRequest
+    public function setMessageId(string $messageId): ShipmentRequest
     {
         $this->MessageId = $messageId;
         return $this;
