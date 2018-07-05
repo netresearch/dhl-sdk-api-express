@@ -28,6 +28,8 @@ class Dimension implements ValueInterface
      * Constructor.
      *
      * @param float $value The value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(float $value)
     {

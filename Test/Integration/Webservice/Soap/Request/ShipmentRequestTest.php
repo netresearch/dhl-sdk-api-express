@@ -21,7 +21,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\LabelType;
 
 /**
  * Tests ShipmentRequest

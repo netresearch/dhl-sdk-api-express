@@ -54,6 +54,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
 
     /**
      * @param RateRequestInterface $request
+     *
      * @return RateResponseInterface
      * @throws \InvalidArgumentException
      */

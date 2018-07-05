@@ -45,13 +45,28 @@ class Billing
     /**
      * Constructor.
      *
-     * @param string $shipperAccountNumber The shipper account number
-     * @param string $shippingPaymentType  The shipping payment type
+     * @param string      $shipperAccountNumber The shipper account number
+     * @param string      $shippingPaymentType  The shipping payment type
+     * @param null|string $billingAccountNumber The billing account number (Required if payment type is R or T)
+     *
+     * @throws \InvalidArgumentException
      */
-    public function __construct(string $shipperAccountNumber, string $shippingPaymentType)
+    public function __construct(string $shipperAccountNumber, string $shippingPaymentType, ?string $billingAccountNumber = null)
     {
         $this->setShipperAccountNumber($shipperAccountNumber)
             ->setShippingPaymentType($shippingPaymentType);
+
+        if (in_array($shippingPaymentType, [ ShippingPaymentType::R, ShippingPaymentType::T ])
+            && empty($billingAccountNumber)
+        ) {
+            throw new \InvalidArgumentException(
+                'The billing account number is required for payment type "' . $shippingPaymentType . '"'
+            );
+        }
+
+        if (!empty($billingAccountNumber)) {
+            $this->setBillingAccountNumber($billingAccountNumber);
+        }
     }
 
     /**
@@ -112,9 +127,9 @@ class Billing
 
     /**
      * Sets the billing account number.
-     * 
+     *
      * @param string $billingAccountNumber The billing account number
-     *                                      
+     *
      * @return self
      */
     public function setBillingAccountNumber(string $billingAccountNumber): Billing

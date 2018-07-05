@@ -34,6 +34,7 @@ class RateRequestMapper
 {
     /**
      * @param RateRequestInterface $rateRequest
+     *
      * @return RateRequest
      * @throws \InvalidArgumentException
      */
@@ -138,8 +139,9 @@ class RateRequestMapper
      * Check if all packages have the same units of measurement (UOM) for weight and dimensions
      *
      * @param array $packages
-     * @throws \InvalidArgumentException
+     *
      * @return void
+     * @throws \InvalidArgumentException
      */
     private function checkConsistentUOM(array $packages): void
     {

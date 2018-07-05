@@ -47,7 +47,7 @@ class YesNo implements ValueInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct($value = self::N)
+    public function __construct($value = false)
     {
         if (is_string($value)) {
             if (!in_array($value, [self::N, self::Y])) {

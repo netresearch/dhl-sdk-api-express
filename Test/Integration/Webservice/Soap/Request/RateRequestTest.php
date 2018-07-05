@@ -22,7 +22,6 @@ use Dhl\Express\Webservice\Soap\Type\RateRequest;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\NextBusinessDay;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
-use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestValueAddedServices;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;
 
 /**
@@ -75,7 +74,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             ->setDeclaredValueCurrencyCode('USD')
             ->setPaymentInfo(PaymentInfo::DDP)
             ->setAccount('123456789')
-            ->setBilling(new Billing('12345678', ShippingPaymentType::R))
+            ->setBilling(new Billing('12345678', ShippingPaymentType::S))
             ->setSpecialServices($specialServices)
             ->setRequestValueAddedServices(true);
 
@@ -157,7 +156,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 // Billing
                 $this->assertSame(1, $xPath->query('//Billing')->length);
                 $this->assertSame('12345678', $xPath->query('//Billing/ShipperAccountNumber/text()')->item(0)->textContent);
-                $this->assertSame(ShippingPaymentType::R, $xPath->query('//Billing/ShippingPaymentType/text()')->item(0)->textContent);
+                $this->assertSame(ShippingPaymentType::S, $xPath->query('//Billing/ShippingPaymentType/text()')->item(0)->textContent);
 
                 // SpecialServices
                 $this->assertSame(1, $xPath->query('//SpecialServices')->length);

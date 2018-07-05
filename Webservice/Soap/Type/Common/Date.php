@@ -33,6 +33,8 @@ class Date implements ValueInterface
      * Constructor.
      *
      * @param int|string|\DateTime $date The date value, either as timestamp, formatted date string or \DateTime instance
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct($date)
     {

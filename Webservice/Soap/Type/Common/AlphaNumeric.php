@@ -31,6 +31,8 @@ class AlphaNumeric implements ValueInterface
      * Constructor.
      *
      * @param string $value The value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(string $value)
     {
@@ -46,7 +48,7 @@ class AlphaNumeric implements ValueInterface
             );
         }
 
-        $this->value = $value;
+        $this->value = (string) $value;
     }
 
     /**
@@ -56,6 +58,6 @@ class AlphaNumeric implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value;
+        return $this->value;
     }
 }

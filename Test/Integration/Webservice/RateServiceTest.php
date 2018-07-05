@@ -53,6 +53,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param array $packages
      * @param float $insuranceValue
      * @param string $insuranceCurrency
+     *
      * @throws \ReflectionException
      */
     public function collectRates(
@@ -78,6 +79,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
             ->expects(self::exactly(2)) // request + response
             ->method('debug')
             ->with(self::isType('string'), self::isType('array')); // message + context array
+
         $service = $this->getRateService($logger);
 
         $requestBuilder = new RateRequestBuilder();
@@ -88,6 +90,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->setTermsOfTrade($termsOfTrade);
         $requestBuilder->setContentType($contentType);
         $requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
+
         foreach ($packages as $seq => $package) {
             $requestBuilder->addPackage(
                 $seq,

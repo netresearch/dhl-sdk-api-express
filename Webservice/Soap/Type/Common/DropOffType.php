@@ -44,6 +44,8 @@ class DropOffType implements ValueInterface
      * Constructor.
      *
      * @param string $value The value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct($value = self::REGULAR_PICKUP)
     {

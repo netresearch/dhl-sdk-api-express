@@ -31,6 +31,8 @@ class PickupLocationCloseTime implements ValueInterface
      * Constructor.
      *
      * @param string $value The time value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(string $value)
     {
