@@ -24,6 +24,11 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
 class ShipTimestamp implements ValueInterface
 {
     /**
+     * Output format.
+     */
+    private const FORMAT = 'Y-m-d\TH:i:s \G\M\TP';
+
+    /**
      * The date/time.
      *
      * @var \DateTime
@@ -33,11 +38,51 @@ class ShipTimestamp implements ValueInterface
     /**
      * Constructor.
      *
-     * @param string $value The value
+     * @param mixed $time The date/time value, either as timestamp, formatted date string or \DateTime instance
      */
-    public function __construct(string $value)
+    public function __construct($time)
     {
-        $this->value = $value;
+        // DateTime instance
+        if ($time instanceof \DateTime) {
+            $this->value = $time;
+
+        // Timestamp
+        } elseif (is_int($time)) {
+            $dateTime = new \DateTime();
+            $dateTime->setTimestamp($time);
+
+            $this->value = $dateTime;
+
+        // Formatted date/time
+        } elseif (is_string($time)) {
+            if (!$this->validateDate($time)) {
+                throw new \InvalidArgumentException(
+                    'Invalid date given. Required format: YYYY-MM-DDTHH:MM:SS GMT+k'
+                );
+            }
+
+            $this->value = \DateTime::createFromFormat(self::FORMAT, $time);
+
+        // Invalid date/time
+        } else {
+            throw new \InvalidArgumentException(
+                'Invalid date given. Either pass valid date/time string, timestamp or instance of \DateTime'
+            );
+        }
+    }
+
+    /**
+     * Validates the given date/time string against the required format.
+     *
+     * @param string $time The time to validate
+     *
+     * @return bool
+     */
+    private function validateDate(string $time)
+    {
+        $dateTime = \DateTime::createFromFormat(self::FORMAT, $time);
+
+        return $dateTime && ($dateTime->format(self::FORMAT) === $time);
     }
 
     /**
@@ -47,6 +92,6 @@ class ShipTimestamp implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value;
+        return (string) $this->value->format(self::FORMAT);
     }
 }

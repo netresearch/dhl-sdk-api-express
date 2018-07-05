@@ -90,7 +90,7 @@ class RequestedShipment
      * Constructor.
      *
      * @param ShipmentInfo        $shipmentInfo        The shipment info
-     * @param \DateTime           $shipTimestamp       The shipping timestamp
+     * @param mixed               $shipTimestamp       The shipping timestamp (either int timestamp, \DateTime instance, formatted string)
      * @param string              $paymentInfo         The payment info
      * @param InternationalDetail $internationalDetail The international detail
      * @param Ship                $ship                The shipper/recipient address section
@@ -98,7 +98,7 @@ class RequestedShipment
      */
     public function __construct(
         ShipmentInfo $shipmentInfo,
-        \DateTime $shipTimestamp,
+        $shipTimestamp,
         string $paymentInfo,
         InternationalDetail $internationalDetail,
         Ship $ship,
@@ -148,11 +148,11 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param \DateTime $shipTimestamp The ship timestamp
+     * @param mixed $shipTimestamp The ship timestamp (either int timestamp, \DateTime instance, formatted string)
      *
      * @return self
      */
-    public function setShipTimestamp(\DateTime $shipTimestamp): RequestedShipment
+    public function setShipTimestamp($shipTimestamp): RequestedShipment
     {
         $this->ShipTimestamp = new ShipTimestamp($shipTimestamp);
         return $this;
