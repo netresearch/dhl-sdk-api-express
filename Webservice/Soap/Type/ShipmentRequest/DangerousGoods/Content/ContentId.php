@@ -17,5 +17,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class ContentId extends AlphaNumeric
 {
+    protected const MIN_LENGTH = 3;
     protected const MAX_LENGTH = 3;
 }

@@ -19,4 +19,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class ShipmentIdentificationNumber extends AlphaNumeric
 {
+    protected const MAX_LENGTH = 10;
 }

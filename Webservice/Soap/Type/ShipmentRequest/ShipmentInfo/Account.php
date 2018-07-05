@@ -2,12 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
+namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 
 use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
 
 /**
- * The export Reference field, appears on label.
+ * A shipment info account.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -15,8 +15,8 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class ExportReference extends AlphaNumeric
+class Account extends AlphaNumeric
 {
     protected const MIN_LENGTH = 0;
-    protected const MAX_LENGTH = 40;
+    protected const MAX_LENGTH = 12;
 }

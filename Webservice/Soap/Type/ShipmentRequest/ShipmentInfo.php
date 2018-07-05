@@ -4,12 +4,12 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\Type\Common\Account;
 use Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\Type\Common\CurrencyCode;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\Account;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\LabelTemplate;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\LabelType;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\PackagesCount;
