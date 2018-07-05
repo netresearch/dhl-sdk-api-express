@@ -6,6 +6,7 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Model\Request\Insurance;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
 use PHPUnit\Framework\TestCase;
 use Dhl\Express\Model\RateRequest;
 use Dhl\Express\Model\Request\Package;
@@ -171,7 +172,7 @@ class RateRequestMapperTest extends TestCase
          * @var Service $soapService
          */
         foreach ($soapSpecialServices as $soapService) {
-            if ($soapService->getServiceType()->__toString() === 'II') {
+            if ($soapService->getServiceType()->__toString() === ServiceType::TYPE_INSURANCE) {
                 $soapInsurance = $soapService;
             }
         }

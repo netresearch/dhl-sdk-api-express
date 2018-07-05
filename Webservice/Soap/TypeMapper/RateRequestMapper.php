@@ -75,7 +75,7 @@ class RateRequestMapper
 
         $specialServicesList = [];
         if ($insurance = $rateRequest->getInsurance()) {
-            $insuranceService = new Service('II');
+            $insuranceService = new Service(SpecialServices\ServiceType::TYPE_INSURANCE);
             $insuranceService->setServiceValue($insurance->getValue());
             $insuranceService->setCurrencyCode($insurance->getCurrencyCode());
             $specialServicesList[] = $insuranceService;

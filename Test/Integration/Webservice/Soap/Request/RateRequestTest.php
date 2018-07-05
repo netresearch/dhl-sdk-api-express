@@ -17,6 +17,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\RateRequest;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\NextBusinessDay;
@@ -64,8 +65,10 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
         );
 
         $specialServices = new SpecialServices([
-            (new Service('II'))->setCurrencyCode('EUR')->setServiceValue(24.5),
-            (new Service('II')),
+            (new Service(ServiceType::TYPE_INSURANCE))
+                ->setCurrencyCode('EUR')
+                ->setServiceValue(24.5),
+            (new Service(ServiceType::TYPE_INSURANCE)),
         ]);
 
         $requestedShipment->setNextBusinessDay(true)
@@ -161,11 +164,11 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 // SpecialServices
                 $this->assertSame(1, $xPath->query('//SpecialServices')->length);
                 $this->assertSame(2, (int) $xPath->evaluate('count(//SpecialServices/Service)'));
-                $this->assertSame('II', $xPath->query('//SpecialServices/Service[1]/ServiceType/text()')->item(0)->textContent);
+                $this->assertSame(ServiceType::TYPE_INSURANCE, $xPath->query('//SpecialServices/Service[1]/ServiceType/text()')->item(0)->textContent);
                 $this->assertSame(24.5, (float) $xPath->query('//SpecialServices/Service[1]/ServiceValue/text()')->item(0)->textContent);
                 $this->assertSame('EUR', $xPath->query('//SpecialServices/Service[1]/CurrencyCode/text()')->item(0)->textContent);
 
-                $this->assertSame('II', $xPath->query('//SpecialServices/Service[2]/ServiceType/text()')->item(0)->textContent);
+                $this->assertSame(ServiceType::TYPE_INSURANCE, $xPath->query('//SpecialServices/Service[2]/ServiceType/text()')->item(0)->textContent);
 
                 return '';
             });

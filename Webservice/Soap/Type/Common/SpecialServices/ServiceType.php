@@ -20,6 +20,11 @@ class ServiceType implements ValueInterface
     private const NUMBER_OF_CHARS = 2;
 
     /**
+     * Available service types.
+     */
+    public const TYPE_INSURANCE = 'II';
+
+    /**
      * The service type.
      *
      * @var string
