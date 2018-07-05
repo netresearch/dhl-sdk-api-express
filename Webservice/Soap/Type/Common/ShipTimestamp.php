@@ -38,7 +38,7 @@ class ShipTimestamp implements ValueInterface
     /**
      * Constructor.
      *
-     * @param mixed $time The date/time value, either as timestamp, formatted date string or \DateTime instance
+     * @param int|string|\DateTime $time The date/time value, either as timestamp, formatted date string or \DateTime instance
      */
     public function __construct($time)
     {

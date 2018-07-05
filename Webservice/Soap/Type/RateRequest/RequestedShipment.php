@@ -157,11 +157,11 @@ class RequestedShipment
     /**
      * Constructor.
      *
-     * @param string   $dropOffType       The drop off type
-     * @param Ship     $ship              The ship section containing shippers/recipients address
-     * @param Packages $packages          The packages list
-     * @param mixed    $shipTimestamp     The ship timestamp (either int timestamp, \DateTime instance, formatted string)
-     * @param string   $unitOfMeasurement The unit of measurement
+     * @param string               $dropOffType       The drop off type
+     * @param Ship                 $ship              The ship section containing shippers/recipients address
+     * @param Packages             $packages          The packages list
+     * @param int|string|\DateTime $shipTimestamp     The ship timestamp (int timestamp, formatted string or \DateTime instance)
+     * @param string               $unitOfMeasurement The unit of measurement
      */
     public function __construct(
         string    $dropOffType,
@@ -282,7 +282,7 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param mixed $shipTimestamp The ship timestamp (either int timestamp, \DateTime instance, formatted string)
+     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, formatted string or \DateTime instance)
      *
      * @return self
      */

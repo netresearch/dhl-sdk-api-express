@@ -72,7 +72,7 @@ class Service
 
     /**
      * Constructor.
-     * 
+     *
      * @param string $serviceType The service type
      */
     public function __construct(string $serviceType)
@@ -185,11 +185,11 @@ class Service
     /**
      * Sets the start date.
      *
-     * @param string $startDate The start date
+     * @param int|string|\DateTime $startDate The start date (timestamp, date string or \DateTime instance)
      *
      * @return self
      */
-    public function setStartDate(string $startDate): Service
+    public function setStartDate($startDate): Service
     {
         $this->StartDate = new Date($startDate);
         return $this;
@@ -208,11 +208,11 @@ class Service
     /**
      * Sets the end date
      *
-     * @param string $endDate The end date
+     * @param int|string|\DateTime $endDate The end date (timestamp, date string or \DateTime instance)
      *
      * @return self
      */
-    public function setEndDate(string $endDate): Service
+    public function setEndDate($endDate): Service
     {
         $this->EndDate = new Date($endDate);
         return $this;
