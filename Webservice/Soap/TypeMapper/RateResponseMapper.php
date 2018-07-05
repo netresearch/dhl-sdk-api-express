@@ -5,8 +5,9 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
-
-use Dhl\Express\Webservice\Soap\Response\RateResponse;
+use Dhl\Express\Model\RateResponse;
+use Dhl\Express\Model\Response\Rate;
+use Dhl\Express\Webservice\Soap\Type\RateResponse as SoapRateResponse;
 
 /**
  * Rate Request Mapper.
@@ -21,26 +22,28 @@ use Dhl\Express\Webservice\Soap\Response\RateResponse;
 class RateResponseMapper
 {
     /**
-     * @param RateResponse $rateResponse
+     * @param SoapRateResponse $rateResponse
      *
      * @return RateResponseInterface
      */
-    public function map(RateResponse $rateResponse)
+    public function map(SoapRateResponse $rateResponse)
     {
         $rates = [];
 
         foreach ($rateResponse->getProvider() as $provider) {
-            foreach ($provider->getService() as $service) {
-                $charges = $service->getCharges()->getCharge();
-                $totals = $service->getTotalNet();
-                $currencyCode = $totals->getCurrency();
+            if ($provider->getService()) {
+                foreach ($provider->getService() as $service) {
+                    $charges      = $service->getCharges()->getCharge();
+                    $totals       = $service->getTotalNet();
+                    $currencyCode = $totals->getCurrency();
 
-                $serviceCode = $service->getType();
-                $cost = $totals->getAmount();
-                $label = $charges[0]->getChargeType();
+                    $serviceCode = $service->getType();
+                    $cost        = $totals->getAmount();
+                    $label       = $charges[0]->getChargeType();
 
-                $rate = new Rate($serviceCode, $label, $currencyCode, $cost);
-                $rates[]= $rate;
+                    $rate = new Rate($serviceCode, $label, $cost, $currencyCode);
+                    $rates[] = $rate;
+                }
             }
         }
 

@@ -152,8 +152,9 @@ class RateRequestMapperTest extends TestCase
         );
         $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
         $this->assertEquals(
-            $rateRequestMapper->convertShipTimeStampToDateString($shipmentDetails->getReadyAtTimestamp()),
-            $soapRateRequest->getRequestedShipment()->getShipTimestamp()
+            $shipmentDetails->getReadyAtTimestamp(),
+            \DateTime::createFromFormat('Y-m-d\TH:i:s \G\M\TP', $soapRateRequest->getRequestedShipment()->getShipTimestamp())
+                ->getTimestamp()
         );
 
         $this->assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());

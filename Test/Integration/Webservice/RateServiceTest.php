@@ -101,8 +101,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         }
         $requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
 
-        $request = $requestBuilder->build();
-
+        $request  = $requestBuilder->build();
         $response = $service->collectRates($request);
 
         self::assertInstanceOf(RateResponseInterface::class, $response);
@@ -123,7 +122,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
                 'CFR', // terms of trade
                 'DOCUMENTS', // content type
-                238948923, // ready a t timestamp (shipment timestamp)
+                (new \DateTime())->modify('+1 day')->getTimestamp(), // ready at timestamp (shipment timestamp)
                 [
                     1 => [ // package sequence number
                         'weight' => 1.2, // package weight
@@ -136,9 +135,9 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                     2 => [ // package sequence number
                         'weight' => 1000, // package weight
                         'weightUOM' => 'g', // weight unit
-                        'length' => 20, // package length
-                        'width' => 15, // package width
-                        'height' => 10, // package height
+                        'length' => 0.2, // package length
+                        'width' => 0.1, // package width
+                        'height' => 0.1, // package height
                         'dimensionsUOM' => 'm' // dimensions unit
                     ],
                 ],

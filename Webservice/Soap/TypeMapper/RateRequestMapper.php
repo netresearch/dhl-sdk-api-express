@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
@@ -63,9 +64,7 @@ class RateRequestMapper
             new Packages(
                 $this->mapPackages($rateRequest->getPackages())
             ),
-            $this->convertShipTimeStampToDateString(
-                $rateRequest->getShipmentDetails()->getReadyAtTimestamp()
-            ),
+            $rateRequest->getShipmentDetails()->getReadyAtTimestamp(),
             $this->mapUOM($weightUOM, $dimensionsUOM)
         );
 
@@ -136,16 +135,6 @@ class RateRequestMapper
     }
 
     /**
-     * Convert UNIX timestamp to (e.g. 238948923 to '2018-11-26T12:00:00GMT-06:00')
-     * @param int $shipTime
-     * @return string
-     */
-    public function convertShipTimeStampToDateString(int $shipTime): string
-    {
-        return date('c', $shipTime);
-    }
-
-    /**
      * Check if all packages have the same units of measurement (UOM) for weight and dimensions
      *
      * @param array $packages
@@ -154,8 +143,10 @@ class RateRequestMapper
      */
     private function checkConsistentUOM(array $packages): void
     {
-        $weightUom = null;
+        $weightUom     = null;
         $dimensionsUOM = null;
+
+        /** @var Package $package */
         foreach ($packages as $package) {
             if (!$weightUom) {
                 $weightUom = $package->getWeightUOM();

@@ -20,6 +20,11 @@ interface RateInterface
     /**
      * @return string
      */
+    public function getServiceCode(): string;
+
+    /**
+     * @return string
+     */
     public function getLabel(): string;
 
     /**
