@@ -105,9 +105,9 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
 
         $request = $requestBuilder->build();
 
-        $this->assertInstanceOf(RateRequest::class, $request);
+        self::assertInstanceOf(RateRequest::class, $request);
 
-        $this->assertEquals(
+        self::assertEquals(
             new ShipmentDetails(
                 $unscheduledPickup,
                 $termsOfTrade = 'CFR',
@@ -117,7 +117,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $request->getShipmentDetails()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             new Insurance(
                 $value = 99.99,
                 $currencyCode = 'EU'
@@ -125,7 +125,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $request->getInsurance()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             [
                 new Package(
                     $sequenceNumber = 1,
@@ -185,9 +185,9 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $request->getPackages()
         );
 
-        $this->assertEquals($accountNumber, $request->getShipperAccountNumber());
+        self::assertEquals($accountNumber, $request->getShipperAccountNumber());
 
-        $this->assertEquals(
+        self::assertEquals(
             new ShipperAddress(
                 $countryCode = 'DE',
                 $postalCode  = '12345',
@@ -196,7 +196,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $request->getShipperAddress()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             new RecipientAddress(
                 $countryCode = 'DE',
                 $postalCode  = '12345',

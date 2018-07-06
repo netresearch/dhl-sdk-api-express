@@ -43,7 +43,7 @@ class RateRequestTest extends TestCase
 
         $shipmentDetails = new ShipmentDetails(
             $unscheduledPickup = true,
-            $termsOfTrade = 'CFR',
+            $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             $readyAtDate = 238948923
         );
@@ -62,7 +62,7 @@ class RateRequestTest extends TestCase
 
         $insurance = new Insurance(
             $value = 99.99,
-            $currencyCode = 'EU'
+            $currencyCode = 'EUR'
         );
 
         $rateRequest = new RateRequest(
@@ -74,12 +74,12 @@ class RateRequestTest extends TestCase
             $insurance
         );
 
-        $this->assertInstanceOf(RateRequestInterface::class, $rateRequest);
-        $this->assertEquals($shipperAddress, $rateRequest->getShipperAddress());
-        $this->assertEquals($shipperAccountNumber, $rateRequest->getShipperAccountNumber());
-        $this->assertEquals($recipientAddress, $rateRequest->getRecipientAddress());
-        $this->assertEquals($shipmentDetails, $rateRequest->getShipmentDetails());
-        $this->assertEquals($packages, $rateRequest->getPackages());
-        $this->assertEquals($insurance, $rateRequest->getInsurance());
+        self::assertInstanceOf(RateRequestInterface::class, $rateRequest);
+        self::assertEquals($shipperAddress, $rateRequest->getShipperAddress());
+        self::assertEquals($shipperAccountNumber, $rateRequest->getShipperAccountNumber());
+        self::assertEquals($recipientAddress, $rateRequest->getRecipientAddress());
+        self::assertEquals($shipmentDetails, $rateRequest->getShipmentDetails());
+        self::assertEquals($packages, $rateRequest->getPackages());
+        self::assertEquals($insurance, $rateRequest->getInsurance());
     }
 }
