@@ -5,19 +5,19 @@
 
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
-use Dhl\Express\Model\Request\Insurance;
-use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
-use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
-use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
-use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use PHPUnit\Framework\TestCase;
 use Dhl\Express\Model\RateRequest;
+use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\RecipientAddress;
 use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\Model\Request\ShipperAddress;
+use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
-use Dhl\Express\Webservice\Soap\Type\RateRequest as soapRateRequest;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
+use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
+use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
+use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @package  Dhl\Express\Test\Unit
@@ -138,8 +138,15 @@ class RateRequestMapperTest extends TestCase
 
         $this->assertEquals(DropOffType::REQUEST_COURIER, $soapRateRequest->getRequestedShipment()->getDropOffType());
 
-        $this->assertEquals(ShipmentDetails::PAYMENT_TYPE_CFR, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
-        $this->assertEquals(ShipmentDetails::CONTENT_TYPE_DOCUMENTS, $soapRateRequest->getRequestedShipment()->getContent());
+        $this->assertEquals(
+            ShipmentDetails::PAYMENT_TYPE_CFR,
+            $soapRateRequest->getRequestedShipment()->getPaymentInfo()
+        );
+        $this->assertEquals(
+            ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
+            $soapRateRequest->getRequestedShipment()->getContent()
+        );
+
         $this->assertEquals(
             UnitOfMeasurement::SI,
             $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()
@@ -150,7 +157,7 @@ class RateRequestMapperTest extends TestCase
          */
 
         /**
-         * @var soapRateRequest\Packages\RequestedPackages $soapPackage
+         * @var RequestedPackages $soapPackage
          */
         $soapPackage = $soapRateRequest->getRequestedShipment()->getPackages()->getRequestedPackages()[0];
         $this->assertSameSize(
@@ -160,8 +167,10 @@ class RateRequestMapperTest extends TestCase
         $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
         $this->assertEquals(
             $shipmentDetails->getReadyAtTimestamp(),
-            \DateTime::createFromFormat('Y-m-d\TH:i:s \G\M\TP', $soapRateRequest->getRequestedShipment()->getShipTimestamp())
-                ->getTimestamp()
+            \DateTime::createFromFormat(
+                'Y-m-d\TH:i:s \G\M\TP',
+                $soapRateRequest->getRequestedShipment()->getShipTimestamp()
+            )->getTimestamp()
         );
 
         $this->assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());

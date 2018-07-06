@@ -9,7 +9,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\ClientDetail;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 
 /**
- * The rate request.
+ * Soap Rate Request.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -17,18 +17,18 @@ use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class RateRequest
+class SoapRateRequest
 {
     /**
      * The client detail instance.
-     * 
+     *
      * @var null|ClientDetail
      */
     private $ClientDetail;
 
     /**
      * The requested shipment instance.
-     * 
+     *
      * @var RequestedShipment
      */
     private $RequestedShipment;
@@ -60,7 +60,7 @@ class RateRequest
      *
      * @return self
      */
-    public function setClientDetail(ClientDetail $clientDetail): RateRequest
+    public function setClientDetail(ClientDetail $clientDetail): SoapRateRequest
     {
         $this->ClientDetail = $clientDetail;
         return $this;
@@ -83,7 +83,7 @@ class RateRequest
      *
      * @return self
      */
-    public function setRequestedShipment(RequestedShipment $requestedShipment): RateRequest
+    public function setRequestedShipment(RequestedShipment $requestedShipment): SoapRateRequest
     {
         $this->RequestedShipment = $requestedShipment;
         return $this;
