@@ -26,22 +26,22 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
     public function testRateRequest()
     {
         $requestBuilder = new RateRequestBuilder;
-        $requestBuilder->setIsUnscheduledPickup(true);
-        $requestBuilder->setShipperAccountNumber('XXXXXXX');
-        $requestBuilder->setShipperAddress(
-            'DE',
-            '12345',
-            'Berlin'
-        );
-        $requestBuilder->setRecipientAddress(
-            'DE',
-            '12345',
-            'Berlin',
-             [
-                 'Sample street 5a',
-                 'Sample street 5b',
-             ]
-        );
+        $requestBuilder->setIsUnscheduledPickup(true)
+            ->setShipperAccountNumber('XXXXXXX')
+            ->setShipperAddress(
+                'DE',
+                '12345',
+                'Berlin'
+            )->setRecipientAddress(
+                'DE',
+                '12345',
+                'Berlin',
+                 [
+                     'Sample street 5a',
+                     'Sample street 5b',
+                 ]
+            );
+
         $requestBuilder->addPackage(
             1,
             1.123,
@@ -50,8 +50,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             1.123,
             1.123,
             'Cm'
-        );
-        $requestBuilder->addPackage(
+        )->addPackage(
             1,
             1.123,
             'Lb',
@@ -59,8 +58,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             1.123,
             1.123,
             'in'
-        );
-        $requestBuilder->addPackage(
+        )->addPackage(
             1,
             1000,
             'g',
@@ -68,8 +66,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             10,
             10,
             'Mm'
-        );
-        $requestBuilder->addPackage(
+        )->addPackage(
             1,
             16,
             'oz',
@@ -77,8 +74,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             0.01,
             0.01,
             'm'
-        );
-        $requestBuilder->addPackage(
+        )->addPackage(
             1,
             1,
             'Lb',
@@ -86,8 +82,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
             1,
             1,
             'Ft'
-        );
-        $requestBuilder->addPackage(
+        )->addPackage(
             1,
             1,
             'Lb',
