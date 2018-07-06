@@ -58,7 +58,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
      * @return RateResponseInterface
      * @throws \InvalidArgumentException
      */
-    public function collectRates(RateRequestInterface $request)
+    public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
         $soapRequest = $this->requestMapper->map($request);
         $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);

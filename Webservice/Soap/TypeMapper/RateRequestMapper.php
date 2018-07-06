@@ -14,7 +14,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use Dhl\Express\Webservice\Soap\Type\RateRequest;
+use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;
@@ -35,10 +35,10 @@ class RateRequestMapper
     /**
      * @param RateRequestInterface $rateRequest
      *
-     * @return RateRequest
+     * @return SoapRateRequest
      * @throws \InvalidArgumentException
      */
-    public function map(RateRequestInterface $rateRequest)
+    public function map(RateRequestInterface $rateRequest): SoapRateRequest
     {
         $this->checkConsistentUOM($rateRequest->getPackages());
 
@@ -98,7 +98,7 @@ class RateRequestMapper
             $requestedShipment->getShip()->getRecipient()->setStreetLines3($streetLines[2]);
         }
 
-        return new RateRequest($requestedShipment);
+        return new SoapRateRequest($requestedShipment);
     }
 
     /**

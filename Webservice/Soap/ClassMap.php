@@ -28,7 +28,7 @@ class ClassMap
         return [
             // getRateRequest response
             'docTypeRef_NotificationType3' => Type\Common\Notification::class,
-            'docTypeRef_RateResponseType'  => Type\RateResponse::class,
+            'docTypeRef_RateResponseType'  => Type\SoapRateResponse::class,
             'docTypeRef_ProviderType'      => Type\RateResponse\Provider::class,
             'docTypeRef_ServiceType'       => Type\RateResponse\Provider\Service::class,
             'docTypeRef_TotalNetType'      => Type\RateResponse\Provider\Service\TotalNet::class,

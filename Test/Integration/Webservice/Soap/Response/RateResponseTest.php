@@ -7,7 +7,7 @@ namespace Dhl\Express\Test\Integration\Webservice\Soap\Response;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\Type\Common\Notification;
-use Dhl\Express\Webservice\Soap\Type\RateResponse;
+use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
@@ -21,7 +21,7 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Loads the response example from file and return the XML content.
-     * 
+     *
      * @param string $xmlFile File name to load
      *
      * @return string
@@ -64,18 +64,18 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
     {
          $soapClientMock = $this->getMockFromWsdl(
              WsdlProvider::getWsdlFile(),
-            SoapClientFake::class,
-            '',
-            [
-                '__doRequest',
-            ]
-        );
+             SoapClientFake::class,
+             '',
+             [
+                 '__doRequest',
+             ]
+         );
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
             ->willReturn($this->loadResponseXml($responseXml));
 
-        /** @var RateResponse $response */
+        /** @var SoapRateResponse $response */
         $response = $soapClientMock->__soapCall('getRateRequest', []);
 
         // Test mandatory types
