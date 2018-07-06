@@ -19,36 +19,50 @@ namespace Dhl\Express\Api\Data\Request;
 interface PackageInterface
 {
     /**
+     * Returns the number of the package.
+     *
      * @return int
      */
     public function getSequenceNumber(): int;
 
     /**
+     * Returns the weight of the package.
+     *
      * @return float
      */
     public function getWeight(): float;
 
     /**
+     * Returns the length of the package.
+     *
      * @return float
      */
     public function getLength(): float;
 
     /**
+     * Returns the width of the package.
+     *
      * @return float
      */
     public function getWidth(): float;
 
     /**
+     * Returns the height of the package.
+     *
      * @return float
      */
     public function getHeight(): float;
 
     /**
+     * Returns the unit of measurement for the dimensions of the package.
+     *
      * @return string
      */
     public function getDimensionsUOM(): string;
 
     /**
+     * Returns the unit of measurement for the weight of the package.
+     *
      * @return string
      */
     public function getWeightUOM(): string;

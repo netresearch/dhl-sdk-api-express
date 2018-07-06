@@ -35,49 +35,64 @@ class Package implements PackageInterface
     public const UOM_DIMENSION_YD = 'YD';
 
     /**
+     * The number of the package in the list of all packages.
+     *
      * @var int
      */
     private $sequenceNumber;
 
     /**
+     * The weight of the package.
+     *
      * @var float
      */
     private $weight;
 
     /**
+     * The length of the package.
+     *
      * @var float
      */
     private $length;
 
     /**
+     * The width of the package.
+     *
      * @var float
      */
     private $width;
 
     /**
+     * The height of the package.
+     *
      * @var float
      */
     private $height;
 
     /**
+     * The unit of measurement for the package dimensions.
+     *
      * @var string
      */
     private $dimensionsUOM;
 
     /**
+     * The unit of measurement for the package weight.
+     *
      * @var string
      */
     private $weightUOM;
 
     /**
      * Package constructor.
-     * @param int $sequenceNumber
-     * @param float $weight
-     * @param string $weightUOM
-     * @param float $length
-     * @param float $width
-     * @param float $height
-     * @param string $dimensionsUOM
+     *
+     * @param int    $sequenceNumber The number of the package
+     * @param float  $weight         The package weight
+     * @param string $weightUOM      The unit of measurement for the package weight
+     * @param float  $length         The package length
+     * @param float  $width          The package width
+     * @param float  $height         The package height
+     * @param string $dimensionsUOM  The unit of measurement for the package dimensions
      */
     public function __construct(
         int $sequenceNumber,
@@ -89,16 +104,16 @@ class Package implements PackageInterface
         string $dimensionsUOM
     ) {
         $this->sequenceNumber = $sequenceNumber;
-        $this->weight = $weight;
-        $this->weightUOM = $weightUOM;
-        $this->length = $length;
-        $this->width = $width;
-        $this->height = $height;
-        $this->dimensionsUOM = $dimensionsUOM;
+        $this->weight         = $weight;
+        $this->weightUOM      = $weightUOM;
+        $this->length         = $length;
+        $this->width          = $width;
+        $this->height         = $height;
+        $this->dimensionsUOM  = $dimensionsUOM;
     }
 
     /**
-     * @return int
+     * @inheritdoc
      */
     public function getSequenceNumber(): int
     {
@@ -106,7 +121,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getWeight(): float
     {
@@ -114,7 +129,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getLength(): float
     {
@@ -122,7 +137,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getWidth(): float
     {
@@ -130,7 +145,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getHeight(): float
     {
@@ -138,7 +153,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getDimensionsUOM(): string
     {
@@ -146,7 +161,7 @@ class Package implements PackageInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getWeightUOM(): string
     {

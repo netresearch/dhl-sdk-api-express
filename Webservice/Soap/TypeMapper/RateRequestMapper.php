@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -104,11 +103,13 @@ class RateRequestMapper
 
     /**
      * @param PackageInterface[] $packages
+     *
      * @return RequestedPackages[]
      */
-    private function mapPackages(array $packages)
+    private function mapPackages(array $packages): array
     {
         $soapRequestedPackages = [];
+
         foreach ($packages as $package) {
             $soapRequestedPackages[] = new RequestedPackages(
                 $package->getWeight(),
@@ -125,7 +126,10 @@ class RateRequestMapper
     }
 
     /**
-     * @param bool $isUnscheduledPickup
+     * Returns whether the pickup is a scheduled one or not.
+     *
+     * @param bool $isUnscheduledPickup Whether the pickup is a scheduled one or not
+     *
      * @return string
      */
     public function getDropOfTypeFromShipDetails(bool $isUnscheduledPickup): string
@@ -140,7 +144,7 @@ class RateRequestMapper
     /**
      * Check if all packages have the same units of measurement (UOM) for weight and dimensions.
      *
-     * @param array $packages
+     * @param array $packages The list of packages
      *
      * @return void
      * @throws \InvalidArgumentException
@@ -177,8 +181,8 @@ class RateRequestMapper
     /**
      * Maps the magento unit of measurement to the DHL express unit of measurement.
      *
-     * @param string $weightUOM     Weight unit of measurement
-     * @param string $dimensionsUOM Dimension unit of measurement
+     * @param string $weightUOM     The unit of measurement for weight
+     * @param string $dimensionsUOM The unit of measurement for dimensions
      *
      * @return string
      * @throws \InvalidArgumentException
