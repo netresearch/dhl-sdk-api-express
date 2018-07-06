@@ -23,7 +23,7 @@ class InsuranceTest extends TestCase
     {
         $insurance = new Insurance(
             $value = 99.99,
-            $currencyCode = 'EU'
+            $currencyCode = 'EUR'
         );
 
         self::assertInstanceOf(InsuranceInterface::class, $insurance);
