@@ -87,13 +87,14 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         $service = $this->getRateService($logger);
 
         $requestBuilder = new RateRequestBuilder();
-        $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
-        $requestBuilder->setShipperAccountNumber($accountNumber);
-        $requestBuilder->setShipperAddress($sCountryCode, $sPostalCode, $sCity);
-        $requestBuilder->setRecipientAddress($rCountryCode, $rPostalCode, $rCity, $rStreet);
-        $requestBuilder->setTermsOfTrade($termsOfTrade);
-        $requestBuilder->setContentType($contentType);
-        $requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
+        $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup)
+            ->setShipperAccountNumber($accountNumber)
+            ->setShipperAddress($sCountryCode, $sPostalCode, $sCity)
+            ->setRecipientAddress($rCountryCode, $rPostalCode, $rCity, $rStreet)
+            ->setTermsOfTrade($termsOfTrade)
+            ->setContentType($contentType)
+            ->setReadyAtTimestamp($readyAtTimestamp)
+            ->setInsurance($insuranceValue, $insuranceCurrency);
 
         foreach ($packages as $seq => $package) {
             $requestBuilder->addPackage(
@@ -106,7 +107,6 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 $package['dimensionsUOM']
             );
         }
-        $requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
 
         $request  = $requestBuilder->build();
         $response = $service->collectRates($request);

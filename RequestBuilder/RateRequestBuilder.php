@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\RequestBuilder;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -25,59 +24,47 @@ use Dhl\Express\Model\Request\ShipperAddress;
 class RateRequestBuilder implements RateRequestBuilderInterface
 {
     /**
-     * @var mixed[]
+     * The collected data used to build the rate request.
+     *
+     * @var array
      */
     private $data = [];
 
     /**
-     * @param string $countryCode
-     * @param string $postalCode
-     * @param string $city
-     * @return void
+     * @inheritdoc
      */
-    public function setShipperAddress(string $countryCode, string $postalCode, string $city): void
+    public function setShipperAddress(string $countryCode, string $postalCode, string $city): RateRequestBuilderInterface
     {
-        $shipperAddress = [
+        $this->data['shipperAddress'] = [
             'countryCode' => $countryCode,
-            'postalCode' => $postalCode,
-            'city' => $city
-
+            'postalCode'  => $postalCode,
+            'city'        => $city,
         ];
 
-        $this->data['shipperAddress'] = $shipperAddress;
+        return $this;
     }
 
     /**
-     * @param string $countryCode
-     * @param string $postalCode
-     * @param string $city
-     * @param string[] $streetLines
-     * @return void
+     * @inheritdoc
      */
     public function setRecipientAddress(
         string $countryCode,
         string $postalCode,
         string $city,
         array $streetLines
-    ): void {
-        $recipientAddress = [
+    ): RateRequestBuilderInterface {
+        $this->data['recipientAddress'] = [
             'countryCode' => $countryCode,
-            'postalCode' => $postalCode,
-            'city' => $city,
+            'postalCode'  => $postalCode,
+            'city'        => $city,
             'streetLines' => $streetLines,
         ];
 
-        $this->data['recipientAddress'] = $recipientAddress;
+        return $this;
     }
 
     /**
-     * @param int $sequenceNumber
-     * @param float $weight
-     * @param string $weightUOM
-     * @param float $length
-     * @param float $width
-     * @param float $height
-     * @param string $dimensionsUOM
+     * @inheritdoc
      */
     public function addPackage(
         int $sequenceNumber,
@@ -87,75 +74,82 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         float $width,
         float $height,
         string $dimensionsUOM
-    ): void {
-        $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
+    ): RateRequestBuilderInterface {
+        $weightDetails     = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
         $this->data['packages'][] = [
             'sequenceNumber' => $sequenceNumber,
-            'weight' => $weightDetails['weight'],
-            'weightUOM' => $weightDetails['uom'],
-            'length' => $dimensionsDetails['length'],
-            'width' => $dimensionsDetails['width'],
-            'height' => $dimensionsDetails['height'],
-            'dimensionsUOM' => $dimensionsDetails['uom']
+            'weight'         => $weightDetails['weight'],
+            'weightUOM'      => $weightDetails['uom'],
+            'length'         => $dimensionsDetails['length'],
+            'width'          => $dimensionsDetails['width'],
+            'height'         => $dimensionsDetails['height'],
+            'dimensionsUOM'  => $dimensionsDetails['uom'],
         ];
+
+        return $this;
     }
 
     /**
-     * @param bool $unscheduledPickup
-     * @return void
+     * @inheritdoc
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup): void
+    public function setIsUnscheduledPickup(bool $unscheduledPickup): RateRequestBuilderInterface
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
+        return $this;
     }
 
     /**
-     * @param string $accountNumber
-     * @return void
+     * @inheritdoc
      */
-    public function setShipperAccountNumber(string $accountNumber): void
+    public function setShipperAccountNumber(string $accountNumber): RateRequestBuilderInterface
     {
         $this->data['shipperAccountNumber'] = $accountNumber;
+        return $this;
     }
 
     /**
-     * @param string $termsOfTrade
+     * @inheritdoc
      */
-    public function setTermsOfTrade(string $termsOfTrade): void
+    public function setTermsOfTrade(string $termsOfTrade): RateRequestBuilderInterface
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
+        return $this;
     }
 
     /**
-     * @param string $contentType
+     * @inheritdoc
      */
-    public function setContentType(string $contentType): void
+    public function setContentType(string $contentType): RateRequestBuilderInterface
     {
         $this->data['contentType'] = $contentType;
+        return $this;
     }
 
     /**
-     * @param int $readyAtTimestamp
+     * @inheritdoc
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp): void
+    public function setReadyAtTimestamp(int $readyAtTimestamp): RateRequestBuilderInterface
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
-    }
-
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency): void
-    {
-        $insurance = [
-            'value' => $insuranceValue,
-            'currencyType' => $insuranceCurrency
-        ];
-
-        $this->data['insurance'] = $insurance;
+        return $this;
     }
 
     /**
-     * @return RateRequestInterface
+     * @inheritdoc
+     */
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency): RateRequestBuilderInterface
+    {
+        $this->data['insurance'] = [
+            'value'        => $insuranceValue,
+            'currencyType' => $insuranceCurrency,
+        ];
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
      */
     public function build(): RateRequestInterface
     {
