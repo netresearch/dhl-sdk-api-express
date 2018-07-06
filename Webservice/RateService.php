@@ -36,6 +36,7 @@ class RateService implements RateServiceInterface
 
     /**
      * RateService constructor.
+     *
      * @param RateServiceAdapterInterface $adapter
      * @param LoggerInterface $logger
      */
@@ -49,6 +50,7 @@ class RateService implements RateServiceInterface
 
     /**
      * @param RateRequestInterface $request
+     *
      * @return RateResponseInterface
      * @throws \InvalidArgumentException
      */

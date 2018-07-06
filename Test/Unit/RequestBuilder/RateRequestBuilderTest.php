@@ -26,82 +26,81 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
     public function testRateRequest()
     {
         $requestBuilder = new RateRequestBuilder;
-        $requestBuilder->setIsUnscheduledPickup($unscheduledPickup = true);
-        $requestBuilder->setShipperAccountNumber($accountNumber = 'XXXXXXX');
+        $requestBuilder->setIsUnscheduledPickup(true);
+        $requestBuilder->setShipperAccountNumber('XXXXXXX');
         $requestBuilder->setShipperAddress(
-            $countryCode = 'DE',
-            $postalCode  = '12345',
-            $city        = 'Berlin'
+            'DE',
+            '12345',
+            'Berlin'
         );
         $requestBuilder->setRecipientAddress(
-            $countryCode = 'DE',
-            $postalCode  = '12345',
-            $city        = 'Berlin',
-            $streetLines = ['Sample street 5a', 'Sample street 5b']
+            'DE',
+            '12345',
+            'Berlin',
+             [
+                 'Sample street 5a',
+                 'Sample street 5b',
+             ]
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 1.123,
-            $weightUOM = 'kg',
-            $length = 1.123,
-            $width = 1.123,
-            $height = 1.123,
-            $dimensionUOM = 'Cm'
+            1,
+            1.123,
+            'kg',
+            1.123,
+            1.123,
+            1.123,
+            'Cm'
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 1.123,
-            $weightUOM = 'Lb',
-            $length = 1.123,
-            $width = 1.123,
-            $height = 1.123,
-            $dimensionUOM = 'in'
+            1,
+            1.123,
+            'Lb',
+            1.123,
+            1.123,
+            1.123,
+            'in'
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 1000,
-            $weightUOM = 'g',
-            $length = 10,
-            $width = 10,
-            $height = 10,
-            $dimensionUOM = 'Mm'
+            1,
+            1000,
+            'g',
+            10,
+            10,
+            10,
+            'Mm'
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 16,
-            $weightUOM = 'oz',
-            $length = 0.01,
-            $width = 0.01,
-            $height = 0.01,
-            $dimensionUOM = 'm'
+            1,
+            16,
+            'oz',
+            0.01,
+            0.01,
+            0.01,
+            'm'
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 1,
-            $weightUOM = 'Lb',
-            $length = 1,
-            $width = 1,
-            $height = 1,
-            $dimensionUOM = 'Ft'
+            1,
+            1,
+            'Lb',
+            1,
+            1,
+            1,
+            'Ft'
         );
         $requestBuilder->addPackage(
-            $sequenceNumber = 1,
-            $weight = 1,
-            $weightUOM = 'Lb',
-            $length = 1,
-            $width = 1,
-            $height = 1,
-            $dimensionUOM = 'yd'
+            1,
+            1,
+            'Lb',
+            1,
+            1,
+            1,
+            'yd'
         );
 
-        $requestBuilder->setInsurance(
-            $insuranceValue = 99.99,
-            $insuranceCurrency = 'EU'
-        );
-
-        $requestBuilder->setTermsOfTrade($termsOfTrade = 'CFR');
-        $requestBuilder->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS);
-        $requestBuilder->setReadyAtTimestamp(238948923);
+        $requestBuilder->setInsurance(99.99, 'EUR')
+            ->setTermsOfTrade(ShipmentDetails::PAYMENT_TYPE_CFR)
+            ->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS)
+            ->setReadyAtTimestamp(238948923);
 
         $request = $requestBuilder->build();
 
@@ -109,18 +108,18 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             new ShipmentDetails(
-                $unscheduledPickup,
-                $termsOfTrade = 'CFR',
-                $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-                $readyAtTimestamp = 238948923
+                true,
+                ShipmentDetails::PAYMENT_TYPE_CFR,
+                ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
+                238948923
             ),
             $request->getShipmentDetails()
         );
 
         self::assertEquals(
             new Insurance(
-                $value = 99.99,
-                $currencyCode = 'EU'
+                99.99,
+                'EUR'
             ),
             $request->getInsurance()
         );
@@ -128,80 +127,83 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(
             [
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1.123,
-                    $weightUOM = 'KG',
-                    $length = 1.123,
-                    $width = 1.123,
-                    $height = 1.123,
-                    $dimensionUOM = 'CM'
+                    1,
+                    1.123,
+                    Package::UOM_WEIGHT_KG,
+                    1.123,
+                    1.123,
+                    1.123,
+                    Package::UOM_DIMENSION_CM
                 ),
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1.123,
-                    $weightUOM = 'LB',
-                    $length = 1.123,
-                    $width = 1.123,
-                    $height = 1.123,
-                    $dimensionUOM = 'IN'
+                    1,
+                    1.123,
+                    Package::UOM_WEIGHT_LB,
+                    1.123,
+                    1.123,
+                    1.123,
+                    Package::UOM_DIMENSION_IN
                 ),
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1,
-                    $weightUOM = 'KG',
-                    $length = 1,
-                    $width = 1,
-                    $height = 1,
-                    $dimensionUOM = 'CM'
+                    1,
+                    1,
+                    Package::UOM_WEIGHT_KG,
+                    1,
+                    1,
+                    1,
+                    Package::UOM_DIMENSION_CM
                 ),
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1,
-                    $weightUOM = 'LB',
-                    $length = 1,
-                    $width = 1,
-                    $height = 1,
-                    $dimensionUOM = 'CM'
+                    1,
+                    1,
+                    Package::UOM_WEIGHT_LB,
+                    1,
+                    1,
+                    1,
+                    Package::UOM_DIMENSION_CM
                 ),
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1,
-                    $weightUOM = 'LB',
-                    $length = 12,
-                    $width = 12,
-                    $height = 12,
-                    $dimensionUOM = 'IN'
+                    1,
+                    1,
+                    Package::UOM_WEIGHT_LB,
+                    12,
+                    12,
+                    12,
+                    Package::UOM_DIMENSION_IN
                 ),
                 new Package(
-                    $sequenceNumber = 1,
-                    $weight = 1,
-                    $weightUOM = 'LB',
-                    $length = 36,
-                    $width = 36,
-                    $height = 36,
-                    $dimensionUOM = 'IN'
-                )
+                    1,
+                    1,
+                    Package::UOM_WEIGHT_LB,
+                    36,
+                    36,
+                    36,
+                    Package::UOM_DIMENSION_IN
+                ),
             ],
             $request->getPackages()
         );
 
-        self::assertEquals($accountNumber, $request->getShipperAccountNumber());
+        self::assertSame('XXXXXXX', $request->getShipperAccountNumber());
 
         self::assertEquals(
             new ShipperAddress(
-                $countryCode = 'DE',
-                $postalCode  = '12345',
-                $city        = 'Berlin'
+                'DE',
+                '12345',
+                'Berlin'
             ),
             $request->getShipperAddress()
         );
 
         self::assertEquals(
             new RecipientAddress(
-                $countryCode = 'DE',
-                $postalCode  = '12345',
-                $city        = 'Berlin',
-                $streetLines = ['Sample street 5a', 'Sample street 5b']
+                'DE',
+                '12345',
+                'Berlin',
+                [
+                    'Sample street 5a',
+                    'Sample street 5b',
+                ]
             ),
             $request->getRecipientAddress()
         );
