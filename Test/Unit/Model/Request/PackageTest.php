@@ -24,20 +24,20 @@ class PackageTest extends TestCase
         $package = new Package(
             $sequenceNumber = 1,
             $weight = 1.123,
-            $weightUOM   = 'kg',
+            $weightUOM  = Package::UOM_WEIGHT_KG,
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM   = 'cm'
+            $dimensionUOM = Package::UOM_DIMENSION_CM
         );
 
-        $this->assertInstanceOf(PackageInterface::class, $package);
-        $this->assertEquals($sequenceNumber, $package->getSequenceNumber());
-        $this->assertEquals($weight, $package->getWeight());
-        $this->assertEquals($weightUOM, $package->getWeightUOM());
-        $this->assertEquals($length, $package->getLength());
-        $this->assertEquals($width, $package->getWidth());
-        $this->assertEquals($height, $package->getHeight());
-        $this->assertEquals($dimensionUOM, $package->getDimensionsUOM());
+        self::assertInstanceOf(PackageInterface::class, $package);
+        self::assertSame($sequenceNumber, $package->getSequenceNumber());
+        self::assertSame($weight, $package->getWeight());
+        self::assertSame($weightUOM, $package->getWeightUOM());
+        self::assertSame($length, $package->getLength());
+        self::assertSame($width, $package->getWidth());
+        self::assertSame($height, $package->getHeight());
+        self::assertSame($dimensionUOM, $package->getDimensionsUOM());
     }
 }

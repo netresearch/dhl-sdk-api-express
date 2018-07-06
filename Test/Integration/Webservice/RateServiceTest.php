@@ -5,6 +5,7 @@
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Model\Request\ShipmentDetails;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
@@ -126,8 +127,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 '89109', // recipient postal code
                 'Las Vegas', // recipient city
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
-                PaymentInfo::CFR, // terms of trade
-                Content::DOCUMENTS, // content type
+                ShipmentDetails::PAYMENT_TYPE_CFR, // terms of trade
+                ShipmentDetails::CONTENT_TYPE_DOCUMENTS, // content type
                 (new \DateTime())->modify('+1 day')->getTimestamp(), // ready at timestamp (shipment timestamp)
                 [
                     1 => [ // package sequence number

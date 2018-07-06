@@ -28,10 +28,10 @@ class RecipientAddressTest extends TestCase
             $streetLines = ['Sample street 5a', 'Sample street 5b']
         );
 
-        $this->assertInstanceOf(RecipientAddressInterface::class, $recipientAddress);
-        $this->assertEquals($countryCode, $recipientAddress->getCountryCode());
-        $this->assertEquals($postalCode, $recipientAddress->getPostalCode());
-        $this->assertEquals($city, $recipientAddress->getCity());
-        $this->assertEquals($streetLines, $recipientAddress->getStreetLines());
+        self::assertInstanceOf(RecipientAddressInterface::class, $recipientAddress);
+        self::assertSame($countryCode, $recipientAddress->getCountryCode());
+        self::assertSame($postalCode, $recipientAddress->getPostalCode());
+        self::assertSame($city, $recipientAddress->getCity());
+        self::assertSame($streetLines, $recipientAddress->getStreetLines());
     }
 }

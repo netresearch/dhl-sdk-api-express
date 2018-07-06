@@ -26,8 +26,8 @@ class InsuranceTest extends TestCase
             $currencyCode = 'EU'
         );
 
-        $this->assertInstanceOf(InsuranceInterface::class, $insurance);
-        $this->assertEquals($value, $insurance->getValue());
-        $this->assertEquals($currencyCode, $insurance->getCurrencyCode());
+        self::assertInstanceOf(InsuranceInterface::class, $insurance);
+        self::assertSame($value, $insurance->getValue());
+        self::assertSame($currencyCode, $insurance->getCurrencyCode());
     }
 }

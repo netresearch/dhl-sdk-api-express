@@ -24,17 +24,17 @@ class ShipmentDetailsTest extends TestCase
         /** @var ShipmentDetailsInterface $shipmentDetails */
         $shipmentDetails = new ShipmentDetails(
             $unscheduledPickup = true,
-            $termsOfTrade = 'CFR',
+            $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             $readyAtTimestamp = 238948923
         );
 
-        $this->assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
-        $this->assertFalse($shipmentDetails->isRegularPickup());
-        $this->assertTrue($shipmentDetails->isUnscheduledPickup());
-        $this->assertEquals($termsOfTrade, $shipmentDetails->getTermsOfTrade());
-        $this->assertEquals($contentType, $shipmentDetails->getContentType());
-        $this->assertEquals($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
+        self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
+        self::assertFalse($shipmentDetails->isRegularPickup());
+        self::assertTrue($shipmentDetails->isUnscheduledPickup());
+        self::assertSame($termsOfTrade, $shipmentDetails->getTermsOfTrade());
+        self::assertSame($contentType, $shipmentDetails->getContentType());
+        self::assertSame($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
     }
 
     /**
@@ -45,16 +45,16 @@ class ShipmentDetailsTest extends TestCase
         /** @var ShipmentDetailsInterface $shipmentDetails */
         $shipmentDetails = new ShipmentDetails(
             $unscheduledPickup = false,
-            $termsOfTrade = 'CFR',
+            $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
             $readyAtTimestamp = 238948923
         );
 
-        $this->assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
-        $this->assertTrue($shipmentDetails->isRegularPickup());
-        $this->assertFalse($shipmentDetails->isUnscheduledPickup());
-        $this->assertEquals($termsOfTrade, $shipmentDetails->getTermsOfTrade());
-        $this->assertEquals($contentType, $shipmentDetails->getContentType());
-        $this->assertEquals($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
+        self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
+        self::assertTrue($shipmentDetails->isRegularPickup());
+        self::assertFalse($shipmentDetails->isUnscheduledPickup());
+        self::assertSame($termsOfTrade, $shipmentDetails->getTermsOfTrade());
+        self::assertSame($contentType, $shipmentDetails->getContentType());
+        self::assertSame($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
     }
 }

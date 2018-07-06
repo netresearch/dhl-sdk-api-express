@@ -27,9 +27,9 @@ class ShipperAddressTest extends TestCase
             $city        = 'Berlin'
         );
 
-        $this->assertInstanceOf(ShipperAddressInterface::class, $shipperAddress);
-        $this->assertEquals($countryCode, $shipperAddress->getCountryCode());
-        $this->assertEquals($postalCode, $shipperAddress->getPostalCode());
-        $this->assertEquals($city, $shipperAddress->getCity());
+        self::assertInstanceOf(ShipperAddressInterface::class, $shipperAddress);
+        self::assertSame($countryCode, $shipperAddress->getCountryCode());
+        self::assertSame($postalCode, $shipperAddress->getPostalCode());
+        self::assertSame($city, $shipperAddress->getCity());
     }
 }

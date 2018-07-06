@@ -54,7 +54,7 @@ class RateRequestMapperTest extends TestCase
 
         $shipmentDetails = new ShipmentDetails(
             true,
-            PaymentInfo::CFR,
+            ShipmentDetails::PAYMENT_TYPE_CFR,
             ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             238948923
         );
@@ -138,7 +138,7 @@ class RateRequestMapperTest extends TestCase
 
         $this->assertEquals(DropOffType::REQUEST_COURIER, $soapRateRequest->getRequestedShipment()->getDropOffType());
 
-        $this->assertEquals(PaymentInfo::CFR, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
+        $this->assertEquals(ShipmentDetails::PAYMENT_TYPE_CFR, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
         $this->assertEquals(ShipmentDetails::CONTENT_TYPE_DOCUMENTS, $soapRateRequest->getRequestedShipment()->getContent());
         $this->assertEquals(
             UnitOfMeasurement::SI,
