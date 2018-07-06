@@ -14,6 +14,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimension
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
+use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\RateRequest;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
@@ -137,7 +138,7 @@ class RateRequestMapper
     }
 
     /**
-     * Check if all packages have the same units of measurement (UOM) for weight and dimensions
+     * Check if all packages have the same units of measurement (UOM) for weight and dimensions.
      *
      * @param array $packages
      *
@@ -154,14 +155,17 @@ class RateRequestMapper
             if (!$weightUom) {
                 $weightUom = $package->getWeightUOM();
             }
+
             if (!$dimensionsUOM) {
                 $dimensionsUOM = $package->getDimensionsUOM();
             }
+
             if ($weightUom !== $package->getWeightUOM()) {
                 throw new \InvalidArgumentException(
                     'All packages weights must have a consistent unit of measurement.'
                 );
             }
+
             if ($dimensionsUOM !== $package->getDimensionsUOM()) {
                 throw new \InvalidArgumentException(
                     'All packages dimensions must have a consistent unit of measurement.'
@@ -171,21 +175,26 @@ class RateRequestMapper
     }
 
     /**
-     * @param $weightUOM
-     * @param $dimensionsUOM
-     * @throws \InvalidArgumentException
+     * Maps the magento unit of measurement to the DHL express unit of measurement.
+     *
+     * @param string $weightUOM     Weight unit of measurement
+     * @param string $dimensionsUOM Dimension unit of measurement
+     *
      * @return string
+     * @throws \InvalidArgumentException
      */
-    private function mapUOM($weightUOM, $dimensionsUOM): string
+    private function mapUOM(string $weightUOM, string $dimensionsUOM): string
     {
-        if ($weightUOM === 'KG' && $dimensionsUOM === 'CM') {
-            return 'SI';
+        if (($weightUOM === Package::UOM_WEIGHT_KG) && ($dimensionsUOM === Package::UOM_DIMENSION_CM)) {
+            return UnitOfMeasurement::SI;
         }
-        if ($weightUOM === 'LB' && $dimensionsUOM === 'IN') {
-            return 'SU';
+
+        if (($weightUOM === Package::UOM_WEIGHT_LB) && ($dimensionsUOM === Package::UOM_DIMENSION_IN)) {
+            return UnitOfMeasurement::SU;
         }
+
         throw new \InvalidArgumentException(
-            'All units of measurement have to be consistent (either metric system or US system.'
+            'All units of measurement have to be consistent (either metric system or US system).'
         );
     }
 }

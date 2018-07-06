@@ -8,6 +8,9 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
+use Dhl\Express\Webservice\Soap\Type\Common\Content;
+use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
+use Dhl\Express\Webservice\SoapServiceFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
@@ -123,8 +126,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
                 '89109', // recipient postal code
                 'Las Vegas', // recipient city
                 ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
-                'CFR', // terms of trade
-                'DOCUMENTS', // content type
+                PaymentInfo::CFR, // terms of trade
+                Content::DOCUMENTS, // content type
                 (new \DateTime())->modify('+1 day')->getTimestamp(), // ready at timestamp (shipment timestamp)
                 [
                     1 => [ // package sequence number

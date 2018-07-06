@@ -17,6 +17,24 @@ use Dhl\Express\Api\Data\Request\PackageInterface;
 class Package implements PackageInterface
 {
     /**
+     * Units of measurement (weight).
+     */
+    public const UOM_WEIGHT_KG = 'KG';
+    public const UOM_WEIGHT_G  = 'G';
+    public const UOM_WEIGHT_OZ = 'OZ';
+    public const UOM_WEIGHT_LB = 'LB';
+
+    /**
+     * Units of measurement (dimension).
+     */
+    public const UOM_DIMENSION_CM = 'CM';
+    public const UOM_DIMENSION_IN = 'IN';
+    public const UOM_DIMENSION_MM = 'MM';
+    public const UOM_DIMENSION_M  = 'M';
+    public const UOM_DIMENSION_FT = 'FT';
+    public const UOM_DIMENSION_YD = 'YD';
+
+    /**
      * @var int
      */
     private $sequenceNumber;

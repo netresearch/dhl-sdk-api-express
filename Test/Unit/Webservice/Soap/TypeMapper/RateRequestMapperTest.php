@@ -6,7 +6,10 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Model\Request\Insurance;
+use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
+use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
+use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use PHPUnit\Framework\TestCase;
 use Dhl\Express\Model\RateRequest;
 use Dhl\Express\Model\Request\Package;
@@ -32,35 +35,38 @@ class RateRequestMapperTest extends TestCase
         // Set up a RateRequest
 
         $shipperAddress = new ShipperAddress(
-            $countryCode = 'DE',
-            $postalCode = '12345',
-            $city = 'Berlin'
+            'DE',
+            '12345',
+            'Berlin'
         );
 
         $shipperAccountNumber = 'XXXXXXXXX';
 
         $recipientAddress = new RecipientAddress(
-            $countryCode = 'DE',
-            $postalCode = '12345',
-            $city = 'Berlin',
-            $streetLines = ['Sample street 5a', 'Sample street 5b']
+            'DE',
+            '12345',
+            'Berlin',
+            [
+                'Sample street 5a',
+                'Sample street 5b',
+            ]
         );
 
         $shipmentDetails = new ShipmentDetails(
-            $unscheduledPickup = true,
-            $termsOfTrade = 'CFR',
-            $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $readyAtTimestamp = 238948923
+            true,
+            PaymentInfo::CFR,
+            ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
+            238948923
         );
 
         $package = new Package(
-            $sequenceNumber = 1,
-            $weight = 1.123,
-            $weightUOM = 'KG',
-            $length = 1.123,
-            $width = 1.123,
-            $height = 1.123,
-            $dimensionUOM = 'CM'
+            1,
+            1.123,
+            Package::UOM_WEIGHT_KG,
+            1.123,
+            1.123,
+            1.123,
+            Package::UOM_DIMENSION_CM
         );
 
         $packages = [$package, $package];
@@ -130,13 +136,13 @@ class RateRequestMapperTest extends TestCase
             );
         }
 
-        $this->assertEquals('REQUEST_COURIER', $soapRateRequest->getRequestedShipment()->getDropOffType());
+        $this->assertEquals(DropOffType::REQUEST_COURIER, $soapRateRequest->getRequestedShipment()->getDropOffType());
 
-        $this->assertEquals($termsOfTrade, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
-        $this->assertEquals($contentType, $soapRateRequest->getRequestedShipment()->getContent()->__toString());
+        $this->assertEquals(PaymentInfo::CFR, $soapRateRequest->getRequestedShipment()->getPaymentInfo());
+        $this->assertEquals(ShipmentDetails::CONTENT_TYPE_DOCUMENTS, $soapRateRequest->getRequestedShipment()->getContent());
         $this->assertEquals(
-            'SI',
-            $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()->__toString()
+            UnitOfMeasurement::SI,
+            $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()
         );
 
         /**
@@ -172,13 +178,11 @@ class RateRequestMapperTest extends TestCase
          * @var Service $soapService
          */
         foreach ($soapSpecialServices as $soapService) {
-            if ($soapService->getServiceType()->__toString() === ServiceType::TYPE_INSURANCE) {
-                $soapInsurance = $soapService;
+            if ($soapService->getServiceType() === ServiceType::TYPE_INSURANCE) {
+                $this->assertInstanceOf(Service::class, $soapService);
+                $this->assertSame($insurance->getCurrencyCode(), $soapService->getCurrencyCode());
+                $this->assertSame($insurance->getValue(), $soapService->getServiceValue()->getValue());
             }
         }
-
-        $this->assertInstanceOf(Service::class, $soapInsurance);
-        $this->assertSame($insurance->getCurrencyCode(), $soapInsurance->getCurrencyCode()->__toString());
-        $this->assertSame($insurance->getValue(), $soapInsurance->getServiceValue()->getValue());
     }
 }
