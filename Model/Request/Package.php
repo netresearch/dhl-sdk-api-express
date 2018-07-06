@@ -103,6 +103,31 @@ class Package implements PackageInterface
         float $height,
         string $dimensionsUOM
     ) {
+        $weightUOMs = [
+            self::UOM_WEIGHT_KG,
+            self::UOM_WEIGHT_G,
+            self::UOM_WEIGHT_OZ,
+            self::UOM_WEIGHT_LB,
+        ];
+
+        $dimensionUOMs = [
+            self::UOM_DIMENSION_M,
+            self::UOM_DIMENSION_CM,
+            self::UOM_DIMENSION_MM,
+            self::UOM_DIMENSION_IN,
+            self::UOM_DIMENSION_YD,
+            self::UOM_DIMENSION_FT,
+        ];
+
+        if (!in_array($weightUOM, $weightUOMs)) {
+            throw new \InvalidArgumentException('The weight UOM must be one of ' . implode(', ', $weightUOMs));
+        }
+
+        if (!in_array($dimensionsUOM, $dimensionUOMs)) {
+            throw new \InvalidArgumentException('The dimension UOM must be one of ' . implode(', ', $dimensionUOMs));
+        }
+
+
         $this->sequenceNumber = $sequenceNumber;
         $this->weight         = $weight;
         $this->weightUOM      = $weightUOM;

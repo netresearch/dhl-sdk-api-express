@@ -75,11 +75,11 @@ class RateRequestTest extends TestCase
         );
 
         self::assertInstanceOf(RateRequestInterface::class, $rateRequest);
-        self::assertEquals($shipperAddress, $rateRequest->getShipperAddress());
-        self::assertEquals($shipperAccountNumber, $rateRequest->getShipperAccountNumber());
-        self::assertEquals($recipientAddress, $rateRequest->getRecipientAddress());
-        self::assertEquals($shipmentDetails, $rateRequest->getShipmentDetails());
-        self::assertEquals($packages, $rateRequest->getPackages());
-        self::assertEquals($insurance, $rateRequest->getInsurance());
+        self::assertSame($shipperAddress, $rateRequest->getShipperAddress());
+        self::assertSame($shipperAccountNumber, $rateRequest->getShipperAccountNumber());
+        self::assertSame($recipientAddress, $rateRequest->getRecipientAddress());
+        self::assertSame($shipmentDetails, $rateRequest->getShipmentDetails());
+        self::assertSame($packages, $rateRequest->getPackages());
+        self::assertSame($insurance, $rateRequest->getInsurance());
     }
 }
