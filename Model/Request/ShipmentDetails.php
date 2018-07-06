@@ -5,6 +5,8 @@
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
+use Dhl\Express\Webservice\Soap\Type\Common\Content;
+use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 
 /**
  * Shipment Details.
@@ -16,37 +18,53 @@ use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
  */
 class ShipmentDetails implements ShipmentDetailsInterface
 {
-    const REGULAR_PICKUP = 'REGULAR_PICKUP';
-    const UNSCHEDULED_PICKUP = 'REQUEST_COURIER';
-    const CONTENT_TYPE_DOCUMENTS = 'DOCUMENTS';
-    const CONTENT_TYPE_NON_DOCUMENTS = 'NON_DOCUMENTS';
+    /**
+     * Pickup types.
+     */
+    const REGULAR_PICKUP     = DropOffType::REGULAR_PICKUP;
+    const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
 
     /**
+     * Content types.
+     */
+    const CONTENT_TYPE_DOCUMENTS     = Content::DOCUMENTS;
+    const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
+
+    /**
+     * Whether this is a scheduled pickup or not.
+     *
      * @var bool
      */
     private $unscheduledPickup;
 
     /**
+     * The terms of trade.
+     *
      * @var string
      */
     private $termsOfTrade;
 
     /**
+     * The content type.
+     *
      * @var string
      */
     private $contentType;
 
     /**
+     * The ship timestamp.
+     *
      * @var int
      */
     private $readyAtTimestamp;
 
     /**
-     * ShipmentDetails constructor.
-     * @param bool $unscheduledPickup
-     * @param string $termsOfTrade
-     * @param string $contentType
-     * @param int $readyAtTimestamp
+     * Constructor.
+     *
+     * @param bool   $unscheduledPickup Whether this is a scheduled pickup or not
+     * @param string $termsOfTrade      The terms of trade
+     * @param string $contentType       The content type
+     * @param int    $readyAtTimestamp  The ship timestamp
      */
     public function __construct(
         bool $unscheduledPickup,
@@ -55,9 +73,9 @@ class ShipmentDetails implements ShipmentDetailsInterface
         int $readyAtTimestamp
     ) {
         $this->unscheduledPickup = $unscheduledPickup;
-        $this->termsOfTrade = $termsOfTrade;
-        $this->contentType = $contentType;
-        $this->readyAtTimestamp = $readyAtTimestamp;
+        $this->termsOfTrade      = $termsOfTrade;
+        $this->contentType       = $contentType;
+        $this->readyAtTimestamp  = $readyAtTimestamp;
     }
 
     /**
@@ -69,7 +87,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * @return bool
+     * @inheritdoc
      */
     public function isUnscheduledPickup(): bool
     {
@@ -77,7 +95,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getTermsOfTrade(): string
     {
@@ -85,7 +103,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getContentType(): string
     {
@@ -93,7 +111,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * @return int
+     * @inheritdoc
      */
     public function getReadyAtTimestamp(): int
     {

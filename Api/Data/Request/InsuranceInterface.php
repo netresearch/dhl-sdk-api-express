@@ -16,13 +16,16 @@ namespace Dhl\Express\Api\Data\Request;
  */
 interface InsuranceInterface
 {
-
     /**
+     * Returns the value of the insurance.
+     *
      * @return float
      */
     public function getValue(): float;
 
     /**
+     * Returns the currency code.
+     *
      * @return string
      */
     public function getCurrencyCode(): string;

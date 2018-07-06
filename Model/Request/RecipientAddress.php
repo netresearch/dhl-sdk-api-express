@@ -17,42 +17,51 @@ use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
 class RecipientAddress implements RecipientAddressInterface
 {
     /**
+     * The street lines.
+     *
      * @var array
      */
     private $streetLines;
 
     /**
+     * The city name.
+     *
      * @var string
      */
     private $city;
 
     /**
+     * The postal code.
+     *
      * @var string
      */
     private $postalCode;
 
     /**
+     * The country code.
+     *
      * @var string
      */
     private $countryCode;
 
     /**
-     * RecipientAddress constructor.
-     * @param string   $countryCode
-     * @param string   $postalCode
-     * @param string   $city
-     * @param string[] $streetLines
+     * Constructor.
+     *
+     * @param string   $countryCode The recipients country code
+     * @param string   $postalCode  The recipients postal code
+     * @param string   $city        The recipients city name
+     * @param string[] $streetLines The recipients street lines
      */
     public function __construct(string $countryCode, string $postalCode, string $city, array $streetLines)
     {
         $this->countryCode = $countryCode;
-        $this->postalCode = $postalCode;
-        $this->city = $city;
+        $this->postalCode  = $postalCode;
+        $this->city        = $city;
         $this->streetLines = $streetLines;
     }
 
     /**
-     * @return string[]
+     * @inheritdoc
      */
     public function getStreetLines(): array
     {
@@ -60,7 +69,7 @@ class RecipientAddress implements RecipientAddressInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCity(): string
     {
@@ -68,7 +77,7 @@ class RecipientAddress implements RecipientAddressInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getPostalCode(): string
     {
@@ -76,7 +85,7 @@ class RecipientAddress implements RecipientAddressInterface
     }
 
     /**
-     * @return string
+     * @@inheritdoc
      */
     public function getCountryCode(): string
     {

@@ -7,34 +7,40 @@ namespace Dhl\Express\Model\Response;
 use Dhl\Express\Api\Data\Response\RateInterface;
 
 /**
- * Rate Response Item.
- *
- * DTO that carries web service operation results.
+ * Rate response item.
  *
  * @api
  * @package  Dhl\Express\Api
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
 class Rate implements RateInterface
 {
     /**
+     * The service code.
+     *
      * @var string
      */
     private $serviceCode;
 
     /**
+     * The label.
+     *
      * @var string
      */
     private $label;
 
     /**
+     * The amount.
+     *
      * @var float
      */
     private $amount;
 
     /**
+     * The currency code.
+     *
      * @var string
      */
     private $currencyCode;
@@ -42,10 +48,10 @@ class Rate implements RateInterface
     /**
      * Rate constructor.
      *
-     * @param string $serviceCode
-     * @param string $label
-     * @param float  $amount
-     * @param string $currencyCode
+     * @param string $serviceCode  The service code
+     * @param string $label        The label
+     * @param float  $amount       The amount
+     * @param string $currencyCode The currency code
      */
     public function __construct(string $serviceCode, string $label, float $amount, string $currencyCode)
     {
@@ -56,7 +62,7 @@ class Rate implements RateInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getServiceCode(): string
     {
@@ -64,7 +70,7 @@ class Rate implements RateInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getLabel(): string
     {
@@ -72,7 +78,7 @@ class Rate implements RateInterface
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getAmount(): float
     {
@@ -80,7 +86,7 @@ class Rate implements RateInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCurrencyCode(): string
     {

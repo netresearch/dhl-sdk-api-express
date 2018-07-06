@@ -84,7 +84,7 @@ class Package implements PackageInterface
     private $weightUOM;
 
     /**
-     * Package constructor.
+     * Constructor.
      *
      * @param int    $sequenceNumber The number of the package
      * @param float  $weight         The package weight

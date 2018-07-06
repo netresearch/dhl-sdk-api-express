@@ -17,35 +17,42 @@ use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
 class ShipperAddress implements ShipperAddressInterface
 {
     /**
+     * The shippers city name.
+     *
      * @var string
      */
     private $city;
 
     /**
+     * The shippers postal code.
+     *
      * @var string
      */
     private $postalCode;
 
     /**
+     * The shippers country code.
+     *
      * @var string
      */
     private $countryCode;
 
     /**
-     * RecipientAddress constructor.
-     * @param string $countryCode
-     * @param string $postalCode
-     * @param string $city
+     * Constructor.
+     *
+     * @param string $countryCode The shippers country code
+     * @param string $postalCode  The shippers postal code
+     * @param string $city        The shippers city name
      */
     public function __construct(string $countryCode, string $postalCode, string $city)
     {
         $this->countryCode = $countryCode;
-        $this->postalCode = $postalCode;
-        $this->city = $city;
+        $this->postalCode  = $postalCode;
+        $this->city        = $city;
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCity(): string
     {
@@ -53,7 +60,7 @@ class ShipperAddress implements ShipperAddressInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getPostalCode(): string
     {
@@ -61,7 +68,7 @@ class ShipperAddress implements ShipperAddressInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCountryCode(): string
     {

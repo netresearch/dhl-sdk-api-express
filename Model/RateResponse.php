@@ -5,32 +5,28 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
-use Dhl\Express\Api\Data\Request\InsuranceInterface;
-use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
-use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
-use Dhl\Express\Model\Request\Insurance;
 
 /**
- * Rate Request.
+ * Rate response.
  *
  * @package  Dhl\Express\Model
- * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
 class RateResponse implements RateResponseInterface
 {
     /**
+     * The rates.
+     *
      * @var array
      */
     private $rates;
 
     /**
-     * RateResponse constructor.
+     * Constructor.
      *
-     * @param array $rates
+     * @param array $rates The rates
      */
     public function __construct(array $rates)
     {
@@ -38,7 +34,7 @@ class RateResponse implements RateResponseInterface
     }
 
     /**
-     * @return RateInterface[]
+     * @inheritdoc
      */
     public function getRates(): array
     {

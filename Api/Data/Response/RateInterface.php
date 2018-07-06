@@ -18,21 +18,29 @@ namespace Dhl\Express\Api\Data\Response;
 interface RateInterface
 {
     /**
+     * Returns the service code.
+     *
      * @return string
      */
     public function getServiceCode(): string;
 
     /**
+     * Returns the label.
+     *
      * @return string
      */
     public function getLabel(): string;
 
     /**
+     * Returns the amount.
+     *
      * @return float
      */
     public function getAmount(): float;
 
     /**
+     * Returns the currency code.
+     *
      * @return string
      */
     public function getCurrencyCode(): string;

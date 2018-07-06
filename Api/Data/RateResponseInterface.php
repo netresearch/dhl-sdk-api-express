@@ -20,6 +20,8 @@ use \Dhl\Express\Api\Data\Response\RateInterface;
 interface RateResponseInterface
 {
     /**
+     * Returns the rates.
+     *
      * @return RateInterface[]
      */
     public function getRates(): array;

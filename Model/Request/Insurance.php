@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
@@ -18,28 +17,33 @@ use Dhl\Express\Api\Data\Request\InsuranceInterface;
 class Insurance implements InsuranceInterface
 {
     /**
+     * The value of the insurance.
+     *
      * @var float
      */
     private $value;
 
     /**
+     * The currency code.
+     *
      * @var string
      */
     private $currencyCode;
 
     /**
-     * Insurance constructor.
-     * @param float $value
-     * @param string $currencyCode
+     * Constructor.
+     *
+     * @param float  $value        The value of the insurance
+     * @param string $currencyCode The currency code
      */
     public function __construct(float $value, string $currencyCode)
     {
-        $this->value = $value;
+        $this->value        = $value;
         $this->currencyCode = $currencyCode;
     }
 
     /**
-     * @return float
+     * @inheritdoc
      */
     public function getValue(): float
     {
@@ -47,7 +51,7 @@ class Insurance implements InsuranceInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getCurrencyCode(): string
     {
