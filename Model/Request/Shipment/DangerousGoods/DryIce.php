@@ -3,7 +3,7 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Request\Shipment;
+namespace Dhl\Express\Model\Request\Shipment\DangerousGoods;
 
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
 
@@ -20,7 +20,7 @@ class DryIce implements DryIceInterface
     /**
      * Content ID
      */
-    private const CONTENT_ID = '901';
+    public const CONTENT_ID = '901';
 
     /**
      * The UN Code.
