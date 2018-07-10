@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Unit\Model\Request\Shipment;
 
-use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
-use Dhl\Express\Model\Request\Rate\ShipmentDetails;
+use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
+use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,12 +21,15 @@ class ShipmentDetailsTest extends TestCase
      */
     public function defineUnscheduledPickupWithDocuments()
     {
-        /** @var ShipmentDetailsInterface $shipmentDetails */
         $shipmentDetails = new ShipmentDetails(
             $unscheduledPickup = true,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $readyAtTimestamp = 238948923
+            $readyAtTimestamp = 238948923,
+            $numberOfPieces = 12,
+            $currencyCode = 'EUR',
+            $description = 'A description',
+            $serviceType = 'U'
         );
 
         self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
@@ -35,6 +38,10 @@ class ShipmentDetailsTest extends TestCase
         self::assertSame($termsOfTrade, $shipmentDetails->getTermsOfTrade());
         self::assertSame($contentType, $shipmentDetails->getContentType());
         self::assertSame($readyAtTimestamp, $shipmentDetails->getReadyAtTimestamp());
+        self::assertSame($numberOfPieces, $shipmentDetails->getNumberOfPieces());
+        self::assertSame($currencyCode, $shipmentDetails->getCurrencyCode());
+        self::assertSame($description, $shipmentDetails->getDescription());
+        self::assertSame($serviceType, $shipmentDetails->getServiceType());
     }
 
     /**
@@ -47,7 +54,11 @@ class ShipmentDetailsTest extends TestCase
             $unscheduledPickup = false,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-            $readyAtTimestamp = 238948923
+            $readyAtTimestamp = 238948923,
+            12,
+            'EUR',
+            'a description',
+            'U'
         );
 
         self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);

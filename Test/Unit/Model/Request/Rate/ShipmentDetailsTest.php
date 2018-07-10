@@ -21,7 +21,6 @@ class ShipmentDetailsTest extends TestCase
      */
     public function defineUnscheduledPickupWithDocuments()
     {
-        /** @var ShipmentDetailsInterface $shipmentDetails */
         $shipmentDetails = new ShipmentDetails(
             $unscheduledPickup = true,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,

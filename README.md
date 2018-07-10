@@ -36,8 +36,8 @@ $requestBuilder->setContentType($contentType);
 $requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
 $requestBuilder->addPackage($weight, $weightUom, $length, $width, $height, $dimensionsUom, $readyAtDate);
 $requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
-$request = $requestBuilder->build();
 
+$request = $requestBuilder->build();
 $response = $service->collectRates($request);
 ```
 
@@ -68,12 +68,22 @@ $serviceFactory = new SoapServiceFactory();
 $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger)
 
 $requestBuilder = new ShipmentRequestBuilder()
-$requestBuilder->setShipper($company, $name, $city, $etc);
-$requestBuilder->setRecipient($company, $name, $city, $etc);
-$requestBuilder->addPackage($pkgNumber = 1, 'Package Description');
-$requestBuilder->addPackageItem($pkgNumber, 'Item Name', 3.03, 'lb');
-$request = $requestBuilder->build();
+$requestBuilder->setIsUnscheduledPickup($unscheduledPickup);
+$requestBuilder->setTermsOfTrade($termsOfTrade);
+$requestBuilder->setContentType($contentType);
+$requestBuilder->setReadyAtTimestamp($readyAtTimestamp);
+$requestBuilder->setNumberOfPieces($numberOfPieces);
+$requestBuilder->setCurrency($currencyCode);
+$requestBuilder->setDescription($description);
+$requestBuilder->setServiceType($serviceType);
+$requestBuilder->setPayerAccountNumber($accountNumber);
+$requestBuilder->setInsurance($insuranceValue, $insuranceCurrency);
+$requestBuilder->setShipper($countryCode, $postalCode, $city, $streetLines, $name, $company, $phone);
+$requestBuilder->setRecipient($countryCode, $postalCode, $city, $streetLines, $name, $company, $phone);
+$requestBuilder->setDryIce($unCode, $weight);
+$requestBuilder->addPackage($sequenceNumber, $weight, $weightUOM, $length, $width, $height, $dimensionsUOM, $customerReferences);
 
+$request = $requestBuilder->build();
 $response = $service->createShipment($request);
 ```
 

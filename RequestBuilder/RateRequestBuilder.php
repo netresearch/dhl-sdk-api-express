@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\RequestBuilder;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -58,8 +59,8 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     ): RateRequestBuilderInterface {
         $this->data['recipientAddress'] = [
             'countryCode' => $countryCode,
-            'postalCode'  => $postalCode,
-            'city'        => $city,
+            'postalCode' => $postalCode,
+            'city' => $city,
             'streetLines' => $streetLines,
         ];
 
@@ -78,17 +79,17 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         float $height,
         string $dimensionsUOM
     ): RateRequestBuilderInterface {
-        $weightDetails     = $this->normalizeWeight($weight, strtoupper($weightUOM));
+        $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
         $this->data['packages'][] = [
             'sequenceNumber' => $sequenceNumber,
-            'weight'         => $weightDetails['weight'],
-            'weightUOM'      => $weightDetails['uom'],
-            'length'         => $dimensionsDetails['length'],
-            'width'          => $dimensionsDetails['width'],
-            'height'         => $dimensionsDetails['height'],
-            'dimensionsUOM'  => $dimensionsDetails['uom'],
+            'weight' => $weightDetails['weight'],
+            'weightUOM' => $weightDetails['uom'],
+            'length' => $dimensionsDetails['length'],
+            'width' => $dimensionsDetails['width'],
+            'height' => $dimensionsDetails['height'],
+            'dimensionsUOM' => $dimensionsDetails['uom'],
         ];
 
         return $this;
@@ -145,7 +146,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     public function setInsurance(float $insuranceValue, string $insuranceCurrency): RateRequestBuilderInterface
     {
         $this->data['insurance'] = [
-            'value'        => $insuranceValue,
+            'value' => $insuranceValue,
             'currencyType' => $insuranceCurrency,
         ];
         return $this;
@@ -217,10 +218,9 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * Normalizes the weight and unit of measurement to the unit of measurement KG (kilograms) or LB (Pound)
      * supported by the DHL express webservice.
      *
-     * @param float  $weight The weight
-     * @param string $uom    The unit of measurement
- *
-
+     * @param float $weight The weight
+     * @param string $uom The unit of measurement
+     *
      * @return array
      * @throws \InvalidArgumentException
      */
@@ -229,21 +229,21 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         if (($uom === Package::UOM_WEIGHT_KG) || ($uom === Package::UOM_WEIGHT_LB)) {
             return [
                 'weight' => $weight,
-                'uom'    => $uom,
+                'uom' => $uom,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_G) {
             return [
                 'weight' => $weight / 1000,
-                'uom'    => Package::UOM_WEIGHT_KG,
+                'uom' => Package::UOM_WEIGHT_KG,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_OZ) {
             return [
                 'weight' => $weight / 16,
-                'uom'    => Package::UOM_WEIGHT_LB,
+                'uom' => Package::UOM_WEIGHT_LB,
             ];
         }
 
@@ -256,10 +256,10 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * Normalizes the dimensions to the unit of measurement CM (centimeter) or IN (inch) supported by the
      * DHL express webservice.
      *
-     * @param float  $length The length of a package
-     * @param float  $width  The width of a package
-     * @param float  $height The height of a package
-     * @param string $uom    The unit of measurement
+     * @param float $length The length of a package
+     * @param float $width The width of a package
+     * @param float $height The height of a package
+     * @param string $uom The unit of measurement
      *
      * @return array
      * @throws \InvalidArgumentException
@@ -269,45 +269,45 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         if (($uom === Package::UOM_DIMENSION_CM) || ($uom === Package::UOM_DIMENSION_IN)) {
             return [
                 'length' => $length,
-                'width'  => $width,
+                'width' => $width,
                 'height' => $height,
-                'uom'    => $uom,
+                'uom' => $uom,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_MM) {
             return [
                 'length' => $length / 10,
-                'width'  => $width / 10,
+                'width' => $width / 10,
                 'height' => $height / 10,
-                'uom'    => Package::UOM_DIMENSION_CM,
+                'uom' => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_M) {
             return [
                 'length' => $length * 100,
-                'width'  => $width * 100,
+                'width' => $width * 100,
                 'height' => $height * 100,
-                'uom'    => Package::UOM_DIMENSION_CM,
+                'uom' => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_FT) {
             return [
                 'length' => $length * 12,
-                'width'  => $width * 12,
+                'width' => $width * 12,
                 'height' => $height * 12,
-                'uom'    => Package::UOM_DIMENSION_IN,
+                'uom' => Package::UOM_DIMENSION_IN,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_YD) {
             return [
                 'length' => $length * 36,
-                'width'  => $width * 36,
+                'width' => $width * 36,
                 'height' => $height * 36,
-                'uom'    => Package::UOM_DIMENSION_IN,
+                'uom' => Package::UOM_DIMENSION_IN,
             ];
         }
 

@@ -36,9 +36,9 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 'DE',
                 '12345',
                 'Berlin',
-                 [
-                     'Sample street 5a',
-                     'Sample street 5b',
+                [
+                    'Sample street 5a',
+                    'Sample street 5b',
                  ]
             );
 
