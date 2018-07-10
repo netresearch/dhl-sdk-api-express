@@ -4,10 +4,10 @@
  */
 namespace Dhl\Express\Api\Data;
 
-use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
-use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
-use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
+use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
+use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
+use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 
 /**

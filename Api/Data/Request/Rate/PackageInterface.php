@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Request;
+namespace Dhl\Express\Api\Data\Request\Rate;
 
 /**
  * Package Interface.

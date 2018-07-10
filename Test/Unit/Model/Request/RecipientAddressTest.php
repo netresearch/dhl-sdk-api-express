@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Unit\Model\Request;
 
-use Dhl\Express\Api\Data\Request\RecipientAddressInterface;
-use Dhl\Express\Model\Request\RecipientAddress;
+use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
+use Dhl\Express\Model\Request\Rate\RecipientAddress;
 use PHPUnit\Framework\TestCase;
 
 /**

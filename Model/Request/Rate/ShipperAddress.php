@@ -2,9 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Request;
+namespace Dhl\Express\Model\Request\Rate;
 
-use Dhl\Express\Api\Data\Request\ShipperAddressInterface;
+use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
 
 /**
  * Shipper Address.

@@ -6,7 +6,7 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Model\RateResponse;
-use Dhl\Express\Model\Response\Rate;
+use Dhl\Express\Model\Response\Rate\Rate;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
 
 /**

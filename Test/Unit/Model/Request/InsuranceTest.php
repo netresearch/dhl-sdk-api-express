@@ -5,7 +5,7 @@
 namespace Dhl\Express\Test\Unit\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
-use Dhl\Express\Model\Request\Insurance;
+use Dhl\Express\Model\Request\Rate\Insurance;
 use PHPUnit\Framework\TestCase;
 
 /**

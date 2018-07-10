@@ -2,10 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Request;
+namespace Dhl\Express\Api\Data\Request\Rate;
 
 /**
- * Recipient Address Interface.
+ * Shipper Address Interface.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -13,31 +13,24 @@ namespace Dhl\Express\Api\Data\Request;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface RecipientAddressInterface
+interface ShipperAddressInterface
 {
     /**
-     * Returns the recipient street lines.
-     *
-     * @return string[]
-     */
-    public function getStreetLines(): array;
-
-    /**
-     * Returns the recipient city name.
+     * Returns the shipper city name.
      *
      * @return string
      */
     public function getCity(): string;
 
     /**
-     * Returns the recipient postal code.
+     * Returns the shipper postal code.
      *
      * @return string
      */
     public function getPostalCode(): string;
 
     /**
-     * Returns the recipient country code.
+     * Returns the shipper country code.
      *
      * @return string
      */

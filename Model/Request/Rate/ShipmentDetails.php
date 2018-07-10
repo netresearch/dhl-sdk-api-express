@@ -2,9 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Request;
+namespace Dhl\Express\Model\Request\Rate;
 
-use Dhl\Express\Api\Data\Request\ShipmentDetailsInterface;
+use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;

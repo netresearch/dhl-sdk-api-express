@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Api\Data;
 
-use \Dhl\Express\Api\Data\Response\RateInterface;
+use Dhl\Express\Api\Data\Response\Rate\RateInterface;
 
 /**
  * Rate Response Interface.

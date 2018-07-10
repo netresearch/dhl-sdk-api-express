@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Unit\Model\Request;
 
-use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Model\Request\Package;
+use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
+use Dhl\Express\Model\Request\Rate\Package;
 use PHPUnit\Framework\TestCase;
 
 /**

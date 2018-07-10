@@ -2,7 +2,8 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Request;
+
+namespace Dhl\Express\Api\Data\Request\Shipment;
 
 /**
  * Shipment Details Interface.
@@ -49,4 +50,32 @@ interface ShipmentDetailsInterface
      * @return int
      */
     public function getReadyAtTimestamp(): int;
+
+    /**
+     * Returns the service type.
+     *
+     * @return string
+     */
+    public function getServiceType(): string;
+
+    /**
+     * Returns the currency code.
+     *
+     * @return float
+     */
+    public function getCurrencyCode(): float;
+
+    /**
+     * Returns the number of pieces
+     *
+     * @return int
+     */
+    public function getNumberOfPieces(): int;
+
+    /**
+     * Returns the description.
+     *
+     * @return string
+     */
+    public function getDescription(): string;
 }

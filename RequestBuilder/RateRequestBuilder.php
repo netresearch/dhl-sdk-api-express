@@ -7,11 +7,11 @@ namespace Dhl\Express\RequestBuilder;
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\RateRequestBuilderInterface;
 use Dhl\Express\Model\RateRequest;
-use Dhl\Express\Model\Request\Insurance;
-use Dhl\Express\Model\Request\Package;
-use Dhl\Express\Model\Request\RecipientAddress;
-use Dhl\Express\Model\Request\ShipmentDetails;
-use Dhl\Express\Model\Request\ShipperAddress;
+use Dhl\Express\Model\Request\Rate\Insurance;
+use Dhl\Express\Model\Request\Rate\Package;
+use Dhl\Express\Model\Request\Rate\RecipientAddress;
+use Dhl\Express\Model\Request\Rate\ShipmentDetails;
+use Dhl\Express\Model\Request\Rate\ShipperAddress;
 
 /**
  * Rate Request Builder.

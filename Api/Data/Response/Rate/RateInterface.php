@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Response;
+namespace Dhl\Express\Api\Data\Response\Rate;
 
 /**
  * Rate Response Item Interface.

@@ -2,9 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Response;
+namespace Dhl\Express\Model\Response\Rate;
 
-use Dhl\Express\Api\Data\Response\RateInterface;
+use Dhl\Express\Api\Data\Response\Rate\RateInterface;
 
 /**
  * Rate response item.

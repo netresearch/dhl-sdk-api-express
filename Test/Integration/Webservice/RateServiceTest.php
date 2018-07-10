@@ -5,7 +5,7 @@
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
-use Dhl\Express\Model\Request\ShipmentDetails;
+use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
@@ -30,9 +30,15 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     {
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
+
+        /*
         $serviceFactory = new SoapServiceFactoryFake($soapClient);
 
         $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
+        */
+
+        $serviceFactory = new SoapServiceFactory();
+        $service = $serviceFactory->createRateService('DeveloperTest', 'G!7sI^0dC^7w', $logger);
 
         return $service;
     }
@@ -117,7 +123,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         return [
             'domestic request with metric measures, unscheduled pickup' => [
                 true, // pickup type
-                '1234-5678', // account number
+                '143816942', // account number
                 'US', // shipper country code
                 '90232', // shipper postal code
                 'Culver City', // shipper city
