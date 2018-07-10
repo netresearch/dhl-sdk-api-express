@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap;
 
 /**
@@ -16,8 +17,8 @@ namespace Dhl\Express\Webservice\Soap;
  */
 class AuthHeaderFactory
 {
-    const WSS_NS = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd';
-    const WSU_NS = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd';
+    public const WSS_NS = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd';
+    public const WSU_NS = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd';
 
     /**
      * Create ws-security SOAP header
@@ -32,20 +33,29 @@ class AuthHeaderFactory
     {
         $created = gmdate('Y-m-d\TH:i:s\Z');
         $nonce = mt_rand();
-        $passdigest = base64_encode(pack('H*', sha1(pack('H*', $nonce) . pack('a*', $created) . pack('a*', $password))));
+        $passdigest = base64_encode(
+            pack('H*', sha1(pack('H*', $nonce) . pack('a*', $created) . pack('a*', $password)))
+        );
 
         $auth = new \stdClass();
-        $auth->Username = new \SoapVar($username, XSD_STRING, NULL, self::WSS_NS, NULL, self::WSS_NS);
-        $auth->Password = new \SoapVar($password, XSD_STRING, NULL, self::WSS_NS, NULL, self::WSS_NS);
-        $auth->Nonce = new \SoapVar($passdigest, XSD_STRING, NULL, self::WSS_NS, NULL, self::WSS_NS);
-        $auth->Created = new \SoapVar($created, XSD_STRING, NULL, self::WSS_NS, NULL, self::WSU_NS);
-        $authVar = new \SoapVar($auth, SOAP_ENC_OBJECT, NULL, self::WSS_NS, 'UsernameToken', self::WSS_NS);
+        $auth->Username = new \SoapVar($username, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
+        $auth->Password = new \SoapVar($password, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
+        $auth->Nonce = new \SoapVar($passdigest, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
+        $auth->Created = new \SoapVar($created, XSD_STRING, null, self::WSS_NS, null, self::WSU_NS);
+        $authVar = new \SoapVar($auth, SOAP_ENC_OBJECT, null, self::WSS_NS, 'UsernameToken', self::WSS_NS);
 
         $usernameToken = new \stdClass();
         $usernameToken->UsernameToken = $authVar;
-        $usernameTokenVar = new \SoapVar($usernameToken, SOAP_ENC_OBJECT, NULL, self::WSS_NS, 'UsernameToken', self::WSS_NS);
+        $usernameTokenVar = new \SoapVar(
+            $usernameToken,
+            SOAP_ENC_OBJECT,
+            null,
+            self::WSS_NS,
+            'UsernameToken',
+            self::WSS_NS
+        );
 
-        $securityVar =  new \SoapVar($usernameTokenVar, SOAP_ENC_OBJECT, NULL, self::WSS_NS, 'Security', self::WSS_NS);
+        $securityVar = new \SoapVar($usernameTokenVar, SOAP_ENC_OBJECT, null, self::WSS_NS, 'Security', self::WSS_NS);
 
         return new \SoapHeader(self::WSS_NS, 'Security', $securityVar, true);
     }

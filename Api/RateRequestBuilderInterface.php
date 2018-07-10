@@ -26,7 +26,11 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setShipperAddress(string $countryCode, string $postalCode, string $city): RateRequestBuilderInterface;
+    public function setShipperAddress(
+        string $countryCode,
+        string $postalCode,
+        string $city
+    ): RateRequestBuilderInterface;
 
     /**
      * Sets the recipients address information.

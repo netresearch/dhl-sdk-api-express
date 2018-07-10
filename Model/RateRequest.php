@@ -35,7 +35,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @var RecipientAddressInterface
      */
-    private $RecipientAddress;
+    private $recipientAddress;
 
     /**
      * @var ShipmentDetailsInterface
@@ -56,7 +56,7 @@ class RateRequest implements RateRequestInterface
      * RateRequest constructor.
      * @param ShipperAddressInterface $shipperAddress
      * @param string $shipperAccountNumber
-     * @param RecipientAddressInterface $RecipientAddress
+     * @param RecipientAddressInterface $recipientAddress
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param PackageInterface[] $packages
      * @param Insurance $insurance
@@ -64,14 +64,14 @@ class RateRequest implements RateRequestInterface
     public function __construct(
         ShipperAddressInterface $shipperAddress,
         string $shipperAccountNumber,
-        RecipientAddressInterface $RecipientAddress,
+        RecipientAddressInterface $recipientAddress,
         ShipmentDetailsInterface $shipmentDetails,
         array $packages,
         Insurance $insurance
     ) {
         $this->shipperAddress = $shipperAddress;
         $this->shipperAccountNumber = $shipperAccountNumber;
-        $this->RecipientAddress = $RecipientAddress;
+        $this->recipientAddress = $recipientAddress;
         $this->shipmentDetails = $shipmentDetails;
         $this->packages = $packages;
         $this->insurance = $insurance;
@@ -98,7 +98,7 @@ class RateRequest implements RateRequestInterface
      */
     public function getRecipientAddress(): RecipientAddressInterface
     {
-        return $this->RecipientAddress;
+        return $this->recipientAddress;
     }
 
     /**

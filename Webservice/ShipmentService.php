@@ -72,6 +72,6 @@ class ShipmentService implements ShipmentServiceInterface
      */
     public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
     {
-        throw new \Exception('Not implemented.');
+        throw new \RuntimeException('Not implemented.');
     }
 }

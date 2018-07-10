@@ -69,7 +69,7 @@ class RateRequestMapper
             $this->mapUOM($weightUOM, $dimensionsUOM)
         );
 
-        // TODO If using Billing, the "account" should be leaved out
+        // TODO If using Billing, the "account" should be left out
         $requestedShipment->setAccount($rateRequest->getShipperAccountNumber());
         $requestedShipment->setPaymentInfo($rateRequest->getShipmentDetails()->getTermsOfTrade());
         $requestedShipment->setContent($rateRequest->getShipmentDetails()->getContentType());
@@ -108,10 +108,10 @@ class RateRequestMapper
      */
     private function mapPackages(array $packages): array
     {
-        $soapRequestedPackages = [];
+        $requestedPackages = [];
 
         foreach ($packages as $package) {
-            $soapRequestedPackages[] = new RequestedPackages(
+            $requestedPackages[] = new RequestedPackages(
                 $package->getWeight(),
                 new Dimensions(
                     $package->getLength(),
@@ -122,7 +122,7 @@ class RateRequestMapper
             );
         }
 
-        return $soapRequestedPackages;
+        return $requestedPackages;
     }
 
     /**

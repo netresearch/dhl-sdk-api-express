@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Adapter;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -24,5 +25,5 @@ interface RateServiceAdapterInterface
      * @return RateResponseInterface
      * @throws \InvalidArgumentException
      */
-    public function collectRates(RateRequestInterface $request);
+    public function collectRates(RateRequestInterface $request): RateResponseInterface;
 }

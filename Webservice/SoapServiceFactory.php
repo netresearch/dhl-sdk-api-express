@@ -59,8 +59,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): ShipmentServiceInterface
-    {
+    ): ShipmentServiceInterface {
         $clientFactory = new SoapClientFactory();
         $client = $clientFactory->create($username, $password);
         $adapter = new ShipmentServiceAdapter($client);
@@ -73,7 +72,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
      */
     public function createTrackingService()
     {
-        throw new \Exception('Not yet implemented.');
+        throw new \RuntimeException('Not yet implemented.');
     }
 
     /**
@@ -81,6 +80,6 @@ class SoapServiceFactory implements ServiceFactoryInterface
      */
     public function createPickupService()
     {
-        throw new \Exception('Not yet implemented.');
+        throw new \RuntimeException('Not yet implemented.');
     }
 }

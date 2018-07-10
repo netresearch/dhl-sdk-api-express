@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Adapter;
 
 /**
@@ -19,10 +20,10 @@ interface TraceableInterface
     /**
      * @return string
      */
-    public function getLastRequest();
+    public function getLastRequest(): string;
 
     /**
      * @return string
      */
-    public function getLastResponse();
+    public function getLastResponse(): string;
 }

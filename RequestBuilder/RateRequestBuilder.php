@@ -33,12 +33,15 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setShipperAddress(string $countryCode, string $postalCode, string $city): RateRequestBuilderInterface
-    {
+    public function setShipperAddress(
+        string $countryCode,
+        string $postalCode,
+        string $city
+    ): RateRequestBuilderInterface {
         $this->data['shipperAddress'] = [
             'countryCode' => $countryCode,
-            'postalCode'  => $postalCode,
-            'city'        => $city,
+            'postalCode' => $postalCode,
+            'city' => $city,
         ];
 
         return $this;

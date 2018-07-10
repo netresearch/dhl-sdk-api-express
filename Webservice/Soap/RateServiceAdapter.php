@@ -62,9 +62,8 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     {
         $soapRequest = $this->requestMapper->map($request);
         $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
-        $response = $this->responseMapper->map($soapResponse);
 
-        return $response;
+        return $this->responseMapper->map($soapResponse);
     }
 
     /**

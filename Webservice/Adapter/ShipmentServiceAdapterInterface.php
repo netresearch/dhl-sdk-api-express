@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Adapter;
 
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
@@ -23,5 +24,5 @@ interface ShipmentServiceAdapterInterface
      * @param ShipmentRequestInterface $request
      * @return ShipmentResponseInterface
      */
-    public function createShipment(ShipmentRequestInterface $request);
+    public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface;
 }

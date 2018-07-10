@@ -26,20 +26,23 @@ class RateResponseMapper
      *
      * @return RateResponseInterface
      */
-    public function map(SoapRateResponse $rateResponse)
+    public function map(SoapRateResponse $rateResponse): RateResponseInterface
     {
         $rates = [];
 
         foreach ($rateResponse->getProvider() as $provider) {
             if ($provider->getService()) {
                 foreach ($provider->getService() as $service) {
-                    $charges      = $service->getCharges()->getCharge();
+                    if ($service->getCharges() !== null) {
+                        $charges = $service->getCharges()->getCharge();
+                        $label = $charges[0]->getChargeType();
+                    } else {
+                        $label = 'DHL Express';
+                    }
                     $totals       = $service->getTotalNet();
                     $currencyCode = $totals->getCurrency();
-
                     $serviceCode = $service->getType();
                     $cost        = $totals->getAmount();
-                    $label       = $charges[0]->getChargeType();
 
                     $rate = new Rate($serviceCode, $label, $cost, $currencyCode);
                     $rates[] = $rate;
