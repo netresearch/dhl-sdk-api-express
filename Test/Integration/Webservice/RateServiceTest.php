@@ -30,15 +30,9 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     {
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
-
-        /*
         $serviceFactory = new SoapServiceFactoryFake($soapClient);
 
         $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
-        */
-
-        $serviceFactory = new SoapServiceFactory();
-        $service = $serviceFactory->createRateService('DeveloperTest', 'G!7sI^0dC^7w', $logger);
 
         return $service;
     }
@@ -123,7 +117,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         return [
             'domestic request with metric measures, unscheduled pickup' => [
                 true, // pickup type
-                '143816942', // account number
+                '1234-5678', // account number
                 'US', // shipper country code
                 '90232', // shipper postal code
                 'Culver City', // shipper city

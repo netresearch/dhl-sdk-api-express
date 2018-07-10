@@ -5,7 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
 use Dhl\Express\Model\Request\Rate\Package;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages;

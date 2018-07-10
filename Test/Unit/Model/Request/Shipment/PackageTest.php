@@ -2,10 +2,10 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Model\Request;
+namespace Dhl\Express\Test\Unit\Model\Request\Shipment;
 
-use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
-use Dhl\Express\Model\Request\Rate\Package;
+use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
+use Dhl\Express\Model\Request\Shipment\Package;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,7 +28,8 @@ class PackageTest extends TestCase
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM = Package::UOM_DIMENSION_CM
+            $dimensionUOM = Package::UOM_DIMENSION_CM,
+            $customerReferences = 'TEST CZ-IT'
         );
 
         self::assertInstanceOf(PackageInterface::class, $package);
@@ -39,5 +40,6 @@ class PackageTest extends TestCase
         self::assertSame($width, $package->getWidth());
         self::assertSame($height, $package->getHeight());
         self::assertSame($dimensionUOM, $package->getDimensionsUOM());
+        self::assertSame($customerReferences, $package->getCustomerReferences());
     }
 }

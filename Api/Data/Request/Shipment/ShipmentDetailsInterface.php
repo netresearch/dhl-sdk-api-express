@@ -61,9 +61,9 @@ interface ShipmentDetailsInterface
     /**
      * Returns the currency code.
      *
-     * @return float
+     * @return string
      */
-    public function getCurrencyCode(): float;
+    public function getCurrencyCode(): string;
 
     /**
      * Returns the number of pieces

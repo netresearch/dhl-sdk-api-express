@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Request\Rate;
+namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 

@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Test\Unit\Model\Request;
+namespace Dhl\Express\Test\Unit\Model\Request\Rate;
 
 use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
 use Dhl\Express\Model\Request\Rate\RecipientAddress;

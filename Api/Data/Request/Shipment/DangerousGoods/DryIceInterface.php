@@ -27,7 +27,7 @@ interface DryIceInterface
     public function getUNCode(): string;
 
     /**
-     * @return string
+     * @return float
      */
-    public function getWeight(): string;
+    public function getWeight(): float;
 }

@@ -10,7 +10,7 @@ use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
 use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
-use Dhl\Express\Model\Request\Rate\Insurance;
+use Dhl\Express\Model\Request\Insurance;
 
 /**
  * Rate Request.

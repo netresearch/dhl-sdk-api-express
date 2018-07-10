@@ -5,7 +5,7 @@
 namespace Dhl\Express\Test\Unit\RequestBuilder;
 
 use Dhl\Express\Model\RateRequest;
-use Dhl\Express\Model\Request\Rate\Insurance;
+use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Rate\Package;
 use Dhl\Express\Model\Request\Rate\RecipientAddress;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
