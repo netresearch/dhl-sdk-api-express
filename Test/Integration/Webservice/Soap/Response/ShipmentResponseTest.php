@@ -7,13 +7,13 @@ namespace Dhl\Express\Test\Integration\Webservice\Soap\Response;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\Type\Common\Notification;
-use Dhl\Express\Webservice\Soap\Type\ShipmentResponse;
+use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults\PackageResult;
 
 /**
- * Tests ShipmentRequest
+ * Tests SoapShipmentRequest
  */
 class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
 {
@@ -43,8 +43,8 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
     public function shipmentResponseProvider(): array
     {
         return [
-            ['ShipmentResponse-001'],
-            ['ShipmentResponse-002'],
+            ['SoapShipmentResponse-001'],
+            ['SoapShipmentResponse-002'],
         ];
     }
 
@@ -71,7 +71,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
             ->method('__doRequest')
             ->willReturn($this->loadResponseXml($responseXml));
 
-        /** @var ShipmentResponse $response */
+        /** @var SoapShipmentResponse $response */
         $response = $soapClientMock->__soapCall('createShipmentRequest', []);
 
         $this->assertInternalType('array', $response->getNotification());

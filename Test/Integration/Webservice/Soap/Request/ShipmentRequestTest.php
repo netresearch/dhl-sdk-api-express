@@ -11,7 +11,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
+use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail\Commodities;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
@@ -23,7 +23,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 
 /**
- * Tests ShipmentRequest
+ * Tests SoapShipmentRequest
  */
 class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 {
@@ -88,7 +88,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             $packages
         );
 
-        $shipmentRequest = new ShipmentRequest($requestedShipment);
+        $shipmentRequest = new SoapShipmentRequest($requestedShipment);
 
 //var_dump($shipmentRequest);
 //exit;
@@ -120,7 +120,7 @@ var_dump($requestXml);
 //
 //                $xPath = new \DOMXPath($document);
 //
-//                $this->assertSame(1, (int) $xPath->evaluate('count(//ns1:ShipmentRequest)'));
+//                $this->assertSame(1, (int) $xPath->evaluate('count(//ns1:SoapShipmentRequest)'));
 
                 return '';
             });

@@ -49,6 +49,7 @@ class RateRequestMapperTest extends TestCase
             [
                 'Sample street 5a',
                 'Sample street 5b',
+                'Sample street 5c'
             ]
         );
 
@@ -125,14 +126,14 @@ class RateRequestMapperTest extends TestCase
         if (count($recipientAddress->getStreetLines()) > 1) {
             $this->assertEquals(
                 $recipientAddress->getStreetLines()[1],
-                $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines2()
+                $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines2()->__toString()
             );
         }
 
         if (count($recipientAddress->getStreetLines()) > 2) {
             $this->assertEquals(
                 $recipientAddress->getStreetLines()[2],
-                $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines3()
+                $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines3()->__toString()
             );
         }
 
@@ -182,7 +183,7 @@ class RateRequestMapperTest extends TestCase
          * @var Service[] $soapSpecialServices
          */
         $soapSpecialServices = $soapRateRequest->getRequestedShipment()->getSpecialServices()->getService();
-        $soapInsurance = null;
+
         /**
          * @var Service $soapService
          */

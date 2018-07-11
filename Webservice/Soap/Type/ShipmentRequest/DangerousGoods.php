@@ -34,7 +34,7 @@ class DangerousGoods
      *
      * @param Content $content
      */
-    public function __construct($content)
+    public function __construct(Content $content)
     {
         $this->setContent($content);
     }

@@ -16,7 +16,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class ShipmentRequest
+class SoapShipmentRequest
 {
     /**
      * The message id.
@@ -66,7 +66,7 @@ class ShipmentRequest
      *
      * @return self
      */
-    public function setMessageId(string $messageId): ShipmentRequest
+    public function setMessageId(string $messageId): SoapShipmentRequest
     {
         $this->MessageId = $messageId;
         return $this;
@@ -89,7 +89,7 @@ class ShipmentRequest
      *
      * @return self
      */
-    public function setClientDetail(ClientDetail $clientDetail): ShipmentRequest
+    public function setClientDetail(ClientDetail $clientDetail): SoapShipmentRequest
     {
         $this->ClientDetail = $clientDetail;
         return $this;

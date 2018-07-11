@@ -37,7 +37,7 @@ class ClassMap
 
             // createShipmentRequest response
             'docTypeRef_NotificationType2'   => Type\Common\Notification::class,
-            'docTypeRef_ShipmentDetailType'  => Type\ShipmentResponse::class,
+            'docTypeRef_ShipmentDetailType'  => Type\SoapShipmentResponse::class,
             'docTypeRef_PackagesResultsType' => Type\ShipmentResponse\PackagesResults::class,
             'docTypeRef_PackageResultType'   => Type\ShipmentResponse\PackagesResults\PackageResult::class,
             'docTypeRef_LabelImageType'      => Type\ShipmentResponse\LabelImage::class,

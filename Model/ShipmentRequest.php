@@ -61,7 +61,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $dryIce;
 
     /**
-     * ShipmentRequest constructor.
+     * SoapShipmentRequest constructor.
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param string $payerAccountNumber
      * @param InsuranceInterface $insurance

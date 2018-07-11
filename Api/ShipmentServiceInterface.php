@@ -13,7 +13,7 @@ use Dhl\Express\Api\Data\ShipmentResponseInterface;
  * Shipment Service Interface.
  *
  * Access the DHL Express Global Web Services shipment operations
- * "ShipmentRequest" and "ShipmentDeleteRequest".
+ * "SoapShipmentRequest" and "ShipmentDeleteRequest".
  *
  * @api
  * @package  Dhl\Express\Api
