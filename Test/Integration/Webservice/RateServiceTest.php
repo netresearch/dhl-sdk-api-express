@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
@@ -30,8 +31,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     {
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
-        $serviceFactory = new SoapServiceFactoryFake($soapClient);
 
+        $serviceFactory = new SoapServiceFactoryFake($soapClient);
         $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
 
         return $service;
@@ -74,11 +75,12 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         array $packages,
         float $insuranceValue,
         string $insuranceCurrency
-    ) {
+    )
+    {
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger
-            ->expects(self::exactly(2)) // request + response
+            ->expects(self::exactly(2))// request + response
             ->method('debug')
             ->with(self::isType('string'), self::isType('array')); // message + context array
 
@@ -106,7 +108,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
             );
         }
 
-        $request  = $requestBuilder->build();
+        $request = $requestBuilder->build();
         $response = $service->collectRates($request);
 
         self::assertInstanceOf(RateResponseInterface::class, $response);

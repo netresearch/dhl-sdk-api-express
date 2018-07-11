@@ -10,7 +10,7 @@ use Dhl\Express\Model\Response\Rate\Rate;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
 
 /**
- * Rate Request Mapper.
+ * Rate Response Mapper.
  *
  * Transform the SOAP response type into rate objects suitable for further processing.
  *

@@ -8,9 +8,13 @@ use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Webservice\RateService;
+use Dhl\Express\Webservice\ShipmentService;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
+use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -53,7 +57,11 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         LoggerInterface $logger
     ): ShipmentServiceInterface
     {
-        // TODO: Implement createShipmentService() method.
+        $requestMapper = new ShipmentRequestMapper();
+        $responseMapper = new ShipmentResponseMapper();
+        $adapter = new ShipmentServiceAdapter($this->client, $requestMapper, $responseMapper);
+
+        return new ShipmentService($adapter, $logger);
     }
 
     public function createTrackingService()

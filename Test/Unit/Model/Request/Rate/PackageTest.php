@@ -40,4 +40,40 @@ class PackageTest extends TestCase
         self::assertSame($height, $package->getHeight());
         self::assertSame($dimensionUOM, $package->getDimensionsUOM());
     }
+
+    /**
+     * @test
+     */
+    public function invalidWeightUOM()
+    {
+        self::expectException(\InvalidArgumentException::class);
+
+        new Package(
+            $sequenceNumber = 1,
+            $weight = 1.123,
+            $weightUOM  = 'test',
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = Package::UOM_DIMENSION_CM
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function invalidDimensionsUOM()
+    {
+        self::expectException(\InvalidArgumentException::class);
+
+        new Package(
+            $sequenceNumber = 1,
+            $weight = 1.123,
+            $weightUOM  = Package::UOM_WEIGHT_KG,
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = 'test'
+        );
+    }
 }

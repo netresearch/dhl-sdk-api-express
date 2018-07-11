@@ -59,7 +59,7 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 $company,
                 $phone
             )
-            ->setDryIce($unCode = ' UN1845', $weight = 20.53);
+            ->setDryIce($unCode = 'UN1845', $weight = 20.53);
 
         $requestBuilder->addPackage(
             1,

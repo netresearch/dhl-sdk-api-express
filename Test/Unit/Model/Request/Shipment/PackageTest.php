@@ -42,4 +42,42 @@ class PackageTest extends TestCase
         self::assertSame($dimensionUOM, $package->getDimensionsUOM());
         self::assertSame($customerReferences, $package->getCustomerReferences());
     }
+
+    /**
+     * @test
+     */
+    public function invalidWeightUOM()
+    {
+        self::expectException(\InvalidArgumentException::class);
+
+        new Package(
+            $sequenceNumber = 1,
+            $weight = 1.123,
+            $weightUOM  = 'test',
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = Package::UOM_DIMENSION_CM,
+            $customerReferences = 'TEST CZ-IT'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function invalidDimensionsUOM()
+    {
+        self::expectException(\InvalidArgumentException::class);
+
+        new Package(
+            $sequenceNumber = 1,
+            $weight = 1.123,
+            $weightUOM  = Package::UOM_WEIGHT_KG,
+            $length = 1.123,
+            $width = 1.123,
+            $height = 1.123,
+            $dimensionUOM = 'test',
+            $customerReferences = 'TEST CZ-IT'
+        );
+    }
 }

@@ -80,7 +80,7 @@ class ShipmentRequestTest extends TestCase
         $packages = [$package, $package];
 
         $dryIce = new DryIce(
-            $unCode = ' UN1845',
+            $unCode = 'UN1845',
             $weight = 20.53
         );
 

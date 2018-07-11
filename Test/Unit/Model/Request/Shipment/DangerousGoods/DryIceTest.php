@@ -22,7 +22,7 @@ class DryIceTest extends TestCase
     {
 
         $dryIce = new DryIce(
-            $unCode = ' UN1845',
+            $unCode = 'UN1845',
             $weight = 20.53
         );
 
