@@ -59,4 +59,6 @@ class Client extends \SoapClient
     {
         return $this->__soapCall('getRateRequest', [$rateRequest]);
     }
+
+
 }
