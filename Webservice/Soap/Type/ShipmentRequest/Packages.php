@@ -2,7 +2,9 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Webservice\Soap\Type\Common;
+namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
+
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
 
 /**
  * The packages section details the weight and dimensions of the individual pieces of the shipment.
@@ -21,32 +23,26 @@ class Packages
     /**
      * The list of requested packages.
      *
-     * @var array
+     * @var RequestedPackages
      */
-    private $RequestedPackages = [];
+    private $RequestedPackages = null;
 
     /**
      * Constructor.
      *
-     * @param array $requestedPackages List of requested packages
-     *
-     * @throws \OutOfBoundsException
+     * @param RequestedPackages $RequestedPackages requested packages
      */
-    public function __construct(array $requestedPackages)
+    public function __construct($RequestedPackages)
     {
-        if (!count($requestedPackages)) {
-            throw new \OutOfBoundsException('A shipment must contain at least one package');
-        }
-
-        $this->setRequestedPackages($requestedPackages);
+        $this->RequestedPackages = $RequestedPackages;
     }
 
     /**
      * Returns the requested packages.
      *
-     * @return array
+     * @return RequestedPackages
      */
-    public function getRequestedPackages(): array
+    public function getRequestedPackages(): RequestedPackages
     {
         return $this->RequestedPackages;
     }
@@ -54,17 +50,12 @@ class Packages
     /**
      * Sets the requested packages.
      *
-     * @param array $requestedPackages List of requested packages
+     * @param RequestedPackages $requestedPackages Requested packages
      *
      * @return self
-     * @throws \OutOfBoundsException
      */
-    public function setRequestedPackages(array $requestedPackages): Packages
+    public function setRequestedPackages($requestedPackages): Packages
     {
-        if (count($requestedPackages) > 50) {
-            throw new \OutOfBoundsException('A shipment can only contain a maximum of 50 packages');
-        }
-
         $this->RequestedPackages = $requestedPackages;
         return $this;
     }

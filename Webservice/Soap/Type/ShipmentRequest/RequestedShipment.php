@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\ShipTimestamp;
 

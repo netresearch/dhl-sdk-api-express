@@ -8,12 +8,11 @@ use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
-use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail\Commodities;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
@@ -21,6 +20,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
+use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
 
 /**
  * Tests SoapShipmentRequest
@@ -70,10 +70,9 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             )
         );
 
-        $packages = new Packages([
-            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 1', 1)),
-            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 2', 2)),
-        ]);
+        $packages = new Packages(
+            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 1', 1))
+        );
 
         $shipTimestamp = (new \DateTime())
             ->setTime(10, 0)

@@ -12,7 +12,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\Billing\ShippingPaymentType;
 use Dhl\Express\Webservice\Soap\Type\Common\ClientDetail;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
-use Dhl\Express\Webservice\Soap\Type\Common\Packages;
+use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;

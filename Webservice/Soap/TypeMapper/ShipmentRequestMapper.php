@@ -8,7 +8,7 @@ use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Shipment\Package;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
-use Dhl\Express\Webservice\Soap\Type\Common\Packages;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
@@ -158,9 +158,9 @@ class ShipmentRequestMapper
     /**
      * @param PackageInterface[] $packages
      *
-     * @return RequestedPackages[]
+     * @return RequestedPackages
      */
-    private function mapPackages(array $packages): array
+    private function mapPackages(array $packages): RequestedPackages
     {
         $requestedPackages = [];
 
@@ -177,7 +177,7 @@ class ShipmentRequestMapper
             );
         }
 
-        return $requestedPackages;
+        return $requestedPackages[0];
     }
 
     /**

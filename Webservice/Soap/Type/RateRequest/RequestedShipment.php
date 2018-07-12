@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\CurrencyCode;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\Money;
-use Dhl\Express\Webservice\Soap\Type\Common\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\ShipTimestamp;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;

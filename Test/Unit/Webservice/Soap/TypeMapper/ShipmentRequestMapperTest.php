@@ -281,11 +281,8 @@ class ShipmentRequestMapperTest extends TestCase
         /**
          * @var RequestedPackages $soapPackage
          */
-        $soapPackage = $soapRequest->getRequestedShipment()->getPackages()->getRequestedPackages()[0];
-        $this->assertSameSize(
-            $packages,
-            $soapRequest->getRequestedShipment()->getPackages()->getRequestedPackages()
-        );
+        $soapPackage = $soapRequest->getRequestedShipment()->getPackages()->getRequestedPackages();
+
         $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
         $this->assertEquals(
             $shipmentDetails->getReadyAtTimestamp(),

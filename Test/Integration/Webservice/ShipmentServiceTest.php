@@ -168,52 +168,43 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
     {
         return [
             'domestic request with metric measures, unscheduled pickup' => [
-                true, // pickup type
+                false, // pickup type
                 ShipmentDetails::PAYMENT_TYPE_DDP, // terms of trade
                 ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS, // content type
-                (new \DateTime())->modify('+1 day')->getTimestamp(), // ready at timestamp (shipment timestamp)
+                (new \DateTime())->modify('+1 hour')->getTimestamp(), // ready at timestamp (shipment timestamp)
                 '1', // number of pieces
-                'SGD', // currency
-                'Customer Reference 1', // description
-                'P', // service type
+                'EUR', // currency
+                'ppps sd', // description
+                'U', // service type
                 '1234-5678', // account number
                 99.99, // insurance value
-                'SGD', // insurance currency type
-                'US', // shipper country code
-                '90232', // shipper postal code
-                'Culver City', // shipper city
-                ['3131 S Las Vegas Blvd', 'Room 404'], // shipper street
-                'Max Mustermann', // shipper name
-                'Acme', // shipper company
-                '004922832432423', // shipper phone
-                'US', // recipient country code
-                '90232', // recipient postal code
-                'Culver City', // recipient city
-                ['3131 S Las Vegas Blvd', 'Room 404'], // recipient street
-                'Max Mustermann', // recipient name
-                'Acme', // recipient company
+                'EUR', // insurance currency type
+                'CZ', // shipper country code
+                '14800', // shipper postal code
+                'Prague', // shipper city
+                ['V Parku 2308/10'], // shipper street
+                'John Smith', // shipper name
+                'DHL', // shipper company
+                '003932423423', // shipper phone
+                'IT', // recipient country code
+                '50127', // recipient postal code
+                'Firenze', // recipient city
+                ['Via Felice Matteucci 2'], // recipient street
+                'Jane Smith', // recipient name
+                'Deutsche Post DHL', // recipient company
                 '004922832432423', // recipient phone
                 'UN1845', // dry ice UN code
                 20.35, // dry ice weight
                 [
                     1 => [ // package sequence number
-                        'weight' => 1.2, // package weight
+                        'weight' => 9.0, // package weight
                         'weightUOM' => 'kg', // weight unit
-                        'length' => 20, // package length
-                        'width' => 15, // package width
-                        'height' => 10, // package height
+                        'length' => 46, // package length
+                        'width' => 34, // package width
+                        'height' => 31, // package height
                         'dimensionsUOM' => 'cm', // dimensions unit
-                        'customerReferences' => 'asd' // customer reference
-                    ],
-                    2 => [ // package sequence number
-                        'weight' => 2300, // package weight
-                        'weightUOM' => 'g', // weight unit
-                        'length' => 0.2, // package length
-                        'width' => 0.1, // package width
-                        'height' => 0.1, // package height
-                        'dimensionsUOM' => 'm', // dimensions unit
-                        'customerReferences' => 'asd' // customer reference
-                    ],
+                        'customerReferences' => 'TEST CZ-IT' // customer reference
+                    ]
                 ]
             ],
         ];
