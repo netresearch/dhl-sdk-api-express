@@ -36,6 +36,7 @@ class ShipmentRequestTest extends TestCase
             $numberOfPieces = 12,
             $currencyCode = 'EUR',
             $description = 'A description',
+            $customValue = 1.0,
             $serviceType = 'U'
         );
 

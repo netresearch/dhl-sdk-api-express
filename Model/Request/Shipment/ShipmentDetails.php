@@ -106,6 +106,13 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $description;
 
     /**
+     * The customs value.
+     *
+     * @var float
+     */
+    private $customsValue;
+
+    /**
      * The service type.
      *
      * @var string
@@ -121,6 +128,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param int $numberOfPieces
      * @param string $currencyCode
      * @param string $description
+     * @param float $customsValue
      * @param string $serviceType
      */
     public function __construct(
@@ -131,6 +139,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         int $numberOfPieces,
         string $currencyCode,
         string $description,
+        float $customsValue,
         string $serviceType
     ) {
         $this->unscheduledPickup = $unscheduledPickup;
@@ -140,6 +149,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->numberOfPieces = $numberOfPieces;
         $this->currencyCode = $currencyCode;
         $this->description = $description;
+        $this->customsValue = $customsValue;
         $this->serviceType = $serviceType;
     }
 
@@ -205,6 +215,14 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCustomsValue(): float
+    {
+        return $this->customsValue;
     }
 
     /**

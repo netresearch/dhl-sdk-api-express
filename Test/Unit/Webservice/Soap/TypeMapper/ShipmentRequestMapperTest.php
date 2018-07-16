@@ -42,6 +42,7 @@ class ShipmentRequestMapperTest extends TestCase
             $numberOfPieces = 12,
             $currencyCode = 'EUR',
             $desciption = 'a description.',
+            $customsValue = 1.0,
             $serviceType = 'U'
         );
 
@@ -145,6 +146,11 @@ class ShipmentRequestMapperTest extends TestCase
         $this->assertEquals(
             $desciption,
             $soapRequest->getRequestedShipment()->getInternationalDetail()->getCommodities()->getDescription()
+        );
+
+        $this->assertEquals(
+            $customsValue,
+            $soapRequest->getRequestedShipment()->getInternationalDetail()->getCommodities()->getCustomsValue()->getValue()
         );
 
         $this->assertEquals(

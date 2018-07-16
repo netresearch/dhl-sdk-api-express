@@ -81,6 +81,15 @@ interface ShipmentRequestBuilderInterface
     public function setDescription(string $description): ShipmentRequestBuilderInterface;
 
     /**
+     * Sets the customs value.
+     *
+     * @param float $customsValue
+     *
+     * @return self
+     */
+    public function setCustomsValue(float $customsValue): ShipmentRequestBuilderInterface;
+
+    /**
      * Sets the serviceType.
      *
      * @param string $serviceType

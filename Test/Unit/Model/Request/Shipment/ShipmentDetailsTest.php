@@ -29,6 +29,7 @@ class ShipmentDetailsTest extends TestCase
             $numberOfPieces = 12,
             $currencyCode = 'EUR',
             $description = 'A description',
+            $customsValue = 1.0,
             $serviceType = 'U'
         );
 
@@ -41,6 +42,7 @@ class ShipmentDetailsTest extends TestCase
         self::assertSame($numberOfPieces, $shipmentDetails->getNumberOfPieces());
         self::assertSame($currencyCode, $shipmentDetails->getCurrencyCode());
         self::assertSame($description, $shipmentDetails->getDescription());
+        self::assertSame($customsValue, $shipmentDetails->getCustomsValue());
         self::assertSame($serviceType, $shipmentDetails->getServiceType());
     }
 
@@ -58,6 +60,7 @@ class ShipmentDetailsTest extends TestCase
             12,
             'EUR',
             'a description',
+            $customsValue = 1,
             'U'
         );
 

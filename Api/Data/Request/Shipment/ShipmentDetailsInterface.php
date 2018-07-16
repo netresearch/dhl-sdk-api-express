@@ -78,4 +78,11 @@ interface ShipmentDetailsInterface
      * @return string
      */
     public function getDescription(): string;
+
+    /**
+     * Returns the customs value.
+     *
+     * @return float
+     */
+    public function getCustomsValue(): float;
 }

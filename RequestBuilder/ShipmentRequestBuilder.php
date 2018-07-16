@@ -103,6 +103,16 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     /**
+     * @param float $customsValue
+     * @return self
+     */
+    public function setCustomsValue(float $customsValue): ShipmentRequestBuilderInterface
+    {
+        $this->data['customsValue'] = $customsValue;
+        return $this;
+    }
+
+    /**
      * @param string $serviceType
      * @return self
      */
@@ -266,6 +276,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['numberOfPieces'],
             $this->data['currencyCode'],
             $this->data['description'],
+            $this->data['customsValue'],
             $this->data['serviceType']
         );
 

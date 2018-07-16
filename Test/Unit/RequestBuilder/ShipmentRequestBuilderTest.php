@@ -35,6 +35,7 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             ->setNumberOfPieces($numberOfPieces = 12)
             ->setCurrency($currencyCode = 'EUR')
             ->setDescription($description = 'a description.')
+            ->setCustomsValue($customsValue = 1.0)
             ->setServiceType($serviceType = 'U')
             ->setPayerAccountNumber($accountNumber = 'XXXXXXX')
             ->setInsurance($insuranceValue = 99.99, $insuranceCurrency = 'EUR')
@@ -130,6 +131,7 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 $numberOfPieces,
                 $currencyCode,
                 $description,
+                $customsValue,
                 $serviceType
             ),
             $request->getShipmentDetails()

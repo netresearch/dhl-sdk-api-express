@@ -5,14 +5,12 @@
 
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
-use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
-use Dhl\Express\Webservice\SoapServiceFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
@@ -51,6 +49,7 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
      * @param int $numberOfPieces
      * @param string $currency
      * @param string $description
+     * @param float $customsValue
      * @param $serviceType
      * @param string $accountNumber
      * @param float $insuranceValue
@@ -82,7 +81,8 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
         int $numberOfPieces,
         string $currency,
         string $description,
-        $serviceType,
+        float $customsValue,
+        string $serviceType,
         string $accountNumber,
         float $insuranceValue,
         string $insuranceCurrency,
@@ -122,6 +122,7 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
             ->setNumberOfPieces($numberOfPieces)
             ->setCurrency($currency)
             ->setDescription($description)
+            ->setCustomsValue($customsValue)
             ->setServiceType($serviceType)
             ->setPayerAccountNumber($accountNumber)
             ->setInsurance($insuranceValue, $insuranceCurrency)
@@ -175,6 +176,7 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
                 '1', // number of pieces
                 'EUR', // currency
                 'ppps sd', // description
+                1.0, // customsValue
                 'U', // service type
                 '1234-5678', // account number
                 99.99, // insurance value

@@ -89,15 +89,20 @@ class ShipmentRequestMapper
             )
         );
 
+        $commodities = new InternationalDetail\Commodities(
+            $request->getShipmentDetails()->getDescription()
+        );
+
+        $commodities->setNumberOfPieces($request->getShipmentDetails()->getNumberOfPieces());
+        $commodities->setCustomsValue($request->getShipmentDetails()->getCustomsValue());
+
         // Create shipment
         $requestedShipment = new RequestedShipment(
             $shipmentInfo,
             $request->getShipmentDetails()->getReadyAtTimestamp(),
             $request->getShipmentDetails()->getTermsOfTrade(),
             new InternationalDetail(
-                new InternationalDetail\Commodities(
-                    $request->getShipmentDetails()->getDescription()
-                )
+                $commodities
             ),
             $ship,
             new Packages(
