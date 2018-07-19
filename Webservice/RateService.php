@@ -54,6 +54,8 @@ class RateService implements RateServiceInterface
     /**
      * @param RateRequestInterface $request
      * @return RateResponseInterface
+     * @throws RateRequestException
+     * @throws SoapException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
@@ -61,10 +63,10 @@ class RateService implements RateServiceInterface
             $response = $this->adapter->collectRates($request);
         } catch (SoapException $e) {
             $this->logger->error($e->getMessage());
-            $response = new RateResponse([]);
+            throw $e;
         } catch (RateRequestException $e) {
             $this->logger->error($e->getMessage());
-            $response = new RateResponse([]);
+            throw $e;
         }
 
         if ($this->adapter instanceof TraceableInterface) {
