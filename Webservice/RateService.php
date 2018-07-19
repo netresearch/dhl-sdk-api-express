@@ -7,6 +7,9 @@ namespace Dhl\Express\Webservice;
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\RateServiceInterface;
+use Dhl\Express\Exception\RateRequestException;
+use Dhl\Express\Exception\SoapException;
+use Dhl\Express\Model\RateResponse;
 use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Psr\Log\LoggerInterface;
@@ -50,13 +53,19 @@ class RateService implements RateServiceInterface
 
     /**
      * @param RateRequestInterface $request
-     *
      * @return RateResponseInterface
-     * @throws \InvalidArgumentException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
-        $response = $this->adapter->collectRates($request);
+        try {
+            $response = $this->adapter->collectRates($request);
+        } catch (SoapException $e) {
+            $this->logger->error($e->getMessage());
+            $response = new RateResponse([]);
+        } catch (RateRequestException $e) {
+            $this->logger->error($e->getMessage());
+            $response = new RateResponse([]);
+        }
 
         if ($this->adapter instanceof TraceableInterface) {
             $this->logger->debug($this->adapter->getLastRequest());

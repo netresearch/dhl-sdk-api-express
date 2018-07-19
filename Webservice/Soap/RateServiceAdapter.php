@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -47,7 +48,8 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
         \SoapClient $client,
         RateRequestMapper $requestMapper,
         RateResponseMapper $responseMapper
-    ) {
+    )
+    {
         $this->client = $client;
         $this->requestMapper = $requestMapper;
         $this->responseMapper = $responseMapper;
@@ -57,6 +59,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
      * @param RateRequestInterface $request
      * @return RateResponseInterface
      * @throws SoapException
+     * @throws \Dhl\Express\Exception\RateRequestException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {

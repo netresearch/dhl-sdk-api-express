@@ -15,5 +15,4 @@ namespace Dhl\Express\Exception;
  */
 class RateRequestException extends \Exception
 {
-
 }
