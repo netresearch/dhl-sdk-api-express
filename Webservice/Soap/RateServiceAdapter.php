@@ -6,6 +6,7 @@ namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
@@ -54,15 +55,17 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
 
     /**
      * @param RateRequestInterface $request
-     *
      * @return RateResponseInterface
-     * @throws \InvalidArgumentException
+     * @throws SoapException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
         $soapRequest = $this->requestMapper->map($request);
-        $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
-
+        try {
+            $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
+        } catch (\Exception $e) {
+            throw new SoapException('Could not access SOAP webservice.');
+        }
         return $this->responseMapper->map($soapResponse);
     }
 

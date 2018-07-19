@@ -5,6 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Model\RateResponse;
 use Dhl\Express\Model\Response\Rate\Rate;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
@@ -23,14 +24,18 @@ class RateResponseMapper
 {
     /**
      * @param SoapRateResponse $rateResponse
-     *
      * @return RateResponseInterface
+     * @throws RateRequestException
      */
     public function map(SoapRateResponse $rateResponse): RateResponseInterface
     {
         $rates = [];
 
         foreach ($rateResponse->getProvider() as $provider) {
+            if ($provider->getNotification()->getCode() !== 0) {
+                throw new RateRequestException($provider->getNotification()->getMessage());
+            }
+
             if ($provider->getService()) {
                 foreach ($provider->getService() as $service) {
                     if ($service->getCharges() !== null) {
