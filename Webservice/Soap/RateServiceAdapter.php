@@ -66,7 +66,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
         $soapRequest = $this->requestMapper->map($request);
         try {
             $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
-        } catch (\Exception $e) {
+        } catch (\SoapFault $e) {
             throw new SoapException('Could not access SOAP webservice.');
         }
         return $this->responseMapper->map($soapResponse);
