@@ -5,6 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
+use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Model\ShipmentResponse;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults\PackageResult;
@@ -24,11 +25,27 @@ class ShipmentResponseMapper
 {
     /**
      * @param SoapShipmentResponse $shipmentResponse
-     *
      * @return ShipmentResponseInterface
+     * @throws ShipmentRequestException
      */
     public function map(SoapShipmentResponse $shipmentResponse): ShipmentResponseInterface
     {
+        if ($notifications = $shipmentResponse->getNotification()) {
+            $errorMessage = '';
+            $error = false;
+
+            foreach ($notifications as $notification) {
+                if ($notification->getCode() !== 0) {
+                    $error = true;
+                    $errorMessage .= $notification->getMessage() . '\\n';
+                }
+            }
+
+            if ($error) {
+                throw new ShipmentRequestException($errorMessage);
+            }
+        }
+
         $labelData = '';
         $trackingNumbers = [];
 

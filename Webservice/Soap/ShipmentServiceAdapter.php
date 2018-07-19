@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
@@ -56,11 +57,17 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     /**
      * @param ShipmentRequestInterface $request
      * @return ShipmentResponseInterface
+     * @throws SoapException
+     * @throws \Dhl\Express\Exception\ShipmentRequestException
      */
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
     {
         $soapRequest = $this->requestMapper->map($request);
-        $soapResponse = $this->client->__soapCall('createShipmentRequest', [$soapRequest]);
+        try {
+            $soapResponse = $this->client->__soapCall('createShipmentRequest', [$soapRequest]);
+        } catch (\SoapFault $e) {
+            throw new SoapException('Could not access SOAP webservice.');
+        }
 
         return $this->responseMapper->map($soapResponse);
     }

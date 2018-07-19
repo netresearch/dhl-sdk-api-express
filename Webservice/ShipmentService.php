@@ -9,6 +9,8 @@ use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Exception\ShipmentRequestException;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Psr\Log\LoggerInterface;
@@ -52,10 +54,20 @@ class ShipmentService implements ShipmentServiceInterface
     /**
      * @param ShipmentRequestInterface $request
      * @return ShipmentResponseInterface
+     * @throws ShipmentRequestException
+     * @throws SoapException
      */
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
     {
-        $response = $this->adapter->createShipment($request);
+        try {
+            $response = $this->adapter->createShipment($request);
+        } catch (SoapException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        } catch (ShipmentRequestException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        }
 
         if ($this->adapter instanceof TraceableInterface) {
             $this->logger->debug($this->adapter->getLastRequest());

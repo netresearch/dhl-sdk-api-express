@@ -33,8 +33,11 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
 
-        $serviceFactory = new SoapServiceFactoryFake($soapClient);
-        $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
+        // $serviceFactory = new SoapServiceFactoryFake($soapClient);
+        // $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
+
+        $serviceFactory = new SoapServiceFactory();
+        $service = $serviceFactory->createShipmentService('DeveloperTestttt', 'G!7sI^0dC^7w', $logger);
 
         return $service;
     }
