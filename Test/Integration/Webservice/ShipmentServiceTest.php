@@ -11,6 +11,7 @@ use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
+use Dhl\Express\Webservice\SoapServiceFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
@@ -170,42 +171,42 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
         return [
             'domestic request with metric measures, unscheduled pickup' => [
                 false, // pickup type
-                ShipmentDetails::PAYMENT_TYPE_DDP, // terms of trade
+                ShipmentDetails::PAYMENT_TYPE_DAP, // terms of trade
                 ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS, // content type
-                (new \DateTime())->modify('+1 hour')->getTimestamp(), // ready at timestamp (shipment timestamp)
-                '1', // number of pieces
+                (new \DateTime('2018-07-23T13:12:14GMT+02:00'))->getTimestamp(), // ready at timestamp (shipment timestamp)
+                1, // number of pieces
                 'EUR', // currency
-                'ppps sd', // description
-                1.0, // customsValue
-                'U', // service type
+                'Replacement Watch Band(s)', // description
+                245, // customsValue
+                'P', // service type
                 '1234-5678', // account number
                 99.99, // insurance value
                 'EUR', // insurance currency type
-                'CZ', // shipper country code
-                '14800', // shipper postal code
-                'Prague', // shipper city
-                ['V Parku 2308/10'], // shipper street
-                'John Smith', // shipper name
-                'DHL', // shipper company
-                '003932423423', // shipper phone
-                'IT', // recipient country code
-                '50127', // recipient postal code
-                'Firenze', // recipient city
-                ['Via Felice Matteucci 2'], // recipient street
-                'Jane Smith', // recipient name
-                'Deutsche Post DHL', // recipient company
-                '004922832432423', // recipient phone
+                'DE', // shipper country code
+                '10719', // shipper postal code
+                'Berlin', // shipper city
+                ['Ludwigkirchstr. 2'], // shipper street
+                'Marchant Asterix', // shipper name
+                'Marchant Asterix', // shipper company
+                '+49 30 1231231234', // shipper phone
+                'US', // recipient country code
+                '37931', // recipient postal code
+                'KNOXVILLE', // recipient city
+                ['8820 Ball Camp Pike'], // recipient street
+                'Michael Cullum', // recipient name
+                'Michael Cullum', // recipient company
+                '++76068111111', // recipient phone
                 'UN1845', // dry ice UN code
                 20.35, // dry ice weight
                 [
                     1 => [ // package sequence number
-                        'weight' => 9.0, // package weight
+                        'weight' => 0.5, // package weight
                         'weightUOM' => 'kg', // weight unit
-                        'length' => 46, // package length
-                        'width' => 34, // package width
-                        'height' => 31, // package height
+                        'length' => 32, // package length
+                        'width' => 24, // package width
+                        'height' => 2.5, // package height
                         'dimensionsUOM' => 'cm', // dimensions unit
-                        'customerReferences' => 'TEST CZ-IT' // customer reference
+                        'customerReferences' => 'Order #5174' // customer reference
                     ]
                 ]
             ],

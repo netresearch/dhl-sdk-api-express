@@ -42,7 +42,7 @@ class ShipmentResponseMapper
         /**
          * @var PackageResult[] $packageResults
          */
-        if ($packageResults = $shipmentResponse->getPackagesResult()) {
+        if ($packageResults = $shipmentResponse->getPackagesResult()->getPackageResult()) {
             foreach ($packageResults as $packageResult) {
                 $trackingNumbers[] = $packageResult->getTrackingNumber();
             }
