@@ -14,7 +14,7 @@ namespace Dhl\Express\Api;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface ApiDataInterface
+interface ShippingProductsInterface
 {
     /**
      * International Express product service codes
@@ -25,6 +25,7 @@ interface ApiDataInterface
     const CODE_INTERNATIONAL_10_30_DUTYFREE = 'L';
     const CODE_INTERNATIONAL_12_00_DUTYFREE = 'T';
     const CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU = 'U';
+
     const CODE_INTERNATIONAL_09_00_DUTIABLE = 'E';
     const CODE_INTERNATIONAL_10_30_DUTIABLE = 'M';
     const CODE_INTERNATIONAL_12_00_DUTIABLE = 'Y';
