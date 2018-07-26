@@ -30,12 +30,12 @@ class Client extends \SoapClient
         $one_way = 0
     ) {
         // DEBUG
-        $action = substr($action, strrpos($action, '_') + 1);
-        $fileName = __DIR__ . '/../../Test/Unit/Webservice/Soap/Mock/' . $action . '.xml';
-
-        if (file_exists($fileName)) {
-            return file_get_contents($fileName);
-        }
+//        $action = substr($action, strrpos($action, '_') + 1);
+//        $fileName = __DIR__ . '/../../Test/Unit/Webservice/Soap/Mock/' . $action . '.xml';
+//
+//        if (file_exists($fileName)) {
+//            return file_get_contents($fileName);
+//        }
 
         //var_dump(__METHOD__, $request);
 

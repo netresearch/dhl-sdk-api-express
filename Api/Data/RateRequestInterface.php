@@ -49,7 +49,7 @@ interface RateRequestInterface
     public function getPackages(): array;
 
     /**
-     * @return InsuranceInterface
+     * @return InsuranceInterface|null
      */
-    public function getInsurance(): InsuranceInterface;
+    public function getInsurance(): ?InsuranceInterface;
 }

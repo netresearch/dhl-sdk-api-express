@@ -195,10 +195,13 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         }
 
         // build insurance
-        $insurance = new Insurance(
-            $this->data['insurance']['value'],
-            $this->data['insurance']['currencyType']
-        );
+        $insurance = null;
+        if (array_key_exists('insurance', $this->data)) {
+            $insurance = new Insurance(
+                $this->data['insurance']['value'],
+                $this->data['insurance']['currencyType']
+            );
+        }
 
         $request = new RateRequest(
             $shipperAddress,
