@@ -32,8 +32,20 @@ class RateResponseMapper
         $rates = [];
 
         foreach ($rateResponse->getProvider() as $provider) {
-            if ($provider->getNotification()->getCode() !== 0) {
-                throw new RateRequestException($provider->getNotification()->getMessage());
+            if (\is_array($provider->getNotification())) {
+                $error_message = '';
+                foreach ($provider->getNotification() as $notification) {
+                    if ($notification->getCode() !== 0) {
+                        $error_message .= $notification->getMessage() . '\n';
+                    }
+                }
+                if ($error_message !== '') {
+                    throw new RateRequestException($error_message);
+                }
+            } else {
+                if ($provider->getNotification()->getCode() !== 0) {
+                    throw new RateRequestException($provider->getNotification()->getMessage());
+                }
             }
 
             if ($provider->getService()) {

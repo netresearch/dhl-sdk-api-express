@@ -52,9 +52,9 @@ class Provider
     /**
      * Returns the notification section.
      *
-     * @return Notification
+     * @return Notification|Notification[]
      */
-    public function getNotification(): Notification
+    public function getNotification()
     {
         return $this->Notification;
     }
