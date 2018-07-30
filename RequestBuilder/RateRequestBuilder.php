@@ -167,9 +167,9 @@ class RateRequestBuilder implements RateRequestBuilderInterface
 
         // build shipper address
         $shipperAddress = new ShipperAddress(
-            $this->data['recipientAddress']['countryCode'],
-            $this->data['recipientAddress']['postalCode'],
-            $this->data['recipientAddress']['city']
+            $this->data['shipperAddress']['countryCode'],
+            $this->data['shipperAddress']['postalCode'],
+            $this->data['shipperAddress']['city']
         );
 
         // build shipment details
