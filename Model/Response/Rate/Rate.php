@@ -46,6 +46,13 @@ class Rate implements RateInterface
     private $currencyCode;
 
     /**
+     * The delivery time.
+     *
+     * @var \DateTime
+     */
+    private $deliveryTime;
+
+    /**
      * Rate constructor.
      *
      * @param string $serviceCode  The service code
@@ -91,5 +98,28 @@ class Rate implements RateInterface
     public function getCurrencyCode(): string
     {
         return $this->currencyCode;
+    }
+
+    /**
+     * Sets the delivery date/time.
+     *
+     * @param \DateTime $deliveryTime The delivery date/time
+     *
+     * @return Rate
+     */
+    public function setDeliveryTime(\DateTime $deliveryTime): Rate
+    {
+        $this->deliveryTime = $deliveryTime;
+        return $this;
+    }
+
+    /**
+     * Returns the delivery date/time.
+     *
+     * @return \DateTime
+     */
+    public function getDeliveryTime(): \DateTime
+    {
+        return $this->deliveryTime;
     }
 }

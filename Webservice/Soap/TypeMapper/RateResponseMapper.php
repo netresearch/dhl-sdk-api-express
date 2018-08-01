@@ -56,12 +56,15 @@ class RateResponseMapper
                     } else {
                         $label = 'DHL Express';
                     }
+
                     $totals       = $service->getTotalNet();
                     $currencyCode = $totals->getCurrency();
-                    $serviceCode = $service->getType();
-                    $cost        = $totals->getAmount();
+                    $serviceCode  = $service->getType();
+                    $cost         = $totals->getAmount();
 
                     $rate = new Rate($serviceCode, $label, $cost, $currencyCode);
+                    $rate->setDeliveryTime($service->getDeliveryTime());
+
                     $rates[] = $rate;
                 }
             }
