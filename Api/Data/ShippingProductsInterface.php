@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\Api\Data;
 
-
 /**
  * API Data Interface.
  *
@@ -38,4 +37,59 @@ interface ShippingProductsInterface
     const CODE_DOMESTIC_10_00 = 'O';
     const CODE_DOMESTIC_12_00 = '1';
     const CODE_DOMESTIC = 'N';
+
+    const PRODUCTS_INTERNATIONAL = [
+        self::CODE_INTERNATIONAL_ENVELOPE_DUTYFREE,
+        self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
+        self::CODE_INTERNATIONAL_09_00_DUTYFREE,
+        self::CODE_INTERNATIONAL_10_30_DUTYFREE,
+        self::CODE_INTERNATIONAL_12_00_DUTYFREE,
+        self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU,
+        self::CODE_INTERNATIONAL_09_00_DUTIABLE,
+        self::CODE_INTERNATIONAL_10_30_DUTIABLE,
+        self::CODE_INTERNATIONAL_12_00_DUTIABLE,
+        self::CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE,
+    ];
+    const PRODUCTS_DOMESTIC = [
+        self::CODE_DOMESTIC_09_00,
+        self::CODE_DOMESTIC_10_00,
+        self::CODE_DOMESTIC_12_00,
+        self::CODE_DOMESTIC,
+    ];
+
+    /**
+     * International Express product names
+     */
+    const PRODUCT_NAMES_INTERNATIONAL = [
+        'EXPRESS ENVELOPE' => [
+            self::CODE_INTERNATIONAL_ENVELOPE_DUTYFREE,
+        ],
+        'EXPRESS WORLDWIDE' => [
+            self::CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE,
+            self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
+            self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU,
+        ],
+        'EXPRESS 9:00' => [
+            self::CODE_INTERNATIONAL_09_00_DUTIABLE,
+            self::CODE_INTERNATIONAL_09_00_DUTYFREE,
+        ],
+        'EXPRESS 10:30' => [
+            self::CODE_INTERNATIONAL_10_30_DUTIABLE,
+            self::CODE_INTERNATIONAL_10_30_DUTYFREE,
+        ],
+        'EXPRESS 12:00' => [
+            self::CODE_INTERNATIONAL_12_00_DUTIABLE,
+            self::CODE_INTERNATIONAL_12_00_DUTYFREE,
+        ]
+    ];
+
+    /**
+     * Domestic Express product names
+     */
+    const PRODUCT_NAMES_DOMESTIC = [
+        'DOMESTIC EXPRESS' => [self::CODE_DOMESTIC],
+        'DOMESTIC EXPRESS 9:00' => [self::CODE_DOMESTIC_09_00],
+        'DOMESTIC EXPRESS 10:00' => [self::CODE_DOMESTIC_10_00],
+        'DOMESTIC EXPRESS 12:00' => [self::CODE_DOMESTIC_12_00],
+    ];
 }
