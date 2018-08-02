@@ -141,8 +141,11 @@ class ShipmentRequestMapper
             $insuranceService->setCurrencyCode($insurance->getCurrencyCode());
             $specialServicesList[] = $insuranceService;
         }
-        $specialServices = new SpecialServices($specialServicesList);
-        $requestedShipment->getShipmentInfo()->setSpecialServices($specialServices);
+
+        if (!empty($specialServicesList)) {
+            $specialServices = new SpecialServices($specialServicesList);
+            $requestedShipment->getShipmentInfo()->setSpecialServices($specialServices);
+        }
 
         // Create dangerous goods
         if ($dryIce = $request->getDryIce()) {

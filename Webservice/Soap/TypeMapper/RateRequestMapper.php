@@ -86,8 +86,11 @@ class RateRequestMapper
             $insuranceService->setCurrencyCode($insurance->getCurrencyCode());
             $specialServicesList[] = $insuranceService;
         }
-        $specialServices = new SpecialServices($specialServicesList);
-        $requestedShipment->setSpecialServices($specialServices);
+
+        if (!empty($specialServicesList)) {
+            $specialServices = new SpecialServices($specialServicesList);
+            $requestedShipment->setSpecialServices($specialServices);
+        }
 
         $streetLines = $rateRequest->getRecipientAddress()->getStreetLines();
 
