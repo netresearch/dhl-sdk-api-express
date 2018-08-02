@@ -8,6 +8,7 @@ use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Shipment\Package;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
+use Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
@@ -46,7 +47,7 @@ class ShipmentRequestMapper
         $this->checkConsistentUOM($request->getPackages());
 
         // Since we checked that all packages use the same UOMs, we can just take them from any package
-        $weightUOM = $request->getPackages()[0]->getWeightUOM();
+        $weightUOM     = $request->getPackages()[0]->getWeightUOM();
         $dimensionsUOM = $request->getPackages()[0]->getDimensionsUOM();
 
         // Create shipment info
@@ -126,8 +127,16 @@ class ShipmentRequestMapper
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines3($recipientStreetLines[2]);
         }
 
-        $requestedShipment->getShipmentInfo()->setAccount(
-            $request->getPayerAccountNumber()
+        $shippingPaymentType = $request->getBillingAccountNumber()
+            ? Billing\ShippingPaymentType::R
+            : Billing\ShippingPaymentType::S;
+
+        $requestedShipment->getShipmentInfo()->setBilling(
+            new Billing(
+                $request->getPayerAccountNumber(),
+                $shippingPaymentType,
+                $request->getBillingAccountNumber()
+            )
         );
 
         $requestedShipment->getInternationalDetail()->setContent(

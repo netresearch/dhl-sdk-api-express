@@ -6,6 +6,7 @@
 namespace Dhl\Express\Model\Request\Shipment;
 
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
+use Dhl\Express\Webservice\Soap\Type\Common\Billing\ShippingPaymentType;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
@@ -25,7 +26,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see DropOffType
      */
-    public const REGULAR_PICKUP = DropOffType::REGULAR_PICKUP;
+    public const REGULAR_PICKUP     = DropOffType::REGULAR_PICKUP;
     public const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
 
     /**
@@ -33,7 +34,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see Content
      */
-    public const CONTENT_TYPE_DOCUMENTS = Content::DOCUMENTS;
+    public const CONTENT_TYPE_DOCUMENTS     = Content::DOCUMENTS;
     public const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
 
     /**
@@ -55,6 +56,15 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public const PAYMENT_TYPE_FAS = PaymentInfo::FAS;
     public const PAYMENT_TYPE_FCA = PaymentInfo::FCA;
     public const PAYMENT_TYPE_FOB = PaymentInfo::FOB;
+
+    /**
+     * Shipping payment types.
+     *
+     * @see ShippingPaymentType
+     */
+    public const SHIPPING_PAYMENT_TYPE_R = ShippingPaymentType::R;
+    public const SHIPPING_PAYMENT_TYPE_S = ShippingPaymentType::S;
+    public const SHIPPING_PAYMENT_TYPE_T = ShippingPaymentType::T;
 
     /**
      * Whether this is a scheduled pickup or not.

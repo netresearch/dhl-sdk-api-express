@@ -36,6 +36,11 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $payerAccountNumber;
 
     /**
+     * @var string
+     */
+    private $billingAccountNumber;
+
+    /**
      * @var InsuranceInterface
      */
     private $insurance;
@@ -92,11 +97,32 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getPayerAccountNumber(): string
     {
         return $this->payerAccountNumber;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getBillingAccountNumber(): string
+    {
+        return $this->billingAccountNumber;
+    }
+
+    /**
+     * Sets the billing account number.
+     *
+     * @param string $billingAccountNumber The billing account number
+     *
+     * @return self
+     */
+    public function setBillingAccountNumber(string $billingAccountNumber): ShipmentRequest
+    {
+        $this->billingAccountNumber = $billingAccountNumber;
+        return $this;
     }
 
     /**

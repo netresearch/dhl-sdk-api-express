@@ -23,7 +23,7 @@ class ShippingPaymentType implements ValueInterface
      * Possible values:
      * - S (use ShipperAccountNumber as payer)
      * - R (use BillingAccountNumber as bill-to receiver account number)
-     * - T (use BillingAccountNumber as bill-to third party account number) PAGE 19 OF 163
+     * - T (use BillingAccountNumber as bill-to third party account number)
      *
      * Please note if you use value R or T in this tag then the next tag <BillingAccountNumber> is also mandatory
      */

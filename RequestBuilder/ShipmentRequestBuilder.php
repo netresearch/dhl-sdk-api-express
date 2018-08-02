@@ -133,6 +133,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function setBillingAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
+    {
+        $this->data['billingAccountNumber'] = $accountNumber;
+        return $this;
+    }
+
+    /**
      * @param float $insuranceValue
      * @param string $insuranceCurrency
      * @return self
@@ -325,6 +334,10 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $recipient,
             $packages
         );
+
+        if (!empty($this->data['billingAccountNumber'])) {
+            $request->setBillingAccountNumber($this->data['billingAccountNumber']);
+        }
 
         // Build insurance
         if (isset($this->data['insurance']) && is_array($this->data['insurance'])) {

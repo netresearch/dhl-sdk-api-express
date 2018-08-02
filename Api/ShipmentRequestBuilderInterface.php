@@ -108,6 +108,15 @@ interface ShipmentRequestBuilderInterface
     public function setPayerAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface;
 
     /**
+     * Sets the billing account number.
+     *
+     * @param string $accountNumber
+     *
+     * @return self
+     */
+    public function setBillingAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface;
+
+    /**
      * Sets the insurance.
      *
      * @param float $insuranceValue
