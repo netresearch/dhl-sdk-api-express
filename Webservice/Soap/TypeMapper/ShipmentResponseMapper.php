@@ -24,8 +24,12 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
 class ShipmentResponseMapper
 {
     /**
-     * @param SoapShipmentResponse $shipmentResponse
+     * Maps the SOAP response to the API model.
+     *
+     * @param SoapShipmentResponse $shipmentResponse The SOAP response
+     *
      * @return ShipmentResponseInterface
+     *
      * @throws ShipmentRequestException
      */
     public function map(SoapShipmentResponse $shipmentResponse): ShipmentResponseInterface
