@@ -53,7 +53,9 @@ class ShipmentService implements ShipmentServiceInterface
 
     /**
      * @param ShipmentRequestInterface $request
+     *
      * @return ShipmentResponseInterface
+     *
      * @throws ShipmentRequestException
      * @throws SoapException
      */
@@ -79,7 +81,9 @@ class ShipmentService implements ShipmentServiceInterface
 
     /**
      * @param ShipmentDeleteRequestInterface $request
+     *
      * @return ShipmentDeleteResponseInterface
+     *
      * @throws \Exception
      */
     public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface

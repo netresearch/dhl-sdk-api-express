@@ -231,17 +231,17 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         string $dimensionsUOM,
         string $customerReferences
     ): ShipmentRequestBuilderInterface {
-        $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
+        $weightDetails     = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
         $this->data['packages'][] = [
-            'sequenceNumber' => $sequenceNumber,
-            'weight' => $weightDetails['weight'],
-            'weightUOM' => $weightDetails['uom'],
-            'length' => $dimensionsDetails['length'],
-            'width' => $dimensionsDetails['width'],
-            'height' => $dimensionsDetails['height'],
-            'dimensionsUOM' => $dimensionsDetails['uom'],
+            'sequenceNumber'     => $sequenceNumber,
+            'weight'             => $weightDetails['weight'],
+            'weightUOM'          => $weightDetails['uom'],
+            'length'             => $dimensionsDetails['length'],
+            'width'              => $dimensionsDetails['width'],
+            'height'             => $dimensionsDetails['height'],
+            'dimensionsUOM'      => $dimensionsDetails['uom'],
             'customerReferences' => $customerReferences
         ];
 
@@ -267,7 +267,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     public function build(): ShipmentRequestInterface
     {
-        // build shipment details
+        // Build shipment details
         $shipmentDetails = new ShipmentDetails(
             $this->data['unscheduledPickup'],
             $this->data['termsOfTrade'],
@@ -363,24 +363,32 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     private function normalizeWeight(float $weight, string $uom): array
     {
-        if (($uom === Package::UOM_WEIGHT_KG) || ($uom === Package::UOM_WEIGHT_LB)) {
+        if (($uom === Package::UOM_WEIGHT_KG) || ($uom === Package::UOM_WEIGHT_KILOGRAM)) {
             return [
                 'weight' => $weight,
-                'uom' => $uom,
+                'uom'    => Package::UOM_WEIGHT_KG,
+            ];
+        }
+
+
+        if (($uom === Package::UOM_WEIGHT_LB) || ($uom === Package::UOM_WEIGHT_POUND)) {
+            return [
+                'weight' => $weight,
+                'uom'    => Package::UOM_WEIGHT_LB,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_G) {
             return [
                 'weight' => $weight / 1000,
-                'uom' => Package::UOM_WEIGHT_KG,
+                'uom'    => Package::UOM_WEIGHT_KG,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_OZ) {
             return [
                 'weight' => $weight / 16,
-                'uom' => Package::UOM_WEIGHT_LB,
+                'uom'    => Package::UOM_WEIGHT_LB,
             ];
         }
 
@@ -403,48 +411,57 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     private function normalizeDimensions(float $length, float $width, float $height, string $uom): array
     {
-        if (($uom === Package::UOM_DIMENSION_CM) || ($uom === Package::UOM_DIMENSION_IN)) {
+        if (($uom === Package::UOM_DIMENSION_CM) || ($uom === Package::UOM_DIMENSION_CENTIMETER)) {
             return [
                 'length' => $length,
-                'width' => $width,
+                'width'  => $width,
                 'height' => $height,
-                'uom' => $uom,
+                'uom'    => Package::UOM_DIMENSION_CM,
+            ];
+        }
+
+        if (($uom === Package::UOM_DIMENSION_IN) || ($uom === Package::UOM_DIMENSION_INCH)) {
+            return [
+                'length' => $length,
+                'width'  => $width,
+                'height' => $height,
+                'uom'    => Package::UOM_DIMENSION_IN,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_MM) {
             return [
                 'length' => $length / 10,
-                'width' => $width / 10,
+                'width'  => $width / 10,
                 'height' => $height / 10,
-                'uom' => Package::UOM_DIMENSION_CM,
+                'uom'    => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_M) {
             return [
                 'length' => $length * 100,
-                'width' => $width * 100,
+                'width'  => $width * 100,
                 'height' => $height * 100,
-                'uom' => Package::UOM_DIMENSION_CM,
+                'uom'    => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_FT) {
             return [
                 'length' => $length * 12,
-                'width' => $width * 12,
+                'width'  => $width * 12,
                 'height' => $height * 12,
-                'uom' => Package::UOM_DIMENSION_IN,
+                'uom'    => Package::UOM_DIMENSION_IN,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_YD) {
             return [
                 'length' => $length * 36,
-                'width' => $width * 36,
+                'width'  => $width * 36,
                 'height' => $height * 36,
-                'uom' => Package::UOM_DIMENSION_IN,
+                'uom'    => Package::UOM_DIMENSION_IN,
             ];
         }
 
