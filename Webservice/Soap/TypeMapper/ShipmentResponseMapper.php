@@ -37,7 +37,7 @@ class ShipmentResponseMapper
             foreach ($notifications as $notification) {
                 if ($notification->getCode() !== 0) {
                     $error = true;
-                    $errorMessage .= $notification->getMessage() . '\\n';
+                    $errorMessage .= $notification->getMessage() . PHP_EOL;
                 }
             }
 
