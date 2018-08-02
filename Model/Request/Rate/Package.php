@@ -127,7 +127,6 @@ class Package implements PackageInterface
             throw new \InvalidArgumentException('The dimension UOM must be one of ' . implode(', ', $dimensionUOMs));
         }
 
-
         $this->sequenceNumber = $sequenceNumber;
         $this->weight         = $weight;
         $this->weightUOM      = $weightUOM;

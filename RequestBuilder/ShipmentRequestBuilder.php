@@ -280,13 +280,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['serviceType']
         );
 
-        // build insurance
-        $insurance = new Insurance(
-            $this->data['insurance']['value'],
-            $this->data['insurance']['currencyType']
-        );
-
-        // build shipper
+        // Build shipper
         $shipper = new Shipper(
             $this->data['shipper']['countryCode'],
             $this->data['shipper']['postalCode'],
@@ -297,7 +291,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['shipper']['phone']
         );
 
-        // build recipient
+        // Build recipient
         $recipient = new Recipient(
             $this->data['recipient']['countryCode'],
             $this->data['recipient']['postalCode'],
@@ -323,22 +317,34 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             );
         }
 
-        // build dry ice
-        $dryIce = new DryIce(
-            $this->data['dryIce']['unCode'],
-            $this->data['dryIce']['weight']
-        );
-
-        //build request
+        // Build request
         $request = new ShipmentRequest(
             $shipmentDetails,
             $this->data['payerAccountNumber'],
-            $insurance,
             $shipper,
             $recipient,
-            $packages,
-            $dryIce
+            $packages
         );
+
+        // Build insurance
+        if (isset($this->data['insurance']) && is_array($this->data['insurance'])) {
+            $insurance = new Insurance(
+                $this->data['insurance']['value'],
+                $this->data['insurance']['currencyType']
+            );
+
+            $request->setInsurance($insurance);
+        }
+
+        // Build dry ice
+        if (isset($this->data['dryIce']) && is_array($this->data['dryIce'])) {
+            $dryIce = new DryIce(
+                $this->data['dryIce']['unCode'],
+                $this->data['dryIce']['weight']
+            );
+
+            $request->setDryIce($dryIce);
+        }
 
         $this->data = [];
 

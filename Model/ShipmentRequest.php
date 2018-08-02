@@ -62,30 +62,25 @@ class ShipmentRequest implements ShipmentRequestInterface
 
     /**
      * SoapShipmentRequest constructor.
+     *
      * @param ShipmentDetailsInterface $shipmentDetails
-     * @param string $payerAccountNumber
-     * @param InsuranceInterface $insurance
-     * @param Shipper $shipper
-     * @param Recipient $recipient
-     * @param array $packages
-     * @param DryIceInterface $dryIce
+     * @param string                   $payerAccountNumber
+     * @param Shipper                  $shipper
+     * @param Recipient                $recipient
+     * @param array                    $packages
      */
     public function __construct(
         ShipmentDetailsInterface $shipmentDetails,
         string $payerAccountNumber,
-        InsuranceInterface $insurance,
         Shipper $shipper,
         Recipient $recipient,
-        array $packages,
-        DryIceInterface $dryIce
+        array $packages
     ) {
-        $this->shipmentDetails = $shipmentDetails;
+        $this->shipmentDetails    = $shipmentDetails;
         $this->payerAccountNumber = $payerAccountNumber;
-        $this->insurance = $insurance;
-        $this->shipper = $shipper;
-        $this->recipient = $recipient;
-        $this->packages = $packages;
-        $this->dryIce = $dryIce;
+        $this->shipper            = $shipper;
+        $this->recipient          = $recipient;
+        $this->packages           = $packages;
     }
 
     /**
@@ -105,11 +100,24 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return InsuranceInterface
+     * @return null|InsuranceInterface
      */
-    public function getInsurance(): InsuranceInterface
+    public function getInsurance(): ?InsuranceInterface
     {
         return $this->insurance;
+    }
+
+    /**
+     * Sets the insurance instance.
+     *
+     * @param InsuranceInterface $insurance The insurance instance
+     *
+     * @return ShipmentRequest
+     */
+    public function setInsurance(InsuranceInterface $insurance): ShipmentRequest
+    {
+        $this->insurance = $insurance;
+        return $this;
     }
 
     /**
@@ -137,10 +145,23 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return DryIceInterface
+     * @return null|DryIceInterface
      */
-    public function getDryIce(): DryIceInterface
+    public function getDryIce(): ?DryIceInterface
     {
         return $this->dryIce;
+    }
+
+    /**
+     * Sets the dry ice instance.
+     *
+     * @param DryIceInterface $dryIce The dry ice instance
+     *
+     * @return ShipmentRequest
+     */
+    public function setDryIce(DryIceInterface $dryIce): ShipmentRequest
+    {
+        $this->dryIce = $dryIce;
+        return $this;
     }
 }

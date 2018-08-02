@@ -37,9 +37,9 @@ interface ShipmentRequestInterface
     public function getPayerAccountNumber(): string;
 
     /**
-     * @return InsuranceInterface
+     * @return null|InsuranceInterface
      */
-    public function getInsurance(): InsuranceInterface;
+    public function getInsurance(): ?InsuranceInterface;
 
     /**
      * @return ShipperInterface
@@ -57,7 +57,7 @@ interface ShipmentRequestInterface
     public function getPackages(): array;
 
     /**
-     * @return DryIceInterface
+     * @return null|DryIceInterface
      */
-    public function getDryIce(): DryIceInterface;
+    public function getDryIce(): ?DryIceInterface;
 }
