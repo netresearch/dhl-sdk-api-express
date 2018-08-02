@@ -49,16 +49,12 @@ class ShipmentResponseMapper
         $labelData = '';
         $trackingNumbers = [];
 
-        /**
-         * @var LabelImage[] $labelImage
-         */
+        /** @var LabelImage[] $labelImage */
         if ($labelImage = $shipmentResponse->getLabelImage()) {
             $labelData = $labelImage[0]->getGraphicImage();
         }
 
-        /**
-         * @var PackageResult[] $packageResults
-         */
+        /** @var PackageResult[] $packageResults */
         if ($packageResults = $shipmentResponse->getPackagesResult()->getPackageResult()) {
             foreach ($packageResults as $packageResult) {
                 $trackingNumbers[] = $packageResult->getTrackingNumber();
@@ -66,7 +62,7 @@ class ShipmentResponseMapper
         }
 
         $shipmentIdentificationNumber = $shipmentResponse->getShipmentIdentificationNumber() ?? '';
-        $dispatchConfirmationNumber = $shipmentResponse->getDispatchConfirmationNumber() ?? '';
+        $dispatchConfirmationNumber   = $shipmentResponse->getDispatchConfirmationNumber()   ?? '';
 
         return new ShipmentResponse(
             $labelData,
