@@ -33,18 +33,25 @@ class RateResponseMapper
 
         foreach ($rateResponse->getProvider() as $provider) {
             if (\is_array($provider->getNotification())) {
-                $error_message = '';
+                $errorMessage = '';
+
+                // FIXME Maybe throw only a single notification as exception instead of concatenating them together? Or chain
+                //       them in reverse order together and setting the in each exception the previous exception parameter
                 foreach ($provider->getNotification() as $notification) {
-                    if ($notification->getCode() !== 0) {
-                        $error_message .= $notification->getMessage() . '\n';
+                    if ($notification->isError()) {
+                        $errorMessage .= $notification->getMessage() . PHP_EOL;
                     }
                 }
-                if ($error_message !== '') {
-                    throw new RateRequestException($error_message);
+
+                if ($errorMessage) {
+                    throw new RateRequestException($errorMessage);
                 }
             } else {
-                if ($provider->getNotification()->getCode() !== 0) {
-                    throw new RateRequestException($provider->getNotification()->getMessage());
+                if ($provider->getNotification()->isError()) {
+                    throw new RateRequestException(
+                        $provider->getNotification()->getMessage(),
+                        $provider->getNotification()->getCode()
+                    );
                 }
             }
 

@@ -48,4 +48,14 @@ class Notification
     {
         return (int) $this->code;
     }
+
+    /**
+     * Returns TRUE if the notification is an error notification.
+     *
+     * @return bool
+     */
+    public function isError(): bool
+    {
+        return $this->getCode() !== 0;
+    }
 }

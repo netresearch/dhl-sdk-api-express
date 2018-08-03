@@ -36,21 +36,21 @@ class ShipmentResponseMapper
     {
         if ($notifications = $shipmentResponse->getNotification()) {
             $errorMessage = '';
-            $error = false;
 
+            // FIXME Maybe throw only a single notification as exception instead of concatenating them together? Or chain
+            //       them in reverse order together and setting the in each exception the previous exception parameter
             foreach ($notifications as $notification) {
-                if ($notification->getCode() !== 0) {
-                    $error = true;
+                if ($notification->isError()) {
                     $errorMessage .= $notification->getMessage() . PHP_EOL;
                 }
             }
 
-            if ($error) {
+            if ($errorMessage) {
                 throw new ShipmentRequestException($errorMessage);
             }
         }
 
-        $labelData = '';
+        $labelData       = '';
         $trackingNumbers = [];
 
         /** @var LabelImage[] $labelImage */
