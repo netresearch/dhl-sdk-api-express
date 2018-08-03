@@ -17,4 +17,17 @@ namespace Dhl\Express\Api\Data;
  */
 interface ShipmentDeleteResponseInterface
 {
+    /**
+     * Returns the success message.
+     *
+     * @return string
+     */
+    public function getMessage(): string;
+
+    /**
+     * Returns TRUE if request was successful.
+     *
+     * @return bool
+     */
+    public function isSuccess(): bool;
 }
