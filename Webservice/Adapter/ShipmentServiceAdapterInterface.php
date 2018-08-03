@@ -5,6 +5,8 @@
 
 namespace Dhl\Express\Webservice\Adapter;
 
+use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
+use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 
@@ -21,8 +23,20 @@ use Dhl\Express\Api\Data\ShipmentResponseInterface;
 interface ShipmentServiceAdapterInterface
 {
     /**
-     * @param ShipmentRequestInterface $request
+     * Performs the shipment create request.
+     *
+     * @param ShipmentRequestInterface $request The shipment request
+     *
      * @return ShipmentResponseInterface
      */
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface;
+
+    /**
+     * Performs the shipment delete request.
+     *
+     * @param ShipmentDeleteRequestInterface $request The shipmetn request
+     *
+     * @return ShipmentDeleteResponseInterface
+     */
+    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface;
 }

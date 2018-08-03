@@ -9,6 +9,7 @@ use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
@@ -52,7 +53,9 @@ class ShipmentService implements ShipmentServiceInterface
     }
 
     /**
-     * @param ShipmentRequestInterface $request
+     * Performs the "createShipment" request.
+     *
+     * @param ShipmentRequestInterface $request The API request
      *
      * @return ShipmentResponseInterface
      *
@@ -63,10 +66,7 @@ class ShipmentService implements ShipmentServiceInterface
     {
         try {
             $response = $this->adapter->createShipment($request);
-        } catch (SoapException $e) {
-            $this->logger->error($e->getMessage());
-            throw $e;
-        } catch (ShipmentRequestException $e) {
+        } catch (SoapException | ShipmentRequestException $e) {
             $this->logger->error($e->getMessage());
             throw $e;
         }
@@ -80,14 +80,29 @@ class ShipmentService implements ShipmentServiceInterface
     }
 
     /**
-     * @param ShipmentDeleteRequestInterface $request
+     * Performs the "deleteShipment" request.
+     *
+     * @param ShipmentDeleteRequestInterface $request The API request
      *
      * @return ShipmentDeleteResponseInterface
      *
-     * @throws \Exception
+     * @throws ShipmentDeleteRequestException
+     * @throws SoapException
      */
     public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
     {
-        throw new \RuntimeException('Not implemented.');
+        try {
+            $response = $this->adapter->deleteShipment($request);
+        } catch (SoapException | ShipmentDeleteRequestException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        }
+
+        if ($this->adapter instanceof TraceableInterface) {
+            $this->logger->debug($this->adapter->getLastRequest());
+            $this->logger->debug($this->adapter->getLastResponse());
+        }
+
+        return $response;
     }
 }

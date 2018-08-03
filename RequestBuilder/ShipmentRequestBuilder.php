@@ -26,7 +26,7 @@ use Dhl\Express\Model\ShipmentRequest;
 class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 {
     /**
-     * The collected data used to build the shipment request.
+     * The collected data used to build the request.
      *
      * @var array
      */

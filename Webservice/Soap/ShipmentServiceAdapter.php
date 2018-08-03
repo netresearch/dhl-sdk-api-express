@@ -5,11 +5,15 @@
 
 namespace Dhl\Express\Webservice\Soap;
 
+use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
+use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 
@@ -39,24 +43,45 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     private $responseMapper;
 
     /**
+     * @var ShipmentDeleteRequestMapper
+     */
+    private $shipmentDeleteRequestMapper;
+
+    /**
+     * @var ShipmentDeleteResponseMapper
+     */
+    private $shipmentDeleteResponseMapper;
+
+    /**
      * ShipmentServiceAdapter constructor.
-     * @param \SoapClient $client
-     * @param ShipmentRequestMapper $requestMapper
-     * @param ShipmentResponseMapper $responseMapper
+     *
+     * @param \SoapClient                  $client
+     * @param ShipmentRequestMapper        $requestMapper
+     * @param ShipmentResponseMapper       $responseMapper
+     * @param ShipmentDeleteRequestMapper  $shipmentDeleteRequestMapper
+     * @param ShipmentDeleteResponseMapper $shipmentDeleteResponseMapper
      */
     public function __construct(
         \SoapClient $client,
         ShipmentRequestMapper $requestMapper,
-        ShipmentResponseMapper $responseMapper
+        ShipmentResponseMapper $responseMapper,
+        ShipmentDeleteRequestMapper $shipmentDeleteRequestMapper,
+        ShipmentDeleteResponseMapper $shipmentDeleteResponseMapper
     ) {
-        $this->client = $client;
-        $this->requestMapper = $requestMapper;
-        $this->responseMapper = $responseMapper;
+        $this->client                       = $client;
+        $this->requestMapper                = $requestMapper;
+        $this->responseMapper               = $responseMapper;
+        $this->shipmentDeleteRequestMapper  = $shipmentDeleteRequestMapper;
+        $this->shipmentDeleteResponseMapper = $shipmentDeleteResponseMapper;
     }
 
     /**
-     * @param ShipmentRequestInterface $request
+     * Performs the shipment create request.
+     *
+     * @param ShipmentRequestInterface $request The shipment request
+     *
      * @return ShipmentResponseInterface
+     *
      * @throws SoapException
      * @throws \Dhl\Express\Exception\ShipmentRequestException
      */
@@ -64,12 +89,34 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     {
         $soapRequest = $this->requestMapper->map($request);
         try {
-            $soapResponse = $this->client->__soapCall('createShipmentRequest', [$soapRequest]);
+            $soapResponse = $this->client->__soapCall('createShipmentRequest', [ $soapRequest ]);
         } catch (\SoapFault $e) {
             throw new SoapException('Could not access SOAP webservice.');
         }
 
         return $this->responseMapper->map($soapResponse);
+    }
+
+    /**
+     * Performs the shipment delete request.
+     *
+     * @param ShipmentDeleteRequestInterface $request The shipment request
+     *
+     * @return ShipmentDeleteResponseInterface
+     *
+     * @throws SoapException
+     * @throws \Dhl\Express\Exception\ShipmentDeleteRequestException
+     */
+    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
+    {
+        $soapRequest = $this->shipmentDeleteRequestMapper->map($request);
+        try {
+            $soapResponse = $this->client->__soapCall('deleteShipmentRequest', [ $soapRequest ]);
+        } catch (\SoapFault $e) {
+            throw new SoapException('Could not access SOAP webservice.');
+        }
+
+        return $this->shipmentDeleteResponseMapper->map($soapResponse);
     }
 
     /**

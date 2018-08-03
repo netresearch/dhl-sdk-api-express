@@ -14,6 +14,8 @@ use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 use Psr\Log\LoggerInterface;
@@ -64,12 +66,15 @@ class SoapServiceFactory implements ServiceFactoryInterface
         LoggerInterface $logger
     ): ShipmentServiceInterface {
         $clientFactory = new SoapClientFactory();
-        $client = $clientFactory->create($username, $password);
+        $client        = $clientFactory->create($username, $password);
 
-        $requestMapper = new ShipmentRequestMapper();
-        $responseMapper = new ShipmentResponseMapper();
-
-        $adapter = new ShipmentServiceAdapter($client, $requestMapper, $responseMapper);
+        $adapter = new ShipmentServiceAdapter(
+            $client,
+            new ShipmentRequestMapper(),
+            new ShipmentResponseMapper(),
+            new ShipmentDeleteRequestMapper(),
+            new ShipmentDeleteResponseMapper()
+        );
 
         return new ShipmentService($adapter, $logger);
     }
