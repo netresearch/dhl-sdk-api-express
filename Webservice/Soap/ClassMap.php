@@ -71,6 +71,9 @@ class ClassMap
             'trackShipmentRequestResponse' => Type\SoapTrackingResponse::class,
             'pubTrackingResponse' => Type\Tracking\TrackingResponseBase::class,
             'ShipperReference' => Type\Tracking\ShipperReference::class,
+
+            // deleteShipmentRequest response
+            'docTypeRef_DeleteResponseType' => Type\SoapShipmentDeleteResponse::class,
         ];
     }
 }
