@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -9,7 +10,6 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Exception\SoapException;
-use Dhl\Express\Model\RateResponse;
 use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Psr\Log\LoggerInterface;

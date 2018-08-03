@@ -8,7 +8,7 @@ namespace Dhl\Express\Model;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 
 /**
- * Shipment Request.
+ * Shipment Response.
  *
  * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
