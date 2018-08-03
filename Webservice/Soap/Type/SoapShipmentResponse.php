@@ -9,7 +9,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults;
 
 /**
- * The shipment response.
+ * The shipment create response.
  *
  * @api
  * @package  Dhl\Express\Api

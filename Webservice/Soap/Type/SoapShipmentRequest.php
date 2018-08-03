@@ -8,7 +8,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\ClientDetail;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
 
 /**
- * The shipment request.
+ * The shipment create request.
  *
  * @api
  * @package  Dhl\Express\Api
