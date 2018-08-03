@@ -17,7 +17,7 @@ class Notification
 {
     /**
      * Response message, see Error codes for more details.
-     * 
+     *
      * @var string
      */
     private $Message;

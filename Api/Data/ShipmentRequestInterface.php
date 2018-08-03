@@ -39,7 +39,7 @@ interface ShipmentRequestInterface
     /**
      * @return string
      */
-    public function getBillingAccountNumber(): string;
+    public function getBillingAccountNumber(): ?string;
 
     /**
      * @return null|InsuranceInterface

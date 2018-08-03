@@ -28,7 +28,7 @@ class Provider
     /**
      * Notification section.
      *
-     * @var Notification
+     * @var Notification|Notification[]
      */
     private $Notification;
 

@@ -36,12 +36,12 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $payerAccountNumber;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $billingAccountNumber;
 
     /**
-     * @var InsuranceInterface
+     * @var null|InsuranceInterface
      */
     private $insurance;
 
@@ -61,7 +61,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $packages;
 
     /**
-     * @var DryIceInterface
+     * @var null|DryIceInterface
      */
     private $dryIce;
 
@@ -107,7 +107,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @inheritdoc
      */
-    public function getBillingAccountNumber(): string
+    public function getBillingAccountNumber(): ?string
     {
         return $this->billingAccountNumber;
     }
