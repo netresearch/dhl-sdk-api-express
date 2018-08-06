@@ -1,34 +1,39 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
-class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
+/**
+ * PieceInfoCollection class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
+class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
 {
-
     /**
-     * @var PieceInfo[] $ArrayOfPieceInfoItem
+     * @var PieceInfo[]
      */
-    protected $ArrayOfPieceInfoItem = null;
-
-    
-    public function __construct()
-    {
-    
-    }
+    protected $ArrayOfPieceInfoItem;
 
     /**
      * @return PieceInfo[]
      */
-    public function getArrayOfPieceInfoItem()
+    public function getArrayOfPieceInfoItem(): array
     {
       return $this->ArrayOfPieceInfoItem;
     }
 
     /**
      * @param PieceInfo[] $ArrayOfPieceInfoItem
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ArrayOfPieceInfo
+     * @return self
      */
-    public function setArrayOfPieceInfoItem(array $ArrayOfPieceInfoItem = null)
+    public function setArrayOfPieceInfoItem(array $ArrayOfPieceInfoItem = []): self
     {
       $this->ArrayOfPieceInfoItem = $ArrayOfPieceInfoItem;
       return $this;
@@ -38,9 +43,9 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset An offset to check for
-     * @return boolean true on success or false on failure
+     * @return bool true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
       return isset($this->ArrayOfPieceInfoItem[$offset]);
     }
@@ -51,7 +56,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return PieceInfo
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): PieceInfo
     {
       return $this->ArrayOfPieceInfoItem[$offset];
     }
@@ -63,9 +68,9 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      * @param PieceInfo $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
-      if (!isset($offset)) {
+      if ($offset === null) {
         $this->ArrayOfPieceInfoItem[] = $value;
       } else {
         $this->ArrayOfPieceInfoItem[$offset] = $value;
@@ -78,7 +83,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
       unset($this->ArrayOfPieceInfoItem[$offset]);
     }
@@ -88,7 +93,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceInfo Return the current element
      */
-    public function current()
+    public function current(): PieceInfo
     {
       return current($this->ArrayOfPieceInfoItem);
     }
@@ -99,7 +104,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
       next($this->ArrayOfPieceInfoItem);
     }
@@ -109,7 +114,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
-    public function key()
+    public function key(): ?string
     {
       return key($this->ArrayOfPieceInfoItem);
     }
@@ -117,9 +122,9 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return boolean Return the validity of the current position
+     * @return bool Return the validity of the current position
      */
-    public function valid()
+    public function valid(): bool
     {
       return $this->key() !== null;
     }
@@ -130,7 +135,7 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
       reset($this->ArrayOfPieceInfoItem);
     }
@@ -140,9 +145,8 @@ class ArrayOfPieceInfo implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceInfo Return count of elements
      */
-    public function count()
+    public function count(): PieceInfo
     {
       return count($this->ArrayOfPieceInfoItem);
     }
-
 }

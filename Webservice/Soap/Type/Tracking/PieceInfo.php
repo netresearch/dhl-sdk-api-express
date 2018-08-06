@@ -1,24 +1,35 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * PieceInfo class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class PieceInfo
 {
+    /**
+     * @var PieceDetails
+     */
+    protected $PieceDetails;
 
     /**
-     * @var PieceDetails $PieceDetails
+     * @var PieceEventCollection
      */
-    protected $PieceDetails = null;
-
-    /**
-     * @var ArrayOfPieceEvent $PieceEvent
-     */
-    protected $PieceEvent = null;
+    protected $PieceEvent;
 
     /**
      * @param PieceDetails $PieceDetails
      */
-    public function __construct($PieceDetails)
+    public function __construct(PieceDetails $PieceDetails)
     {
       $this->PieceDetails = $PieceDetails;
     }
@@ -26,37 +37,36 @@ class PieceInfo
     /**
      * @return PieceDetails
      */
-    public function getPieceDetails()
+    public function getPieceDetails(): PieceDetails
     {
       return $this->PieceDetails;
     }
 
     /**
      * @param PieceDetails $PieceDetails
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceInfo
+     * @return self
      */
-    public function setPieceDetails($PieceDetails)
+    public function setPieceDetails(PieceDetails $PieceDetails): self
     {
       $this->PieceDetails = $PieceDetails;
       return $this;
     }
 
     /**
-     * @return ArrayOfPieceEvent
+     * @return PieceEventCollection
      */
-    public function getPieceEvent()
+    public function getPieceEvent(): PieceEventCollection
     {
       return $this->PieceEvent;
     }
 
     /**
-     * @param ArrayOfPieceEvent $PieceEvent
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceInfo
+     * @param PieceEventCollection $PieceEvent
+     * @return self
      */
-    public function setPieceEvent($PieceEvent)
+    public function setPieceEvent(PieceEventCollection $PieceEvent): self
     {
       $this->PieceEvent = $PieceEvent;
       return $this;
     }
-
 }

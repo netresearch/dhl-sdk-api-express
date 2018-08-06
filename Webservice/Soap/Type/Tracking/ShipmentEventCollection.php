@@ -1,14 +1,25 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
-class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
+/**
+ * ShipmentEventCollection class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
+class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
 {
-
     /**
-     * @var ShipmentEvent[] $ArrayOfShipmentEventItem
+     * @var ShipmentEvent[]
      */
-    protected $ArrayOfShipmentEventItem = null;
+    protected $ArrayOfShipmentEventItem;
 
     /**
      * @param ShipmentEvent[] $ArrayOfShipmentEventItem
@@ -21,16 +32,16 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return ShipmentEvent[]
      */
-    public function getArrayOfShipmentEventItem()
+    public function getArrayOfShipmentEventItem(): array
     {
       return $this->ArrayOfShipmentEventItem;
     }
 
     /**
      * @param ShipmentEvent[] $ArrayOfShipmentEventItem
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ArrayOfShipmentEvent
+     * @return self
      */
-    public function setArrayOfShipmentEventItem(array $ArrayOfShipmentEventItem)
+    public function setArrayOfShipmentEventItem(array $ArrayOfShipmentEventItem): self
     {
       $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
       return $this;
@@ -40,9 +51,9 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset An offset to check for
-     * @return boolean true on success or false on failure
+     * @return bool true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
       return isset($this->ArrayOfShipmentEventItem[$offset]);
     }
@@ -53,7 +64,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return ShipmentEvent
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ShipmentEvent
     {
       return $this->ArrayOfShipmentEventItem[$offset];
     }
@@ -65,9 +76,9 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      * @param ShipmentEvent $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
-      if (!isset($offset)) {
+      if ($offset === null) {
         $this->ArrayOfShipmentEventItem[] = $value;
       } else {
         $this->ArrayOfShipmentEventItem[$offset] = $value;
@@ -80,7 +91,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
       unset($this->ArrayOfShipmentEventItem[$offset]);
     }
@@ -90,7 +101,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      *
      * @return ShipmentEvent Return the current element
      */
-    public function current()
+    public function current(): ShipmentEvent
     {
       return current($this->ArrayOfShipmentEventItem);
     }
@@ -101,7 +112,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
       next($this->ArrayOfShipmentEventItem);
     }
@@ -111,7 +122,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
-    public function key()
+    public function key(): ?string
     {
       return key($this->ArrayOfShipmentEventItem);
     }
@@ -119,9 +130,9 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return boolean Return the validity of the current position
+     * @return bool Return the validity of the current position
      */
-    public function valid()
+    public function valid(): bool
     {
       return $this->key() !== null;
     }
@@ -132,7 +143,7 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
       reset($this->ArrayOfShipmentEventItem);
     }
@@ -142,9 +153,8 @@ class ArrayOfShipmentEvent implements \ArrayAccess, \Iterator, \Countable
      *
      * @return ShipmentEvent Return count of elements
      */
-    public function count()
+    public function count(): ShipmentEvent
     {
       return count($this->ArrayOfShipmentEventItem);
     }
-
 }

@@ -26,7 +26,7 @@ class trackShipmentRequestResponse
 
     /**
      * @param pubTrackingResponse $trackingResponse
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\trackShipmentRequestResponse
+     * @return trackShipmentRequestResponse
      */
     public function setTrackingResponse($trackingResponse)
     {

@@ -1,363 +1,373 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * PieceDetails class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class PieceDetails
 {
+    /**
+     * @var string
+     */
+    protected $AWBNumber;
 
     /**
-     * @var string $AWBNumber
+     * @var string
      */
-    protected $AWBNumber = null;
+    protected $LicensePlate;
 
     /**
-     * @var TrackingPieceID $LicensePlate
+     * @var string
      */
-    protected $LicensePlate = null;
+    protected $PieceNumber;
 
     /**
-     * @var string $PieceNumber
+     * @var string
      */
-    protected $PieceNumber = null;
+    protected $ActualDepth;
 
     /**
-     * @var string $ActualDepth
+     * @var string
      */
-    protected $ActualDepth = null;
+    protected $ActualWidth;
 
     /**
-     * @var string $ActualWidth
+     * @var string
      */
-    protected $ActualWidth = null;
+    protected $ActualHeight;
 
     /**
-     * @var string $ActualHeight
+     * @var string
      */
-    protected $ActualHeight = null;
+    protected $ActualWeight;
 
     /**
-     * @var string $ActualWeight
+     * @var string
      */
-    protected $ActualWeight = null;
+    protected $Depth;
 
     /**
-     * @var string $Depth
+     * @var string
      */
-    protected $Depth = null;
+    protected $Width;
 
     /**
-     * @var string $Width
+     * @var string
      */
-    protected $Width = null;
+    protected $Height;
 
     /**
-     * @var string $Height
+     * @var string
      */
-    protected $Height = null;
+    protected $Weight;
 
     /**
-     * @var string $Weight
+     * @var string
      */
-    protected $Weight = null;
+    protected $PackageType;
 
     /**
-     * @var PackageType $PackageType
+     * @var string
      */
-    protected $PackageType = null;
+    protected $DimWeight;
 
     /**
-     * @var string $DimWeight
+     * @var string
      */
-    protected $DimWeight = null;
+    protected $WeightUnit;
 
     /**
-     * @var string $WeightUnit
+     * @var string
      */
-    protected $WeightUnit = null;
-
-    /**
-     * @var string $PieceContents
-     */
-    protected $PieceContents = null;
+    protected $PieceContents;
 
     /**
      * @param string $AWBNumber
-     * @param TrackingPieceID $LicensePlate
+     * @param string $LicensePlate
      */
-    public function __construct($AWBNumber, $LicensePlate)
+    public function __construct(string $AWBNumber, string $LicensePlate)
     {
-      $this->AWBNumber = $AWBNumber;
-      $this->LicensePlate = $LicensePlate;
+        $this->AWBNumber = $AWBNumber;
+        $this->LicensePlate = $LicensePlate;
     }
 
     /**
      * @return string
      */
-    public function getAWBNumber()
+    public function getAWBNumber(): string
     {
-      return $this->AWBNumber;
+        return $this->AWBNumber;
     }
 
     /**
      * @param string $AWBNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setAWBNumber($AWBNumber)
+    public function setAWBNumber(string $AWBNumber): self
     {
-      $this->AWBNumber = $AWBNumber;
-      return $this;
-    }
-
-    /**
-     * @return TrackingPieceID
-     */
-    public function getLicensePlate()
-    {
-      return $this->LicensePlate;
-    }
-
-    /**
-     * @param TrackingPieceID $LicensePlate
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
-     */
-    public function setLicensePlate($LicensePlate)
-    {
-      $this->LicensePlate = $LicensePlate;
-      return $this;
+        $this->AWBNumber = $AWBNumber;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getPieceNumber()
+    public function getLicensePlate(): string
     {
-      return $this->PieceNumber;
+        return $this->LicensePlate;
+    }
+
+    /**
+     * @param string $LicensePlate
+     * @return self
+     */
+    public function setLicensePlate(string $LicensePlate): self
+    {
+        $this->LicensePlate = $LicensePlate;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieceNumber(): string
+    {
+        return $this->PieceNumber;
     }
 
     /**
      * @param string $PieceNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setPieceNumber($PieceNumber)
+    public function setPieceNumber(string $PieceNumber): self
     {
-      $this->PieceNumber = $PieceNumber;
-      return $this;
+        $this->PieceNumber = $PieceNumber;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getActualDepth()
+    public function getActualDepth(): string
     {
-      return $this->ActualDepth;
+        return $this->ActualDepth;
     }
 
     /**
      * @param string $ActualDepth
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setActualDepth($ActualDepth)
+    public function setActualDepth(string$ActualDepth): self
     {
-      $this->ActualDepth = $ActualDepth;
-      return $this;
+        $this->ActualDepth = $ActualDepth;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getActualWidth()
+    public function getActualWidth(): string
     {
-      return $this->ActualWidth;
+        return $this->ActualWidth;
     }
 
     /**
      * @param string $ActualWidth
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setActualWidth($ActualWidth)
+    public function setActualWidth(string $ActualWidth): self
     {
-      $this->ActualWidth = $ActualWidth;
-      return $this;
+        $this->ActualWidth = $ActualWidth;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getActualHeight()
+    public function getActualHeight(): string
     {
-      return $this->ActualHeight;
+        return $this->ActualHeight;
     }
 
     /**
      * @param string $ActualHeight
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setActualHeight($ActualHeight)
+    public function setActualHeight(string $ActualHeight): self
     {
-      $this->ActualHeight = $ActualHeight;
-      return $this;
+        $this->ActualHeight = $ActualHeight;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getActualWeight()
+    public function getActualWeight(): string
     {
-      return $this->ActualWeight;
+        return $this->ActualWeight;
     }
 
     /**
      * @param string $ActualWeight
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setActualWeight($ActualWeight)
+    public function setActualWeight(string $ActualWeight): self
     {
-      $this->ActualWeight = $ActualWeight;
-      return $this;
+        $this->ActualWeight = $ActualWeight;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDepth()
+    public function getDepth(): string
     {
-      return $this->Depth;
+        return $this->Depth;
     }
 
     /**
      * @param string $Depth
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setDepth($Depth)
+    public function setDepth(string $Depth): self
     {
-      $this->Depth = $Depth;
-      return $this;
+        $this->Depth = $Depth;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getWidth()
+    public function getWidth(): string
     {
-      return $this->Width;
+        return $this->Width;
     }
 
     /**
      * @param string $Width
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setWidth($Width)
+    public function setWidth(string $Width): self
     {
-      $this->Width = $Width;
-      return $this;
+        $this->Width = $Width;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getHeight()
+    public function getHeight(): string
     {
-      return $this->Height;
+        return $this->Height;
     }
 
     /**
      * @param string $Height
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setHeight($Height)
+    public function setHeight(string $Height): self
     {
-      $this->Height = $Height;
-      return $this;
+        $this->Height = $Height;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getWeight()
+    public function getWeight(): string
     {
-      return $this->Weight;
+        return $this->Weight;
     }
 
     /**
      * @param string $Weight
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setWeight($Weight)
+    public function setWeight(string $Weight): self
     {
-      $this->Weight = $Weight;
-      return $this;
-    }
-
-    /**
-     * @return PackageType
-     */
-    public function getPackageType()
-    {
-      return $this->PackageType;
-    }
-
-    /**
-     * @param PackageType $PackageType
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
-     */
-    public function setPackageType($PackageType)
-    {
-      $this->PackageType = $PackageType;
-      return $this;
+        $this->Weight = $Weight;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDimWeight()
+    public function getPackageType(): string
     {
-      return $this->DimWeight;
+        return $this->PackageType;
+    }
+
+    /**
+     * @param string $PackageType
+     * @return self
+     */
+    public function setPackageType(string $PackageType): self
+    {
+        $this->PackageType = $PackageType;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDimWeight(): string
+    {
+        return $this->DimWeight;
     }
 
     /**
      * @param string $DimWeight
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setDimWeight($DimWeight)
+    public function setDimWeight(string $DimWeight): self
     {
-      $this->DimWeight = $DimWeight;
-      return $this;
+        $this->DimWeight = $DimWeight;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getWeightUnit()
+    public function getWeightUnit(): string
     {
-      return $this->WeightUnit;
+        return $this->WeightUnit;
     }
 
     /**
      * @param string $WeightUnit
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setWeightUnit($WeightUnit)
+    public function setWeightUnit(string $WeightUnit): self
     {
-      $this->WeightUnit = $WeightUnit;
-      return $this;
+        $this->WeightUnit = $WeightUnit;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getPieceContents()
+    public function getPieceContents(): string
     {
-      return $this->PieceContents;
+        return $this->PieceContents;
     }
 
     /**
      * @param string $PieceContents
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails
+     * @return self
      */
-    public function setPieceContents($PieceContents)
+    public function setPieceContents(string $PieceContents): self
     {
-      $this->PieceContents = $PieceContents;
-      return $this;
+        $this->PieceContents = $PieceContents;
+        return $this;
     }
-
 }

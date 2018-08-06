@@ -1,79 +1,95 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * ShipmentInfo class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class ShipmentInfo
 {
+    /**
+     * @var OriginServiceArea
+     */
+    protected $OriginServiceArea;
 
     /**
-     * @var OriginServiceArea $OriginServiceArea
+     * @var DestinationServiceArea
      */
-    protected $OriginServiceArea = null;
+    protected $DestinationServiceArea;
 
     /**
-     * @var DestinationServiceArea $DestinationServiceArea
+     * @var string
      */
-    protected $DestinationServiceArea = null;
+    protected $ShipperName;
 
     /**
-     * @var PersonName $ShipperName
+     * @var int
      */
-    protected $ShipperName = null;
+    protected $ShipperAccountNumber;
 
     /**
-     * @var AccountNumber $ShipperAccountNumber
+     * @var string
      */
-    protected $ShipperAccountNumber = null;
+    protected $ConsigneeName;
 
     /**
-     * @var PersonName $ConsigneeName
+     * @var \DateTime
      */
-    protected $ConsigneeName = null;
+    protected $ShipmentDate;
 
     /**
-     * @var \DateTime $ShipmentDate
+     * @var string
      */
-    protected $ShipmentDate = null;
+    protected $Pieces;
 
     /**
-     * @var string $Pieces
+     * @var string
      */
-    protected $Pieces = null;
+    protected $Weight;
 
     /**
-     * @var string $Weight
+     * @var WeightUnit
      */
-    protected $Weight = null;
+    protected $WeightUnit;
 
     /**
-     * @var WeightUnit $WeightUnit
+     * @var ShipmentEventCollection
      */
-    protected $WeightUnit = null;
+    protected $ShipmentEvent;
 
     /**
-     * @var ArrayOfShipmentEvent $ShipmentEvent
+     * @var Reference
      */
-    protected $ShipmentEvent = null;
+    protected $ShipperReference;
 
     /**
-     * @var Reference $ShipperReference
+     * @var \DateTime
      */
-    protected $ShipperReference = null;
-
-    /**
-     * @var \DateTime $EstimatedDeliveryDate
-     */
-    protected $EstimatedDeliveryDate = null;
+    protected $EstimatedDeliveryDate;
 
     /**
      * @param OriginServiceArea $OriginServiceArea
      * @param DestinationServiceArea $DestinationServiceArea
-     * @param PersonName $ShipperName
-     * @param PersonName $ConsigneeName
+     * @param string $ShipperName
+     * @param string $ConsigneeName
      * @param \DateTime $ShipmentDate
      */
-    public function __construct($OriginServiceArea, $DestinationServiceArea, $ShipperName, $ConsigneeName, \DateTime $ShipmentDate)
-    {
+    public function __construct(
+        OriginServiceArea $OriginServiceArea,
+        DestinationServiceArea $DestinationServiceArea, 
+        string $ShipperName, 
+        string $ConsigneeName,
+        \DateTime $ShipmentDate
+    ) {
       $this->OriginServiceArea = $OriginServiceArea;
       $this->DestinationServiceArea = $DestinationServiceArea;
       $this->ShipperName = $ShipperName;
@@ -84,16 +100,16 @@ class ShipmentInfo
     /**
      * @return OriginServiceArea
      */
-    public function getOriginServiceArea()
+    public function getOriginServiceArea(): OriginServiceArea
     {
       return $this->OriginServiceArea;
     }
 
     /**
      * @param OriginServiceArea $OriginServiceArea
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setOriginServiceArea($OriginServiceArea)
+    public function setOriginServiceArea(OriginServiceArea $OriginServiceArea): self
     {
       $this->OriginServiceArea = $OriginServiceArea;
       return $this;
@@ -102,70 +118,70 @@ class ShipmentInfo
     /**
      * @return DestinationServiceArea
      */
-    public function getDestinationServiceArea()
+    public function getDestinationServiceArea(): DestinationServiceArea
     {
       return $this->DestinationServiceArea;
     }
 
     /**
      * @param DestinationServiceArea $DestinationServiceArea
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setDestinationServiceArea($DestinationServiceArea)
+    public function setDestinationServiceArea(DestinationServiceArea $DestinationServiceArea): self
     {
       $this->DestinationServiceArea = $DestinationServiceArea;
       return $this;
     }
 
     /**
-     * @return PersonName
+     * @return string
      */
-    public function getShipperName()
+    public function getShipperName(): string
     {
       return $this->ShipperName;
     }
 
     /**
-     * @param PersonName $ShipperName
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @param string $ShipperName
+     * @return self
      */
-    public function setShipperName($ShipperName)
+    public function setShipperName(string $ShipperName): self
     {
       $this->ShipperName = $ShipperName;
       return $this;
     }
 
     /**
-     * @return AccountNumber
+     * @return string
      */
-    public function getShipperAccountNumber()
+    public function getShipperAccountNumber(): string
     {
       return $this->ShipperAccountNumber;
     }
 
     /**
-     * @param AccountNumber $ShipperAccountNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @param string $ShipperAccountNumber
+     * @return self
      */
-    public function setShipperAccountNumber($ShipperAccountNumber)
+    public function setShipperAccountNumber($ShipperAccountNumber): self
     {
       $this->ShipperAccountNumber = $ShipperAccountNumber;
       return $this;
     }
 
     /**
-     * @return PersonName
+     * @return string
      */
-    public function getConsigneeName()
+    public function getConsigneeName(): string
     {
       return $this->ConsigneeName;
     }
 
     /**
-     * @param PersonName $ConsigneeName
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @param string $ConsigneeName
+     * @return self
      */
-    public function setConsigneeName($ConsigneeName)
+    public function setConsigneeName($ConsigneeName): string
     {
       $this->ConsigneeName = $ConsigneeName;
       return $this;
@@ -174,9 +190,9 @@ class ShipmentInfo
     /**
      * @return \DateTime
      */
-    public function getShipmentDate()
+    public function getShipmentDate(): \DateTime
     {
-      if ($this->ShipmentDate == null) {
+      if ($this->ShipmentDate === null) {
         return null;
       } else {
         try {
@@ -189,9 +205,9 @@ class ShipmentInfo
 
     /**
      * @param \DateTime $ShipmentDate
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setShipmentDate(\DateTime $ShipmentDate)
+    public function setShipmentDate(\DateTime $ShipmentDate): self
     {
       $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
       return $this;
@@ -200,16 +216,16 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getPieces()
+    public function getPieces(): string
     {
       return $this->Pieces;
     }
 
     /**
      * @param string $Pieces
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setPieces($Pieces)
+    public function setPieces(string $Pieces): self
     {
       $this->Pieces = $Pieces;
       return $this;
@@ -218,16 +234,16 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getWeight()
+    public function getWeight(): string
     {
       return $this->Weight;
     }
 
     /**
      * @param string $Weight
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setWeight($Weight)
+    public function setWeight(string $Weight): self
     {
       $this->Weight = $Weight;
       return $this;
@@ -236,34 +252,34 @@ class ShipmentInfo
     /**
      * @return WeightUnit
      */
-    public function getWeightUnit()
+    public function getWeightUnit(): WeightUnit
     {
       return $this->WeightUnit;
     }
 
     /**
      * @param WeightUnit $WeightUnit
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setWeightUnit($WeightUnit)
+    public function setWeightUnit(WeightUnit $WeightUnit): self
     {
       $this->WeightUnit = $WeightUnit;
       return $this;
     }
 
     /**
-     * @return ArrayOfShipmentEvent
+     * @return ShipmentEventCollection
      */
-    public function getShipmentEvent()
+    public function getShipmentEvent(): ShipmentEventCollection
     {
       return $this->ShipmentEvent;
     }
 
     /**
-     * @param ArrayOfShipmentEvent $ShipmentEvent
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @param ShipmentEventCollection $ShipmentEvent
+     * @return self
      */
-    public function setShipmentEvent($ShipmentEvent)
+    public function setShipmentEvent(ShipmentEventCollection $ShipmentEvent): self
     {
       $this->ShipmentEvent = $ShipmentEvent;
       return $this;
@@ -272,16 +288,16 @@ class ShipmentInfo
     /**
      * @return Reference
      */
-    public function getShipperReference()
+    public function getShipperReference(): Reference
     {
       return $this->ShipperReference;
     }
 
     /**
      * @param Reference $ShipperReference
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setShipperReference($ShipperReference)
+    public function setShipperReference(Reference $ShipperReference): self
     {
       $this->ShipperReference = $ShipperReference;
       return $this;
@@ -290,9 +306,9 @@ class ShipmentInfo
     /**
      * @return \DateTime
      */
-    public function getEstimatedDeliveryDate()
+    public function getEstimatedDeliveryDate(): \DateTime
     {
-      if ($this->EstimatedDeliveryDate == null) {
+      if ($this->EstimatedDeliveryDate === null) {
         return null;
       } else {
         try {
@@ -305,16 +321,15 @@ class ShipmentInfo
 
     /**
      * @param \DateTime $EstimatedDeliveryDate
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo
+     * @return self
      */
-    public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null)
+    public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null): self
     {
-      if ($EstimatedDeliveryDate == null) {
+      if ($EstimatedDeliveryDate === null) {
        $this->EstimatedDeliveryDate = null;
       } else {
         $this->EstimatedDeliveryDate = $EstimatedDeliveryDate->format(\DateTime::ATOM);
       }
       return $this;
     }
-
 }

@@ -1,110 +1,120 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * AWBInfo class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class AWBInfo
 {
-
     /**
-     * @var AWBNumber $AWBNumber
+     * @var string
      */
-    protected $AWBNumber = null;
+    protected $AWBNumber;
 
     /**
-     * @var Status $Status
+     * @var Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
-     * @var ShipmentInfo $ShipmentInfo
+     * @var ShipmentInfo
      */
-    protected $ShipmentInfo = null;
+    protected $ShipmentInfo;
 
     /**
-     * @var TrackingPieces $Pieces
+     * @var TrackingPieces
      */
-    protected $Pieces = null;
+    protected $Pieces;
 
     /**
-     * @param AWBNumber $AWBNumber
+     * @param string $AWBNumber
      * @param Status $Status
      */
-    public function __construct($AWBNumber, $Status)
+    public function __construct(string $AWBNumber, Status $Status)
     {
-      $this->AWBNumber = $AWBNumber;
-      $this->Status = $Status;
+        $this->AWBNumber = $AWBNumber;
+        $this->Status = $Status;
     }
 
     /**
-     * @return AWBNumber
+     * @return string
      */
-    public function getAWBNumber()
+    public function getAWBNumber(): string
     {
-      return $this->AWBNumber;
+        return $this->AWBNumber;
     }
 
     /**
-     * @param AWBNumber $AWBNumber
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfo
+     * @param string $AWBNumber
+     * @return self
      */
-    public function setAWBNumber($AWBNumber)
+    public function setAWBNumber(string $AWBNumber): self
     {
-      $this->AWBNumber = $AWBNumber;
-      return $this;
+        $this->AWBNumber = $AWBNumber;
+        return $this;
     }
 
     /**
      * @return Status
      */
-    public function getStatus()
+    public function getStatus(): Status
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
      * @param Status $Status
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfo
+     * @return self
      */
-    public function setStatus($Status)
+    public function setStatus(Status $Status): self
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+        return $this;
     }
 
     /**
      * @return ShipmentInfo
      */
-    public function getShipmentInfo()
+    public function getShipmentInfo(): ShipmentInfo
     {
-      return $this->ShipmentInfo;
+        return $this->ShipmentInfo;
     }
 
     /**
      * @param ShipmentInfo $ShipmentInfo
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfo
+     * @return self
      */
-    public function setShipmentInfo($ShipmentInfo)
+    public function setShipmentInfo(ShipmentInfo $ShipmentInfo): self
     {
-      $this->ShipmentInfo = $ShipmentInfo;
-      return $this;
+        $this->ShipmentInfo = $ShipmentInfo;
+        return $this;
     }
 
     /**
      * @return TrackingPieces
      */
-    public function getPieces()
+    public function getPieces(): TrackingPieces
     {
-      return $this->Pieces;
+        return $this->Pieces;
     }
 
     /**
      * @param TrackingPieces $Pieces
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfo
+     * @return self
      */
-    public function setPieces($Pieces)
+    public function setPieces(TrackingPieces $Pieces): self
     {
-      $this->Pieces = $Pieces;
-      return $this;
+        $this->Pieces = $Pieces;
+        return $this;
     }
-
 }

@@ -1,39 +1,49 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * Fault class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class Fault
 {
+    /**
+     * @var PieceFaultCollection
+     */
+    protected $PieceFault;
 
     /**
-     * @var ArrayOfPieceFault $PieceFault
+     * @param PieceFaultCollection $PieceFault
      */
-    protected $PieceFault = null;
-
-    /**
-     * @param ArrayOfPieceFault $PieceFault
-     */
-    public function __construct($PieceFault)
+    public function __construct(PieceFaultCollection $PieceFault)
     {
-      $this->PieceFault = $PieceFault;
+        $this->PieceFault = $PieceFault;
     }
 
     /**
-     * @return ArrayOfPieceFault
+     * @return PieceFaultCollection
      */
-    public function getPieceFault()
+    public function getPieceFault(): PieceFaultCollection
     {
-      return $this->PieceFault;
+        return $this->PieceFault;
     }
 
     /**
-     * @param ArrayOfPieceFault $PieceFault
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Fault
+     * @param PieceFaultCollection $PieceFault
+     * @return self
      */
-    public function setPieceFault($PieceFault)
+    public function setPieceFault(PieceFaultCollection $PieceFault): self
     {
-      $this->PieceFault = $PieceFault;
-      return $this;
+        $this->PieceFault = $PieceFault;
+        return $this;
     }
-
 }

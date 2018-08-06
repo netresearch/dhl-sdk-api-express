@@ -1,62 +1,72 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * Reference class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class Reference
 {
+    /**
+     * @var string
+     */
+    protected $ReferenceID;
 
     /**
-     * @var ReferenceID $ReferenceID
+     * @var string
      */
-    protected $ReferenceID = null;
+    protected $ReferenceType;
 
     /**
-     * @var ReferenceType $ReferenceType
+     * @param string $ReferenceID
      */
-    protected $ReferenceType = null;
-
-    /**
-     * @param ReferenceID $ReferenceID
-     */
-    public function __construct($ReferenceID)
+    public function __construct(string $ReferenceID)
     {
       $this->ReferenceID = $ReferenceID;
     }
 
     /**
-     * @return ReferenceID
+     * @return string
      */
-    public function getReferenceID()
+    public function getReferenceID(): string
     {
       return $this->ReferenceID;
     }
 
     /**
-     * @param ReferenceID $ReferenceID
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Reference
+     * @param string $ReferenceID
+     * @return self
      */
-    public function setReferenceID($ReferenceID)
+    public function setReferenceID(string $ReferenceID): self
     {
       $this->ReferenceID = $ReferenceID;
       return $this;
     }
 
     /**
-     * @return ReferenceType
+     * @return string
      */
-    public function getReferenceType()
+    public function getReferenceType(): string
     {
       return $this->ReferenceType;
     }
 
     /**
-     * @param ReferenceType $ReferenceType
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Reference
+     * @param string $ReferenceType
+     * @return self
      */
-    public function setReferenceType($ReferenceType)
+    public function setReferenceType(string $ReferenceType): self
     {
       $this->ReferenceType = $ReferenceType;
       return $this;
     }
-
 }

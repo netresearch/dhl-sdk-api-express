@@ -1,39 +1,44 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * ShipperReference class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class ShipperReference
 {
+    /**
+     * @var string
+     */
+    protected $ReferenceID;
 
     /**
-     * @var string $ReferenceID
+     * @var string $Referenceype
      */
-    protected $ReferenceID = null;
-
-    /**
-     * @var string $ReferenceType
-     */
-    protected $ReferenceType = null;
-
-    
-    public function __construct()
-    {
-    
-    }
+    protected $ReferenceType;
 
     /**
      * @return string
      */
-    public function getReferenceID()
+    public function getReferenceID(): string
     {
       return $this->ReferenceID;
     }
 
     /**
      * @param string $ReferenceID
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipperReference
+     * @return self
      */
-    public function setReferenceID($ReferenceID)
+    public function setReferenceID(string $ReferenceID): self
     {
       $this->ReferenceID = $ReferenceID;
       return $this;
@@ -42,19 +47,18 @@ class ShipperReference
     /**
      * @return string
      */
-    public function getReferenceType()
+    public function getReferenceType(): string
     {
       return $this->ReferenceType;
     }
 
     /**
      * @param string $ReferenceType
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipperReference
+     * @return self
      */
-    public function setReferenceType($ReferenceType)
+    public function setReferenceType(string $ReferenceType): self
     {
       $this->ReferenceType = $ReferenceType;
       return $this;
     }
-
 }

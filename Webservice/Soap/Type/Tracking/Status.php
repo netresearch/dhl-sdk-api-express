@@ -1,24 +1,35 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * Status class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class Status
 {
+    /**
+     * @var string
+     */
+    protected $ActionStatus;
 
     /**
-     * @var string $ActionStatus
+     * @var ConditionCollection
      */
-    protected $ActionStatus = null;
-
-    /**
-     * @var ArrayOfCondition $Condition
-     */
-    protected $Condition = null;
+    protected $Condition;
 
     /**
      * @param string $ActionStatus
      */
-    public function __construct($ActionStatus)
+    public function __construct(string $ActionStatus)
     {
       $this->ActionStatus = $ActionStatus;
     }
@@ -26,37 +37,36 @@ class Status
     /**
      * @return string
      */
-    public function getActionStatus()
+    public function getActionStatus(): string
     {
       return $this->ActionStatus;
     }
 
     /**
      * @param string $ActionStatus
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Status
+     * @return self
      */
-    public function setActionStatus($ActionStatus)
+    public function setActionStatus(string $ActionStatus): self
     {
       $this->ActionStatus = $ActionStatus;
       return $this;
     }
 
     /**
-     * @return ArrayOfCondition
+     * @return ConditionCollection
      */
-    public function getCondition()
+    public function getCondition(): ConditionCollection
     {
       return $this->Condition;
     }
 
     /**
-     * @param ArrayOfCondition $Condition
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Status
+     * @param ConditionCollection $Condition
+     * @return self
      */
-    public function setCondition($Condition)
+    public function setCondition(ConditionCollection $Condition): self
     {
       $this->Condition = $Condition;
       return $this;
     }
-
 }

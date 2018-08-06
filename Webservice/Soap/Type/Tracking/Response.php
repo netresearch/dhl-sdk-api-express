@@ -1,19 +1,30 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * Response class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class Response
 {
-
     /**
-     * @var ServiceHeader $ServiceHeader
+     * @var ServiceHeader
      */
-    protected $ServiceHeader = null;
+    protected $ServiceHeader;
 
     /**
      * @param ServiceHeader $ServiceHeader
      */
-    public function __construct($ServiceHeader)
+    public function __construct(ServiceHeader $ServiceHeader)
     {
       $this->ServiceHeader = $ServiceHeader;
     }
@@ -21,19 +32,18 @@ class Response
     /**
      * @return ServiceHeader
      */
-    public function getServiceHeader()
+    public function getServiceHeader(): ServiceHeader
     {
       return $this->ServiceHeader;
     }
 
     /**
      * @param ServiceHeader $ServiceHeader
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\Response
+     * @return self
      */
-    public function setServiceHeader($ServiceHeader)
+    public function setServiceHeader(ServiceHeader $ServiceHeader): self
     {
       $this->ServiceHeader = $ServiceHeader;
       return $this;
     }
-
 }

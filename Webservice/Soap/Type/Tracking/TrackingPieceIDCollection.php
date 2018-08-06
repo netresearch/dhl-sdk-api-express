@@ -1,17 +1,28 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
-class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
+/**
+ * TrackingPieceIDCollection class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
+class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
 {
-
     /**
-     * @var TrackingPieceID[] $ArrayOfTrackingPieceIDItem
+     * @var string[]
      */
-    protected $ArrayOfTrackingPieceIDItem = null;
+    protected $ArrayOfTrackingPieceIDItem = [];
 
     /**
-     * @param TrackingPieceID[] $ArrayOfTrackingPieceIDItem
+     * @param string[]
      */
     public function __construct(array $ArrayOfTrackingPieceIDItem)
     {
@@ -19,18 +30,18 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * @return TrackingPieceID[]
+     * @return string[]
      */
-    public function getArrayOfTrackingPieceIDItem()
+    public function getArrayOfTrackingPieceIDItem(): array
     {
       return $this->ArrayOfTrackingPieceIDItem;
     }
 
     /**
-     * @param TrackingPieceID[] $ArrayOfTrackingPieceIDItem
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ArrayOfTrackingPieceID
+     * @param string[] $ArrayOfTrackingPieceIDItem
+     * @return self
      */
-    public function setArrayOfTrackingPieceIDItem(array $ArrayOfTrackingPieceIDItem)
+    public function setArrayOfTrackingPieceIDItem(array $ArrayOfTrackingPieceIDItem): self
     {
       $this->ArrayOfTrackingPieceIDItem = $ArrayOfTrackingPieceIDItem;
       return $this;
@@ -40,9 +51,9 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset An offset to check for
-     * @return boolean true on success or false on failure
+     * @return bool true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
       return isset($this->ArrayOfTrackingPieceIDItem[$offset]);
     }
@@ -51,9 +62,9 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset The offset to retrieve
-     * @return TrackingPieceID
+     * @return string
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): string
     {
       return $this->ArrayOfTrackingPieceIDItem[$offset];
     }
@@ -62,12 +73,12 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset The offset to assign the value to
-     * @param TrackingPieceID $value The value to set
+     * @param string $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
-      if (!isset($offset)) {
+      if ($offset === null) {
         $this->ArrayOfTrackingPieceIDItem[] = $value;
       } else {
         $this->ArrayOfTrackingPieceIDItem[$offset] = $value;
@@ -80,7 +91,7 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
       unset($this->ArrayOfTrackingPieceIDItem[$offset]);
     }
@@ -88,9 +99,9 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return TrackingPieceID Return the current element
+     * @return string Return the current element
      */
-    public function current()
+    public function current(): string
     {
       return current($this->ArrayOfTrackingPieceIDItem);
     }
@@ -101,7 +112,7 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
       next($this->ArrayOfTrackingPieceIDItem);
     }
@@ -111,7 +122,7 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
-    public function key()
+    public function key(): ?string
     {
       return key($this->ArrayOfTrackingPieceIDItem);
     }
@@ -119,9 +130,9 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return boolean Return the validity of the current position
+     * @return bool Return the validity of the current position
      */
-    public function valid()
+    public function valid(): bool
     {
       return $this->key() !== null;
     }
@@ -132,7 +143,7 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
       reset($this->ArrayOfTrackingPieceIDItem);
     }
@@ -140,11 +151,10 @@ class ArrayOfTrackingPieceID implements \ArrayAccess, \Iterator, \Countable
     /**
      * Countable implementation
      *
-     * @return TrackingPieceID Return count of elements
+     * @return string Return count of elements
      */
-    public function count()
+    public function count(): string
     {
       return count($this->ArrayOfTrackingPieceIDItem);
     }
-
 }

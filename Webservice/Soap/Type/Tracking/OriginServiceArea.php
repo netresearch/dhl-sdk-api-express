@@ -1,83 +1,87 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * OriginServiceArea class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class OriginServiceArea
 {
+    /**
+     * @var string
+     */
+    protected $ServiceAreaCode;
 
     /**
-     * @var ServiceAreaCode $ServiceAreaCode
+     * @var string
      */
-    protected $ServiceAreaCode = null;
+    protected $Description;
 
     /**
-     * @var string $Description
+     * @var string
      */
-    protected $Description = null;
+    protected $OutboundSortCode;
 
     /**
-     * @var OutboundSortCode $OutboundSortCode
+     * @return string
      */
-    protected $OutboundSortCode = null;
-
-    
-    public function __construct()
+    public function getServiceAreaCode(): string
     {
-    
+        return $this->ServiceAreaCode;
     }
 
     /**
-     * @return ServiceAreaCode
+     * @param string $ServiceAreaCode
+     * @return self
      */
-    public function getServiceAreaCode()
+    public function setServiceAreaCode(string $ServiceAreaCode): self
     {
-      return $this->ServiceAreaCode;
-    }
-
-    /**
-     * @param ServiceAreaCode $ServiceAreaCode
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\OriginServiceArea
-     */
-    public function setServiceAreaCode($ServiceAreaCode)
-    {
-      $this->ServiceAreaCode = $ServiceAreaCode;
-      return $this;
+        $this->ServiceAreaCode = $ServiceAreaCode;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
      * @param string $Description
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\OriginServiceArea
+     * @return self
      */
-    public function setDescription($Description)
+    public function setDescription(string $Description): self
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
 
     /**
-     * @return OutboundSortCode
+     * @return string
      */
-    public function getOutboundSortCode()
+    public function getOutboundSortCode(): string
     {
-      return $this->OutboundSortCode;
+        return $this->OutboundSortCode;
     }
 
     /**
-     * @param OutboundSortCode $OutboundSortCode
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\OriginServiceArea
+     * @param string $OutboundSortCode
+     * @return self
      */
-    public function setOutboundSortCode($OutboundSortCode)
+    public function setOutboundSortCode(string $OutboundSortCode): self
     {
-      $this->OutboundSortCode = $OutboundSortCode;
-      return $this;
+        $this->OutboundSortCode = $OutboundSortCode;
+        return $this;
     }
-
 }

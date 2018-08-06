@@ -1,14 +1,25 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
-class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
+/**
+ * PieceFaultCollection class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
+class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
 {
-
     /**
-     * @var PieceFault[] $ArrayOfPieceFaultItem
+     * @var PieceFault[]
      */
-    protected $ArrayOfPieceFaultItem = null;
+    protected $ArrayOfPieceFaultItem;
 
     /**
      * @param PieceFault[] $ArrayOfPieceFaultItem
@@ -21,16 +32,16 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return PieceFault[]
      */
-    public function getArrayOfPieceFaultItem()
+    public function getArrayOfPieceFaultItem(): array
     {
       return $this->ArrayOfPieceFaultItem;
     }
 
     /**
      * @param PieceFault[] $ArrayOfPieceFaultItem
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ArrayOfPieceFault
+     * @return self
      */
-    public function setArrayOfPieceFaultItem(array $ArrayOfPieceFaultItem)
+    public function setArrayOfPieceFaultItem(array $ArrayOfPieceFaultItem): self
     {
       $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
       return $this;
@@ -40,9 +51,9 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      * ArrayAccess implementation
      *
      * @param mixed $offset An offset to check for
-     * @return boolean true on success or false on failure
+     * @return bool true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
       return isset($this->ArrayOfPieceFaultItem[$offset]);
     }
@@ -53,7 +64,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return PieceFault
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): PieceFault
     {
       return $this->ArrayOfPieceFaultItem[$offset];
     }
@@ -65,9 +76,9 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      * @param PieceFault $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
-      if (!isset($offset)) {
+      if ($offset === null) {
         $this->ArrayOfPieceFaultItem[] = $value;
       } else {
         $this->ArrayOfPieceFaultItem[$offset] = $value;
@@ -80,7 +91,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
       unset($this->ArrayOfPieceFaultItem[$offset]);
     }
@@ -90,7 +101,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceFault Return the current element
      */
-    public function current()
+    public function current(): PieceFault
     {
       return current($this->ArrayOfPieceFaultItem);
     }
@@ -101,7 +112,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
       next($this->ArrayOfPieceFaultItem);
     }
@@ -111,7 +122,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
-    public function key()
+    public function key(): ?string
     {
       return key($this->ArrayOfPieceFaultItem);
     }
@@ -119,9 +130,9 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return boolean Return the validity of the current position
+     * @return bool Return the validity of the current position
      */
-    public function valid()
+    public function valid(): bool
     {
       return $this->key() !== null;
     }
@@ -132,7 +143,7 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
       reset($this->ArrayOfPieceFaultItem);
     }
@@ -142,9 +153,8 @@ class ArrayOfPieceFault implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceFault Return count of elements
      */
-    public function count()
+    public function count(): PieceFault
     {
       return count($this->ArrayOfPieceFaultItem);
     }
-
 }

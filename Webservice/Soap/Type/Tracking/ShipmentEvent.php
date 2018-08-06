@@ -1,43 +1,58 @@
 <?php
+/**
+ * See LICENSE.md for license details.
+ */
 
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
+/**
+ * ShipmentEvent class.
+ *
+ * @api
+ * @package  Dhl\Express\Api
+ * @author   Ronny Gertler <ronny.gertler@netresearch.de>
+ * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link     https://www.netresearch.de/
+ */
 class ShipmentEvent
 {
-
     /**
-     * @var date $Date
+     * @var string
      */
-    protected $Date = null;
+    protected $Date;
 
     /**
-     * @var time $Time
+     * @var string
      */
-    protected $Time = null;
+    protected $Time;
 
     /**
-     * @var ServiceEvent $ServiceEvent
+     * @var ServiceEvent
      */
-    protected $ServiceEvent = null;
+    protected $ServiceEvent;
 
     /**
-     * @var Signatory $Signatory
+     * @var string
      */
-    protected $Signatory = null;
+    protected $Signatory;
 
     /**
-     * @var ServiceArea $ServiceArea
+     * @var ServiceArea
      */
-    protected $ServiceArea = null;
+    protected $ServiceArea;
 
     /**
-     * @param date $Date
-     * @param time $Time
+     * @param string $Date
+     * @param string $Time
      * @param ServiceEvent $ServiceEvent
      * @param ServiceArea $ServiceArea
      */
-    public function __construct($Date, $Time, $ServiceEvent, $ServiceArea)
-    {
+    public function __construct(
+        string $Date, 
+        string $Time,
+        ServiceEvent $ServiceEvent,
+        ServiceArea $ServiceArea
+    ) {
       $this->Date = $Date;
       $this->Time = $Time;
       $this->ServiceEvent = $ServiceEvent;
@@ -45,36 +60,36 @@ class ShipmentEvent
     }
 
     /**
-     * @return date
+     * @return string
      */
-    public function getDate()
+    public function getDate(): string
     {
       return $this->Date;
     }
 
     /**
-     * @param date $Date
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEvent
+     * @param string $Date
+     * @return self
      */
-    public function setDate($Date)
+    public function setDate(string $Date): self
     {
       $this->Date = $Date;
       return $this;
     }
 
     /**
-     * @return time
+     * @return string
      */
-    public function getTime()
+    public function getTime(): string
     {
       return $this->Time;
     }
 
     /**
-     * @param time $Time
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEvent
+     * @param string $Time
+     * @return self
      */
-    public function setTime($Time)
+    public function setTime(string $Time): self
     {
       $this->Time = $Time;
       return $this;
@@ -83,34 +98,34 @@ class ShipmentEvent
     /**
      * @return ServiceEvent
      */
-    public function getServiceEvent()
+    public function getServiceEvent(): ServiceEvent
     {
       return $this->ServiceEvent;
     }
 
     /**
      * @param ServiceEvent $ServiceEvent
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEvent
+     * @return self
      */
-    public function setServiceEvent($ServiceEvent)
+    public function setServiceEvent(ServiceEvent $ServiceEvent): self
     {
       $this->ServiceEvent = $ServiceEvent;
       return $this;
     }
 
     /**
-     * @return Signatory
+     * @return string
      */
-    public function getSignatory()
+    public function getSignatory(): string
     {
       return $this->Signatory;
     }
 
     /**
-     * @param Signatory $Signatory
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEvent
+     * @param string $Signatory
+     * @return self
      */
-    public function setSignatory($Signatory)
+    public function setSignatory(string $Signatory): self
     {
       $this->Signatory = $Signatory;
       return $this;
@@ -119,19 +134,18 @@ class ShipmentEvent
     /**
      * @return ServiceArea
      */
-    public function getServiceArea()
+    public function getServiceArea(): string
     {
       return $this->ServiceArea;
     }
 
     /**
      * @param ServiceArea $ServiceArea
-     * @return \Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEvent
+     * @return self
      */
-    public function setServiceArea($ServiceArea)
+    public function setServiceArea(ServiceArea $ServiceArea): self
     {
       $this->ServiceArea = $ServiceArea;
       return $this;
     }
-
 }
