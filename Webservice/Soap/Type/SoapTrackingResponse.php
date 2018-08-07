@@ -3,7 +3,9 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Webservice\Soap\Type\Tracking;
+namespace Dhl\Express\Webservice\Soap\Type;
+
+use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingResponseBase;
 
 /**
  * The tracking response.
@@ -17,81 +19,25 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 class SoapTrackingResponse
 {
     /**
-     * @var Response
+     * @var TrackingResponseBase
      */
-    protected $Response;
+    protected $trackingResponse;
 
     /**
-     * @var AWBInfoCollection
+     * @return TrackingResponseBase
      */
-    protected $AWBInfo;
-
-    /**
-     * @var Fault
-     */
-    protected $Fault;
-
-    /**
-     * @param Response $Response
-     * @param AWBInfoCollection $AWBInfo
-     */
-    public function __construct(Response $Response, AWBInfoCollection $AWBInfo)
+    public function getTrackingResponse(): TrackingResponseBase
     {
-        $this->Response = $Response;
-        $this->AWBInfo = $AWBInfo;
+      return $this->trackingResponse;
     }
 
     /**
-     * @return Response
-     */
-    public function getResponse(): Response
-    {
-        return $this->Response;
-    }
-
-    /**
-     * @param Response $Response
+     * @param TrackingResponseBase $trackingResponse
      * @return self
      */
-    public function setResponse(Response $Response): self
+    public function setTrackingResponse(TrackingResponseBase $trackingResponse): self
     {
-        $this->Response = $Response;
-        return $this;
-    }
-
-    /**
-     * @return AWBInfoCollection
-     */
-    public function getAWBInfo(): AWBInfoCollection
-    {
-        return $this->AWBInfo;
-    }
-
-    /**
-     * @param AWBInfoCollection $AWBInfo
-     * @return self
-     */
-    public function setAWBInfo(AWBInfoCollection $AWBInfo): self
-    {
-        $this->AWBInfo = $AWBInfo;
-        return $this;
-    }
-
-    /**
-     * @return Fault
-     */
-    public function getFault(): Fault
-    {
-        return $this->Fault;
-    }
-
-    /**
-     * @param Fault $Fault
-     * @return self
-     */
-    public function setFault(Fault $Fault): self
-    {
-        $this->Fault = $Fault;
-        return $this;
+      $this->trackingResponse = $trackingResponse;
+      return $this;
     }
 }

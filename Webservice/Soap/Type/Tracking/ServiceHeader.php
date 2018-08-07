@@ -17,7 +17,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 class ServiceHeader
 {
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $MessageTime;
 
@@ -27,25 +27,25 @@ class ServiceHeader
     protected $MessageReference;
 
     /**
-     * @param \DateTime $MessageTime
+     * @param string $MessageTime
      * @param string $MessageReference
      */
-    public function __construct(\DateTime $MessageTime, string $MessageReference)
+    public function __construct(string $MessageTime, string $MessageReference)
     {
-      $this->MessageTime = $MessageTime->format(\DateTime::ATOM);
+      $this->MessageTime = $MessageTime;
       $this->MessageReference = $MessageReference;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getMessageTime(): \DateTime
+    public function getMessageTime(): string
     {
       if ($this->MessageTime == null) {
         return null;
       } else {
         try {
-          return new \DateTime($this->MessageTime);
+          return new string($this->MessageTime);
         } catch (\Exception $e) {
           return false;
         }
@@ -53,12 +53,12 @@ class ServiceHeader
     }
 
     /**
-     * @param \DateTime $MessageTime
+     * @param string $MessageTime
      * @return self
      */
-    public function setMessageTime(\DateTime $MessageTime): self
+    public function setMessageTime(string $MessageTime): self
     {
-      $this->MessageTime = $MessageTime->format(\DateTime::ATOM);
+      $this->MessageTime = $MessageTime;
       return $this;
     }
 

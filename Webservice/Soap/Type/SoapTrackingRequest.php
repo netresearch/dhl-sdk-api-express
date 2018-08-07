@@ -5,10 +5,7 @@
 
 namespace Dhl\Express\Webservice\Soap\Type;
 
-use Dhl\Express\Webservice\Soap\Type\Tracking\AWBNumberCollection;
-use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingPieceIDCollection;
-use Dhl\Express\Webservice\Soap\Type\Tracking\LevelOfDetails;
-use Dhl\Express\Webservice\Soap\Type\Tracking\Request;
+use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingRequestBase;
 
 /**
  * The tracking request.
@@ -22,150 +19,25 @@ use Dhl\Express\Webservice\Soap\Type\Tracking\Request;
 class SoapTrackingRequest
 {
     /**
-     * @var Request $Request
+     * @var TrackingRequestBase
      */
-    protected $Request;
+    protected $trackingRequest;
 
     /**
-     * @var AWBNumberCollection
+     * @return TrackingRequestBase
      */
-    protected $AWBNumber;
-
-    /**
-     * @var TrackingPieceIDCollection
-     */
-    protected $LPNumber;
-
-    /**
-     * @var LevelOfDetails
-     */
-    protected $LevelOfDetails;
-
-    /**
-     * @var string
-     */
-    protected $PiecesEnabled;
-
-    /**
-     * @var boolean
-     */
-    protected $EstimatedDeliveryDateEnabled;
-
-    /**
-     * @param Request $Request
-     * @param LevelOfDetails $LevelOfDetails
-     */
-    public function __construct(Request $Request, LevelOfDetails $LevelOfDetails)
+    public function getTrackingRequest(): TrackingRequestBase
     {
-        $this->Request = $Request;
-        $this->LevelOfDetails = $LevelOfDetails;
+      return $this->trackingRequest;
     }
 
     /**
-     * @return Request
-     */
-    public function getRequest(): Request
-    {
-        return $this->Request;
-    }
-
-    /**
-     * @param Request $Request
+     * @param TrackingRequestBase $trackingRequest
      * @return self
      */
-    public function setRequest(Request $Request): self
+    public function setTrackingRequest(TrackingRequestBase $trackingRequest): self
     {
-        $this->Request = $Request;
-        return $this;
-    }
-
-    /**
-     * @return AWBNumberCollection
-     */
-    public function getAWBNumber(): AWBNumberCollection
-    {
-        return $this->AWBNumber;
-    }
-
-    /**
-     * @param AWBNumberCollection $AWBNumber
-     * @return self
-     */
-    public function setAWBNumber(AWBNumberCollection $AWBNumber): self
-    {
-        $this->AWBNumber = $AWBNumber;
-        return $this;
-    }
-
-    /**
-     * @return TrackingPieceIDCollection
-     */
-    public function getLPNumber(): TrackingPieceIDCollection
-    {
-        return $this->LPNumber;
-    }
-
-    /**
-     * @param TrackingPieceIDCollection $LPNumber
-     * @return self
-     */
-    public function setLPNumber(TrackingPieceIDCollection $LPNumber): self
-    {
-        $this->LPNumber = $LPNumber;
-        return $this;
-    }
-
-    /**
-     * @return LevelOfDetails
-     */
-    public function getLevelOfDetails(): LevelOfDetails
-    {
-        return $this->LevelOfDetails;
-    }
-
-    /**
-     * @param LevelOfDetails $LevelOfDetails
-     * @return self
-     */
-    public function setLevelOfDetails(LevelOfDetails $LevelOfDetails): self
-    {
-        $this->LevelOfDetails = $LevelOfDetails;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPiecesEnabled(): string
-    {
-        return $this->PiecesEnabled;
-    }
-
-    /**
-     * @param string $PiecesEnabled
-     * @return self
-     */
-    public function setPiecesEnabled(string $PiecesEnabled): self
-    {
-        $this->PiecesEnabled = $PiecesEnabled;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getEstimatedDeliveryDateEnabled(): bool
-    {
-        return $this->EstimatedDeliveryDateEnabled;
-    }
-
-    /**
-     * @param bool $EstimatedDeliveryDateEnabled
-     * @return self
-     */
-    public function setEstimatedDeliveryDateEnabled(bool $EstimatedDeliveryDateEnabled): self
-    {
-        $this->EstimatedDeliveryDateEnabled = $EstimatedDeliveryDateEnabled;
-        return $this;
+      $this->trackingRequest = $trackingRequest;
+      return $this;
     }
 }

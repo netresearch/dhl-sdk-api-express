@@ -7,6 +7,8 @@ namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
+use Dhl\Express\Webservice\Soap\Type\SoapTrackingRequest;
+use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
 
 class Client extends \SoapClient
 {
@@ -37,7 +39,7 @@ class Client extends \SoapClient
 //            return file_get_contents($fileName);
 //        }
 
-        //var_dump(__METHOD__, $request);
+        var_dump(__METHOD__, $request);
 
         return parent::__doRequest(
             $request,
@@ -58,6 +60,11 @@ class Client extends \SoapClient
     public function getRateRequest(SoapRateRequest $rateRequest): SoapRateResponse
     {
         return $this->__soapCall('getRateRequest', [$rateRequest]);
+    }
+
+    public function trackShipmentRequest(SoapTrackingRequest $trackingRequest): SoapTrackingResponse
+    {
+        return $this->__soapCall('trackShipmentRequest', [$trackingRequest]);
     }
 
 
