@@ -41,15 +41,7 @@ class ServiceHeader
      */
     public function getMessageTime(): string
     {
-      if ($this->MessageTime == null) {
-        return null;
-      } else {
-        try {
-          return new string($this->MessageTime);
-        } catch (\Exception $e) {
-          return false;
-        }
-      }
+        return $this->MessageTime;
     }
 
     /**
