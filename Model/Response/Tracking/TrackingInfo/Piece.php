@@ -2,10 +2,11 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Model\Response\Tracking;
+namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
-use Dhl\Express\Api\Data\Response\Tracking\PieceEventInterface;
-use Dhl\Express\Api\Data\Response\Tracking\PieceInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceEventInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
+
 
 /**
  * Tracking piece.

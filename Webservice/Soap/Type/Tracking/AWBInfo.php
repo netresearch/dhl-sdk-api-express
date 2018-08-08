@@ -17,7 +17,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 class AWBInfo
 {
     /**
-     * @var string
+     * @var int
      */
     protected $AWBNumber;
 
@@ -37,10 +37,10 @@ class AWBInfo
     protected $Pieces;
 
     /**
-     * @param string $AWBNumber
+     * @param int $AWBNumber
      * @param Status $Status
      */
-    public function __construct(string $AWBNumber, Status $Status)
+    public function __construct(int $AWBNumber, Status $Status)
     {
         $this->AWBNumber = $AWBNumber;
         $this->Status = $Status;

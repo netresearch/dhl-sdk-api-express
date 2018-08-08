@@ -3,19 +3,19 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Response\Tracking;
+namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
-use Dhl\Express\Api\Data\Response\Tracking\PieceEventInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
 
 /**
- * Piece event class.
+ * Shipping event class.
  *
  * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class PieceEvent implements PieceEventInterface
+class ShipmentEvent implements ShipmentEventInterface
 {
     /**
      * Event date
@@ -39,7 +39,7 @@ class PieceEvent implements PieceEventInterface
     private $description;
 
     /**
-     * PieceEvent constructor.
+     * ShipmentEvent constructor.
      * @param int $date
      * @param $code
      * @param $description

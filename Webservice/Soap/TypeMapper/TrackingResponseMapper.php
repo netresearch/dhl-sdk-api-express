@@ -5,6 +5,9 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\TrackingResponseInterface;
+use Dhl\Express\Model\Response\Tracking\Message;
+use Dhl\Express\Model\Response\Tracking\TrackingInfo;
+use Dhl\Express\Model\TrackingResponse;
 use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
 
 /**
@@ -20,13 +23,35 @@ use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
 class TrackingResponseMapper
 {
     /**
-     * @param SoapTrackingResponse $trackingResponse
+     * @param SoapTrackingResponse $soapTrackingResponse
      * @return TrackingResponseInterface
      */
-    public function map(SoapTrackingResponse $trackingResponse): TrackingResponseInterface
+    public function map(SoapTrackingResponse $soapTrackingResponse): TrackingResponseInterface
     {
-        /**
-         * @Todo: Implement mapping
-         */
+        $soapResponseContent = $soapTrackingResponse->getTrackingResponse()->getTrackingResponse();
+
+        $tackingInfos = [];
+
+        foreach ($soapResponseContent->getAWBInfo()->getArrayOfAWBInfoItem() as $soapTrackingItem) {
+            $tackingInfos[] =  new TrackingInfo(
+               $soapTrackingItem->getAWBNumber(),
+               $soapTrackingItem->getStatus(),
+               new TrackingInfo\ShipmentDetails(
+                   $soapTrackingItem->getShipmentInfo()->getShipperName(),
+                   $soapTrackingItem->getShipmentInfo()->getConsigneeName(),
+                   $soapTrackingItem->getShipmentInfo()->getShipmentDate()->getTimestamp()
+               ),
+               $soapTrackingItem->getShipmentInfo()->getShipmentEvent()->getArrayOfShipmentEventItem(),
+               $soapTrackingItem->getPieces()->getPieceInfo()->getArrayOfPieceInfoItem()
+           );
+        }
+
+        return new TrackingResponse(
+            new Message(
+                $soapResponseContent->getResponse()->getServiceHeader()->getMessageTime(),
+                $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
+            ),
+            $tackingInfos
+        );
     }
 }

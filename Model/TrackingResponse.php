@@ -6,13 +6,11 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\Response\Tracking\MessageInterface;
-use Dhl\Express\Api\Data\Response\Tracking\PieceInterface;
-use Dhl\Express\Api\Data\Response\Tracking\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Response\Tracking\ShipmentEventInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
+use Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
 /**
- * Tracking Request.
+ * Tracking Response.
  *
  * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
@@ -27,83 +25,34 @@ class TrackingResponse implements TrackingResponseInterface
     private $message;
 
     /**
-     * @var int
+     * @var TrackingInfo[]
      */
-    private $awbNumber;
-
-    /**
-     * @var string
-     */
-    private $awbStatus;
-
-    /**
-     * @var ShipmentDetailsInterface
-     */
-    private $shipmentDetails;
-
-    /**
-     * @var ShipmentEventInterface[]
-     */
-    private $shipmentEvents;
-
-    /**
-     * @var PieceInterface[]
-     */
-    private $pieces;
+    private $trackingInfos;
 
     /**
      * TrackingResponse constructor.
      * @param MessageInterface $message
-     * @param int $awbNumber
-     * @param string $awbStatus
-     * @param ShipmentDetailsInterface $shipmentDetails
-     * @param ShipmentEventInterface[] $shipmentEvents
-     * @param PieceInterface[] $pieces
+     * @param TrackingInfo[] $trackingInfos
      */
-    public function __construct(
-        MessageInterface $message,
-        int $awbNumber,
-        string $awbStatus,
-        ShipmentDetailsInterface $shipmentDetails,
-        array $shipmentEvents,
-        array $pieces
-    ) {
+    public function __construct(MessageInterface $message, array $trackingInfos)
+    {
         $this->message = $message;
-        $this->awbNumber = $awbNumber;
-        $this->awbStatus = $awbStatus;
-        $this->shipmentDetails = $shipmentDetails;
-        $this->shipmentEvents = $shipmentEvents;
-        $this->pieces = $pieces;
+        $this->trackingInfos = $trackingInfos;
     }
 
-
+    /**
+     * @return MessageInterface
+     */
     public function getMessage(): MessageInterface
     {
         return $this->message;
     }
 
-    public function getAwbNumber(): int
+    /**
+     * @return MessageInterface[]
+     */
+    public function getTrackingInfos(): array
     {
-        return $this->awbNumber;
-    }
-
-    public function getAwbStatus(): string
-    {
-        return $this->awbStatus;
-    }
-
-    public function getShipmentDetails(): ShipmentDetailsInterface
-    {
-        return $this->shipmentDetails;
-    }
-
-    public function getShipmentEvents(): array
-    {
-        return $this->shipmentEvents;
-    }
-
-    public function getPieces(): array
-    {
-        return $this->pieces;
+        return $this->trackingInfos;
     }
 }

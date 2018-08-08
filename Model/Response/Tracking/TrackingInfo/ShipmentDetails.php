@@ -3,9 +3,10 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Response\Tracking;
+namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
-use Dhl\Express\Api\Data\Response\Tracking\ShipmentDetailsInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentDetailsInterface;
+
 
 /**
  * Shipping details class.

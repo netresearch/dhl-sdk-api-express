@@ -2,7 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Response\Tracking;
+namespace Dhl\Express\Api\Data\Response\Tracking\TrackingInfo;
 
 /**
  * ShipmentInfo interface.

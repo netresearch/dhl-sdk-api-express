@@ -5,9 +5,7 @@
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Response\Tracking\MessageInterface;
-use Dhl\Express\Api\Data\Response\Tracking\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Response\Tracking\ShipmentEventInterface;
-use Dhl\Express\Api\Data\Response\Tracking\PieceInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo;
 
 /**
  * Rate Response Interface.
@@ -30,37 +28,9 @@ interface TrackingResponseInterface
     public function getMessage(): MessageInterface;
 
     /**
-     * Returns the AWB number.
+     * Returns the tacking informations.
      *
-     * @return int
+     * @return TrackingInfo[]
      */
-    public function getAwbNumber(): int;
-
-    /**
-     * Returns the status.
-     *
-     * @return string
-     */
-    public function getAwbStatus(): string;
-
-    /**
-     * Returns the shipment Details.
-     *
-     * @return ShipmentDetailsInterface
-     */
-    public function getShipmentDetails(): ShipmentDetailsInterface;
-
-    /**
-     * Returns the shipment events.
-     *
-     * @return ShipmentEventInterface[]
-     */
-    public function getShipmentEvents(): array;
-
-    /**
-     * Returnes the pieces
-     *
-     * @return PieceInterface[]
-     */
-    public function getPieces(): array;
+    public function getTrackingInfos(): array;
 }
