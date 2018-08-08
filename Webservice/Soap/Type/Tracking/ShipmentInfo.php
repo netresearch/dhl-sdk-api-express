@@ -67,7 +67,7 @@ class ShipmentInfo
     protected $ShipmentEvent;
 
     /**
-     * @var Reference
+     * @var Reference|null
      */
     protected $ShipperReference;
 
@@ -286,9 +286,9 @@ class ShipmentInfo
     }
 
     /**
-     * @return Reference
+     * @return Reference|null
      */
-    public function getShipperReference(): Reference
+    public function getShipperReference(): ?Reference
     {
       return $this->ShipperReference;
     }

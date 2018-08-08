@@ -6,7 +6,7 @@
 namespace Dhl\Express\Webservice\Soap\Type\Tracking;
 
 /**
- * TrackingPieceIDCollection class.
+ * TrackingPieces class.
  *
  * @api
  * @package  Dhl\Express\Api

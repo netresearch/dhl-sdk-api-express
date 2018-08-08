@@ -19,7 +19,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var PieceFault[]
      */
-    protected $ArrayOfPieceFaultItem;
+    protected $ArrayOfPieceFaultItem = [];
 
     /**
      * @param PieceFault[] $ArrayOfPieceFaultItem

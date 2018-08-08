@@ -22,7 +22,7 @@ class Status
     protected $ActionStatus;
 
     /**
-     * @var ConditionCollection
+     * @var ConditionCollection|null
      */
     protected $Condition;
 
@@ -53,9 +53,9 @@ class Status
     }
 
     /**
-     * @return ConditionCollection
+     * @return ConditionCollection|null
      */
-    public function getCondition(): ConditionCollection
+    public function getCondition(): ?ConditionCollection
     {
       return $this->Condition;
     }

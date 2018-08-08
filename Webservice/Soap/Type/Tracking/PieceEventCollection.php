@@ -19,7 +19,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var PieceEvent[]
      */
-    protected $ArrayOfPieceEventItem;
+    protected $ArrayOfPieceEventItem = [];
 
     /**
      * @return PieceEvent[]

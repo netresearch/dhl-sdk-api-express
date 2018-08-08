@@ -19,7 +19,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var PieceInfo[]
      */
-    protected $ArrayOfPieceInfoItem;
+    protected $ArrayOfPieceInfoItem = [];
 
     /**
      * @return PieceInfo[]

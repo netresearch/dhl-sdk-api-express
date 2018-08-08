@@ -27,7 +27,7 @@ class TrackingResponse
     protected $AWBInfo;
 
     /**
-     * @var Fault
+     * @var Fault|null
      */
     protected $Fault;
 
@@ -78,9 +78,9 @@ class TrackingResponse
     }
 
     /**
-     * @return Fault
+     * @return Fault|null
      */
-    public function getFault(): Fault
+    public function getFault(): ?Fault
     {
         return $this->Fault;
     }

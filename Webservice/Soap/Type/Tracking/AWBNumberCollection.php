@@ -19,7 +19,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var string[]
      */
-    protected $ArrayOfAWBNumberItem;
+    protected $ArrayOfAWBNumberItem = [];
 
     /**
      * @param string[] $ArrayOfAWBNumberItem

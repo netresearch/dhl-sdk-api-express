@@ -19,7 +19,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var ShipmentEvent[]
      */
-    protected $ArrayOfShipmentEventItem;
+    protected $ArrayOfShipmentEventItem = [];
 
     /**
      * @param ShipmentEvent[] $ArrayOfShipmentEventItem

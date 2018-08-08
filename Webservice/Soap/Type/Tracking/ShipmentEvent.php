@@ -134,7 +134,7 @@ class ShipmentEvent
     /**
      * @return ServiceArea
      */
-    public function getServiceArea(): string
+    public function getServiceArea(): ServiceArea
     {
       return $this->ServiceArea;
     }

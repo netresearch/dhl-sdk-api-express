@@ -43,11 +43,7 @@ class ClassMap
             'docTypeRef_LabelImageType'      => Type\ShipmentResponse\LabelImage::class,
 
             // trackShipmentRequest
-            'TrackingRequest' => Type\Tracking\TrackingRequest::class,
-            'Request' => Type\Tracking\Request::class,
             'ServiceHeader' => Type\Tracking\ServiceHeader::class,
-            'ArrayOfAWBNumber' => Type\Tracking\AWBNumberCollection::class,
-            'ArrayOfTrackingPieceID' => Type\Tracking\TrackingPieceIDCollection::class,
             'TrackingResponse' => Type\Tracking\TrackingResponse::class,
             'Response' => Type\Tracking\Response::class,
             'AWBInfo' => Type\Tracking\AWBInfo::class,
@@ -72,10 +68,8 @@ class ClassMap
             'Fault' => Type\Tracking\Fault::class,
             'PieceFault' => Type\Tracking\PieceFault::class,
             'ArrayOfPieceFault' => Type\Tracking\PieceFaultCollection::class,
-            'trackShipmentRequest' => Type\SoapTrackingRequest::class,
-            'pubTrackingRequest' => Type\Tracking\TrackingRequestBase::class,
             'trackShipmentRequestResponse' => Type\SoapTrackingResponse::class,
-            'pubTrackingResponse' => Type\Tracking\TrackingResponse::class,
+            'pubTrackingResponse' => Type\Tracking\TrackingResponseBase::class,
             'ShipperReference' => Type\Tracking\ShipperReference::class,
         ];
     }

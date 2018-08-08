@@ -19,7 +19,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var AWBInfo[]
      */
-    protected $ArrayOfAWBInfoItem;
+    protected $ArrayOfAWBInfoItem = [];
 
     /**
      * @param AWBInfo[] $ArrayOfAWBInfoItem

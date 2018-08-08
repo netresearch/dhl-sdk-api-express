@@ -19,7 +19,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var Condition[]
      */
-    protected $ArrayOfConditionItem;
+    protected $ArrayOfConditionItem = [];
 
     /**
      * @param Condition[] $ArrayOfConditionItem
