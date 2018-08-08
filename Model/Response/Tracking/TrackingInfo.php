@@ -4,10 +4,10 @@
  */
 namespace Dhl\Express\Model\Response\Tracking;
 
-use Dhl\Express\Api\Data\Response\Tracking\MessageInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfoInterface;
 
 /**
  * TrackingInfo.
@@ -17,7 +17,7 @@ use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class TrackingInfo implements MessageInterface
+class TrackingInfo implements TrackingInfoInterface
 {
     /**
      * @var int

@@ -7,14 +7,19 @@ namespace Dhl\Express\Test\Integration\Mock;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Webservice\RateService;
 use Dhl\Express\Webservice\ShipmentService;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
+use Dhl\Express\Webservice\Soap\TrackingServiceAdapter;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\TrackingResponseMapper;
+use Dhl\Express\Webservice\TrackingService;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -42,8 +47,7 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     public function createRateService(
         string $username,
         string $password,
-        LoggerInterface $logger
-    ): RateServiceInterface {
+        LoggerInterface $logger ): RateServiceInterface {
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
         $adapter = new RateServiceAdapter($this->client, $requestMapper, $responseMapper);
@@ -55,8 +59,7 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): ShipmentServiceInterface
-    {
+    ): ShipmentServiceInterface {
         $requestMapper = new ShipmentRequestMapper();
         $responseMapper = new ShipmentResponseMapper();
         $adapter = new ShipmentServiceAdapter($this->client, $requestMapper, $responseMapper);
@@ -64,9 +67,16 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         return new ShipmentService($adapter, $logger);
     }
 
-    public function createTrackingService()
-    {
-        // TODO: Implement createTrackingService() method.
+    public function createTrackingService(
+        string $username,
+        string $password,
+        LoggerInterface $logger
+    ): TrackingServiceInterface {
+        $requestMapper = new TrackingRequestMapper();
+        $responseMapper = new TrackingResponseMapper();
+        $adapter = new TrackingServiceAdapter($this->client, $requestMapper, $responseMapper);
+
+        return new TrackingService($adapter, $logger);
     }
 
     public function createPickupService()

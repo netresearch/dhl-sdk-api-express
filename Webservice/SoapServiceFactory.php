@@ -12,12 +12,15 @@ use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
+use Dhl\Express\Webservice\Soap\TrackingServiceAdapter;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\TrackingResponseMapper;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -80,11 +83,25 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @throws \Exception
+     * @param string $username
+     * @param string $password
+     * @param LoggerInterface $logger
+     * @return TrackingService
      */
-    public function createTrackingService()
-    {
-        throw new \RuntimeException('Not yet implemented.');
+    public function createTrackingService(
+        string $username,
+        string $password,
+        LoggerInterface $logger
+    ): TrackingServiceInterface {
+        $clientFactory = new SoapClientFactory();
+        $client = $clientFactory->create($username, $password, 'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL');
+
+        $requestMapper = new TrackingRequestMapper();
+        $responseMapper = new TrackingResponseMapper();
+
+        $adapter = new TrackingServiceAdapter($client, $requestMapper, $responseMapper);
+
+        return new TrackingService($adapter, $logger);
     }
 
     /**

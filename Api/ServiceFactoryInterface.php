@@ -44,9 +44,16 @@ interface ServiceFactoryInterface
     ): ShipmentServiceInterface;
 
     /**
+     * @param string $username
+     * @param string $password
+     * @param LoggerInterface $logger
      * @return TrackingServiceInterface
      */
-    public function createTrackingService();
+    public function createTrackingService(
+        string $username,
+        string $password,
+        LoggerInterface $logger
+    ): TrackingServiceInterface;
 
     /**
      * @return PickupServiceInterface

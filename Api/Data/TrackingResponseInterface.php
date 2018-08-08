@@ -5,7 +5,7 @@
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Response\Tracking\MessageInterface;
-use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo;
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfoInterface;
 
 /**
  * Rate Response Interface.
@@ -30,7 +30,7 @@ interface TrackingResponseInterface
     /**
      * Returns the tacking informations.
      *
-     * @return TrackingInfo[]
+     * @return TrackingInfoInterface[]
      */
     public function getTrackingInfos(): array;
 }

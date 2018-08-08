@@ -19,7 +19,7 @@ use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface TrackingInfo
+interface TrackingInfoInterface
 {
     /**
      * Returns the AWB number.
