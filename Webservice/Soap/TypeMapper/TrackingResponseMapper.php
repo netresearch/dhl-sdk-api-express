@@ -34,8 +34,8 @@ class TrackingResponseMapper
 
         foreach ($soapResponseContent->getAWBInfo()->getArrayOfAWBInfoItem() as $soapTrackingItem) {
             $tackingInfos[] =  new TrackingInfo(
-               $soapTrackingItem->getAWBNumber(),
-               $soapTrackingItem->getStatus(),
+                (int) $soapTrackingItem->getAWBNumber(),
+               $soapTrackingItem->getStatus()->getActionStatus(),
                new TrackingInfo\ShipmentDetails(
                    $soapTrackingItem->getShipmentInfo()->getShipperName(),
                    $soapTrackingItem->getShipmentInfo()->getConsigneeName(),
@@ -48,7 +48,7 @@ class TrackingResponseMapper
 
         return new TrackingResponse(
             new Message(
-                $soapResponseContent->getResponse()->getServiceHeader()->getMessageTime(),
+                strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime()),
                 $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
             ),
             $tackingInfos

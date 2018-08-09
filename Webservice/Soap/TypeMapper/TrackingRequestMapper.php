@@ -40,7 +40,7 @@ class TrackingRequestMapper
                     new Request(
                         new ServiceHeader(
                             /** @Todo: Map to this format 2018-08-08T11:17:08 */
-                            $trackingRequest->getMessage()->getTime(),
+                            (new \DateTime)->setTimestamp($trackingRequest->getMessage()->getTime())->format(\DateTime::ATOM),
                             $trackingRequest->getMessage()->getReference()
                         )
                     ),
