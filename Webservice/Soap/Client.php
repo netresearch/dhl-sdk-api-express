@@ -39,8 +39,6 @@ class Client extends \SoapClient
 //            return file_get_contents($fileName);
 //        }
 
-        var_dump(__METHOD__, $request);
-
         return parent::__doRequest(
             $request,
             $location,
