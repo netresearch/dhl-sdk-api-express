@@ -31,7 +31,7 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
         //$serviceFactory = new SoapServiceFactoryFake($soapClient);
 
         $serviceFactory = new SoapServiceFactory();
-        $service = $serviceFactory->createTrackingService('DeveloperTest', 'G!7sI^0dC^7w', $logger);
+        $service = $serviceFactory->createTrackingService('user', 'password', $logger);
 
         return $service;
     }
@@ -81,7 +81,7 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
             'domestic request with metric measures, unscheduled pickup' => [
                 (new \DateTime('2018-08-08T11:17:08'))->getTimestamp(), // message time
                 '31661280881c17088340d67730e24f83', // message reference
-                ['6424045110'],
+                ['6424045110'], // awb numbers
                 'B', // pieces enabled
                 'ALL_CHECK_POINTS', // level of details
             ],

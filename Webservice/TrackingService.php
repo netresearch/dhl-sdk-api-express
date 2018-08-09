@@ -8,9 +8,10 @@ namespace Dhl\Express\Webservice;
 use Dhl\Express\Api\Data\TrackingRequestInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\Api\TrackingServiceInterface;
+use Dhl\Express\Exception\SoapException;
+use Dhl\Express\Exception\TrackingRequestException;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Dhl\Express\Webservice\Adapter\TrackingServiceAdapterInterface;
-use Magento\Setup\Exception;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -53,13 +54,19 @@ class TrackingService implements TrackingServiceInterface
     /**
      * @param TrackingRequestInterface $request
      * @return TrackingResponseInterface
+     * @throws SoapException
+     * @throws TrackingRequestException
      */
     public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface
     {
         try {
             $response = $this->adapter->getTrackingInformation($request);
-        } catch (Exception $e) {
-            // panic
+        } catch (SoapException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        } catch (TrackingRequestException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
         }
 
         if ($this->adapter instanceof TraceableInterface) {

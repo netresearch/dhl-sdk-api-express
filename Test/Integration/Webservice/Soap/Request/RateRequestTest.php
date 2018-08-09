@@ -269,7 +269,5 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
                 return '';
             });
-
-        $soapClientMock->getRate Request($rateRequest);
     }
 }

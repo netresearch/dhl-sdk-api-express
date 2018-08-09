@@ -50,7 +50,7 @@ interface TrackingInfoInterface
     public function getShipmentEvents(): array;
 
     /**
-     * Returnes the pieces
+     * Returns the pieces
      *
      * @return PieceInterface[]
      */

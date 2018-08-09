@@ -7,7 +7,6 @@ namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceEventInterface;
 
-
 /**
  * Piece event class.
  *
