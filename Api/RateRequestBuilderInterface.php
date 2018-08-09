@@ -128,6 +128,22 @@ interface RateRequestBuilderInterface
     public function setInsurance(float $insuranceValue, string $insuranceCurrency): RateRequestBuilderInterface;
 
     /**
+     * Sets if value added services should be included in the response
+     *
+     * @param bool $requestValueAddedServices
+     * @return self
+     */
+    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices): RateRequestBuilderInterface;
+
+    /**
+     * Sets if products for the next day should be fetched if the DHL cutoff time is exceeded
+     *
+     * @param bool $queryNextBusinessDay
+     * @return self
+     */
+    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay): RateRequestBuilderInterface;
+
+    /**
      * Builds the rate request instance.
      *
      * @return RateRequestInterface

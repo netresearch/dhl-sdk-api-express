@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
@@ -73,6 +74,10 @@ class RateRequestMapper
         $requestedShipment->setAccount($rateRequest->getShipperAccountNumber());
         $requestedShipment->setPaymentInfo($rateRequest->getShipmentDetails()->getTermsOfTrade());
         $requestedShipment->setContent($rateRequest->getShipmentDetails()->getContentType());
+        $requestedShipment->setRequestValueAddedServices(
+            $rateRequest->getShipmentDetails()->isValueAddedServicesRequested()
+        );
+        $requestedShipment->setNextBusinessDay($rateRequest->getShipmentDetails()->isNextBusinessDayIndicator());
 
         $specialServicesList = [];
         if ($insurance = $rateRequest->getInsurance()) {
@@ -151,7 +156,7 @@ class RateRequestMapper
      */
     private function checkConsistentUOM(array $packages): void
     {
-        $weightUom     = null;
+        $weightUom = null;
         $dimensionsUOM = null;
 
         /** @var Package $package */
@@ -181,7 +186,7 @@ class RateRequestMapper
     /**
      * Maps the magento unit of measurement to the DHL express unit of measurement.
      *
-     * @param string $weightUOM     The unit of measurement for weight
+     * @param string $weightUOM The unit of measurement for weight
      * @param string $dimensionsUOM The unit of measurement for dimensions
      *
      * @return string

@@ -106,7 +106,8 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 true,
                 ShipmentDetails::PAYMENT_TYPE_CFR,
                 ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-                238948923
+                238948923,
+                true
             ),
             $request->getShipmentDetails()
         );
