@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Test\Unit\Model\Request\Shipment;
 
-use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
-use Dhl\Express\Model\Request\Shipment\Package;
+use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Model\Request\Package;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,11 +28,11 @@ class PackageTest extends TestCase
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM = Package::UOM_DIMENSION_CM,
+            $dimensionUOM = \Dhl\Express\Model\Request\Package::UOM_DIMENSION_CM,
             $customerReferences = 'TEST CZ-IT'
         );
 
-        self::assertInstanceOf(PackageInterface::class, $package);
+        self::assertInstanceOf(\Dhl\Express\Api\Data\Request\PackageInterface::class, $package);
         self::assertSame($sequenceNumber, $package->getSequenceNumber());
         self::assertSame($weight, $package->getWeight());
         self::assertSame($weightUOM, $package->getWeightUOM());
@@ -50,14 +50,14 @@ class PackageTest extends TestCase
     {
         self::expectException(\InvalidArgumentException::class);
 
-        new Package(
+        new \Dhl\Express\Model\Request\Package(
             $sequenceNumber = 1,
             $weight = 1.123,
             $weightUOM  = 'test',
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM = Package::UOM_DIMENSION_CM,
+            $dimensionUOM = \Dhl\Express\Model\Request\Package::UOM_DIMENSION_CM,
             $customerReferences = 'TEST CZ-IT'
         );
     }

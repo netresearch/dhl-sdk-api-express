@@ -6,9 +6,9 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\PickupRequestInterface;
-use Dhl\Express\Api\Data\Request\Pickup\ShipperInterface;
-use Dhl\Express\Api\Data\Request\Pickup\RecipientInterface;
-use Dhl\Express\Api\Data\Request\Pickup\PackageInterface;
+use Dhl\Express\Api\Data\Request\ShipperInterface;
+use Dhl\Express\Api\Data\Request\RecipientInterface;
+use Dhl\Express\Api\Data\Request\PackageInterface;
 
 /**
  * Pickup Request.

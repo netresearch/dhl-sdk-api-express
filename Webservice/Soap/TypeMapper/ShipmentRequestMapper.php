@@ -4,9 +4,9 @@
  */
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
-use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
+use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
-use Dhl\Express\Model\Request\Shipment\Package;
+use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
 use Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
@@ -174,7 +174,7 @@ class ShipmentRequestMapper
     }
 
     /**
-     * @param PackageInterface[] $packages
+     * @param \Dhl\Express\Api\Data\Request\PackageInterface[] $packages
      *
      * @return RequestedPackages
      */
@@ -227,7 +227,7 @@ class ShipmentRequestMapper
         $weightUom     = null;
         $dimensionsUOM = null;
 
-        /** @var Package $package */
+        /** @var \Dhl\Express\Model\Request\Package $package */
         foreach ($packages as $package) {
             if (!$weightUom) {
                 $weightUom = $package->getWeightUOM();

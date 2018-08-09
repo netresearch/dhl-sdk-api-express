@@ -5,7 +5,7 @@
 
 namespace Dhl\Express\Test\Unit\Model\Request\Shipment;
 
-use Dhl\Express\Model\Request\Shipment\Recipient;
+use Dhl\Express\Model\Request\Recipient;
 use PHPUnit\Framework\TestCase;
 
 /**

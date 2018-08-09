@@ -3,9 +3,9 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Request\Pickup;
+namespace Dhl\Express\Model\Request;
 
-use Dhl\Express\Api\Data\Request\Pickup\PackageInterface;
+use Dhl\Express\Api\Data\Request\PackageInterface;
 
 /**
  * Package.
@@ -15,7 +15,7 @@ use Dhl\Express\Api\Data\Request\Pickup\PackageInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Package implements PackageInterface
+class Package implements \Dhl\Express\Api\Data\Request\PackageInterface
 {
     /**
      * Units of measurement (weight).

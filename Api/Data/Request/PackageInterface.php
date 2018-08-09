@@ -2,10 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
-namespace Dhl\Express\Api\Data\Request\Pickup;
+namespace Dhl\Express\Api\Data\Request;
 
 /**
  * Package Interface.
+ *
+ * DTO that carries relevant package data.
  *
  * @api
  * @package  Dhl\Express\Api

@@ -7,10 +7,10 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
-use Dhl\Express\Model\Request\Shipment\Package;
-use Dhl\Express\Model\Request\Shipment\Recipient;
+use Dhl\Express\Model\Request\Package;
+use Dhl\Express\Model\Request\Recipient;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
-use Dhl\Express\Model\Request\Shipment\Shipper;
+use Dhl\Express\Model\Request\Shipper;
 use Dhl\Express\Model\ShipmentRequest;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;

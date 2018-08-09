@@ -3,9 +3,9 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Request\Pickup;
+namespace Dhl\Express\Model\Request;
 
-use Dhl\Express\Api\Data\Request\Pickup\ShipperInterface;
+use Dhl\Express\Api\Data\Request\ShipperInterface;
 
 /**
  * Shipper.

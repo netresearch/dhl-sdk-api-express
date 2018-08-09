@@ -7,13 +7,13 @@ namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
-use Dhl\Express\Api\Data\Request\Shipment\PackageInterface;
-use Dhl\Express\Api\Data\Request\Shipment\RecipientInterface;
+use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\RecipientInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
+use Dhl\Express\Api\Data\Request\ShipperInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
-use Dhl\Express\Model\Request\Shipment\Recipient;
-use Dhl\Express\Model\Request\Shipment\Shipper;
+use Dhl\Express\Model\Request\Recipient;
+use Dhl\Express\Model\Request\Shipper;
 
 /**
  * Shipment Request.
@@ -51,7 +51,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $shipper;
 
     /**
-     * @var Recipient
+     * @var \Dhl\Express\Model\Request\Recipient
      */
     private $recipient;
 
@@ -69,10 +69,10 @@ class ShipmentRequest implements ShipmentRequestInterface
      * SoapShipmentRequest constructor.
      *
      * @param ShipmentDetailsInterface $shipmentDetails
-     * @param string                   $payerAccountNumber
-     * @param Shipper                  $shipper
-     * @param Recipient                $recipient
-     * @param array                    $packages
+     * @param string $payerAccountNumber
+     * @param \Dhl\Express\Model\Request\Shipper $shipper
+     * @param \Dhl\Express\Model\Request\Recipient $recipient
+     * @param array $packages
      */
     public function __construct(
         ShipmentDetailsInterface $shipmentDetails,
@@ -147,7 +147,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return ShipperInterface
+     * @return \Dhl\Express\Api\Data\Request\ShipperInterface
      */
     public function getShipper(): ShipperInterface
     {
@@ -155,7 +155,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return RecipientInterface
+     * @return \Dhl\Express\Api\Data\Request\RecipientInterface
      */
     public function getRecipient(): RecipientInterface
     {

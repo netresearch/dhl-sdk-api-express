@@ -3,9 +3,9 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Model\Request\Shipment;
+namespace Dhl\Express\Model\Request;
 
-use Dhl\Express\Api\Data\Request\Shipment\RecipientInterface;
+use Dhl\Express\Api\Data\Request\RecipientInterface;
 
 /**
  * Recipient.
@@ -15,7 +15,7 @@ use Dhl\Express\Api\Data\Request\Shipment\RecipientInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Recipient implements RecipientInterface
+class Recipient implements \Dhl\Express\Api\Data\Request\RecipientInterface
 {
     /**
      * The street lines.

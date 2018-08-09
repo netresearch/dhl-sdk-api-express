@@ -3,10 +3,10 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Api\Data\Request\Pickup;
+namespace Dhl\Express\Api\Data\Request;
 
 /**
- * Recipient Interface.
+ * Shipper Interface.
  *
  * @api
  * @package  Dhl\Express\Api
@@ -14,7 +14,7 @@ namespace Dhl\Express\Api\Data\Request\Pickup;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-interface RecipientInterface
+interface ShipperInterface
 {
     /**
      * Returns the shippers name.

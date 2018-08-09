@@ -3,7 +3,7 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Api\Data\Request\Shipment;
+namespace Dhl\Express\Api\Data\Request;
 
 /**
  * Recipient Interface.
