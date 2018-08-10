@@ -155,6 +155,24 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
+    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices): RateRequestBuilderInterface
+    {
+        $this->data['isValueAddedServicesRequested'] = $requestValueAddedServices;
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay): RateRequestBuilderInterface
+    {
+        $this->data['nextBusinessDayIndicator'] = $queryNextBusinessDay;
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function build(): RateRequestInterface
     {
         // build recipient address
@@ -177,7 +195,9 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             $this->data['unscheduledPickup'],
             $this->data['termsOfTrade'],
             $this->data['contentType'],
-            $this->data['readyAtTimestamp']
+            $this->data['readyAtTimestamp'],
+            $this->data['isValueAddedServicesRequested'],
+            $this->data['nextBusinessDayIndicator']
         );
 
         // build packages

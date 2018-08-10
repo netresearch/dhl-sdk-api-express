@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api\Data\Request\Rate;
 
 /**
@@ -49,4 +50,18 @@ interface ShipmentDetailsInterface
      * @return int
      */
     public function getReadyAtTimestamp(): int;
+
+    /**
+     * Returns if the request response should contain value added services.
+     *
+     * @return bool
+     */
+    public function isValueAddedServicesRequested(): bool;
+
+    /**
+     * Returns if products for the next day should be fetched if the DHL cutoff time is exceeded
+     *
+     * @return bool
+     */
+    public function isNextBusinessDayIndicator(): bool;
 }

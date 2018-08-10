@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Model\Request\Rate;
 
 use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
@@ -24,7 +25,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see DropOffType
      */
-    public const REGULAR_PICKUP     = DropOffType::REGULAR_PICKUP;
+    public const REGULAR_PICKUP = DropOffType::REGULAR_PICKUP;
     public const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
 
     /**
@@ -32,7 +33,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see Content
      */
-    public const CONTENT_TYPE_DOCUMENTS     = Content::DOCUMENTS;
+    public const CONTENT_TYPE_DOCUMENTS = Content::DOCUMENTS;
     public const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
 
     /**
@@ -84,23 +85,43 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $readyAtTimestamp;
 
     /**
+     * If the Rate Response should contain the value added services
+     *
+     * @var bool
+     */
+    private $requestValueAddedServices;
+
+    /**
+     * Sets if products for the next day should be fetched if the DHL cutoff time is exceeded
+     *
+     * @var bool
+     */
+    private $nextBusinessDayIndicator;
+
+    /**
      * Constructor.
      *
-     * @param bool   $unscheduledPickup Whether this is a scheduled pickup or not
-     * @param string $termsOfTrade      The terms of trade
-     * @param string $contentType       The content type
-     * @param int    $readyAtTimestamp  The ship timestamp
+     * @param bool   $unscheduledPickup         Whether this is a scheduled pickup or not
+     * @param string $termsOfTrade              The terms of trade
+     * @param string $contentType               The content type
+     * @param int    $readyAtTimestamp          The ship timestamp
+     * @param bool   $requestValueAddedServices If the Rate Response should contain the value added services
+     * @param bool   $nextBusinessDayIndicator
      */
     public function __construct(
         bool $unscheduledPickup,
         string $termsOfTrade,
         string $contentType,
-        int $readyAtTimestamp
+        int $readyAtTimestamp,
+        bool $requestValueAddedServices,
+        bool $nextBusinessDayIndicator
     ) {
-        $this->unscheduledPickup = $unscheduledPickup;
-        $this->termsOfTrade      = $termsOfTrade;
-        $this->contentType       = $contentType;
-        $this->readyAtTimestamp  = $readyAtTimestamp;
+        $this->unscheduledPickup         = $unscheduledPickup;
+        $this->termsOfTrade              = $termsOfTrade;
+        $this->contentType               = $contentType;
+        $this->readyAtTimestamp          = $readyAtTimestamp;
+        $this->requestValueAddedServices = $requestValueAddedServices;
+        $this->nextBusinessDayIndicator  = $nextBusinessDayIndicator;
     }
 
     /**
@@ -141,5 +162,21 @@ class ShipmentDetails implements ShipmentDetailsInterface
     public function getReadyAtTimestamp(): int
     {
         return $this->readyAtTimestamp;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isValueAddedServicesRequested(): bool
+    {
+        return $this->requestValueAddedServices;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isNextBusinessDayIndicator(): bool
+    {
+        return $this->nextBusinessDayIndicator;
     }
 }
