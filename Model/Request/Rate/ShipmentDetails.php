@@ -101,11 +101,12 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * Constructor.
      *
-     * @param bool $unscheduledPickup Whether this is a scheduled pickup or not
-     * @param string $termsOfTrade The terms of trade
-     * @param string $contentType The content type
-     * @param int $readyAtTimestamp The ship timestamp
-     * @param bool $requestValueAddedServices If the Rate Response should contain the value added services
+     * @param bool   $unscheduledPickup         Whether this is a scheduled pickup or not
+     * @param string $termsOfTrade              The terms of trade
+     * @param string $contentType               The content type
+     * @param int    $readyAtTimestamp          The ship timestamp
+     * @param bool   $requestValueAddedServices If the Rate Response should contain the value added services
+     * @param bool   $nextBusinessDayIndicator
      */
     public function __construct(
         bool $unscheduledPickup,
@@ -115,12 +116,12 @@ class ShipmentDetails implements ShipmentDetailsInterface
         bool $requestValueAddedServices,
         bool $nextBusinessDayIndicator
     ) {
-        $this->unscheduledPickup = $unscheduledPickup;
-        $this->termsOfTrade = $termsOfTrade;
-        $this->contentType = $contentType;
-        $this->readyAtTimestamp = $readyAtTimestamp;
+        $this->unscheduledPickup         = $unscheduledPickup;
+        $this->termsOfTrade              = $termsOfTrade;
+        $this->contentType               = $contentType;
+        $this->readyAtTimestamp          = $readyAtTimestamp;
         $this->requestValueAddedServices = $requestValueAddedServices;
-        $this->nextBusinessDayIndicator = $nextBusinessDayIndicator;
+        $this->nextBusinessDayIndicator  = $nextBusinessDayIndicator;
     }
 
     /**
@@ -178,5 +179,4 @@ class ShipmentDetails implements ShipmentDetailsInterface
     {
         return $this->nextBusinessDayIndicator;
     }
-
 }
