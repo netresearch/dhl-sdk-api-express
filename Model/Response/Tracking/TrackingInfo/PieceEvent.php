@@ -28,14 +28,14 @@ class PieceEvent implements PieceEventInterface
     /**
      * Event code
      *
-     * @var $code
+     * @var string
      */
     private $code;
 
     /**
      * Event description
      *
-     * @var $description
+     * @var string
      */
     private $description;
 
@@ -45,7 +45,7 @@ class PieceEvent implements PieceEventInterface
      * @param $code
      * @param $description
      */
-    public function __construct(int $date, $code, $description)
+    public function __construct(int $date, string $code, string $description)
     {
         $this->date = $date;
         $this->code = $code;
