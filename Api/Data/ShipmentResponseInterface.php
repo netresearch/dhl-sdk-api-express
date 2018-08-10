@@ -31,7 +31,7 @@ interface ShipmentResponseInterface
      * as assigned for the shipment request packages.
      * @see \Dhl\Express\Api\Data\Request\PackageInterface::getSequenceNumber()
      *
-     * Example:
+     * @example:
      * [
      *     1 => 'JD012959120890065400',
      *     2 => 'JD012959120890065401',
