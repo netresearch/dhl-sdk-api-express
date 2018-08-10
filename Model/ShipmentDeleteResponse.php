@@ -57,6 +57,6 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
      */
     public function isSuccess(): bool
     {
-        return $this->code !== 0;
+        return $this->code === 0;
     }
 }

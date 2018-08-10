@@ -74,6 +74,7 @@ class ClassMap
 
             // deleteShipmentRequest response
             'docTypeRef_DeleteResponseType' => Type\SoapShipmentDeleteResponse::class,
+            'docTypeRef_NotificationType'   => Type\Common\Notification::class,
         ];
     }
 }
