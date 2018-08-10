@@ -32,7 +32,7 @@ class SoapShipmentDeleteRequest
      * of the ShipmentRequest. For example, if the ShipmentTimestamp for the successful shipment was
      * “2010-11-30T12:30:47GMT+01:00”, then the PickupDate would be “2010-11-30”.
      *
-     * @var Date
+     * @var string
      */
     private $PickupDate;
 
@@ -124,9 +124,9 @@ class SoapShipmentDeleteRequest
     /**
      * Returns the scheduled pickup date of the shipment to be deleted.
      *
-     * @return Date
+     * @return string
      */
-    public function getPickupDate(): Date
+    public function getPickupDate(): string
     {
         return $this->PickupDate;
     }
@@ -134,13 +134,13 @@ class SoapShipmentDeleteRequest
     /**
      * Sets the scheduled pickup date of the shipment to be deleted.
      *
-     * @param int|string|\DateTime $pickupDate The scheduled pickup date of the shipment to be deleted
+     * @param string $pickupDate The scheduled pickup date of the shipment to be deleted
      *
      * @return self
      */
-    public function setPickupDate($pickupDate): SoapShipmentDeleteRequest
+    public function setPickupDate(string $pickupDate): SoapShipmentDeleteRequest
     {
-        $this->PickupDate = new Date($pickupDate);
+        $this->PickupDate = $pickupDate;
         return $this;
     }
 
