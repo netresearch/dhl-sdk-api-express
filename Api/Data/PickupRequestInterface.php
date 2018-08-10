@@ -6,8 +6,8 @@
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\Pickup\ShipperInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
-use Dhl\Express\Api\Data\Request\ShipperInterface;
 
 /**
  * Pickup Request Interface.
@@ -32,16 +32,23 @@ interface PickupRequestInterface
     /**
      * Returns the service type.
      *
-     * @return int
+     * @return string
      */
     public function getServiceType();
 
     /**
-     * Returns the commodity's descriptions.
+     * Returns the payment type.
      *
-     * @return string[]
+     * @return string
      */
-    public function getCommodities();
+    public function getPaymentType();
+
+    /**
+     * Returns the commodity's description.
+     *
+     * @return string
+     */
+    public function getCommoditiesDescription();
 
     /**
      * Returns the shipper.

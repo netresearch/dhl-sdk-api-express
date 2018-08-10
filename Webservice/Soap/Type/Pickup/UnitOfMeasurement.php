@@ -17,11 +17,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Pickup;
 class UnitOfMeasurement
 {
     const __default = 'SI';
-<<<<<<< HEAD
+
     const SI = 'SI';
     const SU = 'SU';
-=======
-    public const SI = 'SI';
-    public const SU = 'SU';
->>>>>>> 575bed9... DHLGW-54 + DHLGW-55: Clean SOAP classes, add Integration test, extend classMap loading
 }

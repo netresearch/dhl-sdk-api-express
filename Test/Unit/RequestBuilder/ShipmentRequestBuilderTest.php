@@ -11,7 +11,7 @@ use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\Recipient;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
-use Dhl\Express\Model\Request\Shipper;
+use Dhl\Express\Model\Request\Shipment\Shipper;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
 
 /**

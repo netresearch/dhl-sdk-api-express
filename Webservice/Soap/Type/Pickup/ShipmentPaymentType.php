@@ -17,13 +17,8 @@ namespace Dhl\Express\Webservice\Soap\Type\Pickup;
 class ShipmentPaymentType
 {
     const __default = 'S';
-<<<<<<< HEAD
+
     const S = 'S';
     const R = 'R';
     const T = 'T';
-=======
-   public const S = 'S';
-   public const R = 'R';
-   public const T = 'T';
->>>>>>> 575bed9... DHLGW-54 + DHLGW-55: Clean SOAP classes, add Integration test, extend classMap loading
 }

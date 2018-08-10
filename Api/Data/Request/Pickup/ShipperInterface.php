@@ -3,7 +3,7 @@
  * See LICENSE.md for license details.
  */
 
-namespace Dhl\Express\Api\Data\Request;
+namespace Dhl\Express\Api\Data\Request\Pickup;
 
 /**
  * Shipper Interface.
@@ -17,58 +17,58 @@ namespace Dhl\Express\Api\Data\Request;
 interface ShipperInterface
 {
     /**
+     * Returns the shippers account number.
+     *
+     * @return int
+     */
+    public function getAccount(): int;
+
+    /**
      * Returns the shippers name.
      *
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * Returns the shippers company.
      *
      * @return string
      */
-    public function getCompany();
+    public function getCompany(): string;
 
     /**
      * Returns the shippers phone number.
      *
      * @return string
      */
-    public function getPhone();
+    public function getPhone(): string;
 
     /**
      * Returns the shippers street lines.
      *
      * @return string[]
      */
-    public function getStreetLines();
+    public function getStreetLines(): array;
 
     /**
      * Returns the shippers city.
      *
      * @return string
      */
-    public function getCity();
+    public function getCity(): string;
 
     /**
      * Returns the shippers postal code.
      *
      * @return string
      */
-    public function getPostalCode();
+    public function getPostalCode(): string;
 
     /**
      * Returns the shippers country code.
      *
      * @return string
      */
-    public function getCountryCode();
-
-    /**
-     * Returns the shippers email.
-     *
-     * @return string
-     */
-    public function getEmail();
+    public function getCountryCode(): string;
 }

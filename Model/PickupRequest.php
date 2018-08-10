@@ -7,8 +7,8 @@ namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\PickupRequestInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\Pickup\ShipperInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
-use Dhl\Express\Api\Data\Request\ShipperInterface;
 
 /**
  * Pickup Request.
@@ -29,6 +29,11 @@ class PickupRequest implements PickupRequestInterface
      * @var string
      */
     private $serviceType;
+
+    /**
+     * @var string
+     */
+    private $paymentType;
 
     /**
      * @var string[]
@@ -55,25 +60,28 @@ class PickupRequest implements PickupRequestInterface
      *
      * @param int                $pickupTimestamp
      * @param string             $serviceType
+     * @param string             $paymentType
      * @param string[]           $commodities
      * @param ShipperInterface   $shipper
      * @param RecipientInterface $recipient
-     * @param PackageInterface[] $packages
+     * @param array              $packages
      */
     public function __construct(
         $pickupTimestamp,
         $serviceType,
+        $paymentType,
         array $commodities,
         ShipperInterface $shipper,
         RecipientInterface $recipient,
         array $packages
     ) {
         $this->pickupTimestamp = $pickupTimestamp;
-        $this->serviceType = $serviceType;
-        $this->commodities = $commodities;
-        $this->shipper = $shipper;
-        $this->recipient = $recipient;
-        $this->packages = $packages;
+        $this->serviceType     = $serviceType;
+        $this->paymentType     = $paymentType;
+        $this->commodities     = $commodities;
+        $this->shipper         = $shipper;
+        $this->recipient       = $recipient;
+        $this->packages        = $packages;
     }
 
     /**
@@ -89,7 +97,7 @@ class PickupRequest implements PickupRequestInterface
     /**
      * Returns the service type.
      *
-     * @return int
+     * @return string
      */
     public function getServiceType()
     {
@@ -97,11 +105,21 @@ class PickupRequest implements PickupRequestInterface
     }
 
     /**
-     * Returns the service type.
+     * Returns the payment type.
      *
-     * @return string[]
+     * @return string
      */
-    public function getCommodities()
+    public function getPaymentType()
+    {
+        return $this->paymentType;
+    }
+
+    /**
+     * Returns the commodity's description.
+     *
+     * @return string
+     */
+    public function getCommoditiesDescription()
     {
         return $this->commodities;
     }

@@ -10,10 +10,10 @@ use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Request\ShipperInterface;
+use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Recipient;
-use Dhl\Express\Model\Request\Shipper;
+use Dhl\Express\Model\Request\Shipment\Shipper;
 
 /**
  * Shipment Request.
