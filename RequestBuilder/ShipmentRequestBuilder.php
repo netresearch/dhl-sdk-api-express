@@ -376,15 +376,14 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     private function normalizeWeight(float $weight, string $uom): array
     {
-        if (($uom === Package::UOM_WEIGHT_KG) || ($uom === Package::UOM_WEIGHT_KILOGRAM)) {
+        if ($uom === Package::UOM_WEIGHT_KG) {
             return [
                 'weight' => $weight,
                 'uom'    => Package::UOM_WEIGHT_KG,
             ];
         }
 
-
-        if (($uom === Package::UOM_WEIGHT_LB) || ($uom === Package::UOM_WEIGHT_POUND)) {
+        if ($uom === Package::UOM_WEIGHT_LB) {
             return [
                 'weight' => $weight,
                 'uom'    => Package::UOM_WEIGHT_LB,
@@ -424,7 +423,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     private function normalizeDimensions(float $length, float $width, float $height, string $uom): array
     {
-        if (($uom === Package::UOM_DIMENSION_CM) || ($uom === Package::UOM_DIMENSION_CENTIMETER)) {
+        if ($uom === Package::UOM_DIMENSION_CM) {
             return [
                 'length' => $length,
                 'width'  => $width,
@@ -433,7 +432,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             ];
         }
 
-        if (($uom === Package::UOM_DIMENSION_IN) || ($uom === Package::UOM_DIMENSION_INCH)) {
+        if ($uom === Package::UOM_DIMENSION_IN) {
             return [
                 'length' => $length,
                 'width'  => $width,

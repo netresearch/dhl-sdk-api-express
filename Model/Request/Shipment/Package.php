@@ -24,8 +24,6 @@ class Package implements PackageInterface
     public const UOM_WEIGHT_G = 'G';
     public const UOM_WEIGHT_OZ = 'OZ';
     public const UOM_WEIGHT_LB = 'LB';
-    public const UOM_WEIGHT_KILOGRAM = 'KILOGRAM';
-    public const UOM_WEIGHT_POUND = 'POUND';
 
     /**
      * Units of measurement (dimension).
@@ -36,8 +34,6 @@ class Package implements PackageInterface
     public const UOM_DIMENSION_M = 'M';
     public const UOM_DIMENSION_FT = 'FT';
     public const UOM_DIMENSION_YD = 'YD';
-    public const UOM_DIMENSION_INCH = 'INCH';
-    public const UOM_DIMENSION_CENTIMETER = 'CENTIMETER';
 
     /**
      * The number of the package in the list of all packages.
@@ -122,8 +118,6 @@ class Package implements PackageInterface
             self::UOM_WEIGHT_G,
             self::UOM_WEIGHT_OZ,
             self::UOM_WEIGHT_LB,
-            self::UOM_WEIGHT_KILOGRAM,
-            self::UOM_WEIGHT_POUND,
         ];
 
         $dimensionUOMs = [
@@ -133,15 +127,13 @@ class Package implements PackageInterface
             self::UOM_DIMENSION_IN,
             self::UOM_DIMENSION_YD,
             self::UOM_DIMENSION_FT,
-            self::UOM_DIMENSION_CENTIMETER,
-            self::UOM_DIMENSION_INCH,
         ];
 
-        if (!in_array($weightUOM, $weightUOMs)) {
+        if (!in_array($weightUOM, $weightUOMs, true)) {
             throw new \InvalidArgumentException('The weight UOM must be one of ' . implode(', ', $weightUOMs));
         }
 
-        if (!in_array($dimensionsUOM, $dimensionUOMs)) {
+        if (!in_array($dimensionsUOM, $dimensionUOMs, true)) {
             throw new \InvalidArgumentException('The dimension UOM must be one of ' . implode(', ', $dimensionUOMs));
         }
 
