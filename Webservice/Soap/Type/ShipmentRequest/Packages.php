@@ -25,7 +25,7 @@ class Packages
      *
      * @var RequestedPackages
      */
-    private $RequestedPackages = null;
+    private $RequestedPackages;
 
     /**
      * Constructor.

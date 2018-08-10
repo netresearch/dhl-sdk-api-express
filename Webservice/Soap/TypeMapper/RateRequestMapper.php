@@ -9,16 +9,16 @@ use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
 use Dhl\Express\Model\Request\Rate\Package;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
-use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
+use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;
+use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
 
 /**
  * Rate Request Mapper.

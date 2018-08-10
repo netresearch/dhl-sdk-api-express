@@ -64,11 +64,13 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
         $soapRequest = $this->requestMapper->map($request);
+
         try {
             $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
         } catch (\SoapFault $e) {
             throw new SoapException('Could not access SOAP webservice.');
         }
+
         return $this->responseMapper->map($soapResponse);
     }
 

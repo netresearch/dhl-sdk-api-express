@@ -9,7 +9,6 @@ use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Shipment\Package;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
 use Dhl\Express\Webservice\Soap\Type\Common\Billing;
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
@@ -17,12 +16,14 @@ use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods\Content;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
+use Magento\Framework\Exception\LocalizedException;
 
 /**
  * Shipment Request Mapper.
@@ -219,7 +220,7 @@ class ShipmentRequestMapper
      * @param array $packages The list of packages
      *
      * @return void
-     * @throws \InvalidArgumentException
+     * @throws LocalizedException
      */
     private function checkConsistentUOM(array $packages): void
     {
@@ -237,14 +238,14 @@ class ShipmentRequestMapper
             }
 
             if ($weightUom !== $package->getWeightUOM()) {
-                throw new \InvalidArgumentException(
-                    'All packages weights must have a consistent unit of measurement.'
+                throw new LocalizedException(
+                    __('All packages weights must have a consistent unit of measurement.')
                 );
             }
 
             if ($dimensionsUOM !== $package->getDimensionsUOM()) {
-                throw new \InvalidArgumentException(
-                    'All packages dimensions must have a consistent unit of measurement.'
+                throw new LocalizedException(
+                    __('All packages dimensions must have a consistent unit of measurement.')
                 );
             }
         }
@@ -257,7 +258,7 @@ class ShipmentRequestMapper
      * @param string $dimensionsUOM The unit of measurement for dimensions
      *
      * @return string
-     * @throws \InvalidArgumentException
+     * @throws LocalizedException
      */
     private function mapUOM(string $weightUOM, string $dimensionsUOM): string
     {
@@ -269,8 +270,8 @@ class ShipmentRequestMapper
             return UnitOfMeasurement::SU;
         }
 
-        throw new \InvalidArgumentException(
-            'All units of measurement have to be consistent (either metric system or US system).'
+        throw new LocalizedException(
+            __('All units of measurement have to be consistent (either metric system or US system).')
         );
     }
 }

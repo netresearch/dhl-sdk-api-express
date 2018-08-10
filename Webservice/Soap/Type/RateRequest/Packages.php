@@ -4,6 +4,8 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\RateRequest;
 
+use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
+
 /**
  * The packages section details the weight and dimensions of the individual pieces of the shipment.
  * For example, the shipper may tender a single shipment with multiple pieces, and each piece may have a
@@ -21,14 +23,14 @@ class Packages
     /**
      * The list of requested packages.
      *
-     * @var array
+     * @var RequestedPackages[]
      */
     private $RequestedPackages = [];
 
     /**
      * Constructor.
      *
-     * @param array $requestedPackages List of requested packages
+     * @param RequestedPackages[] $requestedPackages List of requested packages
      *
      * @throws \OutOfBoundsException
      */
@@ -44,7 +46,7 @@ class Packages
     /**
      * Returns the requested packages.
      *
-     * @return array
+     * @return RequestedPackages[]
      */
     public function getRequestedPackages(): array
     {
@@ -54,7 +56,7 @@ class Packages
     /**
      * Sets the requested packages.
      *
-     * @param array $requestedPackages List of requested packages
+     * @param RequestedPackages[] $requestedPackages List of requested packages
      *
      * @return self
      * @throws \OutOfBoundsException

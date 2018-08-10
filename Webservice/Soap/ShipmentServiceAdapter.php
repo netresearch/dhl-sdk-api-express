@@ -88,6 +88,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
     {
         $soapRequest = $this->requestMapper->map($request);
+
         try {
             $soapResponse = $this->client->__soapCall('createShipmentRequest', [ $soapRequest ]);
         } catch (\SoapFault $e) {
@@ -110,6 +111,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
     {
         $soapRequest = $this->shipmentDeleteRequestMapper->map($request);
+
         try {
             $soapResponse = $this->client->__soapCall('deleteShipmentRequest', [ $soapRequest ]);
         } catch (\SoapFault $e) {
