@@ -65,6 +65,9 @@ class Date implements ValueInterface
                 'Invalid date given. Either pass valid date/time string, timestamp or instance of \DateTime'
             );
         }
+
+        // Remove time component
+        $this->value->setTime(0, 0);
     }
 
     /**
