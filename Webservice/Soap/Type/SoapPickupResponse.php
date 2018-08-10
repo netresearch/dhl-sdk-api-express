@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type;
 
-use Dhl\Express\Webservice\Soap\Type\Pickup\ShipmentDetailType;
+use Dhl\Express\Webservice\Soap\Type\Pickup\NotificationType;
 
 /**
  * Soap Pickup Response
