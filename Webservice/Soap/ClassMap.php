@@ -21,11 +21,13 @@ class ClassMap
     /**
      * Obtain SOAP types to PHP classes mapping for SOAP responses.
      *
+     * @param string $request
+     *
      * @return array|string[]
      */
-    public static function get()
+    public static function get(string $request = ''): array
     {
-        return [
+        $classMap =  [
             // getRateRequest response
             'docTypeRef_NotificationType3' => Type\Common\Notification::class,
             'docTypeRef_RateResponseType'  => Type\SoapRateResponse::class,
@@ -76,5 +78,12 @@ class ClassMap
             'docTypeRef_DeleteResponseType' => Type\SoapShipmentDeleteResponse::class,
             'docTypeRef_NotificationType'   => Type\Common\Notification::class,
         ];
+
+        if ($request === 'PickUpRequest') {
+            $classMap['docTypeRef_ShipmentDetailType'] = Type\SoapPickupResponse::class;
+            $classMap['docTypeRef_NotificationType2'] = Type\Pickup\NotificationType::class;
+        }
+
+        return $classMap;
     }
 }

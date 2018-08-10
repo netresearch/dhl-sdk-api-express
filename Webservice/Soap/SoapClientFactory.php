@@ -23,22 +23,23 @@ class SoapClientFactory
      * @param string $username
      * @param string $password
      * @param string $wsdl
+     * @param string $request
      *
      * @return Client
      */
-    public function create($username, $password, $wsdl = '')
+    public function create($username, $password, $wsdl = '', $request = '')
     {
         $wsdl = $wsdl ?: self::WSDL;
 
         $options = [
-            'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
-            'trace' => true, // Enable to log requests
-            'exceptions' => true,
-            'soap_version' => SOAP_1_1,
+            'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,
+            'trace'              => true, // Enable to log requests
+            'exceptions'         => true,
+            'soap_version'       => SOAP_1_1,
             'connection_timeout' => 10,
-            'encoding' => 'UTF-8',
-            'cache_wsdl' => WSDL_CACHE_DISK,
-            'classmap' => ClassMap::get(),
+            'encoding'           => 'UTF-8',
+            'cache_wsdl'         => WSDL_CACHE_DISK,
+            'classmap'           => ClassMap::get($request),
         ];
 
         $authFactory = new AuthHeaderFactory();
