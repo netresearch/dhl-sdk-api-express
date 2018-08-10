@@ -33,7 +33,7 @@ class Dimension implements ValueInterface
      */
     public function __construct(float $value)
     {
-        if ($value < 1.0) {
+        if ($value < 0.5) {
             throw new \InvalidArgumentException('Argument must be equal or greater than 1');
         }
 
