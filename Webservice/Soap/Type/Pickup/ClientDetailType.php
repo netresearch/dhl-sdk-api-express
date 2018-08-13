@@ -31,7 +31,7 @@ class ClientDetailType
      */
     public function getSso(): string
     {
-      return $this->sso;
+        return $this->sso;
     }
 
     /**
@@ -40,8 +40,8 @@ class ClientDetailType
      */
     public function setSso(string $sso): self
     {
-      $this->sso = $sso;
-      return $this;
+        $this->sso = $sso;
+        return $this;
     }
 
     /**
@@ -49,7 +49,7 @@ class ClientDetailType
      */
     public function getPlant(): string
     {
-      return $this->plant;
+        return $this->plant;
     }
 
     /**
@@ -58,7 +58,7 @@ class ClientDetailType
      */
     public function setPlant(string $plant): self
     {
-      $this->plant = $plant;
-      return $this;
+        $this->plant = $plant;
+        return $this;
     }
 }

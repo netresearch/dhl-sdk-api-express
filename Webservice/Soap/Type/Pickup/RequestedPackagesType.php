@@ -44,10 +44,10 @@ class RequestedPackagesType
      */
     public function __construct(float $Weight, DimensionsType $Dimensions, string $CustomerReferences, int $number)
     {
-      $this->Weight = $Weight;
-      $this->Dimensions = $Dimensions;
-      $this->CustomerReferences = $CustomerReferences;
-      $this->number = $number;
+        $this->Weight = $Weight;
+        $this->Dimensions = $Dimensions;
+        $this->CustomerReferences = $CustomerReferences;
+        $this->number = $number;
     }
 
     /**
@@ -55,7 +55,7 @@ class RequestedPackagesType
      */
     public function getWeight(): float
     {
-      return $this->Weight;
+        return $this->Weight;
     }
 
     /**
@@ -64,8 +64,8 @@ class RequestedPackagesType
      */
     public function setWeight(float $Weight): self
     {
-      $this->Weight = $Weight;
-      return $this;
+        $this->Weight = $Weight;
+        return $this;
     }
 
     /**
@@ -73,7 +73,7 @@ class RequestedPackagesType
      */
     public function getDimensions(): DimensionsType
     {
-      return $this->Dimensions;
+        return $this->Dimensions;
     }
 
     /**
@@ -82,8 +82,8 @@ class RequestedPackagesType
      */
     public function setDimensions(DimensionsType $Dimensions): self
     {
-      $this->Dimensions = $Dimensions;
-      return $this;
+        $this->Dimensions = $Dimensions;
+        return $this;
     }
 
     /**
@@ -91,7 +91,7 @@ class RequestedPackagesType
      */
     public function getCustomerReferences(): string
     {
-      return $this->CustomerReferences;
+        return $this->CustomerReferences;
     }
 
     /**
@@ -100,8 +100,8 @@ class RequestedPackagesType
      */
     public function setCustomerReferences(string $CustomerReferences): self
     {
-      $this->CustomerReferences = $CustomerReferences;
-      return $this;
+        $this->CustomerReferences = $CustomerReferences;
+        return $this;
     }
 
     /**
@@ -109,7 +109,7 @@ class RequestedPackagesType
      */
     public function getNumber(): int
     {
-      return $this->number;
+        return $this->number;
     }
 
     /**
@@ -118,7 +118,7 @@ class RequestedPackagesType
      */
     public function setNumber(int $number): self
     {
-      $this->number = $number;
-      return $this;
+        $this->number = $number;
+        return $this;
     }
 }

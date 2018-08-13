@@ -90,7 +90,7 @@ class PickupRequestTest extends \PHPUnit\Framework\TestCase
 
         $soapRequest = new SoapPickupRequest($shipment);
         $soapRequest->setMessageId('2364878234817650001982134234');
-        $soapRequest->setClientDetail( new ClientDetailType());
+        $soapRequest->setClientDetail(new ClientDetailType());
 
         $soapClientFactory = new SoapClientFactory();
         $soapClient = $soapClientFactory->create(

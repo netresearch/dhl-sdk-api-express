@@ -69,10 +69,10 @@ class AddressType
      */
     public function __construct(string $StreetLines, string $City, string $PostalCode, string $CountryCode)
     {
-      $this->StreetLines = $StreetLines;
-      $this->City = $City;
-      $this->PostalCode = $PostalCode;
-      $this->CountryCode = $CountryCode;
+        $this->StreetLines = $StreetLines;
+        $this->City = $City;
+        $this->PostalCode = $PostalCode;
+        $this->CountryCode = $CountryCode;
     }
 
     /**
@@ -80,7 +80,7 @@ class AddressType
      */
     public function getStreetLines(): string
     {
-      return $this->StreetLines;
+        return $this->StreetLines;
     }
 
     /**
@@ -89,8 +89,8 @@ class AddressType
      */
     public function setStreetLines(string $StreetLines): self
     {
-      $this->StreetLines = $StreetLines;
-      return $this;
+        $this->StreetLines = $StreetLines;
+        return $this;
     }
 
     /**
@@ -98,7 +98,7 @@ class AddressType
      */
     public function getStreetName(): string
     {
-      return $this->StreetName;
+        return $this->StreetName;
     }
 
     /**
@@ -107,8 +107,8 @@ class AddressType
      */
     public function setStreetName($StreetName): self
     {
-      $this->StreetName = $StreetName;
-      return $this;
+        $this->StreetName = $StreetName;
+        return $this;
     }
 
     /**
@@ -116,7 +116,7 @@ class AddressType
      */
     public function getStreetNumber(): string
     {
-      return $this->StreetNumber;
+        return $this->StreetNumber;
     }
 
     /**
@@ -125,8 +125,8 @@ class AddressType
      */
     public function setStreetNumber($StreetNumber): self
     {
-      $this->StreetNumber = $StreetNumber;
-      return $this;
+        $this->StreetNumber = $StreetNumber;
+        return $this;
     }
 
     /**
@@ -134,7 +134,7 @@ class AddressType
      */
     public function getStreetLines2(): string
     {
-      return $this->StreetLines2;
+        return $this->StreetLines2;
     }
 
     /**
@@ -143,8 +143,8 @@ class AddressType
      */
     public function setStreetLines2($StreetLines2): self
     {
-      $this->StreetLines2 = $StreetLines2;
-      return $this;
+        $this->StreetLines2 = $StreetLines2;
+        return $this;
     }
 
     /**
@@ -152,7 +152,7 @@ class AddressType
      */
     public function getStreetLines3(): string
     {
-      return $this->StreetLines3;
+        return $this->StreetLines3;
     }
 
     /**
@@ -161,8 +161,8 @@ class AddressType
      */
     public function setStreetLines3($StreetLines3): self
     {
-      $this->StreetLines3 = $StreetLines3;
-      return $this;
+        $this->StreetLines3 = $StreetLines3;
+        return $this;
     }
 
     /**
@@ -170,7 +170,7 @@ class AddressType
      */
     public function getCity(): string
     {
-      return $this->City;
+        return $this->City;
     }
 
     /**
@@ -179,8 +179,8 @@ class AddressType
      */
     public function setCity($City): self
     {
-      $this->City = $City;
-      return $this;
+        $this->City = $City;
+        return $this;
     }
 
     /**
@@ -188,7 +188,7 @@ class AddressType
      */
     public function getStateOrProvinceCode(): string
     {
-      return $this->StateOrProvinceCode;
+        return $this->StateOrProvinceCode;
     }
 
     /**
@@ -197,8 +197,8 @@ class AddressType
      */
     public function setStateOrProvinceCode($StateOrProvinceCode): self
     {
-      $this->StateOrProvinceCode = $StateOrProvinceCode;
-      return $this;
+        $this->StateOrProvinceCode = $StateOrProvinceCode;
+        return $this;
     }
 
     /**
@@ -206,7 +206,7 @@ class AddressType
      */
     public function getPostalCode(): string
     {
-      return $this->PostalCode;
+        return $this->PostalCode;
     }
 
     /**
@@ -215,8 +215,8 @@ class AddressType
      */
     public function setPostalCode($PostalCode): self
     {
-      $this->PostalCode = $PostalCode;
-      return $this;
+        $this->PostalCode = $PostalCode;
+        return $this;
     }
 
     /**
@@ -224,7 +224,7 @@ class AddressType
      */
     public function getCountryCode(): string
     {
-      return $this->CountryCode;
+        return $this->CountryCode;
     }
 
     /**
@@ -233,7 +233,7 @@ class AddressType
      */
     public function setCountryCode($CountryCode): self
     {
-      $this->CountryCode = $CountryCode;
-      return $this;
+        $this->CountryCode = $CountryCode;
+        return $this;
     }
 }

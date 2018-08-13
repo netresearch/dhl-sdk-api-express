@@ -32,8 +32,8 @@ class NotificationType
      */
     public function __construct(string $Message, int $code)
     {
-      $this->Message = $Message;
-      $this->code = $code;
+        $this->Message = $Message;
+        $this->code = $code;
     }
 
     /**
@@ -41,7 +41,7 @@ class NotificationType
      */
     public function getMessage(): string
     {
-      return $this->Message;
+        return $this->Message;
     }
 
     /**
@@ -50,8 +50,8 @@ class NotificationType
      */
     public function setMessage(string $Message): self
     {
-      $this->Message = $Message;
-      return $this;
+        $this->Message = $Message;
+        return $this;
     }
 
     /**
@@ -59,7 +59,7 @@ class NotificationType
      */
     public function getCode(): int
     {
-      return $this->code;
+        return $this->code;
     }
 
     /**
@@ -68,7 +68,7 @@ class NotificationType
      */
     public function setCode(int $code): self
     {
-      $this->code = $code;
-      return $this;
+        $this->code = $code;
+        return $this;
     }
 }

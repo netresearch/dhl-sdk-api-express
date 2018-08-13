@@ -4,6 +4,7 @@
  */
 
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
+
 use Dhl\Express\Api\Data\PickupRequestInterface;
 use Dhl\Express\Webservice\Soap\Type\Pickup\AddressType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\Billing;
@@ -11,13 +12,10 @@ use Dhl\Express\Webservice\Soap\Type\Pickup\CommoditiesType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\ContactInfoType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\ContactType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\InternationDetailType;
-use Dhl\Express\Webservice\Soap\Type\Pickup\PackagesType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\PickUpShipmentType;
-use Dhl\Express\Webservice\Soap\Type\Pickup\RequestedPackagesType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\ShipmentInfoType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\ShipType;
 use Dhl\Express\Webservice\Soap\Type\SoapPickupRequest;
-
 
 /**
  * Pickup Request Mapper.
@@ -87,21 +85,24 @@ class PickupRequestMapper
                         )
                     )
                 ),
+                // @TODO(RGE) add packages
+                []
             )
-
         );
 
+        return $soapPickupRequest;
+    }
 
-        /**
-         * Maps the magento unit of measurement to the DHL express unit of measurement.
-         *
-         * @param string $weightUOM The unit of measurement for weight
-         * @param string $dimensionsUOM The unit of measurement for dimensions
-         *
-         * @return string
-         * @throws \InvalidArgumentException
-         */
-        private function mapUOM(string $weightUOM, string $dimensionsUOM): string
+    /**
+     * Maps the magento unit of measurement to the DHL express unit of measurement.
+     *
+     * @param string $weightUOM The unit of measurement for weight
+     * @param string $dimensionsUOM The unit of measurement for dimensions
+     *
+     * @return string
+     * @throws \InvalidArgumentException
+     */
+    private function mapUOM(string $weightUOM, string $dimensionsUOM): string
     {
         if (($weightUOM === Package::UOM_WEIGHT_KG) && ($dimensionsUOM === Package::UOM_DIMENSION_CM)) {
             return UnitOfMeasurement::SI;
@@ -114,6 +115,5 @@ class PickupRequestMapper
         throw new \InvalidArgumentException(
             'All units of measurement have to be consistent (either metric system or US system).'
         );
-    }
     }
 }

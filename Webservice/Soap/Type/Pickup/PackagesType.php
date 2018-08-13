@@ -26,7 +26,7 @@ class PackagesType
      */
     public function __construct(RequestedPackagesType $RequestedPackages)
     {
-      $this->RequestedPackages = $RequestedPackages;
+        $this->RequestedPackages = $RequestedPackages;
     }
 
     /**
@@ -34,7 +34,7 @@ class PackagesType
      */
     public function getRequestedPackages(): RequestedPackagesType
     {
-      return $this->RequestedPackages;
+        return $this->RequestedPackages;
     }
 
     /**
@@ -43,7 +43,7 @@ class PackagesType
      */
     public function setRequestedPackages(RequestedPackagesType $RequestedPackages): self
     {
-      $this->RequestedPackages = $RequestedPackages;
-      return $this;
+        $this->RequestedPackages = $RequestedPackages;
+        return $this;
     }
 }

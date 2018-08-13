@@ -42,8 +42,8 @@ class ShipType
      */
     public function __construct(ContactInfoType $Shipper, ContactInfoType $Recipient)
     {
-      $this->Shipper = $Shipper;
-      $this->Recipient = $Recipient;
+        $this->Shipper = $Shipper;
+        $this->Recipient = $Recipient;
     }
 
     /**
@@ -51,7 +51,7 @@ class ShipType
      */
     public function getShipper(): ContactInfoType
     {
-      return $this->Shipper;
+        return $this->Shipper;
     }
 
     /**
@@ -60,8 +60,8 @@ class ShipType
      */
     public function setShipper(ContactInfoType $Shipper): self
     {
-      $this->Shipper = $Shipper;
-      return $this;
+        $this->Shipper = $Shipper;
+        return $this;
     }
 
     /**
@@ -69,7 +69,7 @@ class ShipType
      */
     public function getPickup(): ContactInfoType
     {
-      return $this->Pickup;
+        return $this->Pickup;
     }
 
     /**
@@ -78,8 +78,8 @@ class ShipType
      */
     public function setPickup(ContactInfoType $Pickup): self
     {
-      $this->Pickup = $Pickup;
-      return $this;
+        $this->Pickup = $Pickup;
+        return $this;
     }
 
     /**
@@ -87,7 +87,7 @@ class ShipType
      */
     public function getBookingRequestor(): ContactInfoType
     {
-      return $this->BookingRequestor;
+        return $this->BookingRequestor;
     }
 
     /**
@@ -96,8 +96,8 @@ class ShipType
      */
     public function setBookingRequestor(ContactInfoType $BookingRequestor): self
     {
-      $this->BookingRequestor = $BookingRequestor;
-      return $this;
+        $this->BookingRequestor = $BookingRequestor;
+        return $this;
     }
 
     /**
@@ -105,7 +105,7 @@ class ShipType
      */
     public function getRecipient(): ContactInfoType
     {
-      return $this->Recipient;
+        return $this->Recipient;
     }
 
     /**
@@ -114,7 +114,7 @@ class ShipType
      */
     public function setRecipient(ContactInfoType $Recipient): self
     {
-      $this->Recipient = $Recipient;
-      return $this;
+        $this->Recipient = $Recipient;
+        return $this;
     }
 }

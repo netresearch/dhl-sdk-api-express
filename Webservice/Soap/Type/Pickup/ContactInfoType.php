@@ -32,8 +32,8 @@ class ContactInfoType
      */
     public function __construct(ContactType $Contact, AddressType $Address)
     {
-      $this->Contact = $Contact;
-      $this->Address = $Address;
+        $this->Contact = $Contact;
+        $this->Address = $Address;
     }
 
     /**
@@ -41,7 +41,7 @@ class ContactInfoType
      */
     public function getContact(): ContactType
     {
-      return $this->Contact;
+        return $this->Contact;
     }
 
     /**
@@ -50,8 +50,8 @@ class ContactInfoType
      */
     public function setContact(ContactType $Contact): self
     {
-      $this->Contact = $Contact;
-      return $this;
+        $this->Contact = $Contact;
+        return $this;
     }
 
     /**
@@ -59,7 +59,7 @@ class ContactInfoType
      */
     public function getAddress(): AddressType
     {
-      return $this->Address;
+        return $this->Address;
     }
 
     /**
@@ -68,7 +68,7 @@ class ContactInfoType
      */
     public function setAddress(AddressType $Address): self
     {
-      $this->Address = $Address;
-      return $this;
+        $this->Address = $Address;
+        return $this;
     }
 }

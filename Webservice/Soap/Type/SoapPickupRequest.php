@@ -4,6 +4,7 @@
  */
 
 namespace Dhl\Express\Webservice\Soap\Type;
+
 use Dhl\Express\Webservice\Soap\Type\Pickup\ClientDetailType;
 use Dhl\Express\Webservice\Soap\Type\Pickup\PickUpShipmentType;
 
@@ -38,7 +39,7 @@ class SoapPickupRequest
      */
     public function __construct(PickUpShipmentType $PickUpShipment)
     {
-      $this->PickUpShipment = $PickUpShipment;
+        $this->PickUpShipment = $PickUpShipment;
     }
 
     /**
@@ -46,7 +47,7 @@ class SoapPickupRequest
      */
     public function getMessageId(): string
     {
-      return $this->MessageId;
+        return $this->MessageId;
     }
 
     /**
@@ -55,8 +56,8 @@ class SoapPickupRequest
      */
     public function setMessageId(string $MessageId): self
     {
-      $this->MessageId = $MessageId;
-      return $this;
+        $this->MessageId = $MessageId;
+        return $this;
     }
 
     /**
@@ -64,7 +65,7 @@ class SoapPickupRequest
      */
     public function getClientDetail(): ClientDetailType
     {
-      return $this->ClientDetail;
+        return $this->ClientDetail;
     }
 
     /**
@@ -73,8 +74,8 @@ class SoapPickupRequest
      */
     public function setClientDetail(ClientDetailType $ClientDetail): self
     {
-      $this->ClientDetail = $ClientDetail;
-      return $this;
+        $this->ClientDetail = $ClientDetail;
+        return $this;
     }
 
     /**
@@ -82,7 +83,7 @@ class SoapPickupRequest
      */
     public function getPickUpShipment(): PickUpShipmentType
     {
-      return $this->PickUpShipment;
+        return $this->PickUpShipment;
     }
 
     /**
@@ -91,7 +92,7 @@ class SoapPickupRequest
      */
     public function setPickUpShipment(PickUpShipmentType $PickUpShipment): self
     {
-      $this->PickUpShipment = $PickUpShipment;
-      return $this;
+        $this->PickUpShipment = $PickUpShipment;
+        return $this;
     }
 }

@@ -4,27 +4,26 @@ namespace Dhl\Express\Webservice\Soap\Type\Pickup;
 
 class PickUpRequest extends \SoapClient
 {
-
     /**
      * @var array $classmap The defined classes
      */
-    private static $classmap = array (
-        'docTypeRef_requestPickUpType' => docTypeRef_requestPickUpType::class,
-        'docTypeRef_ClientDetailType2' => docTypeRef_ClientDetailType2::class,
-        'docTypeRef_PickUpShipmentType' => docTypeRef_PickUpShipmentType::class,
-        'docTypeRef_ShipmentInfoType' => docTypeRef_ShipmentInfoType::class,
-        'docTypeRef_InternationDetailType' => docTypeRef_InternationDetailType::class,
-        'docTypeRef_CommoditiesType' => docTypeRef_CommoditiesType::class,
-        'docTypeRef_PackagesType' => docTypeRef_PackagesType::class,
-        'docTypeRef_RequestedPackagesType' => docTypeRef_RequestedPackagesType::class,
-        'docTypeRef_ShipType' => docTypeRef_ShipType::class,
-        'docTypeRef_ContactInfoType' => docTypeRef_ContactInfoType::class,
-        'docTypeRef_ContactType' => docTypeRef_ContactType::class,
-        'docTypeRef_AddressType' => docTypeRef_AddressType::class,
-        'docTypeRef_DimensionsType' => docTypeRef_DimensionsType::class,
-        'Billing' => Billing::class,
-        'docTypeRef_ShipmentDetailType' => docTypeRef_ShipmentDetailType::class,
-        'docTypeRef_NotificationType2' => docTypeRef_NotificationType2::class,
+    private static $classmap = array(
+        'docTypeRef_requestPickUpType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_requestPickUpType',
+        'docTypeRef_ClientDetailType2' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ClientDetailType2',
+        'docTypeRef_PickUpShipmentType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_PickUpShipmentType',
+        'docTypeRef_ShipmentInfoType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ShipmentInfoType',
+        'docTypeRef_InternationDetailType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_InternationDetailType',
+        'docTypeRef_CommoditiesType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_CommoditiesType',
+        'docTypeRef_PackagesType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_PackagesType',
+        'docTypeRef_RequestedPackagesType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_RequestedPackagesType',
+        'docTypeRef_ShipType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ShipType',
+        'docTypeRef_ContactInfoType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ContactInfoType',
+        'docTypeRef_ContactType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ContactType',
+        'docTypeRef_AddressType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_AddressType',
+        'docTypeRef_DimensionsType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_DimensionsType',
+        'Billing' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\Billing',
+        'docTypeRef_ShipmentDetailType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ShipmentDetailType',
+        'docTypeRef_NotificationType2' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_NotificationType2',
     );
 
     /**
@@ -38,9 +37,12 @@ class PickUpRequest extends \SoapClient
                 $options['classmap'][$key] = $value;
             }
         }
-        $options = array_merge(array (
-        'features' => 1,
-        ), $options);
+        $options = array_merge(
+            array(
+                'features' => 1,
+            ),
+            $options
+        );
         if (!$wsdl) {
             $wsdl = 'https://wsbexpress.dhl.com/sndpt/requestPickup?WSDL';
         }

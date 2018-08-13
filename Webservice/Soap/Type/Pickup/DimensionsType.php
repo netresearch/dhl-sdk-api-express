@@ -38,9 +38,9 @@ class DimensionsType
      */
     public function __construct(int $Length, int $Width, int $Height)
     {
-      $this->Length = $Length;
-      $this->Width = $Width;
-      $this->Height = $Height;
+        $this->Length = $Length;
+        $this->Width = $Width;
+        $this->Height = $Height;
     }
 
     /**
@@ -48,7 +48,7 @@ class DimensionsType
      */
     public function getLength(): int
     {
-      return $this->Length;
+        return $this->Length;
     }
 
     /**
@@ -57,8 +57,8 @@ class DimensionsType
      */
     public function setLength(int $Length): self
     {
-      $this->Length = $Length;
-      return $this;
+        $this->Length = $Length;
+        return $this;
     }
 
     /**
@@ -66,7 +66,7 @@ class DimensionsType
      */
     public function getWidth(): int
     {
-      return $this->Width;
+        return $this->Width;
     }
 
     /**
@@ -75,8 +75,8 @@ class DimensionsType
      */
     public function setWidth(int $Width): self
     {
-      $this->Width = $Width;
-      return $this;
+        $this->Width = $Width;
+        return $this;
     }
 
     /**
@@ -84,7 +84,7 @@ class DimensionsType
      */
     public function getHeight(): int
     {
-      return $this->Height;
+        return $this->Height;
     }
 
     /**
@@ -93,7 +93,7 @@ class DimensionsType
      */
     public function setHeight($Height): self
     {
-      $this->Height = $Height;
-      return $this;
+        $this->Height = $Height;
+        return $this;
     }
 }

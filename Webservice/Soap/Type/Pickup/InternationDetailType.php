@@ -26,7 +26,7 @@ class InternationDetailType
      */
     public function __construct(CommoditiesType $Commodities)
     {
-      $this->Commodities = $Commodities;
+        $this->Commodities = $Commodities;
     }
 
     /**
@@ -34,7 +34,7 @@ class InternationDetailType
      */
     public function getCommodities(): CommoditiesType
     {
-      return $this->Commodities;
+        return $this->Commodities;
     }
 
     /**
@@ -43,7 +43,7 @@ class InternationDetailType
      */
     public function setCommodities(CommoditiesType $Commodities): self
     {
-      $this->Commodities = $Commodities;
-      return $this;
+        $this->Commodities = $Commodities;
+        return $this;
     }
 }
