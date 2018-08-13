@@ -2,11 +2,12 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\ShipperInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
+use Dhl\Express\Api\Data\Request\ShipperInterface;
 
 /**
  * Pickup Request Interface.

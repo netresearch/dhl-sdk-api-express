@@ -6,9 +6,9 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
-use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
+use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\ShipperInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
@@ -51,7 +51,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $shipper;
 
     /**
-     * @var \Dhl\Express\Model\Request\Recipient
+     * @var Recipient
      */
     private $recipient;
 
@@ -70,8 +70,8 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param string $payerAccountNumber
-     * @param \Dhl\Express\Model\Request\Shipper $shipper
-     * @param \Dhl\Express\Model\Request\Recipient $recipient
+     * @param Shipper $shipper
+     * @param Recipient $recipient
      * @param array $packages
      */
     public function __construct(
@@ -81,11 +81,11 @@ class ShipmentRequest implements ShipmentRequestInterface
         Recipient $recipient,
         array $packages
     ) {
-        $this->shipmentDetails    = $shipmentDetails;
+        $this->shipmentDetails = $shipmentDetails;
         $this->payerAccountNumber = $payerAccountNumber;
-        $this->shipper            = $shipper;
-        $this->recipient          = $recipient;
-        $this->packages           = $packages;
+        $this->shipper = $shipper;
+        $this->recipient = $recipient;
+        $this->packages = $packages;
     }
 
     /**
@@ -122,6 +122,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     public function setBillingAccountNumber(string $billingAccountNumber): ShipmentRequest
     {
         $this->billingAccountNumber = $billingAccountNumber;
+
         return $this;
     }
 
@@ -143,11 +144,12 @@ class ShipmentRequest implements ShipmentRequestInterface
     public function setInsurance(InsuranceInterface $insurance): ShipmentRequest
     {
         $this->insurance = $insurance;
+
         return $this;
     }
 
     /**
-     * @return \Dhl\Express\Api\Data\Request\ShipperInterface
+     * @return ShipperInterface
      */
     public function getShipper(): ShipperInterface
     {
@@ -155,7 +157,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     }
 
     /**
-     * @return \Dhl\Express\Api\Data\Request\RecipientInterface
+     * @return RecipientInterface
      */
     public function getRecipient(): RecipientInterface
     {
@@ -188,6 +190,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     public function setDryIce(DryIceInterface $dryIce): ShipmentRequest
     {
         $this->dryIce = $dryIce;
+
         return $this;
     }
 }

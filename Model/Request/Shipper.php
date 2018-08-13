@@ -68,6 +68,7 @@ class Shipper implements ShipperInterface
 
     /**
      * Shipper constructor.
+     *
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city

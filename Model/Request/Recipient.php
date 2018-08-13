@@ -15,7 +15,7 @@ use Dhl\Express\Api\Data\Request\RecipientInterface;
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class Recipient implements \Dhl\Express\Api\Data\Request\RecipientInterface
+class Recipient implements RecipientInterface
 {
     /**
      * The street lines.
@@ -68,6 +68,7 @@ class Recipient implements \Dhl\Express\Api\Data\Request\RecipientInterface
 
     /**
      * Recipient constructor.
+     *
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city

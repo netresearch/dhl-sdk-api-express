@@ -8,9 +8,9 @@ namespace Dhl\Express\RequestBuilder;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\ShipmentRequestBuilderInterface;
 use Dhl\Express\Model\Request\Insurance;
-use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\Recipient;
+use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
 use Dhl\Express\Model\Request\Shipper;
 use Dhl\Express\Model\ShipmentRequest;
@@ -39,6 +39,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setIsUnscheduledPickup(bool $unscheduledPickup): ShipmentRequestBuilderInterface
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
+
         return $this;
     }
 
@@ -49,6 +50,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setTermsOfTrade(string $termsOfTrade): ShipmentRequestBuilderInterface
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
+
         return $this;
     }
 
@@ -59,6 +61,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setContentType(string $contentType): ShipmentRequestBuilderInterface
     {
         $this->data['contentType'] = $contentType;
+
         return $this;
     }
 
@@ -69,6 +72,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setReadyAtTimestamp(int $readyAtTimestamp): ShipmentRequestBuilderInterface
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
+
         return $this;
     }
 
@@ -79,6 +83,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setNumberOfPieces(int $numberOfPieces): ShipmentRequestBuilderInterface
     {
         $this->data['numberOfPieces'] = $numberOfPieces;
+
         return $this;
     }
 
@@ -89,6 +94,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setCurrency(string $currencyCode): ShipmentRequestBuilderInterface
     {
         $this->data['currencyCode'] = $currencyCode;
+
         return $this;
     }
 
@@ -99,6 +105,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setDescription(string $description): ShipmentRequestBuilderInterface
     {
         $this->data['description'] = $description;
+
         return $this;
     }
 
@@ -109,6 +116,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setCustomsValue(float $customsValue): ShipmentRequestBuilderInterface
     {
         $this->data['customsValue'] = $customsValue;
+
         return $this;
     }
 
@@ -119,6 +127,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setServiceType(string $serviceType): ShipmentRequestBuilderInterface
     {
         $this->data['serviceType'] = $serviceType;
+
         return $this;
     }
 
@@ -129,6 +138,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setPayerAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
     {
         $this->data['payerAccountNumber'] = $accountNumber;
+
         return $this;
     }
 
@@ -138,6 +148,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function setBillingAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
     {
         $this->data['billingAccountNumber'] = $accountNumber;
+
         return $this;
     }
 
@@ -152,6 +163,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'value' => $insuranceValue,
             'currencyType' => $insuranceCurrency,
         ];
+
         return $this;
     }
 
@@ -181,7 +193,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'streetLines' => $streetLines,
             'name' => $name,
             'company' => $company,
-            'phone' => $phone
+            'phone' => $phone,
         ];
 
         return $this;
@@ -213,7 +225,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'streetLines' => $streetLines,
             'name' => $name,
             'company' => $company,
-            'phone' => $phone
+            'phone' => $phone,
         ];
 
         return $this;
@@ -240,18 +252,18 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         string $dimensionsUOM,
         string $customerReferences
     ): ShipmentRequestBuilderInterface {
-        $weightDetails     = $this->normalizeWeight($weight, strtoupper($weightUOM));
+        $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
         $this->data['packages'][] = [
-            'sequenceNumber'     => $sequenceNumber,
-            'weight'             => $weightDetails['weight'],
-            'weightUOM'          => $weightDetails['uom'],
-            'length'             => $dimensionsDetails['length'],
-            'width'              => $dimensionsDetails['width'],
-            'height'             => $dimensionsDetails['height'],
-            'dimensionsUOM'      => $dimensionsDetails['uom'],
-            'customerReferences' => $customerReferences
+            'sequenceNumber' => $sequenceNumber,
+            'weight' => $weightDetails['weight'],
+            'weightUOM' => $weightDetails['uom'],
+            'length' => $dimensionsDetails['length'],
+            'width' => $dimensionsDetails['width'],
+            'height' => $dimensionsDetails['height'],
+            'dimensionsUOM' => $dimensionsDetails['uom'],
+            'customerReferences' => $customerReferences,
         ];
 
         return $this;
@@ -268,6 +280,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'unCode' => $unCode,
             'weight' => $weight,
         ];
+
         return $this;
     }
 
@@ -379,28 +392,28 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         if ($uom === Package::UOM_WEIGHT_KG) {
             return [
                 'weight' => $weight,
-                'uom'    => Package::UOM_WEIGHT_KG,
+                'uom' => Package::UOM_WEIGHT_KG,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_LB) {
             return [
                 'weight' => $weight,
-                'uom'    => Package::UOM_WEIGHT_LB,
+                'uom' => Package::UOM_WEIGHT_LB,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_G) {
             return [
                 'weight' => $weight / 1000,
-                'uom'    => Package::UOM_WEIGHT_KG,
+                'uom' => Package::UOM_WEIGHT_KG,
             ];
         }
 
         if ($uom === Package::UOM_WEIGHT_OZ) {
             return [
                 'weight' => $weight / 16,
-                'uom'    => Package::UOM_WEIGHT_LB,
+                'uom' => Package::UOM_WEIGHT_LB,
             ];
         }
 
@@ -426,54 +439,54 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         if ($uom === Package::UOM_DIMENSION_CM) {
             return [
                 'length' => $length,
-                'width'  => $width,
+                'width' => $width,
                 'height' => $height,
-                'uom'    => Package::UOM_DIMENSION_CM,
+                'uom' => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_IN) {
             return [
                 'length' => $length,
-                'width'  => $width,
+                'width' => $width,
                 'height' => $height,
-                'uom'    => Package::UOM_DIMENSION_IN,
+                'uom' => Package::UOM_DIMENSION_IN,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_MM) {
             return [
                 'length' => $length / 10,
-                'width'  => $width / 10,
+                'width' => $width / 10,
                 'height' => $height / 10,
-                'uom'    => Package::UOM_DIMENSION_CM,
+                'uom' => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_M) {
             return [
                 'length' => $length * 100,
-                'width'  => $width * 100,
+                'width' => $width * 100,
                 'height' => $height * 100,
-                'uom'    => Package::UOM_DIMENSION_CM,
+                'uom' => Package::UOM_DIMENSION_CM,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_FT) {
             return [
                 'length' => $length * 12,
-                'width'  => $width * 12,
+                'width' => $width * 12,
                 'height' => $height * 12,
-                'uom'    => Package::UOM_DIMENSION_IN,
+                'uom' => Package::UOM_DIMENSION_IN,
             ];
         }
 
         if ($uom === Package::UOM_DIMENSION_YD) {
             return [
                 'length' => $length * 36,
-                'width'  => $width * 36,
+                'width' => $width * 36,
                 'height' => $height * 36,
-                'uom'    => Package::UOM_DIMENSION_IN,
+                'uom' => Package::UOM_DIMENSION_IN,
             ];
         }
 
