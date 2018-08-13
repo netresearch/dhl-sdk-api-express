@@ -172,7 +172,7 @@ class ShipmentInfo
      */
     public function __construct(string $dropOffType, string $serviceType, string $currencyCode, string $unitOfMeasurement)
     {
-      $this->setDropOffType($dropOffType)
+        $this->setDropOffType($dropOffType)
           ->setServiceType($serviceType)
           ->setCurrency($currencyCode)
           ->setUnitOfMeasurement($unitOfMeasurement);

@@ -18,7 +18,6 @@ class docTypeRef_ClientDetailType2
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -26,7 +25,7 @@ class docTypeRef_ClientDetailType2
      */
     public function getSso()
     {
-      return $this->sso;
+        return $this->sso;
     }
 
     /**
@@ -35,8 +34,8 @@ class docTypeRef_ClientDetailType2
      */
     public function setSso($sso)
     {
-      $this->sso = $sso;
-      return $this;
+        $this->sso = $sso;
+        return $this;
     }
 
     /**
@@ -44,7 +43,7 @@ class docTypeRef_ClientDetailType2
      */
     public function getPlant()
     {
-      return $this->plant;
+        return $this->plant;
     }
 
     /**
@@ -53,8 +52,7 @@ class docTypeRef_ClientDetailType2
      */
     public function setPlant($plant)
     {
-      $this->plant = $plant;
-      return $this;
+        $this->plant = $plant;
+        return $this;
     }
-
 }

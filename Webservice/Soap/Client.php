@@ -64,6 +64,4 @@ class Client extends \SoapClient
     {
         return $this->__soapCall('trackShipmentRequest', [$trackingRequest]);
     }
-
-
 }

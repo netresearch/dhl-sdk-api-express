@@ -15,7 +15,7 @@ class docTypeRef_PackagesType
      */
     public function __construct($RequestedPackages)
     {
-      $this->RequestedPackages = $RequestedPackages;
+        $this->RequestedPackages = $RequestedPackages;
     }
 
     /**
@@ -23,7 +23,7 @@ class docTypeRef_PackagesType
      */
     public function getRequestedPackages()
     {
-      return $this->RequestedPackages;
+        return $this->RequestedPackages;
     }
 
     /**
@@ -32,8 +32,7 @@ class docTypeRef_PackagesType
      */
     public function setRequestedPackages($RequestedPackages)
     {
-      $this->RequestedPackages = $RequestedPackages;
-      return $this;
+        $this->RequestedPackages = $RequestedPackages;
+        return $this;
     }
-
 }

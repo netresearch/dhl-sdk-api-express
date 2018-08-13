@@ -44,6 +44,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
     public function setArrayOfAWBInfoItem(array $ArrayOfAWBInfoItem): self
     {
         $this->ArrayOfAWBInfoItem = $ArrayOfAWBInfoItem;
+
         return $this;
     }
 

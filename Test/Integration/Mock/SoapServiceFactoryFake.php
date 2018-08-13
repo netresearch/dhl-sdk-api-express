@@ -47,7 +47,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     public function createRateService(
         string $username,
         string $password,
-        LoggerInterface $logger ): RateServiceInterface {
+        LoggerInterface $logger
+    ): RateServiceInterface {
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
         $adapter = new RateServiceAdapter($this->client, $requestMapper, $responseMapper);

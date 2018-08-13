@@ -27,9 +27,9 @@ class docTypeRef_ShipmentInfoType
      */
     public function __construct($ServiceType, $Billing, $UnitOfMeasurement)
     {
-      $this->ServiceType = $ServiceType;
-      $this->Billing = $Billing;
-      $this->UnitOfMeasurement = $UnitOfMeasurement;
+        $this->ServiceType = $ServiceType;
+        $this->Billing = $Billing;
+        $this->UnitOfMeasurement = $UnitOfMeasurement;
     }
 
     /**
@@ -37,7 +37,7 @@ class docTypeRef_ShipmentInfoType
      */
     public function getServiceType()
     {
-      return $this->ServiceType;
+        return $this->ServiceType;
     }
 
     /**
@@ -46,8 +46,8 @@ class docTypeRef_ShipmentInfoType
      */
     public function setServiceType($ServiceType)
     {
-      $this->ServiceType = $ServiceType;
-      return $this;
+        $this->ServiceType = $ServiceType;
+        return $this;
     }
 
     /**
@@ -55,7 +55,7 @@ class docTypeRef_ShipmentInfoType
      */
     public function getBilling()
     {
-      return $this->Billing;
+        return $this->Billing;
     }
 
     /**
@@ -64,8 +64,8 @@ class docTypeRef_ShipmentInfoType
      */
     public function setBilling($Billing)
     {
-      $this->Billing = $Billing;
-      return $this;
+        $this->Billing = $Billing;
+        return $this;
     }
 
     /**
@@ -73,7 +73,7 @@ class docTypeRef_ShipmentInfoType
      */
     public function getUnitOfMeasurement()
     {
-      return $this->UnitOfMeasurement;
+        return $this->UnitOfMeasurement;
     }
 
     /**
@@ -82,8 +82,7 @@ class docTypeRef_ShipmentInfoType
      */
     public function setUnitOfMeasurement($UnitOfMeasurement)
     {
-      $this->UnitOfMeasurement = $UnitOfMeasurement;
-      return $this;
+        $this->UnitOfMeasurement = $UnitOfMeasurement;
+        return $this;
     }
-
 }

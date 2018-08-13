@@ -45,12 +45,12 @@ class LabelImage
      */
     public function getLabelImageFormat(): string
     {
-      return $this->LabelImageFormat;
+        return $this->LabelImageFormat;
     }
 
     /**
      * Returns the graphic image binary.
-     * 
+     *
      * @return string
      */
     public function getGraphicImage(): string
@@ -60,7 +60,7 @@ class LabelImage
 
     /**
      * Returns the HTML image.
-     * 
+     *
      * @return null|string
      */
     public function getHTMLImage(): ?string

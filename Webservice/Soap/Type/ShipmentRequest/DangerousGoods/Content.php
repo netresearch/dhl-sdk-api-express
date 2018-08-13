@@ -36,21 +36,21 @@ class Content
 
     /**
      * Comma separated UN codes – eg. “UN-7843268473”, “7843268473,123”.
-     * 
+     *
      * @var UNCode
      */
     private $UNCode;
 
     /**
      * Constructor.
-     * 
+     *
      * @param string $contentId            The content id
      * @param string $dryIceTotalNetWeight The dry ice total net weight
      * @param string $unCode               The UN code
      */
     public function __construct($contentId, $dryIceTotalNetWeight, $unCode)
     {
-      $this->setContentId($contentId)
+        $this->setContentId($contentId)
         ->setDryIceTotalNetWeight($dryIceTotalNetWeight)
         ->setUNCode($unCode);
     }

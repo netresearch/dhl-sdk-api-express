@@ -22,4 +22,3 @@ class LabelTemplate extends AlphaNumeric
 {
     protected const MAX_LENGTH = 20;
 }
-

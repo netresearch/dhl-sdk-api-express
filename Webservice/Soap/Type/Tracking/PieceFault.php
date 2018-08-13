@@ -38,9 +38,9 @@ class PieceFault
      */
     public function __construct(string $PieceID, string $ConditionCode, string $ConditionData)
     {
-      $this->PieceID = $PieceID;
-      $this->ConditionCode = $ConditionCode;
-      $this->ConditionData = $ConditionData;
+        $this->PieceID = $PieceID;
+        $this->ConditionCode = $ConditionCode;
+        $this->ConditionData = $ConditionData;
     }
 
     /**
@@ -48,7 +48,7 @@ class PieceFault
      */
     public function getPieceID(): string
     {
-      return $this->PieceID;
+        return $this->PieceID;
     }
 
     /**
@@ -57,8 +57,9 @@ class PieceFault
      */
     public function setPieceID(string $PieceID): self
     {
-      $this->PieceID = $PieceID;
-      return $this;
+        $this->PieceID = $PieceID;
+
+        return $this;
     }
 
     /**
@@ -66,7 +67,7 @@ class PieceFault
      */
     public function getConditionCode(): string
     {
-      return $this->ConditionCode;
+        return $this->ConditionCode;
     }
 
     /**
@@ -75,8 +76,9 @@ class PieceFault
      */
     public function setConditionCode(string $ConditionCode): self
     {
-      $this->ConditionCode = $ConditionCode;
-      return $this;
+        $this->ConditionCode = $ConditionCode;
+
+        return $this;
     }
 
     /**
@@ -84,7 +86,7 @@ class PieceFault
      */
     public function getConditionData(): string
     {
-      return $this->ConditionData;
+        return $this->ConditionData;
     }
 
     /**
@@ -93,7 +95,8 @@ class PieceFault
      */
     public function setConditionData(string $ConditionData): self
     {
-      $this->ConditionData = $ConditionData;
-      return $this;
+        $this->ConditionData = $ConditionData;
+
+        return $this;
     }
 }

@@ -31,8 +31,8 @@ class docTypeRef_ShipType
      */
     public function __construct($Shipper, $Recipient)
     {
-      $this->Shipper = $Shipper;
-      $this->Recipient = $Recipient;
+        $this->Shipper = $Shipper;
+        $this->Recipient = $Recipient;
     }
 
     /**
@@ -40,7 +40,7 @@ class docTypeRef_ShipType
      */
     public function getShipper()
     {
-      return $this->Shipper;
+        return $this->Shipper;
     }
 
     /**
@@ -49,8 +49,8 @@ class docTypeRef_ShipType
      */
     public function setShipper($Shipper)
     {
-      $this->Shipper = $Shipper;
-      return $this;
+        $this->Shipper = $Shipper;
+        return $this;
     }
 
     /**
@@ -58,7 +58,7 @@ class docTypeRef_ShipType
      */
     public function getPickup()
     {
-      return $this->Pickup;
+        return $this->Pickup;
     }
 
     /**
@@ -67,8 +67,8 @@ class docTypeRef_ShipType
      */
     public function setPickup($Pickup)
     {
-      $this->Pickup = $Pickup;
-      return $this;
+        $this->Pickup = $Pickup;
+        return $this;
     }
 
     /**
@@ -76,7 +76,7 @@ class docTypeRef_ShipType
      */
     public function getBookingRequestor()
     {
-      return $this->BookingRequestor;
+        return $this->BookingRequestor;
     }
 
     /**
@@ -85,8 +85,8 @@ class docTypeRef_ShipType
      */
     public function setBookingRequestor($BookingRequestor)
     {
-      $this->BookingRequestor = $BookingRequestor;
-      return $this;
+        $this->BookingRequestor = $BookingRequestor;
+        return $this;
     }
 
     /**
@@ -94,7 +94,7 @@ class docTypeRef_ShipType
      */
     public function getRecipient()
     {
-      return $this->Recipient;
+        return $this->Recipient;
     }
 
     /**
@@ -103,8 +103,7 @@ class docTypeRef_ShipType
      */
     public function setRecipient($Recipient)
     {
-      $this->Recipient = $Recipient;
-      return $this;
+        $this->Recipient = $Recipient;
+        return $this;
     }
-
 }

@@ -109,11 +109,11 @@ class OnDemandDeliveryOptions
      */
     public function __construct(
         string $deliveryOption,
-        ?string $location               = null,
-        ?string $lwnTypeCode            = null,
-        ?string $neighbourName          = null,
-        ?string $neighbourHouseNumber   = null,
-        ?string $authorizerName         = null,
+        ?string $location = null,
+        ?string $lwnTypeCode = null,
+        ?string $neighbourName = null,
+        ?string $neighbourHouseNumber = null,
+        ?string $authorizerName = null,
         ?string $selectedServicePointId = null
     ) {
         $this->setDeliveryOption($deliveryOption);

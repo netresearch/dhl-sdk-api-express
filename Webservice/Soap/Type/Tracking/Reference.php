@@ -31,7 +31,7 @@ class Reference
      */
     public function __construct(string $ReferenceID)
     {
-      $this->ReferenceID = $ReferenceID;
+        $this->ReferenceID = $ReferenceID;
     }
 
     /**
@@ -39,7 +39,7 @@ class Reference
      */
     public function getReferenceID(): string
     {
-      return $this->ReferenceID;
+        return $this->ReferenceID;
     }
 
     /**
@@ -48,8 +48,9 @@ class Reference
      */
     public function setReferenceID(string $ReferenceID): self
     {
-      $this->ReferenceID = $ReferenceID;
-      return $this;
+        $this->ReferenceID = $ReferenceID;
+
+        return $this;
     }
 
     /**
@@ -57,7 +58,7 @@ class Reference
      */
     public function getReferenceType(): string
     {
-      return $this->ReferenceType;
+        return $this->ReferenceType;
     }
 
     /**
@@ -66,7 +67,8 @@ class Reference
      */
     public function setReferenceType(string $ReferenceType): self
     {
-      $this->ReferenceType = $ReferenceType;
-      return $this;
+        $this->ReferenceType = $ReferenceType;
+
+        return $this;
     }
 }

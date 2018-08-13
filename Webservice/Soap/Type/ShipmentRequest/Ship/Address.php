@@ -8,7 +8,7 @@ use \Dhl\Express\Webservice\Soap\Type\Common\Ship\Address as CommonAddress;
 
 /**
  * An buyer address.
- * 
+ *
  * @api
  * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>

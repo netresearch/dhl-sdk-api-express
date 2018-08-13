@@ -8,6 +8,4 @@ class ShipmentPaymentType
     const S = 'S';
     const R = 'R';
     const T = 'T';
-
-
 }

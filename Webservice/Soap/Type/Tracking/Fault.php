@@ -44,6 +44,7 @@ class Fault
     public function setPieceFault(PieceFaultCollection $PieceFault): self
     {
         $this->PieceFault = $PieceFault;
+
         return $this;
     }
 }

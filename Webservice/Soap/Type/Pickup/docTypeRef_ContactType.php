@@ -37,9 +37,9 @@ class docTypeRef_ContactType
      */
     public function __construct($PersonName, $CompanyName, $PhoneNumber)
     {
-      $this->PersonName = $PersonName;
-      $this->CompanyName = $CompanyName;
-      $this->PhoneNumber = $PhoneNumber;
+        $this->PersonName = $PersonName;
+        $this->CompanyName = $CompanyName;
+        $this->PhoneNumber = $PhoneNumber;
     }
 
     /**
@@ -47,7 +47,7 @@ class docTypeRef_ContactType
      */
     public function getPersonName()
     {
-      return $this->PersonName;
+        return $this->PersonName;
     }
 
     /**
@@ -56,8 +56,8 @@ class docTypeRef_ContactType
      */
     public function setPersonName($PersonName)
     {
-      $this->PersonName = $PersonName;
-      return $this;
+        $this->PersonName = $PersonName;
+        return $this;
     }
 
     /**
@@ -65,7 +65,7 @@ class docTypeRef_ContactType
      */
     public function getCompanyName()
     {
-      return $this->CompanyName;
+        return $this->CompanyName;
     }
 
     /**
@@ -74,8 +74,8 @@ class docTypeRef_ContactType
      */
     public function setCompanyName($CompanyName)
     {
-      $this->CompanyName = $CompanyName;
-      return $this;
+        $this->CompanyName = $CompanyName;
+        return $this;
     }
 
     /**
@@ -83,7 +83,7 @@ class docTypeRef_ContactType
      */
     public function getPhoneNumber()
     {
-      return $this->PhoneNumber;
+        return $this->PhoneNumber;
     }
 
     /**
@@ -92,8 +92,8 @@ class docTypeRef_ContactType
      */
     public function setPhoneNumber($PhoneNumber)
     {
-      $this->PhoneNumber = $PhoneNumber;
-      return $this;
+        $this->PhoneNumber = $PhoneNumber;
+        return $this;
     }
 
     /**
@@ -101,7 +101,7 @@ class docTypeRef_ContactType
      */
     public function getEmailAddress()
     {
-      return $this->EmailAddress;
+        return $this->EmailAddress;
     }
 
     /**
@@ -110,8 +110,8 @@ class docTypeRef_ContactType
      */
     public function setEmailAddress($EmailAddress)
     {
-      $this->EmailAddress = $EmailAddress;
-      return $this;
+        $this->EmailAddress = $EmailAddress;
+        return $this;
     }
 
     /**
@@ -119,7 +119,7 @@ class docTypeRef_ContactType
      */
     public function getMobilePhoneNumber()
     {
-      return $this->MobilePhoneNumber;
+        return $this->MobilePhoneNumber;
     }
 
     /**
@@ -128,8 +128,7 @@ class docTypeRef_ContactType
      */
     public function setMobilePhoneNumber($MobilePhoneNumber)
     {
-      $this->MobilePhoneNumber = $MobilePhoneNumber;
-      return $this;
+        $this->MobilePhoneNumber = $MobilePhoneNumber;
+        return $this;
     }
-
 }

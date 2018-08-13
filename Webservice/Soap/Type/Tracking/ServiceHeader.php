@@ -32,8 +32,8 @@ class ServiceHeader
      */
     public function __construct(string $MessageTime, string $MessageReference)
     {
-      $this->MessageTime = $MessageTime;
-      $this->MessageReference = $MessageReference;
+        $this->MessageTime = $MessageTime;
+        $this->MessageReference = $MessageReference;
     }
 
     /**
@@ -50,8 +50,9 @@ class ServiceHeader
      */
     public function setMessageTime(string $MessageTime): self
     {
-      $this->MessageTime = $MessageTime;
-      return $this;
+        $this->MessageTime = $MessageTime;
+
+        return $this;
     }
 
     /**
@@ -59,7 +60,7 @@ class ServiceHeader
      */
     public function getMessageReference(): string
     {
-      return $this->MessageReference;
+        return $this->MessageReference;
     }
 
     /**
@@ -68,7 +69,8 @@ class ServiceHeader
      */
     public function setMessageReference(string $MessageReference): self
     {
-      $this->MessageReference = $MessageReference;
-      return $this;
+        $this->MessageReference = $MessageReference;
+
+        return $this;
     }
 }

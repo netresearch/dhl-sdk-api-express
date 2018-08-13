@@ -31,7 +31,7 @@ class PieceInfo
      */
     public function __construct(PieceDetails $PieceDetails)
     {
-      $this->PieceDetails = $PieceDetails;
+        $this->PieceDetails = $PieceDetails;
     }
 
     /**
@@ -39,7 +39,7 @@ class PieceInfo
      */
     public function getPieceDetails(): PieceDetails
     {
-      return $this->PieceDetails;
+        return $this->PieceDetails;
     }
 
     /**
@@ -48,8 +48,9 @@ class PieceInfo
      */
     public function setPieceDetails(PieceDetails $PieceDetails): self
     {
-      $this->PieceDetails = $PieceDetails;
-      return $this;
+        $this->PieceDetails = $PieceDetails;
+
+        return $this;
     }
 
     /**
@@ -57,7 +58,7 @@ class PieceInfo
      */
     public function getPieceEvent(): PieceEventCollection
     {
-      return $this->PieceEvent;
+        return $this->PieceEvent;
     }
 
     /**
@@ -66,7 +67,8 @@ class PieceInfo
      */
     public function setPieceEvent(PieceEventCollection $PieceEvent): self
     {
-      $this->PieceEvent = $PieceEvent;
-      return $this;
+        $this->PieceEvent = $PieceEvent;
+
+        return $this;
     }
 }

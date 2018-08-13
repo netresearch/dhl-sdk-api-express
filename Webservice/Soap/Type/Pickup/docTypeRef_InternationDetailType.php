@@ -15,7 +15,7 @@ class docTypeRef_InternationDetailType
      */
     public function __construct($Commodities)
     {
-      $this->Commodities = $Commodities;
+        $this->Commodities = $Commodities;
     }
 
     /**
@@ -23,7 +23,7 @@ class docTypeRef_InternationDetailType
      */
     public function getCommodities()
     {
-      return $this->Commodities;
+        return $this->Commodities;
     }
 
     /**
@@ -32,8 +32,7 @@ class docTypeRef_InternationDetailType
      */
     public function setCommodities($Commodities)
     {
-      $this->Commodities = $Commodities;
-      return $this;
+        $this->Commodities = $Commodities;
+        return $this;
     }
-
 }

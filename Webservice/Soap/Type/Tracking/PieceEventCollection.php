@@ -26,7 +26,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfPieceEventItem(): array
     {
-      return $this->ArrayOfPieceEventItem;
+        return $this->ArrayOfPieceEventItem;
     }
 
     /**
@@ -35,8 +35,9 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfPieceEventItem(array $ArrayOfPieceEventItem = []): self
     {
-      $this->ArrayOfPieceEventItem = $ArrayOfPieceEventItem;
-      return $this;
+        $this->ArrayOfPieceEventItem = $ArrayOfPieceEventItem;
+
+        return $this;
     }
 
     /**
@@ -47,7 +48,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset): bool
     {
-      return isset($this->ArrayOfPieceEventItem[$offset]);
+        return isset($this->ArrayOfPieceEventItem[$offset]);
     }
 
     /**
@@ -58,7 +59,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset): PieceEvent
     {
-      return $this->ArrayOfPieceEventItem[$offset];
+        return $this->ArrayOfPieceEventItem[$offset];
     }
 
     /**
@@ -70,11 +71,11 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value): void
     {
-      if ($offset === null) {
-        $this->ArrayOfPieceEventItem[] = $value;
-      } else {
-        $this->ArrayOfPieceEventItem[$offset] = $value;
-      }
+        if ($offset === null) {
+            $this->ArrayOfPieceEventItem[] = $value;
+        } else {
+            $this->ArrayOfPieceEventItem[$offset] = $value;
+        }
     }
 
     /**
@@ -85,7 +86,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset): void
     {
-      unset($this->ArrayOfPieceEventItem[$offset]);
+        unset($this->ArrayOfPieceEventItem[$offset]);
     }
 
     /**
@@ -95,7 +96,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function current(): PieceEvent
     {
-      return current($this->ArrayOfPieceEventItem);
+        return current($this->ArrayOfPieceEventItem);
     }
 
     /**
@@ -106,7 +107,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function next(): void
     {
-      next($this->ArrayOfPieceEventItem);
+        next($this->ArrayOfPieceEventItem);
     }
 
     /**
@@ -116,7 +117,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function key(): ?string
     {
-      return key($this->ArrayOfPieceEventItem);
+        return key($this->ArrayOfPieceEventItem);
     }
 
     /**
@@ -126,7 +127,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid(): bool
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
     }
 
     /**
@@ -137,7 +138,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind(): void
     {
-      reset($this->ArrayOfPieceEventItem);
+        reset($this->ArrayOfPieceEventItem);
     }
 
     /**
@@ -147,6 +148,6 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function count(): PieceEvent
     {
-      return count($this->ArrayOfPieceEventItem);
+        return count($this->ArrayOfPieceEventItem);
     }
 }

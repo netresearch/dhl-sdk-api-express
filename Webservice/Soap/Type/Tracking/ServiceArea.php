@@ -31,7 +31,7 @@ class ServiceArea
      */
     public function getServiceAreaCode(): string
     {
-      return $this->ServiceAreaCode;
+        return $this->ServiceAreaCode;
     }
 
     /**
@@ -40,8 +40,9 @@ class ServiceArea
      */
     public function setServiceAreaCode(string $ServiceAreaCode): self
     {
-      $this->ServiceAreaCode = $ServiceAreaCode;
-      return $this;
+        $this->ServiceAreaCode = $ServiceAreaCode;
+
+        return $this;
     }
 
     /**
@@ -49,7 +50,7 @@ class ServiceArea
      */
     public function getDescription(): string
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -58,7 +59,8 @@ class ServiceArea
      */
     public function setDescription(string $Description): self
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+
+        return $this;
     }
 }

@@ -51,6 +51,7 @@ class DestinationServiceArea
     public function setServiceAreaCode(string $ServiceAreaCode): self
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
+
         return $this;
     }
 
@@ -69,6 +70,7 @@ class DestinationServiceArea
     public function setDescription(string $Description): self
     {
         $this->Description = $Description;
+
         return $this;
     }
 
@@ -87,6 +89,7 @@ class DestinationServiceArea
     public function setFacilityCode(string $FacilityCode): self
     {
         $this->FacilityCode = $FacilityCode;
+
         return $this;
     }
 
@@ -105,6 +108,7 @@ class DestinationServiceArea
     public function setInboundSortCode(string $InboundSortCode): self
     {
         $this->InboundSortCode = $InboundSortCode;
+
         return $this;
     }
 }

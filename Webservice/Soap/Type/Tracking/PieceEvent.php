@@ -58,10 +58,10 @@ class PieceEvent
         ServiceEvent $ServiceEvent,
         ServiceArea $ServiceArea
     ) {
-      $this->Date = $Date;
-      $this->Time = $Time;
-      $this->ServiceEvent = $ServiceEvent;
-      $this->ServiceArea = $ServiceArea;
+        $this->Date = $Date;
+        $this->Time = $Time;
+        $this->ServiceEvent = $ServiceEvent;
+        $this->ServiceArea = $ServiceArea;
     }
 
     /**
@@ -69,7 +69,7 @@ class PieceEvent
      */
     public function getDate(): string
     {
-      return $this->Date;
+        return $this->Date;
     }
 
     /**
@@ -78,8 +78,9 @@ class PieceEvent
      */
     public function setDate(string $Date): self
     {
-      $this->Date = $Date;
-      return $this;
+        $this->Date = $Date;
+
+        return $this;
     }
 
     /**
@@ -87,7 +88,7 @@ class PieceEvent
      */
     public function getTime(): string
     {
-      return $this->Time;
+        return $this->Time;
     }
 
     /**
@@ -96,8 +97,9 @@ class PieceEvent
      */
     public function setTime(string $Time): self
     {
-      $this->Time = $Time;
-      return $this;
+        $this->Time = $Time;
+
+        return $this;
     }
 
     /**
@@ -105,7 +107,7 @@ class PieceEvent
      */
     public function getServiceEvent(): ServiceEvent
     {
-      return $this->ServiceEvent;
+        return $this->ServiceEvent;
     }
 
     /**
@@ -114,8 +116,9 @@ class PieceEvent
      */
     public function setServiceEvent(ServiceEvent $ServiceEvent): self
     {
-      $this->ServiceEvent = $ServiceEvent;
-      return $this;
+        $this->ServiceEvent = $ServiceEvent;
+
+        return $this;
     }
 
     /**
@@ -123,7 +126,7 @@ class PieceEvent
      */
     public function getSignatory(): string
     {
-      return $this->Signatory;
+        return $this->Signatory;
     }
 
     /**
@@ -132,8 +135,9 @@ class PieceEvent
      */
     public function setSignatory(string $Signatory): self
     {
-      $this->Signatory = $Signatory;
-      return $this;
+        $this->Signatory = $Signatory;
+
+        return $this;
     }
 
     /**
@@ -141,7 +145,7 @@ class PieceEvent
      */
     public function getServiceArea(): ServiceArea
     {
-      return $this->ServiceArea;
+        return $this->ServiceArea;
     }
 
     /**
@@ -150,8 +154,9 @@ class PieceEvent
      */
     public function setServiceArea(ServiceArea $ServiceArea): self
     {
-      $this->ServiceArea = $ServiceArea;
-      return $this;
+        $this->ServiceArea = $ServiceArea;
+
+        return $this;
     }
 
     /**
@@ -159,7 +164,7 @@ class PieceEvent
      */
     public function getShipperReference(): ShipperReference
     {
-      return $this->ShipperReference;
+        return $this->ShipperReference;
     }
 
     /**
@@ -168,7 +173,8 @@ class PieceEvent
      */
     public function setShipperReference(ShipperReference $ShipperReference): self
     {
-      $this->ShipperReference = $ShipperReference;
-      return $this;
+        $this->ShipperReference = $ShipperReference;
+
+        return $this;
     }
 }

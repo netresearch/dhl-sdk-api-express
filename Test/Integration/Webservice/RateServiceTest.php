@@ -75,8 +75,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         array $packages,
         float $insuranceValue,
         string $insuranceCurrency
-    )
-    {
+    ) {
+    
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger

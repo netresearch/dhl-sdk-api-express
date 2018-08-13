@@ -54,11 +54,11 @@ class docTypeRef_PickUpShipmentType
      */
     public function __construct($ShipmentInfo, $PickupTimestamp, $InternationalDetail, $Ship, $Packages)
     {
-      $this->ShipmentInfo = $ShipmentInfo;
-      $this->PickupTimestamp = $PickupTimestamp;
-      $this->InternationalDetail = $InternationalDetail;
-      $this->Ship = $Ship;
-      $this->Packages = $Packages;
+        $this->ShipmentInfo = $ShipmentInfo;
+        $this->PickupTimestamp = $PickupTimestamp;
+        $this->InternationalDetail = $InternationalDetail;
+        $this->Ship = $Ship;
+        $this->Packages = $Packages;
     }
 
     /**
@@ -66,7 +66,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getShipmentInfo()
     {
-      return $this->ShipmentInfo;
+        return $this->ShipmentInfo;
     }
 
     /**
@@ -75,8 +75,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setShipmentInfo($ShipmentInfo)
     {
-      $this->ShipmentInfo = $ShipmentInfo;
-      return $this;
+        $this->ShipmentInfo = $ShipmentInfo;
+        return $this;
     }
 
     /**
@@ -84,7 +84,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getPickupTimestamp()
     {
-      return $this->PickupTimestamp;
+        return $this->PickupTimestamp;
     }
 
     /**
@@ -93,8 +93,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setPickupTimestamp($PickupTimestamp)
     {
-      $this->PickupTimestamp = $PickupTimestamp;
-      return $this;
+        $this->PickupTimestamp = $PickupTimestamp;
+        return $this;
     }
 
     /**
@@ -102,7 +102,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getPickupLocationCloseTime()
     {
-      return $this->PickupLocationCloseTime;
+        return $this->PickupLocationCloseTime;
     }
 
     /**
@@ -111,8 +111,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setPickupLocationCloseTime($PickupLocationCloseTime)
     {
-      $this->PickupLocationCloseTime = $PickupLocationCloseTime;
-      return $this;
+        $this->PickupLocationCloseTime = $PickupLocationCloseTime;
+        return $this;
     }
 
     /**
@@ -120,7 +120,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getSpecialPickupInstruction()
     {
-      return $this->SpecialPickupInstruction;
+        return $this->SpecialPickupInstruction;
     }
 
     /**
@@ -129,8 +129,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setSpecialPickupInstruction($SpecialPickupInstruction)
     {
-      $this->SpecialPickupInstruction = $SpecialPickupInstruction;
-      return $this;
+        $this->SpecialPickupInstruction = $SpecialPickupInstruction;
+        return $this;
     }
 
     /**
@@ -138,7 +138,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getPickupLocation()
     {
-      return $this->PickupLocation;
+        return $this->PickupLocation;
     }
 
     /**
@@ -147,8 +147,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setPickupLocation($PickupLocation)
     {
-      $this->PickupLocation = $PickupLocation;
-      return $this;
+        $this->PickupLocation = $PickupLocation;
+        return $this;
     }
 
     /**
@@ -156,7 +156,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getInternationalDetail()
     {
-      return $this->InternationalDetail;
+        return $this->InternationalDetail;
     }
 
     /**
@@ -165,8 +165,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setInternationalDetail($InternationalDetail)
     {
-      $this->InternationalDetail = $InternationalDetail;
-      return $this;
+        $this->InternationalDetail = $InternationalDetail;
+        return $this;
     }
 
     /**
@@ -174,7 +174,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getShip()
     {
-      return $this->Ship;
+        return $this->Ship;
     }
 
     /**
@@ -183,8 +183,8 @@ class docTypeRef_PickUpShipmentType
      */
     public function setShip($Ship)
     {
-      $this->Ship = $Ship;
-      return $this;
+        $this->Ship = $Ship;
+        return $this;
     }
 
     /**
@@ -192,7 +192,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function getPackages()
     {
-      return $this->Packages;
+        return $this->Packages;
     }
 
     /**
@@ -201,8 +201,7 @@ class docTypeRef_PickUpShipmentType
      */
     public function setPackages($Packages)
     {
-      $this->Packages = $Packages;
-      return $this;
+        $this->Packages = $Packages;
+        return $this;
     }
-
 }

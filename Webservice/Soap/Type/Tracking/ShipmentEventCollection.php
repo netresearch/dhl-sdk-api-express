@@ -26,7 +26,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function __construct(array $ArrayOfShipmentEventItem)
     {
-      $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
+        $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
     }
 
     /**
@@ -34,7 +34,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfShipmentEventItem(): array
     {
-      return $this->ArrayOfShipmentEventItem;
+        return $this->ArrayOfShipmentEventItem;
     }
 
     /**
@@ -43,8 +43,9 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfShipmentEventItem(array $ArrayOfShipmentEventItem): self
     {
-      $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
-      return $this;
+        $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
+
+        return $this;
     }
 
     /**
@@ -55,7 +56,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset): bool
     {
-      return isset($this->ArrayOfShipmentEventItem[$offset]);
+        return isset($this->ArrayOfShipmentEventItem[$offset]);
     }
 
     /**
@@ -66,7 +67,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset): ShipmentEvent
     {
-      return $this->ArrayOfShipmentEventItem[$offset];
+        return $this->ArrayOfShipmentEventItem[$offset];
     }
 
     /**
@@ -78,11 +79,11 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value): void
     {
-      if ($offset === null) {
-        $this->ArrayOfShipmentEventItem[] = $value;
-      } else {
-        $this->ArrayOfShipmentEventItem[$offset] = $value;
-      }
+        if ($offset === null) {
+            $this->ArrayOfShipmentEventItem[] = $value;
+        } else {
+            $this->ArrayOfShipmentEventItem[$offset] = $value;
+        }
     }
 
     /**
@@ -93,7 +94,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset): void
     {
-      unset($this->ArrayOfShipmentEventItem[$offset]);
+        unset($this->ArrayOfShipmentEventItem[$offset]);
     }
 
     /**
@@ -103,7 +104,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function current(): ShipmentEvent
     {
-      return current($this->ArrayOfShipmentEventItem);
+        return current($this->ArrayOfShipmentEventItem);
     }
 
     /**
@@ -114,17 +115,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function next(): void
     {
-      next($this->ArrayOfShipmentEventItem);
-    }
-
-    /**
-     * Iterator implementation
-     *
-     * @return string|null Return the key of the current element or null
-     */
-    public function key(): ?string
-    {
-      return key($this->ArrayOfShipmentEventItem);
+        next($this->ArrayOfShipmentEventItem);
     }
 
     /**
@@ -134,7 +125,17 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid(): bool
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key(): ?string
+    {
+        return key($this->ArrayOfShipmentEventItem);
     }
 
     /**
@@ -145,7 +146,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind(): void
     {
-      reset($this->ArrayOfShipmentEventItem);
+        reset($this->ArrayOfShipmentEventItem);
     }
 
     /**
@@ -155,6 +156,6 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function count(): ShipmentEvent
     {
-      return count($this->ArrayOfShipmentEventItem);
+        return count($this->ArrayOfShipmentEventItem);
     }
 }

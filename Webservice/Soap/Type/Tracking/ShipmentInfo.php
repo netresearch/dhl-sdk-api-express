@@ -85,16 +85,16 @@ class ShipmentInfo
      */
     public function __construct(
         OriginServiceArea $OriginServiceArea,
-        DestinationServiceArea $DestinationServiceArea, 
-        string $ShipperName, 
+        DestinationServiceArea $DestinationServiceArea,
+        string $ShipperName,
         string $ConsigneeName,
         \DateTime $ShipmentDate
     ) {
-      $this->OriginServiceArea = $OriginServiceArea;
-      $this->DestinationServiceArea = $DestinationServiceArea;
-      $this->ShipperName = $ShipperName;
-      $this->ConsigneeName = $ConsigneeName;
-      $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
+        $this->OriginServiceArea = $OriginServiceArea;
+        $this->DestinationServiceArea = $DestinationServiceArea;
+        $this->ShipperName = $ShipperName;
+        $this->ConsigneeName = $ConsigneeName;
+        $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
     }
 
     /**
@@ -102,7 +102,7 @@ class ShipmentInfo
      */
     public function getOriginServiceArea(): OriginServiceArea
     {
-      return $this->OriginServiceArea;
+        return $this->OriginServiceArea;
     }
 
     /**
@@ -111,8 +111,9 @@ class ShipmentInfo
      */
     public function setOriginServiceArea(OriginServiceArea $OriginServiceArea): self
     {
-      $this->OriginServiceArea = $OriginServiceArea;
-      return $this;
+        $this->OriginServiceArea = $OriginServiceArea;
+
+        return $this;
     }
 
     /**
@@ -120,7 +121,7 @@ class ShipmentInfo
      */
     public function getDestinationServiceArea(): DestinationServiceArea
     {
-      return $this->DestinationServiceArea;
+        return $this->DestinationServiceArea;
     }
 
     /**
@@ -129,8 +130,9 @@ class ShipmentInfo
      */
     public function setDestinationServiceArea(DestinationServiceArea $DestinationServiceArea): self
     {
-      $this->DestinationServiceArea = $DestinationServiceArea;
-      return $this;
+        $this->DestinationServiceArea = $DestinationServiceArea;
+
+        return $this;
     }
 
     /**
@@ -138,7 +140,7 @@ class ShipmentInfo
      */
     public function getShipperName(): string
     {
-      return $this->ShipperName;
+        return $this->ShipperName;
     }
 
     /**
@@ -147,8 +149,9 @@ class ShipmentInfo
      */
     public function setShipperName(string $ShipperName): self
     {
-      $this->ShipperName = $ShipperName;
-      return $this;
+        $this->ShipperName = $ShipperName;
+
+        return $this;
     }
 
     /**
@@ -156,7 +159,7 @@ class ShipmentInfo
      */
     public function getShipperAccountNumber(): string
     {
-      return $this->ShipperAccountNumber;
+        return $this->ShipperAccountNumber;
     }
 
     /**
@@ -165,8 +168,9 @@ class ShipmentInfo
      */
     public function setShipperAccountNumber($ShipperAccountNumber): self
     {
-      $this->ShipperAccountNumber = $ShipperAccountNumber;
-      return $this;
+        $this->ShipperAccountNumber = $ShipperAccountNumber;
+
+        return $this;
     }
 
     /**
@@ -174,7 +178,7 @@ class ShipmentInfo
      */
     public function getConsigneeName(): string
     {
-      return $this->ConsigneeName;
+        return $this->ConsigneeName;
     }
 
     /**
@@ -183,8 +187,9 @@ class ShipmentInfo
      */
     public function setConsigneeName($ConsigneeName): string
     {
-      $this->ConsigneeName = $ConsigneeName;
-      return $this;
+        $this->ConsigneeName = $ConsigneeName;
+
+        return $this;
     }
 
     /**
@@ -192,15 +197,15 @@ class ShipmentInfo
      */
     public function getShipmentDate(): \DateTime
     {
-      if ($this->ShipmentDate === null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->ShipmentDate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->ShipmentDate === null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->ShipmentDate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -209,8 +214,9 @@ class ShipmentInfo
      */
     public function setShipmentDate(\DateTime $ShipmentDate): self
     {
-      $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
-      return $this;
+        $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
+
+        return $this;
     }
 
     /**
@@ -218,7 +224,7 @@ class ShipmentInfo
      */
     public function getPieces(): string
     {
-      return $this->Pieces;
+        return $this->Pieces;
     }
 
     /**
@@ -227,8 +233,9 @@ class ShipmentInfo
      */
     public function setPieces(string $Pieces): self
     {
-      $this->Pieces = $Pieces;
-      return $this;
+        $this->Pieces = $Pieces;
+
+        return $this;
     }
 
     /**
@@ -236,7 +243,7 @@ class ShipmentInfo
      */
     public function getWeight(): string
     {
-      return $this->Weight;
+        return $this->Weight;
     }
 
     /**
@@ -245,8 +252,9 @@ class ShipmentInfo
      */
     public function setWeight(string $Weight): self
     {
-      $this->Weight = $Weight;
-      return $this;
+        $this->Weight = $Weight;
+
+        return $this;
     }
 
     /**
@@ -254,7 +262,7 @@ class ShipmentInfo
      */
     public function getWeightUnit(): WeightUnit
     {
-      return $this->WeightUnit;
+        return $this->WeightUnit;
     }
 
     /**
@@ -263,8 +271,9 @@ class ShipmentInfo
      */
     public function setWeightUnit(WeightUnit $WeightUnit): self
     {
-      $this->WeightUnit = $WeightUnit;
-      return $this;
+        $this->WeightUnit = $WeightUnit;
+
+        return $this;
     }
 
     /**
@@ -272,7 +281,7 @@ class ShipmentInfo
      */
     public function getShipmentEvent(): ShipmentEventCollection
     {
-      return $this->ShipmentEvent;
+        return $this->ShipmentEvent;
     }
 
     /**
@@ -281,8 +290,9 @@ class ShipmentInfo
      */
     public function setShipmentEvent(ShipmentEventCollection $ShipmentEvent): self
     {
-      $this->ShipmentEvent = $ShipmentEvent;
-      return $this;
+        $this->ShipmentEvent = $ShipmentEvent;
+
+        return $this;
     }
 
     /**
@@ -290,7 +300,7 @@ class ShipmentInfo
      */
     public function getShipperReference(): ?Reference
     {
-      return $this->ShipperReference;
+        return $this->ShipperReference;
     }
 
     /**
@@ -299,8 +309,9 @@ class ShipmentInfo
      */
     public function setShipperReference(Reference $ShipperReference): self
     {
-      $this->ShipperReference = $ShipperReference;
-      return $this;
+        $this->ShipperReference = $ShipperReference;
+
+        return $this;
     }
 
     /**
@@ -308,15 +319,15 @@ class ShipmentInfo
      */
     public function getEstimatedDeliveryDate(): \DateTime
     {
-      if ($this->EstimatedDeliveryDate === null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->EstimatedDeliveryDate);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->EstimatedDeliveryDate === null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->EstimatedDeliveryDate);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -325,11 +336,12 @@ class ShipmentInfo
      */
     public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null): self
     {
-      if ($EstimatedDeliveryDate === null) {
-       $this->EstimatedDeliveryDate = null;
-      } else {
-        $this->EstimatedDeliveryDate = $EstimatedDeliveryDate->format(\DateTime::ATOM);
-      }
-      return $this;
+        if ($EstimatedDeliveryDate === null) {
+            $this->EstimatedDeliveryDate = null;
+        } else {
+            $this->EstimatedDeliveryDate = $EstimatedDeliveryDate->format(\DateTime::ATOM);
+        }
+
+        return $this;
     }
 }

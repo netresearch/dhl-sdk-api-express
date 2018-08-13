@@ -26,7 +26,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function __construct(array $ArrayOfPieceFaultItem)
     {
-      $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
+        $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
     }
 
     /**
@@ -34,7 +34,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfPieceFaultItem(): array
     {
-      return $this->ArrayOfPieceFaultItem;
+        return $this->ArrayOfPieceFaultItem;
     }
 
     /**
@@ -43,8 +43,9 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfPieceFaultItem(array $ArrayOfPieceFaultItem): self
     {
-      $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
-      return $this;
+        $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
+
+        return $this;
     }
 
     /**
@@ -55,7 +56,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset): bool
     {
-      return isset($this->ArrayOfPieceFaultItem[$offset]);
+        return isset($this->ArrayOfPieceFaultItem[$offset]);
     }
 
     /**
@@ -66,7 +67,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset): PieceFault
     {
-      return $this->ArrayOfPieceFaultItem[$offset];
+        return $this->ArrayOfPieceFaultItem[$offset];
     }
 
     /**
@@ -78,11 +79,11 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value): void
     {
-      if ($offset === null) {
-        $this->ArrayOfPieceFaultItem[] = $value;
-      } else {
-        $this->ArrayOfPieceFaultItem[$offset] = $value;
-      }
+        if ($offset === null) {
+            $this->ArrayOfPieceFaultItem[] = $value;
+        } else {
+            $this->ArrayOfPieceFaultItem[$offset] = $value;
+        }
     }
 
     /**
@@ -93,7 +94,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset): void
     {
-      unset($this->ArrayOfPieceFaultItem[$offset]);
+        unset($this->ArrayOfPieceFaultItem[$offset]);
     }
 
     /**
@@ -103,7 +104,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function current(): PieceFault
     {
-      return current($this->ArrayOfPieceFaultItem);
+        return current($this->ArrayOfPieceFaultItem);
     }
 
     /**
@@ -114,17 +115,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function next(): void
     {
-      next($this->ArrayOfPieceFaultItem);
-    }
-
-    /**
-     * Iterator implementation
-     *
-     * @return string|null Return the key of the current element or null
-     */
-    public function key(): ?string
-    {
-      return key($this->ArrayOfPieceFaultItem);
+        next($this->ArrayOfPieceFaultItem);
     }
 
     /**
@@ -134,7 +125,17 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid(): bool
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key(): ?string
+    {
+        return key($this->ArrayOfPieceFaultItem);
     }
 
     /**
@@ -145,7 +146,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind(): void
     {
-      reset($this->ArrayOfPieceFaultItem);
+        reset($this->ArrayOfPieceFaultItem);
     }
 
     /**
@@ -155,6 +156,6 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function count(): PieceFault
     {
-      return count($this->ArrayOfPieceFaultItem);
+        return count($this->ArrayOfPieceFaultItem);
     }
 }

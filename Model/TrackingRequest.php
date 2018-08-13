@@ -9,7 +9,7 @@ use Dhl\Express\Api\Data\Request\Tracking\MessageInterface;
 use Dhl\Express\Api\Data\TrackingRequestInterface;
 
 /**
- * TrackingRequest Interface.
+ * TrackingRequest Class.
  *
  * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
@@ -40,13 +40,18 @@ class TrackingRequest implements TrackingRequestInterface
 
     /**
      * TrackingRequest constructor.
+     *
      * @param MessageInterface $message
      * @param string[] $awbNumber
      * @param string $levelOfDetails
      * @param string $piecesEnabled
      */
-    public function __construct(MessageInterface $message, array $awbNumber, string $levelOfDetails, string $piecesEnabled)
-    {
+    public function __construct(
+        MessageInterface $message,
+        array $awbNumber,
+        string $levelOfDetails,
+        string $piecesEnabled
+    ) {
         $this->message = $message;
         $this->awbNumber = $awbNumber;
         $this->levelOfDetails = $levelOfDetails;

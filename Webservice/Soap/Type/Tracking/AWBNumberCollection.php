@@ -44,6 +44,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
     public function setArrayOfAWBNumberItem(array $ArrayOfAWBNumberItem): self
     {
         $this->ArrayOfAWBNumberItem = $ArrayOfAWBNumberItem;
+
         return $this;
     }
 

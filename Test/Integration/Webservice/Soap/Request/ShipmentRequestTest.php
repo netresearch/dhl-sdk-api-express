@@ -101,15 +101,15 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             ]
         );
 
-ini_set('xdebug.var_display_max_children', -1);
-ini_set('xdebug.var_display_max_data', -1);
-ini_set('xdebug.var_display_max_depth', -1);
+        ini_set('xdebug.var_display_max_children', -1);
+        ini_set('xdebug.var_display_max_data', -1);
+        ini_set('xdebug.var_display_max_depth', -1);
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')
             ->willReturnCallback(function ($requestXml) use ($shipTimestamp) {
 
-var_dump($requestXml);
+                var_dump($requestXml);
 //exit;
 
 //                self::assertInternalType('string', $requestXml);

@@ -58,10 +58,10 @@ class docTypeRef_AddressType
      */
     public function __construct($StreetLines, $City, $PostalCode, $CountryCode)
     {
-      $this->StreetLines = $StreetLines;
-      $this->City = $City;
-      $this->PostalCode = $PostalCode;
-      $this->CountryCode = $CountryCode;
+        $this->StreetLines = $StreetLines;
+        $this->City = $City;
+        $this->PostalCode = $PostalCode;
+        $this->CountryCode = $CountryCode;
     }
 
     /**
@@ -69,7 +69,7 @@ class docTypeRef_AddressType
      */
     public function getStreetLines()
     {
-      return $this->StreetLines;
+        return $this->StreetLines;
     }
 
     /**
@@ -78,8 +78,8 @@ class docTypeRef_AddressType
      */
     public function setStreetLines($StreetLines)
     {
-      $this->StreetLines = $StreetLines;
-      return $this;
+        $this->StreetLines = $StreetLines;
+        return $this;
     }
 
     /**
@@ -87,7 +87,7 @@ class docTypeRef_AddressType
      */
     public function getStreetName()
     {
-      return $this->StreetName;
+        return $this->StreetName;
     }
 
     /**
@@ -96,8 +96,8 @@ class docTypeRef_AddressType
      */
     public function setStreetName($StreetName)
     {
-      $this->StreetName = $StreetName;
-      return $this;
+        $this->StreetName = $StreetName;
+        return $this;
     }
 
     /**
@@ -105,7 +105,7 @@ class docTypeRef_AddressType
      */
     public function getStreetNumber()
     {
-      return $this->StreetNumber;
+        return $this->StreetNumber;
     }
 
     /**
@@ -114,8 +114,8 @@ class docTypeRef_AddressType
      */
     public function setStreetNumber($StreetNumber)
     {
-      $this->StreetNumber = $StreetNumber;
-      return $this;
+        $this->StreetNumber = $StreetNumber;
+        return $this;
     }
 
     /**
@@ -123,7 +123,7 @@ class docTypeRef_AddressType
      */
     public function getStreetLines2()
     {
-      return $this->StreetLines2;
+        return $this->StreetLines2;
     }
 
     /**
@@ -132,8 +132,8 @@ class docTypeRef_AddressType
      */
     public function setStreetLines2($StreetLines2)
     {
-      $this->StreetLines2 = $StreetLines2;
-      return $this;
+        $this->StreetLines2 = $StreetLines2;
+        return $this;
     }
 
     /**
@@ -141,7 +141,7 @@ class docTypeRef_AddressType
      */
     public function getStreetLines3()
     {
-      return $this->StreetLines3;
+        return $this->StreetLines3;
     }
 
     /**
@@ -150,8 +150,8 @@ class docTypeRef_AddressType
      */
     public function setStreetLines3($StreetLines3)
     {
-      $this->StreetLines3 = $StreetLines3;
-      return $this;
+        $this->StreetLines3 = $StreetLines3;
+        return $this;
     }
 
     /**
@@ -159,7 +159,7 @@ class docTypeRef_AddressType
      */
     public function getCity()
     {
-      return $this->City;
+        return $this->City;
     }
 
     /**
@@ -168,8 +168,8 @@ class docTypeRef_AddressType
      */
     public function setCity($City)
     {
-      $this->City = $City;
-      return $this;
+        $this->City = $City;
+        return $this;
     }
 
     /**
@@ -177,7 +177,7 @@ class docTypeRef_AddressType
      */
     public function getStateOrProvinceCode()
     {
-      return $this->StateOrProvinceCode;
+        return $this->StateOrProvinceCode;
     }
 
     /**
@@ -186,8 +186,8 @@ class docTypeRef_AddressType
      */
     public function setStateOrProvinceCode($StateOrProvinceCode)
     {
-      $this->StateOrProvinceCode = $StateOrProvinceCode;
-      return $this;
+        $this->StateOrProvinceCode = $StateOrProvinceCode;
+        return $this;
     }
 
     /**
@@ -195,7 +195,7 @@ class docTypeRef_AddressType
      */
     public function getPostalCode()
     {
-      return $this->PostalCode;
+        return $this->PostalCode;
     }
 
     /**
@@ -204,8 +204,8 @@ class docTypeRef_AddressType
      */
     public function setPostalCode($PostalCode)
     {
-      $this->PostalCode = $PostalCode;
-      return $this;
+        $this->PostalCode = $PostalCode;
+        return $this;
     }
 
     /**
@@ -213,7 +213,7 @@ class docTypeRef_AddressType
      */
     public function getCountryCode()
     {
-      return $this->CountryCode;
+        return $this->CountryCode;
     }
 
     /**
@@ -222,8 +222,7 @@ class docTypeRef_AddressType
      */
     public function setCountryCode($CountryCode)
     {
-      $this->CountryCode = $CountryCode;
-      return $this;
+        $this->CountryCode = $CountryCode;
+        return $this;
     }
-
 }

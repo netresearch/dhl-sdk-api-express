@@ -46,6 +46,7 @@ class OriginServiceArea
     public function setServiceAreaCode(string $ServiceAreaCode): self
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
+
         return $this;
     }
 
@@ -64,6 +65,7 @@ class OriginServiceArea
     public function setDescription(string $Description): self
     {
         $this->Description = $Description;
+
         return $this;
     }
 
@@ -82,6 +84,7 @@ class OriginServiceArea
     public function setOutboundSortCode(string $OutboundSortCode): self
     {
         $this->OutboundSortCode = $OutboundSortCode;
+
         return $this;
     }
 }

@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\TrackingResponseInterface;
@@ -30,20 +31,20 @@ class TrackingResponseMapper
     {
         $soapResponseContent = $soapTrackingResponse->getTrackingResponse()->getTrackingResponse();
 
-        $tackingInfos = [];
+        $trackingInfos = [];
 
         foreach ($soapResponseContent->getAWBInfo()->getArrayOfAWBInfoItem() as $soapTrackingItem) {
-            $tackingInfos[] =  new TrackingInfo(
-                (int) $soapTrackingItem->getAWBNumber(),
-               $soapTrackingItem->getStatus()->getActionStatus(),
-               new TrackingInfo\ShipmentDetails(
-                   $soapTrackingItem->getShipmentInfo()->getShipperName(),
-                   $soapTrackingItem->getShipmentInfo()->getConsigneeName(),
-                   $soapTrackingItem->getShipmentInfo()->getShipmentDate()->getTimestamp()
-               ),
-               $soapTrackingItem->getShipmentInfo()->getShipmentEvent()->getArrayOfShipmentEventItem(),
-               $soapTrackingItem->getPieces()->getPieceInfo()->getArrayOfPieceInfoItem()
-           );
+            $trackingInfos[] = new TrackingInfo(
+                (int)$soapTrackingItem->getAWBNumber(),
+                $soapTrackingItem->getStatus()->getActionStatus(),
+                new TrackingInfo\ShipmentDetails(
+                    $soapTrackingItem->getShipmentInfo()->getShipperName(),
+                    $soapTrackingItem->getShipmentInfo()->getConsigneeName(),
+                    $soapTrackingItem->getShipmentInfo()->getShipmentDate()->getTimestamp()
+                ),
+                $soapTrackingItem->getShipmentInfo()->getShipmentEvent()->getArrayOfShipmentEventItem(),
+                $soapTrackingItem->getPieces()->getPieceInfo()->getArrayOfPieceInfoItem()
+            );
         }
 
         return new TrackingResponse(
@@ -51,7 +52,7 @@ class TrackingResponseMapper
                 strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime()),
                 $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
             ),
-            $tackingInfos
+            $trackingInfos
         );
     }
 }

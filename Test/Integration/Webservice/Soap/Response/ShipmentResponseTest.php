@@ -19,7 +19,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Loads the response example from file and return the XML content.
-     * 
+     *
      * @param string $xmlFile File name to load
      *
      * @return string
@@ -60,12 +60,12 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
     {
          $soapClientMock = $this->getMockFromWsdl(
              WsdlProvider::getWsdlFile(),
-            SoapClientFake::class,
-            '',
-            [
+             SoapClientFake::class,
+             '',
+             [
                 '__doRequest',
-            ]
-        );
+             ]
+         );
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')

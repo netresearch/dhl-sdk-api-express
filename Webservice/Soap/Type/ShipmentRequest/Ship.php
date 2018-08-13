@@ -23,7 +23,7 @@ class Ship
 {
     /**
      * The shipper contact info.
-     * 
+     *
      * @var ContactInfo
      */
     private $Shipper;
@@ -51,7 +51,7 @@ class Ship
 
     /**
      * The recipient contact info.
-     * 
+     *
      * @var ContactInfo
      */
     private $Recipient;

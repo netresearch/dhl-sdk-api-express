@@ -19,4 +19,3 @@ class PersonName extends AlphaNumeric
 {
     protected const MAX_LENGTH = 45;
 }
-

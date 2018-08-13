@@ -22,4 +22,3 @@ class AuthorizerName extends AlphaNumeric
 {
     protected const MAX_LENGTH = 20;
 }
-

@@ -56,6 +56,7 @@ class TrackingResponse
     public function setResponse(Response $Response): self
     {
         $this->Response = $Response;
+
         return $this;
     }
 
@@ -74,6 +75,7 @@ class TrackingResponse
     public function setAWBInfo(AWBInfoCollection $AWBInfo): self
     {
         $this->AWBInfo = $AWBInfo;
+
         return $this;
     }
 
@@ -92,6 +94,7 @@ class TrackingResponse
     public function setFault(Fault $Fault): self
     {
         $this->Fault = $Fault;
+
         return $this;
     }
 }

@@ -51,14 +51,14 @@ class InternationalDetail
      */
     public function getCommodities(): Commodities
     {
-      return $this->Commodities;
+        return $this->Commodities;
     }
 
     /**
      * Sets the commodities.
      *
      * @param Commodities $commodities The commodities
-     *                                 
+     *
      * @return InternationalDetail
      */
     public function setCommodities(Commodities $commodities): InternationalDetail

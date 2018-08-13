@@ -62,7 +62,7 @@ class Contact
 
     /**
      * Returns the person name.
-     * 
+     *
      * @return PersonName
      */
     public function getPersonName(): PersonName
@@ -72,9 +72,9 @@ class Contact
 
     /**
      * Sets the person name.
-     * 
+     *
      * @param string $personName The person name
-     *                               
+     *
      * @return Contact
      */
     public function setPersonName(string $personName): Contact

@@ -26,8 +26,8 @@ class Billing
      */
     public function __construct($ShipperAccountNumber, $ShippingPaymentType)
     {
-      $this->ShipperAccountNumber = $ShipperAccountNumber;
-      $this->ShippingPaymentType = $ShippingPaymentType;
+        $this->ShipperAccountNumber = $ShipperAccountNumber;
+        $this->ShippingPaymentType = $ShippingPaymentType;
     }
 
     /**
@@ -35,7 +35,7 @@ class Billing
      */
     public function getShipperAccountNumber()
     {
-      return $this->ShipperAccountNumber;
+        return $this->ShipperAccountNumber;
     }
 
     /**
@@ -44,8 +44,8 @@ class Billing
      */
     public function setShipperAccountNumber($ShipperAccountNumber)
     {
-      $this->ShipperAccountNumber = $ShipperAccountNumber;
-      return $this;
+        $this->ShipperAccountNumber = $ShipperAccountNumber;
+        return $this;
     }
 
     /**
@@ -53,7 +53,7 @@ class Billing
      */
     public function getShippingPaymentType()
     {
-      return $this->ShippingPaymentType;
+        return $this->ShippingPaymentType;
     }
 
     /**
@@ -62,8 +62,8 @@ class Billing
      */
     public function setShippingPaymentType($ShippingPaymentType)
     {
-      $this->ShippingPaymentType = $ShippingPaymentType;
-      return $this;
+        $this->ShippingPaymentType = $ShippingPaymentType;
+        return $this;
     }
 
     /**
@@ -71,7 +71,7 @@ class Billing
      */
     public function getBillingAccountNumber()
     {
-      return $this->BillingAccountNumber;
+        return $this->BillingAccountNumber;
     }
 
     /**
@@ -80,8 +80,7 @@ class Billing
      */
     public function setBillingAccountNumber($BillingAccountNumber)
     {
-      $this->BillingAccountNumber = $BillingAccountNumber;
-      return $this;
+        $this->BillingAccountNumber = $BillingAccountNumber;
+        return $this;
     }
-
 }

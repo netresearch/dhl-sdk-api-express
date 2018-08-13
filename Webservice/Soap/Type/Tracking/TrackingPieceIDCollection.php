@@ -26,7 +26,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function __construct(array $ArrayOfTrackingPieceIDItem)
     {
-      $this->ArrayOfTrackingPieceIDItem = $ArrayOfTrackingPieceIDItem;
+        $this->ArrayOfTrackingPieceIDItem = $ArrayOfTrackingPieceIDItem;
     }
 
     /**
@@ -34,7 +34,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfTrackingPieceIDItem(): array
     {
-      return $this->ArrayOfTrackingPieceIDItem;
+        return $this->ArrayOfTrackingPieceIDItem;
     }
 
     /**
@@ -43,8 +43,9 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfTrackingPieceIDItem(array $ArrayOfTrackingPieceIDItem): self
     {
-      $this->ArrayOfTrackingPieceIDItem = $ArrayOfTrackingPieceIDItem;
-      return $this;
+        $this->ArrayOfTrackingPieceIDItem = $ArrayOfTrackingPieceIDItem;
+
+        return $this;
     }
 
     /**
@@ -55,7 +56,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset): bool
     {
-      return isset($this->ArrayOfTrackingPieceIDItem[$offset]);
+        return isset($this->ArrayOfTrackingPieceIDItem[$offset]);
     }
 
     /**
@@ -66,7 +67,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset): string
     {
-      return $this->ArrayOfTrackingPieceIDItem[$offset];
+        return $this->ArrayOfTrackingPieceIDItem[$offset];
     }
 
     /**
@@ -78,11 +79,11 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value): void
     {
-      if ($offset === null) {
-        $this->ArrayOfTrackingPieceIDItem[] = $value;
-      } else {
-        $this->ArrayOfTrackingPieceIDItem[$offset] = $value;
-      }
+        if ($offset === null) {
+            $this->ArrayOfTrackingPieceIDItem[] = $value;
+        } else {
+            $this->ArrayOfTrackingPieceIDItem[$offset] = $value;
+        }
     }
 
     /**
@@ -93,7 +94,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset): void
     {
-      unset($this->ArrayOfTrackingPieceIDItem[$offset]);
+        unset($this->ArrayOfTrackingPieceIDItem[$offset]);
     }
 
     /**
@@ -103,7 +104,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function current(): string
     {
-      return current($this->ArrayOfTrackingPieceIDItem);
+        return current($this->ArrayOfTrackingPieceIDItem);
     }
 
     /**
@@ -114,17 +115,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function next(): void
     {
-      next($this->ArrayOfTrackingPieceIDItem);
-    }
-
-    /**
-     * Iterator implementation
-     *
-     * @return string|null Return the key of the current element or null
-     */
-    public function key(): ?string
-    {
-      return key($this->ArrayOfTrackingPieceIDItem);
+        next($this->ArrayOfTrackingPieceIDItem);
     }
 
     /**
@@ -134,7 +125,17 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid(): bool
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key(): ?string
+    {
+        return key($this->ArrayOfTrackingPieceIDItem);
     }
 
     /**
@@ -145,7 +146,7 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind(): void
     {
-      reset($this->ArrayOfTrackingPieceIDItem);
+        reset($this->ArrayOfTrackingPieceIDItem);
     }
 
     /**
@@ -155,6 +156,6 @@ class TrackingPieceIDCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function count(): string
     {
-      return count($this->ArrayOfTrackingPieceIDItem);
+        return count($this->ArrayOfTrackingPieceIDItem);
     }
 }

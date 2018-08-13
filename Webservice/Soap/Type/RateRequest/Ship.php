@@ -21,14 +21,14 @@ class Ship
 {
     /**
      * The shipper address.
-     * 
+     *
      * @var Address
      */
     private $Shipper;
 
     /**
      * The recipient address.
-     * 
+     *
      * @var Address
      */
     private $Recipient;

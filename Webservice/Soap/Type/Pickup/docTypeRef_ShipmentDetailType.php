@@ -20,7 +20,7 @@ class docTypeRef_ShipmentDetailType
      */
     public function __construct(array $Notification)
     {
-      $this->Notification = $Notification;
+        $this->Notification = $Notification;
     }
 
     /**
@@ -28,7 +28,7 @@ class docTypeRef_ShipmentDetailType
      */
     public function getNotification()
     {
-      return $this->Notification;
+        return $this->Notification;
     }
 
     /**
@@ -37,8 +37,8 @@ class docTypeRef_ShipmentDetailType
      */
     public function setNotification(array $Notification)
     {
-      $this->Notification = $Notification;
-      return $this;
+        $this->Notification = $Notification;
+        return $this;
     }
 
     /**
@@ -46,7 +46,7 @@ class docTypeRef_ShipmentDetailType
      */
     public function getDispatchConfirmationNumber()
     {
-      return $this->DispatchConfirmationNumber;
+        return $this->DispatchConfirmationNumber;
     }
 
     /**
@@ -55,8 +55,7 @@ class docTypeRef_ShipmentDetailType
      */
     public function setDispatchConfirmationNumber($DispatchConfirmationNumber)
     {
-      $this->DispatchConfirmationNumber = $DispatchConfirmationNumber;
-      return $this;
+        $this->DispatchConfirmationNumber = $DispatchConfirmationNumber;
+        return $this;
     }
-
 }

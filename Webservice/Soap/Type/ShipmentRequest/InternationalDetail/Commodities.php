@@ -34,7 +34,7 @@ class Commodities
     /**
      * The description field is used as a description of goods for the label and manifest.
      *
-     * @var Description 
+     * @var Description
      */
     private $Description;
 
@@ -75,7 +75,7 @@ class Commodities
 
     /**
      * Constructor.
-     * 
+     *
      * @param string $description The description
      */
     public function __construct(string $description)

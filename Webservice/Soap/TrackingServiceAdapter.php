@@ -40,6 +40,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
 
     /**
      * TrackingServiceAdapter constructor.
+     *
      * @param \SoapClient $client
      * @param TrackingRequestMapper $requestMapper
      * @param TrackingResponseMapper $responseMapper
@@ -48,8 +49,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
         \SoapClient $client,
         TrackingRequestMapper $requestMapper,
         TrackingResponseMapper $responseMapper
-    )
-    {
+    ) {
         $this->client = $client;
         $this->requestMapper = $requestMapper;
         $this->responseMapper = $responseMapper;
@@ -68,6 +68,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
         } catch (\SoapFault $e) {
             throw new SoapException('Could not access SOAP webservice.');
         }
+
         return $this->responseMapper->map($soapResponse);
     }
 

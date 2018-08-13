@@ -26,7 +26,7 @@ class Request
      */
     public function __construct(ServiceHeader $ServiceHeader)
     {
-      $this->ServiceHeader = $ServiceHeader;
+        $this->ServiceHeader = $ServiceHeader;
     }
 
     /**
@@ -34,7 +34,7 @@ class Request
      */
     public function getServiceHeader(): ServiceHeader
     {
-      return $this->ServiceHeader;
+        return $this->ServiceHeader;
     }
 
     /**
@@ -43,7 +43,8 @@ class Request
      */
     public function setServiceHeader(ServiceHeader $ServiceHeader): self
     {
-      $this->ServiceHeader = $ServiceHeader;
-      return $this;
+        $this->ServiceHeader = $ServiceHeader;
+
+        return $this;
     }
 }

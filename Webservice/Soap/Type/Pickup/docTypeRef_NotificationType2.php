@@ -21,8 +21,8 @@ class docTypeRef_NotificationType2
      */
     public function __construct($Message, $code)
     {
-      $this->Message = $Message;
-      $this->code = $code;
+        $this->Message = $Message;
+        $this->code = $code;
     }
 
     /**
@@ -30,7 +30,7 @@ class docTypeRef_NotificationType2
      */
     public function getMessage()
     {
-      return $this->Message;
+        return $this->Message;
     }
 
     /**
@@ -39,8 +39,8 @@ class docTypeRef_NotificationType2
      */
     public function setMessage($Message)
     {
-      $this->Message = $Message;
-      return $this;
+        $this->Message = $Message;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class docTypeRef_NotificationType2
      */
     public function getCode()
     {
-      return $this->code;
+        return $this->code;
     }
 
     /**
@@ -57,8 +57,7 @@ class docTypeRef_NotificationType2
      */
     public function setCode($code)
     {
-      $this->code = $code;
-      return $this;
+        $this->code = $code;
+        return $this;
     }
-
 }

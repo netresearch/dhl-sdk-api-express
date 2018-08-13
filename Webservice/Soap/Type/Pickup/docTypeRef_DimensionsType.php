@@ -27,9 +27,9 @@ class docTypeRef_DimensionsType
      */
     public function __construct($Length, $Width, $Height)
     {
-      $this->Length = $Length;
-      $this->Width = $Width;
-      $this->Height = $Height;
+        $this->Length = $Length;
+        $this->Width = $Width;
+        $this->Height = $Height;
     }
 
     /**
@@ -37,7 +37,7 @@ class docTypeRef_DimensionsType
      */
     public function getLength()
     {
-      return $this->Length;
+        return $this->Length;
     }
 
     /**
@@ -46,8 +46,8 @@ class docTypeRef_DimensionsType
      */
     public function setLength($Length)
     {
-      $this->Length = $Length;
-      return $this;
+        $this->Length = $Length;
+        return $this;
     }
 
     /**
@@ -55,7 +55,7 @@ class docTypeRef_DimensionsType
      */
     public function getWidth()
     {
-      return $this->Width;
+        return $this->Width;
     }
 
     /**
@@ -64,8 +64,8 @@ class docTypeRef_DimensionsType
      */
     public function setWidth($Width)
     {
-      $this->Width = $Width;
-      return $this;
+        $this->Width = $Width;
+        return $this;
     }
 
     /**
@@ -73,7 +73,7 @@ class docTypeRef_DimensionsType
      */
     public function getHeight()
     {
-      return $this->Height;
+        return $this->Height;
     }
 
     /**
@@ -82,8 +82,7 @@ class docTypeRef_DimensionsType
      */
     public function setHeight($Height)
     {
-      $this->Height = $Height;
-      return $this;
+        $this->Height = $Height;
+        return $this;
     }
-
 }

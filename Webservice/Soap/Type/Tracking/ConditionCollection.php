@@ -44,6 +44,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
     public function setArrayOfConditionItem(array $ArrayOfConditionItem): self
     {
         $this->ArrayOfConditionItem = $ArrayOfConditionItem;
+
         return $this;
     }
 

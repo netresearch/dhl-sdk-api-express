@@ -24,7 +24,7 @@ class Dimensions
 
     /**
      * Width of the piece listed.
-     * 
+     *
      * @var Dimension
      */
     private $Width;
@@ -52,7 +52,7 @@ class Dimensions
 
     /**
      * Returns the length of the piece listed.
-     *     
+     *
      * @return Dimension
      */
     public function getLength(): Dimension
@@ -62,9 +62,9 @@ class Dimensions
 
     /**
      * Sets the length of the piece listed.
-     * 
+     *
      * @param float $length The length of the piece listed
-     *                      
+     *
      * @return self
      */
     public function setLength(float $length): Dimensions

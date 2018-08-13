@@ -61,6 +61,7 @@ class AWBInfo
     public function setAWBNumber(string $AWBNumber): self
     {
         $this->AWBNumber = $AWBNumber;
+
         return $this;
     }
 
@@ -79,6 +80,7 @@ class AWBInfo
     public function setStatus(Status $Status): self
     {
         $this->Status = $Status;
+
         return $this;
     }
 
@@ -97,6 +99,7 @@ class AWBInfo
     public function setShipmentInfo(ShipmentInfo $ShipmentInfo): self
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 
@@ -115,6 +118,7 @@ class AWBInfo
     public function setPieces(TrackingPieces $Pieces): self
     {
         $this->Pieces = $Pieces;
+
         return $this;
     }
 }

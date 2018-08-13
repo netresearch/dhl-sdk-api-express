@@ -48,8 +48,8 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
         Client $client,
         RateRequestMapper $requestMapper,
         RateResponseMapper $responseMapper
-    )
-    {
+    ) {
+    
         $this->client = $client;
         $this->requestMapper = $requestMapper;
         $this->responseMapper = $responseMapper;

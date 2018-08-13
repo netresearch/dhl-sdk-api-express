@@ -50,7 +50,7 @@ class TrackingRequestMapper
         );
 
         $soapTrackingRequest->getTrackingRequest()->getTrackingRequest()->setAWBNumber(
-           new AWBNumberCollection($trackingRequest->getAwbNumber())
+            new AWBNumberCollection($trackingRequest->getAwbNumber())
         );
 
         $soapTrackingRequest->getTrackingRequest()->getTrackingRequest()->setPiecesEnabled(

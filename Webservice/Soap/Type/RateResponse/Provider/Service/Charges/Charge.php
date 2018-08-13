@@ -26,13 +26,13 @@ class Charge
     /**
      * Name of the Value Added Service.
      *
-     * @var string 
+     * @var string
      */
     private $ChargeType;
 
     /**
      * The charge amount of the line item charge.
-     * 
+     *
      * @var float
      */
     private $ChargeAmount;

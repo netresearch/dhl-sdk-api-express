@@ -26,7 +26,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function getArrayOfPieceInfoItem(): array
     {
-      return $this->ArrayOfPieceInfoItem;
+        return $this->ArrayOfPieceInfoItem;
     }
 
     /**
@@ -35,8 +35,9 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function setArrayOfPieceInfoItem(array $ArrayOfPieceInfoItem = []): self
     {
-      $this->ArrayOfPieceInfoItem = $ArrayOfPieceInfoItem;
-      return $this;
+        $this->ArrayOfPieceInfoItem = $ArrayOfPieceInfoItem;
+
+        return $this;
     }
 
     /**
@@ -47,7 +48,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetExists($offset): bool
     {
-      return isset($this->ArrayOfPieceInfoItem[$offset]);
+        return isset($this->ArrayOfPieceInfoItem[$offset]);
     }
 
     /**
@@ -58,7 +59,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetGet($offset): PieceInfo
     {
-      return $this->ArrayOfPieceInfoItem[$offset];
+        return $this->ArrayOfPieceInfoItem[$offset];
     }
 
     /**
@@ -70,11 +71,11 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetSet($offset, $value): void
     {
-      if ($offset === null) {
-        $this->ArrayOfPieceInfoItem[] = $value;
-      } else {
-        $this->ArrayOfPieceInfoItem[$offset] = $value;
-      }
+        if ($offset === null) {
+            $this->ArrayOfPieceInfoItem[] = $value;
+        } else {
+            $this->ArrayOfPieceInfoItem[$offset] = $value;
+        }
     }
 
     /**
@@ -85,7 +86,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function offsetUnset($offset): void
     {
-      unset($this->ArrayOfPieceInfoItem[$offset]);
+        unset($this->ArrayOfPieceInfoItem[$offset]);
     }
 
     /**
@@ -95,7 +96,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function current(): PieceInfo
     {
-      return current($this->ArrayOfPieceInfoItem);
+        return current($this->ArrayOfPieceInfoItem);
     }
 
     /**
@@ -106,17 +107,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function next(): void
     {
-      next($this->ArrayOfPieceInfoItem);
-    }
-
-    /**
-     * Iterator implementation
-     *
-     * @return string|null Return the key of the current element or null
-     */
-    public function key(): ?string
-    {
-      return key($this->ArrayOfPieceInfoItem);
+        next($this->ArrayOfPieceInfoItem);
     }
 
     /**
@@ -126,7 +117,17 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function valid(): bool
     {
-      return $this->key() !== null;
+        return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key(): ?string
+    {
+        return key($this->ArrayOfPieceInfoItem);
     }
 
     /**
@@ -137,7 +138,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function rewind(): void
     {
-      reset($this->ArrayOfPieceInfoItem);
+        reset($this->ArrayOfPieceInfoItem);
     }
 
     /**
@@ -147,6 +148,6 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      */
     public function count(): PieceInfo
     {
-      return count($this->ArrayOfPieceInfoItem);
+        return count($this->ArrayOfPieceInfoItem);
     }
 }

@@ -87,6 +87,6 @@ class TrackingRequestTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($trackingResponse->getFault());
 
-        $this->assertInstanceOf(ServiceHeader::class , $trackingResponse->getResponse()->getServiceHeader());
+        $this->assertInstanceOf(ServiceHeader::class, $trackingResponse->getResponse()->getServiceHeader());
     }
 }

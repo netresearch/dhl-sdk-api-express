@@ -19,4 +19,3 @@ class PhoneNumber extends AlphaNumeric
 {
     protected const MAX_LENGTH = 25;
 }
-

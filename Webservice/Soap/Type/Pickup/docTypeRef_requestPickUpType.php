@@ -25,7 +25,7 @@ class docTypeRef_requestPickUpType
      */
     public function __construct($PickUpShipment)
     {
-      $this->PickUpShipment = $PickUpShipment;
+        $this->PickUpShipment = $PickUpShipment;
     }
 
     /**
@@ -33,7 +33,7 @@ class docTypeRef_requestPickUpType
      */
     public function getMessageId()
     {
-      return $this->MessageId;
+        return $this->MessageId;
     }
 
     /**
@@ -42,8 +42,8 @@ class docTypeRef_requestPickUpType
      */
     public function setMessageId($MessageId)
     {
-      $this->MessageId = $MessageId;
-      return $this;
+        $this->MessageId = $MessageId;
+        return $this;
     }
 
     /**
@@ -51,7 +51,7 @@ class docTypeRef_requestPickUpType
      */
     public function getClientDetail()
     {
-      return $this->ClientDetail;
+        return $this->ClientDetail;
     }
 
     /**
@@ -60,8 +60,8 @@ class docTypeRef_requestPickUpType
      */
     public function setClientDetail($ClientDetail)
     {
-      $this->ClientDetail = $ClientDetail;
-      return $this;
+        $this->ClientDetail = $ClientDetail;
+        return $this;
     }
 
     /**
@@ -69,7 +69,7 @@ class docTypeRef_requestPickUpType
      */
     public function getPickUpShipment()
     {
-      return $this->PickUpShipment;
+        return $this->PickUpShipment;
     }
 
     /**
@@ -78,8 +78,7 @@ class docTypeRef_requestPickUpType
      */
     public function setPickUpShipment($PickUpShipment)
     {
-      $this->PickUpShipment = $PickUpShipment;
-      return $this;
+        $this->PickUpShipment = $PickUpShipment;
+        return $this;
     }
-
 }

@@ -31,7 +31,7 @@ class Status
      */
     public function __construct(string $ActionStatus)
     {
-      $this->ActionStatus = $ActionStatus;
+        $this->ActionStatus = $ActionStatus;
     }
 
     /**
@@ -39,7 +39,7 @@ class Status
      */
     public function getActionStatus(): string
     {
-      return $this->ActionStatus;
+        return $this->ActionStatus;
     }
 
     /**
@@ -48,8 +48,9 @@ class Status
      */
     public function setActionStatus(string $ActionStatus): self
     {
-      $this->ActionStatus = $ActionStatus;
-      return $this;
+        $this->ActionStatus = $ActionStatus;
+
+        return $this;
     }
 
     /**
@@ -57,7 +58,7 @@ class Status
      */
     public function getCondition(): ?ConditionCollection
     {
-      return $this->Condition;
+        return $this->Condition;
     }
 
     /**
@@ -66,7 +67,8 @@ class Status
      */
     public function setCondition(ConditionCollection $Condition): self
     {
-      $this->Condition = $Condition;
-      return $this;
+        $this->Condition = $Condition;
+
+        return $this;
     }
 }

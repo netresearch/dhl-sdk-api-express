@@ -21,8 +21,8 @@ class docTypeRef_ContactInfoType
      */
     public function __construct($Contact, $Address)
     {
-      $this->Contact = $Contact;
-      $this->Address = $Address;
+        $this->Contact = $Contact;
+        $this->Address = $Address;
     }
 
     /**
@@ -30,7 +30,7 @@ class docTypeRef_ContactInfoType
      */
     public function getContact()
     {
-      return $this->Contact;
+        return $this->Contact;
     }
 
     /**
@@ -39,8 +39,8 @@ class docTypeRef_ContactInfoType
      */
     public function setContact($Contact)
     {
-      $this->Contact = $Contact;
-      return $this;
+        $this->Contact = $Contact;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class docTypeRef_ContactInfoType
      */
     public function getAddress()
     {
-      return $this->Address;
+        return $this->Address;
     }
 
     /**
@@ -57,8 +57,7 @@ class docTypeRef_ContactInfoType
      */
     public function setAddress($Address)
     {
-      $this->Address = $Address;
-      return $this;
+        $this->Address = $Address;
+        return $this;
     }
-
 }

@@ -19,4 +19,3 @@ class PickupLocation extends AlphaNumeric
 {
     protected const MAX_LENGTH = 40;
 }
-

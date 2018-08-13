@@ -19,4 +19,3 @@ class RequestedDeliveryDate extends AlphaNumeric
 {
     protected const MAX_LENGTH = 29;
 }
-

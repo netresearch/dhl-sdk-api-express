@@ -19,4 +19,3 @@ class Instructions extends AlphaNumeric
 {
     protected const MAX_LENGTH = 110;
 }
-

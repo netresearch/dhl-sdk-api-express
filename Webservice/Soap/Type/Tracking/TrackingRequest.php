@@ -71,6 +71,7 @@ class TrackingRequest
     public function setRequest(Request $Request): self
     {
         $this->Request = $Request;
+
         return $this;
     }
 
@@ -89,6 +90,7 @@ class TrackingRequest
     public function setAWBNumber(AWBNumberCollection $AWBNumber): self
     {
         $this->AWBNumber = $AWBNumber;
+
         return $this;
     }
 
@@ -107,6 +109,7 @@ class TrackingRequest
     public function setLPNumber(TrackingPieceIDCollection $LPNumber): self
     {
         $this->LPNumber = $LPNumber;
+
         return $this;
     }
 
@@ -125,6 +128,7 @@ class TrackingRequest
     public function setLevelOfDetails(string $LevelOfDetails): self
     {
         $this->LevelOfDetails = $LevelOfDetails;
+
         return $this;
     }
 
@@ -143,6 +147,7 @@ class TrackingRequest
     public function setPiecesEnabled(string $PiecesEnabled): self
     {
         $this->PiecesEnabled = $PiecesEnabled;
+
         return $this;
     }
 
@@ -161,6 +166,7 @@ class TrackingRequest
     public function setEstimatedDeliveryDateEnabled(bool $EstimatedDeliveryDateEnabled): self
     {
         $this->EstimatedDeliveryDateEnabled = $EstimatedDeliveryDateEnabled;
+
         return $this;
     }
 }

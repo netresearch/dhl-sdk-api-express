@@ -26,7 +26,7 @@ class TrackingRequestBase
      */
     public function __construct(TrackingRequest $TrackingRequest)
     {
-      $this->TrackingRequest = $TrackingRequest;
+        $this->TrackingRequest = $TrackingRequest;
     }
 
     /**
@@ -34,7 +34,7 @@ class TrackingRequestBase
      */
     public function getTrackingRequest(): TrackingRequest
     {
-      return $this->TrackingRequest;
+        return $this->TrackingRequest;
     }
 
     /**
@@ -43,7 +43,8 @@ class TrackingRequestBase
      */
     public function setTrackingRequest(TrackingRequest $TrackingRequest): self
     {
-      $this->TrackingRequest = $TrackingRequest;
-      return $this;
+        $this->TrackingRequest = $TrackingRequest;
+
+        return $this;
     }
 }

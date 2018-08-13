@@ -31,7 +31,7 @@ class ServiceEvent
      */
     public function __construct(string $EventCode)
     {
-      $this->EventCode = $EventCode;
+        $this->EventCode = $EventCode;
     }
 
     /**
@@ -39,7 +39,7 @@ class ServiceEvent
      */
     public function getEventCode(): string
     {
-      return $this->EventCode;
+        return $this->EventCode;
     }
 
     /**
@@ -48,8 +48,9 @@ class ServiceEvent
      */
     public function setEventCode(string $EventCode): self
     {
-      $this->EventCode = $EventCode;
-      return $this;
+        $this->EventCode = $EventCode;
+
+        return $this;
     }
 
     /**
@@ -57,7 +58,7 @@ class ServiceEvent
      */
     public function getDescription(): string
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -66,7 +67,8 @@ class ServiceEvent
      */
     public function setDescription(string $Description): self
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+
+        return $this;
     }
 }

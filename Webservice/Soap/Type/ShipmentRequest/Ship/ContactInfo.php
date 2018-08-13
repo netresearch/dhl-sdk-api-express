@@ -19,21 +19,21 @@ class ContactInfo
 {
     /**
      * The contact.
-     * 
+     *
      * @var Contact
      */
     private $Contact;
 
     /**
      * The address.
-     * 
+     *
      * @var ShipmentAddress
      */
     private $Address;
 
     /**
-     * Constructor. 
-     * 
+     * Constructor.
+     *
      * @param Contact         $contact The contact
      * @param ShipmentAddress $address The address
      */
@@ -45,7 +45,7 @@ class ContactInfo
 
     /**
      * Returns the contact.
-     * 
+     *
      * @return Contact
      */
     public function getContact(): Contact
@@ -55,9 +55,9 @@ class ContactInfo
 
     /**
      * Sets the contact.
-     * 
+     *
      * @param Contact $contact The contact.
-     *                         
+     *
      * @return self
      */
     public function setContact(Contact $contact): ContactInfo

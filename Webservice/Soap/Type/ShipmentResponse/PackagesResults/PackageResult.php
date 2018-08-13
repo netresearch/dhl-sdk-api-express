@@ -18,7 +18,7 @@ class PackageResult
     /**
      * The tracking number field is the identifier for that specific piece of the shipment,
      * of which there can be many.
-     * 
+     *
      * @var string
      */
     private $TrackingNumber;

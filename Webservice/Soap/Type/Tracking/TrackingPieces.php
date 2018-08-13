@@ -26,7 +26,7 @@ class TrackingPieces
      */
     public function getPieceInfo(): PieceInfoCollection
     {
-      return $this->PieceInfo;
+        return $this->PieceInfo;
     }
 
     /**
@@ -35,7 +35,8 @@ class TrackingPieces
      */
     public function setPieceInfo(PieceInfoCollection $PieceInfo): self
     {
-      $this->PieceInfo = $PieceInfo;
-      return $this;
+        $this->PieceInfo = $PieceInfo;
+
+        return $this;
     }
 }

@@ -33,10 +33,10 @@ class docTypeRef_RequestedPackagesType
      */
     public function __construct($Weight, $Dimensions, $CustomerReferences, $number)
     {
-      $this->Weight = $Weight;
-      $this->Dimensions = $Dimensions;
-      $this->CustomerReferences = $CustomerReferences;
-      $this->number = $number;
+        $this->Weight = $Weight;
+        $this->Dimensions = $Dimensions;
+        $this->CustomerReferences = $CustomerReferences;
+        $this->number = $number;
     }
 
     /**
@@ -44,7 +44,7 @@ class docTypeRef_RequestedPackagesType
      */
     public function getWeight()
     {
-      return $this->Weight;
+        return $this->Weight;
     }
 
     /**
@@ -53,8 +53,8 @@ class docTypeRef_RequestedPackagesType
      */
     public function setWeight($Weight)
     {
-      $this->Weight = $Weight;
-      return $this;
+        $this->Weight = $Weight;
+        return $this;
     }
 
     /**
@@ -62,7 +62,7 @@ class docTypeRef_RequestedPackagesType
      */
     public function getDimensions()
     {
-      return $this->Dimensions;
+        return $this->Dimensions;
     }
 
     /**
@@ -71,8 +71,8 @@ class docTypeRef_RequestedPackagesType
      */
     public function setDimensions($Dimensions)
     {
-      $this->Dimensions = $Dimensions;
-      return $this;
+        $this->Dimensions = $Dimensions;
+        return $this;
     }
 
     /**
@@ -80,7 +80,7 @@ class docTypeRef_RequestedPackagesType
      */
     public function getCustomerReferences()
     {
-      return $this->CustomerReferences;
+        return $this->CustomerReferences;
     }
 
     /**
@@ -89,8 +89,8 @@ class docTypeRef_RequestedPackagesType
      */
     public function setCustomerReferences($CustomerReferences)
     {
-      $this->CustomerReferences = $CustomerReferences;
-      return $this;
+        $this->CustomerReferences = $CustomerReferences;
+        return $this;
     }
 
     /**
@@ -98,7 +98,7 @@ class docTypeRef_RequestedPackagesType
      */
     public function getNumber()
     {
-      return $this->number;
+        return $this->number;
     }
 
     /**
@@ -107,8 +107,7 @@ class docTypeRef_RequestedPackagesType
      */
     public function setNumber($number)
     {
-      $this->number = $number;
-      return $this;
+        $this->number = $number;
+        return $this;
     }
-
 }

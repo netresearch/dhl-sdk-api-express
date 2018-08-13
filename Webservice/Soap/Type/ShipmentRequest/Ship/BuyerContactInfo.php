@@ -17,21 +17,21 @@ class BuyerContactInfo
 {
     /**
      * The contact.
-     * 
+     *
      * @var BuyerContact
      */
     private $Contact;
 
     /**
      * The address.
-     * 
+     *
      * @var BuyerAddress
      */
     private $Address;
 
     /**
-     * Constructor. 
-     * 
+     * Constructor.
+     *
      * @param BuyerContact $contact The buyer contact
      * @param BuyerAddress $address The buyer address
      */
@@ -43,7 +43,7 @@ class BuyerContactInfo
 
     /**
      * Returns the buyer contact.
-     * 
+     *
      * @return BuyerContact
      */
     public function getContact(): BuyerContact
@@ -53,9 +53,9 @@ class BuyerContactInfo
 
     /**
      * Sets the buyer contact.
-     * 
+     *
      * @param BuyerContact $contact The contact.
-     *                         
+     *
      * @return self
      */
     public function setContact(BuyerContact $contact): BuyerContactInfo

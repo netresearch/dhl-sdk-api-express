@@ -49,6 +49,7 @@ class Condition
     public function setConditionCode(string $ConditionCode): self
     {
         $this->ConditionCode = $ConditionCode;
+
         return $this;
     }
 
@@ -67,6 +68,7 @@ class Condition
     public function setConditionData(string $ConditionData): self
     {
         $this->ConditionData = $ConditionData;
+
         return $this;
     }
 }

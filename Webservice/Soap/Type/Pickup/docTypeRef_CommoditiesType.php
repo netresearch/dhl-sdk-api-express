@@ -20,7 +20,7 @@ class docTypeRef_CommoditiesType
      */
     public function __construct($Description)
     {
-      $this->Description = $Description;
+        $this->Description = $Description;
     }
 
     /**
@@ -28,7 +28,7 @@ class docTypeRef_CommoditiesType
      */
     public function getNumberOfPieces()
     {
-      return $this->NumberOfPieces;
+        return $this->NumberOfPieces;
     }
 
     /**
@@ -37,8 +37,8 @@ class docTypeRef_CommoditiesType
      */
     public function setNumberOfPieces($NumberOfPieces)
     {
-      $this->NumberOfPieces = $NumberOfPieces;
-      return $this;
+        $this->NumberOfPieces = $NumberOfPieces;
+        return $this;
     }
 
     /**
@@ -46,7 +46,7 @@ class docTypeRef_CommoditiesType
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -55,8 +55,7 @@ class docTypeRef_CommoditiesType
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
-
 }
