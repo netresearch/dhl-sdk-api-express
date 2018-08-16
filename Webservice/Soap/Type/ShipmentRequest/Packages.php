@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
@@ -23,16 +24,16 @@ class Packages
     /**
      * The list of requested packages.
      *
-     * @var RequestedPackages
+     * @var RequestedPackages[]
      */
     private $RequestedPackages;
 
     /**
      * Constructor.
      *
-     * @param RequestedPackages $RequestedPackages requested packages
+     * @param RequestedPackages[] $RequestedPackages requested packages
      */
-    public function __construct($RequestedPackages)
+    public function __construct(array $RequestedPackages)
     {
         $this->RequestedPackages = $RequestedPackages;
     }
@@ -40,7 +41,7 @@ class Packages
     /**
      * Returns the requested packages.
      *
-     * @return RequestedPackages
+     * @return RequestedPackages[]
      */
     public function getRequestedPackages(): RequestedPackages
     {
@@ -50,13 +51,14 @@ class Packages
     /**
      * Sets the requested packages.
      *
-     * @param RequestedPackages $requestedPackages Requested packages
+     * @param RequestedPackages[] $requestedPackages Requested packages
      *
      * @return self
      */
-    public function setRequestedPackages($requestedPackages): Packages
+    public function setRequestedPackages(array $requestedPackages): Packages
     {
         $this->RequestedPackages = $requestedPackages;
+
         return $this;
     }
 }

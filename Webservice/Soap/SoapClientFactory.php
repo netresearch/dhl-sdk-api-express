@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap;
 
 /**
@@ -30,14 +31,14 @@ class SoapClientFactory
         $wsdl = $wsdl ?: self::WSDL;
 
         $options = [
-            'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,
-            'trace'              => true, // Enable to log requests
-            'exceptions'         => true,
-            'soap_version'       => SOAP_1_1,
+            'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+            'trace' => true, // Enable to log requests
+            'exceptions' => true,
+            'soap_version' => SOAP_1_1,
             'connection_timeout' => 10,
-            'encoding'           => 'UTF-8',
-            'cache_wsdl'         => WSDL_CACHE_DISK,
-            'classmap'           => ClassMap::get(),
+            'encoding' => 'UTF-8',
+            'cache_wsdl' => WSDL_CACHE_DISK,
+            'classmap' => ClassMap::get(),
         ];
 
         $authFactory = new AuthHeaderFactory();

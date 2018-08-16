@@ -176,9 +176,9 @@ class ShipmentRequestMapper
     /**
      * @param PackageInterface[] $packages
      *
-     * @return RequestedPackages
+     * @return RequestedPackages[]
      */
-    private function mapPackages(array $packages): RequestedPackages
+    private function mapPackages(array $packages): array
     {
         $requestedPackages = [];
 
@@ -195,7 +195,7 @@ class ShipmentRequestMapper
             );
         }
 
-        return $requestedPackages[0];
+        return $requestedPackages;
     }
 
     /**

@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\PickupServiceInterface;
@@ -69,7 +70,17 @@ class SoapServiceFactory implements ServiceFactoryInterface
         LoggerInterface $logger
     ): ShipmentServiceInterface {
         $clientFactory = new SoapClientFactory();
-        $client        = $clientFactory->create($username, $password);
+
+        /** @TODO(nr)
+         * this WSDL is currently hardcoded (because it was edited) to properly process multi piece shipments
+         * Once the WSDL is in a state where the validation through the SOAP extension no longer fails,
+         * this has to be removed
+         */
+        $client = $clientFactory->create(
+            $username,
+            $password,
+            __DIR__ . DIRECTORY_SEPARATOR . 'Soap' . DIRECTORY_SEPARATOR . 'rateBook.wsdl'
+        );
 
         $adapter = new ShipmentServiceAdapter(
             $client,
@@ -94,7 +105,11 @@ class SoapServiceFactory implements ServiceFactoryInterface
         LoggerInterface $logger
     ): TrackingServiceInterface {
         $clientFactory = new SoapClientFactory();
-        $client = $clientFactory->create($username, $password, 'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL');
+        $client = $clientFactory->create(
+            $username,
+            $password,
+            'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL'
+        );
 
         $requestMapper = new TrackingRequestMapper();
         $responseMapper = new TrackingResponseMapper();

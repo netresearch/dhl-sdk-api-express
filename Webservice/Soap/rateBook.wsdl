@@ -1,0 +1,1595 @@
+<wsdl:definitions targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s0="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/providerServices/ShipmentHandlingServices" xmlns:s1="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest" xmlns:s2="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse" xmlns:s3="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse" xmlns:s4="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest" xmlns:s5="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse" xmlns:s6="http://www.reactivity.com/xsdbundle/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest">
+            <xsd:element name="ShipmentRequest" type="tns:docTypeRef_ProcessShipmentRequestType"/>
+            <xsd:complexType name="docTypeRef_ProcessShipmentRequestType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="MessageId">
+                        <xsd:annotation>
+                            <xsd:documentation>logging end to end token</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="200"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ClientDetail" type="tns:docTypeRef_ClientDetailType2"/>
+                    <xsd:element name="RequestedShipment" type="tns:docTypeRef_RequestedShipmentType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ClientDetailType2">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="sso" type="tns:sso"/>
+                    <xsd:element minOccurs="0" name="plant" type="tns:plant"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_Content">
+                <xsd:sequence>
+                    <xsd:element name="ContentID">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:minLength value="3"/>
+                                <xsd:maxLength value="3"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:choice minOccurs="0">
+                        <xsd:element name="DryIceTotalNetWeight">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:minLength value="1"/>
+                                    <xsd:maxLength value="7"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="UNCode">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:minLength value="1"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                    </xsd:choice>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_DangerousGoods">
+                <xsd:annotation>
+                    <xsd:documentation>Dangerous goods segment</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence maxOccurs="unbounded">
+                    <xsd:element name="Content" type="tns:docTypeRef_Content"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="sso">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="plant">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_RequestedShipmentType">
+                <xsd:all>
+                    <xsd:element name="ShipmentInfo" type="tns:docTypeRef_ShipmentInfoType"/>
+                    <xsd:element name="ShipTimestamp" type="tns:ShipTimestamp">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the date and time the package is tendered. Both the date and time portions of
+                                the string are expected to be used. The date should not be a past date or a date more than 10 days in the
+                                future. The time is the local time of the shipment based on the shipper's time zone. The date component
+                                must be in the format: YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour
+                                clock. The date and time parts are separated by the letter T (e.g. 2010-02-05T14:00:00 GMT+01:00).</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PickupLocationCloseTime" type="tns:PickupLocationCloseTime">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the customer cut-off time for courier pick-up. Only the time portions is expected to be used.
+                                The time is the local time on the shipper's country where the package is available to be picked-up,
+                                and the component must be in the format: HH:MM using a 24 hour clock (e.g. 14:00).</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="SpecialPickupInstruction" type="tns:SpecialPickupInstruction"/>
+                    <xsd:element minOccurs="0" name="PickupLocation" type="tns:PickupLocation"/>
+                    <xsd:element name="PaymentInfo" type="tns:PaymentInfo"/>
+                    <xsd:element name="InternationalDetail" type="tns:docTypeRef_InternationDetailType"/>
+                    <xsd:element minOccurs="0" name="OnDemandDeliveryOptions" type="tns:docTypeRef_OnDemandDeliveryOptions"/>
+                    <xsd:element name="Ship" type="tns:docTypeRef_ShipType"/>
+                    <xsd:element name="Packages" type="tns:docTypeRef_PackagesType"/>
+                    <xsd:element minOccurs="0" name="DangerousGoods" type="tns:docTypeRef_DangerousGoods"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ShipmentInfoType">
+                <xsd:all>
+                    <xsd:element name="DropOffType" type="tns:DropOffType"/>
+                    <xsd:element name="ServiceType" type="tns:ServiceType"/>
+                    <xsd:element minOccurs="0" name="Account" type="tns:Account"/>
+                    <xsd:element minOccurs="0" name="Billing" type="tns:Billing"/>
+                    <xsd:element minOccurs="0" name="SpecialServices" type="tns:Services"/>
+                    <xsd:element name="Currency" type="tns:Currency"/>
+                    <xsd:element name="UnitOfMeasurement" type="tns:UnitOfMeasurement">
+                        <xsd:annotation>
+                            <xsd:documentation>SI=the preferred system of weights and measures for Italian trade and
+                                commerce; SU=the preferred	system of weights and measures for U.S. trade and commerce;
+                                Weight unit: if Type is SI it can be KG	(kilograms), if Type is SU it can be LB (pounds).
+                                Dimention unit: if Type is SI it can be CM, if Type is SU it can be IN (inch)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ShipmentIdentificationNumber" type="tns:ShipmentIdentificationNumber2"/>
+                    <xsd:element default="N" minOccurs="0" name="UseOwnShipmentIdentificationNumber">
+                        <xsd:annotation>
+                            <xsd:documentation>Customer able to provide SID if set to Y. The default is N</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="1"/>
+                                <xsd:enumeration value="Y"/>
+                                <xsd:enumeration value="N"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PackagesCount" type="tns:PackagesCount"/>
+                    <xsd:element minOccurs="0" name="SendPackage" type="tns:SendPackage"/>
+                    <xsd:element minOccurs="0" name="LabelType" type="tns:LabelType"/>
+                    <xsd:element minOccurs="0" name="LabelTemplate" type="tns:LabelTemplate"/>
+                    <xsd:element minOccurs="0" name="ArchiveLabelTemplate" type="tns:ArchiveLabelTemplate"/>
+                    <xsd:element minOccurs="0" name="PaperlessTradeEnabled" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="PaperlessTradeImage" type="xsd:base64Binary"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="DropOffType">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="REGULAR_PICKUP"/>
+                    <xsd:enumeration value="REQUEST_COURIER"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ServiceType">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Account">
+                <xsd:restriction base="xsd:string">
+                    <xsd:minLength value="0"/>
+                    <xsd:maxLength value="12"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Currency">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="UnitOfMeasurement">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="SI"/>
+                    <xsd:enumeration value="SU"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ShipmentIdentificationNumber2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PackagesCount">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="SendPackage">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ShipTimestamp">
+                <xsd:restriction base="xsd:token">
+                    <xsd:maxLength value="29"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PickupLocationCloseTime">
+                <xsd:restriction base="xsd:token">
+                    <xsd:maxLength value="5"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="SpecialPickupInstruction">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="75"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PickupLocation">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="40"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PaymentInfo">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="CFR"/>
+                    <xsd:enumeration value="CIF"/>
+                    <xsd:enumeration value="CIP"/>
+                    <xsd:enumeration value="CPT"/>
+                    <xsd:enumeration value="DAF"/>
+                    <xsd:enumeration value="DDP"/>
+                    <xsd:enumeration value="DDU"/>
+                    <xsd:enumeration value="DAP"/>
+                    <xsd:enumeration value="DEQ"/>
+                    <xsd:enumeration value="DES"/>
+                    <xsd:enumeration value="EXW"/>
+                    <xsd:enumeration value="FAS"/>
+                    <xsd:enumeration value="FCA"/>
+                    <xsd:enumeration value="FOB"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_InternationDetailType">
+                <xsd:all>
+                    <xsd:element name="Commodities" type="tns:docTypeRef_CommoditiesType"/>
+                    <xsd:element minOccurs="0" name="Content" type="tns:Content"/>
+                    <xsd:element minOccurs="0" name="ExportReference" type="tns:ExportReference"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_CommoditiesType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="NumberOfPieces" type="tns:NumberOfPieces"/>
+                    <xsd:element name="Description" type="tns:Description"/>
+                    <xsd:element minOccurs="0" name="CountryOfManufacture" type="tns:CountryOfManufacture"/>
+                    <xsd:element minOccurs="0" name="Quantity" type="tns:Quantity"/>
+                    <xsd:element minOccurs="0" name="UnitPrice" type="tns:UnitPrice"/>
+                    <xsd:element minOccurs="0" name="CustomsValue" type="tns:CustomsValue"/>
+                    <xsd:element minOccurs="0" name="USFilingTypeValue" type="tns:USFilingTypeValue">
+                        <xsd:annotation>
+                            <xsd:documentation>USFilingTypeValue is a field meant for US export/import EEI Filing (ITN Number, FTR Number and AES4 Number</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="NumberOfPieces">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Description">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CountryOfManufacture">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Quantity">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="UnitPrice">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CustomsValue">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="18"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="USFilingTypeValue">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="20"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Content">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="DOCUMENTS"/>
+                    <xsd:enumeration value="NON_DOCUMENTS"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ExportReference">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:maxLength value="40"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_OnDemandDeliveryOptions">
+                <xsd:all>
+                    <xsd:element minOccurs="1" name="DeliveryOption" type="tns:DeliveryOption"/>
+                    <xsd:element minOccurs="0" name="Location" type="tns:Location"/>
+                    <xsd:element minOccurs="0" name="Instructions" type="tns:Instructions"/>
+                    <xsd:element minOccurs="0" name="GateCode" type="tns:GateCode"/>
+                    <xsd:element minOccurs="0" name="LWNTypeCode" type="tns:LWNTypeCode">
+                        <xsd:annotation>
+                            <xsd:documentation>Possible values are Neighbour (N) or Concierge (C)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="NeighbourName" type="tns:NeighbourName"/>
+                    <xsd:element minOccurs="0" name="NeighbourHouseNumber" type="tns:NeighbourHouseNumber"/>
+                    <xsd:element minOccurs="0" name="AuthorizerName" type="tns:AuthorizerName"/>
+                    <xsd:element minOccurs="0" name="SelectedServicePointID" type="tns:SelectedServicePointID"/>
+                    <xsd:element minOccurs="0" name="RequestedDeliveryDate" type="tns:RequestedDeliveryDate"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="DeliveryOption">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="TV"/>
+                    <xsd:enumeration value="SW"/>
+                    <xsd:enumeration value="SX"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Location">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="15"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Instructions">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="110"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="GateCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="10"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="LWNTypeCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="N"/>
+                    <xsd:enumeration value="C"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NeighbourName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="20"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NeighbourHouseNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="20"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="AuthorizerName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="20"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="SelectedServicePointID">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="6"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="RequestedDeliveryDate">
+                <xsd:restriction base="xsd:token">
+                    <xsd:maxLength value="29"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_ShipType">
+                <xsd:all>
+                    <xsd:element name="Shipper" type="tns:docTypeRef_ContactInfoType"/>
+                    <xsd:element minOccurs="0" name="Pickup" type="tns:docTypeRef_ContactInfoType"/>
+                    <xsd:element minOccurs="0" name="BookingRequestor" type="tns:docTypeRef_ContactInfoType"/>
+                    <xsd:element minOccurs="0" name="Buyer" type="tns:docTypeRef_ContactInfoType1"/>
+                    <xsd:element name="Recipient" type="tns:docTypeRef_ContactInfoType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ContactInfoType">
+                <xsd:all>
+                    <xsd:element name="Contact" type="tns:docTypeRef_ContactType"/>
+                    <xsd:element name="Address" type="tns:docTypeRef_AddressType"/>
+                    <xsd:element minOccurs="0" name="RegistrationNumbers" type="tns:docTypeRef_RegistrationNumbers"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ContactInfoType1">
+                <xsd:all>
+                    <xsd:element name="Contact" type="tns:docTypeRef_ContactType1"/>
+                    <xsd:element name="Address" type="tns:docTypeRef_AddressType1"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ContactType">
+                <xsd:sequence>
+                    <xsd:element name="PersonName" type="tns:PersonName"/>
+                    <xsd:element name="CompanyName" type="tns:CompanyName"/>
+                    <xsd:element name="PhoneNumber" type="tns:PhoneNumber"/>
+                    <xsd:element minOccurs="0" name="EmailAddress" type="tns:EmailAddress"/>
+                    <xsd:element minOccurs="0" name="MobilePhoneNumber" type="tns:MobilePhoneNumber"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ContactType1">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="PersonName" type="tns:PersonName"/>
+                    <xsd:element minOccurs="0" name="CompanyName" type="tns:CompanyName"/>
+                    <xsd:element minOccurs="0" name="PhoneNumber" type="tns:PhoneNumber"/>
+                    <xsd:element minOccurs="0" name="EmailAddress" type="tns:EmailAddress"/>
+                    <xsd:element minOccurs="0" name="MobilePhoneNumber" type="tns:MobilePhoneNumber"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="PersonName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="45"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CompanyName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PhoneNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="25"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="EmailAddress">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="50"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="MobilePhoneNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="25"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_AddressType">
+                <xsd:all>
+                    <xsd:element name="StreetLines" type="tns:StreetLines"/>
+                    <xsd:element minOccurs="0" name="StreetName" type="tns:StreetName"/>
+                    <xsd:element minOccurs="0" name="StreetNumber" type="tns:StreetNumber"/>
+                    <xsd:element minOccurs="0" name="StreetLines2" type="tns:StreetLines2"/>
+                    <xsd:element minOccurs="0" name="StreetLines3" type="tns:StreetLines3"/>
+                    <xsd:element name="City" type="tns:City"/>
+                    <xsd:element minOccurs="0" name="StateOrProvinceCode" type="tns:StateOrProvinceCode"/>
+                    <xsd:element name="PostalCode" type="tns:PostalCode"/>
+                    <xsd:element name="CountryCode" type="tns:CountryCode"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_AddressType1">
+                <xsd:all>
+                    <xsd:element name="StreetLines" type="tns:StreetLines"/>
+                    <xsd:element minOccurs="0" name="StreetName" type="tns:StreetName"/>
+                    <xsd:element minOccurs="0" name="BuildingName" type="tns:BuildingName"/>
+                    <xsd:element minOccurs="0" name="StreetNumber" type="tns:StreetNumber"/>
+                    <xsd:element minOccurs="0" name="StreetLines2" type="tns:StreetLines2"/>
+                    <xsd:element minOccurs="0" name="StreetLines3" type="tns:StreetLines3"/>
+                    <xsd:element minOccurs="0" name="CityDistrict" type="tns:CityDistrict"/>
+                    <xsd:element name="City" type="tns:City"/>
+                    <xsd:element minOccurs="0" name="StateOrProvinceCode" type="tns:StateOrProvinceCode"/>
+                    <xsd:element name="PostalCode" type="tns:PostalCode"/>
+                    <xsd:element minOccurs="0" name="CountryName" type="tns:CountryName"/>
+                    <xsd:element name="CountryCode" type="tns:CountryCode"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="StreetLines">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="BuildingName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="15"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetLines2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetLines3">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CityDistrict">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="City">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StateOrProvinceCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PostalCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:maxLength value="12"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CountryName">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CountryCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="2"/>
+                    <xsd:maxLength value="2"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_RegistrationNumbers">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="50" name="RegistrationNumber" type="tns:docTypeRef_RegistrationNumber"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_RegistrationNumber">
+                <xsd:all>
+                    <xsd:element name="Number" type="tns:Number"/>
+                    <xsd:element name="NumberTypeCode" type="tns:NumberTypeCode"/>
+                    <xsd:element name="NumberIssuerCountryCode" type="tns:NumberIssuerCountryCode"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="Number">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="20"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NumberTypeCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NumberIssuerCountryCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="2"/>
+                    <xsd:maxLength value="2"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_PackagesType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="unbounded" name="RequestedPackages" type="tns:docTypeRef_RequestedPackagesType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_RequestedPackagesType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="InsuredValue" type="tns:InsuredValue"/>
+                    <xsd:element name="Weight" type="tns:Weight"/>
+                    <xsd:element minOccurs="0" name="PieceIdentificationNumber" type="tns:PieceIdentificationNumber"/>
+                    <xsd:element default="N" minOccurs="0" name="UseOwnPieceIdentificationNumber">
+                        <xsd:annotation>
+                            <xsd:documentation>Customer able to provide SID if set to Y. The default is N</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="1"/>
+                                <xsd:enumeration value="Y"/>
+                                <xsd:enumeration value="N"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PackageContentDescription" type="tns:PackageContentDescription"/>
+                    <xsd:element name="Dimensions" type="tns:docTypeRef_DimensionsType"/>
+                    <xsd:element name="CustomerReferences" type="tns:CustomerReferences"/>
+                </xsd:all>
+                <xsd:attribute name="number" type="tns:_x0040_number" use="required"/>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_number">
+                <xsd:restriction base="xsd:integer">
+                    <xsd:minInclusive value="1"/>
+                    <xsd:maxInclusive value="99"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="InsuredValue">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="15"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Weight">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="12"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PieceIdentificationNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PackageContentDescription">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="70"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_DimensionsType">
+                <xsd:all>
+                    <xsd:element name="Length" type="tns:Length"/>
+                    <xsd:element name="Width" type="tns:Width"/>
+                    <xsd:element name="Height" type="tns:Height"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="Length">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Width">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Height">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CustomerReferences">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Billing">
+                <xsd:all>
+                    <xsd:element name="ShipperAccountNumber" type="tns:Account"/>
+                    <xsd:element name="ShippingPaymentType" type="tns:ShipmentPaymentType"/>
+                    <xsd:element minOccurs="0" name="BillingAccountNumber" type="tns:Account"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="ShipmentPaymentType">
+                <xsd:annotation>
+                    <xsd:documentation>S=Bill-To Shipper, R=Bill-To Receiver, T=Bill-To Third Party</xsd:documentation>
+                </xsd:annotation>
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="S"/>
+                    <xsd:enumeration value="R"/>
+                    <xsd:enumeration value="T"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Services">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="Service" type="tns:Service"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Service">
+                <xsd:sequence>
+                    <xsd:element name="ServiceType" type="tns:ServiceTypeCode"/>
+                    <xsd:element minOccurs="0" name="ServiceValue" type="tns:Money"/>
+                    <xsd:element minOccurs="0" name="CurrencyCode" type="tns:CurrencyCode"/>
+                    <xsd:element minOccurs="0" name="PaymentCode" type="tns:PaymentCode"/>
+                    <xsd:element minOccurs="0" name="StartDate" type="xsd:date"/>
+                    <xsd:element minOccurs="0" name="EndDate" type="xsd:date"/>
+                    <xsd:element minOccurs="0" name="TextInstruction" type="tns:TextType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="ServiceTypeCode">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Money">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="12"/>
+                    <xsd:fractionDigits value="2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CurrencyCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PaymentCode">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TextType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:maxLength value="50"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType final="list" name="LabelType">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:enumeration value="PDF"/>
+                    <xsd:enumeration value="ZPL"/>
+                    <xsd:enumeration value="EPL"/>
+                    <xsd:enumeration value="LP2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType final="restriction" name="LabelTemplate">
+                <xsd:restriction base="xsd:token">
+                    <xsd:maxLength value="20"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType final="restriction" name="ArchiveLabelTemplate">
+                <xsd:restriction base="xsd:token">
+                    <xsd:maxLength value="20"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest">
+            <xsd:element name="RateRequest" type="s1:docTypeRef_RateRequestType"/>
+            <xsd:complexType name="docTypeRef_RateRequestType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="ClientDetail" type="s1:docTypeRef_ClientDetailType3"/>
+                    <xsd:element name="RequestedShipment" type="s1:docTypeRef_RequestedShipmentType2"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ClientDetailType3">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="sso" type="s1:sso2"/>
+                    <xsd:element minOccurs="0" name="plant" type="s1:plant2"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="sso2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="plant2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="0"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_RequestedShipmentType2">
+                <xsd:all>
+                    <xsd:element name="DropOffType" type="s1:DropOffType2">
+                        <xsd:annotation>
+                            <xsd:documentation>Requested value are REGULAR_PICKUP or
+                                REQUEST_COURIER, it identifies the method by
+                                which the package is to be tendered.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="NextBusinessDay" type="s1:NextBusinessDay2">
+                        <xsd:annotation>
+                            <xsd:documentation>This indicator is a Y-N flag which indicates whether an error should be returned if no products are available that day (N) or if the next business day should be evaluated (Y).  Default is N if not included.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Ship" type="s1:docTypeRef_ShipType2"/>
+                    <xsd:element name="Packages" type="s1:docTypeRef_PackagesType2"/>
+                    <xsd:element name="ShipTimestamp" type="s1:ShipTimestamp2">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the date and time the package is tendered. Both the date and time portions of the
+                                string are expected to be used. The date should
+                                not be a past date or a date more than 10 days
+                                in the future. The time is the local time of the
+                                shipment based on the shipper's time zone. The
+                                date component must be in the format:
+                                YYYY-MM-DD; the time component must be in the
+                                format: HH:MM:SS using a 24 hour clock. The date
+                                and time parts are separated by the letter T
+                                (e.g. 2006-06-26T17:00:00 GMT+01:00).</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="UnitOfMeasurement" type="s1:UnitOfMeasurement2">
+                        <xsd:annotation>
+                            <xsd:documentation>SI=the preferred system of weights and measures
+                                for Italian trade and commerce; SU=the preferred
+                                system of weights and measures for U.S. trade
+                                and commerce; Weight unit: if Type is SI it can
+                                be KG (kilograms), if Type is SU it can be LB
+                                (pounds). Dimention unit: if Type is SI it can
+                                be CM, if Type is SU it can be IN (inch)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="Content" type="s1:Content2"/>
+                    <xsd:element minOccurs="0" name="DeclaredValue">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:decimal">
+                                <xsd:totalDigits value="18"/>
+                                <xsd:fractionDigits value="3"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="DeclaredValueCurrencyCode">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="3"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PaymentInfo" type="s1:PaymentInfo2"/>
+                    <xsd:element minOccurs="0" name="Account" type="s1:Account2"/>
+                    <xsd:element minOccurs="0" name="Billing" type="s1:Billing2"/>
+                    <xsd:element minOccurs="0" name="SpecialServices" type="s1:Services2"/>
+                    <xsd:element default="N" minOccurs="0" name="RequestValueAddedServices">
+                        <xsd:annotation>
+                            <xsd:documentation>If the value is "Y" all the additional services available for the product selected will be returned. The default value is "N"</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:minLength value="1"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="DropOffType2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="REGULAR_PICKUP"/>
+                    <xsd:enumeration value="REQUEST_COURIER"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NextBusinessDay2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="Y"/>
+                    <xsd:enumeration value="N"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_ShipType2">
+                <xsd:all>
+                    <xsd:element name="Shipper" type="s1:docTypeRef_AddressType2">
+                        <xsd:annotation>
+                            <xsd:documentation>Shipper address.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Recipient" type="s1:docTypeRef_AddressType2">
+                        <xsd:annotation>
+                            <xsd:documentation>Recipeint address.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_AddressType2">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="StreetLines" type="s1:StreetLines4">
+                        <xsd:annotation>
+                            <xsd:documentation>The shipper/recipient's street address.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="StreetLines2" type="s1:StreetLines22">
+                        <xsd:annotation>
+                            <xsd:documentation>Additional shipper/recipient address
+                                information, preferably room or floor.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="StreetLines3" type="s1:StreetLines32">
+                        <xsd:annotation>
+                            <xsd:documentation>Additional shipper address
+                                information, preferably department name.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="StreetName" type="s1:StreetName2">
+                        <xsd:annotation>
+                            <xsd:documentation>The shipper/recipient's street name.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="StreetNumber" type="s1:StreetNumber2">
+                        <xsd:annotation>
+                            <xsd:documentation>The shipper/recipient's street number.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="City" type="s1:City2"/>
+                    <xsd:element minOccurs="0" name="StateOrProvinceCode" type="xsd:token"/>
+                    <xsd:element name="PostalCode" type="s1:PostalCode2"/>
+                    <xsd:element name="CountryCode">
+                        <xsd:simpleType>
+                            <xsd:restriction base="s1:CountryCode2">
+                                <xsd:minLength value="2"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="StreetLines4">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetLines22">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetLines32">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetName2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="StreetNumber2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="15"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="City2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="45"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PostalCode2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="0"/>
+                    <xsd:maxLength value="12"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CountryCode2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:maxLength value="2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_PackagesType2">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="RequestedPackages" type="s1:docTypeRef_RequestedPackagesType2"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_RequestedPackagesType2">
+                <xsd:sequence maxOccurs="99">
+                    <xsd:element name="Weight" type="s1:docTypeRef_WeightType"/>
+                    <xsd:element name="Dimensions" type="s1:docTypeRef_DimensionsType2"/>
+                </xsd:sequence>
+                <xsd:attribute name="number" type="s1:_x0040_number3"/>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_number3">
+                <xsd:restriction base="xsd:int">
+                    <xsd:minInclusive value="1"/>
+                    <xsd:maxInclusive value="99"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_WeightType">
+                <xsd:sequence>
+                    <xsd:element name="Value" type="s1:Value"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="Value">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="12"/>
+                    <xsd:fractionDigits value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_DimensionsType2">
+                <xsd:sequence>
+                    <xsd:element name="Length" type="s1:Length2"/>
+                    <xsd:element name="Width" type="s1:Width2"/>
+                    <xsd:element name="Height" type="s1:Height2"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="Length2">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Width2">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Height2">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="7"/>
+                    <xsd:fractionDigits value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ShipTimestamp2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:maxLength value="29"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="UnitOfMeasurement2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="SI"/>
+                    <xsd:enumeration value="SU"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Content2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="DOCUMENTS"/>
+                    <xsd:enumeration value="NON_DOCUMENTS"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PaymentInfo2">
+                <xsd:annotation>
+                    <xsd:documentation>CFR = Cost And Freight
+                        CIF = Cost, Insurance And Freight
+                        CIP = Carriage And Insurance Paid To
+                        CPT = Carriage Paid To
+                        DAF = Delivered At Frontier
+                        DDP = Delivered Duty Paid
+                        DDU = Delivered Duty Unpaid
+                        DAP = Delivered At Place (formerly DDU)
+                        DEQ = Delivered Ex Quay (Duty Paid)
+                        DES = Delivered Ex Ship
+                        EXW = Ex Works
+                        FAS = Free Alongside Ship
+                        FCA = Free Carrier
+                        FOB = Free On Board</xsd:documentation>
+                </xsd:annotation>
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="CFR"/>
+                    <xsd:enumeration value="CIF"/>
+                    <xsd:enumeration value="CIP"/>
+                    <xsd:enumeration value="CPT"/>
+                    <xsd:enumeration value="DAF"/>
+                    <xsd:enumeration value="DDP"/>
+                    <xsd:enumeration value="DDU"/>
+                    <xsd:enumeration value="DAP"/>
+                    <xsd:enumeration value="DEQ"/>
+                    <xsd:enumeration value="DES"/>
+                    <xsd:enumeration value="EXW"/>
+                    <xsd:enumeration value="FAS"/>
+                    <xsd:enumeration value="FCA"/>
+                    <xsd:enumeration value="FOB"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Account2">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="preserve"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="12"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Billing2">
+                <xsd:sequence>
+                    <xsd:element name="ShipperAccountNumber" type="s1:Account2"/>
+                    <xsd:element name="ShippingPaymentType" type="s1:ShipmentPaymentType2"/>
+                    <xsd:element minOccurs="0" name="BillingAccountNumber" type="s1:Account2"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="ShipmentPaymentType2">
+                <xsd:annotation>
+                    <xsd:documentation>S=Bill-To Shipper, R=Bill-To Receiver, T=Bill-To Third Party</xsd:documentation>
+                </xsd:annotation>
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="S"/>
+                    <xsd:enumeration value="R"/>
+                    <xsd:enumeration value="T"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Services2">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="Service" type="s1:Service2"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Service2">
+                <xsd:sequence>
+                    <xsd:element name="ServiceType" type="s1:ServiceType2"/>
+                    <xsd:element minOccurs="0" name="ServiceValue" type="s1:Money2"/>
+                    <xsd:element minOccurs="0" name="CurrencyCode" type="s1:CurrencyCode2"/>
+                    <xsd:element minOccurs="0" name="PaymentCode" type="s1:PaymentCode2"/>
+                    <xsd:element minOccurs="0" name="StartDate" type="xsd:date"/>
+                    <xsd:element minOccurs="0" name="EndDate" type="xsd:date"/>
+                    <xsd:element minOccurs="0" name="TextInstruction" type="s1:TextType2"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="ServiceType2">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Money2">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="12"/>
+                    <xsd:fractionDigits value="2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CurrencyCode2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PaymentCode2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="3"/>
+                    <xsd:maxLength value="3"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TextType2">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:maxLength value="50"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse">
+            <xsd:element name="DeleteResponse" type="s5:docTypeRef_DeleteResponseType"/>
+            <xsd:complexType name="docTypeRef_DeleteResponseType">
+                <xsd:sequence>
+                    <xsd:element name="Notification" type="s5:docTypeRef_NotificationType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_NotificationType">
+                <xsd:sequence>
+                    <xsd:element name="Message">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:whiteSpace value="collapse"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="code" type="s5:_x0040_code">
+                    <xsd:annotation>
+                        <xsd:documentation>Notification code: valid values are 0=SUCCESS, 1=ERROR.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_code">
+                <xsd:restriction base="xsd:nonNegativeInteger">
+                    <xsd:totalDigits value="6"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest">
+            <xsd:element name="DeleteRequest" type="s4:docTypeRef_DeleteRequestType"/>
+            <xsd:complexType name="docTypeRef_DeleteRequestType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="ClientDetail" type="s4:docTypeRef_ClientDetailType"/>
+                    <xsd:element name="PickupDate" type="xsd:date"/>
+                    <xsd:element name="PickupCountry" type="s4:CountryCode"/>
+                    <xsd:element name="DispatchConfirmationNumber" type="s4:ConfirmationNumberType"/>
+                    <xsd:element name="RequestorName" type="s4:PersonName3"/>
+                    <xsd:element minOccurs="0" name="Reason" type="s4:CustomerReferences"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ClientDetailType">
+                <xsd:all>
+                    <xsd:element minOccurs="0" name="sso">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:whiteSpace value="collapse"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="plant">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:whiteSpace value="collapse"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="ShipmentIdentificationNumber">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="preserve"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="10"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CountryCode">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="2"/>
+                    <xsd:maxLength value="2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ConfirmationNumberType">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="PersonName3">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="45"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="CustomerReferences">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="50"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse">
+            <xsd:element name="RateResponse" type="s2:docTypeRef_RateResponseType"/>
+            <xsd:complexType name="docTypeRef_RateResponseType">
+                <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Provider" type="s2:docTypeRef_ProviderType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ProviderType">
+                <xsd:sequence maxOccurs="unbounded">
+                    <xsd:element name="Notification" type="s2:docTypeRef_NotificationType3"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Service" type="s2:docTypeRef_ServiceType"/>
+                </xsd:sequence>
+                <xsd:attribute name="code" type="s2:_x0040_code3"/>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_code3">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_NotificationType3">
+                <xsd:sequence>
+                    <xsd:element name="Message" type="s2:Message2"/>
+                </xsd:sequence>
+                <xsd:attribute name="code" type="s2:_x0040_code4">
+                    <xsd:annotation>
+                        <xsd:documentation>Notification code: valid values are 0=SUCCESS, other value=ERROR</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_code4">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Message2">
+                <xsd:restriction base="xsd:string">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_ServiceType">
+                <xsd:all>
+                    <xsd:element name="TotalNet" type="s2:docTypeRef_TotalNetType"/>
+                    <xsd:element minOccurs="0" name="Charges" type="s2:docTypeRef_ChargesType"/>
+                    <xsd:element minOccurs="0" name="DeliveryTime" type="xsd:dateTime">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the date and time the package is
+                                tendered. Both the date and time portions of the
+                                string are expected to be used. The date should
+                                not be a past date or a date more than 10 days
+                                in the future. The time is the local time of the
+                                shipment based on the shipper's time zone. The
+                                date component must be in the format:
+                                YYYY-MM-DD; the time component must be in the
+                                format: HH:MM:SS using a 24 hour clock. The date
+                                and time parts are separated by the letter T
+                                (e.g. 2006-06-26T17:00:00).</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="CutoffTime" type="xsd:dateTime">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the cutoff date and time the package needs to be tendered to the shipper, in order to meet the estimated delivery time.The time is the local time of the shipment based on the shipper's time zone. The date component must be in the format:YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00).</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="NextBusinessDayInd" type="s2:NextBusinessDayInd2">
+                        <xsd:annotation>
+                            <xsd:documentation>This indicator demonstrates whether the pickup date is the next business day (Y) or the requested business day (N).  If the requested ship date is beyond the cutoff for that business day (or it is requested on weekend), the indicator will be set to Y.  If it is on the same business day as requested, the value is set to N.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:all>
+                <xsd:attribute name="type" type="s2:_x0040_type">
+                    <xsd:annotation>
+                        <xsd:documentation>The service type provided from the currier.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="account" type="s2:_x0040_account">
+                    <xsd:annotation>
+                        <xsd:documentation>The rate type of the charges for this package. Possible returned rate types are:
+                            PAYOR_ACCOUNT, RATED_ACCOUNT.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_type">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="_x0040_account">
+                <xsd:restriction base="xsd:token">
+                    <xsd:minLength value="1"/>
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="PAYOR_ACCOUNT"/>
+                    <xsd:enumeration value="RATED_ACCOUNT"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_TotalNetType">
+                <xsd:sequence>
+                    <xsd:element name="Currency" type="xsd:token">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the currency of the rate</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Amount" type="xsd:token">
+                        <xsd:annotation>
+                            <xsd:documentation>Identifies the rate price.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ChargesType">
+                <xsd:sequence>
+                    <xsd:element name="Currency" type="xsd:token"/>
+                    <xsd:element maxOccurs="unbounded" name="Charge" type="s2:docTypeRef_ChargeType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_ChargeType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ChargeCode">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="ChargeType" type="xsd:token"/>
+                    <xsd:element name="ChargeAmount" type="xsd:token"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="NextBusinessDayInd2">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:enumeration value="Y"/>
+                    <xsd:enumeration value="N"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse">
+            <xsd:element name="ShipmentResponse" type="s3:docTypeRef_ShipmentDetailType"/>
+            <xsd:complexType name="docTypeRef_ShipmentDetailType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="Notification" type="s3:docTypeRef_NotificationType2"/>
+                    <xsd:element minOccurs="0" name="PackagesResult" type="s3:docTypeRef_PackagesResultsType"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="LabelImage" type="s3:docTypeRef_LabelImageType"/>
+                    <xsd:element minOccurs="0" name="ShipmentIdentificationNumber" type="s3:ShipmentIdentificationNumber3"/>
+                    <xsd:element minOccurs="0" name="DispatchConfirmationNumber" type="xsd:token"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_NotificationType2">
+                <xsd:sequence>
+                    <xsd:element name="Message" type="s3:Message"/>
+                </xsd:sequence>
+                <xsd:attribute name="code" type="s3:_x0040_code2"/>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_code2">
+                <xsd:restriction base="xsd:nonNegativeInteger">
+                    <xsd:totalDigits value="6"/>
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Message">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_PackagesResultsType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="PackageResult" type="s3:docTypeRef_PackageResultType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docTypeRef_PackageResultType">
+                <xsd:all>
+                    <xsd:element name="TrackingNumber" type="s3:TrackingNumber"/>
+                </xsd:all>
+                <xsd:attribute name="number" type="s3:_x0040_number2"/>
+            </xsd:complexType>
+            <xsd:simpleType name="_x0040_number2">
+                <xsd:restriction base="xsd:int">
+                    <xsd:minInclusive value="1"/>
+                    <xsd:maxInclusive value="99"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TrackingNumber">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="1"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="docTypeRef_LabelImageType">
+                <xsd:all>
+                    <xsd:element name="LabelImageFormat" type="s3:LabelImageFormat"/>
+                    <xsd:element name="GraphicImage" type="xsd:base64Binary"/>
+                    <xsd:element minOccurs="0" name="HTMLImage" type="xsd:base64Binary"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:simpleType name="LabelImageFormat">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:maxLength value="3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ShipmentIdentificationNumber3">
+                <xsd:restriction base="xsd:token">
+                    <xsd:whiteSpace value="collapse"/>
+                    <xsd:minLength value="10"/>
+                    <xsd:maxLength value="35"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/providerServices/ShipmentHandlingServices">
+            <!--xmlns:ship=&quot;http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentHandlingSchema&quot;-->
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest"/>
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse"/>
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse"/>
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest"/>
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest"/>
+            <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="createShipmentRequestIn">
+        <wsdl:part element="tns:ShipmentRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="createShipmentRequestOut">
+        <wsdl:part element="s3:ShipmentResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getRateRequestIn">
+        <wsdl:part element="s1:RateRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getRateRequestOut">
+        <wsdl:part element="s2:RateResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteShipmentRequestIn">
+        <wsdl:part element="s4:DeleteRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteShipmentRequestOut">
+        <wsdl:part element="s5:DeleteResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="gblExpressRateBook">
+        <wsdl:operation name="createShipmentRequest">
+            <wsdl:input message="tns:createShipmentRequestIn"/>
+            <wsdl:output message="tns:createShipmentRequestOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRateRequest">
+            <wsdl:input message="tns:getRateRequestIn"/>
+            <wsdl:output message="tns:getRateRequestOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteShipmentRequest">
+            <wsdl:input message="tns:deleteShipmentRequestIn"/>
+            <wsdl:output message="tns:deleteShipmentRequestOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="gblExpressRateBook" type="tns:gblExpressRateBook">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createShipmentRequest">
+            <soap:operation soapAction="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_createShipmentRequest" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRateRequest">
+            <soap:operation soapAction="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_getRateRequest" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteShipmentRequest">
+            <soap:operation soapAction="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_deleteShipmentRequest" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="gblExpressRateBook">
+        <wsdl:port binding="tns:gblExpressRateBook" name="gblExpressRateBook">
+            <soap:address location="https://wsbexpress.dhl.com/sndpt/expressRateBook"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
