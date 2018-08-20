@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api\Data;
 
 use Dhl\Express\Api\Data\Request\Tracking\MessageInterface;
@@ -46,4 +47,11 @@ interface TrackingRequestInterface
      * @return string
      */
     public function getPiecesEnabled(): string;
+
+    /**
+     * Should the response return the estimated delivery date, if available
+     *
+     * @return bool
+     */
+    public function isEstimatedDeliveryDateRequested(): bool;
 }

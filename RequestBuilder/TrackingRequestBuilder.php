@@ -38,7 +38,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
     {
         $this->data['message'] = [
             'time' => $time,
-            'reference' => $reference
+            'reference' => $reference,
         ];
 
         return $this;
@@ -96,6 +96,13 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
+    public function setEstimatedDeliveryDateRequested(bool $eddRequested): TrackingRequestBuilderInterface
+    {
+        $this->data['estimated_delivery_date'] = $eddRequested;
+
+        return $this;
+    }
+
     /**
      * Builds the tracking request instance.
      *
@@ -103,6 +110,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      */
     public function build(): TrackingRequestInterface
     {
+        $eddEnabled = isset($this->data['estimated_delivery_date']) ? $this->data['estimated_delivery_date'] : false;
         $request = new TrackingRequest(
             new Message(
                 $this->data['message']['time'],
@@ -110,7 +118,8 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
             ),
             $this->data['awb_numbers'],
             $this->data['level_of_details'],
-            $this->data['pieces_enabled']
+            $this->data['pieces_enabled'],
+            $eddEnabled
         );
 
         $this->data = [];

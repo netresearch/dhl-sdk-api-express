@@ -25,24 +25,60 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @var string
      */
+    private $originDescription;
+
+    /**
+     * @var string
+     */
     private $consigneeName;
 
     /**
-     * @var int
+     * @var string
+     */
+    private $destinationDescription;
+
+    /**
+     * @var string
      */
     private $shipmentDate;
 
     /**
-     * ShipmentDetails constructor.
-     * @param string $shipperName
-     * @param string $consigneeName
-     * @param int $shipmentDate
+     * @var float
      */
-    public function __construct(string $shipperName, string $consigneeName, int $shipmentDate)
-    {
+    private $weight;
+
+    /**
+     * @var string
+     */
+    private $estimatedDeliveryDate;
+
+    /**
+     * ShipmentDetails constructor.
+     *
+     * @param string $shipperName
+     * @param string $originDescription
+     * @param string $consigneeName
+     * @param string $destinationDescription
+     * @param int $shipmentDate
+     * @param float $weight
+     * @param string $estimatedDeliveryDate
+     */
+    public function __construct(
+        string $shipperName,
+        string $originDescription,
+        string $consigneeName,
+        string $destinationDescription,
+        string $shipmentDate,
+        float $weight,
+        string $estimatedDeliveryDate = null
+    ) {
         $this->shipperName = $shipperName;
+        $this->originDescription = $originDescription;
         $this->consigneeName = $consigneeName;
+        $this->destinationDescription = $destinationDescription;
         $this->shipmentDate = $shipmentDate;
+        $this->weight = $weight;
+        $this->estimatedDeliveryDate = $estimatedDeliveryDate;
     }
 
     /**
@@ -68,10 +104,42 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * Returns the shipment's date
      *
-     * @return int
+     * @return string
      */
-    public function getShipmentDate(): int
+    public function getShipmentDate(): string
     {
         return $this->shipmentDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOriginDescription(): string
+    {
+        return $this->originDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDestinationDescription(): string
+    {
+        return $this->destinationDescription;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeight(): float
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEstimatedDeliveryDate(): string
+    {
+        return $this->estimatedDeliveryDate;
     }
 }

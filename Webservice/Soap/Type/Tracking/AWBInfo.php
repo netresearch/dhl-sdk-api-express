@@ -85,18 +85,18 @@ class AWBInfo
     }
 
     /**
-     * @return ShipmentInfo
+     * @return ShipmentInfo|null
      */
-    public function getShipmentInfo(): ShipmentInfo
+    public function getShipmentInfo(): ?ShipmentInfo
     {
         return $this->ShipmentInfo;
     }
 
     /**
-     * @param ShipmentInfo $ShipmentInfo
+     * @param ShipmentInfo|null $ShipmentInfo
      * @return self
      */
-    public function setShipmentInfo(ShipmentInfo $ShipmentInfo): self
+    public function setShipmentInfo(?ShipmentInfo $ShipmentInfo): self
     {
         $this->ShipmentInfo = $ShipmentInfo;
 
@@ -104,18 +104,18 @@ class AWBInfo
     }
 
     /**
-     * @return TrackingPieces
+     * @return TrackingPieces|null
      */
-    public function getPieces(): TrackingPieces
+    public function getPieces(): ?TrackingPieces
     {
         return $this->Pieces;
     }
 
     /**
-     * @param TrackingPieces $Pieces
+     * @param TrackingPieces|null $Pieces
      * @return self
      */
-    public function setPieces(TrackingPieces $Pieces): self
+    public function setPieces(?TrackingPieces $Pieces): self
     {
         $this->Pieces = $Pieces;
 

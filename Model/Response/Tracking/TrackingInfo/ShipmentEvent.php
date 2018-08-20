@@ -20,16 +20,23 @@ class ShipmentEvent implements ShipmentEventInterface
     /**
      * Event date
      *
-     * @var int
+     * @var string
      */
     private $date;
 
     /**
-     * Event code
+     * Event time
      *
-     * @var $code
+     * @var string
      */
-    private $code;
+    private $time;
+
+    /**
+     * Event location description
+     *
+     * @var string
+     */
+    private $locationDescription;
 
     /**
      * Event description
@@ -40,14 +47,17 @@ class ShipmentEvent implements ShipmentEventInterface
 
     /**
      * ShipmentEvent constructor.
-     * @param int $date
-     * @param $code
+     *
+     * @param string $date
+     * @param string $time
+     * @param string $locationDescription
      * @param $description
      */
-    public function __construct(int $date, $code, $description)
+    public function __construct(string $date, string $time, string $locationDescription, $description)
     {
         $this->date = $date;
-        $this->code = $code;
+        $this->time = $time;
+        $this->locationDescription = $locationDescription;
         $this->description = $description;
     }
 
@@ -56,19 +66,19 @@ class ShipmentEvent implements ShipmentEventInterface
      *
      * @return int
      */
-    public function getDate(): int
+    public function getDate(): string
     {
         return $this->date;
     }
 
     /**
-     * Returns the event's code
+     * Returns the event's location description
      *
      * @return string
      */
-    public function getCode(): string
+    public function getLocationDescription(): string
     {
-        return $this->code;
+        return $this->locationDescription;
     }
 
     /**
@@ -79,5 +89,15 @@ class ShipmentEvent implements ShipmentEventInterface
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * Returns the event's time
+     *
+     * @return string
+     */
+    public function getTime(): string
+    {
+        return $this->time;
     }
 }

@@ -59,6 +59,14 @@ interface TrackingRequestBuilderInterface
     public function setPiecesEnabled(string $piecesEnabled): self;
 
     /**
+     * Sets if the estimated delivery date should be displayed in the response, if available
+     *
+     * @param bool $eddRequested
+     * @return TrackingRequestBuilderInterface
+     */
+    public function setEstimatedDeliveryDateRequested(bool $eddRequested): self;
+
+    /**
      * Builds the tracking request instance.
      *
      * @return TrackingRequestInterface

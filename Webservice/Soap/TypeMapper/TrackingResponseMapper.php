@@ -5,11 +5,13 @@
 
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\Model\Response\Tracking\Message;
 use Dhl\Express\Model\Response\Tracking\TrackingInfo;
 use Dhl\Express\Model\TrackingResponse;
 use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
+use Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEventCollection;
 
 /**
  * Tracking Response Mapper.
@@ -34,16 +36,27 @@ class TrackingResponseMapper
         $trackingInfos = [];
 
         foreach ($soapResponseContent->getAWBInfo()->getArrayOfAWBInfoItem() as $soapTrackingItem) {
+            $shipmentInfo = $soapTrackingItem->getShipmentInfo();
+            $shipmentDetails = new TrackingInfo\ShipmentDetails(
+                $shipmentInfo ? $shipmentInfo->getShipperName() : '',
+                $shipmentInfo->getOriginServiceArea()->getDescription(),
+                $shipmentInfo ? $shipmentInfo->getConsigneeName() : '',
+                $shipmentInfo->getDestinationServiceArea()->getDescription(),
+                $shipmentInfo ? $shipmentInfo->getShipmentDate()->format(DATE_ATOM) : '',
+                $shipmentInfo->getWeight() ?: 0,
+                $shipmentInfo->getEstimatedDeliveryDate() ? $shipmentInfo->getEstimatedDeliveryDate()->format(
+                    DATE_ATOM
+                ) : ''
+            );
+            $trackingPieces = $soapTrackingItem->getPieces();
             $trackingInfos[] = new TrackingInfo(
                 (int)$soapTrackingItem->getAWBNumber(),
                 $soapTrackingItem->getStatus()->getActionStatus(),
-                new TrackingInfo\ShipmentDetails(
-                    $soapTrackingItem->getShipmentInfo()->getShipperName(),
-                    $soapTrackingItem->getShipmentInfo()->getConsigneeName(),
-                    $soapTrackingItem->getShipmentInfo()->getShipmentDate()->getTimestamp()
-                ),
-                $soapTrackingItem->getShipmentInfo()->getShipmentEvent()->getArrayOfShipmentEventItem(),
-                $soapTrackingItem->getPieces()->getPieceInfo()->getArrayOfPieceInfoItem()
+                $shipmentDetails,
+                $shipmentInfo ? $this->convertTrackEventItems($shipmentInfo->getShipmentEvent()) : [],
+                $trackingPieces ? $trackingPieces
+                    ->getPieceInfo()
+                    ->getArrayOfPieceInfoItem() : []
             );
         }
 
@@ -54,5 +67,24 @@ class TrackingResponseMapper
             ),
             $trackingInfos
         );
+    }
+
+    /**
+     * @param ShipmentEventCollection $shipmentEvents
+     * @return ShipmentEventInterface
+     */
+    private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents): array
+    {
+        $events = [];
+        foreach ($shipmentEvents->getArrayOfShipmentEventItem() as $shipmentEvent) {
+            $events[] = new TrackingInfo\ShipmentEvent(
+                $shipmentEvent->getDate(),
+                $shipmentEvent->getTime(),
+                $shipmentEvent->getServiceArea()->getDescription(),
+                $shipmentEvent->getServiceEvent()->getDescription()
+            );
+        }
+
+        return $events;
     }
 }

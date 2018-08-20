@@ -315,9 +315,9 @@ class ShipmentInfo
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getEstimatedDeliveryDate(): \DateTime
+    public function getEstimatedDeliveryDate()
     {
         if ($this->EstimatedDeliveryDate === null) {
             return null;
@@ -331,7 +331,7 @@ class ShipmentInfo
     }
 
     /**
-     * @param \DateTime $EstimatedDeliveryDate
+     * @param \DateTime|null $EstimatedDeliveryDate
      * @return self
      */
     public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null): self

@@ -18,23 +18,43 @@ namespace Dhl\Express\Api\Data\Response\Tracking\TrackingInfo;
 interface ShipmentDetailsInterface
 {
     /**
-     * Returns the shipper's name.
+     * Returns the shipper's name
      *
      * @return string
      */
     public function getShipperName(): string;
 
     /**
-     * Returns the consignee's name.
+     * Returns the consignee's name
      *
      * @return string
      */
     public function getConsigneeName(): string;
 
     /**
-     * Returns the shipment's date.
+     * Returns the shipment's date
      *
-     * @return int
+     * @return string
      */
-    public function getShipmentDate(): int;
+    public function getShipmentDate(): string;
+
+    /**
+     * @return string
+     */
+    public function getOriginDescription(): string;
+
+    /**
+     * @return string
+     */
+    public function getDestinationDescription(): string;
+
+    /**
+     * @return float
+     */
+    public function getWeight(): float;
+
+    /**
+     * @return string
+     */
+    public function getEstimatedDeliveryDate(): string;
 }

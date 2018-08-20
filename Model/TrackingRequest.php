@@ -39,6 +39,11 @@ class TrackingRequest implements TrackingRequestInterface
     private $piecesEnabled;
 
     /**
+     * @var bool
+     */
+    private $estimatedDeliveryDate;
+
+    /**
      * TrackingRequest constructor.
      *
      * @param MessageInterface $message
@@ -50,12 +55,14 @@ class TrackingRequest implements TrackingRequestInterface
         MessageInterface $message,
         array $awbNumber,
         string $levelOfDetails,
-        string $piecesEnabled
+        string $piecesEnabled,
+        bool $estimatedDeliveryDate
     ) {
         $this->message = $message;
         $this->awbNumber = $awbNumber;
         $this->levelOfDetails = $levelOfDetails;
         $this->piecesEnabled = $piecesEnabled;
+        $this->estimatedDeliveryDate = $estimatedDeliveryDate;
     }
 
     public function getMessage(): MessageInterface
@@ -76,5 +83,13 @@ class TrackingRequest implements TrackingRequestInterface
     public function getPiecesEnabled(): string
     {
         return $this->piecesEnabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEstimatedDeliveryDateRequested(): bool
+    {
+        return $this->estimatedDeliveryDate;
     }
 }

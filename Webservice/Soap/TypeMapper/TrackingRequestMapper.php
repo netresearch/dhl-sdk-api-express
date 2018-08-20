@@ -57,6 +57,10 @@ class TrackingRequestMapper
             $trackingRequest->getPiecesEnabled()
         );
 
+        $soapTrackingRequest->getTrackingRequest()->getTrackingRequest()->setEstimatedDeliveryDateEnabled(
+            $trackingRequest->isEstimatedDeliveryDateRequested()
+        );
+
         return $soapTrackingRequest;
     }
 }
