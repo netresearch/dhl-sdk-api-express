@@ -21,8 +21,8 @@ class Entry
      */
     public function __construct($Key, $Value)
     {
-      $this->Key = $Key;
-      $this->Value = $Value;
+        $this->Key = $Key;
+        $this->Value = $Value;
     }
 
     /**
@@ -30,7 +30,7 @@ class Entry
      */
     public function getKey()
     {
-      return $this->Key;
+        return $this->Key;
     }
 
     /**
@@ -39,8 +39,8 @@ class Entry
      */
     public function setKey($Key)
     {
-      $this->Key = $Key;
-      return $this;
+        $this->Key = $Key;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class Entry
      */
     public function getValue()
     {
-      return $this->Value;
+        return $this->Value;
     }
 
     /**
@@ -57,8 +57,7 @@ class Entry
      */
     public function setValue($Value)
     {
-      $this->Value = $Value;
-      return $this;
+        $this->Value = $Value;
+        return $this;
     }
-
 }

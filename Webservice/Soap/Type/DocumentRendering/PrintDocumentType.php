@@ -27,9 +27,9 @@ class PrintDocumentType
      */
     public function __construct($OutputFormat, $FileAttach, $PrintCommand)
     {
-      $this->OutputFormat = $OutputFormat;
-      $this->FileAttach = $FileAttach;
-      $this->PrintCommand = $PrintCommand;
+        $this->OutputFormat = $OutputFormat;
+        $this->FileAttach = $FileAttach;
+        $this->PrintCommand = $PrintCommand;
     }
 
     /**
@@ -37,7 +37,7 @@ class PrintDocumentType
      */
     public function getOutputFormat()
     {
-      return $this->OutputFormat;
+        return $this->OutputFormat;
     }
 
     /**
@@ -46,8 +46,8 @@ class PrintDocumentType
      */
     public function setOutputFormat($OutputFormat)
     {
-      $this->OutputFormat = $OutputFormat;
-      return $this;
+        $this->OutputFormat = $OutputFormat;
+        return $this;
     }
 
     /**
@@ -55,7 +55,7 @@ class PrintDocumentType
      */
     public function getFileAttach()
     {
-      return $this->FileAttach;
+        return $this->FileAttach;
     }
 
     /**
@@ -64,8 +64,8 @@ class PrintDocumentType
      */
     public function setFileAttach($FileAttach)
     {
-      $this->FileAttach = $FileAttach;
-      return $this;
+        $this->FileAttach = $FileAttach;
+        return $this;
     }
 
     /**
@@ -73,7 +73,7 @@ class PrintDocumentType
      */
     public function getPrintCommand()
     {
-      return $this->PrintCommand;
+        return $this->PrintCommand;
     }
 
     /**
@@ -82,8 +82,7 @@ class PrintDocumentType
      */
     public function setPrintCommand($PrintCommand)
     {
-      $this->PrintCommand = $PrintCommand;
-      return $this;
+        $this->PrintCommand = $PrintCommand;
+        return $this;
     }
-
 }

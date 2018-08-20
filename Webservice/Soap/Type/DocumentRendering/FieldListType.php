@@ -21,8 +21,8 @@ class FieldListType
      */
     public function __construct(array $Map, $Name)
     {
-      $this->Map = $Map;
-      $this->Name = $Name;
+        $this->Map = $Map;
+        $this->Name = $Name;
     }
 
     /**
@@ -30,7 +30,7 @@ class FieldListType
      */
     public function getMap()
     {
-      return $this->Map;
+        return $this->Map;
     }
 
     /**
@@ -39,8 +39,8 @@ class FieldListType
      */
     public function setMap(array $Map)
     {
-      $this->Map = $Map;
-      return $this;
+        $this->Map = $Map;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class FieldListType
      */
     public function getName()
     {
-      return $this->Name;
+        return $this->Name;
     }
 
     /**
@@ -57,8 +57,7 @@ class FieldListType
      */
     public function setName($Name)
     {
-      $this->Name = $Name;
-      return $this;
+        $this->Name = $Name;
+        return $this;
     }
-
 }

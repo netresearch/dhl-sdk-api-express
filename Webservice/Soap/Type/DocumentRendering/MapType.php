@@ -15,7 +15,7 @@ class MapType
      */
     public function __construct(array $Entry)
     {
-      $this->Entry = $Entry;
+        $this->Entry = $Entry;
     }
 
     /**
@@ -23,7 +23,7 @@ class MapType
      */
     public function getEntry()
     {
-      return $this->Entry;
+        return $this->Entry;
     }
 
     /**
@@ -32,8 +32,7 @@ class MapType
      */
     public function setEntry(array $Entry)
     {
-      $this->Entry = $Entry;
-      return $this;
+        $this->Entry = $Entry;
+        return $this;
     }
-
 }

@@ -18,7 +18,6 @@ class DataType
     
     public function __construct()
     {
-    
     }
 
     /**
@@ -26,7 +25,7 @@ class DataType
      */
     public function getField()
     {
-      return $this->Field;
+        return $this->Field;
     }
 
     /**
@@ -35,8 +34,8 @@ class DataType
      */
     public function setField(array $Field = null)
     {
-      $this->Field = $Field;
-      return $this;
+        $this->Field = $Field;
+        return $this;
     }
 
     /**
@@ -44,7 +43,7 @@ class DataType
      */
     public function getFieldList()
     {
-      return $this->FieldList;
+        return $this->FieldList;
     }
 
     /**
@@ -53,8 +52,7 @@ class DataType
      */
     public function setFieldList(array $FieldList = null)
     {
-      $this->FieldList = $FieldList;
-      return $this;
+        $this->FieldList = $FieldList;
+        return $this;
     }
-
 }

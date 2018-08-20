@@ -21,8 +21,8 @@ class TAddr
      */
     public function __construct($TAddr, $TAddrTy)
     {
-      $this->TAddr = $TAddr;
-      $this->TAddrTy = $TAddrTy;
+        $this->TAddr = $TAddr;
+        $this->TAddrTy = $TAddrTy;
     }
 
     /**
@@ -30,7 +30,7 @@ class TAddr
      */
     public function getTAddr()
     {
-      return $this->TAddr;
+        return $this->TAddr;
     }
 
     /**
@@ -39,8 +39,8 @@ class TAddr
      */
     public function setTAddr($TAddr)
     {
-      $this->TAddr = $TAddr;
-      return $this;
+        $this->TAddr = $TAddr;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class TAddr
      */
     public function getTAddrTy()
     {
-      return $this->TAddrTy;
+        return $this->TAddrTy;
     }
 
     /**
@@ -57,8 +57,7 @@ class TAddr
      */
     public function setTAddrTy($TAddrTy)
     {
-      $this->TAddrTy = $TAddrTy;
-      return $this;
+        $this->TAddrTy = $TAddrTy;
+        return $this;
     }
-
 }

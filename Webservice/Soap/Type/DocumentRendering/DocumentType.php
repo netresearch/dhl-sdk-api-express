@@ -117,24 +117,24 @@ class DocumentType
      */
     public function __construct(array $Template, $OutputFormat, $FormDataType, $PageNo, $Height, $Width, $MarginLeft, $MarginTop, $MarginBottom, $MarginRight, $PreloadPro, $PreloadEpli, $PrintPro, $PrintEpli, $PrintPgPro, $PrintPgEpli, $ResolutionX, $ResolutionY)
     {
-      $this->Template = $Template;
-      $this->OutputFormat = $OutputFormat;
-      $this->FormDataType = $FormDataType;
-      $this->PageNo = $PageNo;
-      $this->Height = $Height;
-      $this->Width = $Width;
-      $this->MarginLeft = $MarginLeft;
-      $this->MarginTop = $MarginTop;
-      $this->MarginBottom = $MarginBottom;
-      $this->MarginRight = $MarginRight;
-      $this->PreloadPro = $PreloadPro;
-      $this->PreloadEpli = $PreloadEpli;
-      $this->PrintPro = $PrintPro;
-      $this->PrintEpli = $PrintEpli;
-      $this->PrintPgPro = $PrintPgPro;
-      $this->PrintPgEpli = $PrintPgEpli;
-      $this->ResolutionX = $ResolutionX;
-      $this->ResolutionY = $ResolutionY;
+        $this->Template = $Template;
+        $this->OutputFormat = $OutputFormat;
+        $this->FormDataType = $FormDataType;
+        $this->PageNo = $PageNo;
+        $this->Height = $Height;
+        $this->Width = $Width;
+        $this->MarginLeft = $MarginLeft;
+        $this->MarginTop = $MarginTop;
+        $this->MarginBottom = $MarginBottom;
+        $this->MarginRight = $MarginRight;
+        $this->PreloadPro = $PreloadPro;
+        $this->PreloadEpli = $PreloadEpli;
+        $this->PrintPro = $PrintPro;
+        $this->PrintEpli = $PrintEpli;
+        $this->PrintPgPro = $PrintPgPro;
+        $this->PrintPgEpli = $PrintPgEpli;
+        $this->ResolutionX = $ResolutionX;
+        $this->ResolutionY = $ResolutionY;
     }
 
     /**
@@ -142,7 +142,7 @@ class DocumentType
      */
     public function getTemplate()
     {
-      return $this->Template;
+        return $this->Template;
     }
 
     /**
@@ -151,8 +151,8 @@ class DocumentType
      */
     public function setTemplate(array $Template)
     {
-      $this->Template = $Template;
-      return $this;
+        $this->Template = $Template;
+        return $this;
     }
 
     /**
@@ -160,7 +160,7 @@ class DocumentType
      */
     public function getOutputFormat()
     {
-      return $this->OutputFormat;
+        return $this->OutputFormat;
     }
 
     /**
@@ -169,8 +169,8 @@ class DocumentType
      */
     public function setOutputFormat($OutputFormat)
     {
-      $this->OutputFormat = $OutputFormat;
-      return $this;
+        $this->OutputFormat = $OutputFormat;
+        return $this;
     }
 
     /**
@@ -178,7 +178,7 @@ class DocumentType
      */
     public function getFormDataType()
     {
-      return $this->FormDataType;
+        return $this->FormDataType;
     }
 
     /**
@@ -187,8 +187,8 @@ class DocumentType
      */
     public function setFormDataType($FormDataType)
     {
-      $this->FormDataType = $FormDataType;
-      return $this;
+        $this->FormDataType = $FormDataType;
+        return $this;
     }
 
     /**
@@ -196,7 +196,7 @@ class DocumentType
      */
     public function getPageNo()
     {
-      return $this->PageNo;
+        return $this->PageNo;
     }
 
     /**
@@ -205,8 +205,8 @@ class DocumentType
      */
     public function setPageNo($PageNo)
     {
-      $this->PageNo = $PageNo;
-      return $this;
+        $this->PageNo = $PageNo;
+        return $this;
     }
 
     /**
@@ -214,7 +214,7 @@ class DocumentType
      */
     public function getHeight()
     {
-      return $this->Height;
+        return $this->Height;
     }
 
     /**
@@ -223,8 +223,8 @@ class DocumentType
      */
     public function setHeight($Height)
     {
-      $this->Height = $Height;
-      return $this;
+        $this->Height = $Height;
+        return $this;
     }
 
     /**
@@ -232,7 +232,7 @@ class DocumentType
      */
     public function getWidth()
     {
-      return $this->Width;
+        return $this->Width;
     }
 
     /**
@@ -241,8 +241,8 @@ class DocumentType
      */
     public function setWidth($Width)
     {
-      $this->Width = $Width;
-      return $this;
+        $this->Width = $Width;
+        return $this;
     }
 
     /**
@@ -250,7 +250,7 @@ class DocumentType
      */
     public function getMarginLeft()
     {
-      return $this->MarginLeft;
+        return $this->MarginLeft;
     }
 
     /**
@@ -259,8 +259,8 @@ class DocumentType
      */
     public function setMarginLeft($MarginLeft)
     {
-      $this->MarginLeft = $MarginLeft;
-      return $this;
+        $this->MarginLeft = $MarginLeft;
+        return $this;
     }
 
     /**
@@ -268,7 +268,7 @@ class DocumentType
      */
     public function getMarginTop()
     {
-      return $this->MarginTop;
+        return $this->MarginTop;
     }
 
     /**
@@ -277,8 +277,8 @@ class DocumentType
      */
     public function setMarginTop($MarginTop)
     {
-      $this->MarginTop = $MarginTop;
-      return $this;
+        $this->MarginTop = $MarginTop;
+        return $this;
     }
 
     /**
@@ -286,7 +286,7 @@ class DocumentType
      */
     public function getMarginBottom()
     {
-      return $this->MarginBottom;
+        return $this->MarginBottom;
     }
 
     /**
@@ -295,8 +295,8 @@ class DocumentType
      */
     public function setMarginBottom($MarginBottom)
     {
-      $this->MarginBottom = $MarginBottom;
-      return $this;
+        $this->MarginBottom = $MarginBottom;
+        return $this;
     }
 
     /**
@@ -304,7 +304,7 @@ class DocumentType
      */
     public function getMarginRight()
     {
-      return $this->MarginRight;
+        return $this->MarginRight;
     }
 
     /**
@@ -313,8 +313,8 @@ class DocumentType
      */
     public function setMarginRight($MarginRight)
     {
-      $this->MarginRight = $MarginRight;
-      return $this;
+        $this->MarginRight = $MarginRight;
+        return $this;
     }
 
     /**
@@ -322,7 +322,7 @@ class DocumentType
      */
     public function getPreloadPro()
     {
-      return $this->PreloadPro;
+        return $this->PreloadPro;
     }
 
     /**
@@ -331,8 +331,8 @@ class DocumentType
      */
     public function setPreloadPro($PreloadPro)
     {
-      $this->PreloadPro = $PreloadPro;
-      return $this;
+        $this->PreloadPro = $PreloadPro;
+        return $this;
     }
 
     /**
@@ -340,7 +340,7 @@ class DocumentType
      */
     public function getPreloadEpli()
     {
-      return $this->PreloadEpli;
+        return $this->PreloadEpli;
     }
 
     /**
@@ -349,8 +349,8 @@ class DocumentType
      */
     public function setPreloadEpli($PreloadEpli)
     {
-      $this->PreloadEpli = $PreloadEpli;
-      return $this;
+        $this->PreloadEpli = $PreloadEpli;
+        return $this;
     }
 
     /**
@@ -358,7 +358,7 @@ class DocumentType
      */
     public function getPrintPro()
     {
-      return $this->PrintPro;
+        return $this->PrintPro;
     }
 
     /**
@@ -367,8 +367,8 @@ class DocumentType
      */
     public function setPrintPro($PrintPro)
     {
-      $this->PrintPro = $PrintPro;
-      return $this;
+        $this->PrintPro = $PrintPro;
+        return $this;
     }
 
     /**
@@ -376,7 +376,7 @@ class DocumentType
      */
     public function getPrintEpli()
     {
-      return $this->PrintEpli;
+        return $this->PrintEpli;
     }
 
     /**
@@ -385,8 +385,8 @@ class DocumentType
      */
     public function setPrintEpli($PrintEpli)
     {
-      $this->PrintEpli = $PrintEpli;
-      return $this;
+        $this->PrintEpli = $PrintEpli;
+        return $this;
     }
 
     /**
@@ -394,7 +394,7 @@ class DocumentType
      */
     public function getPrintPgPro()
     {
-      return $this->PrintPgPro;
+        return $this->PrintPgPro;
     }
 
     /**
@@ -403,8 +403,8 @@ class DocumentType
      */
     public function setPrintPgPro($PrintPgPro)
     {
-      $this->PrintPgPro = $PrintPgPro;
-      return $this;
+        $this->PrintPgPro = $PrintPgPro;
+        return $this;
     }
 
     /**
@@ -412,7 +412,7 @@ class DocumentType
      */
     public function getPrintPgEpli()
     {
-      return $this->PrintPgEpli;
+        return $this->PrintPgEpli;
     }
 
     /**
@@ -421,8 +421,8 @@ class DocumentType
      */
     public function setPrintPgEpli($PrintPgEpli)
     {
-      $this->PrintPgEpli = $PrintPgEpli;
-      return $this;
+        $this->PrintPgEpli = $PrintPgEpli;
+        return $this;
     }
 
     /**
@@ -430,7 +430,7 @@ class DocumentType
      */
     public function getResolutionX()
     {
-      return $this->ResolutionX;
+        return $this->ResolutionX;
     }
 
     /**
@@ -439,8 +439,8 @@ class DocumentType
      */
     public function setResolutionX($ResolutionX)
     {
-      $this->ResolutionX = $ResolutionX;
-      return $this;
+        $this->ResolutionX = $ResolutionX;
+        return $this;
     }
 
     /**
@@ -448,7 +448,7 @@ class DocumentType
      */
     public function getResolutionY()
     {
-      return $this->ResolutionY;
+        return $this->ResolutionY;
     }
 
     /**
@@ -457,8 +457,7 @@ class DocumentType
      */
     public function setResolutionY($ResolutionY)
     {
-      $this->ResolutionY = $ResolutionY;
-      return $this;
+        $this->ResolutionY = $ResolutionY;
+        return $this;
     }
-
 }

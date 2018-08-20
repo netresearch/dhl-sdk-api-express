@@ -21,8 +21,8 @@ class Message
      */
     public function __construct($Category, $Description)
     {
-      $this->Category = $Category;
-      $this->Description = $Description;
+        $this->Category = $Category;
+        $this->Description = $Description;
     }
 
     /**
@@ -30,7 +30,7 @@ class Message
      */
     public function getCategory()
     {
-      return $this->Category;
+        return $this->Category;
     }
 
     /**
@@ -39,8 +39,8 @@ class Message
      */
     public function setCategory($Category)
     {
-      $this->Category = $Category;
-      return $this;
+        $this->Category = $Category;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class Message
      */
     public function getDescription()
     {
-      return $this->Description;
+        return $this->Description;
     }
 
     /**
@@ -57,8 +57,7 @@ class Message
      */
     public function setDescription($Description)
     {
-      $this->Description = $Description;
-      return $this;
+        $this->Description = $Description;
+        return $this;
     }
-
 }

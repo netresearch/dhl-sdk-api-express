@@ -33,10 +33,10 @@ class GLSDocRequest
      */
     public function __construct($Hdr, $Command, $Data, $Document)
     {
-      $this->Hdr = $Hdr;
-      $this->Command = $Command;
-      $this->Data = $Data;
-      $this->Document = $Document;
+        $this->Hdr = $Hdr;
+        $this->Command = $Command;
+        $this->Data = $Data;
+        $this->Document = $Document;
     }
 
     /**
@@ -44,7 +44,7 @@ class GLSDocRequest
      */
     public function getHdr()
     {
-      return $this->Hdr;
+        return $this->Hdr;
     }
 
     /**
@@ -53,8 +53,8 @@ class GLSDocRequest
      */
     public function setHdr($Hdr)
     {
-      $this->Hdr = $Hdr;
-      return $this;
+        $this->Hdr = $Hdr;
+        return $this;
     }
 
     /**
@@ -62,7 +62,7 @@ class GLSDocRequest
      */
     public function getCommand()
     {
-      return $this->Command;
+        return $this->Command;
     }
 
     /**
@@ -71,8 +71,8 @@ class GLSDocRequest
      */
     public function setCommand($Command)
     {
-      $this->Command = $Command;
-      return $this;
+        $this->Command = $Command;
+        return $this;
     }
 
     /**
@@ -80,7 +80,7 @@ class GLSDocRequest
      */
     public function getData()
     {
-      return $this->Data;
+        return $this->Data;
     }
 
     /**
@@ -89,8 +89,8 @@ class GLSDocRequest
      */
     public function setData($Data)
     {
-      $this->Data = $Data;
-      return $this;
+        $this->Data = $Data;
+        return $this;
     }
 
     /**
@@ -98,7 +98,7 @@ class GLSDocRequest
      */
     public function getDocument()
     {
-      return $this->Document;
+        return $this->Document;
     }
 
     /**
@@ -107,8 +107,7 @@ class GLSDocRequest
      */
     public function setDocument($Document)
     {
-      $this->Document = $Document;
-      return $this;
+        $this->Document = $Document;
+        return $this;
     }
-
 }

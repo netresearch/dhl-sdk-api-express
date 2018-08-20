@@ -51,13 +51,13 @@ class GLSDocResponse
      */
     public function __construct($Hdr, $Command, $Message, $Data, $Document, $PrintDocument, $Status)
     {
-      $this->Hdr = $Hdr;
-      $this->Command = $Command;
-      $this->Message = $Message;
-      $this->Data = $Data;
-      $this->Document = $Document;
-      $this->PrintDocument = $PrintDocument;
-      $this->Status = $Status;
+        $this->Hdr = $Hdr;
+        $this->Command = $Command;
+        $this->Message = $Message;
+        $this->Data = $Data;
+        $this->Document = $Document;
+        $this->PrintDocument = $PrintDocument;
+        $this->Status = $Status;
     }
 
     /**
@@ -65,7 +65,7 @@ class GLSDocResponse
      */
     public function getHdr()
     {
-      return $this->Hdr;
+        return $this->Hdr;
     }
 
     /**
@@ -74,8 +74,8 @@ class GLSDocResponse
      */
     public function setHdr($Hdr)
     {
-      $this->Hdr = $Hdr;
-      return $this;
+        $this->Hdr = $Hdr;
+        return $this;
     }
 
     /**
@@ -83,7 +83,7 @@ class GLSDocResponse
      */
     public function getCommand()
     {
-      return $this->Command;
+        return $this->Command;
     }
 
     /**
@@ -92,8 +92,8 @@ class GLSDocResponse
      */
     public function setCommand($Command)
     {
-      $this->Command = $Command;
-      return $this;
+        $this->Command = $Command;
+        return $this;
     }
 
     /**
@@ -101,7 +101,7 @@ class GLSDocResponse
      */
     public function getMessage()
     {
-      return $this->Message;
+        return $this->Message;
     }
 
     /**
@@ -110,8 +110,8 @@ class GLSDocResponse
      */
     public function setMessage($Message)
     {
-      $this->Message = $Message;
-      return $this;
+        $this->Message = $Message;
+        return $this;
     }
 
     /**
@@ -119,7 +119,7 @@ class GLSDocResponse
      */
     public function getData()
     {
-      return $this->Data;
+        return $this->Data;
     }
 
     /**
@@ -128,8 +128,8 @@ class GLSDocResponse
      */
     public function setData($Data)
     {
-      $this->Data = $Data;
-      return $this;
+        $this->Data = $Data;
+        return $this;
     }
 
     /**
@@ -137,7 +137,7 @@ class GLSDocResponse
      */
     public function getDocument()
     {
-      return $this->Document;
+        return $this->Document;
     }
 
     /**
@@ -146,8 +146,8 @@ class GLSDocResponse
      */
     public function setDocument($Document)
     {
-      $this->Document = $Document;
-      return $this;
+        $this->Document = $Document;
+        return $this;
     }
 
     /**
@@ -155,7 +155,7 @@ class GLSDocResponse
      */
     public function getPrintDocument()
     {
-      return $this->PrintDocument;
+        return $this->PrintDocument;
     }
 
     /**
@@ -164,8 +164,8 @@ class GLSDocResponse
      */
     public function setPrintDocument($PrintDocument)
     {
-      $this->PrintDocument = $PrintDocument;
-      return $this;
+        $this->PrintDocument = $PrintDocument;
+        return $this;
     }
 
     /**
@@ -173,7 +173,7 @@ class GLSDocResponse
      */
     public function getStatus()
     {
-      return $this->Status;
+        return $this->Status;
     }
 
     /**
@@ -182,8 +182,7 @@ class GLSDocResponse
      */
     public function setStatus($Status)
     {
-      $this->Status = $Status;
-      return $this;
+        $this->Status = $Status;
+        return $this;
     }
-
 }

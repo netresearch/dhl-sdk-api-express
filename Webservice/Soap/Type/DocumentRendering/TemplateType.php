@@ -26,8 +26,8 @@ class TemplateType
      */
     public function __construct($Type, $TemplateId)
     {
-      $this->Type = $Type;
-      $this->TemplateId = $TemplateId;
+        $this->Type = $Type;
+        $this->TemplateId = $TemplateId;
     }
 
     /**
@@ -35,7 +35,7 @@ class TemplateType
      */
     public function getData()
     {
-      return $this->Data;
+        return $this->Data;
     }
 
     /**
@@ -44,8 +44,8 @@ class TemplateType
      */
     public function setData($Data)
     {
-      $this->Data = $Data;
-      return $this;
+        $this->Data = $Data;
+        return $this;
     }
 
     /**
@@ -53,7 +53,7 @@ class TemplateType
      */
     public function getType()
     {
-      return $this->Type;
+        return $this->Type;
     }
 
     /**
@@ -62,8 +62,8 @@ class TemplateType
      */
     public function setType($Type)
     {
-      $this->Type = $Type;
-      return $this;
+        $this->Type = $Type;
+        return $this;
     }
 
     /**
@@ -71,7 +71,7 @@ class TemplateType
      */
     public function getTemplateId()
     {
-      return $this->TemplateId;
+        return $this->TemplateId;
     }
 
     /**
@@ -80,8 +80,7 @@ class TemplateType
      */
     public function setTemplateId($TemplateId)
     {
-      $this->TemplateId = $TemplateId;
-      return $this;
+        $this->TemplateId = $TemplateId;
+        return $this;
     }
-
 }

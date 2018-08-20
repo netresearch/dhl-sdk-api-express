@@ -56,13 +56,13 @@ class HdrType
      */
     public function __construct($No, $Id, $Ver, $Dtm, $GmtOff, $Srv, $CorrId)
     {
-      $this->No = $No;
-      $this->Id = $Id;
-      $this->Ver = $Ver;
-      $this->Dtm = $Dtm;
-      $this->GmtOff = $GmtOff;
-      $this->Srv = $Srv;
-      $this->CorrId = $CorrId;
+        $this->No = $No;
+        $this->Id = $Id;
+        $this->Ver = $Ver;
+        $this->Dtm = $Dtm;
+        $this->GmtOff = $GmtOff;
+        $this->Srv = $Srv;
+        $this->CorrId = $CorrId;
     }
 
     /**
@@ -70,7 +70,7 @@ class HdrType
      */
     public function getSndr()
     {
-      return $this->Sndr;
+        return $this->Sndr;
     }
 
     /**
@@ -79,8 +79,8 @@ class HdrType
      */
     public function setSndr($Sndr)
     {
-      $this->Sndr = $Sndr;
-      return $this;
+        $this->Sndr = $Sndr;
+        return $this;
     }
 
     /**
@@ -88,7 +88,7 @@ class HdrType
      */
     public function getNo()
     {
-      return $this->No;
+        return $this->No;
     }
 
     /**
@@ -97,8 +97,8 @@ class HdrType
      */
     public function setNo($No)
     {
-      $this->No = $No;
-      return $this;
+        $this->No = $No;
+        return $this;
     }
 
     /**
@@ -106,7 +106,7 @@ class HdrType
      */
     public function getId()
     {
-      return $this->Id;
+        return $this->Id;
     }
 
     /**
@@ -115,8 +115,8 @@ class HdrType
      */
     public function setId($Id)
     {
-      $this->Id = $Id;
-      return $this;
+        $this->Id = $Id;
+        return $this;
     }
 
     /**
@@ -124,7 +124,7 @@ class HdrType
      */
     public function getVer()
     {
-      return $this->Ver;
+        return $this->Ver;
     }
 
     /**
@@ -133,8 +133,8 @@ class HdrType
      */
     public function setVer($Ver)
     {
-      $this->Ver = $Ver;
-      return $this;
+        $this->Ver = $Ver;
+        return $this;
     }
 
     /**
@@ -142,7 +142,7 @@ class HdrType
      */
     public function getDtm()
     {
-      return $this->Dtm;
+        return $this->Dtm;
     }
 
     /**
@@ -151,8 +151,8 @@ class HdrType
      */
     public function setDtm($Dtm)
     {
-      $this->Dtm = $Dtm;
-      return $this;
+        $this->Dtm = $Dtm;
+        return $this;
     }
 
     /**
@@ -160,7 +160,7 @@ class HdrType
      */
     public function getGmtOff()
     {
-      return $this->GmtOff;
+        return $this->GmtOff;
     }
 
     /**
@@ -169,8 +169,8 @@ class HdrType
      */
     public function setGmtOff($GmtOff)
     {
-      $this->GmtOff = $GmtOff;
-      return $this;
+        $this->GmtOff = $GmtOff;
+        return $this;
     }
 
     /**
@@ -178,7 +178,7 @@ class HdrType
      */
     public function getSrv()
     {
-      return $this->Srv;
+        return $this->Srv;
     }
 
     /**
@@ -187,8 +187,8 @@ class HdrType
      */
     public function setSrv($Srv)
     {
-      $this->Srv = $Srv;
-      return $this;
+        $this->Srv = $Srv;
+        return $this;
     }
 
     /**
@@ -196,7 +196,7 @@ class HdrType
      */
     public function getCorrId()
     {
-      return $this->CorrId;
+        return $this->CorrId;
     }
 
     /**
@@ -205,8 +205,7 @@ class HdrType
      */
     public function setCorrId($CorrId)
     {
-      $this->CorrId = $CorrId;
-      return $this;
+        $this->CorrId = $CorrId;
+        return $this;
     }
-
 }

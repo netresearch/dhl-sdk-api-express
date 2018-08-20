@@ -21,8 +21,8 @@ class FieldType
      */
     public function __construct($Name, $Value)
     {
-      $this->Name = $Name;
-      $this->Value = $Value;
+        $this->Name = $Name;
+        $this->Value = $Value;
     }
 
     /**
@@ -30,7 +30,7 @@ class FieldType
      */
     public function getName()
     {
-      return $this->Name;
+        return $this->Name;
     }
 
     /**
@@ -39,8 +39,8 @@ class FieldType
      */
     public function setName($Name)
     {
-      $this->Name = $Name;
-      return $this;
+        $this->Name = $Name;
+        return $this;
     }
 
     /**
@@ -48,7 +48,7 @@ class FieldType
      */
     public function getValue()
     {
-      return $this->Value;
+        return $this->Value;
     }
 
     /**
@@ -57,8 +57,7 @@ class FieldType
      */
     public function setValue($Value)
     {
-      $this->Value = $Value;
-      return $this;
+        $this->Value = $Value;
+        return $this;
     }
-
 }

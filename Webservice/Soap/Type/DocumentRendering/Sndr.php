@@ -39,11 +39,11 @@ class Sndr
      */
     public function __construct($TAddr, $AppCd, $AppVer, $PrcsId, $ThdId)
     {
-      $this->TAddr = $TAddr;
-      $this->AppCd = $AppCd;
-      $this->AppVer = $AppVer;
-      $this->PrcsId = $PrcsId;
-      $this->ThdId = $ThdId;
+        $this->TAddr = $TAddr;
+        $this->AppCd = $AppCd;
+        $this->AppVer = $AppVer;
+        $this->PrcsId = $PrcsId;
+        $this->ThdId = $ThdId;
     }
 
     /**
@@ -51,7 +51,7 @@ class Sndr
      */
     public function getTAddr()
     {
-      return $this->TAddr;
+        return $this->TAddr;
     }
 
     /**
@@ -60,8 +60,8 @@ class Sndr
      */
     public function setTAddr($TAddr)
     {
-      $this->TAddr = $TAddr;
-      return $this;
+        $this->TAddr = $TAddr;
+        return $this;
     }
 
     /**
@@ -69,7 +69,7 @@ class Sndr
      */
     public function getAppCd()
     {
-      return $this->AppCd;
+        return $this->AppCd;
     }
 
     /**
@@ -78,8 +78,8 @@ class Sndr
      */
     public function setAppCd($AppCd)
     {
-      $this->AppCd = $AppCd;
-      return $this;
+        $this->AppCd = $AppCd;
+        return $this;
     }
 
     /**
@@ -87,7 +87,7 @@ class Sndr
      */
     public function getAppVer()
     {
-      return $this->AppVer;
+        return $this->AppVer;
     }
 
     /**
@@ -96,8 +96,8 @@ class Sndr
      */
     public function setAppVer($AppVer)
     {
-      $this->AppVer = $AppVer;
-      return $this;
+        $this->AppVer = $AppVer;
+        return $this;
     }
 
     /**
@@ -105,7 +105,7 @@ class Sndr
      */
     public function getPrcsId()
     {
-      return $this->PrcsId;
+        return $this->PrcsId;
     }
 
     /**
@@ -114,8 +114,8 @@ class Sndr
      */
     public function setPrcsId($PrcsId)
     {
-      $this->PrcsId = $PrcsId;
-      return $this;
+        $this->PrcsId = $PrcsId;
+        return $this;
     }
 
     /**
@@ -123,7 +123,7 @@ class Sndr
      */
     public function getThdId()
     {
-      return $this->ThdId;
+        return $this->ThdId;
     }
 
     /**
@@ -132,8 +132,7 @@ class Sndr
      */
     public function setThdId($ThdId)
     {
-      $this->ThdId = $ThdId;
-      return $this;
+        $this->ThdId = $ThdId;
+        return $this;
     }
-
 }

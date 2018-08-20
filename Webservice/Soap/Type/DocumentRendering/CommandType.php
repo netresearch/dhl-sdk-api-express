@@ -15,7 +15,7 @@ class CommandType
      */
     public function __construct(array $Field)
     {
-      $this->Field = $Field;
+        $this->Field = $Field;
     }
 
     /**
@@ -23,7 +23,7 @@ class CommandType
      */
     public function getField()
     {
-      return $this->Field;
+        return $this->Field;
     }
 
     /**
@@ -32,8 +32,7 @@ class CommandType
      */
     public function setField(array $Field)
     {
-      $this->Field = $Field;
-      return $this;
+        $this->Field = $Field;
+        return $this;
     }
-
 }
