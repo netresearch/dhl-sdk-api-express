@@ -71,7 +71,7 @@ class TrackingResponseMapper
 
     /**
      * @param ShipmentEventCollection $shipmentEvents
-     * @return ShipmentEventInterface
+     * @return ShipmentEventInterface[]
      */
     private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents): array
     {
