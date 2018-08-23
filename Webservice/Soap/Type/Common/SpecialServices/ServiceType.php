@@ -17,12 +17,13 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class ServiceType implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 2;
+    private const NUMBER_OF_CHARS = 3;
 
     /**
      * Available service types.
      */
-    public const TYPE_INSURANCE = 'II';
+    /** @var string @TODO(nr) the code is actually II, but the API does not recognize it currently, therefore use INS */
+    public const TYPE_INSURANCE = 'INS';
 
     /**
      * The service type.
