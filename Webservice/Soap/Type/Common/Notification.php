@@ -46,7 +46,7 @@ class Notification
      */
     public function getCode(): int
     {
-        return (int) $this->code;
+        return $this->code;
     }
 
     /**

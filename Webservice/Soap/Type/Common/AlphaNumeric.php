@@ -48,7 +48,7 @@ class AlphaNumeric implements ValueInterface
             );
         }
 
-        $this->value = (string) $value;
+        $this->value = $value;
     }
 
     /**

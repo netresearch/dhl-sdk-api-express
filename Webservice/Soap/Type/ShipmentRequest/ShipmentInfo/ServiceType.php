@@ -56,6 +56,6 @@ class ServiceType implements ValueInterface
      */
     public function __toString(): string
     {
-        return (string) $this->value;
+        return $this->value;
     }
 }

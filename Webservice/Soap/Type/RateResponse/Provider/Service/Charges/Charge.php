@@ -64,6 +64,6 @@ class Charge
      */
     public function getChargeAmount(): float
     {
-        return (float) $this->ChargeAmount;
+        return $this->ChargeAmount;
     }
 }
