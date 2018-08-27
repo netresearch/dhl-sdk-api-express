@@ -77,7 +77,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      * @param PieceFault $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         if ($offset === null) {
             $this->ArrayOfPieceFaultItem[] = $value;
@@ -92,7 +92,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         unset($this->ArrayOfPieceFaultItem[$offset]);
     }
@@ -113,7 +113,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next(): void
+    public function next()
     {
         next($this->ArrayOfPieceFaultItem);
     }
@@ -144,7 +144,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind(): void
+    public function rewind()
     {
         reset($this->ArrayOfPieceFaultItem);
     }

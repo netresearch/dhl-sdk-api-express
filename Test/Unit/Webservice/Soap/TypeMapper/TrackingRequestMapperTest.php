@@ -20,7 +20,7 @@ class TrackingRequestMapperTest extends TestCase
     /**
      * @test
      */
-    public function getSoapTrackingRequestFromTrackingRequest(): void
+    public function getSoapTrackingRequestFromTrackingRequest()
     {
         // Set up a TrackingRequest
         $request = new TrackingRequest(

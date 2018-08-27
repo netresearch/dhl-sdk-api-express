@@ -69,7 +69,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param PieceInfo $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         if ($offset === null) {
             $this->ArrayOfPieceInfoItem[] = $value;
@@ -84,7 +84,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         unset($this->ArrayOfPieceInfoItem[$offset]);
     }
@@ -105,7 +105,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next(): void
+    public function next()
     {
         next($this->ArrayOfPieceInfoItem);
     }
@@ -136,7 +136,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind(): void
+    public function rewind()
     {
         reset($this->ArrayOfPieceInfoItem);
     }

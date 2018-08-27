@@ -222,7 +222,7 @@ class ShipmentRequestMapper
      * @return void
      * @throws \InvalidArgumentException
      */
-    private function checkConsistentUOM(array $packages): void
+    private function checkConsistentUOM(array $packages)
     {
         $weightUom = null;
         $dimensionsUOM = null;
