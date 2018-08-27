@@ -88,12 +88,13 @@ class ShipmentRequestTest extends TestCase
         $shipmentRequest = new ShipmentRequest(
             $shipmentDetails,
             $payerAccountNumber,
-            $insurance,
             $shipper,
             $recipient,
-            $packages,
-            $dryIce
+            $packages
         );
+
+        $shipmentRequest->setInsurance($insurance)
+            ->setDryIce($dryIce);
 
         self::assertInstanceOf(ShipmentRequestInterface::class, $shipmentRequest);
         self::assertSame($shipmentDetails, $shipmentRequest->getShipmentDetails());

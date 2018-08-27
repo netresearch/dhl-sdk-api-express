@@ -99,12 +99,13 @@ class ShipmentRequestMapperTest extends TestCase
         $request = new ShipmentRequest(
             $shipmentDetails,
             $payerAccountNumber,
-            $insurance,
             $shipper,
             $recipient,
-            $packages,
-            $dryIce
+            $packages
         );
+
+        $request->setInsurance($insurance)
+            ->setDryIce($dryIce);
 
         // Map Shipment Request to SOAP Shipment Request
 

@@ -39,13 +39,13 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      * @dataProvider requestDataProvider
-     * @param int $messageTime
+     *
+     * @param int    $messageTime
      * @param string $messageReference
-     * @param int[] $awbNumbers
-     * @param string $levelOfDetails
+     * @param int[]  $awbNumbers
      * @param string $piecesEnabled
      *
-     * @throws \ReflectionException
+     * @param string $levelOfDetails
      */
     public function trackShipment(
         int $messageTime,

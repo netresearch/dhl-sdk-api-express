@@ -46,7 +46,7 @@ class PackageTest extends TestCase
      */
     public function invalidWeightUOM()
     {
-        self::expectException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         new Package(
             $sequenceNumber = 1,
@@ -64,7 +64,7 @@ class PackageTest extends TestCase
      */
     public function invalidDimensionsUOM()
     {
-        self::expectException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         new Package(
             $sequenceNumber = 1,

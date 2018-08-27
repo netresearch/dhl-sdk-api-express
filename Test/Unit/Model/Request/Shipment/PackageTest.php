@@ -28,11 +28,11 @@ class PackageTest extends TestCase
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM = \Dhl\Express\Model\Request\Package::UOM_DIMENSION_CM,
+            $dimensionUOM = Package::UOM_DIMENSION_CM,
             $customerReferences = 'TEST CZ-IT'
         );
 
-        self::assertInstanceOf(\Dhl\Express\Api\Data\Request\PackageInterface::class, $package);
+        self::assertInstanceOf(PackageInterface::class, $package);
         self::assertSame($sequenceNumber, $package->getSequenceNumber());
         self::assertSame($weight, $package->getWeight());
         self::assertSame($weightUOM, $package->getWeightUOM());
@@ -48,16 +48,16 @@ class PackageTest extends TestCase
      */
     public function invalidWeightUOM()
     {
-        self::expectException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
-        new \Dhl\Express\Model\Request\Package(
+        new Package(
             $sequenceNumber = 1,
             $weight = 1.123,
             $weightUOM  = 'test',
             $length = 1.123,
             $width = 1.123,
             $height = 1.123,
-            $dimensionUOM = \Dhl\Express\Model\Request\Package::UOM_DIMENSION_CM,
+            $dimensionUOM = Package::UOM_DIMENSION_CM,
             $customerReferences = 'TEST CZ-IT'
         );
     }
@@ -67,7 +67,7 @@ class PackageTest extends TestCase
      */
     public function invalidDimensionsUOM()
     {
-        self::expectException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         new Package(
             $sequenceNumber = 1,

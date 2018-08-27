@@ -46,36 +46,35 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
      * @test
      * @dataProvider requestDataProvider
      *
-     * @param bool $isUnscheduledPickup
+     * @param bool   $isUnscheduledPickup
      * @param string $termsOfTrade
      * @param string $contentType
-     * @param int $readyAtTimestamp
-     * @param int $numberOfPieces
+     * @param int    $readyAtTimestamp
+     * @param int    $numberOfPieces
      * @param string $currency
      * @param string $description
-     * @param float $customsValue
-     * @param $serviceType
+     * @param float  $customsValue
+     * @param string $serviceType
      * @param string $accountNumber
-     * @param float $insuranceValue
+     * @param float  $insuranceValue
      * @param string $insuranceCurrency
      * @param string $sCountryCode
      * @param string $sPostalCode
      * @param string $sCity
-     * @param array $sStreet
+     * @param array  $sStreet
      * @param string $sName
      * @param string $sCompany
      * @param string $sPhone
      * @param string $rCountryCode
      * @param string $rPostalCode
      * @param string $rCity
-     * @param array $rStreet
+     * @param array  $rStreet
      * @param string $rName
      * @param string $rCompany
      * @param string $rPhone
      * @param string $iceUnCode
-     * @param float $iceWeight
-     * @param array $packages
-     * @throws \ReflectionException
+     * @param float  $iceWeight
+     * @param array  $packages
      */
     public function createShipment(
         bool $isUnscheduledPickup,

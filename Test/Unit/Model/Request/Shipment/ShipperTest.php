@@ -21,7 +21,7 @@ class ShipperTest extends TestCase
      */
     public function propertiesArePopulatedAndAccessible()
     {
-        $shipper = new \Dhl\Express\Model\Request\Shipper(
+        $shipper = new Shipper(
             $countryCode = 'DE',
             $postalCode = '12345',
             $city = 'Berlin',
@@ -31,7 +31,7 @@ class ShipperTest extends TestCase
             $phone = '004922832432423'
         );
 
-        self::assertInstanceOf(\Dhl\Express\Model\Request\Shipper::class, $shipper);
+        self::assertInstanceOf(Shipper::class, $shipper);
         self::assertSame($countryCode, $shipper->getCountryCode());
         self::assertSame($postalCode, $shipper->getPostalCode());
         self::assertSame($city, $shipper->getCity());
