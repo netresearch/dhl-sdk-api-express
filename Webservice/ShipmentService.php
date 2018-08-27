@@ -66,7 +66,10 @@ class ShipmentService implements ShipmentServiceInterface
     {
         try {
             $response = $this->adapter->createShipment($request);
-        } catch (SoapException | ShipmentRequestException $e) {
+        } catch (SoapException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        } catch (ShipmentRequestException $e) {
             $this->logger->error($e->getMessage());
             throw $e;
         }
@@ -93,7 +96,10 @@ class ShipmentService implements ShipmentServiceInterface
     {
         try {
             $response = $this->adapter->deleteShipment($request);
-        } catch (SoapException | ShipmentDeleteRequestException $e) {
+        } catch (SoapException $e) {
+            $this->logger->error($e->getMessage());
+            throw $e;
+        } catch (ShipmentDeleteRequestException $e) {
             $this->logger->error($e->getMessage());
             throw $e;
         }
