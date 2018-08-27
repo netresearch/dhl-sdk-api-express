@@ -43,7 +43,7 @@ class Packages
      *
      * @return RequestedPackages[]
      */
-    public function getRequestedPackages(): RequestedPackages
+    public function getRequestedPackages(): array
     {
         return $this->RequestedPackages;
     }

@@ -51,7 +51,7 @@ class UnitOfMeasurement implements ValueInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct($value = self::SI)
+    public function __construct(string $value = self::SI)
     {
         if (!in_array($value, [self::SI, self::SU])) {
             throw new \InvalidArgumentException('Argument must be either "SU" or "SI"');

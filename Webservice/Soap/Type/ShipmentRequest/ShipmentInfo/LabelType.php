@@ -39,7 +39,7 @@ class LabelType implements ValueInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct($value = self::PDF)
+    public function __construct(string $value = self::PDF)
     {
         if (!in_array($value, [self::PDF, self::ZPL, self::EPL, self::LP2])) {
             throw new \InvalidArgumentException('Argument must be either "PDF", "ZPL", "EPL" or "LP2"');
