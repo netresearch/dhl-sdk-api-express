@@ -16,8 +16,8 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
  */
 class WeightUnit
 {
-    public const __default = 'L';
-    public const L = 'L';
-    public const K = 'K';
-    public const G = 'G';
+    const __default = 'L';
+    const L = 'L';
+    const K = 'K';
+    const G = 'G';
 }

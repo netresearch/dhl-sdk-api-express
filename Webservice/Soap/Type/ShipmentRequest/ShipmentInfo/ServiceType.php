@@ -19,12 +19,12 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class ServiceType implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 1;
+    const NUMBER_OF_CHARS = 1;
 
     /**
      * Available service types.
      */
-    public const TYPE_INSURANCE = 'II';
+    const TYPE_INSURANCE = 'II';
 
     /**
      * The service type.

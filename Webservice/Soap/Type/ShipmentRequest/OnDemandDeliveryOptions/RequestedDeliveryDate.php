@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class RequestedDeliveryDate extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 29;
+    const MAX_LENGTH = 29;
 }

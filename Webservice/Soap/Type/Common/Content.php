@@ -22,14 +22,14 @@ class Content implements ValueInterface
      *
      * @var string
      */
-    public const DOCUMENTS  = 'DOCUMENTS';
+    const DOCUMENTS  = 'DOCUMENTS';
 
     /**
      * Non documents.
      *
      * @var string
      */
-    public const NON_DOCUMENTS = 'NON_DOCUMENTS';
+    const NON_DOCUMENTS = 'NON_DOCUMENTS';
 
     /**
      * The content.

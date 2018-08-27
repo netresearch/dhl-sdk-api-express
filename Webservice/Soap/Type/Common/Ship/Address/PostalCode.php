@@ -17,6 +17,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class PostalCode extends AlphaNumeric
 {
-    protected const MIN_LENGTH = 0;
-    protected const MAX_LENGTH = 12;
+    const MIN_LENGTH = 0;
+    const MAX_LENGTH = 12;
 }

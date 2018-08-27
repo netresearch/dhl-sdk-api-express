@@ -18,7 +18,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class PickupLocationCloseTime implements ValueInterface
 {
-    private const FORMAT = 'H:i';
+    const FORMAT = 'H:i';
 
     /**
      * The time.

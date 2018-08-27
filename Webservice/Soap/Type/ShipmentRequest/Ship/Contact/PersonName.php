@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class PersonName extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 45;
+    const MAX_LENGTH = 45;
 }

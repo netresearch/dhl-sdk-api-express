@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class StreetNumber extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 15;
+    const MAX_LENGTH = 15;
 }

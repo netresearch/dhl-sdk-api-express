@@ -20,7 +20,7 @@ class Date implements ValueInterface
     /**
      * Output format.
      */
-    private const FORMAT = 'Y-m-d';
+    const FORMAT = 'Y-m-d';
 
     /**
      * The date.

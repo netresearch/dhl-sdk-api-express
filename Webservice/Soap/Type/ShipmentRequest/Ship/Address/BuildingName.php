@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class BuildingName extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 35;
+    const MAX_LENGTH = 35;
 }

@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class TextInstruction extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 50;
+    const MAX_LENGTH = 50;
 }

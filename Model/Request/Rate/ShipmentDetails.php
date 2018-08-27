@@ -25,36 +25,36 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see DropOffType
      */
-    public const REGULAR_PICKUP = DropOffType::REGULAR_PICKUP;
-    public const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
+    const REGULAR_PICKUP = DropOffType::REGULAR_PICKUP;
+    const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
 
     /**
      * Content types.
      *
      * @see Content
      */
-    public const CONTENT_TYPE_DOCUMENTS = Content::DOCUMENTS;
-    public const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
+    const CONTENT_TYPE_DOCUMENTS = Content::DOCUMENTS;
+    const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
 
     /**
      * Payment info types.
      *
      * @see PaymentInfo
      */
-    public const PAYMENT_TYPE_CFR = PaymentInfo::CFR;
-    public const PAYMENT_TYPE_CIF = PaymentInfo::CIF;
-    public const PAYMENT_TYPE_CIP = PaymentInfo::CIP;
-    public const PAYMENT_TYPE_CPT = PaymentInfo::CPT;
-    public const PAYMENT_TYPE_DAF = PaymentInfo::DAF;
-    public const PAYMENT_TYPE_DDP = PaymentInfo::DDP;
-    public const PAYMENT_TYPE_DDU = PaymentInfo::DDU;
-    public const PAYMENT_TYPE_DAP = PaymentInfo::DAP;
-    public const PAYMENT_TYPE_DEQ = PaymentInfo::DEQ;
-    public const PAYMENT_TYPE_DES = PaymentInfo::DES;
-    public const PAYMENT_TYPE_EXW = PaymentInfo::EXW;
-    public const PAYMENT_TYPE_FAS = PaymentInfo::FAS;
-    public const PAYMENT_TYPE_FCA = PaymentInfo::FCA;
-    public const PAYMENT_TYPE_FOB = PaymentInfo::FOB;
+    const PAYMENT_TYPE_CFR = PaymentInfo::CFR;
+    const PAYMENT_TYPE_CIF = PaymentInfo::CIF;
+    const PAYMENT_TYPE_CIP = PaymentInfo::CIP;
+    const PAYMENT_TYPE_CPT = PaymentInfo::CPT;
+    const PAYMENT_TYPE_DAF = PaymentInfo::DAF;
+    const PAYMENT_TYPE_DDP = PaymentInfo::DDP;
+    const PAYMENT_TYPE_DDU = PaymentInfo::DDU;
+    const PAYMENT_TYPE_DAP = PaymentInfo::DAP;
+    const PAYMENT_TYPE_DEQ = PaymentInfo::DEQ;
+    const PAYMENT_TYPE_DES = PaymentInfo::DES;
+    const PAYMENT_TYPE_EXW = PaymentInfo::EXW;
+    const PAYMENT_TYPE_FAS = PaymentInfo::FAS;
+    const PAYMENT_TYPE_FCA = PaymentInfo::FCA;
+    const PAYMENT_TYPE_FOB = PaymentInfo::FOB;
 
     /**
      * Whether this is a scheduled pickup or not.

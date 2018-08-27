@@ -20,7 +20,7 @@ class DryIce implements DryIceInterface
     /**
      * Content ID
      */
-    public const CONTENT_ID = '901';
+    const CONTENT_ID = '901';
 
     /**
      * The UN Code.
