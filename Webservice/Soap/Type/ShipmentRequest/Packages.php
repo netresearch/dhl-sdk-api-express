@@ -58,7 +58,6 @@ class Packages
     public function setRequestedPackages(array $requestedPackages): Packages
     {
         $this->RequestedPackages = $requestedPackages;
-
         return $this;
     }
 }

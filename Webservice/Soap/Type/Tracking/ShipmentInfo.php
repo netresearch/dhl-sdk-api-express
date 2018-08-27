@@ -199,12 +199,12 @@ class ShipmentInfo
     {
         if ($this->ShipmentDate === null) {
             return null;
-        } else {
-            try {
-                return new \DateTime($this->ShipmentDate);
-            } catch (\Exception $e) {
-                return false;
-            }
+        }
+
+        try {
+            return new \DateTime($this->ShipmentDate);
+        } catch (\Exception $e) {
+            return false;
         }
     }
 
@@ -321,12 +321,12 @@ class ShipmentInfo
     {
         if ($this->EstimatedDeliveryDate === null) {
             return null;
-        } else {
-            try {
-                return new \DateTime($this->EstimatedDeliveryDate);
-            } catch (\Exception $e) {
-                return false;
-            }
+        }
+
+        try {
+            return new \DateTime($this->EstimatedDeliveryDate);
+        } catch (\Exception $e) {
+            return false;
         }
     }
 

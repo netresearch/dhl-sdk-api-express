@@ -110,12 +110,12 @@ class Service
     {
         if ($this->DeliveryTime === null) {
             return null;
-        } else {
-            try {
-                return new \DateTime($this->DeliveryTime);
-            } catch (\Exception $e) {
-                return false;
-            }
+        }
+
+        try {
+            return new \DateTime($this->DeliveryTime);
+        } catch (\Exception $e) {
+            return false;
         }
     }
 
@@ -128,12 +128,12 @@ class Service
     {
         if ($this->CutoffTime === null) {
             return null;
-        } else {
-            try {
-                return new \DateTime($this->CutoffTime);
-            } catch (\Exception $e) {
-                return false;
-            }
+        }
+
+        try {
+            return new \DateTime($this->CutoffTime);
+        } catch (\Exception $e) {
+            return false;
         }
     }
 

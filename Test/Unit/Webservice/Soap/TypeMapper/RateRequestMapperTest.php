@@ -90,7 +90,7 @@ class RateRequestMapperTest extends TestCase
 
         // Assertions
 
-        $this->assertInstanceOf(soapRateRequest::class, $soapRateRequest);
+        $this->assertInstanceOf(SoapRateRequest::class, $soapRateRequest);
 
         $this->assertEquals(
             $shipperAddress->getCity(),
