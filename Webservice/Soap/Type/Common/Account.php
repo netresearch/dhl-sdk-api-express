@@ -15,5 +15,5 @@ namespace Dhl\Express\Webservice\Soap\Type\Common;
  */
 class Account extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 9;
+    const MAX_LENGTH = 9;
 }

@@ -22,14 +22,14 @@ class LWNTypeCode implements ValueInterface
      *
      * @var string
      */
-    public const N = 'N';
+    const N = 'N';
 
     /**
      * Leave with concierge.
      *
      * @var string
      */
-    public const C  = 'C';
+    const C  = 'C';
 
     /**
      * The value.

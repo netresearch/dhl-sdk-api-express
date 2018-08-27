@@ -16,7 +16,7 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
  */
 class LevelOfDetails
 {
-    public const __default = 'LAST_CHECK_POINT_ONLY';
-    public const LAST_CHECK_POINT_ONLY = 'LAST_CHECK_POINT_ONLY';
-    public const ALL_CHECK_POINTS = 'ALL_CHECK_POINTS';
+    const __default = 'LAST_CHECK_POINT_ONLY';
+    const LAST_CHECK_POINT_ONLY = 'LAST_CHECK_POINT_ONLY';
+    const ALL_CHECK_POINTS = 'ALL_CHECK_POINTS';
 }

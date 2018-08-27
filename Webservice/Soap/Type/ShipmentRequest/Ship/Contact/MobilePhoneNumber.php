@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class MobilePhoneNumber extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 25;
+    const MAX_LENGTH = 25;
 }

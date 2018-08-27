@@ -24,14 +24,14 @@ class DropOffType implements ValueInterface
      *
      * @var string
      */
-    public const REGULAR_PICKUP  = 'REGULAR_PICKUP';
+    const REGULAR_PICKUP  = 'REGULAR_PICKUP';
 
     /**
      * The rating response returns products for which the pickup capability is given, based on ShipmentTimeStamp.
      *
      * @var string
      */
-    public const REQUEST_COURIER = 'REQUEST_COURIER';
+    const REQUEST_COURIER = 'REQUEST_COURIER';
 
     /**
      * The drop off type.

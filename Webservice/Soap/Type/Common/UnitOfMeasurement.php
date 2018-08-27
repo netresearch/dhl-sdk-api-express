@@ -28,14 +28,14 @@ class UnitOfMeasurement implements ValueInterface
      *
      * @var string
      */
-    public const SI  = 'SI';
+    const SI  = 'SI';
 
     /**
      * UK, US system of measurement (LB, IN).
      *
      * @var string
      */
-    public const SU = 'SU';
+    const SU = 'SU';
 
     /**
      * The value.

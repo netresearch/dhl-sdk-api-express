@@ -27,9 +27,9 @@ class ShippingPaymentType implements ValueInterface
      *
      * Please note if you use value R or T in this tag then the next tag <BillingAccountNumber> is also mandatory
      */
-    public const S = 'S';
-    public const R = 'R';
-    public const T = 'T';
+    const S = 'S';
+    const R = 'R';
+    const T = 'T';
 
     /**
      * The value.

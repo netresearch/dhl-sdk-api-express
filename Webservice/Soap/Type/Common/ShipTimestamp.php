@@ -26,7 +26,7 @@ class ShipTimestamp implements ValueInterface
     /**
      * Output format.
      */
-    private const FORMAT = 'Y-m-d\TH:i:s \G\M\TP';
+    const FORMAT = 'Y-m-d\TH:i:s \G\M\TP';
 
     /**
      * The date/time.

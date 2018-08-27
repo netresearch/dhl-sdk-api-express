@@ -17,7 +17,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class CurrencyCode implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 3;
+    const NUMBER_OF_CHARS = 3;
 
     /**
      * The currency code.

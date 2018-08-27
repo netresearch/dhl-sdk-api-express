@@ -20,5 +20,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class NeighbourName extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 20;
+    const MAX_LENGTH = 20;
 }

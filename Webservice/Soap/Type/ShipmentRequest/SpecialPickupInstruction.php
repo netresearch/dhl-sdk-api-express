@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class SpecialPickupInstruction extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 75;
+    const MAX_LENGTH = 75;
 }

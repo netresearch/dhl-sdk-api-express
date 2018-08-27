@@ -19,20 +19,20 @@ class Package implements PackageInterface
     /**
      * Units of measurement (weight).
      */
-    public const UOM_WEIGHT_KG = 'KG';
-    public const UOM_WEIGHT_G  = 'G';
-    public const UOM_WEIGHT_OZ = 'OZ';
-    public const UOM_WEIGHT_LB = 'LB';
+    const UOM_WEIGHT_KG = 'KG';
+    const UOM_WEIGHT_G  = 'G';
+    const UOM_WEIGHT_OZ = 'OZ';
+    const UOM_WEIGHT_LB = 'LB';
 
     /**
      * Units of measurement (dimension).
      */
-    public const UOM_DIMENSION_CM = 'CM';
-    public const UOM_DIMENSION_IN = 'IN';
-    public const UOM_DIMENSION_MM = 'MM';
-    public const UOM_DIMENSION_M  = 'M';
-    public const UOM_DIMENSION_FT = 'FT';
-    public const UOM_DIMENSION_YD = 'YD';
+    const UOM_DIMENSION_CM = 'CM';
+    const UOM_DIMENSION_IN = 'IN';
+    const UOM_DIMENSION_MM = 'MM';
+    const UOM_DIMENSION_M  = 'M';
+    const UOM_DIMENSION_FT = 'FT';
+    const UOM_DIMENSION_YD = 'YD';
 
     /**
      * The number of the package in the list of all packages.

@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class EmailAddress extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 50;
+    const MAX_LENGTH = 50;
 }

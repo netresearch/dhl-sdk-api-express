@@ -23,6 +23,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class PieceIdentificationNumber extends AlphaNumeric
 {
-    protected const MIN_LENGTH = 0;
-    protected const MAX_LENGTH = 35;
+    const MIN_LENGTH = 0;
+    const MAX_LENGTH = 35;
 }

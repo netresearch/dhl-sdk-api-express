@@ -17,5 +17,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class DryIceTotalNetWeight extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 7;
+    const MAX_LENGTH = 7;
 }

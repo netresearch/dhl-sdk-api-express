@@ -22,7 +22,7 @@ class YesNo implements ValueInterface
      *
      * @var string
      */
-    public const Y  = 'Y';
+    const Y  = 'Y';
 
     /**
      * In this case, the process will filter out any services which has a pickup date <> to the requested ship
@@ -31,7 +31,7 @@ class YesNo implements ValueInterface
      *
      * @var string
      */
-    public const N = 'N';
+    const N = 'N';
 
     /**
      * The value.

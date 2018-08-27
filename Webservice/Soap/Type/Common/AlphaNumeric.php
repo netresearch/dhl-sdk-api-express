@@ -17,8 +17,8 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class AlphaNumeric implements ValueInterface
 {
-    protected const MIN_LENGTH = 1;
-    protected const MAX_LENGTH = 999;
+    const MIN_LENGTH = 1;
+    const MAX_LENGTH = 999;
 
     /**
      * The value.

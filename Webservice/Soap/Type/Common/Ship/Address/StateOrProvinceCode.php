@@ -17,7 +17,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class StateOrProvinceCode implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 2;
+    const NUMBER_OF_CHARS = 2;
 
     /**
      * The state or province code.

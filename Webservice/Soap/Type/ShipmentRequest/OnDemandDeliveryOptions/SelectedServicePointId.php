@@ -21,5 +21,5 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  */
 class SelectedServicePointId extends AlphaNumeric
 {
-    protected const MAX_LENGTH = 6;
+    const MAX_LENGTH = 6;
 }
