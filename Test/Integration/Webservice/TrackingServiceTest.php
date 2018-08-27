@@ -21,8 +21,8 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param LoggerInterface $logger
+     *
      * @return \Dhl\Express\Api\TrackingServiceInterface
-     * @throws \ReflectionException
      */
     private function getTrackingRequest(LoggerInterface $logger)
     {

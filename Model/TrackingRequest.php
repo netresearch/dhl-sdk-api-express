@@ -47,9 +47,10 @@ class TrackingRequest implements TrackingRequestInterface
      * TrackingRequest constructor.
      *
      * @param MessageInterface $message
-     * @param string[] $awbNumber
-     * @param string $levelOfDetails
-     * @param string $piecesEnabled
+     * @param string[]         $awbNumber
+     * @param string           $levelOfDetails
+     * @param string           $piecesEnabled
+     * @param bool             $estimatedDeliveryDate
      */
     public function __construct(
         MessageInterface $message,

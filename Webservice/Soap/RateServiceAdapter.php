@@ -40,8 +40,9 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
 
     /**
      * RateServiceAdapter constructor.
-     * @param Client $client
-     * @param RateRequestMapper $requestMapper
+     *
+     * @param Client             $client
+     * @param RateRequestMapper  $requestMapper
      * @param RateResponseMapper $responseMapper
      */
     public function __construct(
@@ -49,17 +50,14 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
         RateRequestMapper $requestMapper,
         RateResponseMapper $responseMapper
     ) {
-    
+
         $this->client = $client;
         $this->requestMapper = $requestMapper;
         $this->responseMapper = $responseMapper;
     }
 
     /**
-     * @param RateRequestInterface $request
-     * @return RateResponseInterface
-     * @throws SoapException
-     * @throws \Dhl\Express\Exception\RateRequestException
+     * {@inheritdoc}
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {
@@ -75,7 +73,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastRequest(): string
     {
@@ -89,7 +87,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastResponse(): string
     {

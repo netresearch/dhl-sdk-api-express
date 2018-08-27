@@ -25,8 +25,8 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param LoggerInterface $logger
+     *
      * @return ShipmentServiceInterface
-     * @throws \ReflectionException
      */
     private function getShipmentService(LoggerInterface $logger): ShipmentServiceInterface
     {

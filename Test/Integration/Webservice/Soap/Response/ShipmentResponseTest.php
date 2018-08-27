@@ -53,7 +53,6 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @param string $responseXml Response XML loaded from test file
      *
-     * @throws \ReflectionException
      * @dataProvider shipmentResponseProvider
      */
     public function testShipmentResponseClassMapping(string $responseXml)

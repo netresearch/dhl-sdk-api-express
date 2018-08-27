@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\BuyerContactInfo as BuyerContactInfo;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\BuyerContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 
 /**

@@ -64,7 +64,7 @@ class ShipmentEvent implements ShipmentEventInterface
     /**
      * Returns the event's date
      *
-     * @return int
+     * @return string
      */
     public function getDate(): string
     {

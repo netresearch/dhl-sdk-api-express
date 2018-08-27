@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Adapter;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Exception\SoapException;
 
 /**
  * Rate Service Adapter Interface.
@@ -22,8 +23,11 @@ interface RateServiceAdapterInterface
 {
     /**
      * @param RateRequestInterface $request
+     *
      * @return RateResponseInterface
-     * @throws \InvalidArgumentException
+     *
+     * @throws SoapException
+     * @throws \Dhl\Express\Exception\RateRequestException
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface;
 }

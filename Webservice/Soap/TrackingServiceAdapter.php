@@ -41,8 +41,8 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
     /**
      * TrackingServiceAdapter constructor.
      *
-     * @param \SoapClient $client
-     * @param TrackingRequestMapper $requestMapper
+     * @param \SoapClient            $client
+     * @param TrackingRequestMapper  $requestMapper
      * @param TrackingResponseMapper $responseMapper
      */
     public function __construct(
@@ -50,14 +50,16 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
         TrackingRequestMapper $requestMapper,
         TrackingResponseMapper $responseMapper
     ) {
-        $this->client = $client;
-        $this->requestMapper = $requestMapper;
+        $this->client         = $client;
+        $this->requestMapper  = $requestMapper;
         $this->responseMapper = $responseMapper;
     }
 
     /**
      * @param TrackingRequestInterface $request
+     *
      * @return TrackingResponseInterface
+     *
      * @throws SoapException
      */
     public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface
@@ -73,7 +75,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastRequest(): string
     {
@@ -87,7 +89,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastResponse(): string
     {

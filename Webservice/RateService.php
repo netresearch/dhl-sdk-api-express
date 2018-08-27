@@ -52,10 +52,7 @@ class RateService implements RateServiceInterface
     }
 
     /**
-     * @param RateRequestInterface $request
-     * @return RateResponseInterface
-     * @throws RateRequestException
-     * @throws SoapException
+     * {@inheritdoc}
      */
     public function collectRates(RateRequestInterface $request): RateResponseInterface
     {

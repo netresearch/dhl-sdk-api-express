@@ -17,7 +17,7 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  */
 class CountryCode implements ValueInterface
 {
-    private const NUMBER_OF_CHARS = 2;
+    const NUMBER_OF_CHARS = 2;
 
     /**
      * The country code.

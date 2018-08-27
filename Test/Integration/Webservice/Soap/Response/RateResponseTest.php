@@ -57,7 +57,6 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @param string $responseXml Response XML loaded from test file
      *
-     * @throws \ReflectionException
      * @dataProvider rateResponseProvider
      */
     public function testRateResponseClassMapping(string $responseXml)

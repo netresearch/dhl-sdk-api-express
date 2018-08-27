@@ -15,7 +15,7 @@ class DataType
      */
     protected $FieldList = null;
 
-    
+
     public function __construct()
     {
     }

@@ -24,8 +24,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param LoggerInterface $logger
+     *
      * @return \Dhl\Express\Api\RateServiceInterface
-     * @throws \ReflectionException
      */
     private function getRateService(LoggerInterface $logger)
     {
@@ -39,7 +39,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      * @dataProvider requestDataProvider
-     * @param bool $isUnscheduledPickup
+     *
+     * @param bool   $isUnscheduledPickup
      * @param string $accountNumber
      * @param string $sCountryCode
      * @param string $sPostalCode
@@ -47,15 +48,16 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $rCountryCode
      * @param string $rPostalCode
      * @param string $rCity
-     * @param array $rStreet
+     * @param array  $rStreet
      * @param string $termsOfTrade
      * @param string $contentType
-     * @param int $readyAtTimestamp
-     * @param array $packages
-     * @param float $insuranceValue
+     * @param int    $readyAtTimestamp
+     * @param array  $packages
+     * @param float  $insuranceValue
      * @param string $insuranceCurrency
      *
-     * @throws \ReflectionException
+     * @throws \Dhl\Express\Exception\RateRequestException
+     * @throws \Dhl\Express\Exception\SoapException
      */
     public function collectRates(
         bool $isUnscheduledPickup,
@@ -74,7 +76,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         float $insuranceValue,
         string $insuranceCurrency
     ) {
-    
+
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger

@@ -64,7 +64,7 @@ interface ShipmentDeleteRequestBuilderInterface
     /**
      * Builds the shipment request instance.
      *
-     * @return self
+     * @return ShipmentDeleteRequestInterface
      */
     public function build(): ShipmentDeleteRequestInterface;
 }

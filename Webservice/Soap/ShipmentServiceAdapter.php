@@ -9,6 +9,7 @@ use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
+use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
@@ -76,14 +77,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     }
 
     /**
-     * Performs the shipment create request.
-     *
-     * @param ShipmentRequestInterface $request The shipment request
-     *
-     * @return ShipmentResponseInterface
-     *
-     * @throws SoapException
-     * @throws \Dhl\Express\Exception\ShipmentRequestException
+     * {@inheritdoc}
      */
     public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
     {
@@ -99,14 +93,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     }
 
     /**
-     * Performs the shipment delete request.
-     *
-     * @param ShipmentDeleteRequestInterface $request The shipment request
-     *
-     * @return ShipmentDeleteResponseInterface
-     *
-     * @throws SoapException
-     * @throws \Dhl\Express\Exception\ShipmentDeleteRequestException
+     * {@inheritdoc}
      */
     public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
     {
@@ -122,7 +109,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastRequest(): string
     {
@@ -136,7 +123,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLastResponse(): string
     {

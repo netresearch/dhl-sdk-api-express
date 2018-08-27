@@ -33,8 +33,6 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Tests the mapping from the SOAP request classes to the proper XML structure.
-     *
-     * @throws \ReflectionException
      */
     public function testRateRequestXmlMapping()
     {
