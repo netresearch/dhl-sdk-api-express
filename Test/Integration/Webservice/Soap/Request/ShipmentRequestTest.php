@@ -71,7 +71,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
         );
 
         $packages = new Packages(
-            (new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 1', 1))
+            new RequestedPackages(2.0, new Dimensions(1, 2, 3), 'Piece 1', 1)
         );
 
         $shipTimestamp = (new \DateTime())

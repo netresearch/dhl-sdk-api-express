@@ -31,9 +31,7 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
         //$serviceFactory = new SoapServiceFactoryFake($soapClient);
 
         $serviceFactory = new SoapServiceFactory();
-        $service = $serviceFactory->createTrackingService('user', 'password', $logger);
-
-        return $service;
+        return $serviceFactory->createTrackingService('user', 'password', $logger);
     }
 
     /**

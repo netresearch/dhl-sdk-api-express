@@ -33,9 +33,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
 
         $serviceFactory = new SoapServiceFactoryFake($soapClient);
-        $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
-
-        return $service;
+        return $serviceFactory->createRateService('api-user', 'api-pass', $logger);
     }
 
     /**

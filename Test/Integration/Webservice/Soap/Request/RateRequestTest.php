@@ -69,7 +69,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
             (new Service(ServiceType::TYPE_INSURANCE))
                 ->setCurrencyCode('EUR')
                 ->setServiceValue(24.5),
-            (new Service(ServiceType::TYPE_INSURANCE)),
+            new Service(ServiceType::TYPE_INSURANCE),
         ]);
 
         $requestedShipment->setNextBusinessDay(true)
