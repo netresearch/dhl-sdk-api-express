@@ -77,7 +77,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param AWBInfo $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         if ($offset === null) {
             $this->ArrayOfAWBInfoItem[] = $value;
@@ -92,7 +92,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         unset($this->ArrayOfAWBInfoItem[$offset]);
     }
@@ -113,7 +113,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next(): void
+    public function next()
     {
         next($this->ArrayOfAWBInfoItem);
     }
@@ -144,7 +144,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind(): void
+    public function rewind()
     {
         reset($this->ArrayOfAWBInfoItem);
     }

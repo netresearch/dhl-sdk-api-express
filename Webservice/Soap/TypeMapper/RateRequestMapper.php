@@ -154,7 +154,7 @@ class RateRequestMapper
      * @return void
      * @throws \InvalidArgumentException
      */
-    private function checkConsistentUOM(array $packages): void
+    private function checkConsistentUOM(array $packages)
     {
         $weightUom = null;
         $dimensionsUOM = null;
