@@ -8,47 +8,47 @@ class docTypeRef_AddressType
     /**
      * @var StreetLines $StreetLines
      */
-    protected $StreetLines = null;
+    protected $StreetLines;
 
     /**
      * @var StreetName $StreetName
      */
-    protected $StreetName = null;
+    protected $StreetName;
 
     /**
      * @var StreetNumber $StreetNumber
      */
-    protected $StreetNumber = null;
+    protected $StreetNumber;
 
     /**
      * @var StreetLines2 $StreetLines2
      */
-    protected $StreetLines2 = null;
+    protected $StreetLines2;
 
     /**
      * @var StreetLines3 $StreetLines3
      */
-    protected $StreetLines3 = null;
+    protected $StreetLines3;
 
     /**
      * @var City $City
      */
-    protected $City = null;
+    protected $City;
 
     /**
      * @var StateOrProvinceCode $StateOrProvinceCode
      */
-    protected $StateOrProvinceCode = null;
+    protected $StateOrProvinceCode;
 
     /**
      * @var PostalCode $PostalCode
      */
-    protected $PostalCode = null;
+    protected $PostalCode;
 
     /**
      * @var CountryCode $CountryCode
      */
-    protected $CountryCode = null;
+    protected $CountryCode;
 
     /**
      * @param StreetLines $StreetLines

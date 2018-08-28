@@ -8,12 +8,12 @@ class docTypeRef_NotificationType2
     /**
      * @var Message $Message
      */
-    protected $Message = null;
+    protected $Message;
 
     /**
      * @var _x0040_code2 $code
      */
-    protected $code = null;
+    protected $code;
 
     /**
      * @param Message $Message

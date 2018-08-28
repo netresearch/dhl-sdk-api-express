@@ -8,12 +8,12 @@ class docTypeRef_ShipmentDetailType
     /**
      * @var docTypeRef_NotificationType2[] $Notification
      */
-    protected $Notification = null;
+    protected $Notification;
 
     /**
      * @var string $DispatchConfirmationNumber
      */
-    protected $DispatchConfirmationNumber = null;
+    protected $DispatchConfirmationNumber;
 
     /**
      * @param docTypeRef_NotificationType2[] $Notification

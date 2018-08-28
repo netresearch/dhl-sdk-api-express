@@ -8,17 +8,17 @@ class docTypeRef_requestPickUpType
     /**
      * @var MessageId $MessageId
      */
-    protected $MessageId = null;
+    protected $MessageId;
 
     /**
      * @var docTypeRef_ClientDetailType2 $ClientDetail
      */
-    protected $ClientDetail = null;
+    protected $ClientDetail;
 
     /**
      * @var docTypeRef_PickUpShipmentType $PickUpShipment
      */
-    protected $PickUpShipment = null;
+    protected $PickUpShipment;
 
     /**
      * @param docTypeRef_PickUpShipmentType $PickUpShipment

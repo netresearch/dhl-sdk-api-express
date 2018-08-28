@@ -8,7 +8,7 @@ class docTypeRef_PackagesType
     /**
      * @var docTypeRef_RequestedPackagesType $RequestedPackages
      */
-    protected $RequestedPackages = null;
+    protected $RequestedPackages;
 
     /**
      * @param docTypeRef_RequestedPackagesType $RequestedPackages

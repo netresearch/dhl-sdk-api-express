@@ -8,7 +8,7 @@ class docTypeRef_InternationDetailType
     /**
      * @var docTypeRef_CommoditiesType $Commodities
      */
-    protected $Commodities = null;
+    protected $Commodities;
 
     /**
      * @param docTypeRef_CommoditiesType $Commodities

@@ -8,17 +8,17 @@ class docTypeRef_ShipmentInfoType
     /**
      * @var ServiceType $ServiceType
      */
-    protected $ServiceType = null;
+    protected $ServiceType;
 
     /**
      * @var Billing $Billing
      */
-    protected $Billing = null;
+    protected $Billing;
 
     /**
      * @var UnitOfMeasurement $UnitOfMeasurement
      */
-    protected $UnitOfMeasurement = null;
+    protected $UnitOfMeasurement;
 
     /**
      * @param ServiceType $ServiceType

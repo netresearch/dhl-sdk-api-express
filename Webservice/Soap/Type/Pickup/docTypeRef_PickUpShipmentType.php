@@ -8,42 +8,42 @@ class docTypeRef_PickUpShipmentType
     /**
      * @var docTypeRef_ShipmentInfoType $ShipmentInfo
      */
-    protected $ShipmentInfo = null;
+    protected $ShipmentInfo;
 
     /**
      * @var PickupTimestamp $PickupTimestamp
      */
-    protected $PickupTimestamp = null;
+    protected $PickupTimestamp;
 
     /**
      * @var PickupLocationCloseTime $PickupLocationCloseTime
      */
-    protected $PickupLocationCloseTime = null;
+    protected $PickupLocationCloseTime;
 
     /**
      * @var SpecialPickupInstruction $SpecialPickupInstruction
      */
-    protected $SpecialPickupInstruction = null;
+    protected $SpecialPickupInstruction;
 
     /**
      * @var PickupLocation $PickupLocation
      */
-    protected $PickupLocation = null;
+    protected $PickupLocation;
 
     /**
      * @var docTypeRef_InternationDetailType $InternationalDetail
      */
-    protected $InternationalDetail = null;
+    protected $InternationalDetail;
 
     /**
      * @var docTypeRef_ShipType $Ship
      */
-    protected $Ship = null;
+    protected $Ship;
 
     /**
      * @var docTypeRef_PackagesType $Packages
      */
-    protected $Packages = null;
+    protected $Packages;
 
     /**
      * @param docTypeRef_ShipmentInfoType $ShipmentInfo

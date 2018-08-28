@@ -8,17 +8,17 @@ class Billing
     /**
      * @var Account $ShipperAccountNumber
      */
-    protected $ShipperAccountNumber = null;
+    protected $ShipperAccountNumber;
 
     /**
      * @var ShipmentPaymentType $ShippingPaymentType
      */
-    protected $ShippingPaymentType = null;
+    protected $ShippingPaymentType;
 
     /**
      * @var Account $BillingAccountNumber
      */
-    protected $BillingAccountNumber = null;
+    protected $BillingAccountNumber;
 
     /**
      * @param Account $ShipperAccountNumber

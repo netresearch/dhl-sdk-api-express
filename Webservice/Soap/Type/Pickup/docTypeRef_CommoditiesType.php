@@ -8,12 +8,12 @@ class docTypeRef_CommoditiesType
     /**
      * @var NumberOfPieces $NumberOfPieces
      */
-    protected $NumberOfPieces = null;
+    protected $NumberOfPieces;
 
     /**
      * @var Description $Description
      */
-    protected $Description = null;
+    protected $Description;
 
     /**
      * @param Description $Description

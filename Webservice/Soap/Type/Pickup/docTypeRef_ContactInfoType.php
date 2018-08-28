@@ -8,12 +8,12 @@ class docTypeRef_ContactInfoType
     /**
      * @var docTypeRef_ContactType $Contact
      */
-    protected $Contact = null;
+    protected $Contact;
 
     /**
      * @var docTypeRef_AddressType $Address
      */
-    protected $Address = null;
+    protected $Address;
 
     /**
      * @param docTypeRef_ContactType $Contact

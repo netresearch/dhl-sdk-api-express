@@ -8,14 +8,14 @@ class docTypeRef_ClientDetailType2
     /**
      * @var sso $sso
      */
-    protected $sso = null;
+    protected $sso;
 
     /**
      * @var plant $plant
      */
-    protected $plant = null;
+    protected $plant;
 
-    
+
     public function __construct()
     {
     }

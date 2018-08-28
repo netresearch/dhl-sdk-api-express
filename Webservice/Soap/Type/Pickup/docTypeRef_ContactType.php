@@ -8,27 +8,27 @@ class docTypeRef_ContactType
     /**
      * @var PersonName $PersonName
      */
-    protected $PersonName = null;
+    protected $PersonName;
 
     /**
      * @var CompanyName $CompanyName
      */
-    protected $CompanyName = null;
+    protected $CompanyName;
 
     /**
      * @var PhoneNumber $PhoneNumber
      */
-    protected $PhoneNumber = null;
+    protected $PhoneNumber;
 
     /**
      * @var EmailAddress $EmailAddress
      */
-    protected $EmailAddress = null;
+    protected $EmailAddress;
 
     /**
      * @var MobilePhoneNumber $MobilePhoneNumber
      */
-    protected $MobilePhoneNumber = null;
+    protected $MobilePhoneNumber;
 
     /**
      * @param PersonName $PersonName

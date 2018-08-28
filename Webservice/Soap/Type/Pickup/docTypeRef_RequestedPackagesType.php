@@ -8,22 +8,22 @@ class docTypeRef_RequestedPackagesType
     /**
      * @var Weight $Weight
      */
-    protected $Weight = null;
+    protected $Weight;
 
     /**
      * @var docTypeRef_DimensionsType $Dimensions
      */
-    protected $Dimensions = null;
+    protected $Dimensions;
 
     /**
      * @var CustomerReferences $CustomerReferences
      */
-    protected $CustomerReferences = null;
+    protected $CustomerReferences;
 
     /**
      * @var _x0040_number $number
      */
-    protected $number = null;
+    protected $number;
 
     /**
      * @param Weight $Weight
