@@ -11,6 +11,7 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults\PackageResult;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests SoapShipmentRequest
@@ -57,14 +58,15 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testShipmentResponseClassMapping(string $responseXml)
     {
-         $soapClientMock = $this->getMockFromWsdl(
-             WsdlProvider::getWsdlFile(),
-             SoapClientFake::class,
-             '',
-             [
-                '__doRequest',
-             ]
-         );
+        /** @var SoapClientFake|MockObject $soapClientMock */
+        $soapClientMock = $this->getMockFromWsdl(
+            WsdlProvider::getWsdlFile(),
+            SoapClientFake::class,
+            '',
+            [
+               '__doRequest',
+            ]
+        );
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')

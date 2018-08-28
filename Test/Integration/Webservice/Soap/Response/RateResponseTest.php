@@ -13,6 +13,7 @@ use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges\Charge;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\TotalNet;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests RateRequest
@@ -61,14 +62,15 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testRateResponseClassMapping(string $responseXml)
     {
-         $soapClientMock = $this->getMockFromWsdl(
-             WsdlProvider::getWsdlFile(),
-             SoapClientFake::class,
-             '',
-             [
-                 '__doRequest',
-             ]
-         );
+        /** @var SoapClientFake|MockObject $soapClientMock */
+        $soapClientMock = $this->getMockFromWsdl(
+            WsdlProvider::getWsdlFile(),
+            SoapClientFake::class,
+            '',
+            [
+                '__doRequest',
+            ]
+        );
 
         $soapClientMock->expects(self::any())
             ->method('__doRequest')

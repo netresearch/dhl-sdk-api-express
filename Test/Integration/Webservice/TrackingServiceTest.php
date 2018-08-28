@@ -73,7 +73,7 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf(TrackingResponseInterface::class, $response);
     }
 
-    public function requestDataProvider()
+    public function requestDataProvider(): array
     {
         return [
             'domestic request with metric measures, unscheduled pickup' => [

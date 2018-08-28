@@ -23,9 +23,9 @@ use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
 class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @test
+     *
      */
-    public function testRateRequest()
+    public function testShipmentRequest()
     {
         $requestBuilder = new ShipmentRequestBuilder();
         $requestBuilder->setIsUnscheduledPickup($unscheduledPickup = true)

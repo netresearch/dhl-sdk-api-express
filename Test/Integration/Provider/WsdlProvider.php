@@ -15,7 +15,7 @@ class WsdlProvider
     /**
      * @return string
      */
-    public static function getWsdlFile()
+    public static function getWsdlFile(): string
     {
         return __DIR__ . '/_files/expressRateBook.wsdl';
     }

@@ -25,7 +25,9 @@ class ShipmentDetailsTest extends TestCase
             $unscheduledPickup = true,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $readyAtTimestamp = 238948923
+            $readyAtTimestamp = 238948923,
+            false,
+            false
         );
 
         self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);
@@ -46,7 +48,9 @@ class ShipmentDetailsTest extends TestCase
             $unscheduledPickup = false,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-            $readyAtTimestamp = 238948923
+            $readyAtTimestamp = 238948923,
+            false,
+            false
         );
 
         self::assertInstanceOf(ShipmentDetailsInterface::class, $shipmentDetails);

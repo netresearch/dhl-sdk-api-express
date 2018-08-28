@@ -45,7 +45,9 @@ class RateRequestTest extends TestCase
             $unscheduledPickup = true,
             $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
             $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            $readyAtDate = 238948923
+            $readyAtDate = 238948923,
+            false,
+            false
         );
 
         $package = new Package(

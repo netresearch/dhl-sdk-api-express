@@ -30,7 +30,8 @@ class TrackingRequestMapperTest extends TestCase
             ),
             $awbNumber = ['2330982222'],
             $levelOfDetails = 'ALL_CHECK_POINTS',
-            $peacesEnabled = 'B'
+            $peacesEnabled = 'B',
+            false
         );
 
         // Map Tracking Request to SOAP Tracking Request

@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
-use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
 use PHPUnit\Framework\TestCase;
 
 /**

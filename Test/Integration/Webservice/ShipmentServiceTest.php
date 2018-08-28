@@ -9,8 +9,6 @@ use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
-use Dhl\Express\Test\Integration\Mock\SoapClientFake;
-use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
 use Dhl\Express\Webservice\SoapServiceFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
@@ -31,7 +29,7 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
     private function getShipmentService(LoggerInterface $logger): ShipmentServiceInterface
     {
         /** @var \SoapClient|MockObject $soapClient */
-        $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
+//        $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
 
         // $serviceFactory = new SoapServiceFactoryFake($soapClient);
         // $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);

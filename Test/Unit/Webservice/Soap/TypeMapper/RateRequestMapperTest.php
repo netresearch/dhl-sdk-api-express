@@ -57,7 +57,9 @@ class RateRequestMapperTest extends TestCase
             true,
             ShipmentDetails::PAYMENT_TYPE_CFR,
             ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
-            238948923
+            238948923,
+            false,
+            false
         );
 
         $package = new Package(

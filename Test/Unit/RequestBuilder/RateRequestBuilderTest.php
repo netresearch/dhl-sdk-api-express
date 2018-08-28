@@ -21,7 +21,7 @@ use Dhl\Express\RequestBuilder\RateRequestBuilder;
 class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @test
+     *
      */
     public function testRateRequest()
     {
@@ -107,6 +107,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 ShipmentDetails::PAYMENT_TYPE_CFR,
                 ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
                 238948923,
+                true,
                 true
             ),
             $request->getShipmentDetails()

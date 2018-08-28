@@ -15,6 +15,8 @@ use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\TrackingServiceAdapter;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteRequestMapper;
+use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentDeleteResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
@@ -61,9 +63,13 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         string $password,
         LoggerInterface $logger
     ): ShipmentServiceInterface {
-        $requestMapper = new ShipmentRequestMapper();
-        $responseMapper = new ShipmentResponseMapper();
-        $adapter = new ShipmentServiceAdapter($this->client, $requestMapper, $responseMapper);
+        $adapter = new ShipmentServiceAdapter(
+            $this->client,
+            new ShipmentRequestMapper(),
+            new ShipmentResponseMapper(),
+            new ShipmentDeleteRequestMapper(),
+            new ShipmentDeleteResponseMapper()
+        );
 
         return new ShipmentService($adapter, $logger);
     }
