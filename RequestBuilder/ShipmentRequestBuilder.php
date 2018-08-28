@@ -353,7 +353,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         }
 
         // Build insurance
-        if (isset($this->data['insurance']) && is_array($this->data['insurance'])) {
+        if (isset($this->data['insurance']) && \is_array($this->data['insurance'])) {
             $insurance = new Insurance(
                 $this->data['insurance']['value'],
                 $this->data['insurance']['currencyType']
@@ -363,7 +363,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         }
 
         // Build dry ice
-        if (isset($this->data['dryIce']) && is_array($this->data['dryIce'])) {
+        if (isset($this->data['dryIce']) && \is_array($this->data['dryIce'])) {
             $dryIce = new DryIce(
                 $this->data['dryIce']['unCode'],
                 $this->data['dryIce']['weight']

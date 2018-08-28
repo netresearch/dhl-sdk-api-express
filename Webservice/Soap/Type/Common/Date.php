@@ -43,14 +43,14 @@ class Date implements ValueInterface
             $this->value = $date;
 
             // Timestamp
-        } elseif (is_int($date)) {
+        } elseif (\is_int($date)) {
             $dateTime = new \DateTime();
             $dateTime->setTimestamp($date);
 
             $this->value = $dateTime;
 
             // Formatted date/time
-        } elseif (is_string($date)) {
+        } elseif (\is_string($date)) {
             if (!$this->validateDateTime($date)) {
                 throw new \InvalidArgumentException(
                     'Invalid date given. Required format: YYYY-MM-DD'

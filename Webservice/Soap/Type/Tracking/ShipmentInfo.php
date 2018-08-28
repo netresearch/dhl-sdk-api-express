@@ -193,9 +193,9 @@ class ShipmentInfo
     }
 
     /**
-     * @return \DateTime
+     * @return bool|\DateTime
      */
-    public function getShipmentDate(): \DateTime
+    public function getShipmentDate()
     {
         if ($this->ShipmentDate === null) {
             return null;
@@ -315,7 +315,7 @@ class ShipmentInfo
     }
 
     /**
-     * @return \DateTime|null
+     * @return bool|\DateTime|null
      */
     public function getEstimatedDeliveryDate()
     {

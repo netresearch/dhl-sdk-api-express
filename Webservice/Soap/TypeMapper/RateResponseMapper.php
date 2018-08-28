@@ -46,13 +46,11 @@ class RateResponseMapper
                 if ($errorMessage) {
                     throw new RateRequestException($errorMessage);
                 }
-            } else {
-                if ($provider->getNotification()->isError()) {
-                    throw new RateRequestException(
-                        $provider->getNotification()->getMessage(),
-                        $provider->getNotification()->getCode()
-                    );
-                }
+            } elseif ($provider->getNotification()->isError()) {
+                throw new RateRequestException(
+                    $provider->getNotification()->getMessage(),
+                    $provider->getNotification()->getCode()
+                );
             }
 
             if ($provider->getService()) {

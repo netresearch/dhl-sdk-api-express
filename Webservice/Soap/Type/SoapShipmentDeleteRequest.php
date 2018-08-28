@@ -5,7 +5,6 @@
 namespace Dhl\Express\Webservice\Soap\Type;
 
 use Dhl\Express\Webservice\Soap\Type\Common\ClientDetail;
-use Dhl\Express\Webservice\Soap\Type\Common\Date;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address\CountryCode;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\PersonName;
 

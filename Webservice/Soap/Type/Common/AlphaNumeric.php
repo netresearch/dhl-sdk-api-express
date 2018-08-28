@@ -36,13 +36,13 @@ class AlphaNumeric implements ValueInterface
      */
     public function __construct(string $value)
     {
-        if (strlen($value) < static::MIN_LENGTH) {
+        if (\strlen($value) < static::MIN_LENGTH) {
             throw new \InvalidArgumentException(
                 'Only values with a minimum length of ' . static::MIN_LENGTH . ' characters are allowed'
             );
         }
 
-        if (strlen($value) > static::MAX_LENGTH) {
+        if (\strlen($value) > static::MAX_LENGTH) {
             throw new \InvalidArgumentException(
                 'Only values with a maximum length of ' . static::MAX_LENGTH . ' characters are allowed'
             );

@@ -119,11 +119,11 @@ class Package implements PackageInterface
             self::UOM_DIMENSION_FT,
         ];
 
-        if (!in_array($weightUOM, $weightUOMs, true)) {
+        if (!\in_array($weightUOM, $weightUOMs, true)) {
             throw new \InvalidArgumentException('The weight UOM must be one of ' . implode(', ', $weightUOMs));
         }
 
-        if (!in_array($dimensionsUOM, $dimensionUOMs, true)) {
+        if (!\in_array($dimensionsUOM, $dimensionUOMs, true)) {
             throw new \InvalidArgumentException('The dimension UOM must be one of ' . implode(', ', $dimensionUOMs));
         }
 

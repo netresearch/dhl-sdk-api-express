@@ -49,8 +49,8 @@ class YesNo implements ValueInterface
      */
     public function __construct($value = false)
     {
-        if (is_string($value)) {
-            if (!in_array($value, [self::N, self::Y], true)) {
+        if (\is_string($value)) {
+            if (!\in_array($value, [self::N, self::Y], true)) {
                 throw new \InvalidArgumentException('Argument must be either Y/N or true/false');
             }
 

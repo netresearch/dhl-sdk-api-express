@@ -58,8 +58,10 @@ class ShipmentResponseMapper
             $labelData = $labelImage[0]->getGraphicImage();
         }
 
+        $packageResult = $shipmentResponse->getPackagesResult();
+
         /** @var PackageResult[] $packageResults */
-        if ($packageResults = $shipmentResponse->getPackagesResult()->getPackageResult()) {
+        if ($packageResult && ($packageResults = $packageResult->getPackageResult())) {
             foreach ($packageResults as $packageResult) {
                 $trackingNumbers[] = $packageResult->getTrackingNumber();
             }

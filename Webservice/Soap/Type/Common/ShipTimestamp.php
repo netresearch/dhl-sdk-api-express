@@ -49,14 +49,14 @@ class ShipTimestamp implements ValueInterface
             $this->value = $time;
 
         // Timestamp
-        } elseif (is_int($time)) {
+        } elseif (\is_int($time)) {
             $dateTime = new \DateTime();
             $dateTime->setTimestamp($time);
 
             $this->value = $dateTime;
 
         // Formatted date/time
-        } elseif (is_string($time)) {
+        } elseif (\is_string($time)) {
             if (!$this->validateDateTime($time)) {
                 throw new \InvalidArgumentException(
                     'Invalid date given. Required format: YYYY-MM-DDTHH:MM:SS GMT+k'

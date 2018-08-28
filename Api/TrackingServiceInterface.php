@@ -4,8 +4,6 @@
  */
 namespace Dhl\Express\Api;
 
-use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\Data\TrackingRequestInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
 

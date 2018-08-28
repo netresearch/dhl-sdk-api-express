@@ -47,7 +47,7 @@ class ShippingPaymentType implements ValueInterface
      */
     public function __construct(string $value = self::S)
     {
-        if (!in_array($value, [self::S, self::R, self::T])) {
+        if (!\in_array($value, [self::S, self::R, self::T], true)) {
             throw new \InvalidArgumentException('Argument must be either "S", "R" or "T"');
         }
 

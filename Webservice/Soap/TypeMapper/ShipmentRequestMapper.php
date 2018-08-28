@@ -113,18 +113,18 @@ class ShipmentRequestMapper
         );
 
         $shipperStreetLines = $request->getShipper()->getStreetLines();
-        if ((count($shipperStreetLines) > 1) && strlen($shipperStreetLines[1])) {
+        if ((count($shipperStreetLines) > 1) && ('' !== $shipperStreetLines[1])) {
             $requestedShipment->getShip()->getShipper()->getAddress()->setStreetLines($shipperStreetLines[1]);
         }
-        if ((count($shipperStreetLines) > 2) && strlen($shipperStreetLines[2])) {
+        if ((count($shipperStreetLines) > 2) && ('' !== $shipperStreetLines[2])) {
             $requestedShipment->getShip()->getShipper()->getAddress()->setStreetLines2($shipperStreetLines[2]);
         }
 
         $recipientStreetLines = $request->getRecipient()->getStreetLines();
-        if ((count($recipientStreetLines) > 1) && strlen($recipientStreetLines[1])) {
+        if ((count($recipientStreetLines) > 1) && ('' !== $recipientStreetLines[1])) {
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines($recipientStreetLines[1]);
         }
-        if ((count($recipientStreetLines) > 2) && strlen($recipientStreetLines[2])) {
+        if ((count($recipientStreetLines) > 2) && ('' !== $recipientStreetLines[2])) {
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines2($recipientStreetLines[2]);
         }
 

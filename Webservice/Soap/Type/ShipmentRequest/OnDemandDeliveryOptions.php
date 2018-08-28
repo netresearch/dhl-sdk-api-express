@@ -118,10 +118,8 @@ class OnDemandDeliveryOptions
     ) {
         $this->setDeliveryOption($deliveryOption);
 
-        if ($deliveryOption === DeliveryOption::SX) {
-            if (empty($location)) {
-                throw new \InvalidArgumentException('The location is required for selected delivery option');
-            }
+        if ($deliveryOption === DeliveryOption::SX && empty($location)) {
+            throw new \InvalidArgumentException('The location is required for selected delivery option');
         }
 
         if ($deliveryOption === DeliveryOption::SW) {
@@ -152,12 +150,10 @@ class OnDemandDeliveryOptions
             }
         }
 
-        if ($deliveryOption === DeliveryOption::TV) {
-            if (empty($selectedServicePointId)) {
-                throw new \InvalidArgumentException(
-                    'The selected service point id is required for selected delivery option'
-                );
-            }
+        if ($deliveryOption === DeliveryOption::TV && empty($selectedServicePointId)) {
+            throw new \InvalidArgumentException(
+                'The selected service point id is required for selected delivery option'
+            );
         }
     }
 

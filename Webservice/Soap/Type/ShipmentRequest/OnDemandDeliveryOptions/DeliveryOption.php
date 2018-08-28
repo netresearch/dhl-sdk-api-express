@@ -44,7 +44,7 @@ class DeliveryOption implements ValueInterface
      */
     public function __construct($value = self::TV)
     {
-        if (!in_array($value, [self::TV, self::SW, self::SX])) {
+        if (!\in_array($value, [self::TV, self::SW, self::SX], true)) {
             throw new \InvalidArgumentException('Argument must be either "TV", "SW" or "SX"');
         }
 

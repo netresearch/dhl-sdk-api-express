@@ -57,7 +57,7 @@ class Billing
             ->setShippingPaymentType($shippingPaymentType);
 
         if (empty($billingAccountNumber)
-            && in_array($shippingPaymentType, [ ShippingPaymentType::R, ShippingPaymentType::T ])
+            && \in_array($shippingPaymentType, [ShippingPaymentType::R, ShippingPaymentType::T ], true)
         ) {
             throw new \InvalidArgumentException(
                 'The billing account number is required for payment type "' . $shippingPaymentType . '"'
