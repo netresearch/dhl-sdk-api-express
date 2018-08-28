@@ -2,7 +2,6 @@
 /**
  * See LICENSE.md for license details.
  */
-
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\PackageInterface;
@@ -94,12 +93,12 @@ class Package implements PackageInterface
     /**
      * Constructor.
      *
-     * @param int $sequenceNumber
-     * @param float $weight
+     * @param int    $sequenceNumber
+     * @param float  $weight
      * @param string $weightUOM
-     * @param float $length
-     * @param float $width
-     * @param float $height
+     * @param float  $length
+     * @param float  $width
+     * @param float  $height
      * @param string $dimensionsUOM
      * @param string $customerReferences
      */
@@ -137,13 +136,13 @@ class Package implements PackageInterface
             throw new \InvalidArgumentException('The dimension UOM must be one of ' . implode(', ', $dimensionUOMs));
         }
 
-        $this->sequenceNumber = $sequenceNumber;
-        $this->weight = $weight;
-        $this->weightUOM = $weightUOM;
-        $this->length = $length;
-        $this->width = $width;
-        $this->height = $height;
-        $this->dimensionsUOM = $dimensionsUOM;
+        $this->sequenceNumber     = $sequenceNumber;
+        $this->weight             = $weight;
+        $this->weightUOM          = $weightUOM;
+        $this->length             = $length;
+        $this->width              = $width;
+        $this->height             = $height;
+        $this->dimensionsUOM      = $dimensionsUOM;
         $this->customerReferences = $customerReferences;
     }
 
