@@ -1,0 +1,39 @@
+# Select what we should cache between builds
+cache:
+  paths:
+  - vendor/
+
+before_script:
+# Install git (the php image doesn't have it) which is required by composer
+- apt-get update -yqq
+- apt-get install -yqq git
+
+# Install other required libraries
+- apt-get install -yqq libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev
+
+# Install PHP extensions
+- docker-php-ext-install mbstring curl intl gd xml zip bz2 opcache soap
+
+# Install & enable Xdebug for code coverage reports
+- pecl install xdebug
+- docker-php-ext-enable xdebug
+
+# Install and run Composer
+- curl -sS https://getcomposer.org/installer | php
+
+# Install all project dependencies
+- php composer.phar install
+
+# Run our tests
+# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
+test:7.0:
+  image: php:7.0
+  script:
+    # Run phpunit
+    - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
+
+test:7.1:
+  image: php:7.1
+  script:
+    # Run phpunit
+    - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
