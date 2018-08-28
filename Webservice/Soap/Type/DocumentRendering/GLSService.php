@@ -8,23 +8,23 @@ class GLSService extends \SoapClient
     /**
      * @var array $classmap The defined classes
      */
-    private static $classmap = array (
-      'GLSDocRequest' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\GLSDocRequest',
-      'GLSDocResponse' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\GLSDocResponse',
-      'HdrType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\HdrType',
-      'Sndr' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\Sndr',
-      'TAddr' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\TAddr',
-      'CommandType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\CommandType',
-      'FieldType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\FieldType',
-      'DataType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\DataType',
-      'FieldListType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\FieldListType',
-      'MapType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\MapType',
-      'Entry' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\Entry',
-      'DocumentType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\DocumentType',
-      'TemplateType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\TemplateType',
-      'Message' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\Message',
-      'PrintDocumentType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\DocumentRendering\\PrintDocumentType',
-    );
+    private static $classmap = [
+        'GLSDocRequest' => GLSDocRequest::class,
+        'GLSDocResponse' => GLSDocResponse::class,
+        'HdrType' => HdrType::class,
+        'Sndr' => Sndr::class,
+        'TAddr' => TAddr::class,
+        'CommandType' => CommandType::class,
+        'FieldType' => FieldType::class,
+        'DataType' => DataType::class,
+        'FieldListType' => FieldListType::class,
+        'MapType' => MapType::class,
+        'Entry' => Entry::class,
+        'DocumentType' => DocumentType::class,
+        'TemplateType' => TemplateType::class,
+        'Message' => Message::class,
+        'PrintDocumentType' => PrintDocumentType::class,
+    ];
 
     /**
      * @param array $options A array of config values

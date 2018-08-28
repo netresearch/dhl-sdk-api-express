@@ -8,7 +8,7 @@ class MapType
     /**
      * @var Entry[] $Entry
      */
-    protected $Entry = null;
+    protected $Entry;
 
     /**
      * @param Entry[] $Entry

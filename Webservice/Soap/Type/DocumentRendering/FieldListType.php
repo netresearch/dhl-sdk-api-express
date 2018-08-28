@@ -8,12 +8,12 @@ class FieldListType
     /**
      * @var MapType[] $Map
      */
-    protected $Map = null;
+    protected $Map;
 
     /**
      * @var string $Name
      */
-    protected $Name = null;
+    protected $Name;
 
     /**
      * @param MapType[] $Map

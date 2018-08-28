@@ -8,37 +8,37 @@ class GLSDocResponse
     /**
      * @var HdrType $Hdr
      */
-    protected $Hdr = null;
+    protected $Hdr;
 
     /**
      * @var CommandType $Command
      */
-    protected $Command = null;
+    protected $Command;
 
     /**
      * @var Message $Message
      */
-    protected $Message = null;
+    protected $Message;
 
     /**
      * @var DataType $Data
      */
-    protected $Data = null;
+    protected $Data;
 
     /**
      * @var DocumentType $Document
      */
-    protected $Document = null;
+    protected $Document;
 
     /**
      * @var PrintDocumentType $PrintDocument
      */
-    protected $PrintDocument = null;
+    protected $PrintDocument;
 
     /**
      * @var anonymous24 $Status
      */
-    protected $Status = null;
+    protected $Status;
 
     /**
      * @param HdrType $Hdr

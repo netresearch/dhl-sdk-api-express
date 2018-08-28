@@ -8,92 +8,92 @@ class DocumentType
     /**
      * @var TemplateType[] $Template
      */
-    protected $Template = null;
+    protected $Template;
 
     /**
      * @var string $OutputFormat
      */
-    protected $OutputFormat = null;
+    protected $OutputFormat;
 
     /**
      * @var anonymous12 $FormDataType
      */
-    protected $FormDataType = null;
+    protected $FormDataType;
 
     /**
      * @var int $PageNo
      */
-    protected $PageNo = null;
+    protected $PageNo;
 
     /**
      * @var int $Height
      */
-    protected $Height = null;
+    protected $Height;
 
     /**
      * @var int $Width
      */
-    protected $Width = null;
+    protected $Width;
 
     /**
      * @var int $MarginLeft
      */
-    protected $MarginLeft = null;
+    protected $MarginLeft;
 
     /**
      * @var int $MarginTop
      */
-    protected $MarginTop = null;
+    protected $MarginTop;
 
     /**
      * @var int $MarginBottom
      */
-    protected $MarginBottom = null;
+    protected $MarginBottom;
 
     /**
      * @var int $MarginRight
      */
-    protected $MarginRight = null;
+    protected $MarginRight;
 
     /**
      * @var base64Binary $PreloadPro
      */
-    protected $PreloadPro = null;
+    protected $PreloadPro;
 
     /**
      * @var base64Binary $PreloadEpli
      */
-    protected $PreloadEpli = null;
+    protected $PreloadEpli;
 
     /**
      * @var base64Binary $PrintPro
      */
-    protected $PrintPro = null;
+    protected $PrintPro;
 
     /**
      * @var base64Binary $PrintEpli
      */
-    protected $PrintEpli = null;
+    protected $PrintEpli;
 
     /**
      * @var base64Binary $PrintPgPro
      */
-    protected $PrintPgPro = null;
+    protected $PrintPgPro;
 
     /**
      * @var base64Binary $PrintPgEpli
      */
-    protected $PrintPgEpli = null;
+    protected $PrintPgEpli;
 
     /**
      * @var int $ResolutionX
      */
-    protected $ResolutionX = null;
+    protected $ResolutionX;
 
     /**
      * @var int $ResolutionY
      */
-    protected $ResolutionY = null;
+    protected $ResolutionY;
 
     /**
      * @param TemplateType[] $Template

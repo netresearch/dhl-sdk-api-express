@@ -8,12 +8,12 @@ class DataType
     /**
      * @var FieldType[] $Field
      */
-    protected $Field = null;
+    protected $Field;
 
     /**
      * @var FieldListType[] $FieldList
      */
-    protected $FieldList = null;
+    protected $FieldList;
 
 
     public function __construct()

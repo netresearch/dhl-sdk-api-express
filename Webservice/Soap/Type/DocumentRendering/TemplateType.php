@@ -8,17 +8,17 @@ class TemplateType
     /**
      * @var DataType $Data
      */
-    protected $Data = null;
+    protected $Data;
 
     /**
      * @var string $Type
      */
-    protected $Type = null;
+    protected $Type;
 
     /**
      * @var string $TemplateId
      */
-    protected $TemplateId = null;
+    protected $TemplateId;
 
     /**
      * @param string $Type

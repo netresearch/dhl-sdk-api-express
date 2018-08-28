@@ -8,7 +8,7 @@ class CommandType
     /**
      * @var FieldType[] $Field
      */
-    protected $Field = null;
+    protected $Field;
 
     /**
      * @param FieldType[] $Field

@@ -8,12 +8,12 @@ class Entry
     /**
      * @var string $Key
      */
-    protected $Key = null;
+    protected $Key;
 
     /**
      * @var string $Value
      */
-    protected $Value = null;
+    protected $Value;
 
     /**
      * @param string $Key

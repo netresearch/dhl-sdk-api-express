@@ -8,22 +8,22 @@ class GLSDocRequest
     /**
      * @var HdrType $Hdr
      */
-    protected $Hdr = null;
+    protected $Hdr;
 
     /**
      * @var CommandType $Command
      */
-    protected $Command = null;
+    protected $Command;
 
     /**
      * @var DataType $Data
      */
-    protected $Data = null;
+    protected $Data;
 
     /**
      * @var DocumentType $Document
      */
-    protected $Document = null;
+    protected $Document;
 
     /**
      * @param HdrType $Hdr

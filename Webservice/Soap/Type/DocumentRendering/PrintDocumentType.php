@@ -8,17 +8,17 @@ class PrintDocumentType
     /**
      * @var string $OutputFormat
      */
-    protected $OutputFormat = null;
+    protected $OutputFormat;
 
     /**
      * @var base64Binary $FileAttach
      */
-    protected $FileAttach = null;
+    protected $FileAttach;
 
     /**
      * @var base64Binary $PrintCommand
      */
-    protected $PrintCommand = null;
+    protected $PrintCommand;
 
     /**
      * @param string $OutputFormat

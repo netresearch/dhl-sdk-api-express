@@ -8,12 +8,12 @@ class TAddr
     /**
      * @var anonymous3 $TAddr
      */
-    protected $TAddr = null;
+    protected $TAddr;
 
     /**
      * @var anonymous4 $TAddrTy
      */
-    protected $TAddrTy = null;
+    protected $TAddrTy;
 
     /**
      * @param anonymous3 $TAddr

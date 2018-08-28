@@ -8,42 +8,42 @@ class HdrType
     /**
      * @var Sndr $Sndr
      */
-    protected $Sndr = null;
+    protected $Sndr;
 
     /**
      * @var anonymous6 $No
      */
-    protected $No = null;
+    protected $No;
 
     /**
      * @var anonymous7 $Id
      */
-    protected $Id = null;
+    protected $Id;
 
     /**
      * @var anonymous8 $Ver
      */
-    protected $Ver = null;
+    protected $Ver;
 
     /**
      * @var UNKNOWN $Dtm
      */
-    protected $Dtm = null;
+    protected $Dtm;
 
     /**
      * @var UNKNOWN $GmtOff
      */
-    protected $GmtOff = null;
+    protected $GmtOff;
 
     /**
      * @var anonymous9 $Srv
      */
-    protected $Srv = null;
+    protected $Srv;
 
     /**
      * @var anonymous10 $CorrId
      */
-    protected $CorrId = null;
+    protected $CorrId;
 
     /**
      * @param anonymous6 $No

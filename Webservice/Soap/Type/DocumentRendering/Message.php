@@ -8,12 +8,12 @@ class Message
     /**
      * @var string $Category
      */
-    protected $Category = null;
+    protected $Category;
 
     /**
      * @var string $Description
      */
-    protected $Description = null;
+    protected $Description;
 
     /**
      * @param string $Category

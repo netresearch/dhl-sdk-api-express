@@ -8,27 +8,27 @@ class Sndr
     /**
      * @var TAddr $TAddr
      */
-    protected $TAddr = null;
+    protected $TAddr;
 
     /**
      * @var string $AppCd
      */
-    protected $AppCd = null;
+    protected $AppCd;
 
     /**
      * @var anonymous5 $AppVer
      */
-    protected $AppVer = null;
+    protected $AppVer;
 
     /**
      * @var string $PrcsId
      */
-    protected $PrcsId = null;
+    protected $PrcsId;
 
     /**
      * @var string $ThdId
      */
-    protected $ThdId = null;
+    protected $ThdId;
 
     /**
      * @param TAddr $TAddr

@@ -8,12 +8,12 @@ class FieldType
     /**
      * @var string $Name
      */
-    protected $Name = null;
+    protected $Name;
 
     /**
      * @var string $Value
      */
-    protected $Value = null;
+    protected $Value;
 
     /**
      * @param string $Name
