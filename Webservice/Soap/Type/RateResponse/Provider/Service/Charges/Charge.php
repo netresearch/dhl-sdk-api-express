@@ -33,7 +33,7 @@ class Charge
     /**
      * The charge amount of the line item charge.
      *
-     * @var float
+     * @var string
      */
     private $ChargeAmount;
 
@@ -64,6 +64,6 @@ class Charge
      */
     public function getChargeAmount(): float
     {
-        return $this->ChargeAmount;
+        return (float) $this->ChargeAmount;
     }
 }
