@@ -54,7 +54,7 @@ class SoapShipmentRequest
      *
      * @return null|string
      */
-    public function getMessageId(): ?string
+    public function getMessageId()
     {
         return $this->MessageId;
     }
@@ -77,7 +77,7 @@ class SoapShipmentRequest
      *
      * @return null|ClientDetail
      */
-    public function getClientDetail(): ?ClientDetail
+    public function getClientDetail()
     {
         return $this->ClientDetail;
     }

@@ -71,7 +71,7 @@ class SoapShipmentResponse
      *
      * @return null|PackagesResults
      */
-    public function getPackagesResult(): ?PackagesResults
+    public function getPackagesResult()
     {
         return $this->PackagesResult;
     }
@@ -81,7 +81,7 @@ class SoapShipmentResponse
      *
      * @return null|array|LabelImage[] Array of LabelImage
      */
-    public function getLabelImage(): ?array
+    public function getLabelImage()
     {
         return $this->LabelImage;
     }
@@ -91,7 +91,7 @@ class SoapShipmentResponse
      *
      * @return null|string
      */
-    public function getShipmentIdentificationNumber(): ?string
+    public function getShipmentIdentificationNumber()
     {
         return $this->ShipmentIdentificationNumber;
     }
@@ -101,7 +101,7 @@ class SoapShipmentResponse
      *
      * @return null|string
      */
-    public function getDispatchConfirmationNumber(): ?string
+    public function getDispatchConfirmationNumber()
     {
         return $this->DispatchConfirmationNumber;
     }

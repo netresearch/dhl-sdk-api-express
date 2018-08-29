@@ -42,7 +42,7 @@ class Charge
      *
      * @return null|string
      */
-    public function getChargeCode(): ?string
+    public function getChargeCode()
     {
         return $this->ChargeCode;
     }

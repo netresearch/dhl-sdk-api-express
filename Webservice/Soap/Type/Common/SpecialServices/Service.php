@@ -108,7 +108,7 @@ class Service
      *
      * @return null|Money
      */
-    public function getServiceValue(): ?Money
+    public function getServiceValue()
     {
         return $this->ServiceValue;
     }
@@ -131,7 +131,7 @@ class Service
      *
      * @return null|CurrencyCode
      */
-    public function getCurrencyCode(): ?CurrencyCode
+    public function getCurrencyCode()
     {
         return $this->CurrencyCode;
     }
@@ -154,7 +154,7 @@ class Service
      *
      * @return null|PaymentCode
      */
-    public function getPaymentCode(): ?PaymentCode
+    public function getPaymentCode()
     {
         return $this->PaymentCode;
     }
@@ -177,7 +177,7 @@ class Service
      *
      * @return null|Date
      */
-    public function getStartDate(): ?Date
+    public function getStartDate()
     {
         return $this->StartDate;
     }
@@ -200,7 +200,7 @@ class Service
      *
      * @return null|Date
      */
-    public function getEndDate(): ?Date
+    public function getEndDate()
     {
         return $this->EndDate;
     }
@@ -223,7 +223,7 @@ class Service
      *
      * @return null|TextInstruction
      */
-    public function getTextInstruction(): ?TextInstruction
+    public function getTextInstruction()
     {
         return $this->TextInstruction;
     }

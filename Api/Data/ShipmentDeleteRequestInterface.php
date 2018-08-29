@@ -62,7 +62,7 @@ interface ShipmentDeleteRequestInterface
      *
      * @return null|string
      */
-    public function getReason(): ?string;
+    public function getReason();
 
     /**
      * Sets the reason code.

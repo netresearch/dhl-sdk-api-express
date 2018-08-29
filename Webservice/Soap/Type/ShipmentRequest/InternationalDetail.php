@@ -72,7 +72,7 @@ class InternationalDetail
      *
      * @return null|Content
      */
-    public function getContent(): ?Content
+    public function getContent()
     {
         return $this->Content;
     }
@@ -95,7 +95,7 @@ class InternationalDetail
      *
      * @return null|ExportReference
      */
-    public function getExportReference(): ?ExportReference
+    public function getExportReference()
     {
         return $this->ExportReference;
     }

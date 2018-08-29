@@ -51,7 +51,7 @@ class Billing
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(string $shipperAccountNumber, string $shippingPaymentType, ?string $billingAccountNumber = null)
+    public function __construct(string $shipperAccountNumber, string $shippingPaymentType, string $billingAccountNumber = null)
     {
         $this->setShipperAccountNumber($shipperAccountNumber)
             ->setShippingPaymentType($shippingPaymentType);
@@ -120,7 +120,7 @@ class Billing
      *
      * @return null|Account
      */
-    public function getBillingAccountNumber(): ?Account
+    public function getBillingAccountNumber()
     {
         return $this->BillingAccountNumber;
     }

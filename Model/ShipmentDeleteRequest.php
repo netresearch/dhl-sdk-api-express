@@ -106,7 +106,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function getReason(): ?string
+    public function getReason()
     {
         return $this->reason;
     }

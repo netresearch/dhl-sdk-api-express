@@ -298,7 +298,7 @@ class ShipmentInfo
     /**
      * @return Reference|null
      */
-    public function getShipperReference(): ?Reference
+    public function getShipperReference()
     {
         return $this->ShipperReference;
     }

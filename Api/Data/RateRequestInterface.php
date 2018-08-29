@@ -51,5 +51,5 @@ interface RateRequestInterface
     /**
      * @return InsuranceInterface|null
      */
-    public function getInsurance(): ?InsuranceInterface;
+    public function getInsurance();
 }

@@ -120,7 +120,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return InsuranceInterface|null
      */
-    public function getInsurance(): ?InsuranceInterface
+    public function getInsurance()
     {
         return $this->insurance;
     }

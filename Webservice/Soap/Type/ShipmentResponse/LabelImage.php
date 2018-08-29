@@ -63,7 +63,7 @@ class LabelImage
      *
      * @return null|string
      */
-    public function getHTMLImage(): ?string
+    public function getHTMLImage()
     {
         return $this->HTMLImage;
     }

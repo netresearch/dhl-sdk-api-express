@@ -204,7 +204,7 @@ class RequestedShipment
      *
      * @return null|NextBusinessDay
      */
-    public function getNextBusinessDay(): ?NextBusinessDay
+    public function getNextBusinessDay()
     {
         return $this->NextBusinessDay;
     }
@@ -319,7 +319,7 @@ class RequestedShipment
      *
      * @return null|Content
      */
-    public function getContent(): ?Content
+    public function getContent()
     {
         return $this->Content;
     }
@@ -342,7 +342,7 @@ class RequestedShipment
      *
      * @return null|Money
      */
-    public function getDeclaredValue(): ?Money
+    public function getDeclaredValue()
     {
         return $this->DeclaredValue;
     }
@@ -365,7 +365,7 @@ class RequestedShipment
      *
      * @return null|CurrencyCode
      */
-    public function getDeclaredValueCurrencyCode(): ?CurrencyCode
+    public function getDeclaredValueCurrencyCode()
     {
         return $this->DeclaredValueCurrencyCode;
     }
@@ -388,7 +388,7 @@ class RequestedShipment
      *
      * @return null|PaymentInfo
      */
-    public function getPaymentInfo(): ?PaymentInfo
+    public function getPaymentInfo()
     {
         return $this->PaymentInfo;
     }
@@ -411,7 +411,7 @@ class RequestedShipment
      *
      * @return null|Account
      */
-    public function getAccount(): ?Account
+    public function getAccount()
     {
         return $this->Account;
     }
@@ -434,7 +434,7 @@ class RequestedShipment
      *
      * @return null|Billing
      */
-    public function getBilling(): ?Billing
+    public function getBilling()
     {
         return $this->Billing;
     }
@@ -457,7 +457,7 @@ class RequestedShipment
      *
      * @return null|SpecialServices
      */
-    public function getSpecialServices(): ?SpecialServices
+    public function getSpecialServices()
     {
         return $this->SpecialServices;
     }
@@ -480,7 +480,7 @@ class RequestedShipment
      *
      * @return null|RequestValueAddedServices
      */
-    public function getRequestValueAddedServices(): ?RequestValueAddedServices
+    public function getRequestValueAddedServices()
     {
         return $this->RequestValueAddedServices;
     }

@@ -34,7 +34,7 @@ class ClientDetail
      *
      * @return null|string
      */
-    public function getSso(): ?string
+    public function getSso()
     {
         return $this->sso;
     }
@@ -57,7 +57,7 @@ class ClientDetail
      *
      * @return null|string
      */
-    public function getPlant(): ?string
+    public function getPlant()
     {
         return $this->plant;
     }

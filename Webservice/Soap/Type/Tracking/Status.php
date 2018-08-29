@@ -56,7 +56,7 @@ class Status
     /**
      * @return ConditionCollection|null
      */
-    public function getCondition(): ?ConditionCollection
+    public function getCondition()
     {
         return $this->Condition;
     }

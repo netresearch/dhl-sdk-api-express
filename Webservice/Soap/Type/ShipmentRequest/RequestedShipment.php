@@ -162,7 +162,7 @@ class RequestedShipment
      *
      * @return null|PickupLocationCloseTime
      */
-    public function getPickupLocationCloseTime(): ?PickupLocationCloseTime
+    public function getPickupLocationCloseTime()
     {
         return $this->PickupLocationCloseTime;
     }
@@ -185,7 +185,7 @@ class RequestedShipment
      *
      * @return null|SpecialPickupInstruction
      */
-    public function getSpecialPickupInstruction(): ?SpecialPickupInstruction
+    public function getSpecialPickupInstruction()
     {
         return $this->SpecialPickupInstruction;
     }
@@ -208,7 +208,7 @@ class RequestedShipment
      *
      * @return null|PickupLocation
      */
-    public function getPickupLocation(): ?PickupLocation
+    public function getPickupLocation()
     {
         return $this->PickupLocation;
     }
@@ -277,7 +277,7 @@ class RequestedShipment
      *
      * @return null|OnDemandDeliveryOptions
      */
-    public function getOnDemandDeliveryOptions(): ?OnDemandDeliveryOptions
+    public function getOnDemandDeliveryOptions()
     {
         return $this->OnDemandDeliveryOptions;
     }
@@ -346,7 +346,7 @@ class RequestedShipment
      *
      * @return null|DangerousGoods
      */
-    public function getDangerousGoods(): ?DangerousGoods
+    public function getDangerousGoods()
     {
         return $this->DangerousGoods;
     }

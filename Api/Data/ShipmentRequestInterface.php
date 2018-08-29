@@ -39,12 +39,12 @@ interface ShipmentRequestInterface
     /**
      * @return null|string
      */
-    public function getBillingAccountNumber(): ?string;
+    public function getBillingAccountNumber();
 
     /**
      * @return null|InsuranceInterface
      */
-    public function getInsurance(): ?InsuranceInterface;
+    public function getInsurance();
 
     /**
      * @return ShipperInterface
@@ -64,5 +64,5 @@ interface ShipmentRequestInterface
     /**
      * @return null|DryIceInterface
      */
-    public function getDryIce(): ?DryIceInterface;
+    public function getDryIce();
 }
