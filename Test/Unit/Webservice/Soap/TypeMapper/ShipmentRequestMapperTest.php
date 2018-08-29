@@ -35,13 +35,13 @@ class ShipmentRequestMapperTest extends TestCase
         // Set up a ShipmentRequest
 
         $shipmentDetails = new ShipmentDetails(
-            $unscheduledPickup = true,
-            $termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR,
-            $contentType = ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
+            true,
+            ShipmentDetails::PAYMENT_TYPE_CFR,
+            ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             $readyAtTimestamp = 238948923,
-            $numberOfPieces = 12,
+            12,
             $currencyCode = 'EUR',
-            $desciption = 'a description.',
+            $description = 'a description.',
             $customsValue = 1.0,
             $serviceType = 'U'
         );
@@ -51,49 +51,49 @@ class ShipmentRequestMapperTest extends TestCase
         $insurance = new Insurance(99.99, 'EUR');
 
         $shipper = new Shipper(
-            $countryCode = 'DE',
-            $postalCode = '12345',
-            $city = 'Berlin',
-            $streetLines = [
+            'DE',
+            '12345',
+            'Berlin',
+            [
                 'Sample street 5a',
                 'Sample street 5b',
                 'Sample street 5c'
             ],
-            $name = 'Max Mustermann',
-            $company = 'Acme',
-            $phone = '004922832432423'
+            'Max Mustermann',
+            'Acme',
+            '004922832432423'
         );
 
         $recipient = new Recipient(
-            $countryCode = 'DE',
-            $postalCode = '12345',
-            $city = 'Berlin',
-            $streetLines = [
+            'DE',
+            '12345',
+            'Berlin',
+            [
                 'Sample street 5a',
                 'Sample street 5b',
                 'Sample street 5c'
             ],
-            $name = 'Max Mustermann',
-            $company = 'Acme',
-            $phone = '004922832432423'
+            'Max Mustermann',
+            'Acme',
+            '004922832432423'
         );
 
         $package = new Package(
-            $sequenceNumber = 1,
-            $weight = 1.123,
-            $weightUOM = Package::UOM_WEIGHT_KG,
-            $length = 1.123,
-            $width = 1.123,
-            $height = 1.123,
-            $dimensionsUOM = Package::UOM_DIMENSION_CM,
-            $customerReferences = 'TEST CZ-IT'
+            1,
+            1.123,
+            Package::UOM_WEIGHT_KG,
+            1.123,
+            1.123,
+            1.123,
+            Package::UOM_DIMENSION_CM,
+            'TEST CZ-IT'
         );
 
         $packages = [$package, $package];
 
         $dryIce = new DryIce(
-            $unCode = 'UN1845',
-            $weight = 20.53
+            'UN1845',
+            20.53
         );
 
         $request = new ShipmentRequest(
@@ -103,6 +103,8 @@ class ShipmentRequestMapperTest extends TestCase
             $recipient,
             $packages
         );
+
+        $request->setBillingAccountNumber('123456789');
 
         $request->setInsurance($insurance)
             ->setDryIce($dryIce);
@@ -114,24 +116,24 @@ class ShipmentRequestMapperTest extends TestCase
 
         // Assertions
 
-        $this->assertInstanceOf(SoapShipmentRequest::class, $soapRequest);
+        self::assertInstanceOf(SoapShipmentRequest::class, $soapRequest);
 
-        $this->assertEquals(
+        self::assertEquals(
             DropOffType::REQUEST_COURIER,
             $soapRequest->getRequestedShipment()->getShipmentInfo()->getDropOffType()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ShipmentDetails::PAYMENT_TYPE_CFR,
             $soapRequest->getRequestedShipment()->getPaymentInfo()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             $soapRequest->getRequestedShipment()->getInternationalDetail()->getContent()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $readyAtTimestamp,
             \DateTime::createFromFormat(
                 'Y-m-d\TH:i:s \G\M\TP',
@@ -139,29 +141,34 @@ class ShipmentRequestMapperTest extends TestCase
             )->getTimestamp()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $currencyCode,
             $soapRequest->getRequestedShipment()->getShipmentInfo()->getCurrency()
         );
 
-        $this->assertEquals(
-            $desciption,
+        self::assertEquals(
+            $description,
             $soapRequest->getRequestedShipment()->getInternationalDetail()->getCommodities()->getDescription()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $customsValue,
             $soapRequest->getRequestedShipment()->getInternationalDetail()->getCommodities()->getCustomsValue()->getValue()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $serviceType,
             $soapRequest->getRequestedShipment()->getShipmentInfo()->getServiceType()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $payerAccountNumber,
-            $soapRequest->getRequestedShipment()->getShipmentInfo()->getAccount()
+            $soapRequest->getRequestedShipment()->getShipmentInfo()->getBilling()->getShipperAccountNumber()
+        );
+
+        self::assertEquals(
+            '123456789',
+            $soapRequest->getRequestedShipment()->getShipmentInfo()->getBilling()->getBillingAccountNumber()
         );
 
         /**
@@ -175,112 +182,110 @@ class ShipmentRequestMapperTest extends TestCase
          */
         foreach ($soapSpecialServices as $soapService) {
             if ($soapService->getServiceType() === ServiceType::TYPE_INSURANCE) {
-                $this->assertInstanceOf(Service::class, $soapService);
-                $this->assertSame($insurance->getCurrencyCode(), $soapService->getCurrencyCode());
-                $this->assertSame($insurance->getValue(), $soapService->getServiceValue()->getValue());
+                self::assertInstanceOf(Service::class, $soapService);
+                self::assertSame($insurance->getCurrencyCode(), $soapService->getCurrencyCode());
+                self::assertSame($insurance->getValue(), $soapService->getServiceValue()->getValue());
             }
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getCountryCode(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getCountryCode()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getPostalCode(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getPostalCode()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getCity(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getCity()
         );
 
         if (count($shipper->getStreetLines())) {
-            $this->assertEquals(
+            self::assertEquals(
                 $shipper->getStreetLines()[0],
                 $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getStreetLines()
             );
         }
 
         if (count($shipper->getStreetLines()) > 1) {
-            $this->assertEquals(
+            self::assertEquals(
                 $shipper->getStreetLines()[1],
-                $soapRequest->getRequestedShipment()->getShip()->getShipper()
-                    ->getAddress()->getStreetLines2()->__toString()
+                $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getStreetLines2()
             );
         }
 
         if (count($shipper->getStreetLines()) > 2) {
-            $this->assertEquals(
+            self::assertEquals(
                 $shipper->getStreetLines()[2],
-                $soapRequest->getRequestedShipment()->getShip()->getShipper()
-                    ->getAddress()->getStreetLines3()->__toString()
+                $soapRequest->getRequestedShipment()->getShip()->getShipper()->getAddress()->getStreetLines3()
             );
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getName(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getContact()->getPersonName()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getCompany(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getContact()->getCompanyName()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipper->getPhone(),
             $soapRequest->getRequestedShipment()->getShip()->getShipper()->getContact()->getPhoneNumber()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getCountryCode(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getCountryCode()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getPostalCode(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getPostalCode()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getCity(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getCity()
         );
 
         if (count($recipient->getStreetLines())) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipient->getStreetLines()[0],
                 $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getStreetLines()
             );
         }
 
         if (count($recipient->getStreetLines()) > 1) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipient->getStreetLines()[1],
                 $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getStreetLines2()
             );
         }
 
         if (count($recipient->getStreetLines()) > 2) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipient->getStreetLines()[2],
                 $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getAddress()->getStreetLines3()
             );
         }
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getName(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getContact()->getPersonName()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getCompany(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getContact()->getCompanyName()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipient->getPhone(),
             $soapRequest->getRequestedShipment()->getShip()->getRecipient()->getContact()->getPhoneNumber()
         );
@@ -288,10 +293,16 @@ class ShipmentRequestMapperTest extends TestCase
         /**
          * @var RequestedPackages $soapPackage
          */
-        $soapPackage = $soapRequest->getRequestedShipment()->getPackages()->getRequestedPackages();
+        $soapPackages = $soapRequest->getRequestedShipment()->getPackages()->getRequestedPackages();
 
-        $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
-        $this->assertEquals(
+        foreach ($soapPackages as $soapPackage) {
+            self::assertEquals(
+                $package->getSequenceNumber(),
+                $soapPackage->getNumber()
+            );
+        }
+
+        self::assertEquals(
             $shipmentDetails->getReadyAtTimestamp(),
             \DateTime::createFromFormat(
                 'Y-m-d\TH:i:s \G\M\TP',
@@ -299,18 +310,18 @@ class ShipmentRequestMapperTest extends TestCase
             )->getTimestamp()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $dryIce->getContentId(),
             $soapRequest->getRequestedShipment()->getDangerousGoods()->getContent()->getContentId()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $dryIce->getWeight(),
-            $soapRequest->getRequestedShipment()->getDangerousGoods()
-                ->getContent()->getDryIceTotalNetWeight()->__toString()
+            (float) (string) $soapRequest->getRequestedShipment()->getDangerousGoods()
+                ->getContent()->getDryIceTotalNetWeight()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $dryIce->getUnCode(),
             $soapRequest->getRequestedShipment()->getDangerousGoods()->getContent()->getUNCode()
         );

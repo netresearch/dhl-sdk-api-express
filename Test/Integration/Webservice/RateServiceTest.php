@@ -28,10 +28,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      */
     private function getRateService(LoggerInterface $logger)
     {
-        /** @var \SoapClient|MockObject $soapClient */
-        $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
-
-        $serviceFactory = new SoapServiceFactoryFake($soapClient);
+        $serviceFactory = new SoapServiceFactoryFake(new SoapClientFake());
         return $serviceFactory->createRateService('api-user', 'api-pass', $logger);
     }
 
@@ -75,6 +72,10 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         float $insuranceValue,
         string $insuranceCurrency
     ) {
+        self::markTestIncomplete(
+            'This test should not really test the SOAP web service, instead it should test the mapping '
+            . 'from API classes to SOAP classes and visa versa. Fix it or remove it.'
+        );
 
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
@@ -87,6 +88,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
 
         $requestBuilder = new RateRequestBuilder();
         $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup)
+            ->setIsValueAddedServicesRequested(false)
+            ->setNextBusinessDayIndicator(false)
             ->setShipperAccountNumber($accountNumber)
             ->setShipperAddress($sCountryCode, $sPostalCode, $sCity)
             ->setRecipientAddress($rCountryCode, $rPostalCode, $rCity, $rStreet)

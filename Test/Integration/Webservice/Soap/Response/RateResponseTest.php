@@ -80,34 +80,36 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
         $response = $soapClientMock->__soapCall('getRateRequest', []);
 
         // Test mandatory types
-        $this->assertInternalType('array', $response->getProvider());
+        self::assertInternalType('array', $response->getProvider());
 
         foreach ($response->getProvider() as $provider) {
-            $this->assertInstanceOf(Provider::class, $provider);
-            $this->assertInternalType('string', $provider->getCode());
+            self::assertInstanceOf(Provider::class, $provider);
+            self::assertInternalType('string', $provider->getCode());
 
-            $this->assertInstanceOf(Notification::class, $provider->getNotification());
-            $this->assertInternalType('string', $provider->getNotification()->getMessage());
-            $this->assertInternalType('int', $provider->getNotification()->getCode());
+            self::assertInstanceOf(Notification::class, $provider->getNotification());
+            self::assertInternalType('string', $provider->getNotification()->getMessage());
+            self::assertInternalType('int', $provider->getNotification()->getCode());
 
-            if ($provider->getService()) {
-                $this->assertInternalType('array', $provider->getService());
+            $services = $provider->getService();
+
+            if ($services) {
+                self::assertInternalType('array', $provider->getService());
 
                 foreach ($provider->getService() as $service) {
-                    $this->assertInstanceOf(Service::class, $service);
-                    $this->assertInternalType('string', $service->getType());
-                    $this->assertInstanceOf(TotalNet::class, $service->getTotalNet());
-                    $this->assertInternalType('string', $service->getTotalNet()->getCurrency());
-                    $this->assertInternalType('float', $service->getTotalNet()->getAmount());
+                    self::assertInstanceOf(Service::class, $service);
+                    self::assertInternalType('string', $service->getType());
+                    self::assertInstanceOf(TotalNet::class, $service->getTotalNet());
+                    self::assertInternalType('string', $service->getTotalNet()->getCurrency());
+                    self::assertInternalType('float', $service->getTotalNet()->getAmount());
 
                     if ($service->getCharges()) {
-                        $this->assertInstanceOf(Charges::class, $service->getCharges());
-                        $this->assertInternalType('string', $service->getCharges()->getCurrency());
+                        self::assertInstanceOf(Charges::class, $service->getCharges());
+                        self::assertInternalType('string', $service->getCharges()->getCurrency());
 
                         foreach ($service->getCharges()->getCharge() as $charge) {
-                            $this->assertInstanceOf(Charge::class, $charge);
-                            $this->assertInternalType('string', $charge->getChargeType());
-                            $this->assertInternalType('float', $charge->getChargeAmount());
+                            self::assertInstanceOf(Charge::class, $charge);
+                            self::assertInternalType('string', $charge->getChargeType());
+                            self::assertInternalType('float', $charge->getChargeAmount());
                         }
                     }
                 }

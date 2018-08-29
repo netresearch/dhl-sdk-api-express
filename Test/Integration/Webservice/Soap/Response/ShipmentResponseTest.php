@@ -44,8 +44,8 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
     public function shipmentResponseProvider(): array
     {
         return [
-            ['SoapShipmentResponse-001'],
-            ['SoapShipmentResponse-002'],
+            ['ShipmentResponse-001'],
+            ['ShipmentResponse-002'],
         ];
     }
 
@@ -64,7 +64,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
             SoapClientFake::class,
             '',
             [
-               '__doRequest',
+                '__doRequest',
             ]
         );
 
@@ -75,40 +75,40 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
         /** @var SoapShipmentResponse $response */
         $response = $soapClientMock->__soapCall('createShipmentRequest', []);
 
-        $this->assertInternalType('array', $response->getNotification());
+        self::assertInternalType('array', $response->getNotification());
 
         foreach ($response->getNotification() as $notification) {
-            $this->assertInstanceOf(Notification::class, $notification);
-            $this->assertInternalType('string', $notification->getMessage());
-            $this->assertInternalType('int', $notification->getCode());
+            self::assertInstanceOf(Notification::class, $notification);
+            self::assertInternalType('string', $notification->getMessage());
+            self::assertInternalType('int', $notification->getCode());
         }
 
         if ($response->getPackagesResult()) {
-            $this->assertInstanceOf(PackagesResults::class, $response->getPackagesResult());
+            self::assertInstanceOf(PackagesResults::class, $response->getPackagesResult());
 
             foreach ($response->getPackagesResult()->getPackageResult() as $packageResult) {
-                $this->assertInstanceOf(PackageResult::class, $packageResult);
-                $this->assertInternalType('string', $packageResult->getTrackingNumber());
-                $this->assertInternalType('int', $packageResult->getNumber());
+                self::assertInstanceOf(PackageResult::class, $packageResult);
+                self::assertInternalType('string', $packageResult->getTrackingNumber());
+                self::assertInternalType('int', $packageResult->getNumber());
             }
         }
 
         if ($response->getLabelImage()) {
-            $this->assertInternalType('array', $response->getLabelImage());
+            self::assertInternalType('array', $response->getLabelImage());
 
             foreach ($response->getLabelImage() as $labelImage) {
-                $this->assertInstanceOf(LabelImage::class, $labelImage);
-                $this->assertInternalType('string', $labelImage->getLabelImageFormat());
-                $this->assertInternalType('string', $labelImage->getGraphicImage());
+                self::assertInstanceOf(LabelImage::class, $labelImage);
+                self::assertInternalType('string', $labelImage->getLabelImageFormat());
+                self::assertInternalType('string', $labelImage->getGraphicImage());
             }
         }
 
         if ($response->getShipmentIdentificationNumber()) {
-            $this->assertInternalType('string', $response->getShipmentIdentificationNumber());
+            self::assertInternalType('string', $response->getShipmentIdentificationNumber());
         }
 
         if ($response->getDispatchConfirmationNumber()) {
-            $this->assertInternalType('string', $response->getDispatchConfirmationNumber());
+            self::assertInternalType('string', $response->getDispatchConfirmationNumber());
         }
     }
 }

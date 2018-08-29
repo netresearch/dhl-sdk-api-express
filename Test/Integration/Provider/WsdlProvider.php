@@ -19,4 +19,12 @@ class WsdlProvider
     {
         return __DIR__ . '/_files/expressRateBook.wsdl';
     }
+
+    /**
+     * @return string
+     */
+    public static function getTrackingWsdlFile(): string
+    {
+        return __DIR__ . '/_files/glDHLExpressTrack.wsdl';
+    }
 }

@@ -36,10 +36,10 @@ class ShipmentResponseTest extends TestCase
             $dispatchConfirmationNumber
         );
 
-        $this->assertInstanceOf(ShipmentResponse::class, $shipmentResponse);
-        $this->assertSame($labelData, $shipmentResponse->getLabelData());
-        $this->assertSame($trackingNumbers, $shipmentResponse->getTrackingNumbers());
-        $this->assertSame($shipmentIdentificationNumber, $shipmentResponse->getShipmentIdentificationNumber());
-        $this->assertSame($dispatchConfirmationNumber, $shipmentResponse->getDispatchConfirmationNumber());
+        self::assertInstanceOf(ShipmentResponse::class, $shipmentResponse);
+        self::assertSame($labelData, $shipmentResponse->getLabelData());
+        self::assertSame($trackingNumbers, $shipmentResponse->getTrackingNumbers());
+        self::assertSame($shipmentIdentificationNumber, $shipmentResponse->getShipmentIdentificationNumber());
+        self::assertSame($dispatchConfirmationNumber, $shipmentResponse->getDispatchConfirmationNumber());
     }
 }

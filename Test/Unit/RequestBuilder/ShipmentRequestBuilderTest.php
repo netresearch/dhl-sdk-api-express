@@ -120,9 +120,9 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
 
         $request = $requestBuilder->build();
 
-        $this->assertInstanceOf(ShipmentRequestInterface::class, $request);
+        self::assertInstanceOf(ShipmentRequestInterface::class, $request);
 
-        $this->assertEquals(
+        self::assertEquals(
             new ShipmentDetails(
                 $unscheduledPickup,
                 $termsOfTrade,
@@ -137,14 +137,14 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $request->getShipmentDetails()
         );
 
-        $this->assertEquals($accountNumber, $request->getPayerAccountNumber());
+        self::assertEquals($accountNumber, $request->getPayerAccountNumber());
 
-        $this->assertEquals(new Insurance(
+        self::assertEquals(new Insurance(
             $insuranceValue,
             $insuranceCurrency
         ), $request->getInsurance());
 
-        $this->assertEquals(new Shipper(
+        self::assertEquals(new Shipper(
             $countryCode,
             $postalCode,
             $city,
@@ -154,7 +154,7 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $phone
         ), $request->getShipper());
 
-        $this->assertEquals(new Recipient(
+        self::assertEquals(new Recipient(
             $countryCode,
             $postalCode,
             $city,
@@ -164,12 +164,12 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $phone
         ), $request->getRecipient());
 
-        $this->assertEquals(new DryIce(
+        self::assertEquals(new DryIce(
             $unCode,
             $weight
         ), $request->getDryIce());
 
-        $this->assertEquals([
+        self::assertEquals([
             new Package(
                 1,
                 1.123,

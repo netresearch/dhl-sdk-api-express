@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s0="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/providerServices/ShipmentHandlingServices" xmlns:s1="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest" xmlns:s2="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse" xmlns:s3="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse" xmlns:s4="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest" xmlns:s5="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse" xmlns:s6="http://www.reactivity.com/xsdbundle/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest">
+<wsdl:definitions targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s0="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/providerServices/ShipmentHandlingServices" xmlns:s1="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest" xmlns:s2="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse" xmlns:s3="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse" xmlns:s4="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest" xmlns:s5="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse" xmlns:s6="http://www.reactivity.com/xsdbundle/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <wsdl:types>
       <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest">
          <xsd:element name="ShipmentRequest" type="tns:docTypeRef_ProcessShipmentRequestType"/>
@@ -250,9 +249,9 @@
                <xsd:element minOccurs="0" name="Quantity" type="tns:Quantity"/>
                <xsd:element minOccurs="0" name="UnitPrice" type="tns:UnitPrice"/>
                <xsd:element minOccurs="0" name="CustomsValue" type="tns:CustomsValue"/>
-               <xsd:element minOccurs="0" name="USFillingTypeValue" type="tns:USFillingTypeValue">
+               <xsd:element minOccurs="0" name="USFilingTypeValue" type="tns:USFilingTypeValue">
                   <xsd:annotation>
-                     <xsd:documentation>USFillingTypeValue is a field meant for US export/import EEI Filling (ITN Number, FTR Number and AES4 Number</xsd:documentation>
+                     <xsd:documentation>USFilingTypeValue is a field meant for US export/import EEI Filing (ITN Number, FTR Number and AES4 Number</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
             </xsd:all>
@@ -291,7 +290,7 @@
                <xsd:whiteSpace value="collapse"/>
             </xsd:restriction>
          </xsd:simpleType>
-         <xsd:simpleType name="USFillingTypeValue">
+         <xsd:simpleType name="USFilingTypeValue">
             <xsd:restriction base="xsd:string">
                <xsd:maxLength value="20"/>
                <xsd:whiteSpace value="collapse"/>
@@ -412,6 +411,7 @@
             <xsd:all>
                <xsd:element name="Contact" type="tns:docTypeRef_ContactType"/>
                <xsd:element name="Address" type="tns:docTypeRef_AddressType"/>
+               <xsd:element minOccurs="0" name="RegistrationNumbers" type="tns:docTypeRef_RegistrationNumbers"/>
             </xsd:all>
          </xsd:complexType>
          <xsd:complexType name="docTypeRef_ContactInfoType1">
@@ -584,9 +584,42 @@
                <xsd:whiteSpace value="collapse"/>
             </xsd:restriction>
          </xsd:simpleType>
+         <xsd:complexType name="docTypeRef_RegistrationNumbers">
+            <xsd:sequence>
+               <xsd:element maxOccurs="50" name="RegistrationNumber" type="tns:docTypeRef_RegistrationNumber"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="docTypeRef_RegistrationNumber">
+            <xsd:all>
+               <xsd:element name="Number" type="tns:Number"/>
+               <xsd:element name="NumberTypeCode" type="tns:NumberTypeCode"/>
+               <xsd:element name="NumberIssuerCountryCode" type="tns:NumberIssuerCountryCode"/>
+            </xsd:all>
+         </xsd:complexType>
+         <xsd:simpleType name="Number">
+            <xsd:restriction base="xsd:token">
+               <xsd:minLength value="1"/>
+               <xsd:maxLength value="20"/>
+               <xsd:whiteSpace value="collapse"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType name="NumberTypeCode">
+            <xsd:restriction base="xsd:token">
+               <xsd:minLength value="1"/>
+               <xsd:maxLength value="3"/>
+               <xsd:whiteSpace value="collapse"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType name="NumberIssuerCountryCode">
+            <xsd:restriction base="xsd:token">
+               <xsd:minLength value="2"/>
+               <xsd:maxLength value="2"/>
+               <xsd:whiteSpace value="collapse"/>
+            </xsd:restriction>
+         </xsd:simpleType>
          <xsd:complexType name="docTypeRef_PackagesType">
-            <xsd:sequence maxOccurs="unbounded">
-               <xsd:element name="RequestedPackages" type="tns:docTypeRef_RequestedPackagesType"/>
+            <xsd:sequence>
+               <xsd:element minOccurs="1" maxOccurs="unbounded" name="RequestedPackages" type="tns:docTypeRef_RequestedPackagesType"/>
             </xsd:sequence>
          </xsd:complexType>
          <xsd:complexType name="docTypeRef_RequestedPackagesType">
@@ -799,26 +832,21 @@
             <xsd:all>
                <xsd:element name="DropOffType" type="s1:DropOffType2">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        Requested value are REGULAR_PICKUP or
+                     <xsd:documentation>Requested value are REGULAR_PICKUP or
                         REQUEST_COURIER, it identifies the method by
-                        which the package is to be tendered.
-                     </xsd:documentation>
+                        which the package is to be tendered.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="NextBusinessDay" type="s1:NextBusinessDay2">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        This indicator is a Y-N flag which indicates whether an error should be returned if no products are available that day (N) or if the next business day should be evaluated (Y).  Default is N if not included.
-                     </xsd:documentation>
+                     <xsd:documentation>This indicator is a Y-N flag which indicates whether an error should be returned if no products are available that day (N) or if the next business day should be evaluated (Y).  Default is N if not included.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element name="Ship" type="s1:docTypeRef_ShipType2"/>
                <xsd:element name="Packages" type="s1:docTypeRef_PackagesType2"/>
                <xsd:element name="ShipTimestamp" type="s1:ShipTimestamp2">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        Identifies the date and time the package is tendered. Both the date and time portions of the
+                     <xsd:documentation>Identifies the date and time the package is tendered. Both the date and time portions of the
                         string are expected to be used. The date should
                         not be a past date or a date more than 10 days
                         in the future. The time is the local time of the
@@ -827,21 +855,18 @@
                         YYYY-MM-DD; the time component must be in the
                         format: HH:MM:SS using a 24 hour clock. The date
                         and time parts are separated by the letter T
-                        (e.g. 2006-06-26T17:00:00 GMT+01:00).
-                     </xsd:documentation>
+                        (e.g. 2006-06-26T17:00:00 GMT+01:00).</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element name="UnitOfMeasurement" type="s1:UnitOfMeasurement2">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        SI=the preferred system of weights and measures
+                     <xsd:documentation>SI=the preferred system of weights and measures
                         for Italian trade and commerce; SU=the preferred
                         system of weights and measures for U.S. trade
                         and commerce; Weight unit: if Type is SI it can
                         be KG (kilograms), if Type is SU it can be LB
                         (pounds). Dimention unit: if Type is SI it can
-                        be CM, if Type is SU it can be IN (inch)
-                     </xsd:documentation>
+                        be CM, if Type is SU it can be IN (inch)</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="Content" type="s1:Content2"/>
@@ -909,24 +934,19 @@
             <xsd:all>
                <xsd:element minOccurs="0" name="StreetLines" type="s1:StreetLines4">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        The shipper/recipient's street address.
-                     </xsd:documentation>
+                     <xsd:documentation>The shipper/recipient's street address.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="StreetLines2" type="s1:StreetLines22">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        Additional shipper/recipient address
-                        information, preferably room or floor.
-                     </xsd:documentation>
+                     <xsd:documentation>Additional shipper/recipient address
+                        information, preferably room or floor.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="StreetLines3" type="s1:StreetLines32">
                   <xsd:annotation>
                      <xsd:documentation>Additional shipper address
-                        information, preferably department name.
-                     </xsd:documentation>
+                        information, preferably department name.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="StreetName" type="s1:StreetName2">
@@ -1083,8 +1103,7 @@
          </xsd:simpleType>
          <xsd:simpleType name="PaymentInfo2">
             <xsd:annotation>
-               <xsd:documentation>
-                  CFR = Cost And Freight
+               <xsd:documentation>CFR = Cost And Freight
                   CIF = Cost, Insurance And Freight
                   CIP = Carriage And Insurance Paid To
                   CPT = Carriage Paid To
@@ -1097,8 +1116,7 @@
                   EXW = Ex Works
                   FAS = Free Alongside Ship
                   FCA = Free Carrier
-                  FOB = Free On Board
-               </xsd:documentation>
+                  FOB = Free On Board</xsd:documentation>
             </xsd:annotation>
             <xsd:restriction base="xsd:token">
                <xsd:whiteSpace value="collapse"/>
@@ -1134,9 +1152,7 @@
          </xsd:complexType>
          <xsd:simpleType name="ShipmentPaymentType2">
             <xsd:annotation>
-               <xsd:documentation>
-                  S=Bill-To Shipper, R=Bill-To Receiver, T=Bill-To Third Party
-               </xsd:documentation>
+               <xsd:documentation>S=Bill-To Shipper, R=Bill-To Receiver, T=Bill-To Third Party</xsd:documentation>
             </xsd:annotation>
             <xsd:restriction base="xsd:token">
                <xsd:whiteSpace value="collapse"/>
@@ -1335,8 +1351,7 @@
                <xsd:element minOccurs="0" name="Charges" type="s2:docTypeRef_ChargesType"/>
                <xsd:element minOccurs="0" name="DeliveryTime" type="xsd:dateTime">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        Identifies the date and time the package is
+                     <xsd:documentation>Identifies the date and time the package is
                         tendered. Both the date and time portions of the
                         string are expected to be used. The date should
                         not be a past date or a date more than 10 days
@@ -1351,14 +1366,12 @@
                </xsd:element>
                <xsd:element minOccurs="0" name="CutoffTime" type="xsd:dateTime">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        Identifies the cutoff date and time the package needs to be tendered to the shipper, in order to meet the estimated delivery time.The time is the local time of the shipment based on the shipper's time zone. The date component must be in the format:YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00).</xsd:documentation>
+                     <xsd:documentation>Identifies the cutoff date and time the package needs to be tendered to the shipper, in order to meet the estimated delivery time.The time is the local time of the shipment based on the shipper's time zone. The date component must be in the format:YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00).</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
                <xsd:element minOccurs="0" name="NextBusinessDayInd" type="s2:NextBusinessDayInd2">
                   <xsd:annotation>
-                     <xsd:documentation>
-                        This indicator demonstrates whether the pickup date is the next business day (Y) or the requested business day (N).  If the requested ship date is beyond the cutoff for that business day (or it is requested on weekend), the indicator will be set to Y.  If it is on the same business day as requested, the value is set to N.</xsd:documentation>
+                     <xsd:documentation>This indicator demonstrates whether the pickup date is the next business day (Y) or the requested business day (N).  If the requested ship date is beyond the cutoff for that business day (or it is requested on weekend), the indicator will be set to Y.  If it is on the same business day as requested, the value is set to N.</xsd:documentation>
                   </xsd:annotation>
                </xsd:element>
             </xsd:all>
@@ -1510,7 +1523,6 @@
          <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest"/>
          <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest"/>
          <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse"/>
-
       </xsd:schema>
    </wsdl:types>
    <wsdl:message name="createShipmentRequestIn">

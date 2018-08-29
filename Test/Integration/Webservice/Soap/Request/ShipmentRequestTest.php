@@ -20,6 +20,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Address;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
+use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
 
 /**
  * Tests SoapShipmentRequest
@@ -31,8 +32,6 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateShipmentRequestXmlMapping()
     {
-        self::markTestSkipped('TBD');
-
         $shipmentInfo = new ShipmentInfo(
             DropOffType::REGULAR_PICKUP,
             'P',
@@ -88,9 +87,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 
         $shipmentRequest = new SoapShipmentRequest($requestedShipment);
 
-//var_dump($shipmentRequest);
-//exit;
-
+        /** @var SoapClientFake|MockObject $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(
             WsdlProvider::getWsdlFile(),
             SoapClientFake::class,
@@ -100,29 +97,26 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
             ]
         );
 
-        ini_set('xdebug.var_display_max_children', -1);
-        ini_set('xdebug.var_display_max_data', -1);
-        ini_set('xdebug.var_display_max_depth', -1);
-
-        $soapClientMock->expects(self::any())
+        $soapClientMock->expects(self::once())
             ->method('__doRequest')
-            ->willReturnCallback(function ($requestXml) use ($shipTimestamp) {
+            ->with(
+                self::anything(),
+                self::anything(),
+                'euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_createShipmentRequest'
+            )
+            ->willReturn('');
 
-                var_dump($requestXml);
-//exit;
+        try {
+            $soapClientMock->__soapCall(
+                'createShipmentRequest',
+                [
+                    $shipmentRequest
+                ]
+            );
+        } catch (\Exception $exception) {
+            self::fail($exception->getMessage(), $exception->getCode(), $exception);
+        }
 
-//                self::assertInternalType('string', $requestXml);
-//
-//                $document = new \DOMDocument();
-//                $document->loadXML($requestXml);
-//
-//                $xPath = new \DOMXPath($document);
-//
-//                $this->assertSame(1, (int) $xPath->evaluate('count(//ns1:SoapShipmentRequest)'));
-
-                return '';
-            });
-
-//        $soapClientMock->createShipmentRequest($shipmentRequest);
+        $this->addToAssertionCount(1);
     }
 }

@@ -28,10 +28,10 @@ class RateTest extends TestCase
             $currency = 'GBP'
         );
 
-        $this->assertInstanceOf(Rate::class, $rate);
-        $this->assertEquals($serviceCode, $rate->getServiceCode());
-        $this->assertEquals($label, $rate->getLabel());
-        $this->assertEquals($amount, $rate->getAmount());
-        $this->assertEquals($currency, $rate->getCurrencyCode());
+        self::assertInstanceOf(Rate::class, $rate);
+        self::assertEquals($serviceCode, $rate->getServiceCode());
+        self::assertEquals($label, $rate->getLabel());
+        self::assertEquals($amount, $rate->getAmount());
+        self::assertEquals($currency, $rate->getCurrencyCode());
     }
 }
