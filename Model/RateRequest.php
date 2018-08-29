@@ -10,7 +10,6 @@ use Dhl\Express\Api\Data\Request\Rate\PackageInterface;
 use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
 use Dhl\Express\Api\Data\Request\Rate\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
-use Dhl\Express\Model\Request\Insurance;
 
 /**
  * Rate Request.
@@ -48,18 +47,19 @@ class RateRequest implements RateRequestInterface
     private $packages;
 
     /**
-     * @var Insurance
+     * @var null|InsuranceInterface
      */
     private $insurance;
 
     /**
      * RateRequest constructor.
-     * @param ShipperAddressInterface $shipperAddress
-     * @param string $shipperAccountNumber
+     *
+     * @param ShipperAddressInterface   $shipperAddress
+     * @param string                    $shipperAccountNumber
      * @param RecipientAddressInterface $recipientAddress
-     * @param ShipmentDetailsInterface $shipmentDetails
-     * @param PackageInterface[] $packages
-     * @param Insurance|null $insurance
+     * @param ShipmentDetailsInterface  $shipmentDetails
+     * @param PackageInterface[]        $packages
+     * @param InsuranceInterface|null   $insurance
      */
     public function __construct(
         ShipperAddressInterface $shipperAddress,
@@ -67,14 +67,14 @@ class RateRequest implements RateRequestInterface
         RecipientAddressInterface $recipientAddress,
         ShipmentDetailsInterface $shipmentDetails,
         array $packages,
-        Insurance $insurance = null
+        InsuranceInterface $insurance = null
     ) {
-        $this->shipperAddress = $shipperAddress;
+        $this->shipperAddress       = $shipperAddress;
         $this->shipperAccountNumber = $shipperAccountNumber;
-        $this->recipientAddress = $recipientAddress;
-        $this->shipmentDetails = $shipmentDetails;
-        $this->packages = $packages;
-        $this->insurance = $insurance;
+        $this->recipientAddress     = $recipientAddress;
+        $this->shipmentDetails      = $shipmentDetails;
+        $this->packages             = $packages;
+        $this->insurance            = $insurance;
     }
 
     /**
