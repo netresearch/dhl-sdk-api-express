@@ -111,7 +111,10 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      */
     public function build()
     {
-        $eddEnabled = $this->data['estimated_delivery_date'] ?? false;
+        $eddEnabled = isset($this->data['estimated_delivery_date'])
+            ? $this->data['estimated_delivery_date']
+            : false;
+
         $request = new TrackingRequest(
             new Message(
                 $this->data['message']['time'],

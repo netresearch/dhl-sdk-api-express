@@ -67,8 +67,8 @@ class ShipmentResponseMapper
             }
         }
 
-        $shipmentIdentificationNumber = $shipmentResponse->getShipmentIdentificationNumber() ?? '';
-        $dispatchConfirmationNumber   = $shipmentResponse->getDispatchConfirmationNumber()   ?? '';
+        $shipmentIdentificationNumber = $shipmentResponse->getShipmentIdentificationNumber() ?: '';
+        $dispatchConfirmationNumber   = $shipmentResponse->getDispatchConfirmationNumber()   ?: '';
 
         return new ShipmentResponse(
             $labelData,
