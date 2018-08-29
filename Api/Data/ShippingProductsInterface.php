@@ -18,7 +18,6 @@ interface ShippingProductsInterface
     /**
      * International Express product service codes
      */
-    const CODE_INTERNATIONAL_ENVELOPE_DUTYFREE = 'X';
     const CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU = 'D';
     const CODE_INTERNATIONAL_09_00_DUTYFREE = 'K';
     const CODE_INTERNATIONAL_10_30_DUTYFREE = 'L';
@@ -39,7 +38,6 @@ interface ShippingProductsInterface
     const CODE_DOMESTIC = 'N';
 
     const PRODUCTS_INTERNATIONAL = [
-        self::CODE_INTERNATIONAL_ENVELOPE_DUTYFREE,
         self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
         self::CODE_INTERNATIONAL_09_00_DUTYFREE,
         self::CODE_INTERNATIONAL_10_30_DUTYFREE,
@@ -61,9 +59,6 @@ interface ShippingProductsInterface
      * International Express product names
      */
     const PRODUCT_NAMES_INTERNATIONAL = [
-        'EXPRESS ENVELOPE' => [
-            self::CODE_INTERNATIONAL_ENVELOPE_DUTYFREE,
-        ],
         'EXPRESS WORLDWIDE' => [
             self::CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE,
             self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
