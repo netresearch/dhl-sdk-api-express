@@ -37,7 +37,7 @@ interface ShipmentRequestInterface
     public function getPayerAccountNumber(): string;
 
     /**
-     * @return string
+     * @return null|string
      */
     public function getBillingAccountNumber(): ?string;
 
