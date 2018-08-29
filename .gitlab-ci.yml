@@ -15,7 +15,7 @@ before_script:
 - docker-php-ext-install mbstring curl intl gd xml zip bz2 opcache soap
 
 # Install & enable Xdebug for code coverage reports
-- pecl install xdebug
+- pecl install xdebug-2.5.5
 - docker-php-ext-enable xdebug
 
 # Install and run Composer
@@ -26,6 +26,12 @@ before_script:
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
+test:5.6:
+  image: php:5.6
+  script:
+  # Run phpunit
+  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
+
 test:7.0:
   image: php:7.0
   script:
