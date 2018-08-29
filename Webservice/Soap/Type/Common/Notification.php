@@ -34,7 +34,7 @@ class Notification
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->Message;
     }
@@ -44,7 +44,7 @@ class Notification
      *
      * @return int
      */
-    public function getCode(): int
+    public function getCode()
     {
         return $this->code;
     }
@@ -54,7 +54,7 @@ class Notification
      *
      * @return bool
      */
-    public function isError(): bool
+    public function isError()
     {
         return $this->getCode() !== 0;
     }

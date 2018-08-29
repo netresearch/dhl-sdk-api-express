@@ -98,7 +98,7 @@ class Recipient implements RecipientInterface
     /**
      * @return array
      */
-    public function getStreetLines(): array
+    public function getStreetLines()
     {
         return $this->streetLines;
     }
@@ -106,7 +106,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->city;
     }
@@ -114,7 +114,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->postalCode;
     }
@@ -122,7 +122,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -130,7 +130,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -138,7 +138,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getCompany(): string
+    public function getCompany()
     {
         return $this->company;
     }
@@ -146,7 +146,7 @@ class Recipient implements RecipientInterface
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone()
     {
         return $this->phone;
     }

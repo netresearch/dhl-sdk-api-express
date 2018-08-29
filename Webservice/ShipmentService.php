@@ -62,7 +62,7 @@ class ShipmentService implements ShipmentServiceInterface
      * @throws ShipmentRequestException
      * @throws SoapException
      */
-    public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
+    public function createShipment(ShipmentRequestInterface $request)
     {
         try {
             $response = $this->adapter->createShipment($request);
@@ -92,7 +92,7 @@ class ShipmentService implements ShipmentServiceInterface
      * @throws ShipmentDeleteRequestException
      * @throws SoapException
      */
-    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
+    public function deleteShipment(ShipmentDeleteRequestInterface $request)
     {
         try {
             $response = $this->adapter->deleteShipment($request);

@@ -39,7 +39,7 @@ class ServiceHeader
     /**
      * @return string
      */
-    public function getMessageTime(): string
+    public function getMessageTime()
     {
         return $this->MessageTime;
     }
@@ -48,7 +48,7 @@ class ServiceHeader
      * @param string $MessageTime
      * @return self
      */
-    public function setMessageTime(string $MessageTime): self
+    public function setMessageTime(string $MessageTime)
     {
         $this->MessageTime = $MessageTime;
 
@@ -58,7 +58,7 @@ class ServiceHeader
     /**
      * @return string
      */
-    public function getMessageReference(): string
+    public function getMessageReference()
     {
         return $this->MessageReference;
     }
@@ -67,7 +67,7 @@ class ServiceHeader
      * @param string $MessageReference
      * @return self
      */
-    public function setMessageReference(string $MessageReference): self
+    public function setMessageReference(string $MessageReference)
     {
         $this->MessageReference = $MessageReference;
 

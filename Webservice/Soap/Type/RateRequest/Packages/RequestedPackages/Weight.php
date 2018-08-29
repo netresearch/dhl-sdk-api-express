@@ -37,7 +37,7 @@ class Weight
      *
      * @return float
      */
-    public function getValue(): float
+    public function getValue()
     {
         return $this->Value;
     }
@@ -49,7 +49,7 @@ class Weight
      *
      * @return self
      */
-    public function setValue(float $value): Weight
+    public function setValue(float $value)
     {
         $this->Value = $value;
         return $this;

@@ -62,7 +62,7 @@ class ShipmentEvent
     /**
      * @return string
      */
-    public function getDate(): string
+    public function getDate()
     {
         return $this->Date;
     }
@@ -71,7 +71,7 @@ class ShipmentEvent
      * @param string $Date
      * @return self
      */
-    public function setDate(string $Date): self
+    public function setDate(string $Date)
     {
         $this->Date = $Date;
 
@@ -81,7 +81,7 @@ class ShipmentEvent
     /**
      * @return string
      */
-    public function getTime(): string
+    public function getTime()
     {
         return $this->Time;
     }
@@ -90,7 +90,7 @@ class ShipmentEvent
      * @param string $Time
      * @return self
      */
-    public function setTime(string $Time): self
+    public function setTime(string $Time)
     {
         $this->Time = $Time;
 
@@ -100,7 +100,7 @@ class ShipmentEvent
     /**
      * @return ServiceEvent
      */
-    public function getServiceEvent(): ServiceEvent
+    public function getServiceEvent()
     {
         return $this->ServiceEvent;
     }
@@ -109,7 +109,7 @@ class ShipmentEvent
      * @param ServiceEvent $ServiceEvent
      * @return self
      */
-    public function setServiceEvent(ServiceEvent $ServiceEvent): self
+    public function setServiceEvent(ServiceEvent $ServiceEvent)
     {
         $this->ServiceEvent = $ServiceEvent;
 
@@ -119,7 +119,7 @@ class ShipmentEvent
     /**
      * @return string
      */
-    public function getSignatory(): string
+    public function getSignatory()
     {
         return $this->Signatory;
     }
@@ -128,7 +128,7 @@ class ShipmentEvent
      * @param string $Signatory
      * @return self
      */
-    public function setSignatory(string $Signatory): self
+    public function setSignatory(string $Signatory)
     {
         $this->Signatory = $Signatory;
 
@@ -138,7 +138,7 @@ class ShipmentEvent
     /**
      * @return ServiceArea
      */
-    public function getServiceArea(): ServiceArea
+    public function getServiceArea()
     {
         return $this->ServiceArea;
     }
@@ -147,7 +147,7 @@ class ShipmentEvent
      * @param ServiceArea $ServiceArea
      * @return self
      */
-    public function setServiceArea(ServiceArea $ServiceArea): self
+    public function setServiceArea(ServiceArea $ServiceArea)
     {
         $this->ServiceArea = $ServiceArea;
 

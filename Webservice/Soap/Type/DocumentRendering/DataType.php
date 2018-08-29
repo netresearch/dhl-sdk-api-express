@@ -23,7 +23,7 @@ class DataType
     /**
      * @return FieldType[]
      */
-    public function getField(): array
+    public function getField()
     {
         return $this->Field;
     }
@@ -41,7 +41,7 @@ class DataType
     /**
      * @return FieldListType[]
      */
-    public function getFieldList(): array
+    public function getFieldList()
     {
         return $this->FieldList;
     }

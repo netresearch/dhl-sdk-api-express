@@ -32,7 +32,7 @@ class ShipmentResponseMapper
      *
      * @throws ShipmentRequestException
      */
-    public function map(SoapShipmentResponse $shipmentResponse): ShipmentResponseInterface
+    public function map(SoapShipmentResponse $shipmentResponse)
     {
         if ($notifications = $shipmentResponse->getNotification()) {
             $errorMessage = '';

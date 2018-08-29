@@ -35,7 +35,7 @@ class PackageResult
      *
      * @return string
      */
-    public function getTrackingNumber(): string
+    public function getTrackingNumber()
     {
         return $this->TrackingNumber;
     }
@@ -45,7 +45,7 @@ class PackageResult
      *
      * @return int
      */
-    public function getNumber(): int
+    public function getNumber()
     {
         return $this->number;
     }

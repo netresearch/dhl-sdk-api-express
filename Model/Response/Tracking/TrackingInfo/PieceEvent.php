@@ -56,7 +56,7 @@ class PieceEvent implements PieceEventInterface
      *
      * @return int
      */
-    public function getDate(): int
+    public function getDate()
     {
         return $this->date;
     }
@@ -66,7 +66,7 @@ class PieceEvent implements PieceEventInterface
      *
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return $this->code;
     }
@@ -76,7 +76,7 @@ class PieceEvent implements PieceEventInterface
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }

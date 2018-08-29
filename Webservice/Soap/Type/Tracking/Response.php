@@ -32,7 +32,7 @@ class Response
     /**
      * @return ServiceHeader
      */
-    public function getServiceHeader(): ServiceHeader
+    public function getServiceHeader()
     {
         return $this->ServiceHeader;
     }
@@ -41,7 +41,7 @@ class Response
      * @param ServiceHeader $ServiceHeader
      * @return self
      */
-    public function setServiceHeader(ServiceHeader $ServiceHeader): self
+    public function setServiceHeader(ServiceHeader $ServiceHeader)
     {
         $this->ServiceHeader = $ServiceHeader;
 

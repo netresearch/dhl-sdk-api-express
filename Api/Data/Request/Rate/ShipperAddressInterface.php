@@ -20,19 +20,19 @@ interface ShipperAddressInterface
      *
      * @return string
      */
-    public function getCity(): string;
+    public function getCity();
 
     /**
      * Returns the shipper postal code.
      *
      * @return string
      */
-    public function getPostalCode(): string;
+    public function getPostalCode();
 
     /**
      * Returns the shipper country code.
      *
      * @return string
      */
-    public function getCountryCode(): string;
+    public function getCountryCode();
 }

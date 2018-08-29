@@ -59,7 +59,7 @@ class ShipmentResponse implements ShipmentResponseInterface
     /**
      * @return string
      */
-    public function getLabelData(): string
+    public function getLabelData()
     {
         return $this->labelData;
     }
@@ -67,7 +67,7 @@ class ShipmentResponse implements ShipmentResponseInterface
     /**
      * @return string[]
      */
-    public function getTrackingNumbers(): array
+    public function getTrackingNumbers()
     {
         return $this->trackingNumbers;
     }
@@ -75,7 +75,7 @@ class ShipmentResponse implements ShipmentResponseInterface
     /**
      * @return string
      */
-    public function getShipmentIdentificationNumber(): string
+    public function getShipmentIdentificationNumber()
     {
         return $this->shipmentIdentificationNumber;
     }
@@ -83,7 +83,7 @@ class ShipmentResponse implements ShipmentResponseInterface
     /**
      * @return string
      */
-    public function getDispatchConfirmationNumber(): string
+    public function getDispatchConfirmationNumber()
     {
         return $this->dispatchConfirmationNumber;
     }

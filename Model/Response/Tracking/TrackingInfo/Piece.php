@@ -56,7 +56,7 @@ class Piece implements PieceInterface
      *
      * @return int
      */
-    public function getAwbNumber(): int
+    public function getAwbNumber()
     {
         return $this->awbNumber;
     }
@@ -66,7 +66,7 @@ class Piece implements PieceInterface
      *
      * @return string
      */
-    public function getLicense(): string
+    public function getLicense()
     {
         return $this->license;
     }
@@ -76,7 +76,7 @@ class Piece implements PieceInterface
      *
      * @return PieceEventInterface[]
      */
-    public function getPieceEvents(): array
+    public function getPieceEvents()
     {
         return $this->pieceEvents;
     }

@@ -29,7 +29,7 @@ class ShipperReference
     /**
      * @return string
      */
-    public function getReferenceID(): string
+    public function getReferenceID()
     {
         return $this->ReferenceID;
     }
@@ -38,7 +38,7 @@ class ShipperReference
      * @param string $ReferenceID
      * @return self
      */
-    public function setReferenceID(string $ReferenceID): self
+    public function setReferenceID(string $ReferenceID)
     {
         $this->ReferenceID = $ReferenceID;
 
@@ -48,7 +48,7 @@ class ShipperReference
     /**
      * @return string
      */
-    public function getReferenceType(): string
+    public function getReferenceType()
     {
         return $this->ReferenceType;
     }
@@ -57,7 +57,7 @@ class ShipperReference
      * @param string $ReferenceType
      * @return self
      */
-    public function setReferenceType(string $ReferenceType): self
+    public function setReferenceType(string $ReferenceType)
     {
         $this->ReferenceType = $ReferenceType;
 

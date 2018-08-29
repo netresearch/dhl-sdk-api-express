@@ -30,7 +30,7 @@ class TrackingRequestMapper
      * @return SoapTrackingRequest
      * @throws \InvalidArgumentException
      */
-    public function map(TrackingRequestInterface $trackingRequest): SoapTrackingRequest
+    public function map(TrackingRequestInterface $trackingRequest)
     {
         $soapTrackingRequest = new SoapTrackingRequest;
 

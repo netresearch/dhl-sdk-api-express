@@ -29,12 +29,12 @@ interface ShipmentRequestInterface
     /**
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails(): ShipmentDetailsInterface;
+    public function getShipmentDetails();
 
     /**
      * @return string
      */
-    public function getPayerAccountNumber(): string;
+    public function getPayerAccountNumber();
 
     /**
      * @return null|string
@@ -49,17 +49,17 @@ interface ShipmentRequestInterface
     /**
      * @return ShipperInterface
      */
-    public function getShipper(): ShipperInterface;
+    public function getShipper();
 
     /**
      * @return RecipientInterface
      */
-    public function getRecipient(): RecipientInterface;
+    public function getRecipient();
 
     /**
      * @return PackageInterface[]
      */
-    public function getPackages(): array;
+    public function getPackages();
 
     /**
      * @return null|DryIceInterface

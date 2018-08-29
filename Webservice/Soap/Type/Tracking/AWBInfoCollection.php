@@ -32,7 +32,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return AWBInfo[]
      */
-    public function getArrayOfAWBInfoItem(): array
+    public function getArrayOfAWBInfoItem()
     {
         return $this->ArrayOfAWBInfoItem;
     }
@@ -41,7 +41,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param AWBInfo[] $ArrayOfAWBInfoItem
      * @return self
      */
-    public function setArrayOfAWBInfoItem(array $ArrayOfAWBInfoItem): self
+    public function setArrayOfAWBInfoItem(array $ArrayOfAWBInfoItem)
     {
         $this->ArrayOfAWBInfoItem = $ArrayOfAWBInfoItem;
 
@@ -54,7 +54,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfAWBInfoItem[$offset]);
     }
@@ -65,7 +65,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return AWBInfo
      */
-    public function offsetGet($offset): AWBInfo
+    public function offsetGet($offset)
     {
         return $this->ArrayOfAWBInfoItem[$offset];
     }
@@ -102,7 +102,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return AWBInfo Return the current element
      */
-    public function current(): AWBInfo
+    public function current()
     {
         return current($this->ArrayOfAWBInfoItem);
     }
@@ -133,7 +133,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -154,7 +154,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return AWBInfo Return count of elements
      */
-    public function count(): AWBInfo
+    public function count()
     {
         return count($this->ArrayOfAWBInfoItem);
     }

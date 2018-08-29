@@ -50,7 +50,7 @@ class Ship
      *
      * @return Address
      */
-    public function getShipper(): Address
+    public function getShipper()
     {
         return $this->Shipper;
     }
@@ -62,7 +62,7 @@ class Ship
      *
      * @return self
      */
-    public function setShipper(Address $address): Ship
+    public function setShipper(Address $address)
     {
         $this->Shipper = $address;
         return $this;
@@ -73,7 +73,7 @@ class Ship
      *
      * @return Address
      */
-    public function getRecipient(): Address
+    public function getRecipient()
     {
         return $this->Recipient;
     }
@@ -85,7 +85,7 @@ class Ship
      *
      * @return self
      */
-    public function setRecipient(Address $address): Ship
+    public function setRecipient(Address $address)
     {
         $this->Recipient = $address;
         return $this;

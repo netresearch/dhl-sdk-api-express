@@ -100,7 +100,7 @@ class ShipmentInfo
     /**
      * @return OriginServiceArea
      */
-    public function getOriginServiceArea(): OriginServiceArea
+    public function getOriginServiceArea()
     {
         return $this->OriginServiceArea;
     }
@@ -109,7 +109,7 @@ class ShipmentInfo
      * @param OriginServiceArea $OriginServiceArea
      * @return self
      */
-    public function setOriginServiceArea(OriginServiceArea $OriginServiceArea): self
+    public function setOriginServiceArea(OriginServiceArea $OriginServiceArea)
     {
         $this->OriginServiceArea = $OriginServiceArea;
 
@@ -119,7 +119,7 @@ class ShipmentInfo
     /**
      * @return DestinationServiceArea
      */
-    public function getDestinationServiceArea(): DestinationServiceArea
+    public function getDestinationServiceArea()
     {
         return $this->DestinationServiceArea;
     }
@@ -128,7 +128,7 @@ class ShipmentInfo
      * @param DestinationServiceArea $DestinationServiceArea
      * @return self
      */
-    public function setDestinationServiceArea(DestinationServiceArea $DestinationServiceArea): self
+    public function setDestinationServiceArea(DestinationServiceArea $DestinationServiceArea)
     {
         $this->DestinationServiceArea = $DestinationServiceArea;
 
@@ -138,7 +138,7 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getShipperName(): string
+    public function getShipperName()
     {
         return $this->ShipperName;
     }
@@ -147,7 +147,7 @@ class ShipmentInfo
      * @param string $ShipperName
      * @return self
      */
-    public function setShipperName(string $ShipperName): self
+    public function setShipperName(string $ShipperName)
     {
         $this->ShipperName = $ShipperName;
 
@@ -157,7 +157,7 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getShipperAccountNumber(): string
+    public function getShipperAccountNumber()
     {
         return $this->ShipperAccountNumber;
     }
@@ -166,7 +166,7 @@ class ShipmentInfo
      * @param string $ShipperAccountNumber
      * @return self
      */
-    public function setShipperAccountNumber($ShipperAccountNumber): self
+    public function setShipperAccountNumber($ShipperAccountNumber)
     {
         $this->ShipperAccountNumber = $ShipperAccountNumber;
 
@@ -176,7 +176,7 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getConsigneeName(): string
+    public function getConsigneeName()
     {
         return $this->ConsigneeName;
     }
@@ -185,7 +185,7 @@ class ShipmentInfo
      * @param string $ConsigneeName
      * @return self
      */
-    public function setConsigneeName($ConsigneeName): string
+    public function setConsigneeName($ConsigneeName)
     {
         $this->ConsigneeName = $ConsigneeName;
 
@@ -212,7 +212,7 @@ class ShipmentInfo
      * @param \DateTime $ShipmentDate
      * @return self
      */
-    public function setShipmentDate(\DateTime $ShipmentDate): self
+    public function setShipmentDate(\DateTime $ShipmentDate)
     {
         $this->ShipmentDate = $ShipmentDate->format(\DateTime::ATOM);
 
@@ -222,7 +222,7 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getPieces(): string
+    public function getPieces()
     {
         return $this->Pieces;
     }
@@ -231,7 +231,7 @@ class ShipmentInfo
      * @param string $Pieces
      * @return self
      */
-    public function setPieces(string $Pieces): self
+    public function setPieces(string $Pieces)
     {
         $this->Pieces = $Pieces;
 
@@ -241,7 +241,7 @@ class ShipmentInfo
     /**
      * @return string
      */
-    public function getWeight(): string
+    public function getWeight()
     {
         return $this->Weight;
     }
@@ -250,7 +250,7 @@ class ShipmentInfo
      * @param string $Weight
      * @return self
      */
-    public function setWeight(string $Weight): self
+    public function setWeight(string $Weight)
     {
         $this->Weight = $Weight;
 
@@ -260,7 +260,7 @@ class ShipmentInfo
     /**
      * @return WeightUnit
      */
-    public function getWeightUnit(): WeightUnit
+    public function getWeightUnit()
     {
         return $this->WeightUnit;
     }
@@ -269,7 +269,7 @@ class ShipmentInfo
      * @param WeightUnit $WeightUnit
      * @return self
      */
-    public function setWeightUnit(WeightUnit $WeightUnit): self
+    public function setWeightUnit(WeightUnit $WeightUnit)
     {
         $this->WeightUnit = $WeightUnit;
 
@@ -279,7 +279,7 @@ class ShipmentInfo
     /**
      * @return ShipmentEventCollection
      */
-    public function getShipmentEvent(): ShipmentEventCollection
+    public function getShipmentEvent()
     {
         return $this->ShipmentEvent;
     }
@@ -288,7 +288,7 @@ class ShipmentInfo
      * @param ShipmentEventCollection $ShipmentEvent
      * @return self
      */
-    public function setShipmentEvent(ShipmentEventCollection $ShipmentEvent): self
+    public function setShipmentEvent(ShipmentEventCollection $ShipmentEvent)
     {
         $this->ShipmentEvent = $ShipmentEvent;
 
@@ -307,7 +307,7 @@ class ShipmentInfo
      * @param Reference $ShipperReference
      * @return self
      */
-    public function setShipperReference(Reference $ShipperReference): self
+    public function setShipperReference(Reference $ShipperReference)
     {
         $this->ShipperReference = $ShipperReference;
 
@@ -334,7 +334,7 @@ class ShipmentInfo
      * @param \DateTime|null $EstimatedDeliveryDate
      * @return self
      */
-    public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null): self
+    public function setEstimatedDeliveryDate(\DateTime $EstimatedDeliveryDate = null)
     {
         if ($EstimatedDeliveryDate === null) {
             $this->EstimatedDeliveryDate = null;

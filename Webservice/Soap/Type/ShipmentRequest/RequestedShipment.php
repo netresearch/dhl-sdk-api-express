@@ -116,7 +116,7 @@ class RequestedShipment
      *
      * @return ShipmentInfo
      */
-    public function getShipmentInfo(): ShipmentInfo
+    public function getShipmentInfo()
     {
         return $this->ShipmentInfo;
     }
@@ -128,7 +128,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setShipmentInfo(ShipmentInfo $shipmentInfo): RequestedShipment
+    public function setShipmentInfo(ShipmentInfo $shipmentInfo)
     {
         $this->ShipmentInfo = $shipmentInfo;
         return $this;
@@ -139,7 +139,7 @@ class RequestedShipment
      *
      * @return ShipTimestamp
      */
-    public function getShipTimestamp(): ShipTimestamp
+    public function getShipTimestamp()
     {
         return $this->ShipTimestamp;
     }
@@ -151,7 +151,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setShipTimestamp($shipTimestamp): RequestedShipment
+    public function setShipTimestamp($shipTimestamp)
     {
         $this->ShipTimestamp = new ShipTimestamp($shipTimestamp);
         return $this;
@@ -174,7 +174,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPickupLocationCloseTime(string $pickupLocationCloseTime): RequestedShipment
+    public function setPickupLocationCloseTime(string $pickupLocationCloseTime)
     {
         $this->PickupLocationCloseTime = new PickupLocationCloseTime($pickupLocationCloseTime);
         return $this;
@@ -197,7 +197,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setSpecialPickupInstruction(string $specialPickupInstruction): RequestedShipment
+    public function setSpecialPickupInstruction(string $specialPickupInstruction)
     {
         $this->SpecialPickupInstruction = new SpecialPickupInstruction($specialPickupInstruction);
         return $this;
@@ -220,7 +220,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPickupLocation(string $pickupLocation): RequestedShipment
+    public function setPickupLocation(string $pickupLocation)
     {
         $this->PickupLocation = new PickupLocation($pickupLocation);
         return $this;
@@ -231,7 +231,7 @@ class RequestedShipment
      *
      * @return PaymentInfo
      */
-    public function getPaymentInfo(): PaymentInfo
+    public function getPaymentInfo()
     {
         return $this->PaymentInfo;
     }
@@ -243,7 +243,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPaymentInfo(string $paymentInfo): RequestedShipment
+    public function setPaymentInfo(string $paymentInfo)
     {
         $this->PaymentInfo = new PaymentInfo($paymentInfo);
         return $this;
@@ -266,7 +266,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setInternationalDetail(InternationalDetail $internationalDetail): RequestedShipment
+    public function setInternationalDetail(InternationalDetail $internationalDetail)
     {
         $this->InternationalDetail = $internationalDetail;
         return $this;
@@ -289,7 +289,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setOnDemandDeliveryOptions(OnDemandDeliveryOptions $onDemandDeliveryOptions): RequestedShipment
+    public function setOnDemandDeliveryOptions(OnDemandDeliveryOptions $onDemandDeliveryOptions)
     {
         $this->OnDemandDeliveryOptions = $onDemandDeliveryOptions;
         return $this;
@@ -300,7 +300,7 @@ class RequestedShipment
      *
      * @return Ship
      */
-    public function getShip(): Ship
+    public function getShip()
     {
         return $this->Ship;
     }
@@ -312,7 +312,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setShip(Ship $ship): RequestedShipment
+    public function setShip(Ship $ship)
     {
         $this->Ship = $ship;
         return $this;
@@ -323,7 +323,7 @@ class RequestedShipment
      *
      * @return Packages
      */
-    public function getPackages(): Packages
+    public function getPackages()
     {
         return $this->Packages;
     }
@@ -335,7 +335,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPackages(Packages $packages): RequestedShipment
+    public function setPackages(Packages $packages)
     {
         $this->Packages = $packages;
         return $this;
@@ -358,7 +358,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDangerousGoods(DangerousGoods $dangerousGoods): RequestedShipment
+    public function setDangerousGoods(DangerousGoods $dangerousGoods)
     {
         $this->DangerousGoods = $dangerousGoods;
         return $this;

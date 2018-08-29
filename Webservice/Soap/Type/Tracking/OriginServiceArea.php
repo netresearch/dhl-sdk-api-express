@@ -34,7 +34,7 @@ class OriginServiceArea
     /**
      * @return string
      */
-    public function getServiceAreaCode(): string
+    public function getServiceAreaCode()
     {
         return $this->ServiceAreaCode;
     }
@@ -43,7 +43,7 @@ class OriginServiceArea
      * @param string $ServiceAreaCode
      * @return self
      */
-    public function setServiceAreaCode(string $ServiceAreaCode): self
+    public function setServiceAreaCode(string $ServiceAreaCode)
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
 
@@ -53,7 +53,7 @@ class OriginServiceArea
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->Description;
     }
@@ -62,7 +62,7 @@ class OriginServiceArea
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description): self
+    public function setDescription(string $Description)
     {
         $this->Description = $Description;
 
@@ -72,7 +72,7 @@ class OriginServiceArea
     /**
      * @return string
      */
-    public function getOutboundSortCode(): string
+    public function getOutboundSortCode()
     {
         return $this->OutboundSortCode;
     }
@@ -81,7 +81,7 @@ class OriginServiceArea
      * @param string $OutboundSortCode
      * @return self
      */
-    public function setOutboundSortCode(string $OutboundSortCode): self
+    public function setOutboundSortCode(string $OutboundSortCode)
     {
         $this->OutboundSortCode = $OutboundSortCode;
 

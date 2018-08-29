@@ -46,7 +46,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): RateServiceInterface {
+    ) {
         $clientFactory = new SoapClientFactory();
         $client = $clientFactory->create($username, $password);
 
@@ -68,7 +68,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): ShipmentServiceInterface {
+    ) {
         $clientFactory = new SoapClientFactory();
 
         /** @TODO(nr)
@@ -103,7 +103,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): TrackingServiceInterface {
+    ) {
         $clientFactory = new SoapClientFactory();
         $client = $clientFactory->create(
             $username,

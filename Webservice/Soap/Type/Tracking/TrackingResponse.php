@@ -44,7 +44,7 @@ class TrackingResponse
     /**
      * @return Response
      */
-    public function getResponse(): Response
+    public function getResponse()
     {
         return $this->Response;
     }
@@ -53,7 +53,7 @@ class TrackingResponse
      * @param Response $Response
      * @return self
      */
-    public function setResponse(Response $Response): self
+    public function setResponse(Response $Response)
     {
         $this->Response = $Response;
 
@@ -63,7 +63,7 @@ class TrackingResponse
     /**
      * @return AWBInfoCollection
      */
-    public function getAWBInfo(): AWBInfoCollection
+    public function getAWBInfo()
     {
         return $this->AWBInfo;
     }
@@ -72,7 +72,7 @@ class TrackingResponse
      * @param AWBInfoCollection $AWBInfo
      * @return self
      */
-    public function setAWBInfo(AWBInfoCollection $AWBInfo): self
+    public function setAWBInfo(AWBInfoCollection $AWBInfo)
     {
         $this->AWBInfo = $AWBInfo;
 
@@ -91,7 +91,7 @@ class TrackingResponse
      * @param Fault $Fault
      * @return self
      */
-    public function setFault(Fault $Fault): self
+    public function setFault(Fault $Fault)
     {
         $this->Fault = $Fault;
 

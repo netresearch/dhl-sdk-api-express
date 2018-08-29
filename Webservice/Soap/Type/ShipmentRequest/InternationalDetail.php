@@ -49,7 +49,7 @@ class InternationalDetail
      *
      * @return Commodities
      */
-    public function getCommodities(): Commodities
+    public function getCommodities()
     {
         return $this->Commodities;
     }
@@ -61,7 +61,7 @@ class InternationalDetail
      *
      * @return InternationalDetail
      */
-    public function setCommodities(Commodities $commodities): InternationalDetail
+    public function setCommodities(Commodities $commodities)
     {
         $this->Commodities = $commodities;
         return $this;
@@ -84,7 +84,7 @@ class InternationalDetail
      *
      * @return InternationalDetail
      */
-    public function setContent(string $content): InternationalDetail
+    public function setContent(string $content)
     {
         $this->Content = new Content($content);
         return $this;
@@ -107,7 +107,7 @@ class InternationalDetail
      *
      * @return InternationalDetail
      */
-    public function setExportReference(string $exportReference): InternationalDetail
+    public function setExportReference(string $exportReference)
     {
         $this->ExportReference = new ExportReference($exportReference);
         return $this;

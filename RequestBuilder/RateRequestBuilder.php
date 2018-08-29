@@ -38,7 +38,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         string $countryCode,
         string $postalCode,
         string $city
-    ): RateRequestBuilderInterface {
+    ) {
         $this->data['shipperAddress'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -56,7 +56,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         string $postalCode,
         string $city,
         array $streetLines
-    ): RateRequestBuilderInterface {
+    ) {
         $this->data['recipientAddress'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -78,7 +78,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         float $width,
         float $height,
         string $dimensionsUOM
-    ): RateRequestBuilderInterface {
+    ) {
         $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
@@ -98,7 +98,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup): RateRequestBuilderInterface
+    public function setIsUnscheduledPickup(bool $unscheduledPickup)
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
         return $this;
@@ -107,7 +107,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setShipperAccountNumber(string $accountNumber): RateRequestBuilderInterface
+    public function setShipperAccountNumber(string $accountNumber)
     {
         $this->data['shipperAccountNumber'] = $accountNumber;
         return $this;
@@ -116,7 +116,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setTermsOfTrade(string $termsOfTrade): RateRequestBuilderInterface
+    public function setTermsOfTrade(string $termsOfTrade)
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
         return $this;
@@ -125,7 +125,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setContentType(string $contentType): RateRequestBuilderInterface
+    public function setContentType(string $contentType)
     {
         $this->data['contentType'] = $contentType;
         return $this;
@@ -134,7 +134,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp): RateRequestBuilderInterface
+    public function setReadyAtTimestamp(int $readyAtTimestamp)
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
         return $this;
@@ -143,7 +143,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency): RateRequestBuilderInterface
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency)
     {
         $this->data['insurance'] = [
             'value' => $insuranceValue,
@@ -155,7 +155,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices): RateRequestBuilderInterface
+    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices)
     {
         $this->data['isValueAddedServicesRequested'] = $requestValueAddedServices;
         return $this;
@@ -164,7 +164,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay): RateRequestBuilderInterface
+    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay)
     {
         $this->data['nextBusinessDayIndicator'] = $queryNextBusinessDay;
         return $this;
@@ -173,7 +173,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function build(): RateRequestInterface
+    public function build()
     {
         // build recipient address
         $recipientAddress = new RecipientAddress(
@@ -247,7 +247,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * @return array
      * @throws \InvalidArgumentException
      */
-    private function normalizeWeight(float $weight, string $uom): array
+    private function normalizeWeight(float $weight, string $uom)
     {
         if (($uom === Package::UOM_WEIGHT_KG) || ($uom === Package::UOM_WEIGHT_LB)) {
             return [
@@ -287,7 +287,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * @return array
      * @throws \InvalidArgumentException
      */
-    private function normalizeDimensions(float $length, float $width, float $height, string $uom): array
+    private function normalizeDimensions(float $length, float $width, float $height, string $uom)
     {
         if (($uom === Package::UOM_DIMENSION_CM) || ($uom === Package::UOM_DIMENSION_IN)) {
             return [

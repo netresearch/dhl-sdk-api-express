@@ -162,7 +162,7 @@ class OnDemandDeliveryOptions
      *
      * @return DeliveryOption
      */
-    public function getDeliveryOption(): DeliveryOption
+    public function getDeliveryOption()
     {
         return $this->DeliveryOption;
     }
@@ -174,7 +174,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setDeliveryOption(string $deliveryOption): OnDemandDeliveryOptions
+    public function setDeliveryOption(string $deliveryOption)
     {
         $this->DeliveryOption = new DeliveryOption($deliveryOption);
         return $this;
@@ -197,7 +197,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setLocation(string $location): OnDemandDeliveryOptions
+    public function setLocation(string $location)
     {
         $this->Location = new Location($location);
         return $this;
@@ -220,7 +220,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setInstructions(string $instructions): OnDemandDeliveryOptions
+    public function setInstructions(string $instructions)
     {
         $this->Instructions = new Instructions($instructions);
         return $this;
@@ -243,7 +243,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setGateCode($gateCode): OnDemandDeliveryOptions
+    public function setGateCode($gateCode)
     {
         $this->GateCode = new GateCode($gateCode);
         return $this;
@@ -266,7 +266,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setLWNTypeCode(string $lwnTypeCode): OnDemandDeliveryOptions
+    public function setLWNTypeCode(string $lwnTypeCode)
     {
         $this->LWNTypeCode = new LWNTypeCode($lwnTypeCode);
         return $this;
@@ -289,7 +289,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setNeighbourName(string $neighbourName): OnDemandDeliveryOptions
+    public function setNeighbourName(string $neighbourName)
     {
         $this->NeighbourName = new NeighbourName($neighbourName);
         return $this;
@@ -312,7 +312,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setNeighbourHouseNumber(string $neighbourHouseNumber): OnDemandDeliveryOptions
+    public function setNeighbourHouseNumber(string $neighbourHouseNumber)
     {
         $this->NeighbourHouseNumber = new NeighbourHouseNumber($neighbourHouseNumber);
         return $this;
@@ -335,7 +335,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setAuthorizerName(string $name): OnDemandDeliveryOptions
+    public function setAuthorizerName(string $name)
     {
         $this->AuthorizerName = new AuthorizerName($name);
         return $this;
@@ -358,7 +358,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setSelectedServicePointId(string $selectedServicePointId): OnDemandDeliveryOptions
+    public function setSelectedServicePointId(string $selectedServicePointId)
     {
         $this->SelectedServicePointID = new SelectedServicePointId($selectedServicePointId);
         return $this;
@@ -381,7 +381,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setRequestedDeliveryDate(string $requestedDeliveryDate): OnDemandDeliveryOptions
+    public function setRequestedDeliveryDate(string $requestedDeliveryDate)
     {
         $this->RequestedDeliveryDate = new RequestedDeliveryDate($requestedDeliveryDate);
         return $this;

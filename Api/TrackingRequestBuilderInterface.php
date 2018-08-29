@@ -24,7 +24,7 @@ interface TrackingRequestBuilderInterface
      * @param string $reference
      * @return TrackingRequestBuilderInterface
      */
-    public function setMessage(int $time, string $reference): TrackingRequestBuilderInterface;
+    public function setMessage(int $time, string $reference);
 
     /**
      * Sets the tracking AWB numbers.
@@ -32,7 +32,7 @@ interface TrackingRequestBuilderInterface
      * @param array $awbNumbers
      * @return self
      */
-    public function setAwbNumbers(array $awbNumbers): self;
+    public function setAwbNumbers(array $awbNumbers);
 
     /**
      * Adds a tracking AWB number.
@@ -40,7 +40,7 @@ interface TrackingRequestBuilderInterface
      * @param string $awbNumber
      * @return self
      */
-    public function addAwbNumber(string $awbNumber): self;
+    public function addAwbNumber(string $awbNumber);
 
     /**
      * Sets the tracking's level of details.
@@ -48,7 +48,7 @@ interface TrackingRequestBuilderInterface
      * @param string $levelOfDetails
      * @return self
      */
-    public function setLevelOfDetails(string $levelOfDetails): self;
+    public function setLevelOfDetails(string $levelOfDetails);
 
     /**
      * Sets the tracking's pieces enabled code.
@@ -56,7 +56,7 @@ interface TrackingRequestBuilderInterface
      * @param string $piecesEnabled
      * @return self
      */
-    public function setPiecesEnabled(string $piecesEnabled): self;
+    public function setPiecesEnabled(string $piecesEnabled);
 
     /**
      * Sets if the estimated delivery date should be displayed in the response, if available
@@ -64,12 +64,12 @@ interface TrackingRequestBuilderInterface
      * @param bool $eddRequested
      * @return TrackingRequestBuilderInterface
      */
-    public function setEstimatedDeliveryDateRequested(bool $eddRequested): self;
+    public function setEstimatedDeliveryDateRequested(bool $eddRequested);
 
     /**
      * Builds the tracking request instance.
      *
      * @return TrackingRequestInterface
      */
-    public function build(): TrackingRequestInterface;
+    public function build();
 }

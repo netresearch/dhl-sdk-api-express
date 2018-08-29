@@ -37,7 +37,7 @@ class Condition
     /**
      * @return string
      */
-    public function getConditionCode(): string
+    public function getConditionCode()
     {
         return $this->ConditionCode;
     }
@@ -46,7 +46,7 @@ class Condition
      * @param string $ConditionCode
      * @return self
      */
-    public function setConditionCode(string $ConditionCode): self
+    public function setConditionCode(string $ConditionCode)
     {
         $this->ConditionCode = $ConditionCode;
 
@@ -56,7 +56,7 @@ class Condition
     /**
      * @return string
      */
-    public function getConditionData(): string
+    public function getConditionData()
     {
         return $this->ConditionData;
     }
@@ -65,7 +65,7 @@ class Condition
      * @param string $ConditionData
      * @return self
      */
-    public function setConditionData(string $ConditionData): self
+    public function setConditionData(string $ConditionData)
     {
         $this->ConditionData = $ConditionData;
 

@@ -37,7 +37,7 @@ class PieceInfo
     /**
      * @return PieceDetails
      */
-    public function getPieceDetails(): PieceDetails
+    public function getPieceDetails()
     {
         return $this->PieceDetails;
     }
@@ -46,7 +46,7 @@ class PieceInfo
      * @param PieceDetails $PieceDetails
      * @return self
      */
-    public function setPieceDetails(PieceDetails $PieceDetails): self
+    public function setPieceDetails(PieceDetails $PieceDetails)
     {
         $this->PieceDetails = $PieceDetails;
 
@@ -56,7 +56,7 @@ class PieceInfo
     /**
      * @return PieceEventCollection
      */
-    public function getPieceEvent(): PieceEventCollection
+    public function getPieceEvent()
     {
         return $this->PieceEvent;
     }
@@ -65,7 +65,7 @@ class PieceInfo
      * @param PieceEventCollection $PieceEvent
      * @return self
      */
-    public function setPieceEvent(PieceEventCollection $PieceEvent): self
+    public function setPieceEvent(PieceEventCollection $PieceEvent)
     {
         $this->PieceEvent = $PieceEvent;
 

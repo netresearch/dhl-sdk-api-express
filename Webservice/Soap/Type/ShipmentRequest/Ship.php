@@ -73,7 +73,7 @@ class Ship
      *
      * @return ContactInfo
      */
-    public function getShipper(): ContactInfo
+    public function getShipper()
     {
         return $this->Shipper;
     }
@@ -85,7 +85,7 @@ class Ship
      *
      * @return self
      */
-    public function setShipper(ContactInfo $contactInfo): Ship
+    public function setShipper(ContactInfo $contactInfo)
     {
         $this->Shipper = $contactInfo;
         return $this;
@@ -96,7 +96,7 @@ class Ship
      *
      * @return ContactInfo
      */
-    public function getPickup(): ContactInfo
+    public function getPickup()
     {
         return $this->Pickup;
     }
@@ -108,7 +108,7 @@ class Ship
      *
      * @return self
      */
-    public function setPickup(ContactInfo $contactInfo): Ship
+    public function setPickup(ContactInfo $contactInfo)
     {
         $this->Pickup = $contactInfo;
         return $this;
@@ -119,7 +119,7 @@ class Ship
      *
      * @return ContactInfo
      */
-    public function getBookingRequestor(): ContactInfo
+    public function getBookingRequestor()
     {
         return $this->BookingRequestor;
     }
@@ -131,7 +131,7 @@ class Ship
      *
      * @return self
      */
-    public function setBookingRequestor(ContactInfo $contactInfo): Ship
+    public function setBookingRequestor(ContactInfo $contactInfo)
     {
         $this->BookingRequestor = $contactInfo;
         return $this;
@@ -142,7 +142,7 @@ class Ship
      *
      * @return BuyerContactInfo
      */
-    public function getBuyer(): BuyerContactInfo
+    public function getBuyer()
     {
         return $this->Buyer;
     }
@@ -154,7 +154,7 @@ class Ship
      *
      * @return self
      */
-    public function setBuyer(BuyerContactInfo $contactInfo): Ship
+    public function setBuyer(BuyerContactInfo $contactInfo)
     {
         $this->Buyer = $contactInfo;
         return $this;
@@ -165,7 +165,7 @@ class Ship
      *
      * @return ContactInfo
      */
-    public function getRecipient(): ContactInfo
+    public function getRecipient()
     {
         return $this->Recipient;
     }
@@ -177,7 +177,7 @@ class Ship
      *
      * @return self
      */
-    public function setRecipient(ContactInfo $contactInfo): Ship
+    public function setRecipient(ContactInfo $contactInfo)
     {
         $this->Recipient = $contactInfo;
         return $this;

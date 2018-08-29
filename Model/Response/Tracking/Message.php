@@ -42,7 +42,7 @@ class Message implements MessageInterface
      *
      * @return int
      */
-    public function getTime(): int
+    public function getTime()
     {
         return $this->time;
     }
@@ -52,7 +52,7 @@ class Message implements MessageInterface
      *
      * @return string
      */
-    public function getReference(): string
+    public function getReference()
     {
         return $this->reference;
     }

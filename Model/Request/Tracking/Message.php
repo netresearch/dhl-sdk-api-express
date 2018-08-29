@@ -35,12 +35,12 @@ class Message implements \Dhl\Express\Api\Data\Request\Tracking\MessageInterface
         $this->reference = $reference;
     }
 
-    public function getTime(): int
+    public function getTime()
     {
         return $this->time;
     }
 
-    public function getReference(): string
+    public function getReference()
     {
         return $this->reference;
     }

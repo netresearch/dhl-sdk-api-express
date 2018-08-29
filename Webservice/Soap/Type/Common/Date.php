@@ -77,7 +77,7 @@ class Date implements ValueInterface
      *
      * @return bool
      */
-    private function validateDateTime(string $date): bool
+    private function validateDateTime(string $date)
     {
         $dateTime = \DateTime::createFromFormat(self::FORMAT, $date);
 
@@ -89,7 +89,7 @@ class Date implements ValueInterface
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return $this->value->format(self::FORMAT);
     }

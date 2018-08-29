@@ -32,7 +32,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return string[]
      */
-    public function getArrayOfAWBNumberItem(): array
+    public function getArrayOfAWBNumberItem()
     {
         return $this->ArrayOfAWBNumberItem;
     }
@@ -41,7 +41,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      * @param string[] $ArrayOfAWBNumberItem
      * @return self
      */
-    public function setArrayOfAWBNumberItem(array $ArrayOfAWBNumberItem): self
+    public function setArrayOfAWBNumberItem(array $ArrayOfAWBNumberItem)
     {
         $this->ArrayOfAWBNumberItem = $ArrayOfAWBNumberItem;
 
@@ -54,7 +54,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfAWBNumberItem[$offset]);
     }
@@ -65,7 +65,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return string
      */
-    public function offsetGet($offset): string
+    public function offsetGet($offset)
     {
         return $this->ArrayOfAWBNumberItem[$offset];
     }
@@ -102,7 +102,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string Return the current element
      */
-    public function current(): string
+    public function current()
     {
         return current($this->ArrayOfAWBNumberItem);
     }
@@ -133,7 +133,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -154,7 +154,7 @@ class AWBNumberCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string Return count of elements
      */
-    public function count(): string
+    public function count()
     {
         return count($this->ArrayOfAWBNumberItem);
     }

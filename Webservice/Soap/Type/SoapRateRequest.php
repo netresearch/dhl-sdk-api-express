@@ -60,7 +60,7 @@ class SoapRateRequest
      *
      * @return self
      */
-    public function setClientDetail(ClientDetail $clientDetail): SoapRateRequest
+    public function setClientDetail(ClientDetail $clientDetail)
     {
         $this->ClientDetail = $clientDetail;
         return $this;
@@ -71,7 +71,7 @@ class SoapRateRequest
      *
      * @return RequestedShipment
      */
-    public function getRequestedShipment(): RequestedShipment
+    public function getRequestedShipment()
     {
         return $this->RequestedShipment;
     }
@@ -83,7 +83,7 @@ class SoapRateRequest
      *
      * @return self
      */
-    public function setRequestedShipment(RequestedShipment $requestedShipment): SoapRateRequest
+    public function setRequestedShipment(RequestedShipment $requestedShipment)
     {
         $this->RequestedShipment = $requestedShipment;
         return $this;

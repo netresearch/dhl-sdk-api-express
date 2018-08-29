@@ -27,7 +27,7 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return string
      */
-    private function loadResponseXml(string $xmlFile): string
+    private function loadResponseXml(string $xmlFile)
     {
         $fileName = realpath(__DIR__ . '/../Mock/Response/' . $xmlFile . '.xml');
 
@@ -43,7 +43,7 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function rateResponseProvider(): array
+    public function rateResponseProvider()
     {
         return [
             ['RateResponse-001'],

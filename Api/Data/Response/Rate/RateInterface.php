@@ -22,26 +22,26 @@ interface RateInterface
      *
      * @return string
      */
-    public function getServiceCode(): string;
+    public function getServiceCode();
 
     /**
      * Returns the label.
      *
      * @return string
      */
-    public function getLabel(): string;
+    public function getLabel();
 
     /**
      * Returns the amount.
      *
      * @return float
      */
-    public function getAmount(): float;
+    public function getAmount();
 
     /**
      * Returns the currency code.
      *
      * @return string
      */
-    public function getCurrencyCode(): string;
+    public function getCurrencyCode();
 }

@@ -36,7 +36,7 @@ class Charges
      *
      * @return string
      */
-    public function getCurrency(): string
+    public function getCurrency()
     {
         return $this->Currency;
     }
@@ -46,7 +46,7 @@ class Charges
      *
      * @return array|Charge[]
      */
-    public function getCharge(): array
+    public function getCharge()
     {
         return $this->Charge;
     }

@@ -32,7 +32,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return Condition[]
      */
-    public function getArrayOfConditionItem(): array
+    public function getArrayOfConditionItem()
     {
         return $this->ArrayOfConditionItem;
     }
@@ -41,7 +41,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      * @param Condition[] $ArrayOfConditionItem
      * @return self
      */
-    public function setArrayOfConditionItem(array $ArrayOfConditionItem): self
+    public function setArrayOfConditionItem(array $ArrayOfConditionItem)
     {
         $this->ArrayOfConditionItem = $ArrayOfConditionItem;
 
@@ -54,7 +54,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfConditionItem[$offset]);
     }
@@ -65,7 +65,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return Condition
      */
-    public function offsetGet($offset): Condition
+    public function offsetGet($offset)
     {
         return $this->ArrayOfConditionItem[$offset];
     }
@@ -102,7 +102,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return Condition Return the current element
      */
-    public function current(): Condition
+    public function current()
     {
         return current($this->ArrayOfConditionItem);
     }
@@ -133,7 +133,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -154,7 +154,7 @@ class ConditionCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return Condition Return count of elements
      */
-    public function count(): Condition
+    public function count()
     {
         return count($this->ArrayOfConditionItem);
     }

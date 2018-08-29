@@ -104,7 +104,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getAWBNumber(): string
+    public function getAWBNumber()
     {
         return $this->AWBNumber;
     }
@@ -113,7 +113,7 @@ class PieceDetails
      * @param string $AWBNumber
      * @return self
      */
-    public function setAWBNumber(string $AWBNumber): self
+    public function setAWBNumber(string $AWBNumber)
     {
         $this->AWBNumber = $AWBNumber;
 
@@ -123,7 +123,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getLicensePlate(): string
+    public function getLicensePlate()
     {
         return $this->LicensePlate;
     }
@@ -132,7 +132,7 @@ class PieceDetails
      * @param string $LicensePlate
      * @return self
      */
-    public function setLicensePlate(string $LicensePlate): self
+    public function setLicensePlate(string $LicensePlate)
     {
         $this->LicensePlate = $LicensePlate;
 
@@ -142,7 +142,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getPieceNumber(): string
+    public function getPieceNumber()
     {
         return $this->PieceNumber;
     }
@@ -151,7 +151,7 @@ class PieceDetails
      * @param string $PieceNumber
      * @return self
      */
-    public function setPieceNumber(string $PieceNumber): self
+    public function setPieceNumber(string $PieceNumber)
     {
         $this->PieceNumber = $PieceNumber;
 
@@ -161,7 +161,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getActualDepth(): string
+    public function getActualDepth()
     {
         return $this->ActualDepth;
     }
@@ -170,7 +170,7 @@ class PieceDetails
      * @param string $ActualDepth
      * @return self
      */
-    public function setActualDepth(string $ActualDepth): self
+    public function setActualDepth(string $ActualDepth)
     {
         $this->ActualDepth = $ActualDepth;
 
@@ -180,7 +180,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getActualWidth(): string
+    public function getActualWidth()
     {
         return $this->ActualWidth;
     }
@@ -189,7 +189,7 @@ class PieceDetails
      * @param string $ActualWidth
      * @return self
      */
-    public function setActualWidth(string $ActualWidth): self
+    public function setActualWidth(string $ActualWidth)
     {
         $this->ActualWidth = $ActualWidth;
 
@@ -199,7 +199,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getActualHeight(): string
+    public function getActualHeight()
     {
         return $this->ActualHeight;
     }
@@ -208,7 +208,7 @@ class PieceDetails
      * @param string $ActualHeight
      * @return self
      */
-    public function setActualHeight(string $ActualHeight): self
+    public function setActualHeight(string $ActualHeight)
     {
         $this->ActualHeight = $ActualHeight;
 
@@ -218,7 +218,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getActualWeight(): string
+    public function getActualWeight()
     {
         return $this->ActualWeight;
     }
@@ -227,7 +227,7 @@ class PieceDetails
      * @param string $ActualWeight
      * @return self
      */
-    public function setActualWeight(string $ActualWeight): self
+    public function setActualWeight(string $ActualWeight)
     {
         $this->ActualWeight = $ActualWeight;
 
@@ -237,7 +237,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getDepth(): string
+    public function getDepth()
     {
         return $this->Depth;
     }
@@ -246,7 +246,7 @@ class PieceDetails
      * @param string $Depth
      * @return self
      */
-    public function setDepth(string $Depth): self
+    public function setDepth(string $Depth)
     {
         $this->Depth = $Depth;
 
@@ -256,7 +256,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getWidth(): string
+    public function getWidth()
     {
         return $this->Width;
     }
@@ -265,7 +265,7 @@ class PieceDetails
      * @param string $Width
      * @return self
      */
-    public function setWidth(string $Width): self
+    public function setWidth(string $Width)
     {
         $this->Width = $Width;
 
@@ -275,7 +275,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getHeight(): string
+    public function getHeight()
     {
         return $this->Height;
     }
@@ -284,7 +284,7 @@ class PieceDetails
      * @param string $Height
      * @return self
      */
-    public function setHeight(string $Height): self
+    public function setHeight(string $Height)
     {
         $this->Height = $Height;
 
@@ -294,7 +294,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getWeight(): string
+    public function getWeight()
     {
         return $this->Weight;
     }
@@ -303,7 +303,7 @@ class PieceDetails
      * @param string $Weight
      * @return self
      */
-    public function setWeight(string $Weight): self
+    public function setWeight(string $Weight)
     {
         $this->Weight = $Weight;
 
@@ -313,7 +313,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getPackageType(): string
+    public function getPackageType()
     {
         return $this->PackageType;
     }
@@ -322,7 +322,7 @@ class PieceDetails
      * @param string $PackageType
      * @return self
      */
-    public function setPackageType(string $PackageType): self
+    public function setPackageType(string $PackageType)
     {
         $this->PackageType = $PackageType;
 
@@ -332,7 +332,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getDimWeight(): string
+    public function getDimWeight()
     {
         return $this->DimWeight;
     }
@@ -341,7 +341,7 @@ class PieceDetails
      * @param string $DimWeight
      * @return self
      */
-    public function setDimWeight(string $DimWeight): self
+    public function setDimWeight(string $DimWeight)
     {
         $this->DimWeight = $DimWeight;
 
@@ -351,7 +351,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getWeightUnit(): string
+    public function getWeightUnit()
     {
         return $this->WeightUnit;
     }
@@ -360,7 +360,7 @@ class PieceDetails
      * @param string $WeightUnit
      * @return self
      */
-    public function setWeightUnit(string $WeightUnit): self
+    public function setWeightUnit(string $WeightUnit)
     {
         $this->WeightUnit = $WeightUnit;
 
@@ -370,7 +370,7 @@ class PieceDetails
     /**
      * @return string
      */
-    public function getPieceContents(): string
+    public function getPieceContents()
     {
         return $this->PieceContents;
     }
@@ -379,7 +379,7 @@ class PieceDetails
      * @param string $PieceContents
      * @return self
      */
-    public function setPieceContents(string $PieceContents): self
+    public function setPieceContents(string $PieceContents)
     {
         $this->PieceContents = $PieceContents;
 

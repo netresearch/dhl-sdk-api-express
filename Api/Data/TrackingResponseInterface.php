@@ -25,12 +25,12 @@ interface TrackingResponseInterface
      *
      * @return MessageInterface
      */
-    public function getMessage(): MessageInterface;
+    public function getMessage();
 
     /**
      * Returns the tacking informations.
      *
      * @return TrackingInfoInterface[]
      */
-    public function getTrackingInfos(): array;
+    public function getTrackingInfos();
 }

@@ -22,19 +22,19 @@ interface PieceInterface
      *
      * @return int
      */
-    public function getAwbNumber(): int;
+    public function getAwbNumber();
 
     /**
      * Returns the pieces AWB license plate
      *
      * @return string
      */
-    public function getLicense(): string;
+    public function getLicense();
 
     /**
       Returns the pieces events
      *
      * @return PieceEventInterface[]
      */
-    public function getPieceEvents(): array;
+    public function getPieceEvents();
 }

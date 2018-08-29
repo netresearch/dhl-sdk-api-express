@@ -86,7 +86,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @return string
      */
-    public function getShipperName(): string
+    public function getShipperName()
     {
         return $this->shipperName;
     }
@@ -96,7 +96,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @return string
      */
-    public function getConsigneeName(): string
+    public function getConsigneeName()
     {
         return $this->consigneeName;
     }
@@ -106,7 +106,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @return string
      */
-    public function getShipmentDate(): string
+    public function getShipmentDate()
     {
         return $this->shipmentDate;
     }
@@ -114,7 +114,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getOriginDescription(): string
+    public function getOriginDescription()
     {
         return $this->originDescription;
     }
@@ -122,7 +122,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getDestinationDescription(): string
+    public function getDestinationDescription()
     {
         return $this->destinationDescription;
     }
@@ -130,7 +130,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return float
      */
-    public function getWeight(): float
+    public function getWeight()
     {
         return $this->weight;
     }
@@ -138,7 +138,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getEstimatedDeliveryDate(): string
+    public function getEstimatedDeliveryDate()
     {
         return $this->estimatedDeliveryDate;
     }

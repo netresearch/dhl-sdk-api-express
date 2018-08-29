@@ -26,7 +26,7 @@ class ShipmentDeleteRequestMapper
      *
      * @return SoapShipmentDeleteRequest
      */
-    public function map(ShipmentDeleteRequestInterface $request): SoapShipmentDeleteRequest
+    public function map(ShipmentDeleteRequestInterface $request)
     {
         $deleteRequest = new SoapShipmentDeleteRequest(
             $request->getPickupDate(),

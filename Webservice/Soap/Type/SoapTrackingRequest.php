@@ -26,7 +26,7 @@ class SoapTrackingRequest
     /**
      * @return TrackingRequestBase
      */
-    public function getTrackingRequest(): TrackingRequestBase
+    public function getTrackingRequest()
     {
         return $this->trackingRequest;
     }
@@ -35,7 +35,7 @@ class SoapTrackingRequest
      * @param TrackingRequestBase $trackingRequest
      * @return self
      */
-    public function setTrackingRequest(TrackingRequestBase $trackingRequest): self
+    public function setTrackingRequest(TrackingRequestBase $trackingRequest)
     {
         $this->trackingRequest = $trackingRequest;
         return $this;

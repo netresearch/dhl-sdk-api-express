@@ -29,7 +29,7 @@ class ShipmentDeleteResponseMapper
      * @return ShipmentDeleteResponseInterface
      * @throws ShipmentDeleteRequestException
      */
-    public function map(SoapShipmentDeleteResponse $shipmentDeleteResponse): ShipmentDeleteResponseInterface
+    public function map(SoapShipmentDeleteResponse $shipmentDeleteResponse)
     {
         if ($shipmentDeleteResponse->getNotification()->getCode() !== 0) {
             throw new ShipmentDeleteRequestException($shipmentDeleteResponse->getNotification()->getMessage());

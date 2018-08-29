@@ -32,7 +32,7 @@ class Fault
     /**
      * @return PieceFaultCollection
      */
-    public function getPieceFault(): PieceFaultCollection
+    public function getPieceFault()
     {
         return $this->PieceFault;
     }
@@ -41,7 +41,7 @@ class Fault
      * @param PieceFaultCollection $PieceFault
      * @return self
      */
-    public function setPieceFault(PieceFaultCollection $PieceFault): self
+    public function setPieceFault(PieceFaultCollection $PieceFault)
     {
         $this->PieceFault = $PieceFault;
 

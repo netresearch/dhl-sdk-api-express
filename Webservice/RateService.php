@@ -54,7 +54,7 @@ class RateService implements RateServiceInterface
     /**
      * {@inheritdoc}
      */
-    public function collectRates(RateRequestInterface $request): RateResponseInterface
+    public function collectRates(RateRequestInterface $request)
     {
         try {
             $response = $this->adapter->collectRates($request);

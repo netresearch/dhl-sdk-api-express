@@ -86,7 +86,7 @@ class Service
      *
      * @return TotalNet
      */
-    public function getTotalNet(): TotalNet
+    public function getTotalNet()
     {
         return $this->TotalNet;
     }
@@ -122,7 +122,7 @@ class Service
     /**
      * Returns the cutoff time.
      *
-     * @return null|false|\DateTime 
+     * @return null|false|\DateTime
      */
     public function getCutoffTime()
     {
@@ -152,7 +152,7 @@ class Service
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }

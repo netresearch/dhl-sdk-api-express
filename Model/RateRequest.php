@@ -80,7 +80,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return ShipperAddressInterface
      */
-    public function getShipperAddress(): ShipperAddressInterface
+    public function getShipperAddress()
     {
         return $this->shipperAddress;
     }
@@ -88,7 +88,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return string
      */
-    public function getShipperAccountNumber(): string
+    public function getShipperAccountNumber()
     {
         return $this->shipperAccountNumber;
     }
@@ -96,7 +96,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return RecipientAddressInterface
      */
-    public function getRecipientAddress(): RecipientAddressInterface
+    public function getRecipientAddress()
     {
         return $this->recipientAddress;
     }
@@ -104,7 +104,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails(): ShipmentDetailsInterface
+    public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
@@ -112,7 +112,7 @@ class RateRequest implements RateRequestInterface
     /**
      * @return PackageInterface[]
      */
-    public function getPackages(): array
+    public function getPackages()
     {
         return $this->packages;
     }

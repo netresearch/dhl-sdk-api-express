@@ -22,12 +22,12 @@ interface MessageInterface
      *
      * @return int
      */
-    public function getTime(): int;
+    public function getTime();
 
     /**
      * Returns the messages reference.
      *
      * @return string
      */
-    public function getReference(): string;
+    public function getReference();
 }

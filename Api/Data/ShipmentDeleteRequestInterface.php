@@ -34,28 +34,28 @@ interface ShipmentDeleteRequestInterface
      *
      * @return string
      */
-    public function getPickupDate(): string;
+    public function getPickupDate();
 
     /**
      * Returns the pickup country code.
      *
      * @return string
      */
-    public function getPickupCountry(): string;
+    public function getPickupCountry();
 
     /**
      * Returns the dispatch confirmation number.
      *
      * @return string
      */
-    public function getDispatchConfirmationNumber(): string;
+    public function getDispatchConfirmationNumber();
 
     /**
      * Returns the requester name.
      *
      * @return string
      */
-    public function getRequesterName(): string;
+    public function getRequesterName();
 
     /**
      * Returns the reason code.
@@ -71,5 +71,5 @@ interface ShipmentDeleteRequestInterface
      *
      * @return self
      */
-    public function setReason(string $reason): ShipmentDeleteRequestInterface;
+    public function setReason(string $reason);
 }

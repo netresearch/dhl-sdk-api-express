@@ -24,5 +24,5 @@ interface RateResponseInterface
      *
      * @return RateInterface[]
      */
-    public function getRates(): array;
+    public function getRates();
 }

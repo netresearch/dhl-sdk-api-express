@@ -39,7 +39,7 @@ class Numeric implements ValueInterface
      *
      * @return int
      */
-    public function getValue(): int
+    public function getValue()
     {
         return $this->value;
     }
@@ -49,7 +49,7 @@ class Numeric implements ValueInterface
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return (string) $this->value;
     }

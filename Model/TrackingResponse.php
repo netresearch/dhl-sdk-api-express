@@ -43,7 +43,7 @@ class TrackingResponse implements TrackingResponseInterface
     /**
      * @return MessageInterface
      */
-    public function getMessage(): MessageInterface
+    public function getMessage()
     {
         return $this->message;
     }
@@ -51,7 +51,7 @@ class TrackingResponse implements TrackingResponseInterface
     /**
      * @return MessageInterface[]
      */
-    public function getTrackingInfos(): array
+    public function getTrackingInfos()
     {
         return $this->trackingInfos;
     }

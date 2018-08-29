@@ -39,7 +39,7 @@ class Money implements ValueInterface
      *
      * @return float
      */
-    public function getValue(): float
+    public function getValue()
     {
         return $this->value;
     }
@@ -49,7 +49,7 @@ class Money implements ValueInterface
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return (string) $this->getValue();
     }

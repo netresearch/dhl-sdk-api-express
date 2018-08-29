@@ -181,7 +181,7 @@ class RequestedShipment
      *
      * @return DropOffType
      */
-    public function getDropOffType(): DropOffType
+    public function getDropOffType()
     {
         return $this->DropOffType;
     }
@@ -193,7 +193,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDropOffType(string $dropOffType): RequestedShipment
+    public function setDropOffType(string $dropOffType)
     {
         $this->DropOffType = new DropOffType($dropOffType);
         return $this;
@@ -216,7 +216,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setNextBusinessDay($nextBusinessDay): RequestedShipment
+    public function setNextBusinessDay($nextBusinessDay)
     {
         $this->NextBusinessDay = new NextBusinessDay($nextBusinessDay);
         return $this;
@@ -227,7 +227,7 @@ class RequestedShipment
      *
      * @return Ship
      */
-    public function getShip(): Ship
+    public function getShip()
     {
         return $this->Ship;
     }
@@ -239,7 +239,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setShip(Ship $ship): RequestedShipment
+    public function setShip(Ship $ship)
     {
         $this->Ship = $ship;
         return $this;
@@ -250,7 +250,7 @@ class RequestedShipment
      *
      * @return Packages
      */
-    public function getPackages(): Packages
+    public function getPackages()
     {
         return $this->Packages;
     }
@@ -262,7 +262,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPackages(Packages $packages): RequestedShipment
+    public function setPackages(Packages $packages)
     {
         $this->Packages = $packages;
         return $this;
@@ -273,7 +273,7 @@ class RequestedShipment
      *
      * @return ShipTimestamp
      */
-    public function getShipTimestamp(): string
+    public function getShipTimestamp()
     {
         return $this->ShipTimestamp;
     }
@@ -285,7 +285,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setShipTimestamp($shipTimestamp): RequestedShipment
+    public function setShipTimestamp($shipTimestamp)
     {
         $this->ShipTimestamp = new ShipTimestamp($shipTimestamp);
         return $this;
@@ -296,7 +296,7 @@ class RequestedShipment
      *
      * @return UnitOfMeasurement
      */
-    public function getUnitOfMeasurement(): UnitOfMeasurement
+    public function getUnitOfMeasurement()
     {
         return $this->UnitOfMeasurement;
     }
@@ -308,7 +308,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setUnitOfMeasurement(string $unitOfMeasurement): RequestedShipment
+    public function setUnitOfMeasurement(string $unitOfMeasurement)
     {
         $this->UnitOfMeasurement = new UnitOfMeasurement($unitOfMeasurement);
         return $this;
@@ -331,7 +331,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setContent(string $content): RequestedShipment
+    public function setContent(string $content)
     {
         $this->Content = new Content($content);
         return $this;
@@ -354,7 +354,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDeclaredValue(string $declaredValue): RequestedShipment
+    public function setDeclaredValue(string $declaredValue)
     {
         $this->DeclaredValue = new Money($declaredValue);
         return $this;
@@ -377,7 +377,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDeclaredValueCurrencyCode(string $declaredValueCurrencyCode): RequestedShipment
+    public function setDeclaredValueCurrencyCode(string $declaredValueCurrencyCode)
     {
         $this->DeclaredValueCurrencyCode = new CurrencyCode($declaredValueCurrencyCode);
         return $this;
@@ -400,7 +400,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPaymentInfo(string $paymentInfo): RequestedShipment
+    public function setPaymentInfo(string $paymentInfo)
     {
         $this->PaymentInfo = new PaymentInfo($paymentInfo);
         return $this;
@@ -423,7 +423,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setAccount(string $account): RequestedShipment
+    public function setAccount(string $account)
     {
         $this->Account = new Account($account);
         return $this;
@@ -446,7 +446,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setBilling(Billing $billing): RequestedShipment
+    public function setBilling(Billing $billing)
     {
         $this->Billing = $billing;
         return $this;
@@ -469,7 +469,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setSpecialServices(SpecialServices $specialServices): RequestedShipment
+    public function setSpecialServices(SpecialServices $specialServices)
     {
         $this->SpecialServices = $specialServices;
         return $this;
@@ -493,7 +493,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setRequestValueAddedServices($requestValueAddedServices): RequestedShipment
+    public function setRequestValueAddedServices($requestValueAddedServices)
     {
         $this->RequestValueAddedServices = new RequestValueAddedServices($requestValueAddedServices);
         return $this;

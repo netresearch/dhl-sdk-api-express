@@ -24,5 +24,5 @@ interface TrackingServiceInterface
      * @param TrackingRequestInterface $request
      * @return TrackingResponseInterface
      */
-    public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface;
+    public function getTrackingInformation(TrackingRequestInterface $request);
 }

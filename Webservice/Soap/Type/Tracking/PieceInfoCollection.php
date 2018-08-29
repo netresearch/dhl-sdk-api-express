@@ -24,7 +24,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return PieceInfo[]
      */
-    public function getArrayOfPieceInfoItem(): array
+    public function getArrayOfPieceInfoItem()
     {
         return $this->ArrayOfPieceInfoItem;
     }
@@ -33,7 +33,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param PieceInfo[] $ArrayOfPieceInfoItem
      * @return self
      */
-    public function setArrayOfPieceInfoItem(array $ArrayOfPieceInfoItem = []): self
+    public function setArrayOfPieceInfoItem(array $ArrayOfPieceInfoItem = [])
     {
         $this->ArrayOfPieceInfoItem = $ArrayOfPieceInfoItem;
 
@@ -46,7 +46,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfPieceInfoItem[$offset]);
     }
@@ -57,7 +57,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return PieceInfo
      */
-    public function offsetGet($offset): PieceInfo
+    public function offsetGet($offset)
     {
         return $this->ArrayOfPieceInfoItem[$offset];
     }
@@ -94,7 +94,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceInfo Return the current element
      */
-    public function current(): PieceInfo
+    public function current()
     {
         return current($this->ArrayOfPieceInfoItem);
     }
@@ -115,7 +115,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -146,7 +146,7 @@ class PieceInfoCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceInfo Return count of elements
      */
-    public function count(): PieceInfo
+    public function count()
     {
         return count($this->ArrayOfPieceInfoItem);
     }

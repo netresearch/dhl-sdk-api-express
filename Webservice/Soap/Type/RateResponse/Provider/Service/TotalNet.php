@@ -34,7 +34,7 @@ class TotalNet
      *
      * @return string
      */
-    public function getCurrency(): string
+    public function getCurrency()
     {
         return $this->Currency;
     }
@@ -44,7 +44,7 @@ class TotalNet
      *
      * @return float
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         return $this->Amount;
     }

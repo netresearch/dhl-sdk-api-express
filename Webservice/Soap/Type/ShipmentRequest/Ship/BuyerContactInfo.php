@@ -46,7 +46,7 @@ class BuyerContactInfo
      *
      * @return BuyerContact
      */
-    public function getContact(): BuyerContact
+    public function getContact()
     {
         return $this->Contact;
     }
@@ -58,7 +58,7 @@ class BuyerContactInfo
      *
      * @return self
      */
-    public function setContact(BuyerContact $contact): BuyerContactInfo
+    public function setContact(BuyerContact $contact)
     {
         $this->Contact = $contact;
         return $this;
@@ -69,7 +69,7 @@ class BuyerContactInfo
      *
      * @return BuyerAddress
      */
-    public function getAddress(): BuyerAddress
+    public function getAddress()
     {
         return $this->Address;
     }
@@ -81,7 +81,7 @@ class BuyerContactInfo
      *
      * @return self
      */
-    public function setAddress(BuyerAddress $address): BuyerContactInfo
+    public function setAddress(BuyerAddress $address)
     {
         $this->Address = $address;
         return $this;

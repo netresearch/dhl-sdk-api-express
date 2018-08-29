@@ -44,7 +44,7 @@ class DangerousGoods
      *
      * @return Content
      */
-    public function getContent(): Content
+    public function getContent()
     {
         return $this->Content;
     }
@@ -56,7 +56,7 @@ class DangerousGoods
      *
      * @return self
      */
-    public function setContent(Content $content): DangerousGoods
+    public function setContent(Content $content)
     {
         $this->Content = $content;
         return $this;

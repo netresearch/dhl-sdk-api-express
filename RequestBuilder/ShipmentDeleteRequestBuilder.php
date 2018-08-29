@@ -28,7 +28,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setPickupDate(string $pickupDate): ShipmentDeleteRequestBuilderInterface
+    public function setPickupDate(string $pickupDate)
     {
         $this->data['pickupDate'] = $pickupDate;
         return $this;
@@ -37,7 +37,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setPickupCountry(string $pickupCountry): ShipmentDeleteRequestBuilderInterface
+    public function setPickupCountry(string $pickupCountry)
     {
         $this->data['pickupCountry'] = $pickupCountry;
         return $this;
@@ -46,7 +46,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber): ShipmentDeleteRequestBuilderInterface
+    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber)
     {
         $this->data['dispatchConfirmationNumber'] = $dispatchConfirmationNumber;
         return $this;
@@ -55,7 +55,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setRequesterName(string $requesterName): ShipmentDeleteRequestBuilderInterface
+    public function setRequesterName(string $requesterName)
     {
         $this->data['requesterName'] = $requesterName;
         return $this;
@@ -64,7 +64,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setReason(string $reasonCode): ShipmentDeleteRequestBuilderInterface
+    public function setReason(string $reasonCode)
     {
         $this->data['reasonCode'] = $reasonCode;
         return $this;
@@ -73,7 +73,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function build(): ShipmentDeleteRequestInterface
+    public function build()
     {
         //build request
         $request = new ShipmentDeleteRequest(

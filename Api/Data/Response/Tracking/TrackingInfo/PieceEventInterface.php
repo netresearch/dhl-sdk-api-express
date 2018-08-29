@@ -22,19 +22,19 @@ interface PieceEventInterface
      *
      * @return int
      */
-    public function getDate(): int;
+    public function getDate();
 
     /**
      * Returns the event's code
      *
      * @return string
      */
-    public function getCode(): string;
+    public function getCode();
 
     /**
      * Returns the event's description
      *
      * @return string
      */
-    public function getDescription(): string;
+    public function getDescription();
 }

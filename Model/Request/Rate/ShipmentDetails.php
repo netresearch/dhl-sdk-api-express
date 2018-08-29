@@ -127,7 +127,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return bool
      */
-    public function isRegularPickup(): bool
+    public function isRegularPickup()
     {
         return !$this->unscheduledPickup;
     }
@@ -135,7 +135,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function isUnscheduledPickup(): bool
+    public function isUnscheduledPickup()
     {
         return $this->unscheduledPickup;
     }
@@ -143,7 +143,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function getTermsOfTrade(): string
+    public function getTermsOfTrade()
     {
         return $this->termsOfTrade;
     }
@@ -151,7 +151,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function getContentType(): string
+    public function getContentType()
     {
         return $this->contentType;
     }
@@ -159,7 +159,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function getReadyAtTimestamp(): int
+    public function getReadyAtTimestamp()
     {
         return $this->readyAtTimestamp;
     }
@@ -167,7 +167,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function isValueAddedServicesRequested(): bool
+    public function isValueAddedServicesRequested()
     {
         return $this->requestValueAddedServices;
     }
@@ -175,7 +175,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @inheritdoc
      */
-    public function isNextBusinessDayIndicator(): bool
+    public function isNextBusinessDayIndicator()
     {
         return $this->nextBusinessDayIndicator;
     }

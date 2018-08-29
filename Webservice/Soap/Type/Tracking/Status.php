@@ -37,7 +37,7 @@ class Status
     /**
      * @return string
      */
-    public function getActionStatus(): string
+    public function getActionStatus()
     {
         return $this->ActionStatus;
     }
@@ -46,7 +46,7 @@ class Status
      * @param string $ActionStatus
      * @return self
      */
-    public function setActionStatus(string $ActionStatus): self
+    public function setActionStatus(string $ActionStatus)
     {
         $this->ActionStatus = $ActionStatus;
 
@@ -65,7 +65,7 @@ class Status
      * @param ConditionCollection $Condition
      * @return self
      */
-    public function setCondition(ConditionCollection $Condition): self
+    public function setCondition(ConditionCollection $Condition)
     {
         $this->Condition = $Condition;
 

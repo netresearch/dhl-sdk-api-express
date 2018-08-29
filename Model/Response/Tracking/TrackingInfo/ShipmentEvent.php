@@ -66,7 +66,7 @@ class ShipmentEvent implements ShipmentEventInterface
      *
      * @return string
      */
-    public function getDate(): string
+    public function getDate()
     {
         return $this->date;
     }
@@ -76,7 +76,7 @@ class ShipmentEvent implements ShipmentEventInterface
      *
      * @return string
      */
-    public function getLocationDescription(): string
+    public function getLocationDescription()
     {
         return $this->locationDescription;
     }
@@ -86,7 +86,7 @@ class ShipmentEvent implements ShipmentEventInterface
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -96,7 +96,7 @@ class ShipmentEvent implements ShipmentEventInterface
      *
      * @return string
      */
-    public function getTime(): string
+    public function getTime()
     {
         return $this->time;
     }

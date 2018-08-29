@@ -166,7 +166,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return bool
      */
-    public function isUnscheduledPickup(): bool
+    public function isUnscheduledPickup()
     {
         return $this->unscheduledPickup;
     }
@@ -174,7 +174,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return bool
      */
-    public function isRegularPickup(): bool
+    public function isRegularPickup()
     {
         return !$this->unscheduledPickup;
     }
@@ -182,7 +182,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getTermsOfTrade(): string
+    public function getTermsOfTrade()
     {
         return $this->termsOfTrade;
     }
@@ -190,7 +190,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getContentType(): string
+    public function getContentType()
     {
         return $this->contentType;
     }
@@ -198,7 +198,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return int
      */
-    public function getReadyAtTimestamp(): int
+    public function getReadyAtTimestamp()
     {
         return $this->readyAtTimestamp;
     }
@@ -206,7 +206,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return int
      */
-    public function getNumberOfPieces(): int
+    public function getNumberOfPieces()
     {
         return $this->numberOfPieces;
     }
@@ -214,7 +214,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode()
     {
         return $this->currencyCode;
     }
@@ -222,7 +222,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -230,7 +230,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return float
      */
-    public function getCustomsValue(): float
+    public function getCustomsValue()
     {
         return $this->customsValue;
     }
@@ -238,7 +238,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * @return string
      */
-    public function getServiceType(): string
+    public function getServiceType()
     {
         return $this->serviceType;
     }

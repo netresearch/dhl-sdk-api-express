@@ -25,5 +25,5 @@ interface TrackingServiceAdapterInterface
      * @return TrackingResponseInterface
      * @throws \InvalidArgumentException
      */
-    public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface;
+    public function getTrackingInformation(TrackingRequestInterface $request);
 }

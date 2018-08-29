@@ -41,7 +41,7 @@ class Weight implements ValueInterface
      *
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return (string) $this->value;
     }

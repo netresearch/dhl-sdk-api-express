@@ -114,7 +114,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setInsuredValue(float $insuredValue): RequestedPackages
+    public function setInsuredValue(float $insuredValue)
     {
         $this->InsuredValue = new Money($insuredValue);
         return $this;
@@ -125,7 +125,7 @@ class RequestedPackages
      *
      * @return Weight
      */
-    public function getWeight(): Weight
+    public function getWeight()
     {
         return $this->Weight;
     }
@@ -137,7 +137,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setWeight(float $weight): RequestedPackages
+    public function setWeight(float $weight)
     {
         $this->Weight = new Weight($weight);
         return $this;
@@ -160,7 +160,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setPieceIdentificationNumber(string $pieceIdentificationNumber): RequestedPackages
+    public function setPieceIdentificationNumber(string $pieceIdentificationNumber)
     {
         $this->PieceIdentificationNumber = new PieceIdentificationNumber($pieceIdentificationNumber);
         return $this;
@@ -184,7 +184,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setUseOwnPieceIdentificationNumber($useOwnPieceIdentificationNumber): RequestedPackages
+    public function setUseOwnPieceIdentificationNumber($useOwnPieceIdentificationNumber)
     {
         $this->UseOwnPieceIdentificationNumber = new UseOwnPieceIdentificationNumber($useOwnPieceIdentificationNumber);
         return $this;
@@ -207,7 +207,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setPackageContentDescription(string $packageContentDescription): RequestedPackages
+    public function setPackageContentDescription(string $packageContentDescription)
     {
         $this->PackageContentDescription = new PackageContentDescription($packageContentDescription);
         return $this;
@@ -218,7 +218,7 @@ class RequestedPackages
      *
      * @return Dimensions
      */
-    public function getDimensions(): Dimensions
+    public function getDimensions()
     {
         return $this->Dimensions;
     }
@@ -230,7 +230,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setDimensions(Dimensions $dimensions): RequestedPackages
+    public function setDimensions(Dimensions $dimensions)
     {
         $this->Dimensions = $dimensions;
         return $this;
@@ -241,7 +241,7 @@ class RequestedPackages
      *
      * @return CustomerReferences
      */
-    public function getCustomerReferences(): CustomerReferences
+    public function getCustomerReferences()
     {
         return $this->CustomerReferences;
     }
@@ -253,7 +253,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setCustomerReferences(string $customerReferences): RequestedPackages
+    public function setCustomerReferences(string $customerReferences)
     {
         $this->CustomerReferences = new CustomerReferences($customerReferences);
         return $this;
@@ -264,7 +264,7 @@ class RequestedPackages
      *
      * @return int
      */
-    public function getNumber(): int
+    public function getNumber()
     {
         return $this->number;
     }
@@ -276,7 +276,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setNumber($number): RequestedPackages
+    public function setNumber($number)
     {
         $this->number = $number;
         return $this;

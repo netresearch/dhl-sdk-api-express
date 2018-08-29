@@ -32,7 +32,7 @@ class TrackingResponseBase
     /**
      * @return TrackingResponse
      */
-    public function getTrackingResponse(): TrackingResponse
+    public function getTrackingResponse()
     {
         return $this->TrackingResponse;
     }
@@ -41,7 +41,7 @@ class TrackingResponseBase
      * @param TrackingResponse $TrackingResponse
      * @return self
      */
-    public function setTrackingResponse(TrackingResponse $TrackingResponse): self
+    public function setTrackingResponse(TrackingResponse $TrackingResponse)
     {
         $this->TrackingResponse = $TrackingResponse;
 

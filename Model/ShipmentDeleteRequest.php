@@ -74,7 +74,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function getPickupDate(): string
+    public function getPickupDate()
     {
         return $this->pickupDate;
     }
@@ -82,7 +82,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function getPickupCountry(): string
+    public function getPickupCountry()
     {
         return $this->pickupCountry;
     }
@@ -90,7 +90,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function getDispatchConfirmationNumber(): string
+    public function getDispatchConfirmationNumber()
     {
         return $this->dispatchConfirmationNumber;
     }
@@ -98,7 +98,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function getRequesterName(): string
+    public function getRequesterName()
     {
         return $this->requesterName;
     }
@@ -114,7 +114,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function setReason(string $reason): ShipmentDeleteRequestInterface
+    public function setReason(string $reason)
     {
         $this->reason = $reason;
         return $this;

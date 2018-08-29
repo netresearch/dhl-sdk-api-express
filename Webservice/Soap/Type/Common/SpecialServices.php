@@ -40,7 +40,7 @@ class SpecialServices implements \Countable
      *
      * @return array|Service[]
      */
-    public function getService(): array
+    public function getService()
     {
         return $this->Service;
     }
@@ -52,7 +52,7 @@ class SpecialServices implements \Countable
      *
      * @return self
      */
-    public function setService(array $service): SpecialServices
+    public function setService(array $service)
     {
         $this->Service = $service;
         return $this;

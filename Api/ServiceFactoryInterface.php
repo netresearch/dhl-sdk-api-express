@@ -29,7 +29,7 @@ interface ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): RateServiceInterface;
+    );
 
     /**
      * @param string $username
@@ -41,7 +41,7 @@ interface ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): ShipmentServiceInterface;
+    );
 
     /**
      * @param string $username
@@ -53,7 +53,7 @@ interface ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): TrackingServiceInterface;
+    );
 
     /**
      * @return PickupServiceInterface

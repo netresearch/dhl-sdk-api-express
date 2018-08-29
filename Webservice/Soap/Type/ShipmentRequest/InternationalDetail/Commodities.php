@@ -100,7 +100,7 @@ class Commodities
      *
      * @return self
      */
-    public function setNumberOfPieces(int $numberOfPieces): Commodities
+    public function setNumberOfPieces(int $numberOfPieces)
     {
         $this->NumberOfPieces = new NumberOfPieces($numberOfPieces);
         return $this;
@@ -111,7 +111,7 @@ class Commodities
      *
      * @return Description
      */
-    public function getDescription(): Description
+    public function getDescription()
     {
         return $this->Description;
     }
@@ -123,7 +123,7 @@ class Commodities
      *
      * @return self
      */
-    public function setDescription(string $description): Commodities
+    public function setDescription(string $description)
     {
         $this->Description = new Description($description);
         return $this;
@@ -146,7 +146,7 @@ class Commodities
      *
      * @return self
      */
-    public function setCountryOfManufacture(string $countryOfManufacture): Commodities
+    public function setCountryOfManufacture(string $countryOfManufacture)
     {
         $this->CountryOfManufacture = new CountryCode($countryOfManufacture);
         return $this;
@@ -169,7 +169,7 @@ class Commodities
      *
      * @return self
      */
-    public function setQuantity(int $quantity): Commodities
+    public function setQuantity(int $quantity)
     {
         $this->Quantity = new Quantity($quantity);
         return $this;
@@ -192,7 +192,7 @@ class Commodities
      *
      * @return self
      */
-    public function setUnitPrice(float $unitPrice): Commodities
+    public function setUnitPrice(float $unitPrice)
     {
         $this->UnitPrice = new UnitPrice($unitPrice);
         return $this;
@@ -215,7 +215,7 @@ class Commodities
      *
      * @return self
      */
-    public function setCustomsValue(float $customsValue): Commodities
+    public function setCustomsValue(float $customsValue)
     {
         $this->CustomsValue = new CustomsValue($customsValue);
         return $this;
@@ -238,7 +238,7 @@ class Commodities
      *
      * @return self
      */
-    public function setUSFillingTypeValue(string $usFillingTypeValue): Commodities
+    public function setUSFillingTypeValue(string $usFillingTypeValue)
     {
         $this->USFillingTypeValue = new USFillingTypeValue($usFillingTypeValue);
         return $this;

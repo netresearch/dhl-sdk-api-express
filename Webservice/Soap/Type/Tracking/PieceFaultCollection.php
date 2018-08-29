@@ -32,7 +32,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return PieceFault[]
      */
-    public function getArrayOfPieceFaultItem(): array
+    public function getArrayOfPieceFaultItem()
     {
         return $this->ArrayOfPieceFaultItem;
     }
@@ -41,7 +41,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      * @param PieceFault[] $ArrayOfPieceFaultItem
      * @return self
      */
-    public function setArrayOfPieceFaultItem(array $ArrayOfPieceFaultItem): self
+    public function setArrayOfPieceFaultItem(array $ArrayOfPieceFaultItem)
     {
         $this->ArrayOfPieceFaultItem = $ArrayOfPieceFaultItem;
 
@@ -54,7 +54,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfPieceFaultItem[$offset]);
     }
@@ -65,7 +65,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return PieceFault
      */
-    public function offsetGet($offset): PieceFault
+    public function offsetGet($offset)
     {
         return $this->ArrayOfPieceFaultItem[$offset];
     }
@@ -102,7 +102,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceFault Return the current element
      */
-    public function current(): PieceFault
+    public function current()
     {
         return current($this->ArrayOfPieceFaultItem);
     }
@@ -123,7 +123,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -154,7 +154,7 @@ class PieceFaultCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceFault Return count of elements
      */
-    public function count(): PieceFault
+    public function count()
     {
         return count($this->ArrayOfPieceFaultItem);
     }

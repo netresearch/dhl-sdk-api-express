@@ -43,7 +43,7 @@ class Packages
      *
      * @return RequestedPackages[]
      */
-    public function getRequestedPackages(): array
+    public function getRequestedPackages()
     {
         return $this->RequestedPackages;
     }
@@ -55,7 +55,7 @@ class Packages
      *
      * @return self
      */
-    public function setRequestedPackages(array $requestedPackages): Packages
+    public function setRequestedPackages(array $requestedPackages)
     {
         $this->RequestedPackages = $requestedPackages;
         return $this;

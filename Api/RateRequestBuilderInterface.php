@@ -30,7 +30,7 @@ interface RateRequestBuilderInterface
         string $countryCode,
         string $postalCode,
         string $city
-    ): RateRequestBuilderInterface;
+    );
 
     /**
      * Sets the recipients address information.
@@ -47,7 +47,7 @@ interface RateRequestBuilderInterface
         string $postalCode,
         string $city,
         array $streetLines
-    ): RateRequestBuilderInterface;
+    );
 
     /**
      * Adds a package to the list of packages.
@@ -70,7 +70,7 @@ interface RateRequestBuilderInterface
         float $width,
         float $height,
         string $dimensionsUOM
-    ): RateRequestBuilderInterface;
+    );
 
     /**
      * Returns whether this is a scheduled pickup or not.
@@ -79,7 +79,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup): RateRequestBuilderInterface;
+    public function setIsUnscheduledPickup(bool $unscheduledPickup);
 
     /**
      * Sets the shippers account number.
@@ -88,7 +88,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setShipperAccountNumber(string $accountNumber): RateRequestBuilderInterface;
+    public function setShipperAccountNumber(string $accountNumber);
 
     /**
      * Sets the terms of trade.
@@ -97,7 +97,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setTermsOfTrade(string $termsOfTrade): RateRequestBuilderInterface;
+    public function setTermsOfTrade(string $termsOfTrade);
 
     /**
      * Sets the terms of trade.
@@ -106,7 +106,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setContentType(string $contentType): RateRequestBuilderInterface;
+    public function setContentType(string $contentType);
 
     /**
      * Sets the shipment timestamp.
@@ -115,7 +115,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp): RateRequestBuilderInterface;
+    public function setReadyAtTimestamp(int $readyAtTimestamp);
 
     /**
      * Sets the insurance.
@@ -125,7 +125,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency): RateRequestBuilderInterface;
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency);
 
     /**
      * Sets if value added services should be included in the response
@@ -133,7 +133,7 @@ interface RateRequestBuilderInterface
      * @param bool $requestValueAddedServices
      * @return self
      */
-    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices): RateRequestBuilderInterface;
+    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices);
 
     /**
      * Sets if products for the next day should be fetched if the DHL cutoff time is exceeded
@@ -141,12 +141,12 @@ interface RateRequestBuilderInterface
      * @param bool $queryNextBusinessDay
      * @return self
      */
-    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay): RateRequestBuilderInterface;
+    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay);
 
     /**
      * Builds the rate request instance.
      *
      * @return RateRequestInterface
      */
-    public function build(): RateRequestInterface;
+    public function build();
 }

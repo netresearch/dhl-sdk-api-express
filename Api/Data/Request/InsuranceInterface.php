@@ -21,12 +21,12 @@ interface InsuranceInterface
      *
      * @return float
      */
-    public function getValue(): float;
+    public function getValue();
 
     /**
      * Returns the currency code.
      *
      * @return string
      */
-    public function getCurrencyCode(): string;
+    public function getCurrencyCode();
 }

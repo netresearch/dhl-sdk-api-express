@@ -183,7 +183,7 @@ class ShipmentInfo
      *
      * @return DropOffType
      */
-    public function getDropOffType(): DropOffType
+    public function getDropOffType()
     {
         return $this->DropOffType;
     }
@@ -195,7 +195,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setDropOffType(string $dropOffType): ShipmentInfo
+    public function setDropOffType(string $dropOffType)
     {
         $this->DropOffType = new DropOffType($dropOffType);
         return $this;
@@ -206,7 +206,7 @@ class ShipmentInfo
      *
      * @return ServiceType
      */
-    public function getServiceType(): ServiceType
+    public function getServiceType()
     {
         return $this->ServiceType;
     }
@@ -218,7 +218,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setServiceType(string $serviceType): ShipmentInfo
+    public function setServiceType(string $serviceType)
     {
         $this->ServiceType = new ServiceType($serviceType);
         return $this;
@@ -241,7 +241,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setAccount(string $account): ShipmentInfo
+    public function setAccount(string $account)
     {
         $this->Account = new Account($account);
         return $this;
@@ -264,7 +264,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setBilling(Billing $billing): ShipmentInfo
+    public function setBilling(Billing $billing)
     {
         $this->Billing = $billing;
         return $this;
@@ -287,7 +287,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setSpecialServices(SpecialServices $specialServices): ShipmentInfo
+    public function setSpecialServices(SpecialServices $specialServices)
     {
         $this->SpecialServices = $specialServices;
         return $this;
@@ -298,7 +298,7 @@ class ShipmentInfo
      *
      * @return CurrencyCode
      */
-    public function getCurrency(): CurrencyCode
+    public function getCurrency()
     {
         return $this->Currency;
     }
@@ -310,7 +310,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setCurrency(string $currencyCode): ShipmentInfo
+    public function setCurrency(string $currencyCode)
     {
         $this->Currency = new CurrencyCode($currencyCode);
         return $this;
@@ -321,7 +321,7 @@ class ShipmentInfo
      *
      * @return UnitOfMeasurement
      */
-    public function getUnitOfMeasurement(): UnitOfMeasurement
+    public function getUnitOfMeasurement()
     {
         return $this->UnitOfMeasurement;
     }
@@ -333,7 +333,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setUnitOfMeasurement(string $unitOfMeasurement): ShipmentInfo
+    public function setUnitOfMeasurement(string $unitOfMeasurement)
     {
         $this->UnitOfMeasurement = new UnitOfMeasurement($unitOfMeasurement);
         return $this;
@@ -356,7 +356,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setShipmentIdentificationNumber(string $shipmentIdentificationNumber): ShipmentInfo
+    public function setShipmentIdentificationNumber(string $shipmentIdentificationNumber)
     {
         $this->ShipmentIdentificationNumber = new ShipmentIdentificationNumber($shipmentIdentificationNumber);
         return $this;
@@ -380,7 +380,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setUseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber): ShipmentInfo
+    public function setUseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber)
     {
         $this->UseOwnShipmentIdentificationNumber = new UseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber);
         return $this;
@@ -403,7 +403,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPackagesCount(int $packagesCount): ShipmentInfo
+    public function setPackagesCount(int $packagesCount)
     {
         $this->PackagesCount = new PackagesCount($packagesCount);
         return $this;
@@ -426,7 +426,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setSendPackage(string $sendPackage): ShipmentInfo
+    public function setSendPackage(string $sendPackage)
     {
         $this->SendPackage = $sendPackage;
         return $this;
@@ -449,7 +449,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setLabelType(string $labelType): ShipmentInfo
+    public function setLabelType(string $labelType)
     {
         $this->LabelType = new LabelType($labelType);
         return $this;
@@ -472,7 +472,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setLabelTemplate(string $labelTemplate): ShipmentInfo
+    public function setLabelTemplate(string $labelTemplate)
     {
         $this->LabelTemplate = new LabelTemplate($labelTemplate);
         return $this;
@@ -495,7 +495,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setArchiveLabelTemplate(string $labelTemplate): ShipmentInfo
+    public function setArchiveLabelTemplate(string $labelTemplate)
     {
         $this->ArchiveLabelTemplate = new LabelTemplate($labelTemplate);
         return $this;
@@ -518,7 +518,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPaperlessTradeEnabled(bool $paperlessTradeEnabled): ShipmentInfo
+    public function setPaperlessTradeEnabled(bool $paperlessTradeEnabled)
     {
         $this->PaperlessTradeEnabled = $paperlessTradeEnabled;
         return $this;
@@ -541,7 +541,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPaperlessTradeImage(string $paperlessTradeImage): ShipmentInfo
+    public function setPaperlessTradeImage(string $paperlessTradeImage)
     {
         $this->PaperlessTradeImage = $paperlessTradeImage;
         return $this;

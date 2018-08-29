@@ -34,7 +34,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $reference
      * @return TrackingRequestBuilderInterface
      */
-    public function setMessage(int $time, string $reference): TrackingRequestBuilderInterface
+    public function setMessage(int $time, string $reference)
     {
         $this->data['message'] = [
             'time' => $time,
@@ -50,7 +50,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param array $awbNumbers
      * @return TrackingRequestBuilderInterface
      */
-    public function setAwbNumbers(array $awbNumbers): TrackingRequestBuilderInterface
+    public function setAwbNumbers(array $awbNumbers)
     {
         $this->data['awb_numbers'] = $awbNumbers;
 
@@ -63,7 +63,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $awbNumber
      * @return TrackingRequestBuilderInterface
      */
-    public function addAwbNumber(string $awbNumber): TrackingRequestBuilderInterface
+    public function addAwbNumber(string $awbNumber)
     {
         $this->data['awb_numbers'][] = $awbNumber;
 
@@ -76,7 +76,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $levelOfDetails
      * @return TrackingRequestBuilderInterface
      */
-    public function setLevelOfDetails(string $levelOfDetails): TrackingRequestBuilderInterface
+    public function setLevelOfDetails(string $levelOfDetails)
     {
         $this->data['level_of_details'] = $levelOfDetails;
 
@@ -89,14 +89,14 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $piecesEnabled
      * @return TrackingRequestBuilderInterface
      */
-    public function setPiecesEnabled(string $piecesEnabled): TrackingRequestBuilderInterface
+    public function setPiecesEnabled(string $piecesEnabled)
     {
         $this->data['pieces_enabled'] = $piecesEnabled;
 
         return $this;
     }
 
-    public function setEstimatedDeliveryDateRequested(bool $eddRequested): TrackingRequestBuilderInterface
+    public function setEstimatedDeliveryDateRequested(bool $eddRequested)
     {
         $this->data['estimated_delivery_date'] = $eddRequested;
 
@@ -108,7 +108,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      *
      * @return TrackingRequestInterface
      */
-    public function build(): TrackingRequestInterface
+    public function build()
     {
         $eddEnabled = $this->data['estimated_delivery_date'] ?? false;
         $request = new TrackingRequest(

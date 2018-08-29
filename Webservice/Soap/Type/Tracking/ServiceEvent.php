@@ -37,7 +37,7 @@ class ServiceEvent
     /**
      * @return string
      */
-    public function getEventCode(): string
+    public function getEventCode()
     {
         return $this->EventCode;
     }
@@ -46,7 +46,7 @@ class ServiceEvent
      * @param string $EventCode
      * @return self
      */
-    public function setEventCode(string $EventCode): self
+    public function setEventCode(string $EventCode)
     {
         $this->EventCode = $EventCode;
 
@@ -56,7 +56,7 @@ class ServiceEvent
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->Description;
     }
@@ -65,7 +65,7 @@ class ServiceEvent
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description): self
+    public function setDescription(string $Description)
     {
         $this->Description = $Description;
 

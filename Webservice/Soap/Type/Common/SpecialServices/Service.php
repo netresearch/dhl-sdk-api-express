@@ -85,7 +85,7 @@ class Service
      *
      * @return ServiceType
      */
-    public function getServiceType(): ServiceType
+    public function getServiceType()
     {
         return $this->ServiceType;
     }
@@ -97,7 +97,7 @@ class Service
      *
      * @return self
      */
-    public function setServiceType(string $serviceType): Service
+    public function setServiceType(string $serviceType)
     {
         $this->ServiceType = new ServiceType($serviceType);
         return $this;
@@ -120,7 +120,7 @@ class Service
      *
      * @return self
      */
-    public function setServiceValue(float $serviceValue): Service
+    public function setServiceValue(float $serviceValue)
     {
         $this->ServiceValue = new Money($serviceValue);
         return $this;
@@ -143,7 +143,7 @@ class Service
      *
      * @return self
      */
-    public function setCurrencyCode(string $currencyCode): Service
+    public function setCurrencyCode(string $currencyCode)
     {
         $this->CurrencyCode = new CurrencyCode($currencyCode);
         return $this;
@@ -166,7 +166,7 @@ class Service
      *
      * @return self
      */
-    public function setPaymentCode(string $paymentCode): Service
+    public function setPaymentCode(string $paymentCode)
     {
         $this->PaymentCode = new PaymentCode($paymentCode);
         return $this;
@@ -189,7 +189,7 @@ class Service
      *
      * @return self
      */
-    public function setStartDate($startDate): Service
+    public function setStartDate($startDate)
     {
         $this->StartDate = new Date($startDate);
         return $this;
@@ -212,7 +212,7 @@ class Service
      *
      * @return self
      */
-    public function setEndDate($endDate): Service
+    public function setEndDate($endDate)
     {
         $this->EndDate = new Date($endDate);
         return $this;
@@ -235,7 +235,7 @@ class Service
      *
      * @return self
      */
-    public function setTextInstruction(string $textInstruction): Service
+    public function setTextInstruction(string $textInstruction)
     {
         $this->TextInstruction = new TextInstruction($textInstruction);
         return $this;

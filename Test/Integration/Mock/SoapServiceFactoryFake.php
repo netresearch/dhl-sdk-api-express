@@ -50,7 +50,7 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): RateServiceInterface {
+    ) {
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
         $adapter = new RateServiceAdapter($this->client, $requestMapper, $responseMapper);
@@ -62,7 +62,7 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): ShipmentServiceInterface {
+    ) {
         $adapter = new ShipmentServiceAdapter(
             $this->client,
             new ShipmentRequestMapper(),
@@ -78,7 +78,7 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
         string $username,
         string $password,
         LoggerInterface $logger
-    ): TrackingServiceInterface {
+    ) {
         $requestMapper = new TrackingRequestMapper();
         $responseMapper = new TrackingResponseMapper();
         $adapter = new TrackingServiceAdapter($this->client, $requestMapper, $responseMapper);

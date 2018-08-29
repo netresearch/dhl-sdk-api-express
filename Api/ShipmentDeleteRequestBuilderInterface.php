@@ -23,7 +23,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @return self
      */
-    public function setPickupDate(string $pickupDate): ShipmentDeleteRequestBuilderInterface;
+    public function setPickupDate(string $pickupDate);
 
     /**
      * Sets the country code associated to the origin of the shipment.
@@ -32,7 +32,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @return self
      */
-    public function setPickupCountry(string $pickupCountry): ShipmentDeleteRequestBuilderInterface;
+    public function setPickupCountry(string $pickupCountry);
 
     /**
      * Sets the confirmation number returned from the original shipment request.
@@ -41,7 +41,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @return self
      */
-    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber): ShipmentDeleteRequestBuilderInterface;
+    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber);
 
     /**
      * Sets the delete requester name.
@@ -50,7 +50,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @return self
      */
-    public function setRequesterName(string $requesterName): ShipmentDeleteRequestBuilderInterface;
+    public function setRequesterName(string $requesterName);
 
     /**
      * Sets the optional reason code.
@@ -59,12 +59,12 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @return self
      */
-    public function setReason(string $reasonCode): ShipmentDeleteRequestBuilderInterface;
+    public function setReason(string $reasonCode);
 
     /**
      * Builds the shipment request instance.
      *
      * @return ShipmentDeleteRequestInterface
      */
-    public function build(): ShipmentDeleteRequestInterface;
+    public function build();
 }
