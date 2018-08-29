@@ -51,9 +51,9 @@ class ShipmentEvent implements ShipmentEventInterface
      * @param string $date
      * @param string $time
      * @param string $locationDescription
-     * @param $description
+     * @param        $description
      */
-    public function __construct(string $date, string $time, string $locationDescription, $description)
+    public function __construct($date, $time, $locationDescription, $description)
     {
         $this->date = $date;
         $this->time = $time;

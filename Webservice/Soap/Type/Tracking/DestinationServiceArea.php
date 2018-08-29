@@ -46,9 +46,10 @@ class DestinationServiceArea
 
     /**
      * @param string $ServiceAreaCode
+     *
      * @return self
      */
-    public function setServiceAreaCode(string $ServiceAreaCode)
+    public function setServiceAreaCode($ServiceAreaCode)
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
 
@@ -67,7 +68,7 @@ class DestinationServiceArea
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description)
+    public function setDescription($Description)
     {
         $this->Description = $Description;
 
@@ -86,7 +87,7 @@ class DestinationServiceArea
      * @param string $FacilityCode
      * @return self
      */
-    public function setFacilityCode(string $FacilityCode)
+    public function setFacilityCode($FacilityCode)
     {
         $this->FacilityCode = $FacilityCode;
 
@@ -105,7 +106,7 @@ class DestinationServiceArea
      * @param string $InboundSortCode
      * @return self
      */
-    public function setInboundSortCode(string $InboundSortCode)
+    public function setInboundSortCode($InboundSortCode)
     {
         $this->InboundSortCode = $InboundSortCode;
 

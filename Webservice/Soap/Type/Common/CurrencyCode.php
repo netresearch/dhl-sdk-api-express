@@ -33,7 +33,7 @@ class CurrencyCode implements ValueInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         if (\strlen($value) !== self::NUMBER_OF_CHARS) {
             throw new \InvalidArgumentException('The argument must be a three letter currency code');

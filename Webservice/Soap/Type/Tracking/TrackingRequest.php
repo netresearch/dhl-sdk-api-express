@@ -48,9 +48,9 @@ class TrackingRequest
 
     /**
      * @param Request $Request
-     * @param string $LevelOfDetails
+     * @param string  $LevelOfDetails
      */
-    public function __construct(Request $Request, string $LevelOfDetails)
+    public function __construct(Request $Request, $LevelOfDetails)
     {
         $this->Request = $Request;
         $this->LevelOfDetails = $LevelOfDetails;
@@ -123,9 +123,10 @@ class TrackingRequest
 
     /**
      * @param string $LevelOfDetails
+     *
      * @return self
      */
-    public function setLevelOfDetails(string $LevelOfDetails)
+    public function setLevelOfDetails($LevelOfDetails)
     {
         $this->LevelOfDetails = $LevelOfDetails;
 
@@ -144,7 +145,7 @@ class TrackingRequest
      * @param string $PiecesEnabled
      * @return self
      */
-    public function setPiecesEnabled(string $PiecesEnabled)
+    public function setPiecesEnabled($PiecesEnabled)
     {
         $this->PiecesEnabled = $PiecesEnabled;
 
@@ -163,7 +164,7 @@ class TrackingRequest
      * @param bool $EstimatedDeliveryDateEnabled
      * @return self
      */
-    public function setEstimatedDeliveryDateEnabled(bool $EstimatedDeliveryDateEnabled)
+    public function setEstimatedDeliveryDateEnabled($EstimatedDeliveryDateEnabled)
     {
         $this->EstimatedDeliveryDateEnabled = $EstimatedDeliveryDateEnabled;
 

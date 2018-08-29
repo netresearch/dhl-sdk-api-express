@@ -40,11 +40,12 @@ class PieceEvent implements PieceEventInterface
 
     /**
      * PieceEvent constructor.
-     * @param int $date
-     * @param $code
-     * @param $description
+     *
+     * @param int    $date
+     * @param string $code
+     * @param string $description
      */
-    public function __construct(int $date, string $code, string $description)
+    public function __construct($date, $code, $description)
     {
         $this->date = $date;
         $this->code = $code;

@@ -103,14 +103,14 @@ class Package implements PackageInterface
      * @param string $customerReferences
      */
     public function __construct(
-        int $sequenceNumber,
-        float $weight,
-        string $weightUOM,
-        float $length,
-        float $width,
-        float $height,
-        string $dimensionsUOM,
-        string $customerReferences
+        $sequenceNumber,
+        $weight,
+        $weightUOM,
+        $length,
+        $width,
+        $height,
+        $dimensionsUOM,
+        $customerReferences
     ) {
         $weightUOMs = [
             self::UOM_WEIGHT_KG,

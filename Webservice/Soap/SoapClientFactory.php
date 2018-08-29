@@ -26,7 +26,7 @@ class SoapClientFactory
      *
      * @return Client
      */
-    public function create(string $username, string $password, string $wsdl = '')
+    public function create($username, $password, $wsdl = '')
     {
         $wsdl = $wsdl ?: self::WSDL;
 

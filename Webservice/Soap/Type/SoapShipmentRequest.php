@@ -66,7 +66,7 @@ class SoapShipmentRequest
      *
      * @return self
      */
-    public function setMessageId(string $messageId)
+    public function setMessageId($messageId)
     {
         $this->MessageId = $messageId;
         return $this;

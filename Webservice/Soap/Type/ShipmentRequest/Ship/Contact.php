@@ -53,7 +53,7 @@ class Contact
      * @param string $companyName The company name
      * @param string $phoneNumber The phone number
      */
-    public function __construct(string $personName, string $companyName, string $phoneNumber)
+    public function __construct($personName, $companyName, $phoneNumber)
     {
         $this->setPersonName($personName)
             ->setCompanyName($companyName)
@@ -77,7 +77,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setPersonName(string $personName)
+    public function setPersonName($personName)
     {
         $this->PersonName = new PersonName($personName);
         return $this;
@@ -100,7 +100,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setCompanyName(string $companyName)
+    public function setCompanyName($companyName)
     {
         $this->CompanyName = new CompanyName($companyName);
         return $this;
@@ -123,7 +123,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setPhoneNumber(string $phoneNumber)
+    public function setPhoneNumber($phoneNumber)
     {
         $this->PhoneNumber = new PhoneNumber($phoneNumber);
         return $this;
@@ -146,7 +146,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setEmailAddress(string $emailAddress)
+    public function setEmailAddress($emailAddress)
     {
         $this->EmailAddress = new EmailAddress($emailAddress);
         return $this;
@@ -169,7 +169,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setMobilePhoneNumber(string $mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber)
     {
         $this->MobilePhoneNumber = new MobilePhoneNumber($mobilePhoneNumber);
         return $this;

@@ -36,9 +36,10 @@ class ShipperReference
 
     /**
      * @param string $ReferenceID
+     *
      * @return self
      */
-    public function setReferenceID(string $ReferenceID)
+    public function setReferenceID($ReferenceID)
     {
         $this->ReferenceID = $ReferenceID;
 
@@ -57,7 +58,7 @@ class ShipperReference
      * @param string $ReferenceType
      * @return self
      */
-    public function setReferenceType(string $ReferenceType)
+    public function setReferenceType($ReferenceType)
     {
         $this->ReferenceType = $ReferenceType;
 

@@ -20,38 +20,39 @@ use Psr\Log\LoggerInterface;
 interface ServiceFactoryInterface
 {
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
+     *
      * @return RateServiceInterface
      */
     public function createRateService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     );
 
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
      * @return ShipmentServiceInterface
      */
     public function createShipmentService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     );
 
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
      * @return TrackingServiceInterface
      */
     public function createTrackingService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     );
 

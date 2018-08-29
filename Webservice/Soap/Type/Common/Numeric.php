@@ -29,7 +29,7 @@ class Numeric implements ValueInterface
      *
      * @param int $value The value
      */
-    public function __construct(int $value)
+    public function __construct($value)
     {
         $this->value = $value;
     }

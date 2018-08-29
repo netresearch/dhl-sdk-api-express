@@ -44,7 +44,7 @@ class ShipperAddress implements ShipperAddressInterface
      * @param string $postalCode  The shippers postal code
      * @param string $city        The shippers city name
      */
-    public function __construct(string $countryCode, string $postalCode, string $city)
+    public function __construct($countryCode, $postalCode, $city)
     {
         $this->countryCode = $countryCode;
         $this->postalCode  = $postalCode;

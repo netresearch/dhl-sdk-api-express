@@ -40,11 +40,12 @@ class Piece implements PieceInterface
 
     /**
      * Piece constructor.
-     * @param int $awbNumber
-     * @param string $license
+     *
+     * @param int                   $awbNumber
+     * @param string                $license
      * @param PieceEventInterface[] $pieceEvents
      */
-    public function __construct(int $awbNumber, string $license, array $pieceEvents)
+    public function __construct($awbNumber, $license, array $pieceEvents)
     {
         $this->awbNumber = $awbNumber;
         $this->license = $license;

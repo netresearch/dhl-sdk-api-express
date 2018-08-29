@@ -163,11 +163,11 @@ class RequestedShipment
      * @param string               $unitOfMeasurement The unit of measurement
      */
     public function __construct(
-        string    $dropOffType,
+           $dropOffType,
         Ship      $ship,
         Packages  $packages,
         $shipTimestamp,
-        string    $unitOfMeasurement
+           $unitOfMeasurement
     ) {
         $this->setDropOffType($dropOffType)
             ->setShip($ship)
@@ -193,7 +193,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDropOffType(string $dropOffType)
+    public function setDropOffType($dropOffType)
     {
         $this->DropOffType = new DropOffType($dropOffType);
         return $this;
@@ -308,7 +308,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setUnitOfMeasurement(string $unitOfMeasurement)
+    public function setUnitOfMeasurement($unitOfMeasurement)
     {
         $this->UnitOfMeasurement = new UnitOfMeasurement($unitOfMeasurement);
         return $this;
@@ -331,7 +331,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setContent(string $content)
+    public function setContent($content)
     {
         $this->Content = new Content($content);
         return $this;
@@ -354,7 +354,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDeclaredValue(string $declaredValue)
+    public function setDeclaredValue($declaredValue)
     {
         $this->DeclaredValue = new Money($declaredValue);
         return $this;
@@ -377,7 +377,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setDeclaredValueCurrencyCode(string $declaredValueCurrencyCode)
+    public function setDeclaredValueCurrencyCode($declaredValueCurrencyCode)
     {
         $this->DeclaredValueCurrencyCode = new CurrencyCode($declaredValueCurrencyCode);
         return $this;
@@ -400,7 +400,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPaymentInfo(string $paymentInfo)
+    public function setPaymentInfo($paymentInfo)
     {
         $this->PaymentInfo = new PaymentInfo($paymentInfo);
         return $this;
@@ -423,7 +423,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setAccount(string $account)
+    public function setAccount($account)
     {
         $this->Account = new Account($account);
         return $this;

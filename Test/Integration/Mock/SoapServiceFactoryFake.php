@@ -47,8 +47,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     }
 
     public function createRateService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $requestMapper = new RateRequestMapper();
@@ -59,8 +59,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     }
 
     public function createShipmentService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $adapter = new ShipmentServiceAdapter(
@@ -75,8 +75,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     }
 
     public function createTrackingService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $requestMapper = new TrackingRequestMapper();

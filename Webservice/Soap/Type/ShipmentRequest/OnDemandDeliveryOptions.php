@@ -99,22 +99,22 @@ class OnDemandDeliveryOptions
     /**
      * Constructor.
      *
-     * @param string      $deliveryOption         The delivery option
-     * @param null|string $location               The location where exactly to leave the shipment
-     * @param null|string $lwnTypeCode            The LWN type code
-     * @param null|string $neighbourName          The neighbour name
-     * @param null|string $neighbourHouseNumber   The neighbour house number
-     * @param null|string $authorizerName         The name of the authorized person
-     * @param null|string $selectedServicePointId The selected service point id
+     * @param string $deliveryOption         The delivery option
+     * @param string $location               The location where exactly to leave the shipment
+     * @param string $lwnTypeCode            The LWN type code
+     * @param string $neighbourName          The neighbour name
+     * @param string $neighbourHouseNumber   The neighbour house number
+     * @param string $authorizerName         The name of the authorized person
+     * @param string $selectedServicePointId The selected service point id
      */
     public function __construct(
-        string $deliveryOption,
-        string $location = null,
-        string $lwnTypeCode = null,
-        string $neighbourName = null,
-        string $neighbourHouseNumber = null,
-        string $authorizerName = null,
-        string $selectedServicePointId = null
+        $deliveryOption,
+        $location = null,
+        $lwnTypeCode = null,
+        $neighbourName = null,
+        $neighbourHouseNumber = null,
+        $authorizerName = null,
+        $selectedServicePointId = null
     ) {
         $this->setDeliveryOption($deliveryOption);
 
@@ -174,7 +174,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setDeliveryOption(string $deliveryOption)
+    public function setDeliveryOption($deliveryOption)
     {
         $this->DeliveryOption = new DeliveryOption($deliveryOption);
         return $this;
@@ -197,7 +197,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setLocation(string $location)
+    public function setLocation($location)
     {
         $this->Location = new Location($location);
         return $this;
@@ -220,7 +220,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setInstructions(string $instructions)
+    public function setInstructions($instructions)
     {
         $this->Instructions = new Instructions($instructions);
         return $this;
@@ -266,7 +266,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setLWNTypeCode(string $lwnTypeCode)
+    public function setLWNTypeCode($lwnTypeCode)
     {
         $this->LWNTypeCode = new LWNTypeCode($lwnTypeCode);
         return $this;
@@ -289,7 +289,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setNeighbourName(string $neighbourName)
+    public function setNeighbourName($neighbourName)
     {
         $this->NeighbourName = new NeighbourName($neighbourName);
         return $this;
@@ -312,7 +312,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setNeighbourHouseNumber(string $neighbourHouseNumber)
+    public function setNeighbourHouseNumber($neighbourHouseNumber)
     {
         $this->NeighbourHouseNumber = new NeighbourHouseNumber($neighbourHouseNumber);
         return $this;
@@ -335,7 +335,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setAuthorizerName(string $name)
+    public function setAuthorizerName($name)
     {
         $this->AuthorizerName = new AuthorizerName($name);
         return $this;
@@ -358,7 +358,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setSelectedServicePointId(string $selectedServicePointId)
+    public function setSelectedServicePointId($selectedServicePointId)
     {
         $this->SelectedServicePointID = new SelectedServicePointId($selectedServicePointId);
         return $this;
@@ -381,7 +381,7 @@ class OnDemandDeliveryOptions
      *
      * @return self
      */
-    public function setRequestedDeliveryDate(string $requestedDeliveryDate)
+    public function setRequestedDeliveryDate($requestedDeliveryDate)
     {
         $this->RequestedDeliveryDate = new RequestedDeliveryDate($requestedDeliveryDate);
         return $this;

@@ -92,7 +92,7 @@ class Address
      * @param string $postalCode  The postal code
      * @param string $countryCode The country code
      */
-    public function __construct(string $city, string $postalCode, string $countryCode)
+    public function __construct($city, $postalCode, $countryCode)
     {
         $this->setCity($city)
             ->setPostalCode($postalCode)
@@ -116,7 +116,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines(string $streetLines)
+    public function setStreetLines($streetLines)
     {
         $this->StreetLines = new StreetLines($streetLines);
         return $this;
@@ -139,7 +139,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines2(string $streetLines2)
+    public function setStreetLines2($streetLines2)
     {
         $this->StreetLines2 = new StreetLines($streetLines2);
         return $this;
@@ -162,7 +162,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines3(string $streetLines3)
+    public function setStreetLines3($streetLines3)
     {
         $this->StreetLines3 = new StreetLines($streetLines3);
         return $this;
@@ -185,7 +185,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetName(string $streetName)
+    public function setStreetName($streetName)
     {
         $this->StreetName = new StreetLines($streetName);
         return $this;
@@ -208,7 +208,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetNumber(string $streetNumber)
+    public function setStreetNumber($streetNumber)
     {
         $this->StreetNumber = new StreetNumber($streetNumber);
         return $this;
@@ -231,7 +231,7 @@ class Address
      *
      * @return self
      */
-    public function setCity(string $city)
+    public function setCity($city)
     {
         $this->City = new City($city);
         return $this;
@@ -254,7 +254,7 @@ class Address
      *
      * @return self
      */
-    public function setStateOrProvinceCode(string $stateOrProvinceCode)
+    public function setStateOrProvinceCode($stateOrProvinceCode)
     {
         $this->StateOrProvinceCode = new StateOrProvinceCode($stateOrProvinceCode);
         return $this;
@@ -277,7 +277,7 @@ class Address
      *
      * @return self
      */
-    public function setPostalCode(string $postalCode)
+    public function setPostalCode($postalCode)
     {
         $this->PostalCode = new PostalCode($postalCode);
         return $this;
@@ -300,7 +300,7 @@ class Address
      *
      * @return self
      */
-    public function setCountryCode(string $countryCode)
+    public function setCountryCode($countryCode)
     {
         $this->CountryCode = new CountryCode($countryCode);
         return $this;

@@ -43,7 +43,7 @@ class Dimensions
      * @param float $width  The width of the package
      * @param float $height The height of the package
      */
-    public function __construct(float $length, float $width, float $height)
+    public function __construct($length, $width, $height)
     {
         $this->setLength($length)
             ->setWidth($width)
@@ -67,7 +67,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setLength(float $length)
+    public function setLength($length)
     {
         $this->Length = new Dimension($length);
         return $this;
@@ -90,7 +90,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setWidth(float $width)
+    public function setWidth($width)
     {
         $this->Width = new Dimension($width);
         return $this;
@@ -113,7 +113,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setHeight(float $height)
+    public function setHeight($height)
     {
         $this->Height = new Dimension($height);
         return $this;

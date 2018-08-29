@@ -72,19 +72,19 @@ class Shipper implements ShipperInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array $streetLines
+     * @param array  $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
      */
     public function __construct(
-        string $countryCode,
-        string $postalCode,
-        string $city,
+        $countryCode,
+        $postalCode,
+        $city,
         array $streetLines,
-        string $name,
-        string $company,
-        string $phone
+        $name,
+        $company,
+        $phone
     ) {
         $this->countryCode = $countryCode;
         $this->postalCode = $postalCode;

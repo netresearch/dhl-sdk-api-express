@@ -56,21 +56,21 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @throws \Dhl\Express\Exception\SoapException
      */
     public function collectRates(
-        bool $isUnscheduledPickup,
-        string $accountNumber,
-        string $sCountryCode,
-        string $sPostalCode,
-        string $sCity,
-        string $rCountryCode,
-        string $rPostalCode,
-        string $rCity,
+        $isUnscheduledPickup,
+        $accountNumber,
+        $sCountryCode,
+        $sPostalCode,
+        $sCity,
+        $rCountryCode,
+        $rPostalCode,
+        $rCity,
         array $rStreet,
-        string $termsOfTrade,
-        string $contentType,
-        int $readyAtTimestamp,
+        $termsOfTrade,
+        $contentType,
+        $readyAtTimestamp,
         array $packages,
-        float $insuranceValue,
-        string $insuranceCurrency
+        $insuranceValue,
+        $insuranceCurrency
     ) {
         self::markTestIncomplete(
             'This test should not really test the SOAP web service, instead it should test the mapping '

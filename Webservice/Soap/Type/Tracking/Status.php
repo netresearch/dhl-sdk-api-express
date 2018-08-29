@@ -29,7 +29,7 @@ class Status
     /**
      * @param string $ActionStatus
      */
-    public function __construct(string $ActionStatus)
+    public function __construct($ActionStatus)
     {
         $this->ActionStatus = $ActionStatus;
     }
@@ -44,9 +44,10 @@ class Status
 
     /**
      * @param string $ActionStatus
+     *
      * @return self
      */
-    public function setActionStatus(string $ActionStatus)
+    public function setActionStatus($ActionStatus)
     {
         $this->ActionStatus = $ActionStatus;
 

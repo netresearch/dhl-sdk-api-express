@@ -60,17 +60,17 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param string $consigneeName
      * @param string $destinationDescription
      * @param string $shipmentDate
-     * @param float $weight
-     * @param string|null $estimatedDeliveryDate
+     * @param float  $weight
+     * @param string $estimatedDeliveryDate
      */
     public function __construct(
-        string $shipperName,
-        string $originDescription,
-        string $consigneeName,
-        string $destinationDescription,
-        string $shipmentDate,
-        float $weight,
-        string $estimatedDeliveryDate = null
+        $shipperName,
+        $originDescription,
+        $consigneeName,
+        $destinationDescription,
+        $shipmentDate,
+        $weight,
+        $estimatedDeliveryDate = null
     ) {
         $this->shipperName = $shipperName;
         $this->originDescription = $originDescription;

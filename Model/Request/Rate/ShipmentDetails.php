@@ -109,12 +109,12 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param bool   $nextBusinessDayIndicator
      */
     public function __construct(
-        bool $unscheduledPickup,
-        string $termsOfTrade,
-        string $contentType,
-        int $readyAtTimestamp,
-        bool $requestValueAddedServices,
-        bool $nextBusinessDayIndicator
+        $unscheduledPickup,
+        $termsOfTrade,
+        $contentType,
+        $readyAtTimestamp,
+        $requestValueAddedServices,
+        $nextBusinessDayIndicator
     ) {
         $this->unscheduledPickup         = $unscheduledPickup;
         $this->termsOfTrade              = $termsOfTrade;

@@ -89,7 +89,7 @@ class RequestedPackages
      * @param string     $customerReferences The customer references
      * @param int        $number             The package number
      */
-    public function __construct(float $weight, Dimensions $dimensions, string $customerReferences, int $number)
+    public function __construct($weight, Dimensions $dimensions, $customerReferences, $number)
     {
         $this->setWeight($weight)
             ->setDimensions($dimensions)
@@ -114,7 +114,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setInsuredValue(float $insuredValue)
+    public function setInsuredValue($insuredValue)
     {
         $this->InsuredValue = new Money($insuredValue);
         return $this;
@@ -137,7 +137,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setWeight(float $weight)
+    public function setWeight($weight)
     {
         $this->Weight = new Weight($weight);
         return $this;
@@ -160,7 +160,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setPieceIdentificationNumber(string $pieceIdentificationNumber)
+    public function setPieceIdentificationNumber($pieceIdentificationNumber)
     {
         $this->PieceIdentificationNumber = new PieceIdentificationNumber($pieceIdentificationNumber);
         return $this;
@@ -207,7 +207,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setPackageContentDescription(string $packageContentDescription)
+    public function setPackageContentDescription($packageContentDescription)
     {
         $this->PackageContentDescription = new PackageContentDescription($packageContentDescription);
         return $this;
@@ -253,7 +253,7 @@ class RequestedPackages
      *
      * @return RequestedPackages
      */
-    public function setCustomerReferences(string $customerReferences)
+    public function setCustomerReferences($customerReferences)
     {
         $this->CustomerReferences = new CustomerReferences($customerReferences);
         return $this;

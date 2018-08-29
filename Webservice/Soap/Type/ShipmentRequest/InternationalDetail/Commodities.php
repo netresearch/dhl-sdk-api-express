@@ -78,7 +78,7 @@ class Commodities
      *
      * @param string $description The description
      */
-    public function __construct(string $description)
+    public function __construct($description)
     {
         $this->setDescription($description);
     }
@@ -100,7 +100,7 @@ class Commodities
      *
      * @return self
      */
-    public function setNumberOfPieces(int $numberOfPieces)
+    public function setNumberOfPieces($numberOfPieces)
     {
         $this->NumberOfPieces = new NumberOfPieces($numberOfPieces);
         return $this;
@@ -123,7 +123,7 @@ class Commodities
      *
      * @return self
      */
-    public function setDescription(string $description)
+    public function setDescription($description)
     {
         $this->Description = new Description($description);
         return $this;
@@ -146,7 +146,7 @@ class Commodities
      *
      * @return self
      */
-    public function setCountryOfManufacture(string $countryOfManufacture)
+    public function setCountryOfManufacture($countryOfManufacture)
     {
         $this->CountryOfManufacture = new CountryCode($countryOfManufacture);
         return $this;
@@ -169,7 +169,7 @@ class Commodities
      *
      * @return self
      */
-    public function setQuantity(int $quantity)
+    public function setQuantity($quantity)
     {
         $this->Quantity = new Quantity($quantity);
         return $this;
@@ -192,7 +192,7 @@ class Commodities
      *
      * @return self
      */
-    public function setUnitPrice(float $unitPrice)
+    public function setUnitPrice($unitPrice)
     {
         $this->UnitPrice = new UnitPrice($unitPrice);
         return $this;
@@ -215,7 +215,7 @@ class Commodities
      *
      * @return self
      */
-    public function setCustomsValue(float $customsValue)
+    public function setCustomsValue($customsValue)
     {
         $this->CustomsValue = new CustomsValue($customsValue);
         return $this;
@@ -238,7 +238,7 @@ class Commodities
      *
      * @return self
      */
-    public function setUSFillingTypeValue(string $usFillingTypeValue)
+    public function setUSFillingTypeValue($usFillingTypeValue)
     {
         $this->USFillingTypeValue = new USFillingTypeValue($usFillingTypeValue);
         return $this;

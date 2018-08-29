@@ -77,17 +77,17 @@ class ShipmentInfo
     protected $EstimatedDeliveryDate;
 
     /**
-     * @param OriginServiceArea $OriginServiceArea
+     * @param OriginServiceArea      $OriginServiceArea
      * @param DestinationServiceArea $DestinationServiceArea
-     * @param string $ShipperName
-     * @param string $ConsigneeName
-     * @param \DateTime $ShipmentDate
+     * @param string                 $ShipperName
+     * @param string                 $ConsigneeName
+     * @param \DateTime              $ShipmentDate
      */
     public function __construct(
         OriginServiceArea $OriginServiceArea,
         DestinationServiceArea $DestinationServiceArea,
-        string $ShipperName,
-        string $ConsigneeName,
+        $ShipperName,
+        $ConsigneeName,
         \DateTime $ShipmentDate
     ) {
         $this->OriginServiceArea = $OriginServiceArea;
@@ -145,9 +145,10 @@ class ShipmentInfo
 
     /**
      * @param string $ShipperName
+     *
      * @return self
      */
-    public function setShipperName(string $ShipperName)
+    public function setShipperName($ShipperName)
     {
         $this->ShipperName = $ShipperName;
 
@@ -231,7 +232,7 @@ class ShipmentInfo
      * @param string $Pieces
      * @return self
      */
-    public function setPieces(string $Pieces)
+    public function setPieces($Pieces)
     {
         $this->Pieces = $Pieces;
 
@@ -250,7 +251,7 @@ class ShipmentInfo
      * @param string $Weight
      * @return self
      */
-    public function setWeight(string $Weight)
+    public function setWeight($Weight)
     {
         $this->Weight = $Weight;
 

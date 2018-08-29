@@ -39,16 +39,17 @@ class ShipmentResponse implements ShipmentResponseInterface
 
     /**
      * ShipmentResponse constructor.
-     * @param string $labelData
+     *
+     * @param string   $labelData
      * @param string[] $trackingNumbers
-     * @param string $shipmentIdentificationNumber
-     * @param string $dispatchConfirmationNumber
+     * @param string   $shipmentIdentificationNumber
+     * @param string   $dispatchConfirmationNumber
      */
     public function __construct(
-        string $labelData,
+        $labelData,
         array $trackingNumbers,
-        string $shipmentIdentificationNumber,
-        string $dispatchConfirmationNumber
+        $shipmentIdentificationNumber,
+        $dispatchConfirmationNumber
     ) {
         $this->labelData = $labelData;
         $this->trackingNumbers = $trackingNumbers;

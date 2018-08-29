@@ -45,13 +45,12 @@ class Billing
     /**
      * Constructor.
      *
-     * @param string      $shipperAccountNumber The shipper account number
-     * @param string      $shippingPaymentType  The shipping payment type
-     * @param null|string $billingAccountNumber The billing account number (Required if payment type is R or T)
+     * @param string $shipperAccountNumber The shipper account number
+     * @param string $shippingPaymentType  The shipping payment type
+     * @param string $billingAccountNumber The billing account number (Required if payment type is R or T)
      *
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $shipperAccountNumber, string $shippingPaymentType, string $billingAccountNumber = null)
+    public function __construct($shipperAccountNumber, $shippingPaymentType, $billingAccountNumber = null)
     {
         $this->setShipperAccountNumber($shipperAccountNumber)
             ->setShippingPaymentType($shippingPaymentType);
@@ -86,7 +85,7 @@ class Billing
      *
      * @return self
      */
-    public function setShipperAccountNumber(string $shipperAccountNumber)
+    public function setShipperAccountNumber($shipperAccountNumber)
     {
         $this->ShipperAccountNumber = new Account($shipperAccountNumber);
         return $this;
@@ -109,7 +108,7 @@ class Billing
      *
      * @return self
      */
-    public function setShippingPaymentType(string $shippingPaymentType)
+    public function setShippingPaymentType($shippingPaymentType)
     {
         $this->ShippingPaymentType = new ShippingPaymentType($shippingPaymentType);
         return $this;
@@ -132,7 +131,7 @@ class Billing
      *
      * @return self
      */
-    public function setBillingAccountNumber(string $billingAccountNumber)
+    public function setBillingAccountNumber($billingAccountNumber)
     {
         $this->BillingAccountNumber = new Account($billingAccountNumber);
         return $this;

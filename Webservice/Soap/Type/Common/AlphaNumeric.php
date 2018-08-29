@@ -32,9 +32,8 @@ class AlphaNumeric implements ValueInterface
      *
      * @param string $value The value
      *
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         if (\strlen($value) < static::MIN_LENGTH) {
             throw new \InvalidArgumentException(

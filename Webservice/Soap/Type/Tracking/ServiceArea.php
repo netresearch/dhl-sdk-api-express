@@ -36,9 +36,10 @@ class ServiceArea
 
     /**
      * @param string $ServiceAreaCode
+     *
      * @return self
      */
-    public function setServiceAreaCode(string $ServiceAreaCode)
+    public function setServiceAreaCode($ServiceAreaCode)
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
 
@@ -57,7 +58,7 @@ class ServiceArea
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description)
+    public function setDescription($Description)
     {
         $this->Description = $Description;
 

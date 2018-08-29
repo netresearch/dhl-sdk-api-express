@@ -95,7 +95,7 @@ class PieceDetails
      * @param string $AWBNumber
      * @param string $LicensePlate
      */
-    public function __construct(string $AWBNumber, string $LicensePlate)
+    public function __construct($AWBNumber, $LicensePlate)
     {
         $this->AWBNumber = $AWBNumber;
         $this->LicensePlate = $LicensePlate;
@@ -111,9 +111,10 @@ class PieceDetails
 
     /**
      * @param string $AWBNumber
+     *
      * @return self
      */
-    public function setAWBNumber(string $AWBNumber)
+    public function setAWBNumber($AWBNumber)
     {
         $this->AWBNumber = $AWBNumber;
 
@@ -132,7 +133,7 @@ class PieceDetails
      * @param string $LicensePlate
      * @return self
      */
-    public function setLicensePlate(string $LicensePlate)
+    public function setLicensePlate($LicensePlate)
     {
         $this->LicensePlate = $LicensePlate;
 
@@ -151,7 +152,7 @@ class PieceDetails
      * @param string $PieceNumber
      * @return self
      */
-    public function setPieceNumber(string $PieceNumber)
+    public function setPieceNumber($PieceNumber)
     {
         $this->PieceNumber = $PieceNumber;
 
@@ -170,7 +171,7 @@ class PieceDetails
      * @param string $ActualDepth
      * @return self
      */
-    public function setActualDepth(string $ActualDepth)
+    public function setActualDepth($ActualDepth)
     {
         $this->ActualDepth = $ActualDepth;
 
@@ -189,7 +190,7 @@ class PieceDetails
      * @param string $ActualWidth
      * @return self
      */
-    public function setActualWidth(string $ActualWidth)
+    public function setActualWidth($ActualWidth)
     {
         $this->ActualWidth = $ActualWidth;
 
@@ -208,7 +209,7 @@ class PieceDetails
      * @param string $ActualHeight
      * @return self
      */
-    public function setActualHeight(string $ActualHeight)
+    public function setActualHeight($ActualHeight)
     {
         $this->ActualHeight = $ActualHeight;
 
@@ -227,7 +228,7 @@ class PieceDetails
      * @param string $ActualWeight
      * @return self
      */
-    public function setActualWeight(string $ActualWeight)
+    public function setActualWeight($ActualWeight)
     {
         $this->ActualWeight = $ActualWeight;
 
@@ -246,7 +247,7 @@ class PieceDetails
      * @param string $Depth
      * @return self
      */
-    public function setDepth(string $Depth)
+    public function setDepth($Depth)
     {
         $this->Depth = $Depth;
 
@@ -265,7 +266,7 @@ class PieceDetails
      * @param string $Width
      * @return self
      */
-    public function setWidth(string $Width)
+    public function setWidth($Width)
     {
         $this->Width = $Width;
 
@@ -284,7 +285,7 @@ class PieceDetails
      * @param string $Height
      * @return self
      */
-    public function setHeight(string $Height)
+    public function setHeight($Height)
     {
         $this->Height = $Height;
 
@@ -303,7 +304,7 @@ class PieceDetails
      * @param string $Weight
      * @return self
      */
-    public function setWeight(string $Weight)
+    public function setWeight($Weight)
     {
         $this->Weight = $Weight;
 
@@ -322,7 +323,7 @@ class PieceDetails
      * @param string $PackageType
      * @return self
      */
-    public function setPackageType(string $PackageType)
+    public function setPackageType($PackageType)
     {
         $this->PackageType = $PackageType;
 
@@ -341,7 +342,7 @@ class PieceDetails
      * @param string $DimWeight
      * @return self
      */
-    public function setDimWeight(string $DimWeight)
+    public function setDimWeight($DimWeight)
     {
         $this->DimWeight = $DimWeight;
 
@@ -360,7 +361,7 @@ class PieceDetails
      * @param string $WeightUnit
      * @return self
      */
-    public function setWeightUnit(string $WeightUnit)
+    public function setWeightUnit($WeightUnit)
     {
         $this->WeightUnit = $WeightUnit;
 
@@ -379,7 +380,7 @@ class PieceDetails
      * @param string $PieceContents
      * @return self
      */
-    public function setPieceContents(string $PieceContents)
+    public function setPieceContents($PieceContents)
     {
         $this->PieceContents = $PieceContents;
 

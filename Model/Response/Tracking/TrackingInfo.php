@@ -46,15 +46,16 @@ class TrackingInfo implements TrackingInfoInterface
 
     /**
      * TrackingInfo constructor.
-     * @param int $awbNumber
-     * @param string $awbStatus
+     *
+     * @param int                      $awbNumber
+     * @param string                   $awbStatus
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param ShipmentEventInterface[] $shipmentEvents
-     * @param PieceInterface[] $pieces
+     * @param PieceInterface[]         $pieces
      */
     public function __construct(
-        int $awbNumber,
-        string $awbStatus,
+        $awbNumber,
+        $awbStatus,
         ShipmentDetailsInterface $shipmentDetails,
         array $shipmentEvents,
         array $pieces

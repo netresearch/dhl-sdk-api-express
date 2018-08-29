@@ -170,7 +170,7 @@ class ShipmentInfo
      * @param string $currencyCode      The currency code
      * @param string $unitOfMeasurement The unit of measurement
      */
-    public function __construct(string $dropOffType, string $serviceType, string $currencyCode, string $unitOfMeasurement)
+    public function __construct($dropOffType, $serviceType, $currencyCode, $unitOfMeasurement)
     {
         $this->setDropOffType($dropOffType)
           ->setServiceType($serviceType)
@@ -195,7 +195,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setDropOffType(string $dropOffType)
+    public function setDropOffType($dropOffType)
     {
         $this->DropOffType = new DropOffType($dropOffType);
         return $this;
@@ -218,7 +218,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setServiceType(string $serviceType)
+    public function setServiceType($serviceType)
     {
         $this->ServiceType = new ServiceType($serviceType);
         return $this;
@@ -241,7 +241,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setAccount(string $account)
+    public function setAccount($account)
     {
         $this->Account = new Account($account);
         return $this;
@@ -310,7 +310,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setCurrency(string $currencyCode)
+    public function setCurrency($currencyCode)
     {
         $this->Currency = new CurrencyCode($currencyCode);
         return $this;
@@ -333,7 +333,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setUnitOfMeasurement(string $unitOfMeasurement)
+    public function setUnitOfMeasurement($unitOfMeasurement)
     {
         $this->UnitOfMeasurement = new UnitOfMeasurement($unitOfMeasurement);
         return $this;
@@ -356,7 +356,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setShipmentIdentificationNumber(string $shipmentIdentificationNumber)
+    public function setShipmentIdentificationNumber($shipmentIdentificationNumber)
     {
         $this->ShipmentIdentificationNumber = new ShipmentIdentificationNumber($shipmentIdentificationNumber);
         return $this;
@@ -403,7 +403,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPackagesCount(int $packagesCount)
+    public function setPackagesCount($packagesCount)
     {
         $this->PackagesCount = new PackagesCount($packagesCount);
         return $this;
@@ -426,7 +426,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setSendPackage(string $sendPackage)
+    public function setSendPackage($sendPackage)
     {
         $this->SendPackage = $sendPackage;
         return $this;
@@ -449,7 +449,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setLabelType(string $labelType)
+    public function setLabelType($labelType)
     {
         $this->LabelType = new LabelType($labelType);
         return $this;
@@ -472,7 +472,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setLabelTemplate(string $labelTemplate)
+    public function setLabelTemplate($labelTemplate)
     {
         $this->LabelTemplate = new LabelTemplate($labelTemplate);
         return $this;
@@ -495,7 +495,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setArchiveLabelTemplate(string $labelTemplate)
+    public function setArchiveLabelTemplate($labelTemplate)
     {
         $this->ArchiveLabelTemplate = new LabelTemplate($labelTemplate);
         return $this;
@@ -518,7 +518,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPaperlessTradeEnabled(bool $paperlessTradeEnabled)
+    public function setPaperlessTradeEnabled($paperlessTradeEnabled)
     {
         $this->PaperlessTradeEnabled = $paperlessTradeEnabled;
         return $this;
@@ -541,7 +541,7 @@ class ShipmentInfo
      *
      * @return self
      */
-    public function setPaperlessTradeImage(string $paperlessTradeImage)
+    public function setPaperlessTradeImage($paperlessTradeImage)
     {
         $this->PaperlessTradeImage = $paperlessTradeImage;
         return $this;

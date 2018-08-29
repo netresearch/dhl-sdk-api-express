@@ -45,9 +45,8 @@ class DropOffType implements ValueInterface
      *
      * @param string $value The value
      *
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $value = self::REGULAR_PICKUP)
+    public function __construct($value = self::REGULAR_PICKUP)
     {
         if (!\in_array($value, [self::REGULAR_PICKUP, self::REQUEST_COURIER], true)) {
             throw new \InvalidArgumentException('Argument must be either "REGULAR_PICKUP" or "REQUEST_COURIER"');

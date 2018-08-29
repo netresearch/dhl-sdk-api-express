@@ -25,7 +25,7 @@ class Address extends CommonAddress
      * @param string $postalCode  The postal code
      * @param string $countryCode The country code
      */
-    public function __construct(string $streetLines, string $city, string $postalCode, string $countryCode)
+    public function __construct($streetLines, $city, $postalCode, $countryCode)
     {
         parent::__construct($city, $postalCode, $countryCode);
 

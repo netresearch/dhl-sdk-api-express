@@ -75,7 +75,7 @@ class Service
      *
      * @param string $serviceType The service type
      */
-    public function __construct(string $serviceType)
+    public function __construct($serviceType)
     {
         $this->setServiceType($serviceType);
     }
@@ -97,7 +97,7 @@ class Service
      *
      * @return self
      */
-    public function setServiceType(string $serviceType)
+    public function setServiceType($serviceType)
     {
         $this->ServiceType = new ServiceType($serviceType);
         return $this;
@@ -120,7 +120,7 @@ class Service
      *
      * @return self
      */
-    public function setServiceValue(float $serviceValue)
+    public function setServiceValue($serviceValue)
     {
         $this->ServiceValue = new Money($serviceValue);
         return $this;
@@ -143,7 +143,7 @@ class Service
      *
      * @return self
      */
-    public function setCurrencyCode(string $currencyCode)
+    public function setCurrencyCode($currencyCode)
     {
         $this->CurrencyCode = new CurrencyCode($currencyCode);
         return $this;
@@ -166,7 +166,7 @@ class Service
      *
      * @return self
      */
-    public function setPaymentCode(string $paymentCode)
+    public function setPaymentCode($paymentCode)
     {
         $this->PaymentCode = new PaymentCode($paymentCode);
         return $this;
@@ -235,7 +235,7 @@ class Service
      *
      * @return self
      */
-    public function setTextInstruction(string $textInstruction)
+    public function setTextInstruction($textInstruction)
     {
         $this->TextInstruction = new TextInstruction($textInstruction);
         return $this;

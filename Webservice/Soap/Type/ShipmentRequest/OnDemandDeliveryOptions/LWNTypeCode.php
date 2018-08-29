@@ -43,9 +43,8 @@ class LWNTypeCode implements ValueInterface
      *
      * @param string $value The value
      *
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $value = self::N)
+    public function __construct($value = self::N)
     {
         if (!\in_array($value, [self::N, self::C], true)) {
             throw new \InvalidArgumentException('Argument must be either "N" or "C"');

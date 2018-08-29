@@ -29,7 +29,7 @@ class ServiceEvent
     /**
      * @param string $EventCode
      */
-    public function __construct(string $EventCode)
+    public function __construct($EventCode)
     {
         $this->EventCode = $EventCode;
     }
@@ -44,9 +44,10 @@ class ServiceEvent
 
     /**
      * @param string $EventCode
+     *
      * @return self
      */
-    public function setEventCode(string $EventCode)
+    public function setEventCode($EventCode)
     {
         $this->EventCode = $EventCode;
 
@@ -65,7 +66,7 @@ class ServiceEvent
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description)
+    public function setDescription($Description)
     {
         $this->Description = $Description;
 
