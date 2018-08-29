@@ -133,7 +133,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
-    public function key(): ?string
+    public function key()
     {
         return key($this->ArrayOfShipmentEventItem);
     }

@@ -102,7 +102,7 @@ class RequestedPackages
      *
      * @return null|Money
      */
-    public function getInsuredValue(): ?Money
+    public function getInsuredValue()
     {
         return $this->InsuredValue;
     }
@@ -148,7 +148,7 @@ class RequestedPackages
      *
      * @return null|PieceIdentificationNumber
      */
-    public function getPieceIdentificationNumber(): ?PieceIdentificationNumber
+    public function getPieceIdentificationNumber()
     {
         return $this->PieceIdentificationNumber;
     }
@@ -171,7 +171,7 @@ class RequestedPackages
      *
      * @return null|UseOwnPieceIdentificationNumber
      */
-    public function getUseOwnPieceIdentificationNumber(): ?UseOwnPieceIdentificationNumber
+    public function getUseOwnPieceIdentificationNumber()
     {
         return $this->UseOwnPieceIdentificationNumber;
     }
@@ -195,7 +195,7 @@ class RequestedPackages
      *
      * @return null|PackageContentDescription
      */
-    public function getPackageContentDescription(): ?PackageContentDescription
+    public function getPackageContentDescription()
     {
         return $this->PackageContentDescription;
     }

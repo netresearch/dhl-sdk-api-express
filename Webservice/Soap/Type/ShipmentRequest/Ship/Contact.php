@@ -134,7 +134,7 @@ class Contact
      *
      * @return null|EmailAddress
      */
-    public function getEmailAddress(): ?EmailAddress
+    public function getEmailAddress()
     {
         return $this->EmailAddress;
     }
@@ -157,7 +157,7 @@ class Contact
      *
      * @return null|MobilePhoneNumber
      */
-    public function getMobilePhoneNumber(): ?MobilePhoneNumber
+    public function getMobilePhoneNumber()
     {
         return $this->MobilePhoneNumber;
     }

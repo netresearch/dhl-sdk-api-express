@@ -109,12 +109,12 @@ class OnDemandDeliveryOptions
      */
     public function __construct(
         string $deliveryOption,
-        ?string $location = null,
-        ?string $lwnTypeCode = null,
-        ?string $neighbourName = null,
-        ?string $neighbourHouseNumber = null,
-        ?string $authorizerName = null,
-        ?string $selectedServicePointId = null
+        string $location = null,
+        string $lwnTypeCode = null,
+        string $neighbourName = null,
+        string $neighbourHouseNumber = null,
+        string $authorizerName = null,
+        string $selectedServicePointId = null
     ) {
         $this->setDeliveryOption($deliveryOption);
 
@@ -185,7 +185,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|Location
      */
-    public function getLocation(): ?Location
+    public function getLocation()
     {
         return $this->Location;
     }
@@ -208,7 +208,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|Instructions
      */
-    public function getInstructions(): ?Instructions
+    public function getInstructions()
     {
         return $this->Instructions;
     }
@@ -231,7 +231,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|GateCode
      */
-    public function getGateCode(): ?GateCode
+    public function getGateCode()
     {
         return $this->GateCode;
     }
@@ -254,7 +254,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|LWNTypeCode
      */
-    public function getLWNTypeCode(): ?LWNTypeCode
+    public function getLWNTypeCode()
     {
         return $this->LWNTypeCode;
     }
@@ -277,7 +277,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|NeighbourName
      */
-    public function getNeighbourName(): ?NeighbourName
+    public function getNeighbourName()
     {
         return $this->NeighbourName;
     }
@@ -300,7 +300,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|NeighbourHouseNumber
      */
-    public function getNeighbourHouseNumber(): ?NeighbourHouseNumber
+    public function getNeighbourHouseNumber()
     {
         return $this->NeighbourHouseNumber;
     }
@@ -323,7 +323,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|AuthorizerName
      */
-    public function getAuthorizerName(): ?AuthorizerName
+    public function getAuthorizerName()
     {
         return $this->AuthorizerName;
     }
@@ -346,7 +346,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|SelectedServicePointId
      */
-    public function getSelectedServicePointId(): ?SelectedServicePointId
+    public function getSelectedServicePointId()
     {
         return $this->SelectedServicePointID;
     }
@@ -369,7 +369,7 @@ class OnDemandDeliveryOptions
      *
      * @return null|RequestedDeliveryDate
      */
-    public function getRequestedDeliveryDate(): ?RequestedDeliveryDate
+    public function getRequestedDeliveryDate()
     {
         return $this->RequestedDeliveryDate;
     }

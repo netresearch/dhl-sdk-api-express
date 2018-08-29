@@ -48,7 +48,7 @@ class SoapRateRequest
      *
      * @return null|ClientDetail
      */
-    public function getClientDetail(): ?ClientDetail
+    public function getClientDetail()
     {
         return $this->ClientDetail;
     }

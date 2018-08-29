@@ -64,7 +64,7 @@ class Provider
      *
      * @return null|array|Service[]
      */
-    public function getService(): ?array
+    public function getService()
     {
         return $this->Service;
     }

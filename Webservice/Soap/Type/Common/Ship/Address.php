@@ -104,7 +104,7 @@ class Address
      *
      * @return null|StreetLines
      */
-    public function getStreetLines(): ?StreetLines
+    public function getStreetLines()
     {
         return $this->StreetLines;
     }
@@ -127,7 +127,7 @@ class Address
      *
      * @return null|StreetLines
      */
-    public function getStreetLines2(): ?StreetLines
+    public function getStreetLines2()
     {
         return $this->StreetLines2;
     }
@@ -150,7 +150,7 @@ class Address
      *
      * @return null|StreetLines
      */
-    public function getStreetLines3(): ?StreetLines
+    public function getStreetLines3()
     {
         return $this->StreetLines3;
     }
@@ -173,7 +173,7 @@ class Address
      *
      * @return null|StreetLines
      */
-    public function getStreetName(): ?StreetLines
+    public function getStreetName()
     {
         return $this->StreetName;
     }
@@ -196,7 +196,7 @@ class Address
      *
      * @return null|StreetNumber
      */
-    public function getStreetNumber(): ?StreetNumber
+    public function getStreetNumber()
     {
         return $this->StreetNumber;
     }
@@ -242,7 +242,7 @@ class Address
      *
      * @return null|StateOrProvinceCode
      */
-    public function getStateOrProvinceCode(): ?StateOrProvinceCode
+    public function getStateOrProvinceCode()
     {
         return $this->StateOrProvinceCode;
     }

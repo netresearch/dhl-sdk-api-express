@@ -96,7 +96,7 @@ class Service
      *
      * @return null|Charges
      */
-    public function getCharges(): ?Charges
+    public function getCharges()
     {
         return $this->Charges;
     }
@@ -106,7 +106,7 @@ class Service
      *
      * @return null|false|\DateTime
      */
-    public function getDeliveryTime(): ?\DateTime
+    public function getDeliveryTime()
     {
         if ($this->DeliveryTime === null) {
             return null;
@@ -122,9 +122,9 @@ class Service
     /**
      * Returns the cutoff time.
      *
-     * @return null|false|\DateTime
+     * @return null|false|\DateTime 
      */
-    public function getCutoffTime(): ?\DateTime
+    public function getCutoffTime()
     {
         if ($this->CutoffTime === null) {
             return null;
@@ -142,7 +142,7 @@ class Service
      *
      * @return null|string
      */
-    public function getNextBusinessDayInd(): ?string
+    public function getNextBusinessDayInd()
     {
         return $this->NextBusinessDayInd;
     }
@@ -162,7 +162,7 @@ class Service
      *
      * @return null|string
      */
-    public function getAccount(): ?string
+    public function getAccount()
     {
         return $this->account;
     }

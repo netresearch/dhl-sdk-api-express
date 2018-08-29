@@ -107,7 +107,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @inheritdoc
      */
-    public function getBillingAccountNumber(): ?string
+    public function getBillingAccountNumber()
     {
         return $this->billingAccountNumber;
     }
@@ -129,7 +129,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return null|InsuranceInterface
      */
-    public function getInsurance(): ?InsuranceInterface
+    public function getInsurance()
     {
         return $this->insurance;
     }
@@ -175,7 +175,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return null|DryIceInterface
      */
-    public function getDryIce(): ?DryIceInterface
+    public function getDryIce()
     {
         return $this->dryIce;
     }

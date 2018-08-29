@@ -82,7 +82,7 @@ class TrackingResponse
     /**
      * @return Fault|null
      */
-    public function getFault(): ?Fault
+    public function getFault()
     {
         return $this->Fault;
     }

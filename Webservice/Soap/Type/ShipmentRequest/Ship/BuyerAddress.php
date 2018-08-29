@@ -46,7 +46,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return null|BuildingName
      */
-    public function getBuildingName(): ?BuildingName
+    public function getBuildingName()
     {
         return $this->BuildingName;
     }
@@ -69,7 +69,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return null|CityDistrict
      */
-    public function getCityDistrict(): ?CityDistrict
+    public function getCityDistrict()
     {
         return $this->CityDistrict;
     }
@@ -92,7 +92,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return null|CountryName
      */
-    public function getCountryName(): ?CountryName
+    public function getCountryName()
     {
         return $this->CountryName;
     }

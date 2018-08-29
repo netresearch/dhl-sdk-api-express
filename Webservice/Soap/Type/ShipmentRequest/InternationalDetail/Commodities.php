@@ -88,7 +88,7 @@ class Commodities
      *
      * @return null|NumberOfPieces
      */
-    public function getNumberOfPieces(): ?NumberOfPieces
+    public function getNumberOfPieces()
     {
         return $this->NumberOfPieces;
     }
@@ -134,7 +134,7 @@ class Commodities
      *
      * @return null|CountryCode
      */
-    public function getCountryOfManufacture(): ?CountryCode
+    public function getCountryOfManufacture()
     {
         return $this->CountryOfManufacture;
     }
@@ -157,7 +157,7 @@ class Commodities
      *
      * @return null|Quantity
      */
-    public function getQuantity(): ?Quantity
+    public function getQuantity()
     {
         return $this->Quantity;
     }
@@ -180,7 +180,7 @@ class Commodities
      *
      * @return null|UnitPrice
      */
-    public function getUnitPrice(): ?UnitPrice
+    public function getUnitPrice()
     {
         return $this->UnitPrice;
     }
@@ -203,7 +203,7 @@ class Commodities
      *
      * @return null|CustomsValue
      */
-    public function getCustomsValue(): ?CustomsValue
+    public function getCustomsValue()
     {
         return $this->CustomsValue;
     }
@@ -226,7 +226,7 @@ class Commodities
      *
      * @return null|USFillingTypeValue
      */
-    public function getUSFillingTypeValue(): ?USFillingTypeValue
+    public function getUSFillingTypeValue()
     {
         return $this->USFillingTypeValue;
     }

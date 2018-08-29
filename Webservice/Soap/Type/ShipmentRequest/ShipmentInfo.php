@@ -229,7 +229,7 @@ class ShipmentInfo
      *
      * @return null|Account
      */
-    public function getAccount(): ?Account
+    public function getAccount()
     {
         return $this->Account;
     }
@@ -252,7 +252,7 @@ class ShipmentInfo
      *
      * @return null|Billing
      */
-    public function getBilling(): ?Billing
+    public function getBilling()
     {
         return $this->Billing;
     }
@@ -275,7 +275,7 @@ class ShipmentInfo
      *
      * @return null|SpecialServices
      */
-    public function getSpecialServices(): ?SpecialServices
+    public function getSpecialServices()
     {
         return $this->SpecialServices;
     }
@@ -344,7 +344,7 @@ class ShipmentInfo
      *
      * @return null|ShipmentIdentificationNumber
      */
-    public function getShipmentIdentificationNumber(): ?ShipmentIdentificationNumber
+    public function getShipmentIdentificationNumber()
     {
         return $this->ShipmentIdentificationNumber;
     }
@@ -367,7 +367,7 @@ class ShipmentInfo
      *
      * @return null|UseOwnShipmentIdentificationNumber
      */
-    public function getUseOwnShipmentIdentificationNumber(): ?UseOwnShipmentIdentificationNumber
+    public function getUseOwnShipmentIdentificationNumber()
     {
         return $this->UseOwnShipmentIdentificationNumber;
     }
@@ -391,7 +391,7 @@ class ShipmentInfo
      *
      * @return null|PackagesCount
      */
-    public function getPackagesCount(): ?PackagesCount
+    public function getPackagesCount()
     {
         return $this->PackagesCount;
     }
@@ -414,7 +414,7 @@ class ShipmentInfo
      *
      * @return null|string
      */
-    public function getSendPackage(): ?string
+    public function getSendPackage()
     {
         return $this->SendPackage;
     }
@@ -437,7 +437,7 @@ class ShipmentInfo
      *
      * @return null|LabelType
      */
-    public function getLabelType(): ?LabelType
+    public function getLabelType()
     {
         return $this->LabelType;
     }
@@ -460,7 +460,7 @@ class ShipmentInfo
      *
      * @return null|LabelTemplate
      */
-    public function getLabelTemplate(): ?LabelTemplate
+    public function getLabelTemplate()
     {
         return $this->LabelTemplate;
     }
@@ -483,7 +483,7 @@ class ShipmentInfo
      *
      * @return null|LabelTemplate
      */
-    public function getArchiveLabelTemplate(): ?LabelTemplate
+    public function getArchiveLabelTemplate()
     {
         return $this->ArchiveLabelTemplate;
     }
@@ -506,7 +506,7 @@ class ShipmentInfo
      *
      * @return null|bool
      */
-    public function getPaperlessTradeEnabled(): ?bool
+    public function getPaperlessTradeEnabled()
     {
         return $this->PaperlessTradeEnabled;
     }
@@ -529,7 +529,7 @@ class ShipmentInfo
      *
      * @return null|string
      */
-    public function getPaperlessTradeImage(): ?string
+    public function getPaperlessTradeImage()
     {
         return $this->PaperlessTradeImage;
     }
