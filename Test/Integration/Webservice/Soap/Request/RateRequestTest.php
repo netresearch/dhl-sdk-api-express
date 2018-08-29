@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Billing\ShippingPaymentType;
 use Dhl\Express\Webservice\Soap\Type\Common\ClientDetail;
 use Dhl\Express\Webservice\Soap\Type\Common\Content;
 use Dhl\Express\Webservice\Soap\Type\Common\DropOffType;
-use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
@@ -20,11 +19,12 @@ use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
-use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
-use Dhl\Express\Webservice\Soap\Type\RateRequest\NextBusinessDay;
+use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;
+use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests RateRequest
@@ -114,7 +114,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
                 ]
             );
         } catch (\Exception $exception) {
-            self::fail($exception->getMessage(), $exception->getCode(), $exception);
+            self::fail($exception->getMessage());
         }
 
         $this->addToAssertionCount(1);

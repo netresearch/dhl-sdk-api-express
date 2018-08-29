@@ -21,6 +21,7 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests SoapShipmentRequest
@@ -114,7 +115,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
                 ]
             );
         } catch (\Exception $exception) {
-            self::fail($exception->getMessage(), $exception->getCode(), $exception);
+            self::fail($exception->getMessage());
         }
 
         $this->addToAssertionCount(1);
