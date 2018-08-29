@@ -49,7 +49,7 @@ class AWBInfo
     /**
      * @return string
      */
-    public function getAWBNumber(): string
+    public function getAWBNumber()
     {
         return $this->AWBNumber;
     }
@@ -58,7 +58,7 @@ class AWBInfo
      * @param string $AWBNumber
      * @return self
      */
-    public function setAWBNumber(string $AWBNumber): self
+    public function setAWBNumber(string $AWBNumber)
     {
         $this->AWBNumber = $AWBNumber;
 
@@ -68,7 +68,7 @@ class AWBInfo
     /**
      * @return Status
      */
-    public function getStatus(): Status
+    public function getStatus()
     {
         return $this->Status;
     }
@@ -77,7 +77,7 @@ class AWBInfo
      * @param Status $Status
      * @return self
      */
-    public function setStatus(Status $Status): self
+    public function setStatus(Status $Status)
     {
         $this->Status = $Status;
 
@@ -96,7 +96,7 @@ class AWBInfo
      * @param ShipmentInfo|null $ShipmentInfo
      * @return self
      */
-    public function setShipmentInfo(ShipmentInfo $ShipmentInfo): self
+    public function setShipmentInfo(ShipmentInfo $ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
 
@@ -115,7 +115,7 @@ class AWBInfo
      * @param TrackingPieces|null $Pieces
      * @return self
      */
-    public function setPieces(TrackingPieces $Pieces): self
+    public function setPieces(TrackingPieces $Pieces)
     {
         $this->Pieces = $Pieces;
 

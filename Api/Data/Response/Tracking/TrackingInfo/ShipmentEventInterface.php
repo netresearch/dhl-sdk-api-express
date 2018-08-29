@@ -22,26 +22,26 @@ interface ShipmentEventInterface
      *
      * @return string
      */
-    public function getDate(): string;
+    public function getDate();
 
     /**
      * Returns the event's time
      *
      * @return string
      */
-    public function getTime(): string;
+    public function getTime();
 
     /**
      * Returns the event's location description
      *
      * @return string
      */
-    public function getLocationDescription(): string;
+    public function getLocationDescription();
 
     /**
      * Returns the event's description
      *
      * @return string
      */
-    public function getDescription(): string;
+    public function getDescription();
 }

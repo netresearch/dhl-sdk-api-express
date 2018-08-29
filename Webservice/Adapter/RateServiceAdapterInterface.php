@@ -29,5 +29,5 @@ interface RateServiceAdapterInterface
      * @throws SoapException
      * @throws \Dhl\Express\Exception\RateRequestException
      */
-    public function collectRates(RateRequestInterface $request): RateResponseInterface;
+    public function collectRates(RateRequestInterface $request);
 }

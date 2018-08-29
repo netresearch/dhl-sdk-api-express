@@ -59,7 +59,7 @@ class TrackingRequest
     /**
      * @return Request
      */
-    public function getRequest(): Request
+    public function getRequest()
     {
         return $this->Request;
     }
@@ -68,7 +68,7 @@ class TrackingRequest
      * @param Request $Request
      * @return self
      */
-    public function setRequest(Request $Request): self
+    public function setRequest(Request $Request)
     {
         $this->Request = $Request;
 
@@ -78,7 +78,7 @@ class TrackingRequest
     /**
      * @return AWBNumberCollection
      */
-    public function getAWBNumber(): AWBNumberCollection
+    public function getAWBNumber()
     {
         return $this->AWBNumber;
     }
@@ -87,7 +87,7 @@ class TrackingRequest
      * @param AWBNumberCollection $AWBNumber
      * @return self
      */
-    public function setAWBNumber(AWBNumberCollection $AWBNumber): self
+    public function setAWBNumber(AWBNumberCollection $AWBNumber)
     {
         $this->AWBNumber = $AWBNumber;
 
@@ -97,7 +97,7 @@ class TrackingRequest
     /**
      * @return TrackingPieceIDCollection
      */
-    public function getLPNumber(): TrackingPieceIDCollection
+    public function getLPNumber()
     {
         return $this->LPNumber;
     }
@@ -106,7 +106,7 @@ class TrackingRequest
      * @param TrackingPieceIDCollection $LPNumber
      * @return self
      */
-    public function setLPNumber(TrackingPieceIDCollection $LPNumber): self
+    public function setLPNumber(TrackingPieceIDCollection $LPNumber)
     {
         $this->LPNumber = $LPNumber;
 
@@ -116,7 +116,7 @@ class TrackingRequest
     /**
      * @return string
      */
-    public function getLevelOfDetails(): string
+    public function getLevelOfDetails()
     {
         return $this->LevelOfDetails;
     }
@@ -125,7 +125,7 @@ class TrackingRequest
      * @param string $LevelOfDetails
      * @return self
      */
-    public function setLevelOfDetails(string $LevelOfDetails): self
+    public function setLevelOfDetails(string $LevelOfDetails)
     {
         $this->LevelOfDetails = $LevelOfDetails;
 
@@ -135,7 +135,7 @@ class TrackingRequest
     /**
      * @return string
      */
-    public function getPiecesEnabled(): string
+    public function getPiecesEnabled()
     {
         return $this->PiecesEnabled;
     }
@@ -144,7 +144,7 @@ class TrackingRequest
      * @param string $PiecesEnabled
      * @return self
      */
-    public function setPiecesEnabled(string $PiecesEnabled): self
+    public function setPiecesEnabled(string $PiecesEnabled)
     {
         $this->PiecesEnabled = $PiecesEnabled;
 
@@ -154,7 +154,7 @@ class TrackingRequest
     /**
      * @return bool
      */
-    public function getEstimatedDeliveryDateEnabled(): bool
+    public function getEstimatedDeliveryDateEnabled()
     {
         return $this->EstimatedDeliveryDateEnabled;
     }
@@ -163,7 +163,7 @@ class TrackingRequest
      * @param bool $EstimatedDeliveryDateEnabled
      * @return self
      */
-    public function setEstimatedDeliveryDateEnabled(bool $EstimatedDeliveryDateEnabled): self
+    public function setEstimatedDeliveryDateEnabled(bool $EstimatedDeliveryDateEnabled)
     {
         $this->EstimatedDeliveryDateEnabled = $EstimatedDeliveryDateEnabled;
 

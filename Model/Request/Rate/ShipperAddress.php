@@ -54,7 +54,7 @@ class ShipperAddress implements ShipperAddressInterface
     /**
      * @inheritdoc
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->city;
     }
@@ -62,7 +62,7 @@ class ShipperAddress implements ShipperAddressInterface
     /**
      * @inheritdoc
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->postalCode;
     }
@@ -70,7 +70,7 @@ class ShipperAddress implements ShipperAddressInterface
     /**
      * @inheritdoc
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }

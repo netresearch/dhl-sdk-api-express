@@ -23,54 +23,54 @@ interface PackageInterface
      *
      * @return int
      */
-    public function getSequenceNumber(): int;
+    public function getSequenceNumber();
 
     /**
      * Returns the weight of the package.
      *
      * @return float
      */
-    public function getWeight(): float;
+    public function getWeight();
 
     /**
      * Returns the length of the package.
      *
      * @return float
      */
-    public function getLength(): float;
+    public function getLength();
 
     /**
      * Returns the width of the package.
      *
      * @return float
      */
-    public function getWidth(): float;
+    public function getWidth();
 
     /**
      * Returns the height of the package.
      *
      * @return float
      */
-    public function getHeight(): float;
+    public function getHeight();
 
     /**
      * Returns the unit of measurement for the dimensions of the package.
      *
      * @return string
      */
-    public function getDimensionsUOM(): string;
+    public function getDimensionsUOM();
 
     /**
      * Returns the unit of measurement for the weight of the package.
      *
      * @return string
      */
-    public function getWeightUOM(): string;
+    public function getWeightUOM();
 
     /**
      * Returns the packages customer references.
      *
      * @return string
      */
-    public function getCustomerReferences(): string;
+    public function getCustomerReferences();
 }

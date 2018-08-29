@@ -29,7 +29,7 @@ class TrackingResponseMapper
      * @param SoapTrackingResponse $soapTrackingResponse
      * @return TrackingResponseInterface
      */
-    public function map(SoapTrackingResponse $soapTrackingResponse): TrackingResponseInterface
+    public function map(SoapTrackingResponse $soapTrackingResponse)
     {
         $soapResponseContent = $soapTrackingResponse->getTrackingResponse()->getTrackingResponse();
 
@@ -73,7 +73,7 @@ class TrackingResponseMapper
      * @param ShipmentEventCollection $shipmentEvents
      * @return ShipmentEventInterface[]
      */
-    private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents): array
+    private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents)
     {
         $events = [];
         foreach ($shipmentEvents->getArrayOfShipmentEventItem() as $shipmentEvent) {

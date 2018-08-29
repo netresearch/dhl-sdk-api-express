@@ -50,7 +50,7 @@ class DryIce implements DryIceInterface
     /**
      * @return string
      */
-    public function getContentId(): string
+    public function getContentId()
     {
         return self::CONTENT_ID;
     }
@@ -59,7 +59,7 @@ class DryIce implements DryIceInterface
     /**
      * @return string
      */
-    public function getUnCode(): string
+    public function getUnCode()
     {
         return $this->unCode;
     }
@@ -67,7 +67,7 @@ class DryIce implements DryIceInterface
     /**
      * @return float
      */
-    public function getWeight(): float
+    public function getWeight()
     {
         return $this->weight;
     }

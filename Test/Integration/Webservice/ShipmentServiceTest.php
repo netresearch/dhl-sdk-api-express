@@ -27,7 +27,7 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
      *
      * @return ShipmentServiceInterface
      */
-    private function getShipmentService(LoggerInterface $logger): ShipmentServiceInterface
+    private function getShipmentService(LoggerInterface $logger)
     {
         $serviceFactory = new SoapServiceFactoryFake(new SoapClientFake());
         return $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);

@@ -30,7 +30,7 @@ class SoapRateResponse
      *
      * @return array|Provider[] Array of Provider
      */
-    public function getProvider(): array
+    public function getProvider()
     {
         return $this->Provider;
     }

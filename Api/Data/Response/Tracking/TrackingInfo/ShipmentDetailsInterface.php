@@ -22,39 +22,39 @@ interface ShipmentDetailsInterface
      *
      * @return string
      */
-    public function getShipperName(): string;
+    public function getShipperName();
 
     /**
      * Returns the consignee's name
      *
      * @return string
      */
-    public function getConsigneeName(): string;
+    public function getConsigneeName();
 
     /**
      * Returns the shipment's date
      *
      * @return string
      */
-    public function getShipmentDate(): string;
+    public function getShipmentDate();
 
     /**
      * @return string
      */
-    public function getOriginDescription(): string;
+    public function getOriginDescription();
 
     /**
      * @return string
      */
-    public function getDestinationDescription(): string;
+    public function getDestinationDescription();
 
     /**
      * @return float
      */
-    public function getWeight(): float;
+    public function getWeight();
 
     /**
      * @return string
      */
-    public function getEstimatedDeliveryDate(): string;
+    public function getEstimatedDeliveryDate();
 }

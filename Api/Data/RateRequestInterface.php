@@ -26,27 +26,27 @@ interface RateRequestInterface
     /**
      * @return ShipperAddressInterface
      */
-    public function getShipperAddress(): ShipperAddressInterface;
+    public function getShipperAddress();
 
     /**
      * @return string
      */
-    public function getShipperAccountNumber(): string;
+    public function getShipperAccountNumber();
 
     /**
      * @return RecipientAddressInterface
      */
-    public function getRecipientAddress(): RecipientAddressInterface;
+    public function getRecipientAddress();
 
     /**
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails(): ShipmentDetailsInterface;
+    public function getShipmentDetails();
 
     /**
      * @return PackageInterface[]
      */
-    public function getPackages(): array;
+    public function getPackages();
 
     /**
      * @return InsuranceInterface|null

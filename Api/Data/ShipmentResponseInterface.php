@@ -22,7 +22,7 @@ interface ShipmentResponseInterface
      *
      * @return string
      */
-    public function getLabelData(): string;
+    public function getLabelData();
 
     /**
      * Obtain the tracking numbers assigned to the booked shipment's packages.
@@ -41,17 +41,17 @@ interface ShipmentResponseInterface
      *
      * @return string[]
      */
-    public function getTrackingNumbers(): array;
+    public function getTrackingNumbers();
 
     /**
      * Obtain the shipment identification number
      * @return string
      */
-    public function getShipmentIdentificationNumber(): string;
+    public function getShipmentIdentificationNumber();
 
     /**
      * Obtain the dispatch confirmation number
      * @return string
      */
-    public function getDispatchConfirmationNumber(): string;
+    public function getDispatchConfirmationNumber();
 }

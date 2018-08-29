@@ -19,15 +19,15 @@ interface DryIceInterface
     /**
      * @return string
      */
-    public function getContentId(): string;
+    public function getContentId();
 
     /**
      * @return string
      */
-    public function getUNCode(): string;
+    public function getUNCode();
 
     /**
      * @return float
      */
-    public function getWeight(): float;
+    public function getWeight();
 }

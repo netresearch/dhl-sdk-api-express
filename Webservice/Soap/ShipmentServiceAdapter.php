@@ -78,7 +78,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface
+    public function createShipment(ShipmentRequestInterface $request)
     {
         $soapRequest = $this->requestMapper->map($request);
 
@@ -94,7 +94,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface
+    public function deleteShipment(ShipmentDeleteRequestInterface $request)
     {
         $soapRequest = $this->shipmentDeleteRequestMapper->map($request);
 
@@ -110,7 +110,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function getLastRequest(): string
+    public function getLastRequest()
     {
         $lastRequest = sprintf(
             "%s\n%s",
@@ -124,7 +124,7 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function getLastResponse(): string
+    public function getLastResponse()
     {
         $lastResponse = sprintf(
             "%s\n%s",

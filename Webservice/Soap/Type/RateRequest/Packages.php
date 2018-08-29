@@ -48,7 +48,7 @@ class Packages
      *
      * @return RequestedPackages[]
      */
-    public function getRequestedPackages(): array
+    public function getRequestedPackages()
     {
         return $this->RequestedPackages;
     }
@@ -61,7 +61,7 @@ class Packages
      * @return self
      * @throws \OutOfBoundsException
      */
-    public function setRequestedPackages(array $requestedPackages): Packages
+    public function setRequestedPackages(array $requestedPackages)
     {
         if (count($requestedPackages) > 50) {
             throw new \OutOfBoundsException('A shipment can only contain a maximum of 50 packages');

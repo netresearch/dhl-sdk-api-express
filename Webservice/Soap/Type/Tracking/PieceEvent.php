@@ -67,7 +67,7 @@ class PieceEvent
     /**
      * @return string
      */
-    public function getDate(): string
+    public function getDate()
     {
         return $this->Date;
     }
@@ -76,7 +76,7 @@ class PieceEvent
      * @param string $Date
      * @return self
      */
-    public function setDate(string $Date): self
+    public function setDate(string $Date)
     {
         $this->Date = $Date;
 
@@ -86,7 +86,7 @@ class PieceEvent
     /**
      * @return string
      */
-    public function getTime(): string
+    public function getTime()
     {
         return $this->Time;
     }
@@ -95,7 +95,7 @@ class PieceEvent
      * @param string $Time
      * @return self
      */
-    public function setTime(string $Time): self
+    public function setTime(string $Time)
     {
         $this->Time = $Time;
 
@@ -105,7 +105,7 @@ class PieceEvent
     /**
      * @return ServiceEvent
      */
-    public function getServiceEvent(): ServiceEvent
+    public function getServiceEvent()
     {
         return $this->ServiceEvent;
     }
@@ -114,7 +114,7 @@ class PieceEvent
      * @param ServiceEvent $ServiceEvent
      * @return self
      */
-    public function setServiceEvent(ServiceEvent $ServiceEvent): self
+    public function setServiceEvent(ServiceEvent $ServiceEvent)
     {
         $this->ServiceEvent = $ServiceEvent;
 
@@ -124,7 +124,7 @@ class PieceEvent
     /**
      * @return string
      */
-    public function getSignatory(): string
+    public function getSignatory()
     {
         return $this->Signatory;
     }
@@ -133,7 +133,7 @@ class PieceEvent
      * @param string $Signatory
      * @return self
      */
-    public function setSignatory(string $Signatory): self
+    public function setSignatory(string $Signatory)
     {
         $this->Signatory = $Signatory;
 
@@ -143,7 +143,7 @@ class PieceEvent
     /**
      * @return ServiceArea
      */
-    public function getServiceArea(): ServiceArea
+    public function getServiceArea()
     {
         return $this->ServiceArea;
     }
@@ -152,7 +152,7 @@ class PieceEvent
      * @param ServiceArea $ServiceArea
      * @return self
      */
-    public function setServiceArea(ServiceArea $ServiceArea): self
+    public function setServiceArea(ServiceArea $ServiceArea)
     {
         $this->ServiceArea = $ServiceArea;
 
@@ -162,7 +162,7 @@ class PieceEvent
     /**
      * @return ShipperReference
      */
-    public function getShipperReference(): ShipperReference
+    public function getShipperReference()
     {
         return $this->ShipperReference;
     }
@@ -171,7 +171,7 @@ class PieceEvent
      * @param ShipperReference $ShipperReference
      * @return self
      */
-    public function setShipperReference(ShipperReference $ShipperReference): self
+    public function setShipperReference(ShipperReference $ShipperReference)
     {
         $this->ShipperReference = $ShipperReference;
 

@@ -29,7 +29,7 @@ class AuthHeaderFactory
      * @param string $password
      * @return \SoapHeader
      */
-    public function create(string $username, string $password): \SoapHeader
+    public function create(string $username, string $password)
     {
         $created = gmdate('Y-m-d\TH:i:s\Z');
         $nonce = mt_rand();

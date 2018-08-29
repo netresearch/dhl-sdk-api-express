@@ -32,7 +32,7 @@ class TrackingRequestBase
     /**
      * @return TrackingRequest
      */
-    public function getTrackingRequest(): TrackingRequest
+    public function getTrackingRequest()
     {
         return $this->TrackingRequest;
     }
@@ -41,7 +41,7 @@ class TrackingRequestBase
      * @param TrackingRequest $TrackingRequest
      * @return self
      */
-    public function setTrackingRequest(TrackingRequest $TrackingRequest): self
+    public function setTrackingRequest(TrackingRequest $TrackingRequest)
     {
         $this->TrackingRequest = $TrackingRequest;
 

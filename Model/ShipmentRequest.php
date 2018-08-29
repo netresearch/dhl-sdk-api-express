@@ -91,7 +91,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails(): ShipmentDetailsInterface
+    public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
@@ -99,7 +99,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @inheritdoc
      */
-    public function getPayerAccountNumber(): string
+    public function getPayerAccountNumber()
     {
         return $this->payerAccountNumber;
     }
@@ -119,7 +119,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return self
      */
-    public function setBillingAccountNumber(string $billingAccountNumber): ShipmentRequest
+    public function setBillingAccountNumber(string $billingAccountNumber)
     {
         $this->billingAccountNumber = $billingAccountNumber;
 
@@ -141,7 +141,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return ShipmentRequest
      */
-    public function setInsurance(InsuranceInterface $insurance): ShipmentRequest
+    public function setInsurance(InsuranceInterface $insurance)
     {
         $this->insurance = $insurance;
 
@@ -151,7 +151,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return ShipperInterface
      */
-    public function getShipper(): ShipperInterface
+    public function getShipper()
     {
         return $this->shipper;
     }
@@ -159,7 +159,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return RecipientInterface
      */
-    public function getRecipient(): RecipientInterface
+    public function getRecipient()
     {
         return $this->recipient;
     }
@@ -167,7 +167,7 @@ class ShipmentRequest implements ShipmentRequestInterface
     /**
      * @return PackageInterface[]
      */
-    public function getPackages(): array
+    public function getPackages()
     {
         return $this->packages;
     }
@@ -187,7 +187,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return ShipmentRequest
      */
-    public function setDryIce(DryIceInterface $dryIce): ShipmentRequest
+    public function setDryIce(DryIceInterface $dryIce)
     {
         $this->dryIce = $dryIce;
 

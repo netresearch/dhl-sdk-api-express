@@ -39,7 +39,7 @@ class DestinationServiceArea
     /**
      * @return string
      */
-    public function getServiceAreaCode(): string
+    public function getServiceAreaCode()
     {
         return $this->ServiceAreaCode;
     }
@@ -48,7 +48,7 @@ class DestinationServiceArea
      * @param string $ServiceAreaCode
      * @return self
      */
-    public function setServiceAreaCode(string $ServiceAreaCode): self
+    public function setServiceAreaCode(string $ServiceAreaCode)
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
 
@@ -58,7 +58,7 @@ class DestinationServiceArea
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->Description;
     }
@@ -67,7 +67,7 @@ class DestinationServiceArea
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description): self
+    public function setDescription(string $Description)
     {
         $this->Description = $Description;
 
@@ -77,7 +77,7 @@ class DestinationServiceArea
     /**
      * @return string
      */
-    public function getFacilityCode(): string
+    public function getFacilityCode()
     {
         return $this->FacilityCode;
     }
@@ -86,7 +86,7 @@ class DestinationServiceArea
      * @param string $FacilityCode
      * @return self
      */
-    public function setFacilityCode(string $FacilityCode): self
+    public function setFacilityCode(string $FacilityCode)
     {
         $this->FacilityCode = $FacilityCode;
 
@@ -96,7 +96,7 @@ class DestinationServiceArea
     /**
      * @return string
      */
-    public function getInboundSortCode(): string
+    public function getInboundSortCode()
     {
         return $this->InboundSortCode;
     }
@@ -105,7 +105,7 @@ class DestinationServiceArea
      * @param string $InboundSortCode
      * @return self
      */
-    public function setInboundSortCode(string $InboundSortCode): self
+    public function setInboundSortCode(string $InboundSortCode)
     {
         $this->InboundSortCode = $InboundSortCode;
 

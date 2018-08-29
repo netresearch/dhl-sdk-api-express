@@ -29,7 +29,7 @@ class SoapShipmentDeleteResponse
      *
      * @return Notification
      */
-    public function getNotification(): Notification
+    public function getNotification()
     {
         return $this->Notification;
     }

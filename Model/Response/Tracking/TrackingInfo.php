@@ -66,27 +66,27 @@ class TrackingInfo implements TrackingInfoInterface
         $this->pieces = $pieces;
     }
 
-    public function getAwbNumber(): int
+    public function getAwbNumber()
     {
         return $this->awbNumber;
     }
 
-    public function getAwbStatus(): string
+    public function getAwbStatus()
     {
         return $this->awbStatus;
     }
 
-    public function getShipmentDetails(): ShipmentDetailsInterface
+    public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
 
-    public function getShipmentEvents(): array
+    public function getShipmentEvents()
     {
         return $this->shipmentEvents;
     }
 
-    public function getPieces(): array
+    public function getPieces()
     {
         return $this->pieces;
     }

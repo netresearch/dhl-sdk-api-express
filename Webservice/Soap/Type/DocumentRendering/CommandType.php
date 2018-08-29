@@ -21,7 +21,7 @@ class CommandType
     /**
      * @return FieldType[]
      */
-    public function getField(): array
+    public function getField()
     {
         return $this->Field;
     }

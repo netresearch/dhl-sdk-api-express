@@ -62,7 +62,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
      *
      * @throws SoapException
      */
-    public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface
+    public function getTrackingInformation(TrackingRequestInterface $request)
     {
         $soapRequest = $this->requestMapper->map($request);
         try {
@@ -77,7 +77,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function getLastRequest(): string
+    public function getLastRequest()
     {
         $lastRequest = sprintf(
             "%s\n%s",
@@ -91,7 +91,7 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
     /**
      * {@inheritdoc}
      */
-    public function getLastResponse(): string
+    public function getLastResponse()
     {
         $lastResponse = sprintf(
             "%s\n%s",

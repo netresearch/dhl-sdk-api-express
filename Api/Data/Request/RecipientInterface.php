@@ -21,47 +21,47 @@ interface RecipientInterface
      *
      * @return string
      */
-    public function getName(): string;
+    public function getName();
 
     /**
      * Returns the recipients company.
      *
      * @return string
      */
-    public function getCompany(): string;
+    public function getCompany();
 
     /**
      * Returns the recipients phone number.
      *
      * @return string
      */
-    public function getPhone(): string;
+    public function getPhone();
 
     /**
      * Returns the recipients street lines.
      *
      * @return string[]
      */
-    public function getStreetLines(): array;
+    public function getStreetLines();
 
     /**
      * Returns the recipients city.
      *
      * @return string
      */
-    public function getCity(): string;
+    public function getCity();
 
     /**
      * Returns the recipients postal code.
      *
      * @return string
      */
-    public function getPostalCode(): string;
+    public function getPostalCode();
 
     /**
      * Returns the recipients country code.
      *
      * @return string
      */
-    public function getCountryCode(): string;
+    public function getCountryCode();
 }

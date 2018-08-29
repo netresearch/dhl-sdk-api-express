@@ -66,7 +66,7 @@ class SoapShipmentRequest
      *
      * @return self
      */
-    public function setMessageId(string $messageId): SoapShipmentRequest
+    public function setMessageId(string $messageId)
     {
         $this->MessageId = $messageId;
         return $this;
@@ -89,7 +89,7 @@ class SoapShipmentRequest
      *
      * @return self
      */
-    public function setClientDetail(ClientDetail $clientDetail): SoapShipmentRequest
+    public function setClientDetail(ClientDetail $clientDetail)
     {
         $this->ClientDetail = $clientDetail;
         return $this;
@@ -100,7 +100,7 @@ class SoapShipmentRequest
      *
      * @return RequestedShipment
      */
-    public function getRequestedShipment(): RequestedShipment
+    public function getRequestedShipment()
     {
         return $this->RequestedShipment;
     }

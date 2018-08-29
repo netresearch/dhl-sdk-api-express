@@ -36,7 +36,7 @@ class RateResponse implements RateResponseInterface
     /**
      * @inheritdoc
      */
-    public function getRates(): array
+    public function getRates()
     {
         return $this->rates;
     }

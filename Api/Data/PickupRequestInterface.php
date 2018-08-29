@@ -27,40 +27,40 @@ interface PickupRequestInterface
      *
      * @return int
      */
-    public function getPickupTimestamp(): int;
+    public function getPickupTimestamp();
 
     /**
      * Returns the service type.
      *
      * @return int
      */
-    public function getServiceType(): int;
+    public function getServiceType();
 
     /**
      * Returns the commodity's descriptions.
      *
      * @return string[]
      */
-    public function getCommodities(): array;
+    public function getCommodities();
 
     /**
      * Returns the shipper.
      *
      * @return ShipperInterface
      */
-    public function getShipper(): ShipperInterface;
+    public function getShipper();
 
     /**
      * Returns the recipient.
      *
      * @return RecipientInterface
      */
-    public function getSRecipient(): RecipientInterface;
+    public function getSRecipient();
 
     /**
      * Returns the packages.
      *
      * @return PackageInterface[]
      */
-    public function getPackages(): array;
+    public function getPackages();
 }

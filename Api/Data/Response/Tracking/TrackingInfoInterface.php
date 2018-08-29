@@ -26,33 +26,33 @@ interface TrackingInfoInterface
      *
      * @return int
      */
-    public function getAwbNumber(): int;
+    public function getAwbNumber();
 
     /**
      * Returns the status.
      *
      * @return string
      */
-    public function getAwbStatus(): string;
+    public function getAwbStatus();
 
     /**
      * Returns the shipment Details.
      *
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails(): ShipmentDetailsInterface;
+    public function getShipmentDetails();
 
     /**
      * Returns the shipment events.
      *
      * @return ShipmentEventInterface[]
      */
-    public function getShipmentEvents(): array;
+    public function getShipmentEvents();
 
     /**
      * Returns the pieces
      *
      * @return PieceInterface[]
      */
-    public function getPieces(): array;
+    public function getPieces();
 }

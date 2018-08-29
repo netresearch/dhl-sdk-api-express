@@ -43,7 +43,7 @@ class ShipmentRequestMapper
      * @return SoapShipmentRequest
      * @throws \InvalidArgumentException
      */
-    public function map(ShipmentRequestInterface $request): SoapShipmentRequest
+    public function map(ShipmentRequestInterface $request)
     {
         $this->checkConsistentUOM($request->getPackages());
 
@@ -178,7 +178,7 @@ class ShipmentRequestMapper
      *
      * @return RequestedPackages[]
      */
-    private function mapPackages(array $packages): array
+    private function mapPackages(array $packages)
     {
         $requestedPackages = [];
 
@@ -205,7 +205,7 @@ class ShipmentRequestMapper
      *
      * @return string
      */
-    public function getDropOfTypeFromShipDetails(bool $isUnscheduledPickup): string
+    public function getDropOfTypeFromShipDetails(bool $isUnscheduledPickup)
     {
         if ($isUnscheduledPickup) {
             return ShipmentDetails::UNSCHEDULED_PICKUP;
@@ -260,7 +260,7 @@ class ShipmentRequestMapper
      * @return string
      * @throws \InvalidArgumentException
      */
-    private function mapUOM(string $weightUOM, string $dimensionsUOM): string
+    private function mapUOM(string $weightUOM, string $dimensionsUOM)
     {
         if (($weightUOM === Package::UOM_WEIGHT_KG) && ($dimensionsUOM === Package::UOM_DIMENSION_CM)) {
             return UnitOfMeasurement::SI;

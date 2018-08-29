@@ -25,33 +25,33 @@ interface TrackingRequestInterface
      *
      * @return MessageInterface
      */
-    public function getMessage(): MessageInterface;
+    public function getMessage();
 
     /**
      * Returns the tracking information's AWB numbers
      *
      * @return string[]
      */
-    public function getAwbNumber(): array;
+    public function getAwbNumber();
 
     /**
      * Returns the tracking information's level of details
      *
      * @return string
      */
-    public function getLevelOfDetails(): string;
+    public function getLevelOfDetails();
 
     /**
      * Returns the tracking information's enabled pieces code
      *
      * @return string
      */
-    public function getPiecesEnabled(): string;
+    public function getPiecesEnabled();
 
     /**
      * Should the response return the estimated delivery date, if available
      *
      * @return bool
      */
-    public function isEstimatedDeliveryDateRequested(): bool;
+    public function isEstimatedDeliveryDateRequested();
 }

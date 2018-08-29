@@ -74,7 +74,7 @@ class Billing
      *
      * @return Account
      */
-    public function getShipperAccountNumber(): Account
+    public function getShipperAccountNumber()
     {
         return $this->ShipperAccountNumber;
     }
@@ -86,7 +86,7 @@ class Billing
      *
      * @return self
      */
-    public function setShipperAccountNumber(string $shipperAccountNumber): Billing
+    public function setShipperAccountNumber(string $shipperAccountNumber)
     {
         $this->ShipperAccountNumber = new Account($shipperAccountNumber);
         return $this;
@@ -97,7 +97,7 @@ class Billing
      *
      * @return ShippingPaymentType
      */
-    public function getShippingPaymentType(): ShippingPaymentType
+    public function getShippingPaymentType()
     {
         return $this->ShippingPaymentType;
     }
@@ -109,7 +109,7 @@ class Billing
      *
      * @return self
      */
-    public function setShippingPaymentType(string $shippingPaymentType): Billing
+    public function setShippingPaymentType(string $shippingPaymentType)
     {
         $this->ShippingPaymentType = new ShippingPaymentType($shippingPaymentType);
         return $this;
@@ -132,7 +132,7 @@ class Billing
      *
      * @return self
      */
-    public function setBillingAccountNumber(string $billingAccountNumber): Billing
+    public function setBillingAccountNumber(string $billingAccountNumber)
     {
         $this->BillingAccountNumber = new Account($billingAccountNumber);
         return $this;

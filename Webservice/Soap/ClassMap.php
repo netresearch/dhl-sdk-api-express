@@ -23,7 +23,7 @@ class ClassMap
      *
      * @return array|string[]
      */
-    public static function get(): array
+    public static function get()
     {
         return [
             // getRateRequest response

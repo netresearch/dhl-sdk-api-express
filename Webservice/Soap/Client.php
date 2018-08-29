@@ -55,12 +55,12 @@ class Client extends \SoapClient
      *
      * @return SoapRateResponse
      */
-    public function getRateRequest(SoapRateRequest $rateRequest): SoapRateResponse
+    public function getRateRequest(SoapRateRequest $rateRequest)
     {
         return $this->__soapCall('getRateRequest', [ $rateRequest ]);
     }
 
-    public function trackShipmentRequest(SoapTrackingRequest $trackingRequest): SoapTrackingResponse
+    public function trackShipmentRequest(SoapTrackingRequest $trackingRequest)
     {
         return $this->__soapCall('trackShipmentRequest', [$trackingRequest]);
     }

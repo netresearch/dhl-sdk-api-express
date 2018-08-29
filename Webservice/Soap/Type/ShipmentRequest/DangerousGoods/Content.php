@@ -60,7 +60,7 @@ class Content
      *
      * @return ContentId
      */
-    public function getContentId(): ContentId
+    public function getContentId()
     {
         return $this->ContentID;
     }
@@ -72,7 +72,7 @@ class Content
      *
      * @return self
      */
-    public function setContentId(string $contentId): Content
+    public function setContentId(string $contentId)
     {
         $this->ContentID = new ContentId($contentId);
         return $this;
@@ -83,7 +83,7 @@ class Content
      *
      * @return DryIceTotalNetWeight
      */
-    public function getDryIceTotalNetWeight(): DryIceTotalNetWeight
+    public function getDryIceTotalNetWeight()
     {
         return $this->DryIceTotalNetWeight;
     }
@@ -95,7 +95,7 @@ class Content
      *
      * @return self
      */
-    public function setDryIceTotalNetWeight(string $dryIceTotalNetWeight): Content
+    public function setDryIceTotalNetWeight(string $dryIceTotalNetWeight)
     {
         $this->DryIceTotalNetWeight = new DryIceTotalNetWeight($dryIceTotalNetWeight);
         return $this;
@@ -106,7 +106,7 @@ class Content
      *
      * @return UNCode
      */
-    public function getUNCode(): UNCode
+    public function getUNCode()
     {
         return $this->UNCode;
     }
@@ -118,7 +118,7 @@ class Content
      *
      * @return self
      */
-    public function setUNCode(string $unCode): Content
+    public function setUNCode(string $unCode)
     {
         $this->UNCode = new UNCode($unCode);
         return $this;

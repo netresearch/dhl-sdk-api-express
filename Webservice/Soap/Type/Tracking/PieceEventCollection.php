@@ -24,7 +24,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return PieceEvent[]
      */
-    public function getArrayOfPieceEventItem(): array
+    public function getArrayOfPieceEventItem()
     {
         return $this->ArrayOfPieceEventItem;
     }
@@ -33,7 +33,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param PieceEvent[] $ArrayOfPieceEventItem
      * @return self
      */
-    public function setArrayOfPieceEventItem(array $ArrayOfPieceEventItem = []): self
+    public function setArrayOfPieceEventItem(array $ArrayOfPieceEventItem = [])
     {
         $this->ArrayOfPieceEventItem = $ArrayOfPieceEventItem;
 
@@ -46,7 +46,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfPieceEventItem[$offset]);
     }
@@ -57,7 +57,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return PieceEvent
      */
-    public function offsetGet($offset): PieceEvent
+    public function offsetGet($offset)
     {
         return $this->ArrayOfPieceEventItem[$offset];
     }
@@ -94,7 +94,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceEvent Return the current element
      */
-    public function current(): PieceEvent
+    public function current()
     {
         return current($this->ArrayOfPieceEventItem);
     }
@@ -125,7 +125,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -146,7 +146,7 @@ class PieceEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return PieceEvent Return count of elements
      */
-    public function count(): PieceEvent
+    public function count()
     {
         return count($this->ArrayOfPieceEventItem);
     }

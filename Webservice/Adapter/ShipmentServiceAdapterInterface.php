@@ -35,7 +35,7 @@ interface ShipmentServiceAdapterInterface
      * @throws SoapException
      * @throws ShipmentRequestException
      */
-    public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface;
+    public function createShipment(ShipmentRequestInterface $request);
 
     /**
      * Performs the shipment delete request.
@@ -47,5 +47,5 @@ interface ShipmentServiceAdapterInterface
      * @throws SoapException
      * @throws ShipmentDeleteRequestException
      */
-    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface;
+    public function deleteShipment(ShipmentDeleteRequestInterface $request);
 }

@@ -45,7 +45,7 @@ class Insurance implements InsuranceInterface
     /**
      * @inheritdoc
      */
-    public function getValue(): float
+    public function getValue()
     {
         return $this->value;
     }
@@ -53,7 +53,7 @@ class Insurance implements InsuranceInterface
     /**
      * @inheritdoc
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode()
     {
         return $this->currencyCode;
     }

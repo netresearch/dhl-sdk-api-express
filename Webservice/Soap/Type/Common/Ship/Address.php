@@ -116,7 +116,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines(string $streetLines): Address
+    public function setStreetLines(string $streetLines)
     {
         $this->StreetLines = new StreetLines($streetLines);
         return $this;
@@ -139,7 +139,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines2(string $streetLines2): Address
+    public function setStreetLines2(string $streetLines2)
     {
         $this->StreetLines2 = new StreetLines($streetLines2);
         return $this;
@@ -162,7 +162,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetLines3(string $streetLines3): Address
+    public function setStreetLines3(string $streetLines3)
     {
         $this->StreetLines3 = new StreetLines($streetLines3);
         return $this;
@@ -185,7 +185,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetName(string $streetName): Address
+    public function setStreetName(string $streetName)
     {
         $this->StreetName = new StreetLines($streetName);
         return $this;
@@ -208,7 +208,7 @@ class Address
      *
      * @return self
      */
-    public function setStreetNumber(string $streetNumber): Address
+    public function setStreetNumber(string $streetNumber)
     {
         $this->StreetNumber = new StreetNumber($streetNumber);
         return $this;
@@ -219,7 +219,7 @@ class Address
      *
      * @return City
      */
-    public function getCity(): City
+    public function getCity()
     {
         return $this->City;
     }
@@ -231,7 +231,7 @@ class Address
      *
      * @return self
      */
-    public function setCity(string $city): Address
+    public function setCity(string $city)
     {
         $this->City = new City($city);
         return $this;
@@ -254,7 +254,7 @@ class Address
      *
      * @return self
      */
-    public function setStateOrProvinceCode(string $stateOrProvinceCode): Address
+    public function setStateOrProvinceCode(string $stateOrProvinceCode)
     {
         $this->StateOrProvinceCode = new StateOrProvinceCode($stateOrProvinceCode);
         return $this;
@@ -265,7 +265,7 @@ class Address
      *
      * @return PostalCode
      */
-    public function getPostalCode(): PostalCode
+    public function getPostalCode()
     {
         return $this->PostalCode;
     }
@@ -277,7 +277,7 @@ class Address
      *
      * @return self
      */
-    public function setPostalCode(string $postalCode): Address
+    public function setPostalCode(string $postalCode)
     {
         $this->PostalCode = new PostalCode($postalCode);
         return $this;
@@ -288,7 +288,7 @@ class Address
      *
      * @return CountryCode
      */
-    public function getCountryCode(): CountryCode
+    public function getCountryCode()
     {
         return $this->CountryCode;
     }
@@ -300,7 +300,7 @@ class Address
      *
      * @return self
      */
-    public function setCountryCode(string $countryCode): Address
+    public function setCountryCode(string $countryCode)
     {
         $this->CountryCode = new CountryCode($countryCode);
         return $this;

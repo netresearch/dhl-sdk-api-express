@@ -66,22 +66,22 @@ class TrackingRequest implements TrackingRequestInterface
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
     }
 
-    public function getMessage(): MessageInterface
+    public function getMessage()
     {
         return $this->message;
     }
 
-    public function getAwbNumber(): array
+    public function getAwbNumber()
     {
         return $this->awbNumber;
     }
 
-    public function getLevelOfDetails(): string
+    public function getLevelOfDetails()
     {
         return $this->levelOfDetails;
     }
 
-    public function getPiecesEnabled(): string
+    public function getPiecesEnabled()
     {
         return $this->piecesEnabled;
     }
@@ -89,7 +89,7 @@ class TrackingRequest implements TrackingRequestInterface
     /**
      * @return bool
      */
-    public function isEstimatedDeliveryDateRequested(): bool
+    public function isEstimatedDeliveryDateRequested()
     {
         return $this->estimatedDeliveryDate;
     }

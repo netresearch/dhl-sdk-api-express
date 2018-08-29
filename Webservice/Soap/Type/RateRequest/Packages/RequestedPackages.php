@@ -58,7 +58,7 @@ class RequestedPackages
      *
      * @return Weight
      */
-    public function getWeight(): Weight
+    public function getWeight()
     {
         return $this->Weight;
     }
@@ -70,7 +70,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setWeight(float $weight): RequestedPackages
+    public function setWeight(float $weight)
     {
         $this->Weight = new Weight($weight);
         return $this;
@@ -81,7 +81,7 @@ class RequestedPackages
      *
      * @return Dimensions
      */
-    public function getDimensions(): Dimensions
+    public function getDimensions()
     {
         return $this->Dimensions;
     }
@@ -93,7 +93,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setDimensions(Dimensions $dimensions): RequestedPackages
+    public function setDimensions(Dimensions $dimensions)
     {
         $this->Dimensions = $dimensions;
         return $this;
@@ -104,7 +104,7 @@ class RequestedPackages
      *
      * @return int
      */
-    public function getNumber(): int
+    public function getNumber()
     {
         return $this->number;
     }
@@ -116,7 +116,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setNumber($number): RequestedPackages
+    public function setNumber($number)
     {
         $this->number = $number;
         return $this;

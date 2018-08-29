@@ -149,7 +149,7 @@ class Package implements PackageInterface
     /**
      * @return int
      */
-    public function getSequenceNumber(): int
+    public function getSequenceNumber()
     {
         return $this->sequenceNumber;
     }
@@ -157,7 +157,7 @@ class Package implements PackageInterface
     /**
      * @return float
      */
-    public function getWeight(): float
+    public function getWeight()
     {
         return $this->weight;
     }
@@ -165,7 +165,7 @@ class Package implements PackageInterface
     /**
      * @return float
      */
-    public function getLength(): float
+    public function getLength()
     {
         return $this->length;
     }
@@ -173,7 +173,7 @@ class Package implements PackageInterface
     /**
      * @return float
      */
-    public function getWidth(): float
+    public function getWidth()
     {
         return $this->width;
     }
@@ -181,7 +181,7 @@ class Package implements PackageInterface
     /**
      * @return float
      */
-    public function getHeight(): float
+    public function getHeight()
     {
         return $this->height;
     }
@@ -189,7 +189,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getDimensionsUOM(): string
+    public function getDimensionsUOM()
     {
         return $this->dimensionsUOM;
     }
@@ -197,7 +197,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getWeightUOM(): string
+    public function getWeightUOM()
     {
         return $this->weightUOM;
     }
@@ -205,7 +205,7 @@ class Package implements PackageInterface
     /**
      * @return string
      */
-    public function getCustomerReferences(): string
+    public function getCustomerReferences()
     {
         return $this->customerReferences;
     }

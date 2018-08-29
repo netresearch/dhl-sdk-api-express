@@ -65,7 +65,7 @@ class Contact
      *
      * @return PersonName
      */
-    public function getPersonName(): PersonName
+    public function getPersonName()
     {
         return $this->PersonName;
     }
@@ -77,7 +77,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setPersonName(string $personName): Contact
+    public function setPersonName(string $personName)
     {
         $this->PersonName = new PersonName($personName);
         return $this;
@@ -88,7 +88,7 @@ class Contact
      *
      * @return CompanyName
      */
-    public function getCompanyName(): CompanyName
+    public function getCompanyName()
     {
         return $this->CompanyName;
     }
@@ -100,7 +100,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setCompanyName(string $companyName): Contact
+    public function setCompanyName(string $companyName)
     {
         $this->CompanyName = new CompanyName($companyName);
         return $this;
@@ -111,7 +111,7 @@ class Contact
      *
      * @return PhoneNumber
      */
-    public function getPhoneNumber(): PhoneNumber
+    public function getPhoneNumber()
     {
         return $this->PhoneNumber;
     }
@@ -123,7 +123,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setPhoneNumber(string $phoneNumber): Contact
+    public function setPhoneNumber(string $phoneNumber)
     {
         $this->PhoneNumber = new PhoneNumber($phoneNumber);
         return $this;
@@ -146,7 +146,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setEmailAddress(string $emailAddress): Contact
+    public function setEmailAddress(string $emailAddress)
     {
         $this->EmailAddress = new EmailAddress($emailAddress);
         return $this;
@@ -169,7 +169,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setMobilePhoneNumber(string $mobilePhoneNumber): Contact
+    public function setMobilePhoneNumber(string $mobilePhoneNumber)
     {
         $this->MobilePhoneNumber = new MobilePhoneNumber($mobilePhoneNumber);
         return $this;

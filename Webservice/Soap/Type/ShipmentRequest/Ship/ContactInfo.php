@@ -48,7 +48,7 @@ class ContactInfo
      *
      * @return Contact
      */
-    public function getContact(): Contact
+    public function getContact()
     {
         return $this->Contact;
     }
@@ -60,7 +60,7 @@ class ContactInfo
      *
      * @return self
      */
-    public function setContact(Contact $contact): ContactInfo
+    public function setContact(Contact $contact)
     {
         $this->Contact = $contact;
         return $this;
@@ -71,7 +71,7 @@ class ContactInfo
      *
      * @return ShipmentAddress
      */
-    public function getAddress(): ShipmentAddress
+    public function getAddress()
     {
         return $this->Address;
     }
@@ -83,7 +83,7 @@ class ContactInfo
      *
      * @return self
      */
-    public function setAddress(ShipmentAddress $address): ContactInfo
+    public function setAddress(ShipmentAddress $address)
     {
         $this->Address = $address;
         return $this;

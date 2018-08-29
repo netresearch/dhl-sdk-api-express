@@ -30,5 +30,5 @@ interface RateServiceInterface
      * @throws RateRequestException
      * @throws SoapException
      */
-    public function collectRates(RateRequestInterface $request): RateResponseInterface;
+    public function collectRates(RateRequestInterface $request);
 }

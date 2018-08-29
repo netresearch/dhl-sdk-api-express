@@ -26,7 +26,7 @@ class SoapTrackingResponse
     /**
      * @return TrackingResponseBase
      */
-    public function getTrackingResponse(): TrackingResponseBase
+    public function getTrackingResponse()
     {
         return $this->trackingResponse;
     }
@@ -35,7 +35,7 @@ class SoapTrackingResponse
      * @param TrackingResponseBase $trackingResponse
      * @return self
      */
-    public function setTrackingResponse(TrackingResponseBase $trackingResponse): self
+    public function setTrackingResponse(TrackingResponseBase $trackingResponse)
     {
         $this->trackingResponse = $trackingResponse;
         return $this;

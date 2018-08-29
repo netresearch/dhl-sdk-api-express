@@ -59,7 +59,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     /**
      * {@inheritdoc}
      */
-    public function collectRates(RateRequestInterface $request): RateResponseInterface
+    public function collectRates(RateRequestInterface $request)
     {
         $soapRequest = $this->requestMapper->map($request);
 
@@ -75,7 +75,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     /**
      * {@inheritdoc}
      */
-    public function getLastRequest(): string
+    public function getLastRequest()
     {
         $lastRequest = sprintf(
             "%s\n%s",
@@ -89,7 +89,7 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     /**
      * {@inheritdoc}
      */
-    public function getLastResponse(): string
+    public function getLastResponse()
     {
         $lastResponse = sprintf(
             "%s\n%s",

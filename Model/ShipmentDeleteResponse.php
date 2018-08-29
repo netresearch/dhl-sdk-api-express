@@ -47,7 +47,7 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
     /**
      * @inheritdoc
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->message;
     }
@@ -55,7 +55,7 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
     /**
      * @inheritdoc
      */
-    public function isSuccess(): bool
+    public function isSuccess()
     {
         return $this->code === 0;
     }

@@ -36,7 +36,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param bool $unscheduledPickup
      * @return self
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup): ShipmentRequestBuilderInterface
+    public function setIsUnscheduledPickup(bool $unscheduledPickup)
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
 
@@ -47,7 +47,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $termsOfTrade
      * @return self
      */
-    public function setTermsOfTrade(string $termsOfTrade): ShipmentRequestBuilderInterface
+    public function setTermsOfTrade(string $termsOfTrade)
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
 
@@ -58,7 +58,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $contentType
      * @return self
      */
-    public function setContentType(string $contentType): ShipmentRequestBuilderInterface
+    public function setContentType(string $contentType)
     {
         $this->data['contentType'] = $contentType;
 
@@ -69,7 +69,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param int $readyAtTimestamp
      * @return self
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp): ShipmentRequestBuilderInterface
+    public function setReadyAtTimestamp(int $readyAtTimestamp)
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
 
@@ -80,7 +80,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param int $numberOfPieces
      * @return self
      */
-    public function setNumberOfPieces(int $numberOfPieces): ShipmentRequestBuilderInterface
+    public function setNumberOfPieces(int $numberOfPieces)
     {
         $this->data['numberOfPieces'] = $numberOfPieces;
 
@@ -91,7 +91,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $currencyCode
      * @return self
      */
-    public function setCurrency(string $currencyCode): ShipmentRequestBuilderInterface
+    public function setCurrency(string $currencyCode)
     {
         $this->data['currencyCode'] = $currencyCode;
 
@@ -102,7 +102,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $description
      * @return self
      */
-    public function setDescription(string $description): ShipmentRequestBuilderInterface
+    public function setDescription(string $description)
     {
         $this->data['description'] = $description;
 
@@ -113,7 +113,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param float $customsValue
      * @return self
      */
-    public function setCustomsValue(float $customsValue): ShipmentRequestBuilderInterface
+    public function setCustomsValue(float $customsValue)
     {
         $this->data['customsValue'] = $customsValue;
 
@@ -124,7 +124,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $serviceType
      * @return self
      */
-    public function setServiceType(string $serviceType): ShipmentRequestBuilderInterface
+    public function setServiceType(string $serviceType)
     {
         $this->data['serviceType'] = $serviceType;
 
@@ -135,7 +135,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $accountNumber
      * @return self
      */
-    public function setPayerAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
+    public function setPayerAccountNumber(string $accountNumber)
     {
         $this->data['payerAccountNumber'] = $accountNumber;
 
@@ -145,7 +145,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setBillingAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
+    public function setBillingAccountNumber(string $accountNumber)
     {
         $this->data['billingAccountNumber'] = $accountNumber;
 
@@ -157,7 +157,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $insuranceCurrency
      * @return self
      */
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency): ShipmentRequestBuilderInterface
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency)
     {
         $this->data['insurance'] = [
             'value' => $insuranceValue,
@@ -185,7 +185,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         string $name,
         string $company,
         string $phone
-    ): ShipmentRequestBuilderInterface {
+    ) {
         $this->data['shipper'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -217,7 +217,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         string $name,
         string $company,
         string $phone
-    ): ShipmentRequestBuilderInterface {
+    ) {
         $this->data['recipient'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -251,7 +251,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         float $height,
         string $dimensionsUOM,
         string $customerReferences
-    ): ShipmentRequestBuilderInterface {
+    ) {
         $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
@@ -274,7 +274,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param float $weight
      * @return self
      */
-    public function setDryIce(string $unCode, float $weight): ShipmentRequestBuilderInterface
+    public function setDryIce(string $unCode, float $weight)
     {
         $this->data['dryIce'] = [
             'unCode' => $unCode,
@@ -287,7 +287,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     /**
      * @return ShipmentRequestInterface
      */
-    public function build(): ShipmentRequestInterface
+    public function build()
     {
         // Build shipment details
         $shipmentDetails = new ShipmentDetails(
@@ -387,7 +387,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @return array
      * @throws \InvalidArgumentException
      */
-    private function normalizeWeight(float $weight, string $uom): array
+    private function normalizeWeight(float $weight, string $uom)
     {
         if ($uom === Package::UOM_WEIGHT_KG) {
             return [
@@ -434,7 +434,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @return array
      * @throws \InvalidArgumentException
      */
-    private function normalizeDimensions(float $length, float $width, float $height, string $uom): array
+    private function normalizeDimensions(float $length, float $width, float $height, string $uom)
     {
         if ($uom === Package::UOM_DIMENSION_CM) {
             return [

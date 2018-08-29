@@ -32,7 +32,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @return ShipmentEvent[]
      */
-    public function getArrayOfShipmentEventItem(): array
+    public function getArrayOfShipmentEventItem()
     {
         return $this->ArrayOfShipmentEventItem;
     }
@@ -41,7 +41,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param ShipmentEvent[] $ArrayOfShipmentEventItem
      * @return self
      */
-    public function setArrayOfShipmentEventItem(array $ArrayOfShipmentEventItem): self
+    public function setArrayOfShipmentEventItem(array $ArrayOfShipmentEventItem)
     {
         $this->ArrayOfShipmentEventItem = $ArrayOfShipmentEventItem;
 
@@ -54,7 +54,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return bool true on success or false on failure
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->ArrayOfShipmentEventItem[$offset]);
     }
@@ -65,7 +65,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return ShipmentEvent
      */
-    public function offsetGet($offset): ShipmentEvent
+    public function offsetGet($offset)
     {
         return $this->ArrayOfShipmentEventItem[$offset];
     }
@@ -102,7 +102,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return ShipmentEvent Return the current element
      */
-    public function current(): ShipmentEvent
+    public function current()
     {
         return current($this->ArrayOfShipmentEventItem);
     }
@@ -123,7 +123,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return bool Return the validity of the current position
      */
-    public function valid(): bool
+    public function valid()
     {
         return $this->key() !== null;
     }
@@ -154,7 +154,7 @@ class ShipmentEventCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * @return ShipmentEvent Return count of elements
      */
-    public function count(): ShipmentEvent
+    public function count()
     {
         return count($this->ArrayOfShipmentEventItem);
     }

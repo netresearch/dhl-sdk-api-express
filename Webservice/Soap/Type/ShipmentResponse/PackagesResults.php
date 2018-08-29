@@ -32,7 +32,7 @@ class PackagesResults
      *
      * @return array|PackageResult[]
      */
-    public function getPackageResult(): array
+    public function getPackageResult()
     {
         return $this->PackageResult;
     }

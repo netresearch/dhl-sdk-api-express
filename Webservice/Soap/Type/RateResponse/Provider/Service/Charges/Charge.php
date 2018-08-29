@@ -52,7 +52,7 @@ class Charge
      *
      * @return string
      */
-    public function getChargeType(): string
+    public function getChargeType()
     {
         return $this->ChargeType;
     }
@@ -62,7 +62,7 @@ class Charge
      *
      * @return float
      */
-    public function getChargeAmount(): float
+    public function getChargeAmount()
     {
         return (float) $this->ChargeAmount;
     }

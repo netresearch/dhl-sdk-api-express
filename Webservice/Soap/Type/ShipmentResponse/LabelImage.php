@@ -43,7 +43,7 @@ class LabelImage
      *
      * @return string
      */
-    public function getLabelImageFormat(): string
+    public function getLabelImageFormat()
     {
         return $this->LabelImageFormat;
     }
@@ -53,7 +53,7 @@ class LabelImage
      *
      * @return string
      */
-    public function getGraphicImage(): string
+    public function getGraphicImage()
     {
         return $this->GraphicImage;
     }

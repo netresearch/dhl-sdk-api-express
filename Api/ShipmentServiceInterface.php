@@ -27,11 +27,11 @@ interface ShipmentServiceInterface
      * @param ShipmentRequestInterface $request
      * @return ShipmentResponseInterface
      */
-    public function createShipment(ShipmentRequestInterface $request): ShipmentResponseInterface;
+    public function createShipment(ShipmentRequestInterface $request);
 
     /**
      * @param ShipmentDeleteRequestInterface $request
      * @return ShipmentDeleteResponseInterface
      */
-    public function deleteShipment(ShipmentDeleteRequestInterface $request): ShipmentDeleteResponseInterface;
+    public function deleteShipment(ShipmentDeleteRequestInterface $request);
 }

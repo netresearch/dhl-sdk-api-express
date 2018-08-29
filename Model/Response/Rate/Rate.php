@@ -71,7 +71,7 @@ class Rate implements RateInterface
     /**
      * @inheritdoc
      */
-    public function getServiceCode(): string
+    public function getServiceCode()
     {
         return $this->serviceCode;
     }
@@ -79,7 +79,7 @@ class Rate implements RateInterface
     /**
      * @inheritdoc
      */
-    public function getLabel(): string
+    public function getLabel()
     {
         return $this->label;
     }
@@ -87,7 +87,7 @@ class Rate implements RateInterface
     /**
      * @inheritdoc
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         return $this->amount;
     }
@@ -95,7 +95,7 @@ class Rate implements RateInterface
     /**
      * @inheritdoc
      */
-    public function getCurrencyCode(): string
+    public function getCurrencyCode()
     {
         return $this->currencyCode;
     }
@@ -107,7 +107,7 @@ class Rate implements RateInterface
      *
      * @return Rate
      */
-    public function setDeliveryTime(\DateTime $deliveryTime): Rate
+    public function setDeliveryTime(\DateTime $deliveryTime)
     {
         $this->deliveryTime = $deliveryTime;
         return $this;
@@ -118,7 +118,7 @@ class Rate implements RateInterface
      *
      * @return \DateTime
      */
-    public function getDeliveryTime(): \DateTime
+    public function getDeliveryTime()
     {
         return $this->deliveryTime;
     }

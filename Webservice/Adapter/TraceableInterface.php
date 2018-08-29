@@ -20,10 +20,10 @@ interface TraceableInterface
     /**
      * @return string
      */
-    public function getLastRequest(): string;
+    public function getLastRequest();
 
     /**
      * @return string
      */
-    public function getLastResponse(): string;
+    public function getLastResponse();
 }

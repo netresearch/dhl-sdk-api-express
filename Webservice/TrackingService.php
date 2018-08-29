@@ -57,7 +57,7 @@ class TrackingService implements TrackingServiceInterface
      * @throws SoapException
      * @throws TrackingRequestException
      */
-    public function getTrackingInformation(TrackingRequestInterface $request): TrackingResponseInterface
+    public function getTrackingInformation(TrackingRequestInterface $request)
     {
         try {
             $response = $this->adapter->getTrackingInformation($request);

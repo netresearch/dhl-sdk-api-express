@@ -61,7 +61,7 @@ class SoapShipmentResponse
      *
      * @return array|Notification[] Array of Notification
      */
-    public function getNotification(): array
+    public function getNotification()
     {
         return $this->Notification;
     }

@@ -58,7 +58,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return self
      */
-    public function setBuildingName(string $buildingName): BuyerAddress
+    public function setBuildingName(string $buildingName)
     {
         $this->BuildingName = new BuildingName($buildingName);
         return $this;
@@ -81,7 +81,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return self
      */
-    public function setCityDistrict(string $cityDistrict): BuyerAddress
+    public function setCityDistrict(string $cityDistrict)
     {
         $this->CityDistrict = new CityDistrict($cityDistrict);
         return $this;
@@ -104,7 +104,7 @@ class BuyerAddress extends ShipmentAddress
      *
      * @return self
      */
-    public function setCountryName(string $countryName): BuyerAddress
+    public function setCountryName(string $countryName)
     {
         $this->CountryName = new CountryName($countryName);
         return $this;

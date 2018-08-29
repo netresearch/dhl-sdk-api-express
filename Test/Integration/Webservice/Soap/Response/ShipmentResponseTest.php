@@ -25,7 +25,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return string
      */
-    private function loadResponseXml(string $xmlFile): string
+    private function loadResponseXml(string $xmlFile)
     {
         $fileName = realpath(__DIR__ . '/../Mock/Response/' . $xmlFile . '.xml');
 
@@ -41,7 +41,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function shipmentResponseProvider(): array
+    public function shipmentResponseProvider()
     {
         return [
             ['ShipmentResponse-001'],

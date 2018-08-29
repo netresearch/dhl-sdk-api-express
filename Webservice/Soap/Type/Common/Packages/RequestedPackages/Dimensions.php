@@ -55,7 +55,7 @@ class Dimensions
      *
      * @return Dimension
      */
-    public function getLength(): Dimension
+    public function getLength()
     {
         return $this->Length;
     }
@@ -67,7 +67,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setLength(float $length): Dimensions
+    public function setLength(float $length)
     {
         $this->Length = new Dimension($length);
         return $this;
@@ -78,7 +78,7 @@ class Dimensions
      *
      * @return Dimension
      */
-    public function getWidth(): Dimension
+    public function getWidth()
     {
         return $this->Width;
     }
@@ -90,7 +90,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setWidth(float $width): Dimensions
+    public function setWidth(float $width)
     {
         $this->Width = new Dimension($width);
         return $this;
@@ -101,7 +101,7 @@ class Dimensions
      *
      * @return Dimension
      */
-    public function getHeight(): Dimension
+    public function getHeight()
     {
         return $this->Height;
     }
@@ -113,7 +113,7 @@ class Dimensions
      *
      * @return self
      */
-    public function setHeight(float $height): Dimensions
+    public function setHeight(float $height)
     {
         $this->Height = new Dimension($height);
         return $this;

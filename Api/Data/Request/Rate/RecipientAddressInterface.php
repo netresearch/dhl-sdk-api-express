@@ -20,26 +20,26 @@ interface RecipientAddressInterface
      *
      * @return string[]
      */
-    public function getStreetLines(): array;
+    public function getStreetLines();
 
     /**
      * Returns the recipient city name.
      *
      * @return string
      */
-    public function getCity(): string;
+    public function getCity();
 
     /**
      * Returns the recipient postal code.
      *
      * @return string
      */
-    public function getPostalCode(): string;
+    public function getPostalCode();
 
     /**
      * Returns the recipient country code.
      *
      * @return string
      */
-    public function getCountryCode(): string;
+    public function getCountryCode();
 }

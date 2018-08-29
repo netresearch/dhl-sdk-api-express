@@ -81,7 +81,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return int
      */
-    public function getPickupTimestamp(): int
+    public function getPickupTimestamp()
     {
         return $this->pickupTimestamp;
     }
@@ -91,7 +91,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return int
      */
-    public function getServiceType(): int
+    public function getServiceType()
     {
         return $this->serviceType;
     }
@@ -101,7 +101,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return string[]
      */
-    public function getCommodities(): array
+    public function getCommodities()
     {
         return $this->commodities;
     }
@@ -111,7 +111,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return ShipperInterface
      */
-    public function getShipper(): ShipperInterface
+    public function getShipper()
     {
         return $this->shipper;
     }
@@ -121,7 +121,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return RecipientInterface
      */
-    public function getSRecipient(): RecipientInterface
+    public function getSRecipient()
     {
         return $this->recipient;
     }
@@ -131,7 +131,7 @@ class PickupRequest implements PickupRequestInterface
      *
      * @return PackageInterface[]
      */
-    public function getPackages(): array
+    public function getPackages()
     {
         return $this->packages;
     }

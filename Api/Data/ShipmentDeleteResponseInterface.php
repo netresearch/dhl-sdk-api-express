@@ -22,12 +22,12 @@ interface ShipmentDeleteResponseInterface
      *
      * @return string
      */
-    public function getMessage(): string;
+    public function getMessage();
 
     /**
      * Returns TRUE if request was successful.
      *
      * @return bool
      */
-    public function isSuccess(): bool;
+    public function isSuccess();
 }

@@ -25,5 +25,5 @@ interface PickupServiceAdapterInterface
      * @return PickupResponseInterface
      * @throws \InvalidArgumentException
      */
-    public function createPickup(PickupRequestInterface $request): PickupResponseInterface;
+    public function createPickup(PickupRequestInterface $request);
 }
