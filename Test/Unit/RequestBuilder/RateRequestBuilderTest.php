@@ -95,7 +95,9 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->setInsurance(99.99, 'EUR')
             ->setTermsOfTrade(ShipmentDetails::PAYMENT_TYPE_CFR)
             ->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS)
-            ->setReadyAtTimestamp(238948923);
+            ->setReadyAtTimestamp(238948923)
+            ->setNextBusinessDayIndicator(true)
+            ->setIsValueAddedServicesRequested(true);
 
         $request = $requestBuilder->build();
 

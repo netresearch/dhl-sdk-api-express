@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:s0="http://www.dhl.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://www.reactivity.com/xsdbundle/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.dhl.com">
+          
+          <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment"/>
+          <xsd:element name="TrackingRequest" type="s0:TrackingRequest"/>
+          <xsd:element name="TrackingResponse" type="s0:TrackingResponse"/>
+          <xsd:complexType name="TrackingRequest">
+            <xsd:sequence>
+              <xsd:element name="Request" type="s0:Request"/>
+              <xsd:element minOccurs="0" name="AWBNumber" type="s0:ArrayOfAWBNumber"/>
+              <xsd:element minOccurs="0" name="LPNumber" type="s0:ArrayOfTrackingPieceID"/>
+              <xsd:element name="LevelOfDetails" type="s0:LevelOfDetails"/>
+              <xsd:element minOccurs="0" name="PiecesEnabled" type="xsd:string"/>
+              <xsd:element name="EstimatedDeliveryDateEnabled" type="xsd:boolean" minOccurs="0"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="Request">
+            <xsd:sequence>
+              <xsd:element name="ServiceHeader" type="s0:ServiceHeader"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ServiceHeader">
+            <xsd:sequence>
+              <xsd:element name="MessageTime" type="xsd:dateTime"/>
+              <xsd:element name="MessageReference" type="s0:MessageReference"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="MessageReference">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:minLength value="28"/>
+              <xsd:maxLength value="32"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="AWBNumber">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:minLength value="10"/>
+              <xsd:maxLength value="11"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="ArrayOfAWBNumber">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfAWBNumberItem" type="s0:AWBNumber"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:simpleType name="TrackingPieceID">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:minLength value="1"/>
+              <xsd:maxLength value="35"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="ArrayOfTrackingPieceID">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfTrackingPieceIDItem" type="s0:TrackingPieceID"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:simpleType name="LevelOfDetails">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:enumeration value="LAST_CHECK_POINT_ONLY"/>
+              <xsd:enumeration value="ALL_CHECK_POINTS"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="TrackingResponse">
+            <xsd:sequence>
+              <xsd:element name="Response" type="s0:Response"/>
+              <xsd:element name="AWBInfo" type="s0:ArrayOfAWBInfo"/>
+              <xsd:element minOccurs="0" name="Fault" type="s0:Fault"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="Response">
+            <xsd:sequence>
+              <xsd:element name="ServiceHeader" type="s0:ServiceHeader"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="AWBInfo">
+            <xsd:sequence>
+              <xsd:element name="AWBNumber" type="s0:AWBNumber"/>
+              <xsd:element name="Status" type="s0:Status"/>
+              <xsd:element minOccurs="0" name="ShipmentInfo" type="s0:ShipmentInfo"/>
+              <xsd:element minOccurs="0" name="Pieces" type="s0:TrackingPieces"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="Status">
+            <xsd:sequence>
+              <xsd:element name="ActionStatus" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Condition" type="s0:ArrayOfCondition"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="Condition">
+            <xsd:sequence>
+              <xsd:element name="ConditionCode" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ConditionData" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfCondition">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfConditionItem" type="s0:Condition"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:complexType name="ShipmentInfo">
+            <xsd:sequence>
+              <xsd:element name="OriginServiceArea" type="s0:OriginServiceArea"/>
+              <xsd:element name="DestinationServiceArea" type="s0:DestinationServiceArea"/>
+              <xsd:element name="ShipperName" type="s0:PersonName"/>
+              <xsd:element minOccurs="0" name="ShipperAccountNumber" type="s0:AccountNumber"/>
+              <xsd:element name="ConsigneeName" type="s0:PersonName"/>
+              <xsd:element name="ShipmentDate" type="xsd:dateTime"/>
+              <xsd:element minOccurs="0" name="Pieces" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Weight" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="WeightUnit" type="tns:WeightUnit"/>
+              <xsd:element minOccurs="0" name="ShipmentEvent" type="s0:ArrayOfShipmentEvent"/>
+              <xsd:element minOccurs="0" name="ShipperReference" type="s0:Reference"/>
+              <xsd:element name="EstimatedDeliveryDate" type="xsd:dateTime" minOccurs="0"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="OriginServiceArea">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ServiceAreaCode" type="s0:ServiceAreaCode"/>
+              <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="OutboundSortCode" type="s0:OutboundSortCode"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="ServiceAreaCode">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:length value="3"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="OutboundSortCode">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:length value="4"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="DestinationServiceArea">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ServiceAreaCode" type="s0:ServiceAreaCode"/>
+              <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="FacilityCode" type="s0:FacilityCode"/>
+              <xsd:element minOccurs="0" name="InboundSortCode" type="s0:InboundSortCode"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="FacilityCode">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:maxLength value="3"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="InboundSortCode">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:length value="4"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="PersonName">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:maxLength value="45"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="AccountNumber">
+            <xsd:restriction base="xsd:positiveInteger">
+              <xsd:minInclusive value="100000000"/>
+              <xsd:maxInclusive value="9999999999"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="ShipmentEvent">
+            <xsd:sequence>
+              <xsd:element name="Date" type="xsd:date"/>
+              <xsd:element name="Time" type="xsd:time"/>
+              <xsd:element name="ServiceEvent" type="s0:ServiceEvent"/>
+              <xsd:element minOccurs="0" name="Signatory" type="tns:Signatory"/>
+              <xsd:element name="ServiceArea" type="s0:ServiceArea"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ServiceEvent">
+            <xsd:sequence>
+              <xsd:element name="EventCode" type="tns:EventCode"/>
+              <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ServiceArea">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ServiceAreaCode" type="s0:ServiceAreaCode"/>
+              <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfShipmentEvent">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfShipmentEventItem" type="s0:ShipmentEvent"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:complexType name="Reference">
+            <xsd:sequence>
+              <xsd:element name="ReferenceID" type="s0:ReferenceID"/>
+              <xsd:element minOccurs="0" name="ReferenceType" type="s0:ReferenceType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="ReferenceID">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:maxLength value="35"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="ReferenceType">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:length value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="TrackingPieces">
+            <xsd:sequence>
+              <xsd:element name="PieceInfo" minOccurs="0" type="s0:ArrayOfPieceInfo"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="PieceInfo">
+            <xsd:sequence>
+              <xsd:element name="PieceDetails" type="s0:PieceDetails"/>
+              <xsd:element name="PieceEvent" minOccurs="0" type="s0:ArrayOfPieceEvent"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="PieceDetails">
+            <xsd:sequence>
+              <xsd:element name="AWBNumber" type="xsd:string"/>
+              <xsd:element name="LicensePlate" type="s0:TrackingPieceID"/>
+              <xsd:element minOccurs="0" name="PieceNumber" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ActualDepth" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ActualWidth" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ActualHeight" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ActualWeight" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Depth" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Width" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Height" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="Weight" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="PackageType" type="s0:PackageType"/>
+              <xsd:element minOccurs="0" name="DimWeight" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="WeightUnit" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="PieceContents" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="PackageType">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:maxLength value="3"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="PieceEvent">
+            <xsd:sequence>
+              <xsd:element name="Date" type="xsd:date"/>
+              <xsd:element name="Time" type="xsd:time"/>
+              <xsd:element name="ServiceEvent" type="s0:ServiceEvent"/>
+              <xsd:element minOccurs="0" name="Signatory" type="tns:Signatory2"/>
+              <xsd:element name="ServiceArea" type="s0:ServiceArea"/>
+              <xsd:element name="ShipperReference" nillable="true" type="tns:ShipperReference"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfPieceEvent">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="ArrayOfPieceEventItem" type="s0:PieceEvent"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfPieceInfo">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="ArrayOfPieceInfoItem" type="s0:PieceInfo"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfAWBInfo">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfAWBInfoItem" type="s0:AWBInfo"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+          <xsd:complexType name="Fault">
+            <xsd:sequence>
+              <xsd:element name="PieceFault" type="s0:ArrayOfPieceFault"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="PieceFault">
+            <xsd:sequence>
+              <xsd:element name="PieceID" type="s0:TrackingPieceID"/>
+              <xsd:element name="ConditionCode" type="xsd:string"/>
+              <xsd:element name="ConditionData" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ArrayOfPieceFault">
+<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="ArrayOfPieceFaultItem" type="s0:PieceFault"/>
+		</xsd:sequence>
+
+          </xsd:complexType>
+        	</xsd:schema>
+    <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment">
+          <xsd:import namespace="http://www.dhl.com"/>
+          <xsd:complexType name="trackShipmentRequest">
+            <xsd:sequence>
+              <xsd:element name="trackingRequest" nillable="true" type="tns:pubTrackingRequest"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="pubTrackingRequest">
+            <xsd:sequence>
+              <xsd:element ref="s0:TrackingRequest"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="trackShipmentRequestResponse">
+            <xsd:sequence>
+              <xsd:element name="trackingResponse" nillable="true" type="tns:pubTrackingResponse"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="pubTrackingResponse">
+            <xsd:sequence>
+              <xsd:element ref="s0:TrackingResponse"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:simpleType name="WeightUnit">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:enumeration value="L"/>
+              <xsd:enumeration value="K"/>
+              <xsd:enumeration value="G"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="EventCode">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+              <xsd:length value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="Signatory">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:simpleType name="Signatory2">
+            <xsd:restriction base="xsd:string">
+              <xsd:whiteSpace value="preserve"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+          <xsd:complexType name="ShipperReference">
+            <xsd:sequence>
+              <xsd:element name="ReferenceID" nillable="true" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="ReferenceType" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        			<xsd:element name="trackShipmentRequest" type="tns:trackShipmentRequest"/>
+			<xsd:element name="trackShipmentRequestResponse" type="tns:trackShipmentRequestResponse"/>
+	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="trackShipmentRequestIn">
+    <wsdl:part name="parameters" element="tns:trackShipmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="trackShipmentRequestOut">
+    <wsdl:part name="parameters" element="tns:trackShipmentRequestResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="gblDHLExpressTrack">
+    <wsdl:operation name="trackShipmentRequest">
+      <wsdl:input message="tns:trackShipmentRequestIn"/>
+      <wsdl:output message="tns:trackShipmentRequestOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="gblDHLExpressTrack" type="tns:gblDHLExpressTrack">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="trackShipmentRequest">
+      <soap:operation soapAction="glDHLExpressTrack_providers_services_trackShipment_Binder_trackShipmentRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="gblDHLExpressTrack">
+    <wsdl:port name="gblDHLExpressTrack" binding="tns:gblDHLExpressTrack">
+      <soap:address location="https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

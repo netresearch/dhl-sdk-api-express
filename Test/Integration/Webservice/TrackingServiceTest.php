@@ -7,7 +7,8 @@ namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\RequestBuilder\TrackingRequestBuilder;
-use Dhl\Express\Webservice\SoapServiceFactory;
+use Dhl\Express\Test\Integration\Mock\SoapClientTrackingFake;
+use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
@@ -26,12 +27,8 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
      */
     private function getTrackingRequest(LoggerInterface $logger)
     {
-        /** @var \SoapClient|MockObject $soapClient */
-        //$soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
-        //$serviceFactory = new SoapServiceFactoryFake($soapClient);
-
-        $serviceFactory = new SoapServiceFactory();
-        return $serviceFactory->createTrackingService('user', 'password', $logger);
+        $serviceFactory = new SoapServiceFactoryFake(new SoapClientTrackingFake());
+        return $serviceFactory->createTrackingService('api-user', 'api-pass', $logger);
     }
 
     /**
@@ -52,6 +49,11 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
         string $piecesEnabled,
         string $levelOfDetails
     ) {
+        self::markTestIncomplete(
+            'This test should not really test the SOAP web service, instead it should test the mapping '
+            . 'from API classes to SOAP classes and visa versa. Fix it or remove it.'
+        );
+
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger

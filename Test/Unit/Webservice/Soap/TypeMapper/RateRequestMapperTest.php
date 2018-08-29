@@ -92,65 +92,65 @@ class RateRequestMapperTest extends TestCase
 
         // Assertions
 
-        $this->assertInstanceOf(SoapRateRequest::class, $soapRateRequest);
+        self::assertInstanceOf(SoapRateRequest::class, $soapRateRequest);
 
-        $this->assertEquals(
+        self::assertEquals(
             $shipperAddress->getCity(),
             $soapRateRequest->getRequestedShipment()->getShip()->getShipper()->getCity()
         );
-        $this->assertEquals(
+        self::assertEquals(
             $shipperAddress->getPostalCode(),
             $soapRateRequest->getRequestedShipment()->getShip()->getShipper()->getPostalCode()
         );
-        $this->assertEquals(
+        self::assertEquals(
             $shipperAddress->getCountryCode(),
             $soapRateRequest->getRequestedShipment()->getShip()->getShipper()->getCountryCode()
         );
 
-        $this->assertEquals($shipperAccountNumber, $soapRateRequest->getRequestedShipment()->getAccount());
+        self::assertEquals($shipperAccountNumber, $soapRateRequest->getRequestedShipment()->getAccount());
 
-        $this->assertEquals(
+        self::assertEquals(
             $recipientAddress->getCountryCode(),
             $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getCountryCode()
         );
-        $this->assertEquals(
+        self::assertEquals(
             $recipientAddress->getPostalCode(),
             $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getPostalCode()
         );
 
         if (count($recipientAddress->getStreetLines())) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipientAddress->getStreetLines()[0],
                 $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines()
             );
         }
 
         if (count($recipientAddress->getStreetLines()) > 1) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipientAddress->getStreetLines()[1],
                 $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines2()->__toString()
             );
         }
 
         if (count($recipientAddress->getStreetLines()) > 2) {
-            $this->assertEquals(
+            self::assertEquals(
                 $recipientAddress->getStreetLines()[2],
                 $soapRateRequest->getRequestedShipment()->getShip()->getRecipient()->getStreetLines3()->__toString()
             );
         }
 
-        $this->assertEquals(DropOffType::REQUEST_COURIER, $soapRateRequest->getRequestedShipment()->getDropOffType());
+        self::assertEquals(DropOffType::REQUEST_COURIER, $soapRateRequest->getRequestedShipment()->getDropOffType());
 
-        $this->assertEquals(
+        self::assertEquals(
             ShipmentDetails::PAYMENT_TYPE_CFR,
             $soapRateRequest->getRequestedShipment()->getPaymentInfo()
         );
-        $this->assertEquals(
+        self::assertEquals(
             ShipmentDetails::CONTENT_TYPE_DOCUMENTS,
             $soapRateRequest->getRequestedShipment()->getContent()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             UnitOfMeasurement::SI,
             $soapRateRequest->getRequestedShipment()->getUnitOfMeasurement()
         );
@@ -163,12 +163,12 @@ class RateRequestMapperTest extends TestCase
          * @var RequestedPackages $soapPackage
          */
         $soapPackage = $soapRateRequest->getRequestedShipment()->getPackages()->getRequestedPackages()[0];
-        $this->assertSameSize(
+        self::assertSameSize(
             $packages,
             $soapRateRequest->getRequestedShipment()->getPackages()->getRequestedPackages()
         );
-        $this->assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
-        $this->assertEquals(
+        self::assertEquals($package->getSequenceNumber(), $soapPackage->getNumber());
+        self::assertEquals(
             $shipmentDetails->getReadyAtTimestamp(),
             \DateTime::createFromFormat(
                 'Y-m-d\TH:i:s \G\M\TP',
@@ -176,10 +176,10 @@ class RateRequestMapperTest extends TestCase
             )->getTimestamp()
         );
 
-        $this->assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());
-        $this->assertEquals($package->getWidth(), $soapPackage->getDimensions()->getWidth()->getValue());
-        $this->assertEquals($package->getLength(), $soapPackage->getDimensions()->getLength()->getValue());
-        $this->assertEquals($package->getWeight(), $soapPackage->getWeight()->getValue());
+        self::assertEquals($package->getHeight(), $soapPackage->getDimensions()->getHeight()->getValue());
+        self::assertEquals($package->getWidth(), $soapPackage->getDimensions()->getWidth()->getValue());
+        self::assertEquals($package->getLength(), $soapPackage->getDimensions()->getLength()->getValue());
+        self::assertEquals($package->getWeight(), $soapPackage->getWeight()->getValue());
 
         /**
          * @var Service[] $soapSpecialServices
@@ -191,9 +191,9 @@ class RateRequestMapperTest extends TestCase
          */
         foreach ($soapSpecialServices as $soapService) {
             if ($soapService->getServiceType() === ServiceType::TYPE_INSURANCE) {
-                $this->assertInstanceOf(Service::class, $soapService);
-                $this->assertSame($insurance->getCurrencyCode(), $soapService->getCurrencyCode());
-                $this->assertSame($insurance->getValue(), $soapService->getServiceValue()->getValue());
+                self::assertInstanceOf(Service::class, $soapService);
+                self::assertSame($insurance->getCurrencyCode(), $soapService->getCurrencyCode());
+                self::assertSame($insurance->getValue(), $soapService->getServiceValue()->getValue());
             }
         }
     }

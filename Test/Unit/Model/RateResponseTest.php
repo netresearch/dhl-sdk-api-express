@@ -40,9 +40,9 @@ class RateResponseTest extends TestCase
 
         $rateResponse = new RateResponse($rates);
 
-        $this->assertInstanceOf(RateResponse::class, $rateResponse);
-        $this->assertSameSize($rates, $rateResponse->getRates());
-        $this->assertEquals($rate1, $rateResponse->getRates()[0]);
-        $this->assertEquals($rate2, $rateResponse->getRates()[1]);
+        self::assertInstanceOf(RateResponse::class, $rateResponse);
+        self::assertSameSize($rates, $rateResponse->getRates());
+        self::assertEquals($rate1, $rateResponse->getRates()[0]);
+        self::assertEquals($rate2, $rateResponse->getRates()[1]);
     }
 }

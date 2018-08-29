@@ -5,24 +5,14 @@
 
 namespace Dhl\Express\Test\Integration\Webservice\Soap\Request;
 
-use Dhl\Express\Webservice\Soap\SoapClientFactory;
+use Dhl\Express\Test\Integration\Mock\SoapClientFake;
+use Dhl\Express\Test\Integration\Mock\SoapClientTrackingFake;
+use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\Type\SoapTrackingRequest;
-use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
-use Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfo;
-use Dhl\Express\Webservice\Soap\Type\Tracking\AWBInfoCollection;
 use Dhl\Express\Webservice\Soap\Type\Tracking\AWBNumberCollection;
 use Dhl\Express\Webservice\Soap\Type\Tracking\LevelOfDetails;
-use Dhl\Express\Webservice\Soap\Type\Tracking\PieceDetails;
-use Dhl\Express\Webservice\Soap\Type\Tracking\PieceEvent;
-use Dhl\Express\Webservice\Soap\Type\Tracking\PieceInfoCollection;
 use Dhl\Express\Webservice\Soap\Type\Tracking\Request;
-use Dhl\Express\Webservice\Soap\Type\Tracking\ServiceArea;
-use Dhl\Express\Webservice\Soap\Type\Tracking\ServiceEvent;
 use Dhl\Express\Webservice\Soap\Type\Tracking\ServiceHeader;
-use Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEventCollection;
-use Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentInfo;
-use Dhl\Express\Webservice\Soap\Type\Tracking\Status;
-use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingPieces;
 use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingRequest;
 use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingRequestBase;
 
@@ -35,7 +25,7 @@ class TrackingRequestTest extends \PHPUnit\Framework\TestCase
      * @test
      * Tests the mapping from the SOAP request classes to the proper XML structure.
      */
-    public function TrackingRequestXmlMapping(): void
+    public function TrackingRequestXmlMapping()
     {
         $messageTime = '2018-08-07T14:27:02Z';
         $serviceHeader = new ServiceHeader($messageTime, '4894d5593bd9a8259d53f1ef4e81');
@@ -50,41 +40,74 @@ class TrackingRequestTest extends \PHPUnit\Framework\TestCase
         $soapRequest = new SoapTrackingRequest();
         $soapRequest->setTrackingRequest($trackingRequestBase);
 
-        $soapClientFactory = new SoapClientFactory();
-        $soapClient = $soapClientFactory->create(
-            'user',
-            'password',
-            'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL'
+
+        /** @var SoapClientFake|MockObject $soapClientMock */
+        $soapClientMock = $this->getMockFromWsdl(
+            WsdlProvider::getTrackingWsdlFile(),
+            SoapClientTrackingFake::class,
+            '',
+            [
+                '__doRequest',
+            ]
         );
 
-        /** @var SoapTrackingResponse $response */
-        $response = $soapClient->__soapCall('trackShipmentRequest', [$soapRequest]);
-        $trackingResponse =$response->getTrackingResponse()->getTrackingResponse();
+        $soapClientMock->expects(self::once())
+            ->method('__doRequest')
+            ->with(
+                self::anything(),
+                self::anything(),
+                'glDHLExpressTrack_providers_services_trackShipment_Binder_trackShipmentRequest'
+            )
+            ->willReturn('');
 
-        $this->assertInstanceOf(AWBInfoCollection::class, $trackingResponse->getAWBInfo());
-        foreach ($trackingResponse->getAWBInfo() as $awbInfo) {
-            $this->assertInstanceOf(AWBInfo::class, $awbInfo);
-
-            $this->assertInstanceOf(TrackingPieces::class, $awbInfo->getPieces());
-            $this->assertInstanceOf(PieceInfoCollection::class, $awbInfo->getPieces()->getPieceInfo());
-
-            foreach ($awbInfo->getPieces()->getPieceInfo() as $pieceInfo) {
-                $this->assertInstanceOf(PieceDetails::class, $pieceInfo->getPieceDetails());
-                $this->assertInstanceOf(PieceEvent::class, $pieceInfo->getPieceEvent());
-            }
-
-            $this->assertInstanceOf(ShipmentInfo::class, $awbInfo->getShipmentInfo());
-            $this->assertInstanceOf(ShipmentEventCollection::class, $awbInfo->getShipmentInfo()->getShipmentEvent());
-            foreach ($awbInfo->getShipmentInfo()->getShipmentEvent() as $shipmentEvent) {
-                $this->assertInstanceOf(ServiceArea::class, $shipmentEvent->getServiceArea());
-                $this->assertInstanceOf(ServiceEvent::class, $shipmentEvent->getServiceEvent());
-            }
-
-            $this->assertInstanceOf(Status::class, $awbInfo->getStatus());
+        try {
+            $soapClientMock->__soapCall(
+                'trackShipmentRequest',
+                [
+                    $soapRequest
+                ]
+            );
+        } catch (\Exception $exception) {
+            self::fail($exception->getMessage(), $exception->getCode(), $exception);
         }
 
-        $this->assertNull($trackingResponse->getFault());
+        $this->addToAssertionCount(1);
 
-        $this->assertInstanceOf(ServiceHeader::class, $trackingResponse->getResponse()->getServiceHeader());
+//        $soapClientFactory = new SoapClientFactory();
+//        $soapClient = $soapClientFactory->create(
+//            'user',
+//            'password',
+//            'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL'
+//        );
+//
+//        /** @var SoapTrackingResponse $response */
+//        $response = $soapClient->__soapCall('trackShipmentRequest', [$soapRequest]);
+//        $trackingResponse =$response->getTrackingResponse()->getTrackingResponse();
+//
+//        self::assertInstanceOf(AWBInfoCollection::class, $trackingResponse->getAWBInfo());
+//        foreach ($trackingResponse->getAWBInfo() as $awbInfo) {
+//            self::assertInstanceOf(AWBInfo::class, $awbInfo);
+//
+//            self::assertInstanceOf(TrackingPieces::class, $awbInfo->getPieces());
+//            self::assertInstanceOf(PieceInfoCollection::class, $awbInfo->getPieces()->getPieceInfo());
+//
+//            foreach ($awbInfo->getPieces()->getPieceInfo() as $pieceInfo) {
+//                self::assertInstanceOf(PieceDetails::class, $pieceInfo->getPieceDetails());
+//                self::assertInstanceOf(PieceEvent::class, $pieceInfo->getPieceEvent());
+//            }
+//
+//            self::assertInstanceOf(ShipmentInfo::class, $awbInfo->getShipmentInfo());
+//            self::assertInstanceOf(ShipmentEventCollection::class, $awbInfo->getShipmentInfo()->getShipmentEvent());
+//            foreach ($awbInfo->getShipmentInfo()->getShipmentEvent() as $shipmentEvent) {
+//                self::assertInstanceOf(ServiceArea::class, $shipmentEvent->getServiceArea());
+//                self::assertInstanceOf(ServiceEvent::class, $shipmentEvent->getServiceEvent());
+//            }
+//
+//            self::assertInstanceOf(Status::class, $awbInfo->getStatus());
+//        }
+//
+//        self::assertNull($trackingResponse->getFault());
+//
+//        self::assertInstanceOf(ServiceHeader::class, $trackingResponse->getResponse()->getServiceHeader());
     }
 }

@@ -26,9 +26,9 @@ class DryIceTest extends TestCase
             $weight = 20.53
         );
 
-        $this->assertInstanceOf(DryIce::class, $dryIce);
-        $this->assertSame(DryIce::CONTENT_ID, $dryIce->getContentId());
-        $this->assertSame($unCode, $dryIce->getUnCode());
-        $this->assertSame($weight, $dryIce->getWeight());
+        self::assertInstanceOf(DryIce::class, $dryIce);
+        self::assertSame(DryIce::CONTENT_ID, $dryIce->getContentId());
+        self::assertSame($unCode, $dryIce->getUnCode());
+        self::assertSame($weight, $dryIce->getWeight());
     }
 }

@@ -9,7 +9,8 @@ use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
-use Dhl\Express\Webservice\SoapServiceFactory;
+use Dhl\Express\Test\Integration\Mock\SoapClientFake;
+use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
@@ -28,16 +29,8 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
      */
     private function getShipmentService(LoggerInterface $logger): ShipmentServiceInterface
     {
-        /** @var \SoapClient|MockObject $soapClient */
-//        $soapClient = $this->getMockFromWsdl('', SoapClientFake::class);
-
-        // $serviceFactory = new SoapServiceFactoryFake($soapClient);
-        // $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
-
-        $serviceFactory = new SoapServiceFactory();
-        $service = $serviceFactory->createShipmentService('DeveloperTestttt', 'G!7sI^0dC^7w', $logger);
-
-        return $service;
+        $serviceFactory = new SoapServiceFactoryFake(new SoapClientFake());
+        return $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
     }
 
     /**
@@ -105,6 +98,12 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
         float $iceWeight,
         array $packages
     ) {
+        self::markTestIncomplete(
+            'This test should not really test the SOAP web service, instead it should test the mapping '
+            . 'from API classes to SOAP classes and visa versa. Fix it or remove it.'
+        );
+
+
         /** @var LoggerInterface|MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger

@@ -39,27 +39,27 @@ class TrackingRequestMapperTest extends TestCase
         $soapRequest = $mapper->map($request)->getTrackingRequest()->getTrackingRequest();
 
         // Assertions
-        $this->assertEquals(
-            $messageTime,
+        self::assertEquals(
+            '2018-08-08T09:21:31+00:00',
             $soapRequest->getRequest()->getServiceHeader()->getMessageTime()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $messageReference,
             $soapRequest->getRequest()->getServiceHeader()->getMessageReference()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $awbNumber,
             $soapRequest->getAWBNumber()->getArrayOfAWBNumberItem()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $levelOfDetails,
             $soapRequest->getLevelOfDetails()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $peacesEnabled,
             $soapRequest->getPiecesEnabled()
         );

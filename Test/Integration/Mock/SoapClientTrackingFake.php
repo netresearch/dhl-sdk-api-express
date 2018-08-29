@@ -9,11 +9,11 @@ use Dhl\Express\Webservice\Soap\ClassMap;
 
 /**
  * @package  Dhl\Express\Test\Integration
- * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
-class SoapClientFake extends \SoapClient
+class SoapClientTrackingFake extends \SoapClient
 {
     /**
      * SoapClientFake constructor.
@@ -21,12 +21,11 @@ class SoapClientFake extends \SoapClient
     public function __construct()
     {
         parent::__construct(
-            WsdlProvider::getWsdlFile(),
+            WsdlProvider::getTrackingWsdlFile(),
             [
-                'trace'      => true,
-                'classmap'   => ClassMap::get(),
-                'features'   => SOAP_SINGLE_ELEMENT_ARRAYS,
-                'cache_wsdl' => WSDL_CACHE_NONE,
+                'trace'    => true,
+                'classmap' => ClassMap::get(),
+                'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]
         );
     }
