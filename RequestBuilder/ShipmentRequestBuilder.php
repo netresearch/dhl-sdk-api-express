@@ -34,9 +34,10 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 
     /**
      * @param bool $unscheduledPickup
+     *
      * @return self
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup)
+    public function setIsUnscheduledPickup($unscheduledPickup)
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
 
@@ -47,7 +48,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $termsOfTrade
      * @return self
      */
-    public function setTermsOfTrade(string $termsOfTrade)
+    public function setTermsOfTrade($termsOfTrade)
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
 
@@ -58,7 +59,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $contentType
      * @return self
      */
-    public function setContentType(string $contentType)
+    public function setContentType($contentType)
     {
         $this->data['contentType'] = $contentType;
 
@@ -69,7 +70,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param int $readyAtTimestamp
      * @return self
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp)
+    public function setReadyAtTimestamp($readyAtTimestamp)
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
 
@@ -80,7 +81,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param int $numberOfPieces
      * @return self
      */
-    public function setNumberOfPieces(int $numberOfPieces)
+    public function setNumberOfPieces($numberOfPieces)
     {
         $this->data['numberOfPieces'] = $numberOfPieces;
 
@@ -91,7 +92,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $currencyCode
      * @return self
      */
-    public function setCurrency(string $currencyCode)
+    public function setCurrency($currencyCode)
     {
         $this->data['currencyCode'] = $currencyCode;
 
@@ -102,7 +103,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $description
      * @return self
      */
-    public function setDescription(string $description)
+    public function setDescription($description)
     {
         $this->data['description'] = $description;
 
@@ -113,7 +114,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param float $customsValue
      * @return self
      */
-    public function setCustomsValue(float $customsValue)
+    public function setCustomsValue($customsValue)
     {
         $this->data['customsValue'] = $customsValue;
 
@@ -124,7 +125,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $serviceType
      * @return self
      */
-    public function setServiceType(string $serviceType)
+    public function setServiceType($serviceType)
     {
         $this->data['serviceType'] = $serviceType;
 
@@ -135,7 +136,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $accountNumber
      * @return self
      */
-    public function setPayerAccountNumber(string $accountNumber)
+    public function setPayerAccountNumber($accountNumber)
     {
         $this->data['payerAccountNumber'] = $accountNumber;
 
@@ -145,7 +146,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setBillingAccountNumber(string $accountNumber)
+    public function setBillingAccountNumber($accountNumber)
     {
         $this->data['billingAccountNumber'] = $accountNumber;
 
@@ -153,11 +154,11 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     /**
-     * @param float $insuranceValue
+     * @param float  $insuranceValue
      * @param string $insuranceCurrency
      * @return self
      */
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency)
+    public function setInsurance($insuranceValue, $insuranceCurrency)
     {
         $this->data['insurance'] = [
             'value' => $insuranceValue,
@@ -171,20 +172,20 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array $streetLines
+     * @param array  $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
      * @return self
      */
     public function setShipper(
-        string $countryCode,
-        string $postalCode,
-        string $city,
+        $countryCode,
+        $postalCode,
+        $city,
         array $streetLines,
-        string $name,
-        string $company,
-        string $phone
+        $name,
+        $company,
+        $phone
     ) {
         $this->data['shipper'] = [
             'countryCode' => $countryCode,
@@ -203,20 +204,20 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array $streetLines
+     * @param array  $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
      * @return self
      */
     public function setRecipient(
-        string $countryCode,
-        string $postalCode,
-        string $city,
+        $countryCode,
+        $postalCode,
+        $city,
         array $streetLines,
-        string $name,
-        string $company,
-        string $phone
+        $name,
+        $company,
+        $phone
     ) {
         $this->data['recipient'] = [
             'countryCode' => $countryCode,
@@ -232,25 +233,25 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     /**
-     * @param int $sequenceNumber
-     * @param float $weight
+     * @param int    $sequenceNumber
+     * @param float  $weight
      * @param string $weightUOM
-     * @param float $length
-     * @param float $width
-     * @param float $height
+     * @param float  $length
+     * @param float  $width
+     * @param float  $height
      * @param string $dimensionsUOM
      * @param string $customerReferences
      * @return self
      */
     public function addPackage(
-        int $sequenceNumber,
-        float $weight,
-        string $weightUOM,
-        float $length,
-        float $width,
-        float $height,
-        string $dimensionsUOM,
-        string $customerReferences
+        $sequenceNumber,
+        $weight,
+        $weightUOM,
+        $length,
+        $width,
+        $height,
+        $dimensionsUOM,
+        $customerReferences
     ) {
         $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
@@ -271,10 +272,10 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 
     /**
      * @param string $unCode
-     * @param float $weight
+     * @param float  $weight
      * @return self
      */
-    public function setDryIce(string $unCode, float $weight)
+    public function setDryIce($unCode, $weight)
     {
         $this->data['dryIce'] = [
             'unCode' => $unCode,
@@ -381,13 +382,12 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * Normalizes the weight and unit of measurement to the unit of measurement KG (kilograms) or LB (Pound)
      * supported by the DHL express webservice.
      *
-     * @param float $weight The weight
-     * @param string $uom The unit of measurement
+     * @param float  $weight The weight
+     * @param string $uom    The unit of measurement
      *
      * @return array
-     * @throws \InvalidArgumentException
      */
-    private function normalizeWeight(float $weight, string $uom)
+    private function normalizeWeight($weight, $uom)
     {
         if ($uom === Package::UOM_WEIGHT_KG) {
             return [
@@ -426,15 +426,14 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * Normalizes the dimensions to the unit of measurement CM (centimeter) or IN (inch) supported by the
      * DHL express webservice.
      *
-     * @param float $length The length of a package
-     * @param float $width The width of a package
-     * @param float $height The height of a package
-     * @param string $uom The unit of measurement
+     * @param float  $length The length of a package
+     * @param float  $width  The width of a package
+     * @param float  $height The height of a package
+     * @param string $uom    The unit of measurement
      *
      * @return array
-     * @throws \InvalidArgumentException
      */
-    private function normalizeDimensions(float $length, float $width, float $height, string $uom)
+    private function normalizeDimensions($length, $width, $height, $uom)
     {
         if ($uom === Package::UOM_DIMENSION_CM) {
             return [

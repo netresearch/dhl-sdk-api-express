@@ -205,7 +205,7 @@ class ShipmentRequestMapper
      *
      * @return string
      */
-    public function getDropOfTypeFromShipDetails(bool $isUnscheduledPickup)
+    public function getDropOfTypeFromShipDetails($isUnscheduledPickup)
     {
         if ($isUnscheduledPickup) {
             return ShipmentDetails::UNSCHEDULED_PICKUP;
@@ -254,13 +254,12 @@ class ShipmentRequestMapper
     /**
      * Maps the magento unit of measurement to the DHL express unit of measurement.
      *
-     * @param string $weightUOM The unit of measurement for weight
+     * @param string $weightUOM     The unit of measurement for weight
      * @param string $dimensionsUOM The unit of measurement for dimensions
      *
      * @return string
-     * @throws \InvalidArgumentException
      */
-    private function mapUOM(string $weightUOM, string $dimensionsUOM)
+    private function mapUOM($weightUOM, $dimensionsUOM)
     {
         if (($weightUOM === Package::UOM_WEIGHT_KG) && ($dimensionsUOM === Package::UOM_DIMENSION_CM)) {
             return UnitOfMeasurement::SI;

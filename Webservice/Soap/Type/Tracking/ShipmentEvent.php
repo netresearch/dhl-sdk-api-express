@@ -42,14 +42,14 @@ class ShipmentEvent
     protected $ServiceArea;
 
     /**
-     * @param string $Date
-     * @param string $Time
+     * @param string       $Date
+     * @param string       $Time
      * @param ServiceEvent $ServiceEvent
-     * @param ServiceArea $ServiceArea
+     * @param ServiceArea  $ServiceArea
      */
     public function __construct(
-        string $Date,
-        string $Time,
+        $Date,
+        $Time,
         ServiceEvent $ServiceEvent,
         ServiceArea $ServiceArea
     ) {
@@ -69,9 +69,10 @@ class ShipmentEvent
 
     /**
      * @param string $Date
+     *
      * @return self
      */
-    public function setDate(string $Date)
+    public function setDate($Date)
     {
         $this->Date = $Date;
 
@@ -90,7 +91,7 @@ class ShipmentEvent
      * @param string $Time
      * @return self
      */
-    public function setTime(string $Time)
+    public function setTime($Time)
     {
         $this->Time = $Time;
 
@@ -128,7 +129,7 @@ class ShipmentEvent
      * @param string $Signatory
      * @return self
      */
-    public function setSignatory(string $Signatory)
+    public function setSignatory($Signatory)
     {
         $this->Signatory = $Signatory;
 

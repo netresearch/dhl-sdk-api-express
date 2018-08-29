@@ -86,10 +86,10 @@ class SoapShipmentDeleteRequest
      * @param string $requesterName              The delete requester name
      */
     public function __construct(
-        string $pickupDate,
-        string $pickupCountry,
-        string $dispatchConfirmationNumber,
-        string $requesterName
+        $pickupDate,
+        $pickupCountry,
+        $dispatchConfirmationNumber,
+        $requesterName
     ) {
         $this->setPickupDate($pickupDate)
             ->setPickupCountry($pickupCountry)
@@ -137,7 +137,7 @@ class SoapShipmentDeleteRequest
      *
      * @return self
      */
-    public function setPickupDate(string $pickupDate)
+    public function setPickupDate($pickupDate)
     {
         $this->PickupDate = $pickupDate;
         return $this;
@@ -160,7 +160,7 @@ class SoapShipmentDeleteRequest
      *
      * @return self
      */
-    public function setPickupCountry(string $pickupCountry)
+    public function setPickupCountry($pickupCountry)
     {
         $this->PickupCountry = new CountryCode($pickupCountry);
         return $this;
@@ -183,7 +183,7 @@ class SoapShipmentDeleteRequest
      *
      * @return self
      */
-    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber)
+    public function setDispatchConfirmationNumber($dispatchConfirmationNumber)
     {
         $this->DispatchConfirmationNumber = $dispatchConfirmationNumber;
         return $this;
@@ -206,7 +206,7 @@ class SoapShipmentDeleteRequest
      *
      * @return self
      */
-    public function setRequestorName(string $requesterName)
+    public function setRequestorName($requesterName)
     {
         $this->RequestorName = new PersonName($requesterName);
         return $this;
@@ -229,7 +229,7 @@ class SoapShipmentDeleteRequest
      *
      * @return self
      */
-    public function setReason(string $reason)
+    public function setReason($reason)
     {
         $this->Reason = $reason;
         return $this;

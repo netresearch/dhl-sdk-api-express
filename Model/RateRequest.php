@@ -63,7 +63,7 @@ class RateRequest implements RateRequestInterface
      */
     public function __construct(
         ShipperAddressInterface $shipperAddress,
-        string $shipperAccountNumber,
+        $shipperAccountNumber,
         RecipientAddressInterface $recipientAddress,
         ShipmentDetailsInterface $shipmentDetails,
         array $packages,

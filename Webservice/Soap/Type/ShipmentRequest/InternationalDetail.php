@@ -84,7 +84,7 @@ class InternationalDetail
      *
      * @return InternationalDetail
      */
-    public function setContent(string $content)
+    public function setContent($content)
     {
         $this->Content = new Content($content);
         return $this;
@@ -107,7 +107,7 @@ class InternationalDetail
      *
      * @return InternationalDetail
      */
-    public function setExportReference(string $exportReference)
+    public function setExportReference($exportReference)
     {
         $this->ExportReference = new ExportReference($exportReference);
         return $this;

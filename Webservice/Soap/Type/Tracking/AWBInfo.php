@@ -37,10 +37,10 @@ class AWBInfo
     protected $Pieces;
 
     /**
-     * @param int $AWBNumber
+     * @param int    $AWBNumber
      * @param Status $Status
      */
-    public function __construct(int $AWBNumber, Status $Status)
+    public function __construct($AWBNumber, Status $Status)
     {
         $this->AWBNumber = $AWBNumber;
         $this->Status = $Status;
@@ -56,9 +56,10 @@ class AWBInfo
 
     /**
      * @param string $AWBNumber
+     *
      * @return self
      */
-    public function setAWBNumber(string $AWBNumber)
+    public function setAWBNumber($AWBNumber)
     {
         $this->AWBNumber = $AWBNumber;
 

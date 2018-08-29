@@ -37,8 +37,8 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
      * @param int    $code    The success code
      */
     public function __construct(
-        string $message,
-        int $code
+        $message,
+        $code
     ) {
         $this->message = $message;
         $this->code    = $code;

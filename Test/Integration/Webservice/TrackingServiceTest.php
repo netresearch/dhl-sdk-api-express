@@ -43,11 +43,11 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $levelOfDetails
      */
     public function trackShipment(
-        int $messageTime,
-        string $messageReference,
+        $messageTime,
+        $messageReference,
         array $awbNumbers,
-        string $piecesEnabled,
-        string $levelOfDetails
+        $piecesEnabled,
+        $levelOfDetails
     ) {
         self::markTestIncomplete(
             'This test should not really test the SOAP web service, instead it should test the mapping '

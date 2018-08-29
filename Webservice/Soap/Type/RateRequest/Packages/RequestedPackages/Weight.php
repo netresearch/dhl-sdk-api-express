@@ -27,7 +27,7 @@ class Weight
      *
      * @param float $value The value
      */
-    public function __construct(float $value)
+    public function __construct($value)
     {
         $this->setValue($value);
     }
@@ -49,7 +49,7 @@ class Weight
      *
      * @return self
      */
-    public function setValue(float $value)
+    public function setValue($value)
     {
         $this->Value = $value;
         return $this;

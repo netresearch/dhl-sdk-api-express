@@ -20,11 +20,12 @@ interface TrackingRequestBuilderInterface
     /**
      * Sets the tracking message.
      *
-     * @param int $time
+     * @param int    $time
      * @param string $reference
+     *
      * @return TrackingRequestBuilderInterface
      */
-    public function setMessage(int $time, string $reference);
+    public function setMessage($time, $reference);
 
     /**
      * Sets the tracking AWB numbers.
@@ -40,7 +41,7 @@ interface TrackingRequestBuilderInterface
      * @param string $awbNumber
      * @return self
      */
-    public function addAwbNumber(string $awbNumber);
+    public function addAwbNumber($awbNumber);
 
     /**
      * Sets the tracking's level of details.
@@ -48,7 +49,7 @@ interface TrackingRequestBuilderInterface
      * @param string $levelOfDetails
      * @return self
      */
-    public function setLevelOfDetails(string $levelOfDetails);
+    public function setLevelOfDetails($levelOfDetails);
 
     /**
      * Sets the tracking's pieces enabled code.
@@ -56,7 +57,7 @@ interface TrackingRequestBuilderInterface
      * @param string $piecesEnabled
      * @return self
      */
-    public function setPiecesEnabled(string $piecesEnabled);
+    public function setPiecesEnabled($piecesEnabled);
 
     /**
      * Sets if the estimated delivery date should be displayed in the response, if available
@@ -64,7 +65,7 @@ interface TrackingRequestBuilderInterface
      * @param bool $eddRequested
      * @return TrackingRequestBuilderInterface
      */
-    public function setEstimatedDeliveryDateRequested(bool $eddRequested);
+    public function setEstimatedDeliveryDateRequested($eddRequested);
 
     /**
      * Builds the tracking request instance.

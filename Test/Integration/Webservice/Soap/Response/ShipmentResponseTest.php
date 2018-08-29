@@ -25,7 +25,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @return string
      */
-    private function loadResponseXml(string $xmlFile)
+    private function loadResponseXml($xmlFile)
     {
         $fileName = realpath(__DIR__ . '/../Mock/Response/' . $xmlFile . '.xml');
 
@@ -56,7 +56,7 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
      *
      * @dataProvider shipmentResponseProvider
      */
-    public function testShipmentResponseClassMapping(string $responseXml)
+    public function testShipmentResponseClassMapping($responseXml)
     {
         /** @var SoapClientFake|MockObject $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(

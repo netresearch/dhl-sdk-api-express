@@ -52,7 +52,7 @@ class RecipientAddress implements RecipientAddressInterface
      * @param string   $city        The recipients city name
      * @param string[] $streetLines The recipients street lines
      */
-    public function __construct(string $countryCode, string $postalCode, string $city, array $streetLines)
+    public function __construct($countryCode, $postalCode, $city, array $streetLines)
     {
         $this->countryCode = $countryCode;
         $this->postalCode  = $postalCode;

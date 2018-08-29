@@ -38,9 +38,8 @@ class ServiceType implements ValueInterface
      *
      * @param string $value The value
      *
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         if (\strlen($value) !== self::NUMBER_OF_CHARS) {
             throw new \InvalidArgumentException('The argument must be a single letter service type');

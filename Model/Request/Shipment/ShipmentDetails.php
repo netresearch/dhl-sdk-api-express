@@ -131,26 +131,27 @@ class ShipmentDetails implements ShipmentDetailsInterface
 
     /**
      * ShipmentDetails constructor.
-     * @param bool $unscheduledPickup
+     *
+     * @param bool   $unscheduledPickup
      * @param string $termsOfTrade
      * @param string $contentType
-     * @param int $readyAtTimestamp
-     * @param int $numberOfPieces
+     * @param int    $readyAtTimestamp
+     * @param int    $numberOfPieces
      * @param string $currencyCode
      * @param string $description
-     * @param float $customsValue
+     * @param float  $customsValue
      * @param string $serviceType
      */
     public function __construct(
-        bool $unscheduledPickup,
-        string $termsOfTrade,
-        string $contentType,
-        int $readyAtTimestamp,
-        int $numberOfPieces,
-        string $currencyCode,
-        string $description,
-        float $customsValue,
-        string $serviceType
+        $unscheduledPickup,
+        $termsOfTrade,
+        $contentType,
+        $readyAtTimestamp,
+        $numberOfPieces,
+        $currencyCode,
+        $description,
+        $customsValue,
+        $serviceType
     ) {
         $this->unscheduledPickup = $unscheduledPickup;
         $this->termsOfTrade = $termsOfTrade;

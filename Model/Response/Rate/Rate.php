@@ -60,7 +60,7 @@ class Rate implements RateInterface
      * @param float  $amount       The amount
      * @param string $currencyCode The currency code
      */
-    public function __construct(string $serviceCode, string $label, float $amount, string $currencyCode)
+    public function __construct($serviceCode, $label, $amount, $currencyCode)
     {
         $this->serviceCode  = $serviceCode;
         $this->label        = $label;

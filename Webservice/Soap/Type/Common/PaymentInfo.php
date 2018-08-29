@@ -47,7 +47,7 @@ class PaymentInfo implements ValueInterface
      *
      * @param string $value The value
      */
-    public function __construct(string $value = self::CFR)
+    public function __construct($value = self::CFR)
     {
         $this->value = $value;
     }

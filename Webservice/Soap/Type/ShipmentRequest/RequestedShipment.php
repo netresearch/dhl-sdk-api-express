@@ -98,7 +98,7 @@ class RequestedShipment
     public function __construct(
         ShipmentInfo $shipmentInfo,
         $shipTimestamp,
-        string $paymentInfo,
+        $paymentInfo,
         InternationalDetail $internationalDetail,
         Ship $ship,
         Packages $packages
@@ -174,7 +174,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPickupLocationCloseTime(string $pickupLocationCloseTime)
+    public function setPickupLocationCloseTime($pickupLocationCloseTime)
     {
         $this->PickupLocationCloseTime = new PickupLocationCloseTime($pickupLocationCloseTime);
         return $this;
@@ -197,7 +197,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setSpecialPickupInstruction(string $specialPickupInstruction)
+    public function setSpecialPickupInstruction($specialPickupInstruction)
     {
         $this->SpecialPickupInstruction = new SpecialPickupInstruction($specialPickupInstruction);
         return $this;
@@ -220,7 +220,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPickupLocation(string $pickupLocation)
+    public function setPickupLocation($pickupLocation)
     {
         $this->PickupLocation = new PickupLocation($pickupLocation);
         return $this;
@@ -243,7 +243,7 @@ class RequestedShipment
      *
      * @return self
      */
-    public function setPaymentInfo(string $paymentInfo)
+    public function setPaymentInfo($paymentInfo)
     {
         $this->PaymentInfo = new PaymentInfo($paymentInfo);
         return $this;

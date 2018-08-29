@@ -36,7 +36,7 @@ class Insurance implements InsuranceInterface
      * @param float  $value        The value of the insurance
      * @param string $currencyCode The currency code
      */
-    public function __construct(float $value, string $currencyCode)
+    public function __construct($value, $currencyCode)
     {
         $this->value        = $value;
         $this->currencyCode = $currencyCode;

@@ -72,7 +72,7 @@ class Content
      *
      * @return self
      */
-    public function setContentId(string $contentId)
+    public function setContentId($contentId)
     {
         $this->ContentID = new ContentId($contentId);
         return $this;
@@ -95,7 +95,7 @@ class Content
      *
      * @return self
      */
-    public function setDryIceTotalNetWeight(string $dryIceTotalNetWeight)
+    public function setDryIceTotalNetWeight($dryIceTotalNetWeight)
     {
         $this->DryIceTotalNetWeight = new DryIceTotalNetWeight($dryIceTotalNetWeight);
         return $this;
@@ -118,7 +118,7 @@ class Content
      *
      * @return self
      */
-    public function setUNCode(string $unCode)
+    public function setUNCode($unCode)
     {
         $this->UNCode = new UNCode($unCode);
         return $this;

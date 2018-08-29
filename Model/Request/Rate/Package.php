@@ -95,13 +95,13 @@ class Package implements PackageInterface
      * @param string $dimensionsUOM  The unit of measurement for the package dimensions
      */
     public function __construct(
-        int $sequenceNumber,
-        float $weight,
-        string $weightUOM,
-        float $length,
-        float $width,
-        float $height,
-        string $dimensionsUOM
+        $sequenceNumber,
+        $weight,
+        $weightUOM,
+        $length,
+        $width,
+        $height,
+        $dimensionsUOM
     ) {
         $weightUOMs = [
             self::UOM_WEIGHT_KG,

@@ -30,11 +30,12 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
     /**
      * Sets the tracking message.
      *
-     * @param int $time
+     * @param int    $time
      * @param string $reference
+     *
      * @return TrackingRequestBuilderInterface
      */
-    public function setMessage(int $time, string $reference)
+    public function setMessage($time, $reference)
     {
         $this->data['message'] = [
             'time' => $time,
@@ -63,7 +64,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $awbNumber
      * @return TrackingRequestBuilderInterface
      */
-    public function addAwbNumber(string $awbNumber)
+    public function addAwbNumber($awbNumber)
     {
         $this->data['awb_numbers'][] = $awbNumber;
 
@@ -76,7 +77,7 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $levelOfDetails
      * @return TrackingRequestBuilderInterface
      */
-    public function setLevelOfDetails(string $levelOfDetails)
+    public function setLevelOfDetails($levelOfDetails)
     {
         $this->data['level_of_details'] = $levelOfDetails;
 
@@ -89,14 +90,14 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
      * @param string $piecesEnabled
      * @return TrackingRequestBuilderInterface
      */
-    public function setPiecesEnabled(string $piecesEnabled)
+    public function setPiecesEnabled($piecesEnabled)
     {
         $this->data['pieces_enabled'] = $piecesEnabled;
 
         return $this;
     }
 
-    public function setEstimatedDeliveryDateRequested(bool $eddRequested)
+    public function setEstimatedDeliveryDateRequested($eddRequested)
     {
         $this->data['estimated_delivery_date'] = $eddRequested;
 

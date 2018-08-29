@@ -46,7 +46,7 @@ class RequestedPackages
      * @param Dimensions $dimensions The dimensions of the package
      * @param int        $number     The package number
      */
-    public function __construct(float $weight, Dimensions $dimensions, int $number)
+    public function __construct($weight, Dimensions $dimensions, $number)
     {
         $this->setWeight($weight)
             ->setDimensions($dimensions)
@@ -70,7 +70,7 @@ class RequestedPackages
      *
      * @return self
      */
-    public function setWeight(float $weight)
+    public function setWeight($weight)
     {
         $this->Weight = new Weight($weight);
         return $this;

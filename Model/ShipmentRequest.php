@@ -69,14 +69,14 @@ class ShipmentRequest implements ShipmentRequestInterface
      * SoapShipmentRequest constructor.
      *
      * @param ShipmentDetailsInterface $shipmentDetails
-     * @param string $payerAccountNumber
-     * @param Shipper $shipper
-     * @param Recipient $recipient
-     * @param array $packages
+     * @param string                   $payerAccountNumber
+     * @param Shipper                  $shipper
+     * @param Recipient                $recipient
+     * @param array                    $packages
      */
     public function __construct(
         ShipmentDetailsInterface $shipmentDetails,
-        string $payerAccountNumber,
+        $payerAccountNumber,
         Shipper $shipper,
         Recipient $recipient,
         array $packages
@@ -119,7 +119,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return self
      */
-    public function setBillingAccountNumber(string $billingAccountNumber)
+    public function setBillingAccountNumber($billingAccountNumber)
     {
         $this->billingAccountNumber = $billingAccountNumber;
 

@@ -71,5 +71,5 @@ interface ShipmentDeleteRequestInterface
      *
      * @return self
      */
-    public function setReason(string $reason);
+    public function setReason($reason);
 }

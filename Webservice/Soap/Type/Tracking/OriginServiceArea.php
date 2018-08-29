@@ -41,9 +41,10 @@ class OriginServiceArea
 
     /**
      * @param string $ServiceAreaCode
+     *
      * @return self
      */
-    public function setServiceAreaCode(string $ServiceAreaCode)
+    public function setServiceAreaCode($ServiceAreaCode)
     {
         $this->ServiceAreaCode = $ServiceAreaCode;
 
@@ -62,7 +63,7 @@ class OriginServiceArea
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description)
+    public function setDescription($Description)
     {
         $this->Description = $Description;
 
@@ -81,7 +82,7 @@ class OriginServiceArea
      * @param string $OutboundSortCode
      * @return self
      */
-    public function setOutboundSortCode(string $OutboundSortCode)
+    public function setOutboundSortCode($OutboundSortCode)
     {
         $this->OutboundSortCode = $OutboundSortCode;
 

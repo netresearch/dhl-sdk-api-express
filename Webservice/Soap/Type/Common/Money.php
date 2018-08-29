@@ -29,7 +29,7 @@ class Money implements ValueInterface
      *
      * @param float $value The value
      */
-    public function __construct(float $value)
+    public function __construct($value)
     {
         $this->value = $value;
     }

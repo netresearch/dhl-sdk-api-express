@@ -37,14 +37,15 @@ use Psr\Log\LoggerInterface;
 class SoapServiceFactory implements ServiceFactoryInterface
 {
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
+     *
      * @return RateServiceInterface
      */
     public function createRateService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $clientFactory = new SoapClientFactory();
@@ -59,14 +60,14 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
      * @return ShipmentServiceInterface
      */
     public function createShipmentService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $clientFactory = new SoapClientFactory();
@@ -94,14 +95,14 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @param string $username
-     * @param string $password
+     * @param string          $username
+     * @param string          $password
      * @param LoggerInterface $logger
      * @return TrackingService
      */
     public function createTrackingService(
-        string $username,
-        string $password,
+        $username,
+        $password,
         LoggerInterface $logger
     ) {
         $clientFactory = new SoapClientFactory();

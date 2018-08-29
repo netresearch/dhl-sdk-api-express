@@ -46,7 +46,7 @@ class ClientDetail
      *
      * @return self
      */
-    public function setSso(string $sso)
+    public function setSso($sso)
     {
         $this->sso = $sso;
         return $this;
@@ -69,7 +69,7 @@ class ClientDetail
      *
      * @return self
      */
-    public function setPlant(string $plant)
+    public function setPlant($plant)
     {
         $this->plant = $plant;
         return $this;

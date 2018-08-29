@@ -42,10 +42,8 @@ class ShippingPaymentType implements ValueInterface
      * Constructor.
      *
      * @param string $value The value
-
-     * @throws \InvalidArgumentException
      */
-    public function __construct(string $value = self::S)
+    public function __construct($value = self::S)
     {
         if (!\in_array($value, [self::S, self::R, self::T], true)) {
             throw new \InvalidArgumentException('Argument must be either "S", "R" or "T"');

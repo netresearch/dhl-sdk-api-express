@@ -53,16 +53,16 @@ class PickupRequest implements PickupRequestInterface
     /**
      * PickupRequest constructor.
      *
-     * @param int $pickupTimestamp
-     * @param string $serviceType
-     * @param string[] $commodities
-     * @param ShipperInterface $shipper
+     * @param int                $pickupTimestamp
+     * @param string             $serviceType
+     * @param string[]           $commodities
+     * @param ShipperInterface   $shipper
      * @param RecipientInterface $recipient
      * @param PackageInterface[] $packages
      */
     public function __construct(
-        int $pickupTimestamp,
-        string $serviceType,
+        $pickupTimestamp,
+        $serviceType,
         array $commodities,
         ShipperInterface $shipper,
         RecipientInterface $recipient,

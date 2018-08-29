@@ -36,7 +36,7 @@ class PieceFault
      * @param string $ConditionCode
      * @param string $ConditionData
      */
-    public function __construct(string $PieceID, string $ConditionCode, string $ConditionData)
+    public function __construct($PieceID, $ConditionCode, $ConditionData)
     {
         $this->PieceID = $PieceID;
         $this->ConditionCode = $ConditionCode;
@@ -53,9 +53,10 @@ class PieceFault
 
     /**
      * @param string $PieceID
+     *
      * @return self
      */
-    public function setPieceID(string $PieceID)
+    public function setPieceID($PieceID)
     {
         $this->PieceID = $PieceID;
 
@@ -74,7 +75,7 @@ class PieceFault
      * @param string $ConditionCode
      * @return self
      */
-    public function setConditionCode(string $ConditionCode)
+    public function setConditionCode($ConditionCode)
     {
         $this->ConditionCode = $ConditionCode;
 
@@ -93,7 +94,7 @@ class PieceFault
      * @param string $ConditionData
      * @return self
      */
-    public function setConditionData(string $ConditionData)
+    public function setConditionData($ConditionData)
     {
         $this->ConditionData = $ConditionData;
 

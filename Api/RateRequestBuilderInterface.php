@@ -27,9 +27,9 @@ interface RateRequestBuilderInterface
      * @return self
      */
     public function setShipperAddress(
-        string $countryCode,
-        string $postalCode,
-        string $city
+        $countryCode,
+        $postalCode,
+        $city
     );
 
     /**
@@ -43,9 +43,9 @@ interface RateRequestBuilderInterface
      * @return self
      */
     public function setRecipientAddress(
-        string $countryCode,
-        string $postalCode,
-        string $city,
+        $countryCode,
+        $postalCode,
+        $city,
         array $streetLines
     );
 
@@ -63,13 +63,13 @@ interface RateRequestBuilderInterface
      * @return self
      */
     public function addPackage(
-        int $sequenceNumber,
-        float $weight,
-        string $weightUOM,
-        float $length,
-        float $width,
-        float $height,
-        string $dimensionsUOM
+        $sequenceNumber,
+        $weight,
+        $weightUOM,
+        $length,
+        $width,
+        $height,
+        $dimensionsUOM
     );
 
     /**
@@ -79,7 +79,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setIsUnscheduledPickup(bool $unscheduledPickup);
+    public function setIsUnscheduledPickup($unscheduledPickup);
 
     /**
      * Sets the shippers account number.
@@ -88,7 +88,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setShipperAccountNumber(string $accountNumber);
+    public function setShipperAccountNumber($accountNumber);
 
     /**
      * Sets the terms of trade.
@@ -97,7 +97,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setTermsOfTrade(string $termsOfTrade);
+    public function setTermsOfTrade($termsOfTrade);
 
     /**
      * Sets the terms of trade.
@@ -106,7 +106,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setContentType(string $contentType);
+    public function setContentType($contentType);
 
     /**
      * Sets the shipment timestamp.
@@ -115,7 +115,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setReadyAtTimestamp(int $readyAtTimestamp);
+    public function setReadyAtTimestamp($readyAtTimestamp);
 
     /**
      * Sets the insurance.
@@ -125,7 +125,7 @@ interface RateRequestBuilderInterface
      *
      * @return self
      */
-    public function setInsurance(float $insuranceValue, string $insuranceCurrency);
+    public function setInsurance($insuranceValue, $insuranceCurrency);
 
     /**
      * Sets if value added services should be included in the response
@@ -133,7 +133,7 @@ interface RateRequestBuilderInterface
      * @param bool $requestValueAddedServices
      * @return self
      */
-    public function setIsValueAddedServicesRequested(bool $requestValueAddedServices);
+    public function setIsValueAddedServicesRequested($requestValueAddedServices);
 
     /**
      * Sets if products for the next day should be fetched if the DHL cutoff time is exceeded
@@ -141,7 +141,7 @@ interface RateRequestBuilderInterface
      * @param bool $queryNextBusinessDay
      * @return self
      */
-    public function setNextBusinessDayIndicator(bool $queryNextBusinessDay);
+    public function setNextBusinessDayIndicator($queryNextBusinessDay);
 
     /**
      * Builds the rate request instance.

@@ -55,9 +55,9 @@ class TrackingRequest implements TrackingRequestInterface
     public function __construct(
         MessageInterface $message,
         array $awbNumber,
-        string $levelOfDetails,
-        string $piecesEnabled,
-        bool $estimatedDeliveryDate
+        $levelOfDetails,
+        $piecesEnabled,
+        $estimatedDeliveryDate
     ) {
         $this->message = $message;
         $this->awbNumber = $awbNumber;

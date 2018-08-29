@@ -28,7 +28,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setPickupDate(string $pickupDate)
+    public function setPickupDate($pickupDate)
     {
         $this->data['pickupDate'] = $pickupDate;
         return $this;
@@ -37,7 +37,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setPickupCountry(string $pickupCountry)
+    public function setPickupCountry($pickupCountry)
     {
         $this->data['pickupCountry'] = $pickupCountry;
         return $this;
@@ -46,7 +46,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setDispatchConfirmationNumber(string $dispatchConfirmationNumber)
+    public function setDispatchConfirmationNumber($dispatchConfirmationNumber)
     {
         $this->data['dispatchConfirmationNumber'] = $dispatchConfirmationNumber;
         return $this;
@@ -55,7 +55,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setRequesterName(string $requesterName)
+    public function setRequesterName($requesterName)
     {
         $this->data['requesterName'] = $requesterName;
         return $this;
@@ -64,7 +64,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * @inheritdoc
      */
-    public function setReason(string $reasonCode)
+    public function setReason($reasonCode)
     {
         $this->data['reasonCode'] = $reasonCode;
         return $this;

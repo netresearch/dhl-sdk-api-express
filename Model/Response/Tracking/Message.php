@@ -28,10 +28,11 @@ class Message implements MessageInterface
 
     /**
      * Message constructor.
-     * @param int $time
+     *
+     * @param int    $time
      * @param string $reference
      */
-    public function __construct(int $time, string $reference)
+    public function __construct($time, $reference)
     {
         $this->time = $time;
         $this->reference = $reference;

@@ -38,10 +38,11 @@ class DryIce implements DryIceInterface
 
     /**
      * DryIce constructor.
+     *
      * @param string $unCode
-     * @param float $weight
+     * @param float  $weight
      */
-    public function __construct(string $unCode, float $weight)
+    public function __construct($unCode, $weight)
     {
         $this->unCode = $unCode;
         $this->weight = $weight;

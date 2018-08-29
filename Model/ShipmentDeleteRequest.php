@@ -60,10 +60,10 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
      * @param string $requesterName              The delete requester name
      */
     public function __construct(
-        string $pickupDate,
-        string $pickupCountry,
-        string $dispatchConfirmationNumber,
-        string $requesterName
+        $pickupDate,
+        $pickupCountry,
+        $dispatchConfirmationNumber,
+        $requesterName
     ) {
         $this->pickupDate                 = $pickupDate;
         $this->pickupCountry              = $pickupCountry;
@@ -114,7 +114,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * @inheritdoc
      */
-    public function setReason(string $reason)
+    public function setReason($reason)
     {
         $this->reason = $reason;
         return $this;

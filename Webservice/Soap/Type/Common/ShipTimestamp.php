@@ -80,7 +80,7 @@ class ShipTimestamp implements ValueInterface
      *
      * @return bool
      */
-    private function validateDateTime(string $time)
+    private function validateDateTime($time)
     {
         $dateTime = \DateTime::createFromFormat(self::FORMAT, $time);
 
