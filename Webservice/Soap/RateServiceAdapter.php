@@ -24,7 +24,7 @@ use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterface
 {
     /**
-     * @var Client
+     * @var \SoapClient
      */
     private $client;
 
@@ -41,12 +41,12 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     /**
      * RateServiceAdapter constructor.
      *
-     * @param Client             $client
+     * @param \SoapClient        $client
      * @param RateRequestMapper  $requestMapper
      * @param RateResponseMapper $responseMapper
      */
     public function __construct(
-        Client $client,
+        \SoapClient $client,
         RateRequestMapper $requestMapper,
         RateResponseMapper $responseMapper
     ) {
