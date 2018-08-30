@@ -4,7 +4,6 @@
  */
 namespace Dhl\Express\RequestBuilder;
 
-use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 use Dhl\Express\Api\ShipmentDeleteRequestBuilderInterface;
 use Dhl\Express\Model\ShipmentDeleteRequest;
 

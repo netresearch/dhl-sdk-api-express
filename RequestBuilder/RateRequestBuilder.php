@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\RequestBuilder;
 
-use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\RateRequestBuilderInterface;
 use Dhl\Express\Model\RateRequest;
 use Dhl\Express\Model\Request\Insurance;

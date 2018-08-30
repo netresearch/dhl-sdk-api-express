@@ -6,7 +6,6 @@
 namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
-use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;

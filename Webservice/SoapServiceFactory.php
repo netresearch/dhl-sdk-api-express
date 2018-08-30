@@ -9,7 +9,6 @@ use Dhl\Express\Api\PickupServiceInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
-use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;

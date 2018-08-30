@@ -6,9 +6,7 @@
 namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
-use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
-use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
