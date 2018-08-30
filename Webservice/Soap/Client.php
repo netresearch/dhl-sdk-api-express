@@ -8,7 +8,6 @@ namespace Dhl\Express\Webservice\Soap;
 use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
 use Dhl\Express\Webservice\Soap\Type\SoapTrackingRequest;
-use Dhl\Express\Webservice\Soap\Type\SoapTrackingResponse;
 
 class Client extends \SoapClient
 {
