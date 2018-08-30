@@ -47,6 +47,6 @@ class PackageResult
      */
     public function getNumber()
     {
-        return $this->number;
+        return (int) $this->number;
     }
 }

@@ -196,7 +196,7 @@ class DocumentType
      */
     public function getPageNo()
     {
-        return $this->PageNo;
+        return (int) $this->PageNo;
     }
 
     /**
@@ -214,7 +214,7 @@ class DocumentType
      */
     public function getHeight()
     {
-        return $this->Height;
+        return (int) $this->Height;
     }
 
     /**
@@ -232,7 +232,7 @@ class DocumentType
      */
     public function getWidth()
     {
-        return $this->Width;
+        return (int) $this->Width;
     }
 
     /**
@@ -250,7 +250,7 @@ class DocumentType
      */
     public function getMarginLeft()
     {
-        return $this->MarginLeft;
+        return (int) $this->MarginLeft;
     }
 
     /**
@@ -268,7 +268,7 @@ class DocumentType
      */
     public function getMarginTop()
     {
-        return $this->MarginTop;
+        return (int) $this->MarginTop;
     }
 
     /**
@@ -286,7 +286,7 @@ class DocumentType
      */
     public function getMarginBottom()
     {
-        return $this->MarginBottom;
+        return (int) $this->MarginBottom;
     }
 
     /**
@@ -304,7 +304,7 @@ class DocumentType
      */
     public function getMarginRight()
     {
-        return $this->MarginRight;
+        return (int) $this->MarginRight;
     }
 
     /**
@@ -430,7 +430,7 @@ class DocumentType
      */
     public function getResolutionX()
     {
-        return $this->ResolutionX;
+        return (int) $this->ResolutionX;
     }
 
     /**
@@ -448,7 +448,7 @@ class DocumentType
      */
     public function getResolutionY()
     {
-        return $this->ResolutionY;
+        return (int) $this->ResolutionY;
     }
 
     /**
