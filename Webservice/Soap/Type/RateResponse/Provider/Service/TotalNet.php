@@ -46,6 +46,6 @@ class TotalNet
      */
     public function getAmount()
     {
-        return $this->Amount;
+        return (float) $this->Amount;
     }
 }

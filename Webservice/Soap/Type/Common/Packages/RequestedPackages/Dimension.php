@@ -42,7 +42,7 @@ class Dimension implements ValueInterface
     /**
      * Returns the value.
      *
-     * @return float|null
+     * @return float
      */
     public function getValue()
     {
