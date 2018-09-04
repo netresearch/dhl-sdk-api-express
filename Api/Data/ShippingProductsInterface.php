@@ -19,40 +19,35 @@ interface ShippingProductsInterface
      * International Express product service codes
      */
     const CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU = 'D';
-    const CODE_INTERNATIONAL_09_00_DUTYFREE = 'K';
-    const CODE_INTERNATIONAL_10_30_DUTYFREE = 'L';
     const CODE_INTERNATIONAL_12_00_DUTYFREE = 'T';
     const CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU = 'U';
 
-    const CODE_INTERNATIONAL_09_00_DUTIABLE = 'E';
-    const CODE_INTERNATIONAL_10_30_DUTIABLE = 'M';
     const CODE_INTERNATIONAL_12_00_DUTIABLE = 'Y';
     const CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE = 'P';
+    const CODE_INTERNATIONAL_ECONOMY_SELECT_H = 'H';
+    const CODE_INTERNATIONAL_ECONOMY_SELECT_W = 'W';
+    const CODE_EXPRESS_ENVELOPE = 'X';
 
     /**
      * Domestic Express product service codes
      */
-    const CODE_DOMESTIC_09_00 = 'I';
-    const CODE_DOMESTIC_10_00 = 'O';
     const CODE_DOMESTIC_12_00 = '1';
     const CODE_DOMESTIC = 'N';
 
     const PRODUCTS_INTERNATIONAL = [
         self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
-        self::CODE_INTERNATIONAL_09_00_DUTYFREE,
-        self::CODE_INTERNATIONAL_10_30_DUTYFREE,
         self::CODE_INTERNATIONAL_12_00_DUTYFREE,
         self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU,
-        self::CODE_INTERNATIONAL_09_00_DUTIABLE,
-        self::CODE_INTERNATIONAL_10_30_DUTIABLE,
         self::CODE_INTERNATIONAL_12_00_DUTIABLE,
         self::CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE,
+        self::CODE_INTERNATIONAL_ECONOMY_SELECT_H,
+        self::CODE_INTERNATIONAL_ECONOMY_SELECT_W,
+        self::CODE_EXPRESS_ENVELOPE
     ];
     const PRODUCTS_DOMESTIC = [
-        self::CODE_DOMESTIC_09_00,
-        self::CODE_DOMESTIC_10_00,
         self::CODE_DOMESTIC_12_00,
         self::CODE_DOMESTIC,
+        self::CODE_EXPRESS_ENVELOPE
     ];
 
     /**
@@ -64,17 +59,16 @@ interface ShippingProductsInterface
             self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_OUTSIDE_EU,
             self::CODE_INTERNATIONAL_WORLDWIDE_DUTYFREE_WITHIN_EU,
         ],
-        'EXPRESS 9:00' => [
-            self::CODE_INTERNATIONAL_09_00_DUTIABLE,
-            self::CODE_INTERNATIONAL_09_00_DUTYFREE,
-        ],
-        'EXPRESS 10:30' => [
-            self::CODE_INTERNATIONAL_10_30_DUTIABLE,
-            self::CODE_INTERNATIONAL_10_30_DUTYFREE,
-        ],
         'EXPRESS 12:00' => [
             self::CODE_INTERNATIONAL_12_00_DUTIABLE,
             self::CODE_INTERNATIONAL_12_00_DUTYFREE,
+        ],
+        'ECONOMY SELECT' => [
+            self::CODE_INTERNATIONAL_ECONOMY_SELECT_H,
+            self::CODE_INTERNATIONAL_ECONOMY_SELECT_W
+        ],
+        'EXPRESS ENVELOPE' => [
+            self::CODE_EXPRESS_ENVELOPE
         ]
     ];
 
@@ -82,9 +76,8 @@ interface ShippingProductsInterface
      * Domestic Express product names
      */
     const PRODUCT_NAMES_DOMESTIC = [
-        'DOMESTIC EXPRESS' => [self::CODE_DOMESTIC],
-        'DOMESTIC EXPRESS 9:00' => [self::CODE_DOMESTIC_09_00],
-        'DOMESTIC EXPRESS 10:00' => [self::CODE_DOMESTIC_10_00],
-        'DOMESTIC EXPRESS 12:00' => [self::CODE_DOMESTIC_12_00],
+        'EXPRESS DOMESTIC' => [self::CODE_DOMESTIC],
+        'EXPRESS DOMESTIC 12:00' => [self::CODE_DOMESTIC_12_00],
+        'EXPRESS ENVELOPE' => [self::CODE_EXPRESS_ENVELOPE]
     ];
 }
