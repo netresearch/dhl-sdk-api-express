@@ -92,18 +92,15 @@ class RateRequestMapper
             $requestedShipment->setSpecialServices($specialServices);
         }
 
-        $streetLines = $rateRequest->getRecipientAddress()->getStreetLines();
-
-        if (count($streetLines)) {
-            $requestedShipment->getShip()->getRecipient()->setStreetLines($streetLines[0]);
+        $recipientStreetLines = $rateRequest->getRecipientAddress()->getStreetLines();
+        if ((count($recipientStreetLines) > 0) && !empty($recipientStreetLines[0])) {
+            $requestedShipment->getShip()->getRecipient()->setStreetLines($recipientStreetLines[0]);
         }
-
-        if (count($streetLines) > 1) {
-            $requestedShipment->getShip()->getRecipient()->setStreetLines2($streetLines[1]);
+        if ((count($recipientStreetLines) > 1) && !empty($recipientStreetLines[1])) {
+            $requestedShipment->getShip()->getRecipient()->setStreetLines2($recipientStreetLines[1]);
         }
-
-        if (count($streetLines) > 2) {
-            $requestedShipment->getShip()->getRecipient()->setStreetLines3($streetLines[2]);
+        if ((count($recipientStreetLines) > 2) && !empty($recipientStreetLines[2])) {
+            $requestedShipment->getShip()->getRecipient()->setStreetLines3($recipientStreetLines[2]);
         }
 
         return new SoapRateRequest($requestedShipment);
