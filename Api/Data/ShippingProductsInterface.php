@@ -26,7 +26,6 @@ interface ShippingProductsInterface
     const CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE = 'P';
     const CODE_INTERNATIONAL_ECONOMY_SELECT_H = 'H';
     const CODE_INTERNATIONAL_ECONOMY_SELECT_W = 'W';
-    const CODE_EXPRESS_ENVELOPE = 'X';
 
     /**
      * Domestic Express product service codes
@@ -41,13 +40,11 @@ interface ShippingProductsInterface
         self::CODE_INTERNATIONAL_12_00_DUTIABLE,
         self::CODE_INTERNATIONAL_WORLDWIDE_DUTIABLE,
         self::CODE_INTERNATIONAL_ECONOMY_SELECT_H,
-        self::CODE_INTERNATIONAL_ECONOMY_SELECT_W,
-        self::CODE_EXPRESS_ENVELOPE
+        self::CODE_INTERNATIONAL_ECONOMY_SELECT_W
     ];
     const PRODUCTS_DOMESTIC = [
         self::CODE_DOMESTIC_12_00,
-        self::CODE_DOMESTIC,
-        self::CODE_EXPRESS_ENVELOPE
+        self::CODE_DOMESTIC
     ];
 
     /**
@@ -66,9 +63,6 @@ interface ShippingProductsInterface
         'ECONOMY SELECT' => [
             self::CODE_INTERNATIONAL_ECONOMY_SELECT_H,
             self::CODE_INTERNATIONAL_ECONOMY_SELECT_W
-        ],
-        'EXPRESS ENVELOPE' => [
-            self::CODE_EXPRESS_ENVELOPE
         ]
     ];
 
@@ -77,7 +71,6 @@ interface ShippingProductsInterface
      */
     const PRODUCT_NAMES_DOMESTIC = [
         'EXPRESS DOMESTIC' => [self::CODE_DOMESTIC],
-        'EXPRESS DOMESTIC 12:00' => [self::CODE_DOMESTIC_12_00],
-        'EXPRESS ENVELOPE' => [self::CODE_EXPRESS_ENVELOPE]
+        'EXPRESS DOMESTIC 12:00' => [self::CODE_DOMESTIC_12_00]
     ];
 }
