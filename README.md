@@ -1,3 +1,36 @@
+# DHL Express Shipping API SKD for PHP
+
+* version: 1.0.0
+
+## Description
+
+This library enables extension developers to prepare and parse messages for
+DHL Express API communication and provides functionality for collecting request
+data.
+
+## Requirements
+
+* PHP >= 5.6.5
+
+## Installation Instructions
+
+This library is installed as dependency to DHL Express modules for Magento®.
+It is not meant to be installed standalone.
+
+## Uninstallation
+
+This library is installed as dependency to DHL Shipping modules for Magento®.
+Following the module's uninstallation instructions will also remove the library
+source files from the system.
+
+## Developer
+
+Christoph Aßmann | [Netresearch GmbH & Co. KG](http://www.netresearch.de/) | [@mam08ixo](https://twitter.com/mam08ixo)
+
+## License
+
+See LICENSE.md for license details.
+
 ## Shipping Rates
 
 The _Rate Request_ will return DHL's product capabilities (products, services,
@@ -6,7 +39,7 @@ input data.
 
 ### Public API
 
-The library's components suitable for consumption comprise
+The library's components suitable for consumption comprise of
 
 * services:
   * service factory
@@ -49,7 +82,7 @@ and optionally book a courier for the pickup of a shipment.
 
 ### Public API
 
-The library's components suitable for consumption comprise
+The library's components suitable for consumption comprise of
 
 * services:
   * service factory
@@ -89,4 +122,8 @@ $response = $service->createShipment($request);
 
 ## Tracking History
 
+t.b.d.
+
 ## Courier Pickup
+
+t.b.d.
