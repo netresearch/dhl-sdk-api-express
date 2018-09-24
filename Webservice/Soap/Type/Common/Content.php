@@ -48,7 +48,7 @@ class Content implements ValueInterface
     public function __construct($value = self::DOCUMENTS)
     {
         if (!\in_array($value, [self::DOCUMENTS, self::NON_DOCUMENTS], true)) {
-            throw new \InvalidArgumentException('Argument must be either "DOCUMENTS" or "NON_DOCUMENTS"');
+            throw new \InvalidArgumentException('Content type must be either "DOCUMENTS" or "NON_DOCUMENTS"');
         }
 
         $this->value = $value;

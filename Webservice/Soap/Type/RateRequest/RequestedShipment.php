@@ -419,13 +419,15 @@ class RequestedShipment
     /**
      * Sets the account number.
      *
-     * @param string $account The account  number
+     * @param string $account The account number
+     * @throws \InvalidArgumentException
      *
      * @return self
      */
     public function setAccount($account)
     {
         $this->Account = new Account($account);
+
         return $this;
     }
 
