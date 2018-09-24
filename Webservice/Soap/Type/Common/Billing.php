@@ -48,6 +48,7 @@ class Billing
      * @param string $shipperAccountNumber The shipper account number
      * @param string $shippingPaymentType  The shipping payment type
      * @param string $billingAccountNumber The billing account number (Required if payment type is R or T)
+     * @throws \InvalidArgumentException
      *
      */
     public function __construct($shipperAccountNumber, $shippingPaymentType, $billingAccountNumber = null)
@@ -82,6 +83,7 @@ class Billing
      * Sets the shipper account number.
      *
      * @param string $shipperAccountNumber The shipper account number
+     * @throws \InvalidArgumentException
      *
      * @return self
      */

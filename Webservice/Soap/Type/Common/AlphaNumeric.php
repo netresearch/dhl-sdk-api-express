@@ -31,19 +31,22 @@ class AlphaNumeric implements ValueInterface
      * Constructor.
      *
      * @param string $value The value
+     * @throws \InvalidArgumentException
      *
      */
     public function __construct($value)
     {
         if (\strlen($value) < static::MIN_LENGTH) {
             throw new \InvalidArgumentException(
-                'Only values with a minimum length of ' . static::MIN_LENGTH . ' characters are allowed'
+                'Invalid argument for ' . get_class($this) . ': Only values with a minimum length of ' .
+                static::MIN_LENGTH . ' characters are allowed'
             );
         }
 
         if (\strlen($value) > static::MAX_LENGTH) {
             throw new \InvalidArgumentException(
-                'Only values with a maximum length of ' . static::MAX_LENGTH . ' characters are allowed'
+                'Invalid argument for ' . get_class($this) . ': Only values with a maximum length of ' .
+                static::MAX_LENGTH . ' characters are allowed'
             );
         }
 
