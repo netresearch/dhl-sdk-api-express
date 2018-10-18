@@ -1,6 +1,6 @@
-# DHL Express Shipping API SKD for PHP
+# DHL Express Shipping API SDK for PHP
 
-* version: 1.0.0
+* version: 1.0.1
 
 ## Description
 
@@ -14,30 +14,30 @@ data.
 
 ## Installation Instructions
 
-This library is installed as dependency to DHL Express modules for Magento®.
-It is not meant to be installed standalone.
+```shell
+composer require dhl/sdk-api-express
+```
 
 ## Uninstallation
 
-This library is installed as dependency to DHL Shipping modules for Magento®.
-Following the module's uninstallation instructions will also remove the library
-source files from the system.
+```shell
+composer remove dhl/sdk-api-express
+```
 
-## Developer
+## Features
 
-Christoph Aßmann | [Netresearch GmbH & Co. KG](http://www.netresearch.de/) | [@mam08ixo](https://twitter.com/mam08ixo)
+The DHL Express Shipping API SDK supports the following features:
 
-## License
+* Retrieve Shipping Rates
+* Create Shipping Label
 
-See LICENSE.md for license details.
-
-## Shipping Rates
+### Shipping Rates
 
 The _Rate Request_ will return DHL's product capabilities (products, services,
 and estimated delivery time) and prices (where applicable) for a certain set of
 input data.
 
-### Public API
+#### Public API
 
 The library's components suitable for consumption comprise of
 
@@ -49,9 +49,9 @@ The library's components suitable for consumption comprise of
   * rate request
   * rate response
 
-### Usage
+#### Usage
 
-``` php
+```php
 $logger = new \Psr\Log\NullLogger();
 
 $serviceFactory = new SoapServiceFactory();
@@ -74,13 +74,13 @@ $request = $requestBuilder->build();
 $response = $service->collectRates($request);
 ```
 
-## Shipping Label
+### Shipping Label
 
 The _ShipmentRequest_ operation will allow you to generate an AWB number and
 piece IDs, generate a shipping label, transmit manifest shipment detail to DHL,
 and optionally book a courier for the pickup of a shipment.
 
-### Public API
+#### Public API
 
 The library's components suitable for consumption comprise of
 
@@ -92,9 +92,9 @@ The library's components suitable for consumption comprise of
   * shipment request
   * shipment response
 
-### Usage
+#### Usage
 
-``` php
+```php
 $logger = new \Psr\Log\NullLogger();
 
 $serviceFactory = new SoapServiceFactory();
@@ -120,10 +120,16 @@ $request = $requestBuilder->build();
 $response = $service->createShipment($request);
 ```
 
-## Tracking History
+## Support
 
-t.b.d.
+The DHL Express Shipping API SDK was created to be used in conjunction with the Magento® 2 module
+[DHL Express Rates at Checkout](https://marketplace.magento.com/dhl-module-rates-express.html).
+Any other usage will not receive official support.
 
-## Courier Pickup
+## Developer
 
-t.b.d.
+Christoph Aßmann | [Netresearch GmbH & Co. KG](http://www.netresearch.de/) | [@mam08ixo](https://twitter.com/mam08ixo)
+
+## License
+
+See LICENSE.md for license details.
