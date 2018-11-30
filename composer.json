@@ -17,18 +17,14 @@
       "role": "Developer"
     }
   ],
-  "config": {
-    "platform": {
-      "php": "5.6"
-    }
-  },
   "require": {
+    "php": "~5.6.5 || ~7.0.13 || ~7.1.3 || ~7.2.0",
     "ext-dom": "*",
     "ext-soap": "*",
     "psr/log": "~1.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "^4.8.0 || ^5.7.0"
   },
   "autoload": {
     "psr-4": {
@@ -41,6 +37,11 @@
         "Test/Unit",
         "Test/Integration"
       ]
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.0-dev"
     }
   }
 }
