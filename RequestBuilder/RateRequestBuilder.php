@@ -12,6 +12,7 @@ use Dhl\Express\Model\Request\Rate\Package;
 use Dhl\Express\Model\Request\Rate\RecipientAddress;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\Model\Request\Rate\ShipperAddress;
+use InvalidArgumentException;
 
 /**
  * Rate Request Builder.
@@ -244,6 +245,8 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * @param string $uom    The unit of measurement
      *
      * @return array
+     *
+     * @throws InvalidArgumentException
      */
     private function normalizeWeight($weight, $uom)
     {
@@ -268,7 +271,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             ];
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             'Invalid weight unit of measurement'
         );
     }
@@ -283,6 +286,8 @@ class RateRequestBuilder implements RateRequestBuilderInterface
      * @param string $uom    The unit of measurement
      *
      * @return array
+     *
+     * @throws InvalidArgumentException
      */
     private function normalizeDimensions($length, $width, $height, $uom)
     {
@@ -331,7 +336,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
             ];
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             'Invalid dimensions unit of measurement'
         );
     }

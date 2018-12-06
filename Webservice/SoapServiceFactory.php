@@ -9,6 +9,7 @@ use Dhl\Express\Api\PickupServiceInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
@@ -21,7 +22,9 @@ use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingResponseMapper;
+use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
+use RuntimeException;
 
 /**
  * SOAP Service Factory.
@@ -120,10 +123,10 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws RuntimeException
      */
     public function createPickupService()
     {
-        throw new \RuntimeException('Not yet implemented.');
+        throw new RuntimeException('Not yet implemented.');
     }
 }

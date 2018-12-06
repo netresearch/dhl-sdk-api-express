@@ -24,7 +24,9 @@ class RateResponseMapper
 {
     /**
      * @param SoapRateResponse $rateResponse
+     *
      * @return RateResponseInterface
+     *
      * @throws RateRequestException
      */
     public function map(SoapRateResponse $rateResponse)

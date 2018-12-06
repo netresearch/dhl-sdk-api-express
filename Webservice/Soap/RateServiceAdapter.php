@@ -12,6 +12,9 @@ use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
+use InvalidArgumentException;
+use SoapClient;
+use SoapFault;
 
 /**
  * Rate Service SOAP Adapter.
@@ -24,7 +27,7 @@ use Dhl\Express\Webservice\Soap\TypeMapper\RateResponseMapper;
 class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterface
 {
     /**
-     * @var \SoapClient
+     * @var SoapClient
      */
     private $client;
 
@@ -41,16 +44,15 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     /**
      * RateServiceAdapter constructor.
      *
-     * @param \SoapClient        $client
+     * @param SoapClient         $client
      * @param RateRequestMapper  $requestMapper
      * @param RateResponseMapper $responseMapper
      */
     public function __construct(
-        \SoapClient $client,
+        SoapClient $client,
         RateRequestMapper $requestMapper,
         RateResponseMapper $responseMapper
     ) {
-
         $this->client = $client;
         $this->requestMapper = $requestMapper;
         $this->responseMapper = $responseMapper;
@@ -66,13 +68,13 @@ class RateServiceAdapter implements RateServiceAdapterInterface, TraceableInterf
     {
         try {
             $soapRequest = $this->requestMapper->map($request);
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             throw new RateRequestException($e->getMessage());
         }
 
         try {
             $soapResponse = $this->client->__soapCall('getRateRequest', [$soapRequest]);
-        } catch (\SoapFault $e) {
+        } catch (SoapFault $e) {
             throw new SoapException('Could not access SOAP webservice.');
         }
 

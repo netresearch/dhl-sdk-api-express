@@ -36,6 +36,7 @@ interface ServiceFactoryInterface
      * @param string          $username
      * @param string          $password
      * @param LoggerInterface $logger
+     *
      * @return ShipmentServiceInterface
      */
     public function createShipmentService(
@@ -48,6 +49,7 @@ interface ServiceFactoryInterface
      * @param string          $username
      * @param string          $password
      * @param LoggerInterface $logger
+     *
      * @return TrackingServiceInterface
      */
     public function createTrackingService(

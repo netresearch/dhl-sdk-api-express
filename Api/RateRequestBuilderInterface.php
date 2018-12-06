@@ -6,6 +6,7 @@
 namespace Dhl\Express\Api;
 
 use Dhl\Express\Api\Data\RateRequestInterface;
+use InvalidArgumentException;
 
 /**
  * Rate Request Builder.
@@ -61,6 +62,8 @@ interface RateRequestBuilderInterface
      * @param string $dimensionsUOM  The unit of measurement for the package dimensions
      *
      * @return self
+     *
+     * @throws InvalidArgumentException
      */
     public function addPackage(
         $sequenceNumber,
