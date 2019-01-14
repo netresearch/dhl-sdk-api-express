@@ -38,7 +38,7 @@ class SoapPickupResponse
     /**
      * @return NotificationType[]
      */
-    public function getNotification(): array
+    public function getNotification()
     {
         return $this->Notification;
     }
@@ -47,7 +47,7 @@ class SoapPickupResponse
      * @param NotificationType[] $Notification
      * @return self
      */
-    public function setNotification(array $Notification): self
+    public function setNotification(array $Notification)
     {
         $this->Notification = $Notification;
         return $this;
@@ -56,7 +56,7 @@ class SoapPickupResponse
     /**
      * @return string
      */
-    public function getDispatchConfirmationNumber(): string
+    public function getDispatchConfirmationNumber()
     {
         return $this->DispatchConfirmationNumber;
     }
@@ -65,7 +65,7 @@ class SoapPickupResponse
      * @param string $DispatchConfirmationNumber
      * @return self
      */
-    public function setDispatchConfirmationNumber(string $DispatchConfirmationNumber): self
+    public function setDispatchConfirmationNumber($DispatchConfirmationNumber)
     {
         $this->DispatchConfirmationNumber = $DispatchConfirmationNumber;
         return $this;

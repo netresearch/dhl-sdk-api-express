@@ -42,7 +42,7 @@ class RequestedPackagesType
      * @param string $CustomerReferences
      * @param int $number
      */
-    public function __construct(float $Weight, DimensionsType $Dimensions, string $CustomerReferences, int $number)
+    public function __construct($Weight, DimensionsType $Dimensions, $CustomerReferences, $number)
     {
         $this->Weight = $Weight;
         $this->Dimensions = $Dimensions;
@@ -53,7 +53,7 @@ class RequestedPackagesType
     /**
      * @return float
      */
-    public function getWeight(): float
+    public function getWeight()
     {
         return $this->Weight;
     }
@@ -62,7 +62,7 @@ class RequestedPackagesType
      * @param float $Weight
      * @return self
      */
-    public function setWeight(float $Weight): self
+    public function setWeight($Weight)
     {
         $this->Weight = $Weight;
         return $this;
@@ -71,7 +71,7 @@ class RequestedPackagesType
     /**
      * @return DimensionsType
      */
-    public function getDimensions(): DimensionsType
+    public function getDimensions()
     {
         return $this->Dimensions;
     }
@@ -80,7 +80,7 @@ class RequestedPackagesType
      * @param DimensionsType $Dimensions
      * @return self
      */
-    public function setDimensions(DimensionsType $Dimensions): self
+    public function setDimensions(DimensionsType $Dimensions)
     {
         $this->Dimensions = $Dimensions;
         return $this;
@@ -89,7 +89,7 @@ class RequestedPackagesType
     /**
      * @return string
      */
-    public function getCustomerReferences(): string
+    public function getCustomerReferences()
     {
         return $this->CustomerReferences;
     }
@@ -98,7 +98,7 @@ class RequestedPackagesType
      * @param string $CustomerReferences
      * @return self
      */
-    public function setCustomerReferences(string $CustomerReferences): self
+    public function setCustomerReferences($CustomerReferences)
     {
         $this->CustomerReferences = $CustomerReferences;
         return $this;
@@ -107,7 +107,7 @@ class RequestedPackagesType
     /**
      * @return int
      */
-    public function getNumber(): int
+    public function getNumber()
     {
         return $this->number;
     }
@@ -116,7 +116,7 @@ class RequestedPackagesType
      * @param int $number
      * @return self
      */
-    public function setNumber(int $number): self
+    public function setNumber($number)
     {
         $this->number = $number;
         return $this;

@@ -62,12 +62,12 @@ class AddressType
     protected $CountryCode;
 
     /**
-     * @param string StreetLines $StreetLines
+     * @param string $StreetLines
      * @param string $City
      * @param string $PostalCode
      * @param string $CountryCode
      */
-    public function __construct(string $StreetLines, string $City, string $PostalCode, string $CountryCode)
+    public function __construct($StreetLines, $City, $PostalCode, $CountryCode)
     {
         $this->StreetLines = $StreetLines;
         $this->City = $City;
@@ -78,7 +78,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStreetLines(): string
+    public function getStreetLines()
     {
         return $this->StreetLines;
     }
@@ -87,7 +87,7 @@ class AddressType
      * @param string $StreetLines
      * @return self
      */
-    public function setStreetLines(string $StreetLines): self
+    public function setStreetLines($StreetLines)
     {
         $this->StreetLines = $StreetLines;
         return $this;
@@ -96,7 +96,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStreetName(): string
+    public function getStreetName()
     {
         return $this->StreetName;
     }
@@ -105,7 +105,7 @@ class AddressType
      * @param string $StreetName
      * @return self
      */
-    public function setStreetName($StreetName): self
+    public function setStreetName($StreetName)
     {
         $this->StreetName = $StreetName;
         return $this;
@@ -114,7 +114,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStreetNumber(): string
+    public function getStreetNumber()
     {
         return $this->StreetNumber;
     }
@@ -123,7 +123,7 @@ class AddressType
      * @param string $StreetNumber
      * @return self
      */
-    public function setStreetNumber($StreetNumber): self
+    public function setStreetNumber($StreetNumber)
     {
         $this->StreetNumber = $StreetNumber;
         return $this;
@@ -132,7 +132,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStreetLines2(): string
+    public function getStreetLines2()
     {
         return $this->StreetLines2;
     }
@@ -141,7 +141,7 @@ class AddressType
      * @param string $StreetLines2
      * @return self
      */
-    public function setStreetLines2($StreetLines2): self
+    public function setStreetLines2($StreetLines2)
     {
         $this->StreetLines2 = $StreetLines2;
         return $this;
@@ -150,7 +150,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStreetLines3(): string
+    public function getStreetLines3()
     {
         return $this->StreetLines3;
     }
@@ -159,7 +159,7 @@ class AddressType
      * @param string $StreetLines3
      * @return self
      */
-    public function setStreetLines3($StreetLines3): self
+    public function setStreetLines3($StreetLines3)
     {
         $this->StreetLines3 = $StreetLines3;
         return $this;
@@ -168,7 +168,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->City;
     }
@@ -177,7 +177,7 @@ class AddressType
      * @param string $City
      * @return self
      */
-    public function setCity($City): self
+    public function setCity($City)
     {
         $this->City = $City;
         return $this;
@@ -186,7 +186,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getStateOrProvinceCode(): string
+    public function getStateOrProvinceCode()
     {
         return $this->StateOrProvinceCode;
     }
@@ -195,7 +195,7 @@ class AddressType
      * @param string $StateOrProvinceCode
      * @return self
      */
-    public function setStateOrProvinceCode($StateOrProvinceCode): self
+    public function setStateOrProvinceCode($StateOrProvinceCode)
     {
         $this->StateOrProvinceCode = $StateOrProvinceCode;
         return $this;
@@ -204,7 +204,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->PostalCode;
     }
@@ -213,7 +213,7 @@ class AddressType
      * @param string $PostalCode
      * @return self
      */
-    public function setPostalCode($PostalCode): self
+    public function setPostalCode($PostalCode)
     {
         $this->PostalCode = $PostalCode;
         return $this;
@@ -222,7 +222,7 @@ class AddressType
     /**
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->CountryCode;
     }
@@ -231,7 +231,7 @@ class AddressType
      * @param string $CountryCode
      * @return self
      */
-    public function setCountryCode($CountryCode): self
+    public function setCountryCode($CountryCode)
     {
         $this->CountryCode = $CountryCode;
         return $this;

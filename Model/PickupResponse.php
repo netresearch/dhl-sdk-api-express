@@ -33,7 +33,7 @@ class PickupResponse implements PickupResponseInterface
      * @param string $code
      * @param string $message
      */
-    public function __construct(string $code, string $message)
+    public function __construct($code, $message)
     {
         $this->code = $code;
         $this->message = $message;
@@ -44,7 +44,7 @@ class PickupResponse implements PickupResponseInterface
      *
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return $this->code;
     }
@@ -54,7 +54,7 @@ class PickupResponse implements PickupResponseInterface
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->message;
     }

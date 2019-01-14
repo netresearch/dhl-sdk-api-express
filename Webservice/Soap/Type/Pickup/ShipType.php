@@ -49,7 +49,7 @@ class ShipType
     /**
      * @return ContactInfoType
      */
-    public function getShipper(): ContactInfoType
+    public function getShipper()
     {
         return $this->Shipper;
     }
@@ -58,7 +58,7 @@ class ShipType
      * @param ContactInfoType $Shipper
      * @return self
      */
-    public function setShipper(ContactInfoType $Shipper): self
+    public function setShipper(ContactInfoType $Shipper)
     {
         $this->Shipper = $Shipper;
         return $this;
@@ -67,7 +67,7 @@ class ShipType
     /**
      * @return ContactInfoType
      */
-    public function getPickup(): ContactInfoType
+    public function getPickup()
     {
         return $this->Pickup;
     }
@@ -76,7 +76,7 @@ class ShipType
      * @param ContactInfoType $Pickup
      * @return self
      */
-    public function setPickup(ContactInfoType $Pickup): self
+    public function setPickup(ContactInfoType $Pickup)
     {
         $this->Pickup = $Pickup;
         return $this;
@@ -85,7 +85,7 @@ class ShipType
     /**
      * @return ContactInfoType
      */
-    public function getBookingRequestor(): ContactInfoType
+    public function getBookingRequestor()
     {
         return $this->BookingRequestor;
     }
@@ -94,7 +94,7 @@ class ShipType
      * @param ContactInfoType $BookingRequestor
      * @return self
      */
-    public function setBookingRequestor(ContactInfoType $BookingRequestor): self
+    public function setBookingRequestor(ContactInfoType $BookingRequestor)
     {
         $this->BookingRequestor = $BookingRequestor;
         return $this;
@@ -103,7 +103,7 @@ class ShipType
     /**
      * @return ContactInfoType
      */
-    public function getRecipient(): ContactInfoType
+    public function getRecipient()
     {
         return $this->Recipient;
     }
@@ -112,7 +112,7 @@ class ShipType
      * @param ContactInfoType $Recipient
      * @return self
      */
-    public function setRecipient(ContactInfoType $Recipient): self
+    public function setRecipient(ContactInfoType $Recipient)
     {
         $this->Recipient = $Recipient;
         return $this;

@@ -2,6 +2,11 @@
 
 namespace Dhl\Express\Webservice\Soap\Type\Pickup;
 
+use Dhl\Express\Webservice\Soap\Type\Pickup\Billing;
+
+/**
+ * Class PickUpRequest
+ */
 class PickUpRequest extends \SoapClient
 {
     /**
@@ -21,7 +26,7 @@ class PickUpRequest extends \SoapClient
         'docTypeRef_ContactType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ContactType',
         'docTypeRef_AddressType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_AddressType',
         'docTypeRef_DimensionsType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_DimensionsType',
-        'Billing' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\Billing',
+        'Billing' => Billing::class,
         'docTypeRef_ShipmentDetailType' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_ShipmentDetailType',
         'docTypeRef_NotificationType2' => 'Dhl\\Express\\Webservice\\Soap\\Type\\Pickup\\docTypeRef_NotificationType2',
     );

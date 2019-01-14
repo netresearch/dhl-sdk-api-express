@@ -25,7 +25,7 @@ class ClassMap
      *
      * @return array|string[]
      */
-    public static function get(string $request = ''): array
+    public static function get($request = '')
     {
         $classMap =  [
             // getRateRequest response

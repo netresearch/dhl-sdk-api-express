@@ -36,7 +36,7 @@ class ShipmentInfoType
      * @param Billing $Billing
      * @param string $UnitOfMeasurement
      */
-    public function __construct(string $ServiceType, Billing $Billing, string $UnitOfMeasurement)
+    public function __construct($ServiceType, Billing $Billing, $UnitOfMeasurement)
     {
         $this->ServiceType = $ServiceType;
         $this->Billing = $Billing;
@@ -46,7 +46,7 @@ class ShipmentInfoType
     /**
      * @return string
      */
-    public function getServiceType(): string
+    public function getServiceType()
     {
         return $this->ServiceType;
     }
@@ -55,7 +55,7 @@ class ShipmentInfoType
      * @param string $ServiceType
      * @return self
      */
-    public function setServiceType(string $ServiceType): self
+    public function setServiceType($ServiceType)
     {
         $this->ServiceType = $ServiceType;
         return $this;
@@ -64,7 +64,7 @@ class ShipmentInfoType
     /**
      * @return Billing
      */
-    public function getBilling(): Billing
+    public function getBilling()
     {
         return $this->Billing;
     }
@@ -73,7 +73,7 @@ class ShipmentInfoType
      * @param Billing $Billing
      * @return self
      */
-    public function setBilling(Billing $Billing): self
+    public function setBilling(Billing $Billing)
     {
         $this->Billing = $Billing;
         return $this;
@@ -82,7 +82,7 @@ class ShipmentInfoType
     /**
      * @return string
      */
-    public function getUnitOfMeasurement(): string
+    public function getUnitOfMeasurement()
     {
         return $this->UnitOfMeasurement;
     }
@@ -91,7 +91,7 @@ class ShipmentInfoType
      * @param string $UnitOfMeasurement
      * @return self
      */
-    public function setUnitOfMeasurement(string $UnitOfMeasurement): self
+    public function setUnitOfMeasurement($UnitOfMeasurement)
     {
         $this->UnitOfMeasurement = $UnitOfMeasurement;
         return $this;

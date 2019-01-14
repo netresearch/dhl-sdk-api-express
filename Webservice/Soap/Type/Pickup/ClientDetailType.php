@@ -29,7 +29,7 @@ class ClientDetailType
     /**
      * @return string
      */
-    public function getSso(): string
+    public function getSso()
     {
         return $this->sso;
     }
@@ -38,7 +38,7 @@ class ClientDetailType
      * @param string $sso
      * @return self
      */
-    public function setSso(string $sso): self
+    public function setSso($sso)
     {
         $this->sso = $sso;
         return $this;
@@ -47,7 +47,7 @@ class ClientDetailType
     /**
      * @return string
      */
-    public function getPlant(): string
+    public function getPlant()
     {
         return $this->plant;
     }
@@ -56,7 +56,7 @@ class ClientDetailType
      * @param string $plant
      * @return self
      */
-    public function setPlant(string $plant): self
+    public function setPlant($plant)
     {
         $this->plant = $plant;
         return $this;

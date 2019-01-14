@@ -106,7 +106,7 @@ class Shipper implements ShipperInterface
     /**
      * @return int
      */
-    public function getAccount(): int
+    public function getAccount()
     {
         return $this->account;
     }
@@ -114,7 +114,7 @@ class Shipper implements ShipperInterface
     /**
      * @return array
      */
-    public function getStreetLines(): array
+    public function getStreetLines()
     {
         return $this->streetLines;
     }
@@ -122,7 +122,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->city;
     }
@@ -130,7 +130,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->postalCode;
     }
@@ -138,7 +138,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -146,7 +146,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -154,7 +154,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getCompany(): string
+    public function getCompany()
     {
         return $this->company;
     }
@@ -162,7 +162,7 @@ class Shipper implements ShipperInterface
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone()
     {
         return $this->phone;
     }

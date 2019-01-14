@@ -35,7 +35,7 @@ class PickupRequestTest extends \PHPUnit\Framework\TestCase
      * @test
      * Tests the mapping from the SOAP request classes to the proper XML structure.
      */
-    public function PickupRequestXmlMapping(): void
+    public function PickupRequestXmlMapping()
     {
         $shipment = new PickUpShipmentType(
             new ShipmentInfoType(

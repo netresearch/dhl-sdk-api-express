@@ -22,12 +22,12 @@ interface PickupResponseInterface
      *
      * @return string
      */
-    public function getCode(): string;
+    public function getCode();
 
     /**
      * Return the message.
      *
      * @return string
      */
-    public function getMessage(): string;
+    public function getMessage();
 }

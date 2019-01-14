@@ -30,7 +30,7 @@ class NotificationType
      * @param string $Message
      * @param int $code
      */
-    public function __construct(string $Message, int $code)
+    public function __construct($Message, $code)
     {
         $this->Message = $Message;
         $this->code = $code;
@@ -39,7 +39,7 @@ class NotificationType
     /**
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->Message;
     }
@@ -48,7 +48,7 @@ class NotificationType
      * @param string $Message
      * @return self
      */
-    public function setMessage(string $Message): self
+    public function setMessage($Message)
     {
         $this->Message = $Message;
         return $this;
@@ -57,7 +57,7 @@ class NotificationType
     /**
      * @return int
      */
-    public function getCode(): int
+    public function getCode()
     {
         return $this->code;
     }
@@ -66,7 +66,7 @@ class NotificationType
      * @param int $code
      * @return self
      */
-    public function setCode(int $code): self
+    public function setCode($code)
     {
         $this->code = $code;
         return $this;

@@ -46,7 +46,7 @@ class ContactType
      * @param string $CompanyName
      * @param string $PhoneNumber
      */
-    public function __construct(string $PersonName, string $CompanyName, string $PhoneNumber)
+    public function __construct($PersonName, $CompanyName, $PhoneNumber)
     {
         $this->PersonName = $PersonName;
         $this->CompanyName = $CompanyName;
@@ -56,7 +56,7 @@ class ContactType
     /**
      * @return string
      */
-    public function getPersonName(): string
+    public function getPersonName()
     {
         return $this->PersonName;
     }
@@ -65,7 +65,7 @@ class ContactType
      * @param string $PersonName
      * @return self
      */
-    public function setPersonName(string $PersonName): self
+    public function setPersonName($PersonName)
     {
         $this->PersonName = $PersonName;
         return $this;
@@ -74,7 +74,7 @@ class ContactType
     /**
      * @return string
      */
-    public function getCompanyName(): string
+    public function getCompanyName()
     {
         return $this->CompanyName;
     }
@@ -83,7 +83,7 @@ class ContactType
      * @param string $CompanyName
      * @return self
      */
-    public function setCompanyName(string $CompanyName): self
+    public function setCompanyName($CompanyName)
     {
         $this->CompanyName = $CompanyName;
         return $this;
@@ -92,7 +92,7 @@ class ContactType
     /**
      * @return string
      */
-    public function getPhoneNumber(): string
+    public function getPhoneNumber()
     {
         return $this->PhoneNumber;
     }
@@ -101,7 +101,7 @@ class ContactType
      * @param string $PhoneNumber
      * @return self
      */
-    public function setPhoneNumber(string $PhoneNumber): self
+    public function setPhoneNumber($PhoneNumber)
     {
         $this->PhoneNumber = $PhoneNumber;
         return $this;
@@ -110,7 +110,7 @@ class ContactType
     /**
      * @return string
      */
-    public function getEmailAddress(): string
+    public function getEmailAddress()
     {
         return $this->EmailAddress;
     }
@@ -119,7 +119,7 @@ class ContactType
      * @param string $EmailAddress
      * @return self
      */
-    public function setEmailAddress(string $EmailAddress): self
+    public function setEmailAddress($EmailAddress)
     {
         $this->EmailAddress = $EmailAddress;
         return $this;
@@ -128,7 +128,7 @@ class ContactType
     /**
      * @return string
      */
-    public function getMobilePhoneNumber(): string
+    public function getMobilePhoneNumber()
     {
         return $this->MobilePhoneNumber;
     }
@@ -137,7 +137,7 @@ class ContactType
      * @param string $MobilePhoneNumber
      * @return self
      */
-    public function setMobilePhoneNumber(string $MobilePhoneNumber): self
+    public function setMobilePhoneNumber($MobilePhoneNumber)
     {
         $this->MobilePhoneNumber = $MobilePhoneNumber;
         return $this;

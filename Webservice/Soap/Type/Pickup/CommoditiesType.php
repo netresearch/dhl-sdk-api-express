@@ -29,7 +29,7 @@ class CommoditiesType
     /**
      * @param string $Description
      */
-    public function __construct(string $Description)
+    public function __construct($Description)
     {
         $this->Description = $Description;
     }
@@ -37,7 +37,7 @@ class CommoditiesType
     /**
      * @return int
      */
-    public function getNumberOfPieces(): int
+    public function getNumberOfPieces()
     {
         return $this->NumberOfPieces;
     }
@@ -46,7 +46,7 @@ class CommoditiesType
      * @param int $NumberOfPieces
      * @return self
      */
-    public function setNumberOfPieces(int $NumberOfPieces): self
+    public function setNumberOfPieces($NumberOfPieces)
     {
         $this->NumberOfPieces = $NumberOfPieces;
         return $this;
@@ -55,7 +55,7 @@ class CommoditiesType
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->Description;
     }
@@ -64,7 +64,7 @@ class CommoditiesType
      * @param string $Description
      * @return self
      */
-    public function setDescription(string $Description): self
+    public function setDescription($Description)
     {
         $this->Description = $Description;
         return $this;

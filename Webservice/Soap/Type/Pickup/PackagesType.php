@@ -32,7 +32,7 @@ class PackagesType
     /**
      * @return RequestedPackagesType
      */
-    public function getRequestedPackages(): RequestedPackagesType
+    public function getRequestedPackages()
     {
         return $this->RequestedPackages;
     }
@@ -41,7 +41,7 @@ class PackagesType
      * @param RequestedPackagesType $RequestedPackages
      * @return self
      */
-    public function setRequestedPackages(RequestedPackagesType $RequestedPackages): self
+    public function setRequestedPackages(RequestedPackagesType $RequestedPackages)
     {
         $this->RequestedPackages = $RequestedPackages;
         return $this;

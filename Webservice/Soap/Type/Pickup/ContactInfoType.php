@@ -39,7 +39,7 @@ class ContactInfoType
     /**
      * @return ContactType
      */
-    public function getContact(): ContactType
+    public function getContact()
     {
         return $this->Contact;
     }
@@ -48,7 +48,7 @@ class ContactInfoType
      * @param ContactType $Contact
      * @return self
      */
-    public function setContact(ContactType $Contact): self
+    public function setContact(ContactType $Contact)
     {
         $this->Contact = $Contact;
         return $this;
@@ -57,7 +57,7 @@ class ContactInfoType
     /**
      * @return AddressType
      */
-    public function getAddress(): AddressType
+    public function getAddress()
     {
         return $this->Address;
     }
@@ -66,7 +66,7 @@ class ContactInfoType
      * @param AddressType $Address
      * @return self
      */
-    public function setAddress(AddressType $Address): self
+    public function setAddress(AddressType $Address)
     {
         $this->Address = $Address;
         return $this;

@@ -32,7 +32,7 @@ class InternationDetailType
     /**
      * @return CommoditiesType
      */
-    public function getCommodities(): CommoditiesType
+    public function getCommodities()
     {
         return $this->Commodities;
     }
@@ -41,7 +41,7 @@ class InternationDetailType
      * @param CommoditiesType $Commodities
      * @return self
      */
-    public function setCommodities(CommoditiesType $Commodities): self
+    public function setCommodities(CommoditiesType $Commodities)
     {
         $this->Commodities = $Commodities;
         return $this;

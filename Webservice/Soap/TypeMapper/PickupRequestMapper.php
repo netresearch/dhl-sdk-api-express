@@ -36,7 +36,7 @@ class PickupRequestMapper
      * @return SoapPickupRequest
      * @throws \InvalidArgumentException
      */
-    public function map(PickupRequestInterface $pickupRequest): SoapPickupRequest
+    public function map(PickupRequestInterface $pickupRequest)
     {
         $soapPickupRequest = new SoapPickupRequest(
             new PickUpShipmentType(
@@ -102,7 +102,7 @@ class PickupRequestMapper
      * @return string
      * @throws \InvalidArgumentException
      */
-    private function mapUOM(string $weightUOM, string $dimensionsUOM): string
+    private function mapUOM($weightUOM, $dimensionsUOM)
     {
         if (($weightUOM === Package::UOM_WEIGHT_KG) && ($dimensionsUOM === Package::UOM_DIMENSION_CM)) {
             return UnitOfMeasurement::SI;

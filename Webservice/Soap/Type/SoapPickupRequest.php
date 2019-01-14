@@ -45,7 +45,7 @@ class SoapPickupRequest
     /**
      * @return string
      */
-    public function getMessageId(): string
+    public function getMessageId()
     {
         return $this->MessageId;
     }
@@ -54,7 +54,7 @@ class SoapPickupRequest
      * @param string $MessageId
      * @return self
      */
-    public function setMessageId(string $MessageId): self
+    public function setMessageId($MessageId)
     {
         $this->MessageId = $MessageId;
         return $this;
@@ -63,7 +63,7 @@ class SoapPickupRequest
     /**
      * @return ClientDetailType
      */
-    public function getClientDetail(): ClientDetailType
+    public function getClientDetail()
     {
         return $this->ClientDetail;
     }
@@ -72,7 +72,7 @@ class SoapPickupRequest
      * @param ClientDetailType $ClientDetail
      * @return self
      */
-    public function setClientDetail(ClientDetailType $ClientDetail): self
+    public function setClientDetail(ClientDetailType $ClientDetail)
     {
         $this->ClientDetail = $ClientDetail;
         return $this;
@@ -81,7 +81,7 @@ class SoapPickupRequest
     /**
      * @return PickUpShipmentType
      */
-    public function getPickUpShipment(): PickUpShipmentType
+    public function getPickUpShipment()
     {
         return $this->PickUpShipment;
     }
@@ -90,7 +90,7 @@ class SoapPickupRequest
      * @param PickUpShipmentType $PickUpShipment
      * @return self
      */
-    public function setPickUpShipment(PickUpShipmentType $PickUpShipment): self
+    public function setPickUpShipment(PickUpShipmentType $PickUpShipment)
     {
         $this->PickUpShipment = $PickUpShipment;
         return $this;
