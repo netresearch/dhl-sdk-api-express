@@ -28,12 +28,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Dhl\\Express\\": "src"
+      "Dhl\\Express\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Dhl\\Express\\Test": "test"
+      "Dhl\\Express\\Test\\": "test/"
     }
   },
   "extra": {
