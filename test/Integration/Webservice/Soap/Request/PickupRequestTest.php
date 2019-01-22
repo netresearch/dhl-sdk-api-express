@@ -37,6 +37,7 @@ class PickupRequestTest extends \PHPUnit\Framework\TestCase
      */
     public function PickupRequestXmlMapping()
     {
+        $this->markTestIncomplete('we need to use a mock client and not call the api');
         $shipment = new PickUpShipmentType(
             new ShipmentInfoType(
                 'U',
