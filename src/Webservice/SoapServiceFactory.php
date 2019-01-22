@@ -82,7 +82,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $client = $clientFactory->create(
             $username,
             $password,
-            __DIR__ . DIRECTORY_SEPARATOR . 'Soap' . DIRECTORY_SEPARATOR . 'rateBook.wsdl'
+            __DIR__ . DIRECTORY_SEPARATOR
         );
 
         $adapter = new ShipmentServiceAdapter(
