@@ -317,7 +317,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['shipper']['streetLines'],
             $this->data['shipper']['name'],
             $this->data['shipper']['company'],
-            $this->data['shipper']['phone']
+            $this->data['shipper']['phone'],
+            $this->data['shipper']['email']
         );
 
         // Build recipient
@@ -328,7 +329,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['recipient']['streetLines'],
             $this->data['recipient']['name'],
             $this->data['recipient']['company'],
-            $this->data['recipient']['phone']
+            $this->data['recipient']['phone'],
+            $this->data['recipient']['email']
         );
 
         // build packages
