@@ -136,6 +136,7 @@ interface ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
+     * @param string $email
      *
      * @return self
      */
@@ -146,7 +147,8 @@ interface ShipmentRequestBuilderInterface
         array $streetLines,
         $name,
         $company,
-        $phone
+        $phone,
+        $email
     );
 
     /**
@@ -159,6 +161,7 @@ interface ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
+     * @param string $email
      *
      * @return self
      */
@@ -169,7 +172,8 @@ interface ShipmentRequestBuilderInterface
         array $streetLines,
         $name,
         $company,
-        $phone
+        $phone,
+        $email
     );
 
     /**

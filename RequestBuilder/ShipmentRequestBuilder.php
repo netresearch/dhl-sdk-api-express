@@ -176,6 +176,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
+     * @param string $email
      * @return self
      */
     public function setShipper(
@@ -185,7 +186,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         array $streetLines,
         $name,
         $company,
-        $phone
+        $phone,
+        $email
     ) {
         $this->data['shipper'] = [
             'countryCode' => $countryCode,
@@ -195,6 +197,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'name' => $name,
             'company' => $company,
             'phone' => $phone,
+            'email' => $email
         ];
 
         return $this;
@@ -208,6 +211,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
+     * @param string $email
      * @return self
      */
     public function setRecipient(
@@ -217,7 +221,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         array $streetLines,
         $name,
         $company,
-        $phone
+        $phone,
+        $email
     ) {
         $this->data['recipient'] = [
             'countryCode' => $countryCode,
@@ -227,6 +232,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             'name' => $name,
             'company' => $company,
             'phone' => $phone,
+            'email' => $email,
         ];
 
         return $this;

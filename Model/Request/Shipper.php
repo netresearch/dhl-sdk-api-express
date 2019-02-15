@@ -65,6 +65,13 @@ class Shipper implements ShipperInterface
      * @var string
      */
     private $phone;
+    
+    /**
+     * The email.
+     *
+     * @var string
+     */
+    private $email;
 
     /**
      * Shipper constructor.
@@ -76,6 +83,7 @@ class Shipper implements ShipperInterface
      * @param string $name
      * @param string $company
      * @param string $phone
+     * @param string $email
      */
     public function __construct(
         $countryCode,
@@ -84,7 +92,8 @@ class Shipper implements ShipperInterface
         array $streetLines,
         $name,
         $company,
-        $phone
+        $phone,
+        $email = null
     ) {
         $this->countryCode = $countryCode;
         $this->postalCode = $postalCode;
@@ -93,6 +102,7 @@ class Shipper implements ShipperInterface
         $this->name = $name;
         $this->company = $company;
         $this->phone = $phone;
+        $this->email = $email;
     }
 
     /**
@@ -149,5 +159,13 @@ class Shipper implements ShipperInterface
     public function getPhone()
     {
         return $this->phone;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

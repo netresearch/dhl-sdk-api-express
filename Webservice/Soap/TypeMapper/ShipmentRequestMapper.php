@@ -127,6 +127,11 @@ class ShipmentRequestMapper
         if ((count($recipientStreetLines) > 2) && !empty($recipientStreetLines[2])) {
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines3($recipientStreetLines[2]);
         }
+    
+        /*$shipperEmail = $request->getShipper()->getEmail();
+        if (!empty($shipperEmail) && filter_var($shipperEmail, FILTER_VALIDATE_EMAIL)) {
+            $requestedShipment->getShip()->getShipper();
+        }*/
 
         $shippingPaymentType = $request->getBillingAccountNumber()
             ? Billing\ShippingPaymentType::R

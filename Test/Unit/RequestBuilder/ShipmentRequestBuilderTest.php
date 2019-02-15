@@ -49,7 +49,8 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 ],
                 $name = 'Max Mustermann',
                 $company = 'Acme',
-                $phone = '004922832432423'
+                $phone = '004922832432423',
+                $email = 'rafa1@yopmail.com'
             )
             ->setRecipient(
                 $countryCode,
@@ -58,7 +59,8 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 $streetLines,
                 $name,
                 $company,
-                $phone
+                $phone,
+                $email = 'rafa2@yopmail.com'
             )
             ->setDryIce($unCode = 'UN1845', $weight = 20.53);
 
