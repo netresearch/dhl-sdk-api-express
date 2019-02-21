@@ -112,6 +112,12 @@ class ShipmentRequestMapper
             )
         );
 
+        //TODO $request->getShipper()->getEmail() != null
+        //$ship->getShipper->getContact()->setEmail()
+    
+        //TODO $request->getRecipient()->getEmail() != null
+        //$ship->getShipper->getContact()->setEmail()
+        
         $shipperStreetLines = $request->getShipper()->getStreetLines();
         if ((count($shipperStreetLines) > 1) && !empty($shipperStreetLines[1])) {
             $requestedShipment->getShip()->getShipper()->getAddress()->setStreetLines2($shipperStreetLines[1]);
