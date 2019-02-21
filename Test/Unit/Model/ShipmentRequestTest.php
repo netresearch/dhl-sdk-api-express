@@ -55,7 +55,7 @@ class ShipmentRequestTest extends TestCase
             $name = 'Max Mustermann',
             $company = 'Acme',
             $phone = '004922832432423',
-            $email = 'rafa1@yopmail.com'
+            $email = 'shipper@example.com'
         );
 
         $recipient = new Recipient(
@@ -66,7 +66,7 @@ class ShipmentRequestTest extends TestCase
             $name = 'Max Mustermann',
             $company = 'Acme',
             $phone = '004922832432423',
-            $email = 'rafa2@yopmail.com'
+            $email = 'recipient@example.com'
         );
 
         $package = new Package(
