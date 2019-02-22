@@ -187,7 +187,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         $name,
         $company,
         $phone,
-        $email
+        $email = null
     ) {
         $this->data['shipper'] = [
             'countryCode' => $countryCode,
@@ -222,7 +222,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         $name,
         $company,
         $phone,
-        $email
+        $email = null
     ) {
         $this->data['recipient'] = [
             'countryCode' => $countryCode,
