@@ -60,7 +60,7 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 $name,
                 $company,
                 $phone,
-                $email = 'recipient@example.com'
+                $email
             )
             ->setDryIce($unCode = 'UN1845', $weight = 20.53);
 
@@ -153,7 +153,8 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $streetLines,
             $name,
             $company,
-            $phone
+            $phone,
+            $email
         ), $request->getShipper());
 
         self::assertEquals(new Recipient(
@@ -163,7 +164,8 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
             $streetLines,
             $name,
             $company,
-            $phone
+            $phone,
+            $email
         ), $request->getRecipient());
 
         self::assertEquals(new DryIce(

@@ -111,12 +111,14 @@ class ShipmentRequestMapper
                 $this->mapPackages($request->getPackages())
             )
         );
-
-        //TODO $request->getShipper()->getEmail() != null
-        //$ship->getShipper->getContact()->setEmail()
-    
-        //TODO $request->getRecipient()->getEmail() != null
-        //$ship->getShipper->getContact()->setEmail()
+        
+        if (!empty($request->getShipper()->getEmail())) {
+            $requestedShipment->getShip()->getShipper()->getContact()->setEmailAddress($request->getShipper()->getEmail());
+        }
+        
+        if (!empty($request->getRecipient()->getEmail())) {
+            $requestedShipment->getShip()->getRecipient()->getContact()->setEmailAddress($request->getRecipient()->getEmail());
+        }
         
         $shipperStreetLines = $request->getShipper()->getStreetLines();
         if ((count($shipperStreetLines) > 1) && !empty($shipperStreetLines[1])) {
