@@ -136,7 +136,7 @@ interface ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
-     * @param string $email
+     * @param string|null $email
      *
      * @return self
      */
@@ -148,7 +148,7 @@ interface ShipmentRequestBuilderInterface
         $name,
         $company,
         $phone,
-        $email
+        $email = null
     );
 
     /**
@@ -161,7 +161,7 @@ interface ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
-     * @param string $email
+     * @param string|null $email
      *
      * @return self
      */
@@ -173,7 +173,7 @@ interface ShipmentRequestBuilderInterface
         $name,
         $company,
         $phone,
-        $email
+        $email = null
     );
 
     /**

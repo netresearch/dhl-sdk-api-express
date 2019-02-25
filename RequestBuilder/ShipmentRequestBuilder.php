@@ -176,7 +176,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
-     * @param string $email
+     * @param string|null $email
      * @return self
      */
     public function setShipper(
@@ -211,7 +211,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      * @param string $name
      * @param string $company
      * @param string $phone
-     * @param string $email
+     * @param string|null $email
      * @return self
      */
     public function setRecipient(

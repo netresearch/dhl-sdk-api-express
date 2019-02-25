@@ -65,7 +65,7 @@ class Shipper implements ShipperInterface
      * @var string
      */
     private $phone;
-    
+
     /**
      * The email.
      *
@@ -83,7 +83,7 @@ class Shipper implements ShipperInterface
      * @param string $name
      * @param string $company
      * @param string $phone
-     * @param string $email
+     * @param string|null $email
      */
     public function __construct(
         $countryCode,
@@ -160,7 +160,7 @@ class Shipper implements ShipperInterface
     {
         return $this->phone;
     }
-    
+
     /**
      * @return string
      */
