@@ -54,7 +54,8 @@ class ShipmentRequestTest extends TestCase
             $streetLines = ['Sample street 5a', 'Sample street 5b'],
             $name = 'Max Mustermann',
             $company = 'Acme',
-            $phone = '004922832432423'
+            $phone = '004922832432423',
+            $email = 'shipper@example.com'
         );
 
         $recipient = new Recipient(
@@ -64,7 +65,8 @@ class ShipmentRequestTest extends TestCase
             $streetLines = ['Sample street 5a', 'Sample street 5b'],
             $name = 'Max Mustermann',
             $company = 'Acme',
-            $phone = '004922832432423'
+            $phone = '004922832432423',
+            $email = 'recipient@example.com'
         );
 
         $package = new Package(

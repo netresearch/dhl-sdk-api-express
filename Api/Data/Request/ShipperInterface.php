@@ -64,4 +64,11 @@ interface ShipperInterface
      * @return string
      */
     public function getCountryCode();
+
+    /**
+     * Returns the shippers email.
+     *
+     * @return string
+     */
+    public function getEmail();
 }

@@ -64,4 +64,11 @@ interface RecipientInterface
      * @return string
      */
     public function getCountryCode();
+    
+    /**
+     * Returns the recipients email.
+     *
+     * @return string
+     */
+    public function getEmail();
 }
