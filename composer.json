@@ -2,7 +2,7 @@
   "name": "dhl/sdk-api-express",
   "description": "API communication to the DHL Express web services.",
   "type": "library",
-  "license": "OSL-3.0",
+  "license": "MIT",
   "authors":[
     {
       "name": "Christoph Aßmann",
