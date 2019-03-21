@@ -11,7 +11,6 @@ use Dhl\Express\Api\Data\RateResponseInterface;
  *
  * @package  Dhl\Express\Model
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
- * @license  https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link     https://www.netresearch.de/
  */
 class RateResponse implements RateResponseInterface
