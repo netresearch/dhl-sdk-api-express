@@ -16,7 +16,11 @@ namespace Dhl\Express\Webservice\Soap;
  */
 class SoapClientFactory
 {
-    const WSDL = 'https://wsbexpress.dhl.com/sndpt/expressRateBook?WSDL';
+    const RATEBOOK_TEST_WSDL = 'https://wsbexpress.dhl.com/sndpt/expressRateBook?WSDL';
+    const RATEBOOK_PROD_WSDL = 'https://wsbexpress.dhl.com/gbl/expressRateBook?WSDL';
+
+    const TRACK_TEST_WSDL = 'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL';
+    const TRACK_PROD_WSDL = 'https://wsbexpress.dhl.com/gbl/glDHLExpressTrack?WSDL';
 
     /**
      * @param string $username
@@ -28,7 +32,7 @@ class SoapClientFactory
      */
     public function create($username, $password, $wsdl = '', $request = '')
     {
-        $wsdl = $wsdl ?: self::WSDL;
+        $wsdl = $wsdl ?: self::RATEBOOK_PROD_WSDL;
 
         $options = [
             'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,

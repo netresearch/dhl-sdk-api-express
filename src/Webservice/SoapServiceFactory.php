@@ -9,7 +9,7 @@ use Dhl\Express\Api\PickupServiceInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
-use Dhl\Express\Exception\RateRequestException;
+use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
@@ -22,9 +22,7 @@ use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingResponseMapper;
-use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 
 /**
  * SOAP Service Factory.
@@ -38,19 +36,22 @@ use RuntimeException;
 class SoapServiceFactory implements ServiceFactoryInterface
 {
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
+     * @param bool $sandpit
      *
-     * @return RateServiceInterface
+     * @return RateServiceInterface|RateService
      */
     public function createRateService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $clientFactory = new SoapClientFactory();
-        $client = $clientFactory->create($username, $password);
+        $wsdl = $sandpit ? SoapClientFactory::RATEBOOK_TEST_WSDL : SoapClientFactory::RATEBOOK_PROD_WSDL;
+        $client = $clientFactory->create($username, $password, $wsdl);
 
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
@@ -61,15 +62,18 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
-     * @return ShipmentServiceInterface
+     * @param bool $sandpit
+     *
+     * @return ShipmentServiceInterface|ShipmentService
      */
     public function createShipmentService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $clientFactory = new SoapClientFactory();
 
@@ -78,10 +82,13 @@ class SoapServiceFactory implements ServiceFactoryInterface
          * Once the WSDL is in a state where the validation through the SOAP extension no longer fails,
          * this has to be removed
          */
+        $wsdl = __DIR__ . DIRECTORY_SEPARATOR . 'Soap' . DIRECTORY_SEPARATOR;
+        $wsdl .= $sandpit ? 'sandpit-rateBook.wsdl' : 'production-rateBook.wsdl';
+
         $client = $clientFactory->create(
             $username,
             $password,
-            __DIR__ . DIRECTORY_SEPARATOR
+            $wsdl
         );
 
         $adapter = new ShipmentServiceAdapter(
@@ -96,21 +103,25 @@ class SoapServiceFactory implements ServiceFactoryInterface
     }
 
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
-     * @return TrackingService
+     * @param bool $sandpit
+     *
+     * @return TrackingServiceInterface|TrackingService
      */
     public function createTrackingService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $clientFactory = new SoapClientFactory();
+        $wsdl = $sandpit ? SoapClientFactory::TRACK_TEST_WSDL : SoapClientFactory::TRACK_PROD_WSDL;
         $client = $clientFactory->create(
             $username,
             $password,
-            'https://wsbexpress.dhl.com/sndpt/glDHLExpressTrack?WSDL'
+            $wsdl
         );
 
         $requestMapper = new TrackingRequestMapper();
@@ -126,6 +137,6 @@ class SoapServiceFactory implements ServiceFactoryInterface
      */
     public function createPickupService()
     {
-        throw new RuntimeException('Not yet implemented.');
+        throw new \RuntimeException('Not yet implemented.');
     }
 }

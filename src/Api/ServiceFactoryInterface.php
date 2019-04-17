@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Api;
 
 use Psr\Log\LoggerInterface;
@@ -19,42 +20,48 @@ use Psr\Log\LoggerInterface;
 interface ServiceFactoryInterface
 {
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
+     * @param $sandpit
      *
      * @return RateServiceInterface
      */
     public function createRateService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     );
 
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
+     * @param $sandpit
      *
      * @return ShipmentServiceInterface
      */
     public function createShipmentService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     );
 
     /**
-     * @param string          $username
-     * @param string          $password
+     * @param string $username
+     * @param string $password
      * @param LoggerInterface $logger
+     * @param $sandpit
      *
      * @return TrackingServiceInterface
      */
     public function createTrackingService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     );
 
     /**
