@@ -1,6 +1,6 @@
 # DHL Express Shipping API SDK for PHP
 
-* version: 1.0.1
+* version: 1.1.0
 
 ## Description
 
@@ -11,6 +11,7 @@ data.
 ## Requirements
 
 * PHP >= 5.6.5
+* DHL Express customer account able to access the production endpoints (optionally sandpit too)
 
 ## Installation Instructions
 
