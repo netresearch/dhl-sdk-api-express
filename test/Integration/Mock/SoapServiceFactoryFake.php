@@ -45,7 +45,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     public function createRateService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
@@ -57,7 +58,8 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     public function createShipmentService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $adapter = new ShipmentServiceAdapter(
             $this->client,
@@ -73,17 +75,13 @@ class SoapServiceFactoryFake implements ServiceFactoryInterface
     public function createTrackingService(
         $username,
         $password,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        $sandpit = false
     ) {
         $requestMapper = new TrackingRequestMapper();
         $responseMapper = new TrackingResponseMapper();
         $adapter = new TrackingServiceAdapter($this->client, $requestMapper, $responseMapper);
 
         return new TrackingService($adapter, $logger);
-    }
-
-    public function createPickupService()
-    {
-        // TODO: Implement createPickupService() method.
     }
 }

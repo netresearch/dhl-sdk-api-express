@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\Webservice;
 
-use Dhl\Express\Api\PickupServiceInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
@@ -42,6 +41,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return RateServiceInterface|RateService
+     * @throws \SoapFault
      */
     public function createRateService(
         $username,
@@ -68,6 +68,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return ShipmentServiceInterface|ShipmentService
+     * @throws \SoapFault
      */
     public function createShipmentService(
         $username,
@@ -109,6 +110,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return TrackingServiceInterface|TrackingService
+     * @throws \SoapFault
      */
     public function createTrackingService(
         $username,
@@ -130,13 +132,5 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $adapter = new TrackingServiceAdapter($client, $requestMapper, $responseMapper);
 
         return new TrackingService($adapter, $logger);
-    }
-
-    /**
-     * @throws RuntimeException
-     */
-    public function createPickupService()
-    {
-        throw new \RuntimeException('Not yet implemented.');
     }
 }

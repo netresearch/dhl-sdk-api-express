@@ -29,6 +29,7 @@ class SoapClientFactory
      * @param string $request
      *
      * @return Client
+     * @throws \SoapFault
      */
     public function create($username, $password, $wsdl = '', $request = '')
     {

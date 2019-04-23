@@ -63,9 +63,4 @@ interface ServiceFactoryInterface
         LoggerInterface $logger,
         $sandpit = false
     );
-
-    /**
-     * @return PickupServiceInterface
-     */
-    public function createPickupService();
 }
