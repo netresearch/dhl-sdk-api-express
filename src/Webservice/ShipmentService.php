@@ -29,7 +29,7 @@ use Psr\Log\LoggerInterface;
 class ShipmentService implements ShipmentServiceInterface
 {
     /**
-     * @var ShipmentServiceAdapterInterface
+     * @var ShipmentServiceAdapterInterface|TraceableInterface
      */
     private $adapter;
 
@@ -66,9 +66,11 @@ class ShipmentService implements ShipmentServiceInterface
         try {
             $response = $this->adapter->createShipment($request);
         } catch (SoapException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (ShipmentRequestException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         }
@@ -96,9 +98,11 @@ class ShipmentService implements ShipmentServiceInterface
         try {
             $response = $this->adapter->deleteShipment($request);
         } catch (SoapException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (ShipmentDeleteRequestException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         }

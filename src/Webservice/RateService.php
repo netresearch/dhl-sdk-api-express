@@ -26,7 +26,7 @@ use Psr\Log\LoggerInterface;
 class RateService implements RateServiceInterface
 {
     /**
-     * @var RateServiceAdapterInterface
+     * @var RateServiceAdapterInterface|TraceableInterface
      */
     private $adapter;
 
@@ -54,7 +54,17 @@ class RateService implements RateServiceInterface
      */
     public function collectRates(RateRequestInterface $request)
     {
-        $response = $this->adapter->collectRates($request);
+        try {
+            $response = $this->adapter->collectRates($request);
+        } catch (SoapException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
+            $this->logger->error($e->getMessage());
+            throw $e;
+        } catch (RateRequestException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
+            $this->logger->error($e->getMessage());
+            throw $e;
+        }
 
         if ($this->adapter instanceof TraceableInterface) {
             $this->logger->debug($this->adapter->getLastRequest());

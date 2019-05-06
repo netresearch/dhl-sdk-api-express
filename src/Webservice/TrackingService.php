@@ -27,7 +27,7 @@ use Psr\Log\LoggerInterface;
 class TrackingService implements TrackingServiceInterface
 {
     /**
-     * @var TrackingServiceAdapterInterface
+     * @var TrackingServiceAdapterInterface|TraceableInterface
      */
     private $adapter;
 
@@ -61,9 +61,11 @@ class TrackingService implements TrackingServiceInterface
         try {
             $response = $this->adapter->getTrackingInformation($request);
         } catch (SoapException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (TrackingRequestException $e) {
+            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         }
