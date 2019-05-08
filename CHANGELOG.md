@@ -5,11 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 1.1.0 - 2019-04-22
+
+## 1.1.0 - 2019-05-08
 
 ### Added
 - Possibility to create service instances for production or sandpit
 - Pass through shipper and recipient email to the shipment request
+- Stub classes for Pickup Requests, with no actual usage as of yet
 
 ### Changed
 - Default endpoint is now production

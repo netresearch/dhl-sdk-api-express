@@ -162,11 +162,11 @@ class RequestedShipment
      * @param string               $unitOfMeasurement The unit of measurement
      */
     public function __construct(
-           $dropOffType,
+        $dropOffType,
         Ship      $ship,
         Packages  $packages,
         $shipTimestamp,
-           $unitOfMeasurement
+        $unitOfMeasurement
     ) {
         $this->setDropOffType($dropOffType)
             ->setShip($ship)
