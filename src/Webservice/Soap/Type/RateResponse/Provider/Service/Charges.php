@@ -31,6 +31,18 @@ class Charges
     private $Charge;
 
     /**
+     * The currency type the total is expressed in.
+     *
+     * Possible values:
+     * - ‘BILLC’, billing currency
+     * - ‘PULCL’, country public rates currency
+     * - ‘BASEC’, base currency
+     *
+     * @var string $type
+     */
+    protected $type = '';
+
+    /**
      * Returns the currency of all charges.
      *
      * @return string
@@ -48,5 +60,15 @@ class Charges
     public function getCharge()
     {
         return $this->Charge;
+    }
+
+    /**
+     * Returns the currency type.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

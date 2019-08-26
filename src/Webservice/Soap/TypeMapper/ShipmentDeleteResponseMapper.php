@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Model\ShipmentDeleteResponse;
+use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentDeleteResponse;
 
 /**
@@ -30,8 +31,14 @@ class ShipmentDeleteResponseMapper
      */
     public function map(SoapShipmentDeleteResponse $shipmentDeleteResponse)
     {
-        if ($shipmentDeleteResponse->getNotification()->getCode() !== 0) {
-            throw new ShipmentDeleteRequestException($shipmentDeleteResponse->getNotification()->getMessage());
+        $notification = $shipmentDeleteResponse->getNotification();
+        if (\is_array($notification) && !empty($notification)) {
+            /** @var Notification $notification */
+            $notification = current($notification);
+        }
+
+        if ($notification->isError()) {
+            throw new ShipmentDeleteRequestException($notification->getMessage(), $notification->getCode());
         }
 
         return new ShipmentDeleteResponse(

@@ -8,6 +8,8 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Model\RateResponse;
 use Dhl\Express\Model\Response\Rate\Rate;
+use Dhl\Express\Webservice\Soap\Type\Common\Notification;
+use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
 
 /**
@@ -32,41 +34,46 @@ class RateResponseMapper
     {
         $rates = [];
 
-        foreach ($rateResponse->getProvider() as $provider) {
-            if (\is_array($provider->getNotification())) {
-                $errorMessage = '';
+        $provider = $rateResponse->getProvider();
+        $notification = $provider->getNotification();
+        if (\is_array($notification) && !empty($notification)) {
+            /** @var Notification $notification */
+            $notification = current($notification);
+        }
 
-                // FIXME Maybe throw only a single notification as exception instead of concatenating them together? Or chain
-                //       them in reverse order together and setting the in each exception the previous exception parameter
-                foreach ($provider->getNotification() as $notification) {
-                    if ($notification->isError()) {
-                        $errorMessage .= $notification->getMessage() . PHP_EOL;
+        if ($notification->isError()) {
+            throw new RateRequestException($notification->getMessage(), $notification->getCode());
+        }
+
+        if ($provider->getService()) {
+            foreach ($provider->getService() as $service) {
+                $serviceCode = $service->getType();
+                $totals = $service->getTotalNet();
+                $charges = $service->getCharges();
+
+                foreach ($totals as $total) {
+                    $currencyType = $total->getType();
+                    $totalCharges = array_filter(
+                        $charges,
+                        function (Charges $charges) use ($currencyType) {
+                            return ($charges->getType() === $currencyType);
+                        }
+                    );
+
+                    if (empty($totalCharges)) {
+                        continue;
                     }
-                }
 
-                if ($errorMessage) {
-                    throw new RateRequestException($errorMessage);
-                }
-            } elseif ($provider->getNotification()->isError()) {
-                throw new RateRequestException(
-                    $provider->getNotification()->getMessage(),
-                    $provider->getNotification()->getCode()
-                );
-            }
-
-            if ($provider->getService()) {
-                foreach ($provider->getService() as $service) {
-                    if ($service->getCharges() !== null) {
-                        $charges = $service->getCharges()->getCharge();
-                        $label = $charges[0]->getChargeType();
+                    /** @var Charges[] $totalCharges */
+                    $chargeComponents = $totalCharges[0]->getCharge();
+                    if (!empty($chargeComponents)) {
+                        $label = $chargeComponents[0]->getChargeType();
                     } else {
                         $label = 'DHL Express';
                     }
 
-                    $totals       = $service->getTotalNet();
-                    $currencyCode = $totals->getCurrency();
-                    $serviceCode  = $service->getType();
-                    $cost         = $totals->getAmount();
+                    $currencyCode = $total->getCurrency();
+                    $cost = $total->getAmount();
 
                     $rate = new Rate($serviceCode, $label, $cost, $currencyCode);
                     $rate->setDeliveryTime($service->getDeliveryTime());

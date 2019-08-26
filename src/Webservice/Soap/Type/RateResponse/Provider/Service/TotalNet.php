@@ -29,6 +29,18 @@ class TotalNet
     private $Amount;
 
     /**
+     * The currency type the total is expressed in.
+     *
+     * Possible values:
+     * - ‘BILLC’, billing currency
+     * - ‘PULCL’, country public rates currency
+     * - ‘BASEC’, base currency
+     *
+     * @var string $type
+     */
+    protected $type = '';
+
+    /**
      * Returns the currency.
      *
      * @return string
@@ -46,5 +58,15 @@ class TotalNet
     public function getAmount()
     {
         return (float) $this->Amount;
+    }
+
+    /**
+     * Returns the currency type.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

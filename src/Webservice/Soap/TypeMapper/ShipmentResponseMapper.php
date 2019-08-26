@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Model\ShipmentResponse;
+use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults\PackageResult;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
@@ -33,20 +34,14 @@ class ShipmentResponseMapper
      */
     public function map(SoapShipmentResponse $shipmentResponse)
     {
-        if ($notifications = $shipmentResponse->getNotification()) {
-            $errorMessage = '';
+        $notification = $shipmentResponse->getNotification();
+        if (\is_array($notification) && !empty($notification)) {
+            /** @var Notification $notification */
+            $notification = current($notification);
+        }
 
-            // FIXME Maybe throw only a single notification as exception instead of concatenating them together? Or chain
-            //       them in reverse order together and setting the in each exception the previous exception parameter
-            foreach ($notifications as $notification) {
-                if ($notification->isError()) {
-                    $errorMessage .= $notification->getMessage() . PHP_EOL;
-                }
-            }
-
-            if ($errorMessage) {
-                throw new ShipmentRequestException($errorMessage);
-            }
+        if ($notification->isError()) {
+            throw new ShipmentRequestException($notification->getMessage(), $notification->getCode());
         }
 
         $labelData       = '';

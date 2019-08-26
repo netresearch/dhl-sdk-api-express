@@ -35,6 +35,28 @@ use Psr\Log\LoggerInterface;
 class SoapServiceFactory implements ServiceFactoryInterface
 {
     /**
+     * Messages fail to generate with the original DHL Express WSDL, use a modified local copy instead.
+     *
+     * This local copy is shipped primarily to properly process multi piece shipments. Once the original WSDL is in a
+     * state where the validation through the SOAP extension no longer fails, this has to be removed.
+     *
+     * @param bool $sandpit
+     * @return string
+     *
+     * @link https://bugs.nr/DHLEX-60
+     */
+    private function getWsdlFilename(bool $sandpit)
+    {
+        if ($sandpit) {
+            $wsdl = __DIR__ . '/Soap/wsdl/sndpt-expressRateBook.wsdl';
+        } else {
+            $wsdl = __DIR__ . '/Soap/wsdl/prod-expressRateBook.wsdl';
+        }
+
+        return $wsdl;
+    }
+
+    /**
      * @param string $username
      * @param string $password
      * @param LoggerInterface $logger
@@ -50,7 +72,8 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $sandpit = false
     ) {
         $clientFactory = new SoapClientFactory();
-        $wsdl = $sandpit ? SoapClientFactory::RATEBOOK_TEST_WSDL : SoapClientFactory::RATEBOOK_PROD_WSDL;
+        $wsdl = $this->getWsdlFilename($sandpit);
+
         $client = $clientFactory->create($username, $password, $wsdl);
 
         $requestMapper = new RateRequestMapper();
@@ -77,20 +100,9 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $sandpit = false
     ) {
         $clientFactory = new SoapClientFactory();
+        $wsdl = $this->getWsdlFilename($sandpit);
 
-        /** @TODO(nr)
-         * this WSDL is currently hardcoded (because it was edited) to properly process multi piece shipments
-         * Once the WSDL is in a state where the validation through the SOAP extension no longer fails,
-         * this has to be removed
-         */
-        $wsdl = __DIR__ . DIRECTORY_SEPARATOR . 'Soap' . DIRECTORY_SEPARATOR;
-        $wsdl .= $sandpit ? 'sandpit-rateBook.wsdl' : 'production-rateBook.wsdl';
-
-        $client = $clientFactory->create(
-            $username,
-            $password,
-            $wsdl
-        );
+        $client = $clientFactory->create($username, $password, $wsdl);
 
         $adapter = new ShipmentServiceAdapter(
             $client,
@@ -120,11 +132,8 @@ class SoapServiceFactory implements ServiceFactoryInterface
     ) {
         $clientFactory = new SoapClientFactory();
         $wsdl = $sandpit ? SoapClientFactory::TRACK_TEST_WSDL : SoapClientFactory::TRACK_PROD_WSDL;
-        $client = $clientFactory->create(
-            $username,
-            $password,
-            $wsdl
-        );
+
+        $client = $clientFactory->create($username, $password, $wsdl);
 
         $requestMapper = new TrackingRequestMapper();
         $responseMapper = new TrackingResponseMapper();

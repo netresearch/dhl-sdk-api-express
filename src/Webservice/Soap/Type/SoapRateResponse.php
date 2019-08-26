@@ -20,14 +20,14 @@ class SoapRateResponse
     /**
      * Providers list.
      *
-     * @var array|Provider[]
+     * @var Provider|null
      */
     private $Provider;
 
     /**
-     * Returns the list of providers.
+     * Returns provider.
      *
-     * @return array|Provider[] Array of Provider
+     * @return Provider|null
      */
     public function getProvider()
     {
