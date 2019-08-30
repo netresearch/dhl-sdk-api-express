@@ -26,12 +26,11 @@ class SoapClientFactory
      * @param string $username
      * @param string $password
      * @param string $wsdl
-     * @param string $request
      *
-     * @return Client
+     * @return \SoapClient
      * @throws \SoapFault
      */
-    public function create($username, $password, $wsdl = '', $request = '')
+    public function create($username, $password, $wsdl = '')
     {
         $wsdl = $wsdl ?: self::RATEBOOK_PROD_WSDL;
 
@@ -43,13 +42,13 @@ class SoapClientFactory
             'connection_timeout' => 10,
             'encoding'           => 'UTF-8',
             'cache_wsdl'         => WSDL_CACHE_DISK,
-            'classmap'           => ClassMap::get($request),
+            'classmap'           => ClassMap::get(),
         ];
 
         $authFactory = new AuthHeaderFactory();
         $authHeader = $authFactory->create($username, $password);
 
-        $client = new Client($wsdl, $options);
+        $client = new \SoapClient($wsdl, $options);
         $client->__setSoapHeaders([$authHeader]);
 
         return $client;
