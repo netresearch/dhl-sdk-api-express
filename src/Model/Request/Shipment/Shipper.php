@@ -68,7 +68,7 @@ class Shipper implements ShipperInterface
     /**
      * The email.
      *
-     * @var string
+     * @var string|null
      */
     private $email;
 
@@ -161,7 +161,7 @@ class Shipper implements ShipperInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {

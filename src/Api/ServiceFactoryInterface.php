@@ -23,7 +23,7 @@ interface ServiceFactoryInterface
      * @param string $username
      * @param string $password
      * @param LoggerInterface $logger
-     * @param $sandpit
+     * @param bool $sandpit
      *
      * @return RateServiceInterface
      */
@@ -38,7 +38,7 @@ interface ServiceFactoryInterface
      * @param string $username
      * @param string $password
      * @param LoggerInterface $logger
-     * @param $sandpit
+     * @param bool $sandpit
      *
      * @return ShipmentServiceInterface
      */
@@ -53,7 +53,7 @@ interface ServiceFactoryInterface
      * @param string $username
      * @param string $password
      * @param LoggerInterface $logger
-     * @param $sandpit
+     * @param bool $sandpit
      *
      * @return TrackingServiceInterface
      */

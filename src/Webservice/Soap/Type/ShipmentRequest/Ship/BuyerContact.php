@@ -17,9 +17,13 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact as ShipmentCon
 class BuyerContact extends ShipmentContact
 {
     /**
-     * Constructor.
+     * BuyerContact constructor.
+     * @param string $personName
+     * @param string $companyName
+     * @param string $phoneNumber
      */
-    public function __construct()
+    public function __construct($personName, $companyName, $phoneNumber)
     {
+        parent::__construct($personName, $companyName, $phoneNumber);
     }
 }

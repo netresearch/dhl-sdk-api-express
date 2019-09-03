@@ -72,7 +72,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
 
         $requestedShipment->setNextBusinessDay(true)
             ->setContent(Content::NON_DOCUMENTS)
-            ->setDeclaredValue('200')
+            ->setDeclaredValue((float) '200')
             ->setDeclaredValueCurrencyCode('USD')
             ->setPaymentInfo(PaymentInfo::DDP)
             ->setAccount('123456789')

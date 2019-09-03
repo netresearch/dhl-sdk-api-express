@@ -26,12 +26,12 @@ class AWBInfo
     protected $Status;
 
     /**
-     * @var ShipmentInfo
+     * @var ShipmentInfo|null
      */
     protected $ShipmentInfo;
 
     /**
-     * @var TrackingPieces
+     * @var TrackingPieces|null
      */
     protected $Pieces;
 
@@ -46,7 +46,7 @@ class AWBInfo
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getAWBNumber()
     {
@@ -54,7 +54,7 @@ class AWBInfo
     }
 
     /**
-     * @param string $AWBNumber
+     * @param int $AWBNumber
      *
      * @return self
      */
@@ -94,9 +94,9 @@ class AWBInfo
 
     /**
      * @param ShipmentInfo|null $ShipmentInfo
-     * @return self
+     * @return $this
      */
-    public function setShipmentInfo(ShipmentInfo $ShipmentInfo)
+    public function setShipmentInfo(ShipmentInfo $ShipmentInfo = null)
     {
         $this->ShipmentInfo = $ShipmentInfo;
 
@@ -115,7 +115,7 @@ class AWBInfo
      * @param TrackingPieces|null $Pieces
      * @return self
      */
-    public function setPieces(TrackingPieces $Pieces)
+    public function setPieces(TrackingPieces $Pieces = null)
     {
         $this->Pieces = $Pieces;
 

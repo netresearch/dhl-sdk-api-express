@@ -115,24 +115,28 @@ class ShipmentRequestMapper
         if ((count($shipperStreetLines) > 1) && !empty($shipperStreetLines[1])) {
             $requestedShipment->getShip()->getShipper()->getAddress()->setStreetLines2($shipperStreetLines[1]);
         }
+
         if ((count($shipperStreetLines) > 2) && !empty($shipperStreetLines[2])) {
             $requestedShipment->getShip()->getShipper()->getAddress()->setStreetLines3($shipperStreetLines[2]);
         }
 
-        if (!empty($request->getShipper()->getEmail())) {
-            $requestedShipment->getShip()->getShipper()->getContact()->setEmailAddress($request->getShipper()->getEmail());
+        $shipperEmail = $request->getShipper()->getEmail();
+        if (!empty($shipperEmail)) {
+            $requestedShipment->getShip()->getShipper()->getContact()->setEmailAddress($shipperEmail);
         }
 
         $recipientStreetLines = $request->getRecipient()->getStreetLines();
         if ((count($recipientStreetLines) > 1) && !empty($recipientStreetLines[1])) {
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines2($recipientStreetLines[1]);
         }
+
         if ((count($recipientStreetLines) > 2) && !empty($recipientStreetLines[2])) {
             $requestedShipment->getShip()->getRecipient()->getAddress()->setStreetLines3($recipientStreetLines[2]);
         }
 
-        if (!empty($request->getRecipient()->getEmail())) {
-            $requestedShipment->getShip()->getRecipient()->getContact()->setEmailAddress($request->getRecipient()->getEmail());
+        $recipientEmail = $request->getRecipient()->getEmail();
+        if (!empty($recipientEmail)) {
+            $requestedShipment->getShip()->getRecipient()->getContact()->setEmailAddress($recipientEmail);
         }
 
         $shippingPaymentType = $request->getBillingAccountNumber()

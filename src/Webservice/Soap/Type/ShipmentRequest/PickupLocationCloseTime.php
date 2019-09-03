@@ -5,6 +5,7 @@
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\ValueInterface;
+use http\Exception\InvalidArgumentException;
 
 /**
  * This node identifies the closing time of your pickup location in local time. It needs to be provided in
@@ -38,7 +39,14 @@ class PickupLocationCloseTime implements ValueInterface
             throw new \InvalidArgumentException('The argument must be in the format ' . self::FORMAT);
         }
 
-        $this->value = \DateTime::createFromFormat(self::FORMAT, $value);
+        $value = \DateTime::createFromFormat(self::FORMAT, $value);
+        if (\is_bool($value)) {
+            throw new \InvalidArgumentException(
+                'Invalid data given. Either pass valid date/time string.'
+            );
+        }
+
+        $this->value = $value;
     }
 
     /**

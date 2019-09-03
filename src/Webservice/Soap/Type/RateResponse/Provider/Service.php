@@ -40,7 +40,7 @@ class Service
      * format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T
      * (e.g. 2006-06-26T17:00:00).
      *
-     * @var \DateTime
+     * @var string|null
      */
     private $DeliveryTime;
 
@@ -52,7 +52,7 @@ class Service
      * in the format:YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The
      * date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00).
      *
-     * @var \DateTime
+     * @var string|null
      */
     private $CutoffTime;
 

@@ -47,7 +47,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     private $weight;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $estimatedDeliveryDate;
 
@@ -135,7 +135,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEstimatedDeliveryDate()
     {

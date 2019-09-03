@@ -43,6 +43,7 @@ class Date implements ValueInterface
 
             // Timestamp
         } elseif (\is_int($date)) {
+            /** @var \DateTime $dateTime */
             $dateTime = new \DateTime();
             $dateTime->setTimestamp($date);
 
@@ -56,7 +57,13 @@ class Date implements ValueInterface
                 );
             }
 
-            $this->value = \DateTime::createFromFormat(self::FORMAT, $date);
+            $value = \DateTime::createFromFormat(self::FORMAT, $date);
+            if (\is_bool($value)) {
+                throw new \InvalidArgumentException(
+                    'Invalid date given. Either pass valid date/time string, timestamp or instance of \DateTime'
+                );
+            }
+            $this->value = $value;
 
             // Invalid date/time
         } else {
@@ -66,7 +73,9 @@ class Date implements ValueInterface
         }
 
         // Remove time component
-        $this->value->setTime(0, 0);
+        if ($this->value instanceof \DateTime) {
+            $this->value->setTime(0, 0);
+        }
     }
 
     /**

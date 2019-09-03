@@ -7,8 +7,9 @@ namespace Dhl\Express\Test\Unit\Webservice;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
-use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
+
 use Dhl\Express\Webservice\ShipmentService;
+use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
@@ -29,7 +30,9 @@ class ShipmentServiceTest extends \PHPUnit\Framework\TestCase
         $logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
 
         /** @var MockObject|ShipmentServiceAdapterInterface $adapter */
-        $adapter = $this->getMockBuilder(ShipmentServiceAdapterInterface::class)->getMock();
+        $adapter = $this->getMockBuilder(ShipmentServiceAdapter::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $adapter
             ->method('createShipment')
             ->willReturn($response);

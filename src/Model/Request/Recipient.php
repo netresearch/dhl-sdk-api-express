@@ -68,7 +68,7 @@ class Recipient implements RecipientInterface
     /**
      * The email.
      *
-     * @var string
+     * @var string|null
      */
     private $email;
 
@@ -161,7 +161,7 @@ class Recipient implements RecipientInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {

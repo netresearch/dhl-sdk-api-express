@@ -35,12 +35,12 @@ class ShipmentResponseMapper
     public function map(SoapShipmentResponse $shipmentResponse)
     {
         $notification = $shipmentResponse->getNotification();
-        if (\is_array($notification) && !empty($notification)) {
-            /** @var Notification $notification */
-            $notification = current($notification);
+        if (\is_array($notification)) {
+            /** @var Notification|null $notification */
+            $notification = array_shift($notification);
         }
 
-        if ($notification->isError()) {
+        if ($notification !==null && $notification->isError()) {
             throw new ShipmentRequestException($notification->getMessage(), $notification->getCode());
         }
 
@@ -48,16 +48,19 @@ class ShipmentResponseMapper
         $trackingNumbers = [];
 
         /** @var LabelImage[] $labelImage */
-        if ($labelImage = $shipmentResponse->getLabelImage()) {
+        $labelImage = $shipmentResponse->getLabelImage();
+        if ($labelImage) {
             $labelData = $labelImage[0]->getGraphicImage();
         }
 
         $packageResult = $shipmentResponse->getPackagesResult();
-
-        /** @var PackageResult[] $packageResults */
-        if ($packageResult && ($packageResults = $packageResult->getPackageResult())) {
-            foreach ($packageResults as $packageResult) {
-                $trackingNumbers[] = $packageResult->getTrackingNumber();
+        if ($packageResult) {
+            /** @var PackageResult[] $packageResults */
+            $packageResults = $packageResult->getPackageResult();
+            if ($packageResults) {
+                foreach ($packageResults as $packageResult) {
+                    $trackingNumbers[] = $packageResult->getTrackingNumber();
+                }
             }
         }
 

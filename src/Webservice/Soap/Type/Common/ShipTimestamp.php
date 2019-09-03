@@ -61,8 +61,13 @@ class ShipTimestamp implements ValueInterface
                     'Invalid date given. Required format: YYYY-MM-DDTHH:MM:SS GMT+k'
                 );
             }
-
-            $this->value = \DateTime::createFromFormat(self::FORMAT, $time);
+            $value = \DateTime::createFromFormat(self::FORMAT, $time);
+            if (is_bool($value)) {
+                throw new \InvalidArgumentException(
+                    'Invalid date given. Either pass valid date/time string, timestamp or instance of \DateTime'
+                );
+            }
+            $this->value = $value;
 
         // Invalid date/time
         } else {

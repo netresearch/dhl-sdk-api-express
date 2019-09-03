@@ -5,6 +5,7 @@
 
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
+use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\Model\Response\Tracking\Message;
@@ -36,32 +37,63 @@ class TrackingResponseMapper
 
         foreach ($soapResponseContent->getAWBInfo()->getArrayOfAWBInfoItem() as $soapTrackingItem) {
             $shipmentInfo = $soapTrackingItem->getShipmentInfo();
+            $shipperName = '';
+            $originDescription = '';
+            $consigneeName = '';
+            $destinationDescription = '';
+            $shipmentDate = '';
+            $estimatedDeliveryDate = '';
+            $weight = 0;
+
+            if ($shipmentInfo !== null) {
+                $shipperName = $shipmentInfo->getShipperName();
+                $originDescription = $shipmentInfo->getOriginServiceArea()->getDescription();
+                $consigneeName = $shipmentInfo->getConsigneeName();
+                $destinationDescription = $shipmentInfo->getDestinationServiceArea()->getDescription();
+                $weight = (float) $shipmentInfo->getWeight() ;
+                if ($shipmentInfo->getShipmentDate() instanceof \DateTime) {
+                    $shipmentDate = $shipmentInfo->getShipmentDate()->format(DATE_ATOM);
+                }
+                if ($shipmentInfo->getEstimatedDeliveryDate() instanceof  \DateTime) {
+                    $estimatedDeliveryDate = $shipmentInfo->getEstimatedDeliveryDate()->format(DATE_ATOM);
+                }
+            }
+
             $shipmentDetails = new TrackingInfo\ShipmentDetails(
-                $shipmentInfo ? $shipmentInfo->getShipperName() : '',
-                $shipmentInfo->getOriginServiceArea()->getDescription(),
-                $shipmentInfo ? $shipmentInfo->getConsigneeName() : '',
-                $shipmentInfo->getDestinationServiceArea()->getDescription(),
-                $shipmentInfo ? $shipmentInfo->getShipmentDate()->format(DATE_ATOM) : '',
-                $shipmentInfo->getWeight() ?: 0,
-                $shipmentInfo->getEstimatedDeliveryDate() ? $shipmentInfo->getEstimatedDeliveryDate()->format(
-                    DATE_ATOM
-                ) : ''
+                $shipperName,
+                $originDescription,
+                $consigneeName,
+                $destinationDescription,
+                $shipmentDate,
+                $weight,
+                $estimatedDeliveryDate
             );
-            $trackingPieces = $soapTrackingItem->getPieces();
+            $soapTrackingPieces = $soapTrackingItem->getPieces();
+            $trackingPieces = [];
+            if ($soapTrackingPieces !== null) {
+                /** @var PieceInterface[] $trackingPieces */
+                $trackingPieces = $soapTrackingPieces->getPieceInfo()->getArrayOfPieceInfoItem();
+            }
+
             $trackingInfos[] = new TrackingInfo(
                 (int)$soapTrackingItem->getAWBNumber(),
                 $soapTrackingItem->getStatus()->getActionStatus(),
                 $shipmentDetails,
                 $shipmentInfo ? $this->convertTrackEventItems($shipmentInfo->getShipmentEvent()) : [],
-                $trackingPieces ? $trackingPieces
-                    ->getPieceInfo()
-                    ->getArrayOfPieceInfoItem() : []
+                $trackingPieces
+            );
+        }
+
+        $time = strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime());
+        if (\is_bool($time)) {
+            throw new \InvalidArgumentException(
+                'Invalid data given. Either pass int.'
             );
         }
 
         return new TrackingResponse(
             new Message(
-                strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime()),
+                $time,
                 $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
             ),
             $trackingInfos

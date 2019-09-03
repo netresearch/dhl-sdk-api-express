@@ -349,7 +349,7 @@ class RequestedShipment
     /**
      * Sets the declared value.
      *
-     * @param string $declaredValue The declared value
+     * @param float $declaredValue The declared value
      *
      * @return self
      */

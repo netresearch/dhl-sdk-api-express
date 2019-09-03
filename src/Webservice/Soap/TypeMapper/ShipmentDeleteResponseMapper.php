@@ -31,11 +31,8 @@ class ShipmentDeleteResponseMapper
      */
     public function map(SoapShipmentDeleteResponse $shipmentDeleteResponse)
     {
+        /** @var Notification $notification */
         $notification = $shipmentDeleteResponse->getNotification();
-        if (\is_array($notification) && !empty($notification)) {
-            /** @var Notification $notification */
-            $notification = current($notification);
-        }
 
         if ($notification->isError()) {
             throw new ShipmentDeleteRequestException($notification->getMessage(), $notification->getCode());

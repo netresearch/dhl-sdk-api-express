@@ -214,7 +214,7 @@ class SoapShipmentDeleteRequest
     /**
      * Returns the optional reason code.
      *
-     * @return string
+     * @return null|string
      */
     public function getReason()
     {

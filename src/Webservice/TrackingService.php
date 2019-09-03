@@ -11,7 +11,7 @@ use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Exception\TrackingRequestException;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
-use Dhl\Express\Webservice\Adapter\TrackingServiceAdapterInterface;
+use Dhl\Express\Webservice\Soap\TrackingServiceAdapter;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -27,7 +27,7 @@ use Psr\Log\LoggerInterface;
 class TrackingService implements TrackingServiceInterface
 {
     /**
-     * @var TrackingServiceAdapterInterface|TraceableInterface
+     * @var TrackingServiceAdapter
      */
     private $adapter;
 
@@ -39,11 +39,11 @@ class TrackingService implements TrackingServiceInterface
     /**
      * TrackingService constructor.
      *
-     * @param TrackingServiceAdapterInterface $adapter
+     * @param TrackingServiceAdapter $adapter
      * @param LoggerInterface $logger
      */
     public function __construct(
-        TrackingServiceAdapterInterface $adapter,
+        TrackingServiceAdapter $adapter,
         LoggerInterface $logger
     ) {
         $this->adapter = $adapter;

@@ -9,8 +9,7 @@ use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Exception\SoapException;
-use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
-use Dhl\Express\Webservice\Adapter\TraceableInterface;
+use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -26,7 +25,7 @@ use Psr\Log\LoggerInterface;
 class RateService implements RateServiceInterface
 {
     /**
-     * @var RateServiceAdapterInterface|TraceableInterface
+     * @var RateServiceAdapter
      */
     private $adapter;
 
@@ -38,11 +37,11 @@ class RateService implements RateServiceInterface
     /**
      * RateService constructor.
      *
-     * @param RateServiceAdapterInterface $adapter
+     * @param RateServiceAdapter $adapter
      * @param LoggerInterface $logger
      */
     public function __construct(
-        RateServiceAdapterInterface $adapter,
+        RateServiceAdapter $adapter,
         LoggerInterface $logger
     ) {
         $this->adapter = $adapter;
@@ -66,10 +65,8 @@ class RateService implements RateServiceInterface
             throw $e;
         }
 
-        if ($this->adapter instanceof TraceableInterface) {
-            $this->logger->debug($this->adapter->getLastRequest());
-            $this->logger->debug($this->adapter->getLastResponse());
-        }
+        $this->logger->debug($this->adapter->getLastRequest());
+        $this->logger->debug($this->adapter->getLastResponse());
 
         return $response;
     }

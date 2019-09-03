@@ -48,7 +48,7 @@ class TrackingResponse implements TrackingResponseInterface
     }
 
     /**
-     * @return MessageInterface[]
+     * @return TrackingInfo[]
      */
     public function getTrackingInfos()
     {

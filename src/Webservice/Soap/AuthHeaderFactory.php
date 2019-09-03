@@ -38,24 +38,24 @@ class AuthHeaderFactory
         );
 
         $auth = new \stdClass();
-        $auth->Username = new \SoapVar($username, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
-        $auth->Password = new \SoapVar($password, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
-        $auth->Nonce = new \SoapVar($passdigest, XSD_STRING, null, self::WSS_NS, null, self::WSS_NS);
-        $auth->Created = new \SoapVar($created, XSD_STRING, null, self::WSS_NS, null, self::WSU_NS);
-        $authVar = new \SoapVar($auth, SOAP_ENC_OBJECT, null, self::WSS_NS, 'UsernameToken', self::WSS_NS);
+        $auth->Username = new \SoapVar($username, XSD_STRING, '', self::WSS_NS, '', self::WSS_NS);
+        $auth->Password = new \SoapVar($password, XSD_STRING, '', self::WSS_NS, '', self::WSS_NS);
+        $auth->Nonce = new \SoapVar($passdigest, XSD_STRING, '', self::WSS_NS, '', self::WSS_NS);
+        $auth->Created = new \SoapVar($created, XSD_STRING, '', self::WSS_NS, '', self::WSU_NS);
+        $authVar = new \SoapVar($auth, SOAP_ENC_OBJECT, '', self::WSS_NS, 'UsernameToken', self::WSS_NS);
 
         $usernameToken = new \stdClass();
         $usernameToken->UsernameToken = $authVar;
         $usernameTokenVar = new \SoapVar(
             $usernameToken,
             SOAP_ENC_OBJECT,
-            null,
+            '',
             self::WSS_NS,
             'UsernameToken',
             self::WSS_NS
         );
 
-        $securityVar = new \SoapVar($usernameTokenVar, SOAP_ENC_OBJECT, null, self::WSS_NS, 'Security', self::WSS_NS);
+        $securityVar = new \SoapVar($usernameTokenVar, SOAP_ENC_OBJECT, '', self::WSS_NS, 'Security', self::WSS_NS);
 
         return new \SoapHeader(self::WSS_NS, 'Security', $securityVar, true);
     }

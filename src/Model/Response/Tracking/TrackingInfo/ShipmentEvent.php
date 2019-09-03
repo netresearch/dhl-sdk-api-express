@@ -40,7 +40,7 @@ class ShipmentEvent implements ShipmentEventInterface
     /**
      * Event description
      *
-     * @var $description
+     * @var string
      */
     private $description;
 
@@ -50,7 +50,7 @@ class ShipmentEvent implements ShipmentEventInterface
      * @param string $date
      * @param string $time
      * @param string $locationDescription
-     * @param        $description
+     * @param string $description
      */
     public function __construct($date, $time, $locationDescription, $description)
     {

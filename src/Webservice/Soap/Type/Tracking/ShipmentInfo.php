@@ -41,7 +41,7 @@ class ShipmentInfo
     protected $ConsigneeName;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $ShipmentDate;
 
@@ -71,7 +71,7 @@ class ShipmentInfo
     protected $ShipperReference;
 
     /**
-     * @var \DateTime
+     * @var string|null
      */
     protected $EstimatedDeliveryDate;
 
@@ -155,7 +155,7 @@ class ShipmentInfo
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getShipperAccountNumber()
     {
@@ -163,7 +163,7 @@ class ShipmentInfo
     }
 
     /**
-     * @param string $ShipperAccountNumber
+     * @param int $ShipperAccountNumber
      * @return self
      */
     public function setShipperAccountNumber($ShipperAccountNumber)
@@ -198,7 +198,7 @@ class ShipmentInfo
     public function getShipmentDate()
     {
         if ($this->ShipmentDate === null) {
-            return null;
+            return false;
         }
 
         try {

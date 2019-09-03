@@ -12,8 +12,7 @@ use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Exception\SoapException;
-use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
-use Dhl\Express\Webservice\Adapter\TraceableInterface;
+use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -29,7 +28,7 @@ use Psr\Log\LoggerInterface;
 class ShipmentService implements ShipmentServiceInterface
 {
     /**
-     * @var ShipmentServiceAdapterInterface|TraceableInterface
+     * @var ShipmentServiceAdapter
      */
     private $adapter;
 
@@ -40,11 +39,11 @@ class ShipmentService implements ShipmentServiceInterface
 
     /**
      * ShipmentService constructor.
-     * @param ShipmentServiceAdapterInterface $adapter
+     * @param ShipmentServiceAdapter $adapter
      * @param LoggerInterface $logger
      */
     public function __construct(
-        ShipmentServiceAdapterInterface $adapter,
+        ShipmentServiceAdapter $adapter,
         LoggerInterface $logger
     ) {
         $this->adapter = $adapter;
@@ -75,10 +74,8 @@ class ShipmentService implements ShipmentServiceInterface
             throw $e;
         }
 
-        if ($this->adapter instanceof TraceableInterface) {
-            $this->logger->debug($this->adapter->getLastRequest());
-            $this->logger->debug($this->adapter->getLastResponse());
-        }
+        $this->logger->debug($this->adapter->getLastRequest());
+        $this->logger->debug($this->adapter->getLastResponse());
 
         return $response;
     }
@@ -107,10 +104,8 @@ class ShipmentService implements ShipmentServiceInterface
             throw $e;
         }
 
-        if ($this->adapter instanceof TraceableInterface) {
-            $this->logger->debug($this->adapter->getLastRequest());
-            $this->logger->debug($this->adapter->getLastResponse());
-        }
+        $this->logger->debug($this->adapter->getLastRequest());
+        $this->logger->debug($this->adapter->getLastResponse());
 
         return $response;
     }

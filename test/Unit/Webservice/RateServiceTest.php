@@ -7,8 +7,8 @@ namespace Dhl\Express\Test\Unit\Webservice;
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\RateServiceInterface;
-use Dhl\Express\Webservice\Adapter\RateServiceAdapterInterface;
 use Dhl\Express\Webservice\RateService;
+use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
@@ -28,8 +28,10 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
         /** @var \Psr\Log\LoggerInterface $logger */
         $logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
 
-        /** @var MockObject|RateServiceAdapterInterface $adapter */
-        $adapter = $this->getMockBuilder(RateServiceAdapterInterface::class)->getMock();
+        /** @var MockObject|RateServiceAdapter $adapter */
+        $adapter = $this->getMockBuilder(RateServiceAdapter::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $adapter
             ->method('collectRates')
             ->willReturn($response);

@@ -40,7 +40,7 @@ class LabelImage
     /**
      * Returns the label image format.
      *
-     * @return string
+     * @return null|string
      */
     public function getLabelImageFormat()
     {

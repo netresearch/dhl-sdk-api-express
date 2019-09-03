@@ -120,7 +120,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return string|null Return the key of the current element or null
+     * @return int|string|null Return the key of the current element or null
      */
     public function key()
     {
@@ -151,7 +151,7 @@ class AWBInfoCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * Countable implementation
      *
-     * @return AWBInfo Return count of elements
+     * @return int Return count of elements
      */
     public function count()
     {
