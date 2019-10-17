@@ -21,7 +21,7 @@ class ShipperReference
     protected $ReferenceID;
 
     /**
-     * @var string $Referenceype
+     * @var string
      */
     protected $ReferenceType;
 
