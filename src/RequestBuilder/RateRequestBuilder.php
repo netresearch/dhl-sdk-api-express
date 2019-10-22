@@ -133,9 +133,9 @@ class RateRequestBuilder implements RateRequestBuilderInterface
     /**
      * @inheritdoc
      */
-    public function setReadyAtTimestamp($readyAtTimestamp)
+    public function setReadyAtTimestamp($pickupTime)
     {
-        $this->data['readyAtTimestamp'] = $readyAtTimestamp;
+        $this->data['readyAtTimestamp'] = $pickupTime;
         return $this;
     }
 

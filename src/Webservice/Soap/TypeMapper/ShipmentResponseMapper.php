@@ -40,7 +40,7 @@ class ShipmentResponseMapper
             $notification = array_shift($notification);
         }
 
-        if ($notification !==null && $notification->isError()) {
+        if ($notification !== null && $notification->isError()) {
             throw new ShipmentRequestException($notification->getMessage(), $notification->getCode());
         }
 

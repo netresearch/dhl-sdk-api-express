@@ -113,11 +113,11 @@ interface RateRequestBuilderInterface
     /**
      * Sets the shipment timestamp.
      *
-     * @param int $readyAtTimestamp The shipment timestamp
+     * @param \DateTime $pickupTime The shipment time
      *
      * @return self
      */
-    public function setReadyAtTimestamp($readyAtTimestamp);
+    public function setReadyAtTimestamp($pickupTime);
 
     /**
      * Sets the insurance.

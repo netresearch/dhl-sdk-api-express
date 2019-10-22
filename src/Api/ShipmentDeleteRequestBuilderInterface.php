@@ -18,7 +18,7 @@ interface ShipmentDeleteRequestBuilderInterface
     /**
      * Sets the scheduled pickup date of the shipment to be deleted.
      *
-     * @param string $pickupDate The scheduled pickup date of the shipment to be deleted
+     * @param \DateTime $pickupDate The scheduled pickup date of the shipment to be deleted
      *
      * @return self
      */

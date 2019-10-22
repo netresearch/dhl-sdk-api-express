@@ -46,7 +46,7 @@ interface ShipmentDetailsInterface
     /**
      * Returns the ship timestamp.
      *
-     * @return int
+     * @return \DateTime
      */
     public function getReadyAtTimestamp();
 

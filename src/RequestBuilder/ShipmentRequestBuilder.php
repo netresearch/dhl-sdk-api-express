@@ -66,7 +66,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     /**
-     * @param int $readyAtTimestamp
+     * @param \DateTime $readyAtTimestamp
      * @return self
      */
     public function setReadyAtTimestamp($readyAtTimestamp)

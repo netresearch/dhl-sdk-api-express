@@ -24,7 +24,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function testRateRequest()
     {
-        $requestBuilder = new RateRequestBuilder;
+        $requestBuilder = new RateRequestBuilder();
         $requestBuilder->setIsUnscheduledPickup(true)
             ->setShipperAccountNumber('XXXXXXX')
             ->setShipperAddress(
@@ -94,7 +94,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
         $requestBuilder->setInsurance(99.99, 'EUR')
             ->setTermsOfTrade(ShipmentDetails::PAYMENT_TYPE_CFR)
             ->setContentType(ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS)
-            ->setReadyAtTimestamp(238948923)
+            ->setReadyAtTimestamp(new \DateTime('2019-10-10'))
             ->setNextBusinessDayIndicator(true)
             ->setIsValueAddedServicesRequested(true);
 
@@ -107,7 +107,7 @@ class RateRequestBuilderTest extends \PHPUnit\Framework\TestCase
                 true,
                 ShipmentDetails::PAYMENT_TYPE_CFR,
                 ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS,
-                238948923,
+                new \DateTime('2019-10-10'),
                 true,
                 true
             ),

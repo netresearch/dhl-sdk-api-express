@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
@@ -28,7 +29,7 @@ class ShipmentDeleteRequestMapper
     public function map(ShipmentDeleteRequestInterface $request)
     {
         $deleteRequest = new SoapShipmentDeleteRequest(
-            $request->getPickupDate(),
+            $request->getPickupDate()->format('Y-m-d'),
             $request->getPickupCountry(),
             $request->getDispatchConfirmationNumber(),
             $request->getRequesterName()

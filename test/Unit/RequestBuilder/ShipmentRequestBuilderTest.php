@@ -26,11 +26,12 @@ class ShipmentRequestBuilderTest extends \PHPUnit\Framework\TestCase
      */
     public function testShipmentRequest()
     {
+        $readyAtTimestamp = new \DateTime('2019-10-10');
         $requestBuilder = new ShipmentRequestBuilder();
         $requestBuilder->setIsUnscheduledPickup($unscheduledPickup = true)
             ->setTermsOfTrade($termsOfTrade = ShipmentDetails::PAYMENT_TYPE_CFR)
             ->setContentType($contentType = ShipmentDetails::CONTENT_TYPE_NON_DOCUMENTS)
-            ->setReadyAtTimestamp($readyAtTimestamp = 238948923)
+            ->setReadyAtTimestamp($readyAtTimestamp)
             ->setNumberOfPieces($numberOfPieces = 12)
             ->setCurrency($currencyCode = 'EUR')
             ->setDescription($description = 'a description.')

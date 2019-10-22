@@ -31,7 +31,7 @@ interface ShipmentDeleteRequestInterface
     /**
      * Returns the pickup date.
      *
-     * @return string
+     * @return \DateTime
      */
     public function getPickupDate();
 

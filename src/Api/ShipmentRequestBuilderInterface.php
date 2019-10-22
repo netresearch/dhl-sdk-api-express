@@ -46,7 +46,7 @@ interface ShipmentRequestBuilderInterface
     /**
      * Sets the shipment timestamp.
      *
-     * @param int $readyAtTimestamp
+     * @param \DateTime $readyAtTimestamp
      *
      * @return self
      */

@@ -18,7 +18,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * The scheduled pickup date of the shipment to be deleted.
      *
-     * @var string
+     * @var \DateTime
      */
     private $pickupDate;
 
@@ -53,7 +53,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
     /**
      * Constructor.
      *
-     * @param string $pickupDate                 The scheduled pickup date of the shipment to be deleted
+     * @param \DateTime $pickupDate              The scheduled pickup date of the shipment to be deleted
      * @param string $pickupCountry              The country code associated to the origin of the shipment
      * @param string $dispatchConfirmationNumber The confirmation number returned from the original shipment request
      * @param string $requesterName              The delete requester name
