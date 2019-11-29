@@ -16,6 +16,34 @@ namespace Dhl\Express\Api\Data\Request\Shipment;
 interface ShipperInterface
 {
     /**
+     * Returns the shippers country code.
+     *
+     * @return string
+     */
+    public function getCountryCode();
+
+    /**
+     * Returns the shippers postal code.
+     *
+     * @return string
+     */
+    public function getPostalCode();
+
+    /**
+     * Returns the shippers city.
+     *
+     * @return string
+     */
+    public function getCity();
+
+    /**
+     * Returns the shippers street lines.
+     *
+     * @return string[]
+     */
+    public function getStreetLines();
+
+    /**
      * Returns the shippers name.
      *
      * @return string
@@ -35,34 +63,6 @@ interface ShipperInterface
      * @return string
      */
     public function getPhone();
-
-    /**
-     * Returns the shippers street lines.
-     *
-     * @return string[]
-     */
-    public function getStreetLines();
-
-    /**
-     * Returns the shippers city.
-     *
-     * @return string
-     */
-    public function getCity();
-
-    /**
-     * Returns the shippers postal code.
-     *
-     * @return string
-     */
-    public function getPostalCode();
-
-    /**
-     * Returns the shippers country code.
-     *
-     * @return string
-     */
-    public function getCountryCode();
 
     /**
      * Returns the shippers email.

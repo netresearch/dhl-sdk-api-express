@@ -16,6 +16,8 @@ class SoapClientTrackingFake extends \SoapClient
 {
     /**
      * SoapClientFake constructor.
+     *
+     * @throws \SoapFault
      */
     public function __construct()
     {

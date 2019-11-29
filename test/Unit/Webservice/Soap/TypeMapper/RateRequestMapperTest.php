@@ -28,6 +28,7 @@ class RateRequestMapperTest extends TestCase
 {
     /**
      * @test
+     * @throws \Exception
      */
     public function getSoapRateRequestFromRateRequest()
     {
@@ -158,9 +159,7 @@ class RateRequestMapperTest extends TestCase
          * @Todo Test $weightUOM
          */
 
-        /**
-         * @var RequestedPackages $soapPackage
-         */
+        /** @var RequestedPackages $soapPackage */
         $soapPackage = $soapRateRequest->getRequestedShipment()->getPackages()->getRequestedPackages()[0];
         self::assertSameSize(
             $packages,

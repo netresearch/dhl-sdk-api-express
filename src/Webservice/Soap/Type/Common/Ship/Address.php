@@ -113,7 +113,7 @@ class Address
      *
      * @param string $streetLines The street address
      *
-     * @return self
+     * @return static
      */
     public function setStreetLines($streetLines)
     {
@@ -136,7 +136,7 @@ class Address
      *
      * @param string $streetLines2 The additional street address information, preferably room or floor
      *
-     * @return self
+     * @return static
      */
     public function setStreetLines2($streetLines2)
     {
@@ -159,7 +159,7 @@ class Address
      *
      * @param string $streetLines3 The additional street address information, preferably department name
      *
-     * @return self
+     * @return static
      */
     public function setStreetLines3($streetLines3)
     {
@@ -182,7 +182,7 @@ class Address
      *
      * @param string $streetName The street name
      *
-     * @return self
+     * @return static
      */
     public function setStreetName($streetName)
     {
@@ -205,7 +205,7 @@ class Address
      *
      * @param string $streetNumber
      *
-     * @return self
+     * @return static
      */
     public function setStreetNumber($streetNumber)
     {
@@ -228,7 +228,7 @@ class Address
      *
      * @param string $city The street number
      *
-     * @return self
+     * @return static
      */
     public function setCity($city)
     {
@@ -251,7 +251,7 @@ class Address
      *
      * @param string $stateOrProvinceCode The state or province code
      *
-     * @return self
+     * @return static
      */
     public function setStateOrProvinceCode($stateOrProvinceCode)
     {
@@ -274,7 +274,7 @@ class Address
      *
      * @param string $postalCode The postal code
      *
-     * @return self
+     * @return static
      */
     public function setPostalCode($postalCode)
     {
@@ -297,7 +297,7 @@ class Address
      *
      * @param string $countryCode The country code
      *
-     * @return self
+     * @return static
      */
     public function setCountryCode($countryCode)
     {

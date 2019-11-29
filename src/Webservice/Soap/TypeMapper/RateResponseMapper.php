@@ -8,7 +8,6 @@ use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Model\RateResponse;
 use Dhl\Express\Model\Response\Rate\Rate;
-use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
 use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges;
 use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
@@ -39,9 +38,9 @@ class RateResponseMapper
         if ($provider !== null) {
             $notification = $provider->getNotification();
             if (\is_array($notification)) {
-                /** @var Notification|null $notification */
                 $notification = array_shift($notification);
             }
+
             if ($notification !== null && $notification->isError()) {
                 throw new RateRequestException($notification->getMessage(), $notification->getCode());
             }

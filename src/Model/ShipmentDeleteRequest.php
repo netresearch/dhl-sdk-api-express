@@ -59,7 +59,7 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
      * @param string $requesterName              The delete requester name
      */
     public function __construct(
-        $pickupDate,
+        \DateTime $pickupDate,
         $pickupCountry,
         $dispatchConfirmationNumber,
         $requesterName
@@ -70,49 +70,31 @@ class ShipmentDeleteRequest implements ShipmentDeleteRequestInterface
         $this->requesterName              = $requesterName;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getPickupDate()
     {
         return $this->pickupDate;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getPickupCountry()
     {
-        return $this->pickupCountry;
+        return (string) $this->pickupCountry;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getDispatchConfirmationNumber()
     {
-        return $this->dispatchConfirmationNumber;
+        return (string) $this->dispatchConfirmationNumber;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getRequesterName()
     {
-        return $this->requesterName;
+        return (string) $this->requesterName;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getReason()
     {
-        return $this->reason;
+        return (string) $this->reason;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setReason($reason)
     {
         $this->reason = $reason;

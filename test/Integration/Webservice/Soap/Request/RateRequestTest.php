@@ -25,11 +25,12 @@ use Dhl\Express\Webservice\Soap\Type\RateRequest\RequestedShipment;
 use Dhl\Express\Webservice\Soap\Type\RateRequest\Ship;
 use Dhl\Express\Webservice\Soap\Type\SoapRateRequest;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests RateRequest
  */
-class RateRequestTest extends \PHPUnit\Framework\TestCase
+class RateRequestTest extends TestCase
 {
     /**
      * Tests the mapping from the SOAP request classes to the proper XML structure.
@@ -87,7 +88,7 @@ class RateRequestTest extends \PHPUnit\Framework\TestCase
         $rateRequest = new SoapRateRequest($requestedShipment);
         $rateRequest->setClientDetail($clientDetail);
 
-        /** @var SoapClientFake|MockObject $soapClientMock */
+        /** @var SoapClientFake|MockObject|\PHPUnit_Framework_MockObject_MockObject $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(
             WsdlProvider::getWsdlFile(),
             SoapClientFake::class,

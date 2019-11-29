@@ -22,14 +22,14 @@ class PackagesResults
     /**
      * The package result list.
      *
-     * @var array|PackageResult[]
+     * @var PackageResult[]
      */
     private $PackageResult;
 
     /**
      * Returns the package result list.
      *
-     * @return array|PackageResult[]
+     * @return PackageResult[]
      */
     public function getPackageResult()
     {

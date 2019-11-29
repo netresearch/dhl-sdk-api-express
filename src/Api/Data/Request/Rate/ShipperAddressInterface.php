@@ -15,11 +15,11 @@ namespace Dhl\Express\Api\Data\Request\Rate;
 interface ShipperAddressInterface
 {
     /**
-     * Returns the shipper city name.
+     * Returns the shipper country code.
      *
      * @return string
      */
-    public function getCity();
+    public function getCountryCode();
 
     /**
      * Returns the shipper postal code.
@@ -29,9 +29,9 @@ interface ShipperAddressInterface
     public function getPostalCode();
 
     /**
-     * Returns the shipper country code.
+     * Returns the shipper city name.
      *
      * @return string
      */
-    public function getCountryCode();
+    public function getCity();
 }

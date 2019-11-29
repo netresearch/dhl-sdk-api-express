@@ -76,49 +76,31 @@ class RateRequest implements RateRequestInterface
         $this->insurance            = $insurance;
     }
 
-    /**
-     * @return ShipperAddressInterface
-     */
     public function getShipperAddress()
     {
         return $this->shipperAddress;
     }
 
-    /**
-     * @return string
-     */
     public function getShipperAccountNumber()
     {
-        return $this->shipperAccountNumber;
+        return (string) $this->shipperAccountNumber;
     }
 
-    /**
-     * @return RecipientAddressInterface
-     */
     public function getRecipientAddress()
     {
         return $this->recipientAddress;
     }
 
-    /**
-     * @return ShipmentDetailsInterface
-     */
     public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
 
-    /**
-     * @return PackageInterface[]
-     */
     public function getPackages()
     {
         return $this->packages;
     }
 
-    /**
-     * @return InsuranceInterface|null
-     */
     public function getInsurance()
     {
         return $this->insurance;

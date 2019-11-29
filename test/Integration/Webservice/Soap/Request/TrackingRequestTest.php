@@ -16,15 +16,17 @@ use Dhl\Express\Webservice\Soap\Type\Tracking\ServiceHeader;
 use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingRequest;
 use Dhl\Express\Webservice\Soap\Type\Tracking\TrackingRequestBase;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
- * Tests RateRequest
+ * Tests TrackingRequest
  */
-class TrackingRequestTest extends \PHPUnit\Framework\TestCase
+class TrackingRequestTest extends TestCase
 {
     /**
-     * @test
      * Tests the mapping from the SOAP request classes to the proper XML structure.
+     *
+     * @test
      */
     public function TrackingRequestXmlMapping()
     {
@@ -32,7 +34,7 @@ class TrackingRequestTest extends \PHPUnit\Framework\TestCase
         $serviceHeader = new ServiceHeader($messageTime, '4894d5593bd9a8259d53f1ef4e81');
         $request = new Request($serviceHeader);
 
-        $trackingRequest = new TrackingRequest($request, LevelOfDetails::__default);
+        $trackingRequest = new TrackingRequest($request, LevelOfDetails::__DEFAULT);
         $trackingRequest->setAWBNumber(new AWBNumberCollection(['XXXXXXXXX']))
             ->setPiecesEnabled('B')
             ->setLevelOfDetails(LevelOfDetails::ALL_CHECK_POINTS);
@@ -42,7 +44,7 @@ class TrackingRequestTest extends \PHPUnit\Framework\TestCase
         $soapRequest->setTrackingRequest($trackingRequestBase);
 
 
-        /** @var SoapClientFake|MockObject $soapClientMock */
+        /** @var SoapClientFake|MockObject|\PHPUnit_Framework_MockObject_MockObject $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(
             WsdlProvider::getTrackingWsdlFile(),
             SoapClientTrackingFake::class,

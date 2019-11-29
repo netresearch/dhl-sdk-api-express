@@ -16,13 +16,6 @@ namespace Dhl\Express\Api\Data\Request\Rate;
 interface ShipmentDetailsInterface
 {
     /**
-     * Returns the terms of trade.
-     *
-     * @return string
-     */
-    public function getTermsOfTrade();
-
-    /**
      * Returns whether this is a scheduled pickup or not.
      *
      * @return bool
@@ -37,6 +30,13 @@ interface ShipmentDetailsInterface
     public function isRegularPickup();
 
     /**
+     * Returns the terms of trade.
+     *
+     * @return string
+     */
+    public function getTermsOfTrade();
+
+    /**
      * Returns the content type.
      *
      * @return string
@@ -46,7 +46,7 @@ interface ShipmentDetailsInterface
     /**
      * Returns the ship timestamp.
      *
-     * @return \DateTime
+     * @return int|string|\DateTime
      */
     public function getReadyAtTimestamp();
 

@@ -19,58 +19,40 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
     /**
      * The collected data used to build the request.
      *
-     * @var array
+     * @var mixed[]
      */
     private $data = [];
 
-    /**
-     * @inheritdoc
-     */
-    public function setPickupDate($pickupDate)
+    public function setPickupDate(\DateTime $pickupDate)
     {
         $this->data['pickupDate'] = $pickupDate;
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setPickupCountry($pickupCountry)
     {
         $this->data['pickupCountry'] = $pickupCountry;
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setDispatchConfirmationNumber($dispatchConfirmationNumber)
     {
         $this->data['dispatchConfirmationNumber'] = $dispatchConfirmationNumber;
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setRequesterName($requesterName)
     {
         $this->data['requesterName'] = $requesterName;
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setReason($reasonCode)
     {
         $this->data['reasonCode'] = $reasonCode;
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function build()
     {
         //build request

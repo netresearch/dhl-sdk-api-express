@@ -6,7 +6,6 @@
 namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\Data\TrackingRequestInterface;
-use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\Api\TrackingServiceInterface;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Exception\TrackingRequestException;
@@ -50,12 +49,6 @@ class TrackingService implements TrackingServiceInterface
         $this->logger = $logger;
     }
 
-    /**
-     * @param TrackingRequestInterface $request
-     * @return TrackingResponseInterface
-     * @throws SoapException
-     * @throws TrackingRequestException
-     */
     public function getTrackingInformation(TrackingRequestInterface $request)
     {
         try {

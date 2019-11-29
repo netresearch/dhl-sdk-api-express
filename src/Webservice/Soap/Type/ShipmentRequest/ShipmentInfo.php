@@ -381,7 +381,10 @@ class ShipmentInfo
      */
     public function setUseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber)
     {
-        $this->UseOwnShipmentIdentificationNumber = new UseOwnShipmentIdentificationNumber($useOwnShipmentIdentificationNumber);
+        $this->UseOwnShipmentIdentificationNumber = new UseOwnShipmentIdentificationNumber(
+            $useOwnShipmentIdentificationNumber
+        );
+
         return $this;
     }
 

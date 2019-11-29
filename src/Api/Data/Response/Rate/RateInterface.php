@@ -43,4 +43,11 @@ interface RateInterface
      * @return string
      */
     public function getCurrencyCode();
+
+    /**
+     * Returns the delivery date/time.
+     *
+     * @return \DateTime|null
+     */
+    public function getDeliveryTime();
 }

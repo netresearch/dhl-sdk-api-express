@@ -5,6 +5,8 @@
 
 namespace Dhl\Express\Api;
 
+use Dhl\Express\Exception\ExpressApiException;
+use Dhl\Express\Exception\SoapException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -26,6 +28,7 @@ interface ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return RateServiceInterface
+     * @throws ExpressApiException
      */
     public function createRateService(
         $username,
@@ -41,6 +44,7 @@ interface ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return ShipmentServiceInterface
+     * @throws ExpressApiException
      */
     public function createShipmentService(
         $username,
@@ -56,6 +60,7 @@ interface ServiceFactoryInterface
      * @param bool $sandpit
      *
      * @return TrackingServiceInterface
+     * @throws ExpressApiException
      */
     public function createTrackingService(
         $username,

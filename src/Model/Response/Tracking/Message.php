@@ -37,23 +37,13 @@ class Message implements MessageInterface
         $this->reference = $reference;
     }
 
-    /**
-     * Returns the messages time.
-     *
-     * @return int
-     */
     public function getTime()
     {
-        return $this->time;
+        return (int) $this->time;
     }
 
-    /**
-     * Returns the messages reference.
-     *
-     * @return string
-     */
     public function getReference()
     {
-        return $this->reference;
+        return (string) $this->reference;
     }
 }

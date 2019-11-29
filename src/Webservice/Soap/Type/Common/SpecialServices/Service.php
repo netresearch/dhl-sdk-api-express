@@ -187,6 +187,7 @@ class Service
      * @param int|string|\DateTime $startDate The start date (timestamp, date string or \DateTime instance)
      *
      * @return self
+     * @throws \Exception
      */
     public function setStartDate($startDate)
     {
@@ -210,6 +211,7 @@ class Service
      * @param int|string|\DateTime $endDate The end date (timestamp, date string or \DateTime instance)
      *
      * @return self
+     * @throws \Exception
      */
     public function setEndDate($endDate)
     {

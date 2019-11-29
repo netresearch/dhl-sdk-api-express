@@ -6,8 +6,8 @@
 namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\TrackingRequestInterface;
-use Dhl\Express\Api\Data\TrackingResponseInterface;
 use Dhl\Express\Exception\SoapException;
+use Dhl\Express\Exception\TrackingRequestException;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
 use Dhl\Express\Webservice\Adapter\TrackingServiceAdapterInterface;
 use Dhl\Express\Webservice\Soap\TypeMapper\TrackingRequestMapper;
@@ -54,28 +54,23 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
         $this->responseMapper = $responseMapper;
     }
 
-    /**
-     * @param TrackingRequestInterface $request
-     *
-     * @return TrackingResponseInterface
-     *
-     * @throws SoapException
-     */
     public function getTrackingInformation(TrackingRequestInterface $request)
     {
-        $soapRequest = $this->requestMapper->map($request);
+        try {
+            $soapRequest = $this->requestMapper->map($request);
+        } catch (\Exception $e) {
+            throw new TrackingRequestException($e->getMessage());
+        }
+
         try {
             $soapResponse = $this->client->__soapCall('trackShipmentRequest', [$soapRequest]);
         } catch (\SoapFault $e) {
-            throw new SoapException('Could not access SOAP webservice.');
+            throw new SoapException(sprintf('Could not access SOAP webservice: %s', $e->getMessage()), 0, $e);
         }
 
         return $this->responseMapper->map($soapResponse);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLastRequest()
     {
         $lastRequest = sprintf(
@@ -87,9 +82,6 @@ class TrackingServiceAdapter implements TrackingServiceAdapterInterface, Traceab
         return $lastRequest;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLastResponse()
     {
         $lastResponse = sprintf(

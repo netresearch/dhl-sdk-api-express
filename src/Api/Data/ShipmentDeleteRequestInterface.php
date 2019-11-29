@@ -59,7 +59,7 @@ interface ShipmentDeleteRequestInterface
     /**
      * Returns the reason code.
      *
-     * @return null|string
+     * @return string
      */
     public function getReason();
 
@@ -68,7 +68,7 @@ interface ShipmentDeleteRequestInterface
      *
      * @param string $reason The reason code
      *
-     * @return self
+     * @return ShipmentDeleteRequestInterface
      */
     public function setReason($reason);
 }

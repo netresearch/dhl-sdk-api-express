@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest;
 
 use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
@@ -87,12 +88,13 @@ class RequestedShipment
     /**
      * Constructor.
      *
-     * @param ShipmentInfo         $shipmentInfo        The shipment info
-     * @param int|string|\DateTime $shipTimestamp       The ship timestamp (int timestamp, formatted string or \DateTime instance)
-     * @param string               $paymentInfo         The payment info
-     * @param InternationalDetail  $internationalDetail The international detail
-     * @param Ship                 $ship                The shipper/recipient address section
-     * @param Packages             $packages            The packages section
+     * @param ShipmentInfo $shipmentInfo The shipment info
+     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, date string or \DateTime instance)
+     * @param string $paymentInfo The payment info
+     * @param InternationalDetail $internationalDetail The international detail
+     * @param Ship $ship The shipper/recipient address section
+     * @param Packages $packages The packages section
+     * @throws \Exception
      */
     public function __construct(
         ShipmentInfo $shipmentInfo,
@@ -103,11 +105,11 @@ class RequestedShipment
         Packages $packages
     ) {
         $this->setShipmentInfo($shipmentInfo)
-            ->setShipTimestamp($shipTimestamp)
-            ->setPaymentInfo($paymentInfo)
-            ->setInternationalDetail($internationalDetail)
-            ->setShip($ship)
-            ->setPackages($packages);
+             ->setShipTimestamp($shipTimestamp)
+             ->setPaymentInfo($paymentInfo)
+             ->setInternationalDetail($internationalDetail)
+             ->setShip($ship)
+             ->setPackages($packages);
     }
 
     /**
@@ -146,9 +148,10 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param int|string|\DateTime $shipTimestamp     The ship timestamp (int timestamp, formatted string or \DateTime instance)
+     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, date string or \DateTime instance)
      *
      * @return self
+     * @throws \Exception
      */
     public function setShipTimestamp($shipTimestamp)
     {

@@ -7,6 +7,7 @@ namespace Dhl\Express\Webservice\Soap;
 
 use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
+use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\Adapter\ShipmentServiceAdapterInterface;
 use Dhl\Express\Webservice\Adapter\TraceableInterface;
@@ -72,25 +73,23 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
         $this->shipmentDeleteResponseMapper = $shipmentDeleteResponseMapper;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function createShipment(ShipmentRequestInterface $request)
     {
-        $soapRequest = $this->requestMapper->map($request);
+        try {
+            $soapRequest = $this->requestMapper->map($request);
+        } catch (\Exception $e) {
+            throw new ShipmentRequestException($e->getMessage());
+        }
 
         try {
             $soapResponse = $this->client->__soapCall('createShipmentRequest', [ $soapRequest ]);
         } catch (\SoapFault $e) {
-            throw new SoapException('Could not access SOAP webservice.');
+            throw new SoapException(sprintf('Could not access SOAP webservice: %s', $e->getMessage()), 0, $e);
         }
 
         return $this->responseMapper->map($soapResponse);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function deleteShipment(ShipmentDeleteRequestInterface $request)
     {
         $soapRequest = $this->shipmentDeleteRequestMapper->map($request);
@@ -98,15 +97,12 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
         try {
             $soapResponse = $this->client->__soapCall('deleteShipmentRequest', [ $soapRequest ]);
         } catch (\SoapFault $e) {
-            throw new SoapException('Could not access SOAP webservice.');
+            throw new SoapException(sprintf('Could not access SOAP webservice: %s', $e->getMessage()), 0, $e);
         }
 
         return $this->shipmentDeleteResponseMapper->map($soapResponse);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLastRequest()
     {
         $lastRequest = sprintf(
@@ -118,9 +114,6 @@ class ShipmentServiceAdapter implements ShipmentServiceAdapterInterface, Traceab
         return $lastRequest;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLastResponse()
     {
         $lastResponse = sprintf(

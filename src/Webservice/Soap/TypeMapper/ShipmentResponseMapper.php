@@ -7,7 +7,6 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Exception\ShipmentRequestException;
 use Dhl\Express\Model\ShipmentResponse;
-use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\LabelImage;
 use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults\PackageResult;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
@@ -36,7 +35,6 @@ class ShipmentResponseMapper
     {
         $notification = $shipmentResponse->getNotification();
         if (\is_array($notification)) {
-            /** @var Notification|null $notification */
             $notification = array_shift($notification);
         }
 
@@ -65,7 +63,7 @@ class ShipmentResponseMapper
         }
 
         $shipmentIdentificationNumber = $shipmentResponse->getShipmentIdentificationNumber() ?: '';
-        $dispatchConfirmationNumber   = $shipmentResponse->getDispatchConfirmationNumber()   ?: '';
+        $dispatchConfirmationNumber = $shipmentResponse->getDispatchConfirmationNumber() ?: '';
 
         return new ShipmentResponse(
             $labelData,

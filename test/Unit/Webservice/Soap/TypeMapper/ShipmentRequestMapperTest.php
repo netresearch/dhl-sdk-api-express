@@ -28,6 +28,7 @@ class ShipmentRequestMapperTest extends TestCase
 {
     /**
      * @test
+     * @throws \Exception
      */
     public function getSoapRateRequestFromRateRequest()
     {
@@ -321,7 +322,7 @@ class ShipmentRequestMapperTest extends TestCase
         );
 
         self::assertEquals(
-            $dryIce->getUnCode(),
+            $dryIce->getUNCode(),
             $soapRequest->getRequestedShipment()->getDangerousGoods()->getContent()->getUNCode()
         );
     }

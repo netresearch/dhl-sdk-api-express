@@ -22,11 +22,12 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\ContactInfo;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests SoapShipmentRequest
  */
-class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
+class ShipmentRequestTest extends TestCase
 {
     /**
      * Tests the mapping from the SOAP request classes to the proper XML structure.
@@ -88,7 +89,7 @@ class ShipmentRequestTest extends \PHPUnit\Framework\TestCase
 
         $shipmentRequest = new SoapShipmentRequest($requestedShipment);
 
-        /** @var SoapClientFake|MockObject $soapClientMock */
+        /** @var SoapClientFake|MockObject|\PHPUnit_Framework_MockObject_MockObject $soapClientMock */
         $soapClientMock = $this->getMockFromWsdl(
             WsdlProvider::getWsdlFile(),
             SoapClientFake::class,

@@ -17,18 +17,11 @@ use Dhl\Express\Api\Data\Request\RecipientInterface;
 class Recipient implements RecipientInterface
 {
     /**
-     * The street lines.
-     *
-     * @var array
-     */
-    private $streetLines;
-
-    /**
-     * The city name.
+     * The country code.
      *
      * @var string
      */
-    private $city;
+    private $countryCode;
 
     /**
      * The postal code.
@@ -38,11 +31,18 @@ class Recipient implements RecipientInterface
     private $postalCode;
 
     /**
-     * The country code.
+     * The city name.
      *
      * @var string
      */
-    private $countryCode;
+    private $city;
+
+    /**
+     * The street lines.
+     *
+     * @var string[]
+     */
+    private $streetLines;
 
     /**
      * The name.
@@ -78,7 +78,7 @@ class Recipient implements RecipientInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array  $streetLines
+     * @param string[] $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
@@ -94,77 +94,53 @@ class Recipient implements RecipientInterface
         $phone,
         $email = null
     ) {
-        $this->streetLines = $streetLines;
-        $this->city = $city;
-        $this->postalCode = $postalCode;
         $this->countryCode = $countryCode;
+        $this->postalCode = $postalCode;
+        $this->city = $city;
+        $this->streetLines = $streetLines;
         $this->name = $name;
         $this->company = $company;
         $this->phone = $phone;
         $this->email = $email;
     }
 
-    /**
-     * @return array
-     */
+    public function getCountryCode()
+    {
+        return (string) $this->countryCode;
+    }
+
+    public function getPostalCode()
+    {
+        return (string) $this->postalCode;
+    }
+
+    public function getCity()
+    {
+        return (string) $this->city;
+    }
+
     public function getStreetLines()
     {
         return $this->streetLines;
     }
 
-    /**
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
-    }
-
-    /**
-     * @return string
-     */
     public function getName()
     {
-        return $this->name;
+        return (string) $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getCompany()
     {
-        return $this->company;
+        return (string) $this->company;
     }
 
-    /**
-     * @return string
-     */
     public function getPhone()
     {
-        return $this->phone;
+        return (string) $this->phone;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEmail()
     {
-        return $this->email;
+        return (string) $this->email;
     }
 }

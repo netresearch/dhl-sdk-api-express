@@ -20,7 +20,7 @@ class ClassMap
     /**
      * Obtain SOAP types to PHP classes mapping for SOAP responses.
      *
-     * @return array|string[]
+     * @return string[]
      */
     public static function get()
     {

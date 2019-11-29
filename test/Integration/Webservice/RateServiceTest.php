@@ -6,6 +6,9 @@
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Api\RateServiceInterface;
+use Dhl\Express\Exception\RateRequestException;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Model\Request\Rate\ShipmentDetails;
 use Dhl\Express\RequestBuilder\RateRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientFake;
@@ -23,7 +26,8 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @param LoggerInterface $logger
      *
-     * @return \Dhl\Express\Api\RateServiceInterface
+     * @return RateServiceInterface
+     * @throws \SoapFault
      */
     private function getRateService(LoggerInterface $logger)
     {
@@ -35,7 +39,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @test
      * @dataProvider requestDataProvider
      *
-     * @param bool   $isUnscheduledPickup
+     * @param bool $isUnscheduledPickup
      * @param string $accountNumber
      * @param string $sCountryCode
      * @param string $sPostalCode
@@ -43,16 +47,17 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
      * @param string $rCountryCode
      * @param string $rPostalCode
      * @param string $rCity
-     * @param array  $rStreet
+     * @param string[] $rStreet
      * @param string $termsOfTrade
      * @param string $contentType
-     * @param int    $readyAtTimestamp
-     * @param array  $packages
-     * @param float  $insuranceValue
+     * @param int|string|\DateTime $readyAtTimestamp
+     * @param string[][]|float[][] $packages
+     * @param float $insuranceValue
      * @param string $insuranceCurrency
      *
-     * @throws \Dhl\Express\Exception\RateRequestException
-     * @throws \Dhl\Express\Exception\SoapException
+     * @throws RateRequestException
+     * @throws SoapException
+     * @throws \SoapFault
      */
     public function collectRates(
         $isUnscheduledPickup,
@@ -76,7 +81,7 @@ class RateServiceTest extends \PHPUnit\Framework\TestCase
             . 'from API classes to SOAP classes and visa versa. Fix it or remove it.'
         );
 
-        /** @var LoggerInterface|MockObject $logger */
+        /** @var LoggerInterface|MockObject|\PHPUnit_Framework_MockObject_MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger
             ->expects(self::exactly(2))// request + response

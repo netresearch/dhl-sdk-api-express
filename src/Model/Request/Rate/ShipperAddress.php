@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Model\Request\Rate;
 
 use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
@@ -16,11 +17,11 @@ use Dhl\Express\Api\Data\Request\Rate\ShipperAddressInterface;
 class ShipperAddress implements ShipperAddressInterface
 {
     /**
-     * The shippers city name.
+     * The shippers country code.
      *
      * @var string
      */
-    private $city;
+    private $countryCode;
 
     /**
      * The shippers postal code.
@@ -30,47 +31,38 @@ class ShipperAddress implements ShipperAddressInterface
     private $postalCode;
 
     /**
-     * The shippers country code.
+     * The shippers city name.
      *
      * @var string
      */
-    private $countryCode;
+    private $city;
 
     /**
      * Constructor.
      *
      * @param string $countryCode The shippers country code
-     * @param string $postalCode  The shippers postal code
-     * @param string $city        The shippers city name
+     * @param string $postalCode The shippers postal code
+     * @param string $city The shippers city name
      */
     public function __construct($countryCode, $postalCode, $city)
     {
         $this->countryCode = $countryCode;
-        $this->postalCode  = $postalCode;
-        $this->city        = $city;
+        $this->postalCode = $postalCode;
+        $this->city = $city;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getCountryCode()
     {
-        return $this->countryCode;
+        return (string) $this->countryCode;
+    }
+
+    public function getPostalCode()
+    {
+        return (string) $this->postalCode;
+    }
+
+    public function getCity()
+    {
+        return (string) $this->city;
     }
 }

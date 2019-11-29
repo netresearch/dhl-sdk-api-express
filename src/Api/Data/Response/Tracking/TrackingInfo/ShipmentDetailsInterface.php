@@ -24,6 +24,11 @@ interface ShipmentDetailsInterface
     public function getShipperName();
 
     /**
+     * @return string
+     */
+    public function getOriginDescription();
+
+    /**
      * Returns the consignee's name
      *
      * @return string
@@ -31,21 +36,16 @@ interface ShipmentDetailsInterface
     public function getConsigneeName();
 
     /**
+     * @return string
+     */
+    public function getDestinationDescription();
+
+    /**
      * Returns the shipment's date
      *
      * @return string
      */
     public function getShipmentDate();
-
-    /**
-     * @return string
-     */
-    public function getOriginDescription();
-
-    /**
-     * @return string
-     */
-    public function getDestinationDescription();
 
     /**
      * @return float

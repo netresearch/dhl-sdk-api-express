@@ -47,28 +47,18 @@ class DryIce implements DryIceInterface
         $this->weight = $weight;
     }
 
-    /**
-     * @return string
-     */
     public function getContentId()
     {
         return self::CONTENT_ID;
     }
 
-
-    /**
-     * @return string
-     */
-    public function getUnCode()
+    public function getUNCode()
     {
-        return $this->unCode;
+        return (string) $this->unCode;
     }
 
-    /**
-     * @return float
-     */
     public function getWeight()
     {
-        return $this->weight;
+        return (float) $this->weight;
     }
 }

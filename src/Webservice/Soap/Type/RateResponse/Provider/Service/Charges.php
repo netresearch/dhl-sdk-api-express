@@ -26,7 +26,7 @@ class Charges
     /**
      * List of charge sections.
      *
-     * @var array|Charge[]
+     * @var Charge[]
      */
     private $Charge;
 
@@ -55,7 +55,7 @@ class Charges
     /**
      * Returns list of charge sections.
      *
-     * @return array|Charge[]
+     * @return Charge[]
      */
     public function getCharge()
     {

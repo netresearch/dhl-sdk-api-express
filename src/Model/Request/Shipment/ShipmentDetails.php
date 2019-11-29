@@ -25,7 +25,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see DropOffType
      */
-    const REGULAR_PICKUP     = DropOffType::REGULAR_PICKUP;
+    const REGULAR_PICKUP = DropOffType::REGULAR_PICKUP;
     const UNSCHEDULED_PICKUP = DropOffType::REQUEST_COURIER;
 
     /**
@@ -33,7 +33,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      *
      * @see Content
      */
-    const CONTENT_TYPE_DOCUMENTS     = Content::DOCUMENTS;
+    const CONTENT_TYPE_DOCUMENTS = Content::DOCUMENTS;
     const CONTENT_TYPE_NON_DOCUMENTS = Content::NON_DOCUMENTS;
 
     /**
@@ -89,7 +89,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * The ship time.
      *
-     * @var \DateTime
+     * @var int|string|\DateTime
      */
     private $readyAtTimestamp;
 
@@ -131,14 +131,14 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * ShipmentDetails constructor.
      *
-     * @param bool   $unscheduledPickup
+     * @param bool $unscheduledPickup
      * @param string $termsOfTrade
      * @param string $contentType
-     * @param \DateTime $readyAtTimestamp
-     * @param int    $numberOfPieces
+     * @param int|string|\DateTime $readyAtTimestamp
+     * @param int $numberOfPieces
      * @param string $currencyCode
      * @param string $description
-     * @param float  $customsValue
+     * @param float $customsValue
      * @param string $serviceType
      */
     public function __construct(
@@ -163,83 +163,53 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->serviceType = $serviceType;
     }
 
-    /**
-     * @return bool
-     */
     public function isUnscheduledPickup()
     {
-        return $this->unscheduledPickup;
+        return (bool) $this->unscheduledPickup;
     }
 
-    /**
-     * @return bool
-     */
     public function isRegularPickup()
     {
         return !$this->unscheduledPickup;
     }
 
-    /**
-     * @return string
-     */
     public function getTermsOfTrade()
     {
-        return $this->termsOfTrade;
+        return (string) $this->termsOfTrade;
     }
 
-    /**
-     * @return string
-     */
     public function getContentType()
     {
-        return $this->contentType;
+        return (string) $this->contentType;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getReadyAtTimestamp()
     {
         return $this->readyAtTimestamp;
     }
 
-    /**
-     * @return int
-     */
     public function getNumberOfPieces()
     {
-        return $this->numberOfPieces;
+        return (int) $this->numberOfPieces;
     }
 
-    /**
-     * @return string
-     */
     public function getCurrencyCode()
     {
-        return $this->currencyCode;
+        return (string) $this->currencyCode;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription()
     {
-        return $this->description;
+        return (string) $this->description;
     }
 
-    /**
-     * @return float
-     */
     public function getCustomsValue()
     {
-        return $this->customsValue;
+        return (float) $this->customsValue;
     }
 
-    /**
-     * @return string
-     */
     public function getServiceType()
     {
-        return $this->serviceType;
+        return (string) $this->serviceType;
     }
 }

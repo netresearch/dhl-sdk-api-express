@@ -22,6 +22,7 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
      * @var string
      */
     private $message;
+
     /**
      * The success response code.
      *
@@ -43,17 +44,11 @@ class ShipmentDeleteResponse implements ShipmentDeleteResponseInterface
         $this->code    = $code;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getMessage()
     {
-        return $this->message;
+        return (string) $this->message;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isSuccess()
     {
         return $this->code === 0;

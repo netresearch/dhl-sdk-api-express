@@ -39,17 +39,11 @@ class TrackingResponse implements TrackingResponseInterface
         $this->trackingInfos = $trackingInfos;
     }
 
-    /**
-     * @return MessageInterface
-     */
     public function getMessage()
     {
         return $this->message;
     }
 
-    /**
-     * @return TrackingInfo[]
-     */
     public function getTrackingInfos()
     {
         return $this->trackingInfos;

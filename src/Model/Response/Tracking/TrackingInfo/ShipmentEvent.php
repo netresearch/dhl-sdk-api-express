@@ -60,43 +60,23 @@ class ShipmentEvent implements ShipmentEventInterface
         $this->description = $description;
     }
 
-    /**
-     * Returns the event's date
-     *
-     * @return string
-     */
     public function getDate()
     {
-        return $this->date;
+        return (string) $this->date;
     }
 
-    /**
-     * Returns the event's location description
-     *
-     * @return string
-     */
-    public function getLocationDescription()
-    {
-        return $this->locationDescription;
-    }
-
-    /**
-     * Returns the event's description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Returns the event's time
-     *
-     * @return string
-     */
     public function getTime()
     {
-        return $this->time;
+        return (string) $this->time;
+    }
+
+    public function getLocationDescription()
+    {
+        return (string) $this->locationDescription;
+    }
+
+    public function getDescription()
+    {
+        return (string) $this->description;
     }
 }

@@ -6,6 +6,9 @@
 namespace Dhl\Express\Webservice\Test\Integration\Webservice;
 
 use Dhl\Express\Api\Data\TrackingResponseInterface;
+use Dhl\Express\Api\TrackingServiceInterface;
+use Dhl\Express\Exception\SoapException;
+use Dhl\Express\Exception\TrackingRequestException;
 use Dhl\Express\RequestBuilder\TrackingRequestBuilder;
 use Dhl\Express\Test\Integration\Mock\SoapClientTrackingFake;
 use Dhl\Express\Test\Integration\Mock\SoapServiceFactoryFake;
@@ -22,7 +25,8 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
     /**
      * @param LoggerInterface $logger
      *
-     * @return \Dhl\Express\Api\TrackingServiceInterface
+     * @return TrackingServiceInterface
+     * @throws \SoapFault
      */
     private function getTrackingRequest(LoggerInterface $logger)
     {
@@ -34,12 +38,16 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
      * @test
      * @dataProvider requestDataProvider
      *
-     * @param int    $messageTime
+     * @param int $messageTime
      * @param string $messageReference
-     * @param int[]  $awbNumbers
+     * @param int[] $awbNumbers
      * @param string $piecesEnabled
      *
      * @param string $levelOfDetails
+     *
+     * @throws TrackingRequestException
+     * @throws SoapException
+     * @throws \SoapFault
      */
     public function trackShipment(
         $messageTime,
@@ -53,7 +61,7 @@ class TrackingServiceTest extends \PHPUnit\Framework\TestCase
             . 'from API classes to SOAP classes and visa versa. Fix it or remove it.'
         );
 
-        /** @var LoggerInterface|MockObject $logger */
+        /** @var LoggerInterface|MockObject|\PHPUnit_Framework_MockObject_MockObject $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
         $logger
             ->expects(self::exactly(2))// request + response

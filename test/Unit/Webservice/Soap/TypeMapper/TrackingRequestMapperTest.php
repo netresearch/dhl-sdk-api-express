@@ -18,6 +18,7 @@ class TrackingRequestMapperTest extends TestCase
 {
     /**
      * @test
+     * @throws \Exception
      */
     public function getSoapTrackingRequestFromTrackingRequest()
     {
@@ -38,9 +39,9 @@ class TrackingRequestMapperTest extends TestCase
         $soapRequest = $mapper->map($request)->getTrackingRequest()->getTrackingRequest();
 
         // Assertions
-        self::assertEquals(
-            '2018-08-08T09:21:31+00:00',
-            $soapRequest->getRequest()->getServiceHeader()->getMessageTime()
+        self::assertSame(
+            $messageTime,
+            (new \DateTime($soapRequest->getRequest()->getServiceHeader()->getMessageTime()))->getTimestamp()
         );
 
         self::assertEquals(

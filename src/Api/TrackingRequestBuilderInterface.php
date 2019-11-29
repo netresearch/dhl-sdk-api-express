@@ -19,9 +19,8 @@ interface TrackingRequestBuilderInterface
     /**
      * Sets the tracking message.
      *
-     * @param int    $time
+     * @param int $time
      * @param string $reference
-     *
      * @return TrackingRequestBuilderInterface
      */
     public function setMessage($time, $reference);
@@ -29,8 +28,8 @@ interface TrackingRequestBuilderInterface
     /**
      * Sets the tracking AWB numbers.
      *
-     * @param array $awbNumbers
-     * @return self
+     * @param string[] $awbNumbers
+     * @return TrackingRequestBuilderInterface
      */
     public function setAwbNumbers(array $awbNumbers);
 
@@ -38,7 +37,7 @@ interface TrackingRequestBuilderInterface
      * Adds a tracking AWB number.
      *
      * @param string $awbNumber
-     * @return self
+     * @return TrackingRequestBuilderInterface
      */
     public function addAwbNumber($awbNumber);
 
@@ -46,7 +45,7 @@ interface TrackingRequestBuilderInterface
      * Sets the tracking's level of details.
      *
      * @param string $levelOfDetails
-     * @return self
+     * @return TrackingRequestBuilderInterface
      */
     public function setLevelOfDetails($levelOfDetails);
 
@@ -54,7 +53,7 @@ interface TrackingRequestBuilderInterface
      * Sets the tracking's pieces enabled code.
      *
      * @param string $piecesEnabled
-     * @return self
+     * @return TrackingRequestBuilderInterface
      */
     public function setPiecesEnabled($piecesEnabled);
 

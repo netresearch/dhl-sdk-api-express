@@ -20,14 +20,14 @@ class SpecialServices implements \Countable
     /**
      * The list of special services.
      *
-     * @var array|Service[] $Service
+     * @var Service[] $Service
      */
     private $Service = [];
 
     /**
      * Constructor.
      *
-     * @param array|Service[] $service The special services
+     * @param Service[] $service The special services
      */
     public function __construct(array $service)
     {
@@ -37,7 +37,7 @@ class SpecialServices implements \Countable
     /**
      * Returns the special services.
      *
-     * @return array|Service[]
+     * @return Service[]
      */
     public function getService()
     {

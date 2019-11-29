@@ -27,7 +27,7 @@ class TrackingRequestMapper
      * @param TrackingRequestInterface $trackingRequest
      *
      * @return SoapTrackingRequest
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function map(TrackingRequestInterface $trackingRequest)
     {

@@ -7,7 +7,7 @@ namespace Dhl\Express\Api;
 use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 
 /**
- * Shipment Request Builder.
+ * Shipment Delete Request Builder.
  *
  * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
@@ -20,16 +20,16 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @param \DateTime $pickupDate The scheduled pickup date of the shipment to be deleted
      *
-     * @return self
+     * @return ShipmentDeleteRequestBuilderInterface
      */
-    public function setPickupDate($pickupDate);
+    public function setPickupDate(\DateTime $pickupDate);
 
     /**
      * Sets the country code associated to the origin of the shipment.
      *
      * @param string $pickupCountry The country code associated to the origin of the shipment
      *
-     * @return self
+     * @return ShipmentDeleteRequestBuilderInterface
      */
     public function setPickupCountry($pickupCountry);
 
@@ -38,7 +38,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @param string $dispatchConfirmationNumber The confirmation number returned from the original shipment request
      *
-     * @return self
+     * @return ShipmentDeleteRequestBuilderInterface
      */
     public function setDispatchConfirmationNumber($dispatchConfirmationNumber);
 
@@ -47,7 +47,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @param string $requesterName The delete requester name
      *
-     * @return self
+     * @return ShipmentDeleteRequestBuilderInterface
      */
     public function setRequesterName($requesterName);
 
@@ -56,7 +56,7 @@ interface ShipmentDeleteRequestBuilderInterface
      *
      * @param string $reasonCode The reason code
      *
-     * @return self
+     * @return ShipmentDeleteRequestBuilderInterface
      */
     public function setReason($reasonCode);
 

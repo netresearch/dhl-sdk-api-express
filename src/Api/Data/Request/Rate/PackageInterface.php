@@ -32,6 +32,13 @@ interface PackageInterface
     public function getWeight();
 
     /**
+     * Returns the unit of measurement for the weight of the package.
+     *
+     * @return string
+     */
+    public function getWeightUOM();
+
+    /**
      * Returns the length of the package.
      *
      * @return float
@@ -58,11 +65,4 @@ interface PackageInterface
      * @return string
      */
     public function getDimensionsUOM();
-
-    /**
-     * Returns the unit of measurement for the weight of the package.
-     *
-     * @return string
-     */
-    public function getWeightUOM();
 }

@@ -4,6 +4,8 @@
  */
 namespace Dhl\Express\Model\Request\Tracking;
 
+use Dhl\Express\Api\Data\Request\Tracking\MessageInterface;
+
 /**
  * Tracking message.
  *
@@ -11,7 +13,7 @@ namespace Dhl\Express\Model\Request\Tracking;
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */
-class Message implements \Dhl\Express\Api\Data\Request\Tracking\MessageInterface
+class Message implements MessageInterface
 {
     /**
      * @var int
@@ -37,11 +39,11 @@ class Message implements \Dhl\Express\Api\Data\Request\Tracking\MessageInterface
 
     public function getTime()
     {
-        return $this->time;
+        return (int) $this->time;
     }
 
     public function getReference()
     {
-        return $this->reference;
+        return (string) $this->reference;
     }
 }

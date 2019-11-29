@@ -7,10 +7,8 @@ namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
-use Dhl\Express\Api\Data\Request\RecipientInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
-use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Recipient;
 use Dhl\Express\Model\Request\Shipment\Shipper;
@@ -35,16 +33,6 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $payerAccountNumber;
 
     /**
-     * @var null|string
-     */
-    private $billingAccountNumber;
-
-    /**
-     * @var null|InsuranceInterface
-     */
-    private $insurance;
-
-    /**
      * @var Shipper
      */
     private $shipper;
@@ -60,6 +48,16 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $packages;
 
     /**
+     * @var null|string
+     */
+    private $billingAccountNumber;
+
+    /**
+     * @var null|InsuranceInterface
+     */
+    private $insurance;
+
+    /**
      * @var null|DryIceInterface
      */
     private $dryIce;
@@ -68,10 +66,10 @@ class ShipmentRequest implements ShipmentRequestInterface
      * SoapShipmentRequest constructor.
      *
      * @param ShipmentDetailsInterface $shipmentDetails
-     * @param string                   $payerAccountNumber
-     * @param Shipper                  $shipper
-     * @param Recipient                $recipient
-     * @param array                    $packages
+     * @param string $payerAccountNumber
+     * @param Shipper $shipper
+     * @param Recipient $recipient
+     * @param PackageInterface[] $packages
      */
     public function __construct(
         ShipmentDetailsInterface $shipmentDetails,
@@ -87,28 +85,44 @@ class ShipmentRequest implements ShipmentRequestInterface
         $this->packages = $packages;
     }
 
-    /**
-     * @return ShipmentDetailsInterface
-     */
     public function getShipmentDetails()
     {
         return $this->shipmentDetails;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getPayerAccountNumber()
     {
-        return $this->payerAccountNumber;
+        return (string) $this->payerAccountNumber;
     }
 
-    /**
-     * @inheritdoc
-     */
+    public function getShipper()
+    {
+        return $this->shipper;
+    }
+
+    public function getRecipient()
+    {
+        return $this->recipient;
+    }
+
+    public function getPackages()
+    {
+        return $this->packages;
+    }
+
     public function getBillingAccountNumber()
     {
-        return $this->billingAccountNumber;
+        return (string) $this->billingAccountNumber;
+    }
+
+    public function getInsurance()
+    {
+        return $this->insurance;
+    }
+
+    public function getDryIce()
+    {
+        return $this->dryIce;
     }
 
     /**
@@ -116,21 +130,13 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @param string $billingAccountNumber The billing account number
      *
-     * @return self
+     * @return ShipmentRequest
      */
     public function setBillingAccountNumber($billingAccountNumber)
     {
         $this->billingAccountNumber = $billingAccountNumber;
 
         return $this;
-    }
-
-    /**
-     * @return null|InsuranceInterface
-     */
-    public function getInsurance()
-    {
-        return $this->insurance;
     }
 
     /**
@@ -145,38 +151,6 @@ class ShipmentRequest implements ShipmentRequestInterface
         $this->insurance = $insurance;
 
         return $this;
-    }
-
-    /**
-     * @return ShipperInterface
-     */
-    public function getShipper()
-    {
-        return $this->shipper;
-    }
-
-    /**
-     * @return RecipientInterface
-     */
-    public function getRecipient()
-    {
-        return $this->recipient;
-    }
-
-    /**
-     * @return PackageInterface[]
-     */
-    public function getPackages()
-    {
-        return $this->packages;
-    }
-
-    /**
-     * @return null|DryIceInterface
-     */
-    public function getDryIce()
-    {
-        return $this->dryIce;
     }
 
     /**

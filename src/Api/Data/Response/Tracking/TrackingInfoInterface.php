@@ -23,7 +23,7 @@ interface TrackingInfoInterface
     /**
      * Returns the AWB number.
      *
-     * @return int
+     * @return string
      */
     public function getAwbNumber();
 

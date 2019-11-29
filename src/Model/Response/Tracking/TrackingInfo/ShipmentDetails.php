@@ -8,7 +8,7 @@ namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentDetailsInterface;
 
 /**
- * Shipping details class.
+ * Shipment details class.
  *
  * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
@@ -60,7 +60,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param string $destinationDescription
      * @param string $shipmentDate
      * @param float  $weight
-     * @param string $estimatedDeliveryDate
+     * @param string|null $estimatedDeliveryDate
      */
     public function __construct(
         $shipperName,
@@ -80,65 +80,38 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
     }
 
-    /**
-     * Returns the shipper's name
-     *
-     * @return string
-     */
     public function getShipperName()
     {
-        return $this->shipperName;
+        return (string) $this->shipperName;
     }
 
-    /**
-     * Returns the consignee's name
-     *
-     * @return string
-     */
-    public function getConsigneeName()
-    {
-        return $this->consigneeName;
-    }
-
-    /**
-     * Returns the shipment's date
-     *
-     * @return string
-     */
-    public function getShipmentDate()
-    {
-        return $this->shipmentDate;
-    }
-
-    /**
-     * @return string
-     */
     public function getOriginDescription()
     {
-        return $this->originDescription;
+        return (string) $this->originDescription;
     }
 
-    /**
-     * @return string
-     */
+    public function getConsigneeName()
+    {
+        return (string) $this->consigneeName;
+    }
+
     public function getDestinationDescription()
     {
-        return $this->destinationDescription;
+        return (string) $this->destinationDescription;
     }
 
-    /**
-     * @return float
-     */
+    public function getShipmentDate()
+    {
+        return (string) $this->shipmentDate;
+    }
+
     public function getWeight()
     {
-        return $this->weight;
+        return (float) $this->weight;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEstimatedDeliveryDate()
     {
-        return $this->estimatedDeliveryDate;
+        return (string) $this->estimatedDeliveryDate;
     }
 }

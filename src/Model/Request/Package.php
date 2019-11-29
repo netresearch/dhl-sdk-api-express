@@ -48,6 +48,13 @@ class Package implements PackageInterface
     private $weight;
 
     /**
+     * The unit of measurement for the package weight.
+     *
+     * @var string
+     */
+    private $weightUOM;
+
+    /**
      * The length of the package.
      *
      * @var float
@@ -74,13 +81,6 @@ class Package implements PackageInterface
      * @var string
      */
     private $dimensionsUOM;
-
-    /**
-     * The unit of measurement for the package weight.
-     *
-     * @var string
-     */
-    private $weightUOM;
 
     /**
      * The customers references.
@@ -145,67 +145,43 @@ class Package implements PackageInterface
         $this->customerReferences = $customerReferences;
     }
 
-    /**
-     * @return int
-     */
     public function getSequenceNumber()
     {
-        return $this->sequenceNumber;
+        return (int) $this->sequenceNumber;
     }
 
-    /**
-     * @return float
-     */
     public function getWeight()
     {
-        return $this->weight;
+        return (float) $this->weight;
     }
 
-    /**
-     * @return float
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
-
-    /**
-     * @return float
-     */
-    public function getWidth()
-    {
-        return $this->width;
-    }
-
-    /**
-     * @return float
-     */
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDimensionsUOM()
-    {
-        return $this->dimensionsUOM;
-    }
-
-    /**
-     * @return string
-     */
     public function getWeightUOM()
     {
-        return $this->weightUOM;
+        return (string) $this->weightUOM;
     }
 
-    /**
-     * @return string
-     */
+    public function getLength()
+    {
+        return (float) $this->length;
+    }
+
+    public function getWidth()
+    {
+        return (float) $this->width;
+    }
+
+    public function getHeight()
+    {
+        return (float) $this->height;
+    }
+
+    public function getDimensionsUOM()
+    {
+        return (string) $this->dimensionsUOM;
+    }
+
     public function getCustomerReferences()
     {
-        return $this->customerReferences;
+        return (string) $this->customerReferences;
     }
 }

@@ -5,6 +5,7 @@
 namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\RateResponseInterface;
+use Dhl\Express\Api\Data\Response\Rate\RateInterface;
 
 /**
  * Rate response.
@@ -18,23 +19,20 @@ class RateResponse implements RateResponseInterface
     /**
      * The rates.
      *
-     * @var array
+     * @var RateInterface[]
      */
     private $rates;
 
     /**
      * Constructor.
      *
-     * @param array $rates The rates
+     * @param RateInterface[] $rates The rates
      */
     public function __construct(array $rates)
     {
         $this->rates = $rates;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getRates()
     {
         return $this->rates;

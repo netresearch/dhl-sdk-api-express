@@ -51,33 +51,18 @@ class PieceEvent implements PieceEventInterface
         $this->description = $description;
     }
 
-    /**
-     * Returns the event's date
-     *
-     * @return int
-     */
     public function getDate()
     {
-        return $this->date;
+        return (int) $this->date;
     }
 
-    /**
-     * Returns the event's code
-     *
-     * @return string
-     */
     public function getCode()
     {
-        return $this->code;
+        return (string) $this->code;
     }
 
-    /**
-     * Returns the event's description
-     *
-     * @return string
-     */
     public function getDescription()
     {
-        return $this->description;
+        return (string) $this->description;
     }
 }

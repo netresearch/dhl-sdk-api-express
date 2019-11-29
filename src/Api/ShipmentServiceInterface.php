@@ -8,6 +8,9 @@ use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
+use Dhl\Express\Exception\ShipmentDeleteRequestException;
+use Dhl\Express\Exception\ShipmentRequestException;
+use Dhl\Express\Exception\SoapException;
 
 /**
  * Shipment Service Interface.
@@ -23,14 +26,22 @@ use Dhl\Express\Api\Data\ShipmentResponseInterface;
 interface ShipmentServiceInterface
 {
     /**
-     * @param ShipmentRequestInterface $request
+     * Performs the "createShipment" request.
+     *
+     * @param ShipmentRequestInterface $request The API request
      * @return ShipmentResponseInterface
+     * @throws ShipmentRequestException
+     * @throws SoapException
      */
     public function createShipment(ShipmentRequestInterface $request);
 
     /**
-     * @param ShipmentDeleteRequestInterface $request
+     * Performs the "deleteShipment" request.
+     *
+     * @param ShipmentDeleteRequestInterface $request The API request
      * @return ShipmentDeleteResponseInterface
+     * @throws ShipmentDeleteRequestException
+     * @throws SoapException
      */
     public function deleteShipment(ShipmentDeleteRequestInterface $request);
 }

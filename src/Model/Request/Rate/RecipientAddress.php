@@ -16,18 +16,11 @@ use Dhl\Express\Api\Data\Request\Rate\RecipientAddressInterface;
 class RecipientAddress implements RecipientAddressInterface
 {
     /**
-     * The street lines.
-     *
-     * @var array
-     */
-    private $streetLines;
-
-    /**
-     * The city name.
+     * The country code.
      *
      * @var string
      */
-    private $city;
+    private $countryCode;
 
     /**
      * The postal code.
@@ -37,11 +30,18 @@ class RecipientAddress implements RecipientAddressInterface
     private $postalCode;
 
     /**
-     * The country code.
+     * The city name.
      *
      * @var string
      */
-    private $countryCode;
+    private $city;
+
+    /**
+     * The street lines.
+     *
+     * @var string[]
+     */
+    private $streetLines;
 
     /**
      * Constructor.
@@ -59,35 +59,23 @@ class RecipientAddress implements RecipientAddressInterface
         $this->streetLines = $streetLines;
     }
 
-    /**
-     * @inheritdoc
-     */
+    public function getCountryCode()
+    {
+        return (string) $this->countryCode;
+    }
+
+    public function getPostalCode()
+    {
+        return (string) $this->postalCode;
+    }
+
+    public function getCity()
+    {
+        return (string) $this->city;
+    }
+
     public function getStreetLines()
     {
         return $this->streetLines;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * @@inheritdoc
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
     }
 }

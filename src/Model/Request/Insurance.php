@@ -41,19 +41,13 @@ class Insurance implements InsuranceInterface
         $this->currencyCode = $currencyCode;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getValue()
     {
-        return $this->value;
+        return (float) $this->value;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getCurrencyCode()
     {
-        return $this->currencyCode;
+        return (string) $this->currencyCode;
     }
 }

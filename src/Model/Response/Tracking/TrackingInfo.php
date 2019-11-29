@@ -19,7 +19,7 @@ use Dhl\Express\Api\Data\Response\Tracking\TrackingInfoInterface;
 class TrackingInfo implements TrackingInfoInterface
 {
     /**
-     * @var int
+     * @var string
      */
     private $awbNumber;
 
@@ -46,7 +46,7 @@ class TrackingInfo implements TrackingInfoInterface
     /**
      * TrackingInfo constructor.
      *
-     * @param int                      $awbNumber
+     * @param string                   $awbNumber
      * @param string                   $awbStatus
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param ShipmentEventInterface[] $shipmentEvents
@@ -68,12 +68,12 @@ class TrackingInfo implements TrackingInfoInterface
 
     public function getAwbNumber()
     {
-        return $this->awbNumber;
+        return (string) $this->awbNumber;
     }
 
     public function getAwbStatus()
     {
-        return $this->awbStatus;
+        return (string) $this->awbStatus;
     }
 
     public function getShipmentDetails()

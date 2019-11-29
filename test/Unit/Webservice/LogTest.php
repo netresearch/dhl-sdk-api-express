@@ -7,9 +7,12 @@ namespace Dhl\Express\Test\Unit\Webservice;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
+use Dhl\Express\Exception\ShipmentRequestException;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\ShipmentService;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use PHPUnit\Framework\MockObject\MockObject;
+use Psr\Log\LoggerInterface;
 
 /**
  * @package Dhl\Express\Test\Unit
@@ -20,6 +23,9 @@ class LogTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
+     *
+     * @throws SoapException
+     * @throws ShipmentRequestException
      */
     public function shipmentServiceLogsResponseFromAdapter()
     {
@@ -27,7 +33,7 @@ class LogTest extends \PHPUnit\Framework\TestCase
         $lastResponse = 'bar';
         $response = $this->getMockBuilder(ShipmentResponseInterface::class)->getMock();
 
-        /** @var MockObject|ShipmentServiceAdapter $adapter */
+        /** @var ShipmentServiceAdapter|MockObject|\PHPUnit_Framework_MockObject_MockObject $adapter */
         $adapter = $this->getMockBuilder(ShipmentServiceAdapter::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -41,8 +47,8 @@ class LogTest extends \PHPUnit\Framework\TestCase
             ->method('createShipment')
             ->willReturn($response);
 
-        /** @var \Psr\Log\LoggerInterface|\PHPUnit\Framework\MockObject\MockObject $logger */
-        $logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
+        /** @var LoggerInterface|MockObject|\PHPUnit_Framework_MockObject_MockObject $logger */
+        $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
 
         /** @var ShipmentServiceInterface $shipmentService */
         $shipmentService = new ShipmentService($adapter, $logger);

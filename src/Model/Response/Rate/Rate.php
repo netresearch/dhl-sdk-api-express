@@ -47,7 +47,7 @@ class Rate implements RateInterface
     /**
      * The delivery time.
      *
-     * @var \DateTime
+     * @var \DateTime|null
      */
     private $deliveryTime;
 
@@ -67,36 +67,29 @@ class Rate implements RateInterface
         $this->currencyCode = $currencyCode;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getServiceCode()
     {
-        return $this->serviceCode;
+        return (string) $this->serviceCode;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getLabel()
     {
-        return $this->label;
+        return (string) $this->label;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getAmount()
     {
-        return $this->amount;
+        return (float) $this->amount;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getCurrencyCode()
     {
-        return $this->currencyCode;
+        return (string) $this->currencyCode;
+    }
+
+    public function getDeliveryTime()
+    {
+        return $this->deliveryTime;
     }
 
     /**
@@ -110,15 +103,5 @@ class Rate implements RateInterface
     {
         $this->deliveryTime = $deliveryTime;
         return $this;
-    }
-
-    /**
-     * Returns the delivery date/time.
-     *
-     * @return \DateTime
-     */
-    public function getDeliveryTime()
-    {
-        return $this->deliveryTime;
     }
 }

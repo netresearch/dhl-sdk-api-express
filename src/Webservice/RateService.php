@@ -48,9 +48,6 @@ class RateService implements RateServiceInterface
         $this->logger = $logger;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function collectRates(RateRequestInterface $request)
     {
         try {

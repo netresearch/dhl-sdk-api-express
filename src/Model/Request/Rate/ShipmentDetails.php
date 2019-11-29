@@ -79,7 +79,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * The ship time.
      *
-     * @var \DateTime
+     * @var int|string|\DateTime
      */
     private $readyAtTimestamp;
 
@@ -100,12 +100,12 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * Constructor.
      *
-     * @param bool   $unscheduledPickup         Whether this is a scheduled pickup or not
-     * @param string $termsOfTrade              The terms of trade
-     * @param string $contentType               The content type
-     * @param \DateTime $readyAtTimestamp       The ship time
-     * @param bool   $requestValueAddedServices If the Rate Response should contain the value added services
-     * @param bool   $nextBusinessDayIndicator
+     * @param bool $unscheduledPickup Whether this is a scheduled pickup or not
+     * @param string $termsOfTrade The terms of trade
+     * @param string $contentType The content type
+     * @param int|string|\DateTime $readyAtTimestamp The ship time
+     * @param bool $requestValueAddedServices If the Rate Response should contain the value added services
+     * @param bool $nextBusinessDayIndicator
      */
     public function __construct(
         $unscheduledPickup,
@@ -115,67 +115,46 @@ class ShipmentDetails implements ShipmentDetailsInterface
         $requestValueAddedServices,
         $nextBusinessDayIndicator
     ) {
-        $this->unscheduledPickup         = $unscheduledPickup;
-        $this->termsOfTrade              = $termsOfTrade;
-        $this->contentType               = $contentType;
-        $this->readyAtTimestamp          = $readyAtTimestamp;
+        $this->unscheduledPickup = $unscheduledPickup;
+        $this->termsOfTrade = $termsOfTrade;
+        $this->contentType = $contentType;
+        $this->readyAtTimestamp = $readyAtTimestamp;
         $this->requestValueAddedServices = $requestValueAddedServices;
-        $this->nextBusinessDayIndicator  = $nextBusinessDayIndicator;
+        $this->nextBusinessDayIndicator = $nextBusinessDayIndicator;
     }
 
-    /**
-     * @return bool
-     */
+    public function isUnscheduledPickup()
+    {
+        return (bool)$this->unscheduledPickup;
+    }
+
     public function isRegularPickup()
     {
         return !$this->unscheduledPickup;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function isUnscheduledPickup()
-    {
-        return $this->unscheduledPickup;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getTermsOfTrade()
     {
-        return $this->termsOfTrade;
+        return (string)$this->termsOfTrade;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getContentType()
     {
-        return $this->contentType;
+        return (string)$this->contentType;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getReadyAtTimestamp()
     {
         return $this->readyAtTimestamp;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isValueAddedServicesRequested()
     {
-        return $this->requestValueAddedServices;
+        return (bool)$this->requestValueAddedServices;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isNextBusinessDayIndicator()
     {
-        return $this->nextBusinessDayIndicator;
+        return (bool)$this->nextBusinessDayIndicator;
     }
 }

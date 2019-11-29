@@ -20,14 +20,14 @@ class Service
     /**
      * Total net section.
      *
-     * @var array|TotalNet[]
+     * @var TotalNet[]
      */
     private $TotalNet = [];
 
     /**
      * Charges section.
      *
-     * @var array|Charges[]
+     * @var Charges[]
      */
     private $Charges = [];
 
@@ -83,7 +83,7 @@ class Service
     /**
      * Returns the total net section.
      *
-     * @return array|TotalNet[]
+     * @return TotalNet[]
      */
     public function getTotalNet()
     {
@@ -93,7 +93,7 @@ class Service
     /**
      * Returns the charges section.
      *
-     * @return array|Charges[]
+     * @return Charges[]
      */
     public function getCharges()
     {

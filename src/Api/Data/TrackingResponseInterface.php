@@ -27,7 +27,7 @@ interface TrackingResponseInterface
     public function getMessage();
 
     /**
-     * Returns the tacking informations.
+     * Returns the tracking information.
      *
      * @return TrackingInfoInterface[]
      */

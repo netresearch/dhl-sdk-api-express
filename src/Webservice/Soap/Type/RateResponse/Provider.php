@@ -34,7 +34,7 @@ class Provider
     /**
      * List of services.
      *
-     * @var null|array|Service[]
+     * @var null|Service[]
      */
     private $Service;
 
@@ -61,7 +61,7 @@ class Provider
     /**
      * Returns the list of services.
      *
-     * @return null|array|Service[]
+     * @return null|Service[]
      */
     public function getService()
     {

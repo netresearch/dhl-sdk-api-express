@@ -56,35 +56,23 @@ class ShipmentResponse implements ShipmentResponseInterface
         $this->dispatchConfirmationNumber = $dispatchConfirmationNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getLabelData()
     {
-        return $this->labelData;
+        return (string) $this->labelData;
     }
 
-    /**
-     * @return string[]
-     */
     public function getTrackingNumbers()
     {
         return $this->trackingNumbers;
     }
 
-    /**
-     * @return string
-     */
     public function getShipmentIdentificationNumber()
     {
-        return $this->shipmentIdentificationNumber;
+        return (string) $this->shipmentIdentificationNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getDispatchConfirmationNumber()
     {
-        return $this->dispatchConfirmationNumber;
+        return (string) $this->dispatchConfirmationNumber;
     }
 }

@@ -77,19 +77,16 @@ class TrackingRequest implements TrackingRequestInterface
 
     public function getLevelOfDetails()
     {
-        return $this->levelOfDetails;
+        return (string) $this->levelOfDetails;
     }
 
     public function getPiecesEnabled()
     {
-        return $this->piecesEnabled;
+        return (string) $this->piecesEnabled;
     }
 
-    /**
-     * @return bool
-     */
     public function isEstimatedDeliveryDateRequested()
     {
-        return $this->estimatedDeliveryDate;
+        return (bool) $this->estimatedDeliveryDate;
     }
 }

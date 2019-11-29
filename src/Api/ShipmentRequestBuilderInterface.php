@@ -21,7 +21,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param bool $unscheduledPickup
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setIsUnscheduledPickup($unscheduledPickup);
 
@@ -30,7 +30,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $termsOfTrade
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setTermsOfTrade($termsOfTrade);
 
@@ -39,7 +39,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $contentType
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setContentType($contentType);
 
@@ -48,16 +48,16 @@ interface ShipmentRequestBuilderInterface
      *
      * @param \DateTime $readyAtTimestamp
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
-    public function setReadyAtTimestamp($readyAtTimestamp);
+    public function setReadyAtTimestamp(\DateTime $readyAtTimestamp);
 
     /**
      * Sets the number of pieces.
      *
      * @param int $numberOfPieces
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setNumberOfPieces($numberOfPieces);
 
@@ -66,7 +66,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $currencyCode
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setCurrency($currencyCode);
 
@@ -75,7 +75,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $description
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setDescription($description);
 
@@ -84,7 +84,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param float $customsValue
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setCustomsValue($customsValue);
 
@@ -93,7 +93,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $serviceType
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setServiceType($serviceType);
 
@@ -102,7 +102,7 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $accountNumber
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setPayerAccountNumber($accountNumber);
 
@@ -111,17 +111,17 @@ interface ShipmentRequestBuilderInterface
      *
      * @param string $accountNumber
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setBillingAccountNumber($accountNumber);
 
     /**
      * Sets the insurance.
      *
-     * @param float  $insuranceValue
+     * @param float $insuranceValue
      * @param string $insuranceCurrency
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setInsurance($insuranceValue, $insuranceCurrency);
 
@@ -131,13 +131,13 @@ interface ShipmentRequestBuilderInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array  $streetLines
+     * @param string[] $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
      * @param string|null $email
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setShipper(
         $countryCode,
@@ -156,13 +156,13 @@ interface ShipmentRequestBuilderInterface
      * @param string $countryCode
      * @param string $postalCode
      * @param string $city
-     * @param array  $streetLines
+     * @param string[] $streetLines
      * @param string $name
      * @param string $company
      * @param string $phone
      * @param string|null $email
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setRecipient(
         $countryCode,
@@ -178,16 +178,16 @@ interface ShipmentRequestBuilderInterface
     /**
      * Adds a package to the list of packages.
      *
-     * @param int    $sequenceNumber
-     * @param float  $weight
+     * @param int $sequenceNumber
+     * @param float $weight
      * @param string $weightUOM
-     * @param float  $length
-     * @param float  $width
-     * @param float  $height
+     * @param float $length
+     * @param float $width
+     * @param float $height
      * @param string $dimensionsUOM
      * @param string $customerReferences
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function addPackage(
         $sequenceNumber,
@@ -204,9 +204,9 @@ interface ShipmentRequestBuilderInterface
      * Set dry ice.
      *
      * @param string $unCode
-     * @param float  $weight
+     * @param float $weight
      *
-     * @return self
+     * @return ShipmentRequestBuilderInterface
      */
     public function setDryIce($unCode, $weight);
 

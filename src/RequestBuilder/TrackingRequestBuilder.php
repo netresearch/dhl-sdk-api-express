@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\RequestBuilder;
 
-use Dhl\Express\Api\Data\TrackingRequestInterface;
 use Dhl\Express\Api\TrackingRequestBuilderInterface;
 use Dhl\Express\Model\Request\Tracking\Message;
 use Dhl\Express\Model\TrackingRequest;
@@ -22,18 +21,10 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
     /**
      * The collected data used to build the tracking request.
      *
-     * @var array
+     * @var mixed[]
      */
     private $data = [];
 
-    /**
-     * Sets the tracking message.
-     *
-     * @param int    $time
-     * @param string $reference
-     *
-     * @return TrackingRequestBuilderInterface
-     */
     public function setMessage($time, $reference)
     {
         $this->data['message'] = [
@@ -44,12 +35,6 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * Sets the tracking AWB numbers.
-     *
-     * @param array $awbNumbers
-     * @return TrackingRequestBuilderInterface
-     */
     public function setAwbNumbers(array $awbNumbers)
     {
         $this->data['awb_numbers'] = $awbNumbers;
@@ -57,12 +42,6 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * Adds a tracking AWB number.
-     *
-     * @param string $awbNumber
-     * @return TrackingRequestBuilderInterface
-     */
     public function addAwbNumber($awbNumber)
     {
         $this->data['awb_numbers'][] = $awbNumber;
@@ -70,12 +49,6 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * Sets the tracking's level of details.
-     *
-     * @param string $levelOfDetails
-     * @return TrackingRequestBuilderInterface
-     */
     public function setLevelOfDetails($levelOfDetails)
     {
         $this->data['level_of_details'] = $levelOfDetails;
@@ -83,12 +56,6 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * Sets the tracking's pieces enabled code.
-     *
-     * @param string $piecesEnabled
-     * @return TrackingRequestBuilderInterface
-     */
     public function setPiecesEnabled($piecesEnabled)
     {
         $this->data['pieces_enabled'] = $piecesEnabled;
@@ -103,11 +70,6 @@ class TrackingRequestBuilder implements TrackingRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * Builds the tracking request instance.
-     *
-     * @return TrackingRequestInterface
-     */
     public function build()
     {
         $eddEnabled = isset($this->data['estimated_delivery_date'])

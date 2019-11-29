@@ -21,7 +21,7 @@ class SoapShipmentResponse
     /**
      * The response notifications.
      *
-     * @var array|Notification[]
+     * @var Notification[]
      */
     private $Notification;
 
@@ -35,7 +35,7 @@ class SoapShipmentResponse
     /**
      * A list of label images.
      *
-     * @var null|array|LabelImage[]
+     * @var null|LabelImage[]
      */
     private $LabelImage;
 
@@ -58,7 +58,7 @@ class SoapShipmentResponse
     /**
      * Returns the response notification.
      *
-     * @return array|Notification[] Array of Notification
+     * @return Notification[] Array of Notification
      */
     public function getNotification()
     {
@@ -78,7 +78,7 @@ class SoapShipmentResponse
     /**
      * Returns the list of label images.
      *
-     * @return null|array|LabelImage[] Array of LabelImage
+     * @return null|LabelImage[] Array of LabelImage
      */
     public function getLabelImage()
     {

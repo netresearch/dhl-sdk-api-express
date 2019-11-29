@@ -5,9 +5,7 @@
 namespace Dhl\Express\Webservice;
 
 use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
-use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
-use Dhl\Express\Api\Data\ShipmentResponseInterface;
 use Dhl\Express\Api\ShipmentServiceInterface;
 use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Exception\ShipmentRequestException;
@@ -50,16 +48,6 @@ class ShipmentService implements ShipmentServiceInterface
         $this->logger = $logger;
     }
 
-    /**
-     * Performs the "createShipment" request.
-     *
-     * @param ShipmentRequestInterface $request The API request
-     *
-     * @return ShipmentResponseInterface
-     *
-     * @throws ShipmentRequestException
-     * @throws SoapException
-     */
     public function createShipment(ShipmentRequestInterface $request)
     {
         try {
@@ -80,16 +68,6 @@ class ShipmentService implements ShipmentServiceInterface
         return $response;
     }
 
-    /**
-     * Performs the "deleteShipment" request.
-     *
-     * @param ShipmentDeleteRequestInterface $request The API request
-     *
-     * @return ShipmentDeleteResponseInterface
-     *
-     * @throws ShipmentDeleteRequestException
-     * @throws SoapException
-     */
     public function deleteShipment(ShipmentDeleteRequestInterface $request)
     {
         try {

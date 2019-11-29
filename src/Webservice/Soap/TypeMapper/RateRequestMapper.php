@@ -37,7 +37,7 @@ class RateRequestMapper
      * @param RateRequestInterface $rateRequest
      *
      * @return SoapRateRequest
-     * @throws InvalidArgumentException
+     * @throws \Exception
      */
     public function map(RateRequestInterface $rateRequest)
     {
@@ -153,7 +153,7 @@ class RateRequestMapper
     /**
      * Check if all packages have the same units of measurement (UOM) for weight and dimensions.
      *
-     * @param array $packages The list of packages
+     * @param PackageInterface[] $packages The list of packages
      *
      * @return void
      * @throws InvalidArgumentException

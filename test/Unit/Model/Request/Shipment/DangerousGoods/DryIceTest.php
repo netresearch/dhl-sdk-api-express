@@ -27,7 +27,7 @@ class DryIceTest extends TestCase
 
         self::assertInstanceOf(DryIce::class, $dryIce);
         self::assertSame(DryIce::CONTENT_ID, $dryIce->getContentId());
-        self::assertSame($unCode, $dryIce->getUnCode());
+        self::assertSame($unCode, $dryIce->getUNCode());
         self::assertSame($weight, $dryIce->getWeight());
     }
 }

@@ -7,28 +7,34 @@ namespace Dhl\Express\Test\Unit\Webservice;
 use Dhl\Express\Api\Data\RateRequestInterface;
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Api\RateServiceInterface;
+use Dhl\Express\Exception\RateRequestException;
+use Dhl\Express\Exception\SoapException;
 use Dhl\Express\Webservice\RateService;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
 
 /**
  * @package Dhl\Express\Test\Unit
  * @author  Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link    https://www.netresearch.de/
  */
-class RateServiceTest extends \PHPUnit\Framework\TestCase
+class RateServiceTest extends TestCase
 {
     /**
      * @test
+     * @throws SoapException
+     * @throws RateRequestException
      */
     public function shipmentServiceReturnsResponseFromAdapter()
     {
         $response = $this->getMockBuilder(RateResponseInterface::class)->getMock();
 
-        /** @var \Psr\Log\LoggerInterface $logger */
-        $logger = $this->getMockBuilder(\Psr\Log\LoggerInterface::class)->getMock();
+        /** @var LoggerInterface $logger */
+        $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
 
-        /** @var MockObject|RateServiceAdapter $adapter */
+        /** @var RateServiceAdapter|MockObject|\PHPUnit_Framework_MockObject_MockObject $adapter */
         $adapter = $this->getMockBuilder(RateServiceAdapter::class)
             ->disableOriginalConstructor()
             ->getMock();

@@ -7,6 +7,8 @@ namespace Dhl\Express\Webservice\Adapter;
 
 use Dhl\Express\Api\Data\TrackingRequestInterface;
 use Dhl\Express\Api\Data\TrackingResponseInterface;
+use Dhl\Express\Exception\SoapException;
+use Dhl\Express\Exception\TrackingRequestException;
 
 /**
  * Tracking Service Adapter Interface.
@@ -21,8 +23,11 @@ interface TrackingServiceAdapterInterface
 {
     /**
      * @param TrackingRequestInterface $request
+     *
      * @return TrackingResponseInterface
-     * @throws \InvalidArgumentException
+     *
+     * @throws SoapException
+     * @throws TrackingRequestException
      */
     public function getTrackingInformation(TrackingRequestInterface $request);
 }

@@ -48,6 +48,13 @@ class Package implements PackageInterface
     private $weight;
 
     /**
+     * The unit of measurement for the package weight.
+     *
+     * @var string
+     */
+    private $weightUOM;
+
+    /**
      * The length of the package.
      *
      * @var float
@@ -74,13 +81,6 @@ class Package implements PackageInterface
      * @var string
      */
     private $dimensionsUOM;
-
-    /**
-     * The unit of measurement for the package weight.
-     *
-     * @var string
-     */
-    private $weightUOM;
 
     /**
      * Constructor.
@@ -135,59 +135,38 @@ class Package implements PackageInterface
         $this->dimensionsUOM  = $dimensionsUOM;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getSequenceNumber()
     {
-        return $this->sequenceNumber;
+        return (int) $this->sequenceNumber;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getWeight()
     {
-        return $this->weight;
+        return (float) $this->weight;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getWidth()
-    {
-        return $this->width;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getDimensionsUOM()
-    {
-        return $this->dimensionsUOM;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getWeightUOM()
     {
-        return $this->weightUOM;
+        return (string) $this->weightUOM;
+    }
+
+    public function getLength()
+    {
+        return (float) $this->length;
+    }
+
+    public function getWidth()
+    {
+        return (float) $this->width;
+    }
+
+    public function getHeight()
+    {
+        return (float) $this->height;
+    }
+
+    public function getDimensionsUOM()
+    {
+        return (string) $this->dimensionsUOM;
     }
 }

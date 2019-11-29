@@ -46,23 +46,9 @@ interface ShipmentDetailsInterface
     /**
      * Returns the ship timestamp.
      *
-     * @return \DateTime
+     * @return int|string|\DateTime
      */
     public function getReadyAtTimestamp();
-
-    /**
-     * Returns the service type.
-     *
-     * @return string
-     */
-    public function getServiceType();
-
-    /**
-     * Returns the currency code.
-     *
-     * @return string
-     */
-    public function getCurrencyCode();
 
     /**
      * Returns the number of pieces
@@ -70,6 +56,13 @@ interface ShipmentDetailsInterface
      * @return int
      */
     public function getNumberOfPieces();
+
+    /**
+     * Returns the currency code.
+     *
+     * @return string
+     */
+    public function getCurrencyCode();
 
     /**
      * Returns the description.
@@ -84,4 +77,11 @@ interface ShipmentDetailsInterface
      * @return float
      */
     public function getCustomsValue();
+
+    /**
+     * Returns the service type.
+     *
+     * @return string
+     */
+    public function getServiceType();
 }

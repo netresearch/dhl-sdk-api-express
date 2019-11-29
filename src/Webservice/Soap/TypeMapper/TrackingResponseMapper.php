@@ -76,7 +76,7 @@ class TrackingResponseMapper
             }
 
             $trackingInfos[] = new TrackingInfo(
-                (int)$soapTrackingItem->getAWBNumber(),
+                $soapTrackingItem->getAWBNumber(),
                 $soapTrackingItem->getStatus()->getActionStatus(),
                 $shipmentDetails,
                 $shipmentInfo ? $this->convertTrackEventItems($shipmentInfo->getShipmentEvent()) : [],

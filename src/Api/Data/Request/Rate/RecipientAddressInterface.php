@@ -15,18 +15,11 @@ namespace Dhl\Express\Api\Data\Request\Rate;
 interface RecipientAddressInterface
 {
     /**
-     * Returns the recipient street lines.
-     *
-     * @return string[]
-     */
-    public function getStreetLines();
-
-    /**
-     * Returns the recipient city name.
+     * Returns the recipient country code.
      *
      * @return string
      */
-    public function getCity();
+    public function getCountryCode();
 
     /**
      * Returns the recipient postal code.
@@ -36,9 +29,16 @@ interface RecipientAddressInterface
     public function getPostalCode();
 
     /**
-     * Returns the recipient country code.
+     * Returns the recipient city name.
      *
      * @return string
      */
-    public function getCountryCode();
+    public function getCity();
+
+    /**
+     * Returns the recipient street lines.
+     *
+     * @return string[]
+     */
+    public function getStreetLines();
 }

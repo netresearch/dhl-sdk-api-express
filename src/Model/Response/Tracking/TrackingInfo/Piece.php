@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Model\Response\Tracking\TrackingInfo;
 
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceEventInterface;
@@ -19,7 +20,7 @@ class Piece implements PieceInterface
     /**
      * AWB number
      *
-     * @var int
+     * @var string
      */
     private $awbNumber;
 
@@ -40,8 +41,8 @@ class Piece implements PieceInterface
     /**
      * Piece constructor.
      *
-     * @param int                   $awbNumber
-     * @param string                $license
+     * @param string $awbNumber
+     * @param string $license
      * @param PieceEventInterface[] $pieceEvents
      */
     public function __construct($awbNumber, $license, array $pieceEvents)
@@ -51,31 +52,16 @@ class Piece implements PieceInterface
         $this->pieceEvents = $pieceEvents;
     }
 
-    /**
-     * Returns the AWB number
-     *
-     * @return int
-     */
     public function getAwbNumber()
     {
-        return $this->awbNumber;
+        return (string) $this->awbNumber;
     }
 
-    /**
-     * Returns the license
-     *
-     * @return string
-     */
     public function getLicense()
     {
-        return $this->license;
+        return (string) $this->license;
     }
 
-    /**
-     * Returns the piece events
-     *
-     * @return PieceEventInterface[]
-     */
     public function getPieceEvents()
     {
         return $this->pieceEvents;

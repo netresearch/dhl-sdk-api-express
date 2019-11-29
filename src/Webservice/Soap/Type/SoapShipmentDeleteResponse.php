@@ -19,14 +19,14 @@ class SoapShipmentDeleteResponse
     /**
      * The response notifications.
      *
-     * @var Notification
+     * @var Notification[]
      */
     protected $Notification;
 
     /**
      * Returns the response notification.
      *
-     * @return Notification
+     * @return Notification[]
      */
     public function getNotification()
     {

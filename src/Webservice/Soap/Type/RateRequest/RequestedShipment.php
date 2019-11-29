@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Express\Webservice\Soap\Type\RateRequest;
 
 use Dhl\Express\Webservice\Soap\Type\Common\Account;
@@ -155,24 +156,25 @@ class RequestedShipment
     /**
      * Constructor.
      *
-     * @param string               $dropOffType       The drop off type
-     * @param Ship                 $ship              The ship section containing shippers/recipients address
-     * @param Packages             $packages          The packages list
-     * @param int|string|\DateTime $shipTimestamp     The ship timestamp (int timestamp, formatted string or \DateTime instance)
-     * @param string               $unitOfMeasurement The unit of measurement
+     * @param string $dropOffType The drop off type
+     * @param Ship $ship The ship section containing shippers/recipients address
+     * @param Packages $packages The packages list
+     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, date string or \DateTime instance)
+     * @param string $unitOfMeasurement The unit of measurement
+     * @throws \Exception
      */
     public function __construct(
         $dropOffType,
-        Ship      $ship,
-        Packages  $packages,
+        Ship $ship,
+        Packages $packages,
         $shipTimestamp,
         $unitOfMeasurement
     ) {
         $this->setDropOffType($dropOffType)
-            ->setShip($ship)
-            ->setPackages($packages)
-            ->setShipTimestamp($shipTimestamp)
-            ->setUnitOfMeasurement($unitOfMeasurement);
+             ->setShip($ship)
+             ->setPackages($packages)
+             ->setShipTimestamp($shipTimestamp)
+             ->setUnitOfMeasurement($unitOfMeasurement);
     }
 
     /**
@@ -280,9 +282,10 @@ class RequestedShipment
     /**
      * Sets the ship timestamp.
      *
-     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, formatted string or \DateTime instance)
+     * @param int|string|\DateTime $shipTimestamp The ship timestamp (int timestamp, date string or \DateTime instance)
      *
      * @return self
+     * @throws \Exception
      */
     public function setShipTimestamp($shipTimestamp)
     {
@@ -419,9 +422,9 @@ class RequestedShipment
      * Sets the account number.
      *
      * @param string $account The account number
+     * @return self
      * @throws \InvalidArgumentException
      *
-     * @return self
      */
     public function setAccount($account)
     {

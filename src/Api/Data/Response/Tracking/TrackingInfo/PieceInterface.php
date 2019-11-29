@@ -19,7 +19,7 @@ interface PieceInterface
     /**
      * Returns the pieces AWB number
      *
-     * @return int
+     * @return string
      */
     public function getAwbNumber();
 

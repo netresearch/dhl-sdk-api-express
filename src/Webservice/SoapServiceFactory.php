@@ -5,10 +5,8 @@
 
 namespace Dhl\Express\Webservice;
 
-use Dhl\Express\Api\RateServiceInterface;
 use Dhl\Express\Api\ServiceFactoryInterface;
-use Dhl\Express\Api\ShipmentServiceInterface;
-use Dhl\Express\Api\TrackingServiceInterface;
+use Dhl\Express\Exception\ExpressApiException;
 use Dhl\Express\Webservice\Soap\RateServiceAdapter;
 use Dhl\Express\Webservice\Soap\ShipmentServiceAdapter;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
@@ -45,7 +43,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
      *
      * @link https://bugs.nr/DHLEX-60
      */
-    private function getWsdlFilename(bool $sandpit)
+    private function getWsdlFilename($sandpit)
     {
         if ($sandpit) {
             $wsdl = __DIR__ . '/Soap/wsdl/sndpt-expressRateBook.wsdl';
@@ -56,15 +54,6 @@ class SoapServiceFactory implements ServiceFactoryInterface
         return $wsdl;
     }
 
-    /**
-     * @param string $username
-     * @param string $password
-     * @param LoggerInterface $logger
-     * @param bool $sandpit
-     *
-     * @return RateServiceInterface|RateService
-     * @throws \SoapFault
-     */
     public function createRateService(
         $username,
         $password,
@@ -74,7 +63,11 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $clientFactory = new SoapClientFactory();
         $wsdl = $this->getWsdlFilename($sandpit);
 
-        $client = $clientFactory->create($username, $password, $wsdl);
+        try {
+            $client = $clientFactory->create($username, $password, $wsdl);
+        } catch (\SoapFault $e) {
+            throw new ExpressApiException('Unable to create SOAP client.', 0, $e);
+        }
 
         $requestMapper = new RateRequestMapper();
         $responseMapper = new RateResponseMapper();
@@ -84,15 +77,6 @@ class SoapServiceFactory implements ServiceFactoryInterface
         return new RateService($adapter, $logger);
     }
 
-    /**
-     * @param string $username
-     * @param string $password
-     * @param LoggerInterface $logger
-     * @param bool $sandpit
-     *
-     * @return ShipmentServiceInterface|ShipmentService
-     * @throws \SoapFault
-     */
     public function createShipmentService(
         $username,
         $password,
@@ -102,7 +86,11 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $clientFactory = new SoapClientFactory();
         $wsdl = $this->getWsdlFilename($sandpit);
 
-        $client = $clientFactory->create($username, $password, $wsdl);
+        try {
+            $client = $clientFactory->create($username, $password, $wsdl);
+        } catch (\SoapFault $e) {
+            throw new ExpressApiException('Unable to create SOAP client.', 0, $e);
+        }
 
         $adapter = new ShipmentServiceAdapter(
             $client,
@@ -115,15 +103,6 @@ class SoapServiceFactory implements ServiceFactoryInterface
         return new ShipmentService($adapter, $logger);
     }
 
-    /**
-     * @param string $username
-     * @param string $password
-     * @param LoggerInterface $logger
-     * @param bool $sandpit
-     *
-     * @return TrackingServiceInterface|TrackingService
-     * @throws \SoapFault
-     */
     public function createTrackingService(
         $username,
         $password,
@@ -133,7 +112,11 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $clientFactory = new SoapClientFactory();
         $wsdl = $sandpit ? SoapClientFactory::TRACK_TEST_WSDL : SoapClientFactory::TRACK_PROD_WSDL;
 
-        $client = $clientFactory->create($username, $password, $wsdl);
+        try {
+            $client = $clientFactory->create($username, $password, $wsdl);
+        } catch (\SoapFault $e) {
+            throw new ExpressApiException('Unable to create SOAP client.', 0, $e);
+        }
 
         $requestMapper = new TrackingRequestMapper();
         $responseMapper = new TrackingResponseMapper();

@@ -5,7 +5,6 @@
 
 namespace Dhl\Express\RequestBuilder;
 
-use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\ShipmentRequestBuilderInterface;
 use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Package;
@@ -27,15 +26,126 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     /**
      * The collected data used to build the request.
      *
-     * @var array
+     * @var mixed[]
      */
     private $data = [];
 
     /**
-     * @param bool $unscheduledPickup
+     * Normalizes the weight and unit of measurement to the unit of measurement KG (kilograms) or LB (Pound)
+     * supported by the DHL express webservice.
      *
-     * @return self
+     * @param float  $weight The weight
+     * @param string $uom    The unit of measurement
+     *
+     * @return float[]|string[]
      */
+    private function normalizeWeight($weight, $uom)
+    {
+        if ($uom === Package::UOM_WEIGHT_KG) {
+            return [
+                'weight' => $weight,
+                'uom' => Package::UOM_WEIGHT_KG,
+            ];
+        }
+
+        if ($uom === Package::UOM_WEIGHT_LB) {
+            return [
+                'weight' => $weight,
+                'uom' => Package::UOM_WEIGHT_LB,
+            ];
+        }
+
+        if ($uom === Package::UOM_WEIGHT_G) {
+            return [
+                'weight' => $weight / 1000,
+                'uom' => Package::UOM_WEIGHT_KG,
+            ];
+        }
+
+        if ($uom === Package::UOM_WEIGHT_OZ) {
+            return [
+                'weight' => $weight / 16,
+                'uom' => Package::UOM_WEIGHT_LB,
+            ];
+        }
+
+        throw new \InvalidArgumentException(
+            'Invalid weight unit of measurement'
+        );
+    }
+
+    /**
+     * Normalizes the dimensions to the unit of measurement CM (centimeter) or IN (inch) supported by the
+     * DHL express webservice.
+     *
+     * @param float  $length The length of a package
+     * @param float  $width  The width of a package
+     * @param float  $height The height of a package
+     * @param string $uom    The unit of measurement
+     *
+     * @return float[]|string[]
+     */
+    private function normalizeDimensions($length, $width, $height, $uom)
+    {
+        if ($uom === Package::UOM_DIMENSION_CM) {
+            return [
+                'length' => $length,
+                'width' => $width,
+                'height' => $height,
+                'uom' => Package::UOM_DIMENSION_CM,
+            ];
+        }
+
+        if ($uom === Package::UOM_DIMENSION_IN) {
+            return [
+                'length' => $length,
+                'width' => $width,
+                'height' => $height,
+                'uom' => Package::UOM_DIMENSION_IN,
+            ];
+        }
+
+        if ($uom === Package::UOM_DIMENSION_MM) {
+            return [
+                'length' => $length / 10,
+                'width' => $width / 10,
+                'height' => $height / 10,
+                'uom' => Package::UOM_DIMENSION_CM,
+            ];
+        }
+
+        if ($uom === Package::UOM_DIMENSION_M) {
+            return [
+                'length' => $length * 100,
+                'width' => $width * 100,
+                'height' => $height * 100,
+                'uom' => Package::UOM_DIMENSION_CM,
+            ];
+        }
+
+        if ($uom === Package::UOM_DIMENSION_FT) {
+            return [
+                'length' => $length * 12,
+                'width' => $width * 12,
+                'height' => $height * 12,
+                'uom' => Package::UOM_DIMENSION_IN,
+            ];
+        }
+
+        if ($uom === Package::UOM_DIMENSION_YD) {
+            return [
+                'length' => $length * 36,
+                'width' => $width * 36,
+                'height' => $height * 36,
+                'uom' => Package::UOM_DIMENSION_IN,
+            ];
+        }
+
+        throw new \InvalidArgumentException(
+            'Invalid dimensions unit of measurement'
+        );
+    }
+
     public function setIsUnscheduledPickup($unscheduledPickup)
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
@@ -43,10 +153,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $termsOfTrade
-     * @return self
-     */
     public function setTermsOfTrade($termsOfTrade)
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
@@ -54,10 +160,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $contentType
-     * @return self
-     */
     public function setContentType($contentType)
     {
         $this->data['contentType'] = $contentType;
@@ -65,21 +167,13 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param \DateTime $readyAtTimestamp
-     * @return self
-     */
-    public function setReadyAtTimestamp($readyAtTimestamp)
+    public function setReadyAtTimestamp(\DateTime $readyAtTimestamp)
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
 
         return $this;
     }
 
-    /**
-     * @param int $numberOfPieces
-     * @return self
-     */
     public function setNumberOfPieces($numberOfPieces)
     {
         $this->data['numberOfPieces'] = $numberOfPieces;
@@ -87,10 +181,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $currencyCode
-     * @return self
-     */
     public function setCurrency($currencyCode)
     {
         $this->data['currencyCode'] = $currencyCode;
@@ -98,10 +188,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $description
-     * @return self
-     */
     public function setDescription($description)
     {
         $this->data['description'] = $description;
@@ -109,10 +195,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param float $customsValue
-     * @return self
-     */
     public function setCustomsValue($customsValue)
     {
         $this->data['customsValue'] = $customsValue;
@@ -120,10 +202,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $serviceType
-     * @return self
-     */
     public function setServiceType($serviceType)
     {
         $this->data['serviceType'] = $serviceType;
@@ -131,10 +209,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $accountNumber
-     * @return self
-     */
     public function setPayerAccountNumber($accountNumber)
     {
         $this->data['payerAccountNumber'] = $accountNumber;
@@ -142,9 +216,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setBillingAccountNumber($accountNumber)
     {
         $this->data['billingAccountNumber'] = $accountNumber;
@@ -152,11 +223,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param float  $insuranceValue
-     * @param string $insuranceCurrency
-     * @return self
-     */
     public function setInsurance($insuranceValue, $insuranceCurrency)
     {
         $this->data['insurance'] = [
@@ -167,17 +233,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $countryCode
-     * @param string $postalCode
-     * @param string $city
-     * @param array  $streetLines
-     * @param string $name
-     * @param string $company
-     * @param string $phone
-     * @param string|null $email
-     * @return self
-     */
     public function setShipper(
         $countryCode,
         $postalCode,
@@ -202,17 +257,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $countryCode
-     * @param string $postalCode
-     * @param string $city
-     * @param array  $streetLines
-     * @param string $name
-     * @param string $company
-     * @param string $phone
-     * @param string|null $email
-     * @return self
-     */
     public function setRecipient(
         $countryCode,
         $postalCode,
@@ -237,17 +281,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param int    $sequenceNumber
-     * @param float  $weight
-     * @param string $weightUOM
-     * @param float  $length
-     * @param float  $width
-     * @param float  $height
-     * @param string $dimensionsUOM
-     * @param string $customerReferences
-     * @return self
-     */
     public function addPackage(
         $sequenceNumber,
         $weight,
@@ -275,11 +308,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @param string $unCode
-     * @param float  $weight
-     * @return self
-     */
     public function setDryIce($unCode, $weight)
     {
         $this->data['dryIce'] = [
@@ -290,9 +318,6 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    /**
-     * @return ShipmentRequestInterface
-     */
     public function build()
     {
         // Build shipment details
@@ -383,121 +408,5 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         $this->data = [];
 
         return $request;
-    }
-
-    /**
-     * Normalizes the weight and unit of measurement to the unit of measurement KG (kilograms) or LB (Pound)
-     * supported by the DHL express webservice.
-     *
-     * @param float  $weight The weight
-     * @param string $uom    The unit of measurement
-     *
-     * @return array
-     */
-    private function normalizeWeight($weight, $uom)
-    {
-        if ($uom === Package::UOM_WEIGHT_KG) {
-            return [
-                'weight' => $weight,
-                'uom' => Package::UOM_WEIGHT_KG,
-            ];
-        }
-
-        if ($uom === Package::UOM_WEIGHT_LB) {
-            return [
-                'weight' => $weight,
-                'uom' => Package::UOM_WEIGHT_LB,
-            ];
-        }
-
-        if ($uom === Package::UOM_WEIGHT_G) {
-            return [
-                'weight' => $weight / 1000,
-                'uom' => Package::UOM_WEIGHT_KG,
-            ];
-        }
-
-        if ($uom === Package::UOM_WEIGHT_OZ) {
-            return [
-                'weight' => $weight / 16,
-                'uom' => Package::UOM_WEIGHT_LB,
-            ];
-        }
-
-        throw new \InvalidArgumentException(
-            'Invalid weight unit of measurement'
-        );
-    }
-
-    /**
-     * Normalizes the dimensions to the unit of measurement CM (centimeter) or IN (inch) supported by the
-     * DHL express webservice.
-     *
-     * @param float  $length The length of a package
-     * @param float  $width  The width of a package
-     * @param float  $height The height of a package
-     * @param string $uom    The unit of measurement
-     *
-     * @return array
-     */
-    private function normalizeDimensions($length, $width, $height, $uom)
-    {
-        if ($uom === Package::UOM_DIMENSION_CM) {
-            return [
-                'length' => $length,
-                'width' => $width,
-                'height' => $height,
-                'uom' => Package::UOM_DIMENSION_CM,
-            ];
-        }
-
-        if ($uom === Package::UOM_DIMENSION_IN) {
-            return [
-                'length' => $length,
-                'width' => $width,
-                'height' => $height,
-                'uom' => Package::UOM_DIMENSION_IN,
-            ];
-        }
-
-        if ($uom === Package::UOM_DIMENSION_MM) {
-            return [
-                'length' => $length / 10,
-                'width' => $width / 10,
-                'height' => $height / 10,
-                'uom' => Package::UOM_DIMENSION_CM,
-            ];
-        }
-
-        if ($uom === Package::UOM_DIMENSION_M) {
-            return [
-                'length' => $length * 100,
-                'width' => $width * 100,
-                'height' => $height * 100,
-                'uom' => Package::UOM_DIMENSION_CM,
-            ];
-        }
-
-        if ($uom === Package::UOM_DIMENSION_FT) {
-            return [
-                'length' => $length * 12,
-                'width' => $width * 12,
-                'height' => $height * 12,
-                'uom' => Package::UOM_DIMENSION_IN,
-            ];
-        }
-
-        if ($uom === Package::UOM_DIMENSION_YD) {
-            return [
-                'length' => $length * 36,
-                'width' => $width * 36,
-                'height' => $height * 36,
-                'uom' => Package::UOM_DIMENSION_IN,
-            ];
-        }
-
-        throw new \InvalidArgumentException(
-            'Invalid dimensions unit of measurement'
-        );
     }
 }

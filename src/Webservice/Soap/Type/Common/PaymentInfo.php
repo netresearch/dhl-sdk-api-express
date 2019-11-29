@@ -7,7 +7,8 @@ namespace Dhl\Express\Webservice\Soap\Type\Common;
 use Dhl\Express\Webservice\Soap\ValueInterface;
 
 /**
- * The PaymentInfo node details the potential terms of trade for this specific shipment, and the schema itself defines the possible enumerated values for this field.
+ * The PaymentInfo node details the potential terms of trade for this specific shipment,
+ * and the schema itself defines the possible enumerated values for this field.
  *
  * @api
  * @package  Dhl\Express\Api
