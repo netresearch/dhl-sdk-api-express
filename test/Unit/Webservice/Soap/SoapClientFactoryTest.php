@@ -7,7 +7,6 @@ namespace Dhl\Express\Test\Unit\Webservice\Soap;
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
 
 /**
- * @package Dhl\Express\Test\Unit
  * @author  Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link    https://www.netresearch.de/
  */

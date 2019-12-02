@@ -19,7 +19,6 @@ use Dhl\Express\Webservice\Soap\Type\Tracking\ShipmentEventCollection;
  *
  * Transform the SOAP response type into tracking objects suitable for further processing.
  *
- * @package  Dhl\Express\Webservice
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

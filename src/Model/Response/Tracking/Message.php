@@ -9,7 +9,6 @@ use Dhl\Express\Api\Data\Response\Tracking\MessageInterface;
 /**
  * Tracking message.
  *
- * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

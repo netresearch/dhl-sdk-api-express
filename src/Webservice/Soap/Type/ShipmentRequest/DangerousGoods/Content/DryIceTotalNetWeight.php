@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * The dry ice total net weight.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

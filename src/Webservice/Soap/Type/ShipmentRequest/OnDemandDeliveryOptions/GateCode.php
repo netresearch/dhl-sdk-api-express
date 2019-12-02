@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * Entry code to gain access to an apartment complex or gate.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

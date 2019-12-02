@@ -19,7 +19,6 @@ use Dhl\Express\Webservice\Soap\TypeMapper\ShipmentResponseMapper;
 /**
  * Rate Service SOAP Adapter.
  *
- * @package Dhl\Express\Webservice
  * @author  Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link    https://www.netresearch.de/
  */

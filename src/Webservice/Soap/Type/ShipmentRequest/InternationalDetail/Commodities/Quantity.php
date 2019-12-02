@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Numeric;
  * The quantity of the items in the shipment, e.g. 3 books.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

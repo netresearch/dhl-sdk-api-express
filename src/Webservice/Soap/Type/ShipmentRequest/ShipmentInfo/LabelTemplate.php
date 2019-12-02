@@ -13,7 +13,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * – If this node is left blank then the default DHL e-commerce label template will be used.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

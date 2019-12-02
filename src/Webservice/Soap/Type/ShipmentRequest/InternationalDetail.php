@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail\ExportR
  * The InternationalDetail section conveys data elements for international shipping.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

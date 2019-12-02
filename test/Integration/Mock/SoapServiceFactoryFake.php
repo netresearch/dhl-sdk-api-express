@@ -22,7 +22,6 @@ use Dhl\Express\Webservice\TrackingService;
 use Psr\Log\LoggerInterface;
 
 /**
- * @package  Dhl\Express\Test\Integration
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

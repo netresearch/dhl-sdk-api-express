@@ -14,7 +14,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * the service point IDs).
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

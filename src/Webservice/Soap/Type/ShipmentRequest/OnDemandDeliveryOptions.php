@@ -19,7 +19,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\OnDemandDeliveryOptions\Sel
  * The OnDemandDeliveryOptions section conveys data elements for On Demand Delivery (ODD) service.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

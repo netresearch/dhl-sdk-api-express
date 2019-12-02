@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * rate request. There are two possible values to indicate whether a pickup is considered.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

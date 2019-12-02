@@ -10,7 +10,6 @@ use Dhl\Express\Api\Data\ShipmentRequestInterface;
 /**
  * Shipment Request Builder.
  *
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

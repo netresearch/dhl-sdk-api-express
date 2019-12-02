@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * This optional field allows you to provide the content description on a piece level instead of Shipment level.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

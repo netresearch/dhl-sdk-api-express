@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * An alpha numeric type.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

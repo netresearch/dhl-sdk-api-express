@@ -16,7 +16,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages\
  * A requested package.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

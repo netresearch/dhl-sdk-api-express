@@ -15,7 +15,6 @@ use Dhl\Express\Exception\TrackingRequestException;
  *
  * DHL Express web services support SOAP and REST access. Choose one.
  *
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -18,7 +18,6 @@ use Dhl\Express\Exception\SoapException;
  *
  * DHL Express web services support SOAP and REST access. Choose one.
  *
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

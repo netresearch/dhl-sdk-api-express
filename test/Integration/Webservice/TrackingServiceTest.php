@@ -16,7 +16,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
 /**
- * @package  Dhl\Express\Test\Integration
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

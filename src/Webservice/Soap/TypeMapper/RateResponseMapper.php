@@ -17,7 +17,6 @@ use Dhl\Express\Webservice\Soap\Type\SoapRateResponse;
  *
  * Transform the SOAP response type into rate objects suitable for further processing.
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

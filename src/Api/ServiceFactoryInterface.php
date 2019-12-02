@@ -15,7 +15,6 @@ use Psr\Log\LoggerInterface;
  * Create a service object to access the DHL Express Global Web Services
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

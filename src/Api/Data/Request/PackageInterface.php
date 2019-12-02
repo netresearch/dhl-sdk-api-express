@@ -11,7 +11,6 @@ namespace Dhl\Express\Api\Data\Request;
  * DTO that carries relevant package data.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

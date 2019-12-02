@@ -10,7 +10,6 @@ namespace Dhl\Express\Api\Data\Request\Tracking;
  * DTO that Tracking information's message.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

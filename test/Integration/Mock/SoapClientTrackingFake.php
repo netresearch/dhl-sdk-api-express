@@ -8,7 +8,6 @@ use Dhl\Express\Test\Integration\Provider\WsdlProvider;
 use Dhl\Express\Webservice\Soap\ClassMap;
 
 /**
- * @package  Dhl\Express\Test\Integration
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

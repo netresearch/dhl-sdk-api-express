@@ -15,7 +15,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods\Content;
  * If is the shipment is “Excepted Quantities” then the additional node needs to be populated – “UNCode”.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

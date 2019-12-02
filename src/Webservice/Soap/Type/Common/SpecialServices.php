@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
  * Insurance (or Shipment Value Protection).
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

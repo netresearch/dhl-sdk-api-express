@@ -16,7 +16,6 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentResponse;
  *
  * Transform the SOAP response type into shipment objects suitable for further processing.
  *
- * @package  Dhl\Express\Webservice
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

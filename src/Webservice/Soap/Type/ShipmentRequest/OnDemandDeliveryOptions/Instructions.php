@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * Additional information that is useful for the DHL Express courier.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

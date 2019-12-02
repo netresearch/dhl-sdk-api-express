@@ -7,7 +7,6 @@ namespace Dhl\Express\Exception;
 /**
  * The shipment delete request exception.
  *
- * @package  Dhl\Express\Exception
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

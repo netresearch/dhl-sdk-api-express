@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackages\Weig
  * A requested package.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -8,7 +8,6 @@ namespace Dhl\Express\Exception;
 /**
  * Rate Request Exception
  *
- * @package  Dhl\Express\Exception
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

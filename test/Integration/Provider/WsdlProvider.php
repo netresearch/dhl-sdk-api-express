@@ -5,7 +5,6 @@
 namespace Dhl\Express\Test\Integration\Provider;
 
 /**
- * @package  Dhl\Express\Test\Provider
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

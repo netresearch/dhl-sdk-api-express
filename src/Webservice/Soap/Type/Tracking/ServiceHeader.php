@@ -9,7 +9,6 @@ namespace Dhl\Express\Webservice\Soap\Type\Tracking;
  * ServiceHeader class.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

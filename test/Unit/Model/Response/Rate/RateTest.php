@@ -9,7 +9,6 @@ use Dhl\Express\Model\Response\Rate\Rate;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @package  Dhl\Express\Test\Unit
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

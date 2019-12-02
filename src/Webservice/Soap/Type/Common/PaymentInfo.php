@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * and the schema itself defines the possible enumerated values for this field.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

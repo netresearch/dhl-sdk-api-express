@@ -15,7 +15,6 @@ use Dhl\Express\Exception\SoapException;
  * Access the DHL Express Global Web Services shipment operation "RateRequest".
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

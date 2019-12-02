@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider;
  * for the response, the products returned, the estimated charges, and the expected delivery time for the shipment.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

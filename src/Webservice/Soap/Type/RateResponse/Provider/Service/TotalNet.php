@@ -8,7 +8,6 @@ namespace Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service;
  * The total net section.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

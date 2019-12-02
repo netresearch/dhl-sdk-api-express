@@ -13,7 +13,6 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentDeleteRequest;
  *
  * Transform the shipment request object into SOAP types suitable for API communication.
  *
- * @package  Dhl\Express\Webservice
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * The street lines type. Alpha numeric type with 35 characters.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

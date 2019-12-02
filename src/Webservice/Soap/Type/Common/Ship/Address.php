@@ -15,7 +15,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address\StreetNumber;
  * An address.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

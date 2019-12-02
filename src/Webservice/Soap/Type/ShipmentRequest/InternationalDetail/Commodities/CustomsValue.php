@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Money;
  * The value which needs to be declared for customs.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

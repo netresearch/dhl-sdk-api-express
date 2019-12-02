@@ -18,7 +18,6 @@ use Psr\Log\LoggerInterface;
  * Access the DHL Express Global Web Services rate operations
  * "RateRequest" and "RateDeleteRequest".
  *
- * @package  Dhl\Express\Webservice
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

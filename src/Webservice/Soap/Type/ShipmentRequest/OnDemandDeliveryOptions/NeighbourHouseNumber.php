@@ -13,7 +13,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * of the neighbour.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

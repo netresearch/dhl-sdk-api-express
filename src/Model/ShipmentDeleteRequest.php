@@ -9,7 +9,6 @@ use Dhl\Express\Api\Data\ShipmentDeleteRequestInterface;
 /**
  * The delete shipment request.
  *
- * @package  Dhl\Express\Model
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

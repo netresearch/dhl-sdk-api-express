@@ -8,7 +8,6 @@ namespace Dhl\Express\Webservice\Soap\Type\RateRequest\Packages\RequestedPackage
  * The weight of the package.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

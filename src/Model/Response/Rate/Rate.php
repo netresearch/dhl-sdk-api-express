@@ -10,7 +10,6 @@ use Dhl\Express\Api\Data\Response\Rate\RateInterface;
  * Rate response item.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

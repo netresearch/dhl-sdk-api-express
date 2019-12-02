@@ -10,7 +10,6 @@ namespace Dhl\Express\Webservice\Soap;
  *
  * Prepare the SOAP client for web service access.
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * The state or province code type. 2 letter state code for the USA only.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

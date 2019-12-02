@@ -26,7 +26,6 @@ use Psr\Log\LoggerInterface;
  *
  * Instantiate a service object that connects to the API via SOAP.
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

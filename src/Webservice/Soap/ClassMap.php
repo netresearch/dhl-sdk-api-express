@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\Type;
  *
  * Map SOAP types to PHP classes.
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

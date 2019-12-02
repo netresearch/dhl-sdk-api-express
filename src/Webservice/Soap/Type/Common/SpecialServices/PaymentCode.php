@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * A payment code type.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

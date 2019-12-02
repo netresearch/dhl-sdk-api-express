@@ -12,7 +12,6 @@ use Dhl\Express\Api\Data\Response\Rate\RateInterface;
  * DTO that carries relevant data for processing the rate result.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

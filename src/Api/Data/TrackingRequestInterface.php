@@ -13,7 +13,6 @@ use Dhl\Express\Api\Data\Request\Tracking\MessageInterface;
  * DTO that carries relevant data for requesting tracking information.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -11,7 +11,6 @@ use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
 /**
  * Tracking piece.
  *
- * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -10,7 +10,6 @@ use Dhl\Express\Api\Data\TrackingRequestInterface;
 /**
  * Tracking Request Builder Interface.
  *
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

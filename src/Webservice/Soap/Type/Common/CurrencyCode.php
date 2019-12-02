@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * A currency code type. ISO 3 character codes of the currency.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

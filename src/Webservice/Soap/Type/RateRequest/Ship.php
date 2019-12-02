@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address;
  * city, postal code, and country code. Please note that the Shipper and Recipient structures are identical.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

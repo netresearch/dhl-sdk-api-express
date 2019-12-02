@@ -16,7 +16,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * If you wish to use this function then the above tag UseOwnPieceIdentificationNumber needs to be set as Y.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

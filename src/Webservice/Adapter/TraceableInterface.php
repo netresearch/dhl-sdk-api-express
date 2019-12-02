@@ -10,7 +10,6 @@ namespace Dhl\Express\Webservice\Adapter;
  *
  * Adapters provide tracing capability, i.e. they record their latest requests and responses.
  *
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\AlphaNumeric;
  * The text instruction of a service. Alpha numeric type with 50 characters.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

@@ -10,7 +10,6 @@ use Dhl\Express\Api\Data\Request\RecipientInterface;
 /**
  * Recipient.
  *
- * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

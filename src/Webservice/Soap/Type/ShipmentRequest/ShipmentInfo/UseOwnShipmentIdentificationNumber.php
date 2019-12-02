@@ -17,7 +17,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\YesNo;
  * In addition this special function needs to be enabled for your username by your DHL Express IT Consultant.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

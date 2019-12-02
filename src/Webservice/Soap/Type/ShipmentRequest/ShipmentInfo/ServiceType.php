@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * product codes provided will be validated against the origin-destination requested in the Shipment Request.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

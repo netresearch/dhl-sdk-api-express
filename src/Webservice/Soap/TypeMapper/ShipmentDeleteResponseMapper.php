@@ -15,7 +15,6 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentDeleteResponse;
  *
  * Transform the SOAP response type into rate objects suitable for further processing.
  *
- * @package  Dhl\Express\Webservice
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

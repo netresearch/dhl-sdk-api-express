@@ -9,7 +9,6 @@ namespace Dhl\Express\Webservice\Soap\Type\ShipmentResponse;
  * as well as the base64 encoded label image in the GraphicImage field. The HTML Image is not used.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

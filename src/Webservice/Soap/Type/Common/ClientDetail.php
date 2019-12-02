@@ -8,7 +8,6 @@ namespace Dhl\Express\Webservice\Soap\Type\Common;
  * The client detail is an optional node for reference use, and does not affect functionality.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

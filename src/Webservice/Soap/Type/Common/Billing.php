@@ -13,7 +13,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Billing\ShippingPaymentType;
  * information, and DHL recommends the Billing structure.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

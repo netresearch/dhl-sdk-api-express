@@ -14,7 +14,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
  * and there is a limitation of 50 RequestedPackage nodes in the request.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

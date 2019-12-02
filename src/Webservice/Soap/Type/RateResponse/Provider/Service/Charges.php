@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\RateResponse\Provider\Service\Charges\Charg
  * The list of charges section.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

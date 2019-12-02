@@ -15,7 +15,6 @@ use Dhl\Express\Model\Request\Shipment\Shipper;
 use Dhl\Express\RequestBuilder\ShipmentRequestBuilder;
 
 /**
- * @package  Dhl\Express\Test\Unit
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

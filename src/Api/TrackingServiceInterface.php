@@ -15,7 +15,6 @@ use Dhl\Express\Exception\TrackingRequestException;
  * Access the DHL Express Global Web Services shipment operation "TrackingRequest".
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

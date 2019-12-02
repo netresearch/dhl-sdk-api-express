@@ -14,7 +14,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\PaymentInfo;
 /**
  * Shipment Details.
  *
- * @package  Dhl\Express\Model
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

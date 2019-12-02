@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * the following 24-hours time format: HH:mm
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

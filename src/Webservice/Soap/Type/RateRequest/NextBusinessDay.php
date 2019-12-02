@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\YesNo;
  * are three possible use cases for this field.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

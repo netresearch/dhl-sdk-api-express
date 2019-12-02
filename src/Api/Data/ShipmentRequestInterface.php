@@ -18,7 +18,6 @@ use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
  * DTO that carries relevant data for booking a shipment.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/

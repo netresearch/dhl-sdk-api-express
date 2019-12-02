@@ -12,7 +12,6 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentResponse\PackagesResults;
  * The shipment create response.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

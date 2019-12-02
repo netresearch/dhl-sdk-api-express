@@ -26,7 +26,6 @@ use InvalidArgumentException;
  *
  * Transform the rate request object into SOAP types suitable for API communication.
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/

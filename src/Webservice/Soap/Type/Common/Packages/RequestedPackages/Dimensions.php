@@ -8,7 +8,6 @@ namespace Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages;
  * The package dimensions.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

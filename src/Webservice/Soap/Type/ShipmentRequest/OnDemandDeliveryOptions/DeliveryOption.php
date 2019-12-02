@@ -11,7 +11,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * shipment is to be delivered.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

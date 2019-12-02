@@ -10,7 +10,6 @@ namespace Dhl\Express\Api\Data\Request\Rate;
  * DTO that carries relevant package data for booking a shipment.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/

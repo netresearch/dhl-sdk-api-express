@@ -7,7 +7,6 @@ namespace Dhl\Express\Test\Integration;
 /**
  * Test PHPUnit is configured properly.
  *
- * @package  Dhl\Express\Test\Integration
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

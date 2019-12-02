@@ -20,7 +20,6 @@ use PHPUnit\Framework\TestCase;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
 
 /**
- * @package  Dhl\Express\Test\Unit
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

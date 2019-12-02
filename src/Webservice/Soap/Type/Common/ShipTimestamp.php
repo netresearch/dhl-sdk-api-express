@@ -16,7 +16,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * clock. The date and time parts are separated by the letter T (e.g. 2010-02-05T14:00:00 GMT+01:00).
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

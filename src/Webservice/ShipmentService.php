@@ -19,7 +19,6 @@ use Psr\Log\LoggerInterface;
  * Access the DHL Express Global Web Services shipment operations
  * "SoapShipmentRequest" and "ShipmentDeleteRequest".
  *
- * @package  Dhl\Express\Webservice
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

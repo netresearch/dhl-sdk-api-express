@@ -8,7 +8,6 @@ use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @package Dhl\Express\Test\Unit
  * @author  Ronny Gertler <ronny.gertler@netresearch.de>
  * @link    https://www.netresearch.de/
  */

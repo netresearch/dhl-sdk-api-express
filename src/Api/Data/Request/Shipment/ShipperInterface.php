@@ -9,7 +9,6 @@ namespace Dhl\Express\Api\Data\Request\Shipment;
  * Shipper Interface.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Ronny Gertler <ronny.gertler@netresearch.de>
  * @link     https://www.netresearch.de/
  */

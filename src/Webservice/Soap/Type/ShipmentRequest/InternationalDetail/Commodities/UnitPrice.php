@@ -10,7 +10,6 @@ use Dhl\Express\Webservice\Soap\Type\Common\Money;
  * The price per item in the shipment, e.g. 7.50 € if one of the books costs 7.50€.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */

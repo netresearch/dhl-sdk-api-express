@@ -10,7 +10,6 @@ namespace Dhl\Express\Api\Data;
  * DTO that carries relevant data for processing the cancellation result.
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link     https://www.netresearch.de/
  */

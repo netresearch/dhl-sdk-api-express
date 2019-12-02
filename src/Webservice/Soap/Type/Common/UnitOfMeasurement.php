@@ -16,7 +16,6 @@ use Dhl\Express\Webservice\Soap\ValueInterface;
  * Dimension unit: if Type is SI it can be CM, if Type is SU it can be IN (inch)
  *
  * @api
- * @package  Dhl\Express\Api
  * @author   Rico Sonntag <rico.sonntag@netresearch.de>
  * @link     https://www.netresearch.de/
  */
