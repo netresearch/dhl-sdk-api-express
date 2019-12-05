@@ -112,7 +112,7 @@ interface RateRequestBuilderInterface
     /**
      * Sets the shipment timestamp.
      *
-     * @param int|string|\DateTime $pickupTime The shipment time
+     * @param \DateTime $pickupTime The shipment time
      *
      * @return RateRequestBuilderInterface
      */

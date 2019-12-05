@@ -78,7 +78,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
     /**
      * The ship time.
      *
-     * @var int|string|\DateTime
+     * @var \DateTime
      */
     private $readyAtTimestamp;
 
@@ -102,7 +102,7 @@ class ShipmentDetails implements ShipmentDetailsInterface
      * @param bool $unscheduledPickup Whether this is a scheduled pickup or not
      * @param string $termsOfTrade The terms of trade
      * @param string $contentType The content type
-     * @param int|string|\DateTime $readyAtTimestamp The ship time
+     * @param \DateTime $readyAtTimestamp The ship time
      * @param bool $requestValueAddedServices If the Rate Response should contain the value added services
      * @param bool $nextBusinessDayIndicator
      */
