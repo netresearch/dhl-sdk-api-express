@@ -1,6 +1,6 @@
 # DHL Express Shipping API SDK for PHP
 
-* version: 1.2.0
+* version: 2.0.0
 
 ## Description
 
@@ -10,7 +10,7 @@ data.
 
 ## Requirements
 
-* PHP >= 5.6.5
+* PHP >= 5.6.5 <= 7.3
 * DHL Express customer account able to access the production endpoints (optionally sandpit too)
 
 ## Installation Instructions
@@ -56,7 +56,7 @@ The library's components suitable for consumption comprise of
 $logger = new \Psr\Log\NullLogger();
 
 $serviceFactory = new SoapServiceFactory();
-$service = $serviceFactory->createRateService('api-user', 'api-pass', $logger)
+$service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
 
 $requestBuilder = new RateRequestBuilder()
 $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
@@ -99,7 +99,7 @@ The library's components suitable for consumption comprise of
 $logger = new \Psr\Log\NullLogger();
 
 $serviceFactory = new SoapServiceFactory();
-$service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger)
+$service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
 
 $requestBuilder = new ShipmentRequestBuilder()
 $requestBuilder->setIsUnscheduledPickup($unscheduledPickup);

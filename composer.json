@@ -37,10 +37,5 @@
     "psr-4": {
       "Dhl\\Express\\Test\\": "test/"
     }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-develop": "1.3.x-dev"
-    }
   }
 }
