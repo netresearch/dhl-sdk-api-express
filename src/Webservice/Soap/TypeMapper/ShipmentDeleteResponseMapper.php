@@ -7,7 +7,6 @@ namespace Dhl\Express\Webservice\Soap\TypeMapper;
 use Dhl\Express\Api\Data\ShipmentDeleteResponseInterface;
 use Dhl\Express\Exception\ShipmentDeleteRequestException;
 use Dhl\Express\Model\ShipmentDeleteResponse;
-use Dhl\Express\Webservice\Soap\Type\Common\Notification;
 use Dhl\Express\Webservice\Soap\Type\SoapShipmentDeleteResponse;
 
 /**

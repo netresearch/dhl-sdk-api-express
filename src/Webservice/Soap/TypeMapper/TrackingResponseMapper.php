@@ -82,7 +82,6 @@ class TrackingResponseMapper
                 $trackingPieces
             );
         }
-
         $time = strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime());
         if (\is_bool($time)) {
             throw new \InvalidArgumentException(
@@ -93,19 +92,24 @@ class TrackingResponseMapper
         return new TrackingResponse(
             new Message(
                 $time,
-                $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
+                $soapResponseContent->getResponse()->getServiceHeader()->getMessageTime()
             ),
             $trackingInfos
         );
     }
 
     /**
-     * @param ShipmentEventCollection $shipmentEvents
+     * @param null|ShipmentEventCollection $shipmentEvents
      * @return ShipmentEventInterface[]
      */
     private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents)
     {
         $events = [];
+
+        if (!$shipmentEvents) {
+        	return $events;
+        }
+
         foreach ($shipmentEvents->getArrayOfShipmentEventItem() as $shipmentEvent) {
             $events[] = new TrackingInfo\ShipmentEvent(
                 $shipmentEvent->getDate(),
