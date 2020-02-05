@@ -92,7 +92,7 @@ class TrackingResponseMapper
         return new TrackingResponse(
             new Message(
                 $time,
-                $soapResponseContent->getResponse()->getServiceHeader()->getMessageTime()
+                $soapResponseContent->getResponse()->getServiceHeader()->getMessageReference()
             ),
             $trackingInfos
         );
