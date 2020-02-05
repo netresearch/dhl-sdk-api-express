@@ -102,7 +102,7 @@ class TrackingResponseMapper
      * @param null|ShipmentEventCollection $shipmentEvents
      * @return ShipmentEventInterface[]
      */
-    private function convertTrackEventItems(ShipmentEventCollection $shipmentEvents)
+    private function convertTrackEventItems($shipmentEvents)
     {
         $events = [];
 
