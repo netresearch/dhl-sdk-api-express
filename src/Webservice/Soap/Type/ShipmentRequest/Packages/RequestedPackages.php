@@ -4,8 +4,8 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 
-use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\Money;
+use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages\CustomerReferences;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages\PackageContentDescription;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages\PieceIdentificationNumber;

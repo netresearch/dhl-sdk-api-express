@@ -4,6 +4,7 @@
  */
 namespace Dhl\Express\RequestBuilder;
 
+use DateTime;
 use Dhl\Express\Api\ShipmentDeleteRequestBuilderInterface;
 use Dhl\Express\Model\ShipmentDeleteRequest;
 
@@ -22,7 +23,7 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
      */
     private $data = [];
 
-    public function setPickupDate(\DateTime $pickupDate)
+    public function setPickupDate(DateTime $pickupDate)
     {
         $this->data['pickupDate'] = $pickupDate;
         return $this;
@@ -62,8 +63,8 @@ class ShipmentDeleteRequestBuilder implements ShipmentDeleteRequestBuilderInterf
             $this->data['requesterName']
         );
 
-        if (isset($this->data['reason'])) {
-            $request->setReason($this->data['reason']);
+        if (isset($this->data['reasonCode'])) {
+            $request->setReason($this->data['reasonCode']);
         }
 
         $this->data = [];

@@ -5,8 +5,8 @@
 
 namespace Dhl\Express\Api;
 
-use Dhl\Express\Api\Data\RateRequestInterface;
 use InvalidArgumentException;
+use Dhl\Express\Api\Data\RateRequestInterface;
 
 /**
  * Rate Request Builder.
