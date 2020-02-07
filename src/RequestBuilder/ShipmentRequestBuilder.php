@@ -29,7 +29,12 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      */
     private $data = [];
 
-    /**
+    public function __construct()
+    {
+    	$this->data['specialPickupInstructions'] = '';
+    }
+
+	/**
      * Normalizes the weight and unit of measurement to the unit of measurement KG (kilograms) or LB (Pound)
      * supported by the DHL express webservice.
      *
@@ -232,6 +237,18 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
+	/**
+	 * @param $specialInstructions
+	 *
+	 * @return ShipmentRequestBuilder
+	 */
+	public function setSpecialPickupInstructions($specialInstructions)
+	{
+		$this->data['specialPickupInstructions'] = $specialInstructions;
+
+		return $this;
+	}
+
     public function setShipper(
         $countryCode,
         $postalCode,
@@ -329,7 +346,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['currencyCode'],
             $this->data['description'],
             $this->data['customsValue'],
-            $this->data['serviceType']
+            $this->data['serviceType'],
+	        $this->data['specialPickupInstructions']
         );
 
         // Build shipper

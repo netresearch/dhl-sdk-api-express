@@ -106,9 +106,9 @@ class TrackingResponseMapper
     {
         $events = [];
 
-        if (!$shipmentEvents) {
-        	return $events;
-        }
+	    if (is_null($shipmentEvents)) {
+		    return $events;
+	    }
 
         foreach ($shipmentEvents->getArrayOfShipmentEventItem() as $shipmentEvent) {
             $events[] = new TrackingInfo\ShipmentEvent(

@@ -59,6 +59,10 @@ class ShipmentRequestMapper
             $this->mapUOM($weightUOM, $dimensionsUOM)
         );
 
+	    if (!empty($request->getShipmentDetails()->getSpecialShipmentInstructions())) {
+		    $shipmentInfo->setSpecialPickupInstructions($request->getShipmentDetails()->getSpecialShipmentInstructions());
+	    }
+
         // Create ship
         $ship = new Ship(
             new Ship\ContactInfo(

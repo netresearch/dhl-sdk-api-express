@@ -83,4 +83,9 @@ interface ShipmentDetailsInterface
      * @return string
      */
     public function getServiceType();
+
+	/**
+	 * @return string
+	 */
+	public function getSpecialShipmentInstructions();
 }
