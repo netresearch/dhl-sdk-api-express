@@ -254,7 +254,10 @@ class Address
      */
     public function setStateOrProvinceCode($stateOrProvinceCode)
     {
-        $this->StateOrProvinceCode = new StateOrProvinceCode($stateOrProvinceCode);
+	    if (!empty($stateOrProvinceCode)) {
+		    $this->StateOrProvinceCode = new StateOrProvinceCode($stateOrProvinceCode);
+	    }
+	    
         return $this;
     }
 
