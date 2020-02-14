@@ -75,7 +75,8 @@ class ShipmentRequestMapper
                     $request->getShipper()->getStreetLines()[0],
                     $request->getShipper()->getCity(),
                     $request->getShipper()->getPostalCode(),
-                    $request->getShipper()->getCountryCode()
+                    $request->getShipper()->getCountryCode(),
+	                $request->getShipper()->getStateOrProvince()
                 )
             ),
             new Ship\ContactInfo(
@@ -88,7 +89,8 @@ class ShipmentRequestMapper
                     $request->getRecipient()->getStreetLines()[0],
                     $request->getRecipient()->getCity(),
                     $request->getRecipient()->getPostalCode(),
-                    $request->getRecipient()->getCountryCode()
+                    $request->getRecipient()->getCountryCode(),
+	                $request->getRecipient()->getStateOrProvince()
                 )
             )
         );

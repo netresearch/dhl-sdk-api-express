@@ -249,53 +249,59 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 		return $this;
 	}
 
-    public function setShipper(
-        $countryCode,
-        $postalCode,
-        $city,
-        array $streetLines,
-        $name,
-        $company,
-        $phone,
-        $email = null
-    ) {
-        $this->data['shipper'] = [
-            'countryCode' => $countryCode,
-            'postalCode' => $postalCode,
-            'city' => $city,
-            'streetLines' => $streetLines,
-            'name' => $name,
-            'company' => $company,
-            'phone' => $phone,
-            'email' => $email
-        ];
+	public function setShipper(
+		$countryCode,
+		$postalCode,
+		$city,
+		array $streetLines,
+		$name,
+		$company,
+		$phone,
+		$email = null,
+		$stateOrProvince = null
+	)
+	{
+		$this->data['shipper'] = [
+			'countryCode'     => $countryCode,
+			'postalCode'      => $postalCode,
+			'city'            => $city,
+			'streetLines'     => $streetLines,
+			'name'            => $name,
+			'company'         => $company,
+			'phone'           => $phone,
+			'email'           => $email,
+			'stateOrProvince' => $stateOrProvince,
+		];
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function setRecipient(
-        $countryCode,
-        $postalCode,
-        $city,
-        array $streetLines,
-        $name,
-        $company,
-        $phone,
-        $email = null
-    ) {
-        $this->data['recipient'] = [
-            'countryCode' => $countryCode,
-            'postalCode' => $postalCode,
-            'city' => $city,
-            'streetLines' => $streetLines,
-            'name' => $name,
-            'company' => $company,
-            'phone' => $phone,
-            'email' => $email,
-        ];
+	public function setRecipient(
+		$countryCode,
+		$postalCode,
+		$city,
+		array $streetLines,
+		$name,
+		$company,
+		$phone,
+		$email = null,
+		$stateOrProvince = null
+	)
+	{
+		$this->data['recipient'] = [
+			'countryCode'     => $countryCode,
+			'postalCode'      => $postalCode,
+			'city'            => $city,
+			'streetLines'     => $streetLines,
+			'name'            => $name,
+			'company'         => $company,
+			'phone'           => $phone,
+			'email'           => $email,
+			'stateOrProvince' => $stateOrProvince,
+		];
 
-        return $this;
-    }
+		return $this;
+	}
 
     public function addPackage(
         $sequenceNumber,
@@ -359,7 +365,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['shipper']['name'],
             $this->data['shipper']['company'],
             $this->data['shipper']['phone'],
-            $this->data['shipper']['email']
+            $this->data['shipper']['email'],
+	        $this->data['shipper']['stateOrProvince']
         );
 
         // Build recipient
@@ -371,7 +378,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['recipient']['name'],
             $this->data['recipient']['company'],
             $this->data['recipient']['phone'],
-            $this->data['recipient']['email']
+            $this->data['recipient']['email'],
+	        $this->data['recipient']['stateOrProvince']
         );
 
         // build packages

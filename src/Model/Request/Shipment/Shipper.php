@@ -71,6 +71,11 @@ class Shipper implements ShipperInterface
      */
     private $email;
 
+	/**
+	 * @var string|null
+	 */
+	private $stateOrProvince;
+
     /**
      * Shipper constructor.
      *
@@ -82,6 +87,7 @@ class Shipper implements ShipperInterface
      * @param string $company
      * @param string $phone
      * @param string|null $email
+     * @param string|null $stateOrProvince
      */
     public function __construct(
         $countryCode,
@@ -91,7 +97,8 @@ class Shipper implements ShipperInterface
         $name,
         $company,
         $phone,
-        $email = null
+        $email = null,
+        $stateOrProvince = null
     ) {
         $this->countryCode = $countryCode;
         $this->postalCode = $postalCode;
@@ -101,6 +108,7 @@ class Shipper implements ShipperInterface
         $this->company = $company;
         $this->phone = $phone;
         $this->email = $email;
+	    $this->stateOrProvince = $stateOrProvince;
     }
 
     public function getCountryCode()
@@ -142,4 +150,9 @@ class Shipper implements ShipperInterface
     {
         return (string) $this->email;
     }
+
+	public function getStateOrProvince()
+	{
+		return (string) $this->stateOrProvince;
+	}
 }

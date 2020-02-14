@@ -69,4 +69,9 @@ interface RecipientInterface
      * @return string
      */
     public function getEmail();
+
+	/**
+	 * @return string
+	 */
+	public function getStateOrProvince();
 }
