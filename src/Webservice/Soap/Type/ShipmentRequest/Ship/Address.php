@@ -4,7 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
 
-use \Dhl\Express\Webservice\Soap\Type\Common\Ship\Address as CommonAddress;
+use Dhl\Express\Webservice\Soap\Type\Common\Ship\Address as CommonAddress;
 
 /**
  * An ship address.

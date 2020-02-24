@@ -60,7 +60,7 @@ class ShipmentInfo
     protected $WeightUnit;
 
     /**
-     * @var ShipmentEventCollection
+     * @var ShipmentEventCollection|null
      */
     protected $ShipmentEvent;
 
@@ -276,7 +276,7 @@ class ShipmentInfo
     }
 
     /**
-     * @return ShipmentEventCollection
+     * @return ShipmentEventCollection|null
      */
     public function getShipmentEvent()
     {
