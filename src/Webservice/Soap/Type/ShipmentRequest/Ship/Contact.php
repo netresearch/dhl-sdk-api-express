@@ -4,10 +4,10 @@
  */
 namespace Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship;
 
-use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\PersonName;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\CompanyName;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\EmailAddress;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\MobilePhoneNumber;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\PersonName;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Ship\Contact\PhoneNumber;
 
 /**

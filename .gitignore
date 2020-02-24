@@ -1,5 +1,5 @@
 /.idea
 /composer.lock
 /vendor
-/Test/Coverage
+/test/coverage
 /coverage

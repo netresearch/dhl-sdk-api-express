@@ -42,6 +42,7 @@ class ClassMap
 
             // trackShipmentRequest
             'ServiceHeader' => Type\Tracking\ServiceHeader::class,
+            'ResponseServiceHeader' => Type\Tracking\ServiceHeader::class,
             'TrackingResponse' => Type\Tracking\TrackingResponse::class,
             'Response' => Type\Tracking\Response::class,
             'AWBInfo' => Type\Tracking\AWBInfo::class,
