@@ -13,6 +13,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\Billing;
 use Dhl\Express\Webservice\Soap\Type\Common\Packages\RequestedPackages\Dimensions;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices;
 use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\Service;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
 use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods\Content;
@@ -61,6 +62,11 @@ class ShipmentRequestMapper
 
 	    if (!empty($request->getShipmentDetails()->getSpecialShipmentInstructions())) {
 		    $shipmentInfo->setSpecialPickupInstructions($request->getShipmentDetails()->getSpecialShipmentInstructions());
+	    }
+
+	    if (!empty($request->getShipmentDetails()->getPaperlessEncodedStringDocument())) {
+	    	$shipmentInfo->setPaperlessTradeEnabled(true);
+	    	$shipmentInfo->setPaperlessTradeImage($request->getShipmentDetails()->getPaperlessEncodedStringDocument());
 	    }
 
         // Create ship
@@ -162,10 +168,15 @@ class ShipmentRequestMapper
 
         $specialServicesList = [];
         if ($insurance = $request->getInsurance()) {
-            $insuranceService = new Service(SpecialServices\ServiceType::TYPE_INSURANCE);
+            $insuranceService = new Service(ServiceType::TYPE_INSURANCE);
             $insuranceService->setServiceValue($insurance->getValue());
             $insuranceService->setCurrencyCode($insurance->getCurrencyCode());
             $specialServicesList[] = $insuranceService;
+        }
+
+        if ($shipmentInfo->getPaperlessTradeEnabled()) {
+	        $paperlessService = new Service(ServiceType::TYPE_PAPERLESS);
+	        $specialServicesList[] = $paperlessService;
         }
 
         if (!empty($specialServicesList)) {

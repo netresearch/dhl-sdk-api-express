@@ -32,6 +32,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     public function __construct()
     {
     	$this->data['specialPickupInstructions'] = '';
+    	$this->data['paperlessDocument'] = '';
     }
 
 	/**
@@ -249,6 +250,18 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 		return $this;
 	}
 
+	/**
+	 * @param $encodedString
+	 *
+	 * @return ShipmentRequestBuilder
+	 */
+	public function setPaperlessBase64EncodedString($encodedString)
+	{
+		$this->data['paperlessDocument'] = $encodedString;
+
+		return $this;
+	}
+
 	public function setShipper(
 		$countryCode,
 		$postalCode,
@@ -353,7 +366,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             $this->data['description'],
             $this->data['customsValue'],
             $this->data['serviceType'],
-	        $this->data['specialPickupInstructions']
+	        $this->data['specialPickupInstructions'],
+	        $this->data['paperlessDocument']
         );
 
         // Build shipper

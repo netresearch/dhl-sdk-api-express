@@ -88,4 +88,9 @@ interface ShipmentDetailsInterface
 	 * @return string
 	 */
 	public function getSpecialShipmentInstructions();
+
+	/**
+	 * @return string
+	 */
+	public function getPaperlessEncodedStringDocument();
 }
