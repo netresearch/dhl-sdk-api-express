@@ -119,10 +119,11 @@ interface ShipmentRequestBuilderInterface
      *
      * @param float $insuranceValue
      * @param string $insuranceCurrency
+     * @param string $insuranceType
      *
      * @return ShipmentRequestBuilderInterface
      */
-    public function setInsurance($insuranceValue, $insuranceCurrency);
+    public function setInsurance($insuranceValue, $insuranceCurrency, $insuranceType = '');
 
     /**
      * Sets the shipper.

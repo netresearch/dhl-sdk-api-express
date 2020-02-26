@@ -27,4 +27,9 @@ interface InsuranceInterface
      * @return string
      */
     public function getCurrencyCode();
+
+	/**
+	 * @return string
+	 */
+	public function getType();
 }

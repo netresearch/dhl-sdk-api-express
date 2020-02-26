@@ -228,12 +228,13 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    public function setInsurance($insuranceValue, $insuranceCurrency)
+    public function setInsurance($insuranceValue, $insuranceCurrency, $insuranceType = '')
     {
-        $this->data['insurance'] = [
-            'value' => $insuranceValue,
-            'currencyType' => $insuranceCurrency,
-        ];
+	    $this->data['insurance'] = [
+		    'value'        => $insuranceValue,
+		    'currencyType' => $insuranceCurrency,
+		    'type'         => $insuranceType,
+	    ];
 
         return $this;
     }
@@ -428,7 +429,8 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         if (isset($this->data['insurance']) && \is_array($this->data['insurance'])) {
             $insurance = new Insurance(
                 $this->data['insurance']['value'],
-                $this->data['insurance']['currencyType']
+                $this->data['insurance']['currencyType'],
+                $this->data['insurance']['type']
             );
 
             $request->setInsurance($insurance);

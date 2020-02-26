@@ -5,6 +5,7 @@
 namespace Dhl\Express\Model\Request;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
+use Dhl\Express\Webservice\Soap\Type\Common\SpecialServices\ServiceType;
 
 /**
  * Insurance.
@@ -28,16 +29,23 @@ class Insurance implements InsuranceInterface
      */
     private $currencyCode;
 
+	/**
+	 * @var string
+	 */
+	private $type;
+
     /**
      * Constructor.
      *
      * @param float  $value        The value of the insurance
      * @param string $currencyCode The currency code
+     * @param string $type         The currency code
      */
-    public function __construct($value, $currencyCode)
+    public function __construct($value, $currencyCode, $type)
     {
         $this->value        = $value;
         $this->currencyCode = $currencyCode;
+	    $this->type         = empty($type) ? ServiceType::TYPE_INSURANCE : $type;
     }
 
     public function getValue()
@@ -49,4 +57,10 @@ class Insurance implements InsuranceInterface
     {
         return (string) $this->currencyCode;
     }
+    
+	public function getType()
+	{
+		return (string) $this->type;
+	}
+
 }
