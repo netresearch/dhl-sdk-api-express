@@ -4,6 +4,7 @@
  */
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
+use DateTime;
 use Dhl\Express\Api\Data\RateResponseInterface;
 use Dhl\Express\Exception\RateRequestException;
 use Dhl\Express\Model\RateResponse;
@@ -75,9 +76,13 @@ class RateResponseMapper
                         $cost = $total->getAmount();
 
                         $rate = new Rate($serviceCode, $label, $cost, $currencyCode);
-                        if ($service->getDeliveryTime() instanceof \DateTime) {
+                        if ($service->getDeliveryTime() instanceof DateTime) {
                             $rate->setDeliveryTime($service->getDeliveryTime());
                         }
+	                    if ($service->getCutoffTime() instanceof DateTime) {
+		                    $rate->setCutoffTime($service->getCutoffTime());
+	                    }
+	                    
                         $rates[] = $rate;
                     }
                 }
