@@ -218,14 +218,16 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         return $this;
     }
 
-    public function setInsurance($insuranceValue, $insuranceCurrency)
-    {
-        $this->data['insurance'] = [
-            'value' => $insuranceValue,
-            'currencyType' => $insuranceCurrency,
-        ];
-        return $this;
-    }
+	public function setInsurance($insuranceValue, $insuranceCurrency, $insuranceType = '')
+	{
+		$this->data['insurance'] = [
+			'value'        => $insuranceValue,
+			'currencyType' => $insuranceCurrency,
+			'type'         => $insuranceType,
+		];
+
+		return $this;
+	}
 
     public function setIsValueAddedServicesRequested($requestValueAddedServices)
     {
@@ -285,7 +287,8 @@ class RateRequestBuilder implements RateRequestBuilderInterface
         if (array_key_exists('insurance', $this->data)) {
             $insurance = new Insurance(
                 $this->data['insurance']['value'],
-                $this->data['insurance']['currencyType']
+                $this->data['insurance']['currencyType'],
+	            $this->data['insurance']['type']
             );
         }
 
