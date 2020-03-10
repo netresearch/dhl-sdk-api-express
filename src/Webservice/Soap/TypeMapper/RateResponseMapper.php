@@ -33,7 +33,7 @@ class RateResponseMapper
     public function map(SoapRateResponse $rateResponse)
     {
         $rates = [];
-        /** @var Provider $provider */
+
         $provider = $rateResponse->getProvider();
         if ($provider !== null) {
             $notification = $provider->getNotification();

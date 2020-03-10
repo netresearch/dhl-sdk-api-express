@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.2/phpunit.xsd" columns="max" stderr="true">
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.7/phpunit.xsd" columns="max" stderr="true">
     <testsuites>
         <testsuite name="DHL Express API Unit Tests">
             <directory>./Unit</directory>

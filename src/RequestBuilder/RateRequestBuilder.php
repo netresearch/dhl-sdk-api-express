@@ -177,7 +177,7 @@ class RateRequestBuilder implements RateRequestBuilderInterface
 
         $this->data['packages'][] = [
             'sequenceNumber' => $sequenceNumber,
-            'weight' => $weightDetails['weight'],
+            'weight' => round($weightDetails['weight'], 3),
             'weightUOM' => $weightDetails['uom'],
             'length' => $dimensionsDetails['length'],
             'width' => $dimensionsDetails['width'],

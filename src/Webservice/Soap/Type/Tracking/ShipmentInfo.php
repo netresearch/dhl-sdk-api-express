@@ -276,7 +276,7 @@ class ShipmentInfo
     }
 
     /**
-     * @return null|ShipmentEventCollection
+     * @return ShipmentEventCollection|null
      */
     public function getShipmentEvent()
     {

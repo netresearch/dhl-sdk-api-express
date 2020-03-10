@@ -67,6 +67,7 @@ class TrackingResponseMapper
                 $weight,
                 $estimatedDeliveryDate
             );
+
             $soapTrackingPieces = $soapTrackingItem->getPieces();
             $trackingPieces = [];
             if ($soapTrackingPieces !== null) {
@@ -74,11 +75,17 @@ class TrackingResponseMapper
                 $trackingPieces = $soapTrackingPieces->getPieceInfo()->getArrayOfPieceInfoItem();
             }
 
+            if (($shipmentInfo !== null) && ($shipmentInfo->getShipmentEvent() instanceof ShipmentEventCollection)) {
+                $shipmentEvents = $this->convertTrackEventItems($shipmentInfo->getShipmentEvent());
+            } else {
+                $shipmentEvents = [];
+            }
+
             $trackingInfos[] = new TrackingInfo(
                 $soapTrackingItem->getAWBNumber(),
                 $soapTrackingItem->getStatus()->getActionStatus(),
                 $shipmentDetails,
-                $shipmentInfo ? $this->convertTrackEventItems($shipmentInfo->getShipmentEvent()) : [],
+                $shipmentEvents,
                 $trackingPieces
             );
         }
