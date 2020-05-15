@@ -7,6 +7,7 @@ namespace Dhl\Express\Api\Data\Response\Tracking;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
+use Dhl\Express\Webservice\Soap\Type\Tracking\ConditionCollection;
 
 /**
  * TrackingInfo class.
@@ -53,4 +54,15 @@ interface TrackingInfoInterface
      * @return PieceInterface[]
      */
     public function getPieces();
+
+    /**
+     * @return ConditionCollection
+     */
+    public function getAwbConditions();
+
+    /**
+     * @param ConditionCollection $awbConditions
+     */
+    public function setAwbConditions($awbConditions);
+
 }
