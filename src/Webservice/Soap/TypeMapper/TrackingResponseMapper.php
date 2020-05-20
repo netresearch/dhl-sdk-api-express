@@ -81,14 +81,22 @@ class TrackingResponseMapper
                 $shipmentEvents = [];
             }
 
-            $trackingInfos[] = new TrackingInfo(
+            $trackingInfo = new TrackingInfo(
                 $soapTrackingItem->getAWBNumber(),
                 $soapTrackingItem->getStatus()->getActionStatus(),
-                $soapTrackingItem->getStatus()->getCondition(),
                 $shipmentDetails,
                 $shipmentEvents,
                 $trackingPieces
             );
+            $conditions = $soapTrackingItem->getStatus()->getCondition();
+            if(empty($conditions)){
+                $conditions = [];
+            }
+            foreach ($conditions as $condition){
+                $trackingInfo->addAwbConditions($condition->getConditionCode(), $condition->getConditionData());
+            }
+
+            $trackingInfos[] = $trackingInfo;
         }
 
         $time = strtotime($soapResponseContent->getResponse()->getServiceHeader()->getMessageTime());

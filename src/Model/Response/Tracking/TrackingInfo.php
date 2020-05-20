@@ -8,7 +8,6 @@ use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\PieceInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfo\ShipmentEventInterface;
 use Dhl\Express\Api\Data\Response\Tracking\TrackingInfoInterface;
-use Dhl\Express\Webservice\Soap\Type\Tracking\ConditionCollection;
 
 /**
  * TrackingInfo.
@@ -28,9 +27,11 @@ class TrackingInfo implements TrackingInfoInterface
      */
     private $awbStatus;
     /**
-     * @var ConditionCollection
+     * @var string[]
+     * code => message
+     * [101=>'error_description']
      */
-    private $awbConditions;
+    public $awbConditions = [];
 
     /**
      * @var ShipmentDetailsInterface
@@ -52,7 +53,6 @@ class TrackingInfo implements TrackingInfoInterface
      *
      * @param string                   $awbNumber
      * @param string                   $awbStatus
-     * @param ConditionCollection      $awbConditions
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param ShipmentEventInterface[] $shipmentEvents
      * @param PieceInterface[]         $pieces
@@ -60,14 +60,12 @@ class TrackingInfo implements TrackingInfoInterface
     public function __construct(
         $awbNumber,
         $awbStatus,
-        $awbConditions,
         ShipmentDetailsInterface $shipmentDetails,
         array $shipmentEvents,
         array $pieces
     ) {
         $this->awbNumber = $awbNumber;
         $this->awbStatus = $awbStatus;
-        $this->awbConditions = $awbConditions;
         $this->shipmentDetails = $shipmentDetails;
         $this->shipmentEvents = $shipmentEvents;
         $this->pieces = $pieces;
@@ -106,5 +104,12 @@ class TrackingInfo implements TrackingInfoInterface
     public function setAwbConditions($awbConditions)
     {
         $this->awbConditions = $awbConditions;
+        return $this;
+    }
+
+    public function addAwbConditions($conditionCode, $conditionDescription)
+    {
+        $this->awbConditions[$conditionCode] = $conditionDescription;
+        return $this;
     }
 }
