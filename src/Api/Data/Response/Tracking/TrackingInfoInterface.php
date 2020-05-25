@@ -48,9 +48,21 @@ interface TrackingInfoInterface
     public function getShipmentEvents();
 
     /**
-     * Returns the pieces
+     * Returns the pieces.
      *
      * @return PieceInterface[]
      */
     public function getPieces();
+
+    /**
+     * Returns the AWB conditions (details accompanying AWB status).
+     *
+     * Format: [
+     *     [$code => $message],
+     *     [101 => 'Error'],
+     * ]
+     *
+     * @return string[]
+     */
+    public function getAwbConditions();
 }

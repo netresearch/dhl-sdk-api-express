@@ -43,6 +43,11 @@ class TrackingInfo implements TrackingInfoInterface
     private $pieces;
 
     /**
+     * @var string[]
+     */
+    private $awbConditions;
+
+    /**
      * TrackingInfo constructor.
      *
      * @param string                   $awbNumber
@@ -50,19 +55,22 @@ class TrackingInfo implements TrackingInfoInterface
      * @param ShipmentDetailsInterface $shipmentDetails
      * @param ShipmentEventInterface[] $shipmentEvents
      * @param PieceInterface[]         $pieces
+     * @param string[]                 $awbConditions
      */
     public function __construct(
         $awbNumber,
         $awbStatus,
         ShipmentDetailsInterface $shipmentDetails,
         array $shipmentEvents,
-        array $pieces
+        array $pieces,
+        array $awbConditions = []
     ) {
         $this->awbNumber = $awbNumber;
         $this->awbStatus = $awbStatus;
         $this->shipmentDetails = $shipmentDetails;
         $this->shipmentEvents = $shipmentEvents;
         $this->pieces = $pieces;
+        $this->awbConditions = $awbConditions;
     }
 
     public function getAwbNumber()
@@ -88,5 +96,10 @@ class TrackingInfo implements TrackingInfoInterface
     public function getPieces()
     {
         return $this->pieces;
+    }
+
+    public function getAwbConditions()
+    {
+        return $this->awbConditions;
     }
 }
