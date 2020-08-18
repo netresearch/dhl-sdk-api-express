@@ -1,5 +1,3 @@
 includes:
 parameters:
     checkGenericClassInNonGenericObjectType: false
-    ignoreErrors:
-        - "|Casting to [a-z]+ something that's already [a-z]+.|"
