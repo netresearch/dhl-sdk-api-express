@@ -53,18 +53,18 @@ class TrackingService implements TrackingServiceInterface
         try {
             $response = $this->adapter->getTrackingInformation($request);
         } catch (SoapException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (TrackingRequestException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
-        }
-
-        if ($this->adapter instanceof TraceableInterface) {
-            $this->logger->debug($this->adapter->getLastRequest());
-            $this->logger->debug($this->adapter->getLastResponse());
+        } finally {
+            if ($this->adapter instanceof TraceableInterface) {
+                $this->logger->debug('SOAP REQUEST' . PHP_EOL . $this->adapter->getLastRequest());
+                if (trim($this->adapter->getLastResponse())) {
+                    $this->logger->debug('SOAP RESPONSE' . PHP_EOL . $this->adapter->getLastResponse());
+                }
+            }
         }
 
         return $response;

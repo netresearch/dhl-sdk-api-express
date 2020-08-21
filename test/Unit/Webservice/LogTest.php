@@ -59,8 +59,8 @@ class LogTest extends \PHPUnit\Framework\TestCase
             ->expects(self::exactly(2))
             ->method('debug')
             ->withConsecutive(
-                [self::equalTo($lastRequest), self::equalTo([])],
-                [self::equalTo($lastResponse), self::equalTo([])]
+                [self::equalTo('SOAP REQUEST' . PHP_EOL . $lastRequest), self::equalTo([])],
+                [self::equalTo('SOAP RESPONSE' . PHP_EOL . $lastResponse), self::equalTo([])]
             );
 
         $shipmentService->createShipment($request);

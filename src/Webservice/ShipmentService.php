@@ -52,17 +52,17 @@ class ShipmentService implements ShipmentServiceInterface
         try {
             $response = $this->adapter->createShipment($request);
         } catch (SoapException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (ShipmentRequestException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
+        } finally {
+            $this->logger->debug('SOAP REQUEST' . PHP_EOL . $this->adapter->getLastRequest());
+            if (trim($this->adapter->getLastResponse())) {
+                $this->logger->debug('SOAP RESPONSE' . PHP_EOL . $this->adapter->getLastResponse());
+            }
         }
-
-        $this->logger->debug($this->adapter->getLastRequest());
-        $this->logger->debug($this->adapter->getLastResponse());
 
         return $response;
     }
@@ -72,17 +72,17 @@ class ShipmentService implements ShipmentServiceInterface
         try {
             $response = $this->adapter->deleteShipment($request);
         } catch (SoapException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
         } catch (ShipmentDeleteRequestException $e) {
-            $this->logger->debug($this->adapter->getLastRequest());
             $this->logger->error($e->getMessage());
             throw $e;
+        } finally {
+            $this->logger->debug('SOAP REQUEST' . PHP_EOL . $this->adapter->getLastRequest());
+            if (trim($this->adapter->getLastResponse())) {
+                $this->logger->debug('SOAP RESPONSE' . PHP_EOL . $this->adapter->getLastResponse());
+            }
         }
-
-        $this->logger->debug($this->adapter->getLastRequest());
-        $this->logger->debug($this->adapter->getLastResponse());
 
         return $response;
     }
