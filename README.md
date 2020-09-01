@@ -1,7 +1,5 @@
 # DHL Express Shipping API SDK for PHP
 
-* version: 2.0.0
-
 ## Description
 
 This library enables extension developers to prepare and parse messages for
@@ -10,7 +8,7 @@ data.
 
 ## Requirements
 
-* PHP >= 5.6.5 <= 7.3
+* PHP >= 7.1
 * DHL Express customer account able to access the production endpoints (optionally sandpit too)
 
 ## Installation Instructions

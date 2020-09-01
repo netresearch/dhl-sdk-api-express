@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.2 - 2020-09-01
+
+### Added
+
+- Support for PHP 7.4
+- Pass through tracking error details, contributed by [@kdrdmr](https://github.com/kdrdmr) via [PR #8](https://github.com/netresearch/dhl-sdk-api-express/pull/8)
+
+### Removed
+
+- Support for PHP 5.6 and PHP 7.0
+
+### Changed
+
+- Request and response parsing, contributed by [@tomazJakomin](https://github.com/tomazJakomin) via [PR #5](https://github.com/netresearch/dhl-sdk-api-express/pull/5):
+  
+  - Class Map: add missing ResponseServiceHeader type
+  - Delete Shipment: fix passing Reason code from request builder to SOAP type
+  - Track: introduce constants for usage in TrackingRequestBuilderInterface::setPiecesEnabled
+  - Track: handle empty ShipmentEvent type during response processing
+
+### Fixed
+
+- Webservice response logging
+
 ## 2.0.1 - 2020-02-06
 
 ### Fixed
