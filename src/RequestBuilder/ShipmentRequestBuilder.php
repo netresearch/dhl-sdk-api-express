@@ -232,6 +232,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
+    public function setLabelOptions($requestWaybillDocument)
+    {
+        $this->data['labelOptions'] = [
+            'requestWaybillDocument' => $requestWaybillDocument
+        ];
+
+        return $this;
+    }
+
     public function setShipper(
         $countryCode,
         $postalCode,
@@ -402,6 +411,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             );
 
             $request->setDryIce($dryIce);
+        }
+
+        // build label options
+        if (!empty($this->data['labelOptions'])) {
+            $labelOptions = new LabelOptions(
+                $this->data['labelOptions']['requestWaybillDocument']
+            );
+
+            $request->setLabelOptions($labelOptions);
         }
 
         $this->data = [];

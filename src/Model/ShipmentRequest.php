@@ -8,6 +8,7 @@ namespace Dhl\Express\Model;
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
+use Dhl\Express\Api\Data\Request\Shipment\LabelOptionsInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Recipient;
@@ -60,6 +61,11 @@ class ShipmentRequest implements ShipmentRequestInterface
      * @var null|DryIceInterface
      */
     private $dryIce;
+
+    /**
+     * @var null|LabelOptionsInterface
+     */
+    private $labelOptions;
 
     /**
      * SoapShipmentRequest constructor.
@@ -124,6 +130,11 @@ class ShipmentRequest implements ShipmentRequestInterface
         return $this->dryIce;
     }
 
+    public function getLabelOptions()
+    {
+        return $this->labelOptions;
+    }
+
     /**
      * Sets the billing account number.
      *
@@ -162,6 +173,20 @@ class ShipmentRequest implements ShipmentRequestInterface
     public function setDryIce(DryIceInterface $dryIce)
     {
         $this->dryIce = $dryIce;
+
+        return $this;
+    }
+
+    /**
+     * Sets the label options instance.
+     *
+     * @param LabelOptionsInterface $labelOptions The label options instance
+     *
+     * @return ShipmentRequest
+     */
+    public function setLabelOptions(LabelOptionsInterface $labelOptions)
+    {
+        $this->labelOptions = $labelOptions;
 
         return $this;
     }

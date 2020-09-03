@@ -70,6 +70,11 @@ class RequestedShipment
     private $OnDemandDeliveryOptions;
 
     /**
+     * @var null|LabelOptions
+     */
+    private $LabelOptions;
+
+    /**
      * @var Ship
      */
     private $Ship;
@@ -293,6 +298,29 @@ class RequestedShipment
     public function setOnDemandDeliveryOptions(OnDemandDeliveryOptions $onDemandDeliveryOptions)
     {
         $this->OnDemandDeliveryOptions = $onDemandDeliveryOptions;
+        return $this;
+    }
+
+    /**
+     * Returns the on demand delivery options.
+     *
+     * @return null|LabelOptions
+     */
+    public function getLabelOptions()
+    {
+        return $this->LabelOptions;
+    }
+
+    /**
+     * Sets the on demand delivery options.
+     *
+     * @param LabelOptions $LabelOptions The on demand delivery options
+     *
+     * @return self
+     */
+    public function setLabelOptions(LabelOptions $labelOptions)
+    {
+        $this->LabelOptions = $labelOptions;
         return $this;
     }
 

@@ -17,6 +17,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods\Content;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\LabelOptions;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
@@ -176,6 +177,15 @@ class ShipmentRequestMapper
                         number_format($dryIce->getWeight(), 2),
                         $dryIce->getUNCode()
                     )
+                )
+            );
+        }
+
+        // Label options
+        if ($labelOptions = $request->getLabelOptions()) {
+            $requestedShipment->getShipmentInfo()->setLabelOptions(
+                new LabelOptions(
+                    $labelOptions->getRequestWaybillDocument()
                 )
             );
         }
