@@ -56,7 +56,7 @@ $logger = new \Psr\Log\NullLogger();
 $serviceFactory = new SoapServiceFactory();
 $service = $serviceFactory->createRateService('api-user', 'api-pass', $logger);
 
-$requestBuilder = new RateRequestBuilder()
+$requestBuilder = new RateRequestBuilder();
 $requestBuilder->setIsUnscheduledPickup($isUnscheduledPickup);
 $requestBuilder->setShipperAccount($accountNumber);
 $requestBuilder->setShipperAddress($countryCode, $postalCode, $city, $etc);
@@ -99,7 +99,7 @@ $logger = new \Psr\Log\NullLogger();
 $serviceFactory = new SoapServiceFactory();
 $service = $serviceFactory->createShipmentService('api-user', 'api-pass', $logger);
 
-$requestBuilder = new ShipmentRequestBuilder()
+$requestBuilder = new ShipmentRequestBuilder();
 $requestBuilder->setIsUnscheduledPickup($unscheduledPickup);
 $requestBuilder->setTermsOfTrade($termsOfTrade);
 $requestBuilder->setContentType($contentType);

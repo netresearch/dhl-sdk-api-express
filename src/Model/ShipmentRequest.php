@@ -7,8 +7,11 @@ namespace Dhl\Express\Model;
 
 use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\RecipientInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
+use Dhl\Express\Api\Data\Request\Shipment\LabelOptionsInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
+use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Recipient;
 use Dhl\Express\Model\Request\Shipment\Shipper;
@@ -16,8 +19,8 @@ use Dhl\Express\Model\Request\Shipment\Shipper;
 /**
  * Shipment Request.
  *
- * @author   Ronny Gertler <ronny.gertler@netresearch.de>
- * @link     https://www.netresearch.de/
+ * @author Ronny Gertler <ronny.gertler@netresearch.de>
+ * @link   https://www.netresearch.de/
  */
 class ShipmentRequest implements ShipmentRequestInterface
 {
@@ -62,6 +65,11 @@ class ShipmentRequest implements ShipmentRequestInterface
     private $dryIce;
 
     /**
+     * @var null|LabelOptionsInterface
+     */
+    private $labelOptions;
+
+    /**
      * SoapShipmentRequest constructor.
      *
      * @param ShipmentDetailsInterface $shipmentDetails
@@ -72,9 +80,9 @@ class ShipmentRequest implements ShipmentRequestInterface
      */
     public function __construct(
         ShipmentDetailsInterface $shipmentDetails,
-        $payerAccountNumber,
-        Shipper $shipper,
-        Recipient $recipient,
+        string $payerAccountNumber,
+        ShipperInterface $shipper,
+        RecipientInterface $recipient,
         array $packages
     ) {
         $this->shipmentDetails = $shipmentDetails;
@@ -84,44 +92,49 @@ class ShipmentRequest implements ShipmentRequestInterface
         $this->packages = $packages;
     }
 
-    public function getShipmentDetails()
+    public function getShipmentDetails(): ShipmentDetailsInterface
     {
         return $this->shipmentDetails;
     }
 
-    public function getPayerAccountNumber()
+    public function getPayerAccountNumber(): string
     {
         return (string) $this->payerAccountNumber;
     }
 
-    public function getShipper()
+    public function getShipper(): ShipperInterface
     {
         return $this->shipper;
     }
 
-    public function getRecipient()
+    public function getRecipient(): RecipientInterface
     {
         return $this->recipient;
     }
 
-    public function getPackages()
+    public function getPackages(): array
     {
         return $this->packages;
     }
 
-    public function getBillingAccountNumber()
+    public function getBillingAccountNumber(): string
     {
         return (string) $this->billingAccountNumber;
     }
 
-    public function getInsurance()
+    public function getInsurance(): ?InsuranceInterface
     {
         return $this->insurance;
     }
 
-    public function getDryIce()
+    public function getDryIce(): ?DryIceInterface
     {
         return $this->dryIce;
+    }
+
+    public function getLabelOptions(): ?LabelOptionsInterface
+    {
+        return $this->labelOptions;
     }
 
     /**
@@ -131,7 +144,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return ShipmentRequest
      */
-    public function setBillingAccountNumber($billingAccountNumber)
+    public function setBillingAccountNumber(string $billingAccountNumber): ShipmentRequestInterface
     {
         $this->billingAccountNumber = $billingAccountNumber;
 
@@ -145,7 +158,7 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return ShipmentRequest
      */
-    public function setInsurance(InsuranceInterface $insurance)
+    public function setInsurance(InsuranceInterface $insurance): ShipmentRequestInterface
     {
         $this->insurance = $insurance;
 
@@ -159,9 +172,23 @@ class ShipmentRequest implements ShipmentRequestInterface
      *
      * @return ShipmentRequest
      */
-    public function setDryIce(DryIceInterface $dryIce)
+    public function setDryIce(DryIceInterface $dryIce): ShipmentRequestInterface
     {
         $this->dryIce = $dryIce;
+
+        return $this;
+    }
+
+    /**
+     * Sets the label options instance.
+     *
+     * @param LabelOptionsInterface $labelOptions The label options instance
+     *
+     * @return ShipmentRequest
+     */
+    public function setLabelOptions(LabelOptionsInterface $labelOptions): ShipmentRequestInterface
+    {
+        $this->labelOptions = $labelOptions;
 
         return $this;
     }

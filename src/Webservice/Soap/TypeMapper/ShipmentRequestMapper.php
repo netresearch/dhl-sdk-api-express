@@ -6,6 +6,7 @@
 namespace Dhl\Express\Webservice\Soap\TypeMapper;
 
 use Dhl\Express\Api\Data\Request\PackageInterface;
+use Dhl\Express\Api\Data\Request\Shipment\LabelOptionsInterface;
 use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
@@ -17,6 +18,7 @@ use Dhl\Express\Webservice\Soap\Type\Common\UnitOfMeasurement;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\DangerousGoods\Content;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\InternationalDetail;
+use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\LabelOptions;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\Packages\RequestedPackages;
 use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\RequestedShipment;
@@ -30,8 +32,8 @@ use Dhl\Express\Webservice\Soap\Type\SoapShipmentRequest;
  *
  * Transform the shipment request object into SOAP types suitable for API communication.
  *
- * @author   Ronny Gertler <ronny.gertler@netresearch.de>
- * @link     https://www.netresearch.de/
+ * @author Ronny Gertler <ronny.gertler@netresearch.de>
+ * @link   https://www.netresearch.de/
  */
 class ShipmentRequestMapper
 {
@@ -176,6 +178,16 @@ class ShipmentRequestMapper
                         number_format($dryIce->getWeight(), 2),
                         $dryIce->getUNCode()
                     )
+                )
+            );
+        }
+
+        // Add waybill document option
+        $labelOptions = $request->getLabelOptions();
+        if ($labelOptions instanceof LabelOptionsInterface) {
+            $requestedShipment->getShipmentInfo()->setLabelOptions(
+                new LabelOptions(
+                    new LabelOptions\RequestWaybillDocument($labelOptions->isWaybillDocumentRequested())
                 )
             );
         }

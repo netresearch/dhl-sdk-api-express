@@ -9,6 +9,7 @@ use Dhl\Express\Api\Data\Request\InsuranceInterface;
 use Dhl\Express\Api\Data\Request\PackageInterface;
 use Dhl\Express\Api\Data\Request\RecipientInterface;
 use Dhl\Express\Api\Data\Request\Shipment\DangerousGoods\DryIceInterface;
+use Dhl\Express\Api\Data\Request\Shipment\LabelOptionsInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipmentDetailsInterface;
 use Dhl\Express\Api\Data\Request\Shipment\ShipperInterface;
 
@@ -27,40 +28,45 @@ interface ShipmentRequestInterface
     /**
      * @return ShipmentDetailsInterface
      */
-    public function getShipmentDetails();
+    public function getShipmentDetails(): ShipmentDetailsInterface;
 
     /**
      * @return string
      */
-    public function getPayerAccountNumber();
+    public function getPayerAccountNumber(): string;
 
     /**
      * @return string
      */
-    public function getBillingAccountNumber();
+    public function getBillingAccountNumber(): string;
 
     /**
      * @return null|InsuranceInterface
      */
-    public function getInsurance();
+    public function getInsurance(): ?InsuranceInterface;
 
     /**
      * @return ShipperInterface
      */
-    public function getShipper();
+    public function getShipper(): ShipperInterface;
 
     /**
      * @return RecipientInterface
      */
-    public function getRecipient();
+    public function getRecipient(): RecipientInterface;
 
     /**
      * @return PackageInterface[]
      */
-    public function getPackages();
+    public function getPackages(): array;
 
     /**
      * @return null|DryIceInterface
      */
-    public function getDryIce();
+    public function getDryIce(): ?DryIceInterface;
+
+    /**
+     * @return null|LabelOptionsInterface
+     */
+    public function getLabelOptions(): ?LabelOptionsInterface;
 }
