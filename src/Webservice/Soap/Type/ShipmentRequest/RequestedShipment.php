@@ -12,8 +12,8 @@ use Dhl\Express\Webservice\Soap\Type\Common\ShipTimestamp;
  * The requested shipment.
  *
  * @api
- * @author   Rico Sonntag <rico.sonntag@netresearch.de>
- * @link     https://www.netresearch.de/
+ * @author Rico Sonntag <rico.sonntag@netresearch.de>
+ * @link   https://www.netresearch.de/
  */
 class RequestedShipment
 {

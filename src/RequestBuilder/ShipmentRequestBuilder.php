@@ -5,11 +5,13 @@
 
 namespace Dhl\Express\RequestBuilder;
 
+use Dhl\Express\Api\Data\ShipmentRequestInterface;
 use Dhl\Express\Api\ShipmentRequestBuilderInterface;
 use Dhl\Express\Model\Request\Insurance;
 use Dhl\Express\Model\Request\Package;
 use Dhl\Express\Model\Request\Recipient;
 use Dhl\Express\Model\Request\Shipment\DangerousGoods\DryIce;
+use Dhl\Express\Model\Request\Shipment\LabelOptions;
 use Dhl\Express\Model\Request\Shipment\ShipmentDetails;
 use Dhl\Express\Model\Request\Shipment\Shipper;
 use Dhl\Express\Model\ShipmentRequest;
@@ -17,8 +19,8 @@ use Dhl\Express\Model\ShipmentRequest;
 /**
  * Shipment Request Builder.
  *
- * @author   Ronny Gertler <ronny.gertler@netresearch.de>
- * @link     https://www.netresearch.de/
+ * @author Ronny Gertler <ronny.gertler@netresearch.de>
+ * @link   https://www.netresearch.de/
  */
 class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
 {
@@ -38,7 +40,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      *
      * @return float[]|string[]
      */
-    private function normalizeWeight($weight, $uom)
+    private function normalizeWeight(float $weight, string $uom): array
     {
         if ($uom === Package::UOM_WEIGHT_KG) {
             return [
@@ -84,7 +86,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
      *
      * @return float[]|string[]
      */
-    private function normalizeDimensions($length, $width, $height, $uom)
+    private function normalizeDimensions(float $length, float $width, float $height, string $uom): array
     {
         if ($uom === Package::UOM_DIMENSION_CM) {
             return [
@@ -145,84 +147,84 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         );
     }
 
-    public function setIsUnscheduledPickup($unscheduledPickup)
+    public function setIsUnscheduledPickup(bool $unscheduledPickup): ShipmentRequestBuilderInterface
     {
         $this->data['unscheduledPickup'] = $unscheduledPickup;
 
         return $this;
     }
 
-    public function setTermsOfTrade($termsOfTrade)
+    public function setTermsOfTrade(string $termsOfTrade): ShipmentRequestBuilderInterface
     {
         $this->data['termsOfTrade'] = $termsOfTrade;
 
         return $this;
     }
 
-    public function setContentType($contentType)
+    public function setContentType(string $contentType): ShipmentRequestBuilderInterface
     {
         $this->data['contentType'] = $contentType;
 
         return $this;
     }
 
-    public function setReadyAtTimestamp(\DateTime $readyAtTimestamp)
+    public function setReadyAtTimestamp(\DateTime $readyAtTimestamp): ShipmentRequestBuilderInterface
     {
         $this->data['readyAtTimestamp'] = $readyAtTimestamp;
 
         return $this;
     }
 
-    public function setNumberOfPieces($numberOfPieces)
+    public function setNumberOfPieces(int $numberOfPieces): ShipmentRequestBuilderInterface
     {
         $this->data['numberOfPieces'] = $numberOfPieces;
 
         return $this;
     }
 
-    public function setCurrency($currencyCode)
+    public function setCurrency(string $currencyCode): ShipmentRequestBuilderInterface
     {
         $this->data['currencyCode'] = $currencyCode;
 
         return $this;
     }
 
-    public function setDescription($description)
+    public function setDescription(string $description): ShipmentRequestBuilderInterface
     {
         $this->data['description'] = $description;
 
         return $this;
     }
 
-    public function setCustomsValue($customsValue)
+    public function setCustomsValue(float $customsValue): ShipmentRequestBuilderInterface
     {
         $this->data['customsValue'] = $customsValue;
 
         return $this;
     }
 
-    public function setServiceType($serviceType)
+    public function setServiceType(string $serviceType): ShipmentRequestBuilderInterface
     {
         $this->data['serviceType'] = $serviceType;
 
         return $this;
     }
 
-    public function setPayerAccountNumber($accountNumber)
+    public function setPayerAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
     {
         $this->data['payerAccountNumber'] = $accountNumber;
 
         return $this;
     }
 
-    public function setBillingAccountNumber($accountNumber)
+    public function setBillingAccountNumber(string $accountNumber): ShipmentRequestBuilderInterface
     {
         $this->data['billingAccountNumber'] = $accountNumber;
 
         return $this;
     }
 
-    public function setInsurance($insuranceValue, $insuranceCurrency)
+    public function setInsurance(float $insuranceValue, string $insuranceCurrency): ShipmentRequestBuilderInterface
     {
         $this->data['insurance'] = [
             'value' => $insuranceValue,
@@ -232,16 +234,25 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
+    public function setWaybillDocumentRequested(bool $isRequested): ShipmentRequestBuilderInterface
+    {
+        $this->data['labelOptions'] = [
+            'waybillDocument' => $isRequested
+        ];
+
+        return $this;
+    }
+
     public function setShipper(
-        $countryCode,
-        $postalCode,
-        $city,
+        string $countryCode,
+        string $postalCode,
+        string $city,
         array $streetLines,
-        $name,
-        $company,
-        $phone,
-        $email = null
-    ) {
+        string $name,
+        string $company,
+        string $phone,
+        string $email = null
+    ): ShipmentRequestBuilderInterface {
         $this->data['shipper'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -257,15 +268,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     public function setRecipient(
-        $countryCode,
-        $postalCode,
-        $city,
+        string $countryCode,
+        string $postalCode,
+        string $city,
         array $streetLines,
-        $name,
-        $company,
-        $phone,
-        $email = null
-    ) {
+        string $name,
+        string $company,
+        string $phone,
+        string $email = null
+    ): ShipmentRequestBuilderInterface {
         $this->data['recipient'] = [
             'countryCode' => $countryCode,
             'postalCode' => $postalCode,
@@ -281,15 +292,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
     }
 
     public function addPackage(
-        $sequenceNumber,
-        $weight,
-        $weightUOM,
-        $length,
-        $width,
-        $height,
-        $dimensionsUOM,
-        $customerReferences
-    ) {
+        int $sequenceNumber,
+        float $weight,
+        string $weightUOM,
+        float $length,
+        float $width,
+        float $height,
+        string $dimensionsUOM,
+        string $customerReferences
+    ): ShipmentRequestBuilderInterface {
         $weightDetails = $this->normalizeWeight($weight, strtoupper($weightUOM));
         $dimensionsDetails = $this->normalizeDimensions($length, $width, $height, strtoupper($dimensionsUOM));
 
@@ -307,7 +318,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    public function setDryIce($unCode, $weight)
+    public function setDryIce(string $unCode, float $weight): ShipmentRequestBuilderInterface
     {
         $this->data['dryIce'] = [
             'unCode' => $unCode,
@@ -317,7 +328,7 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
         return $this;
     }
 
-    public function build()
+    public function build(): ShipmentRequestInterface
     {
         // Build shipment details
         $shipmentDetails = new ShipmentDetails(
@@ -402,6 +413,15 @@ class ShipmentRequestBuilder implements ShipmentRequestBuilderInterface
             );
 
             $request->setDryIce($dryIce);
+        }
+
+        // build label options
+        if (!empty($this->data['labelOptions']) && isset($this->data['labelOptions']['waybillDocument'])) {
+            $labelOptions = new LabelOptions(
+                $this->data['labelOptions']['waybillDocument']
+            );
+
+            $request->setLabelOptions($labelOptions);
         }
 
         $this->data = [];

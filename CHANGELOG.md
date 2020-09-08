@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## ## 2.0.3 - 2020-09-15
+
+### Added
+
+- Set label option flag to request a waybill document, contributed by D. Fairbrother and [@JustoHermano](https://github.com/JustoHermano) via [PR #11](https://github.com/netresearch/dhl-sdk-api-express/pull/11)
+
 ## 2.0.2 - 2020-09-01
 
 ### Added

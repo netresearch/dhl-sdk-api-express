@@ -22,8 +22,8 @@ use Dhl\Express\Webservice\Soap\Type\ShipmentRequest\ShipmentInfo\UseOwnShipment
  * The Billing and Special Services sub-structures are detailed in below sections.
  *
  * @api
- * @author   Rico Sonntag <rico.sonntag@netresearch.de>
- * @link     https://www.netresearch.de/
+ * @author Rico Sonntag <rico.sonntag@netresearch.de>
+ * @link   https://www.netresearch.de/
  */
 class ShipmentInfo
 {
@@ -132,6 +132,14 @@ class ShipmentInfo
      * @var null|LabelTemplate
      */
     private $LabelTemplate;
+
+    /**
+     * The LabelOptions node conveys additional label options. It is an optional field. Currently only
+     * RequestWaybillDocument is supported and it takes a value of Y/N
+     *
+     * @var null|LabelOptions
+     */
+    private $LabelOptions;
 
     /**
      * The ArchiveLabelTemplate node conveys the label template used in the operation. It is an optional field.
@@ -547,4 +555,28 @@ class ShipmentInfo
         $this->PaperlessTradeImage = $paperlessTradeImage;
         return $this;
     }
+
+    /**
+     * Returns the label options.
+     *
+     * @return null|LabelOptions
+     */
+    public function getLabelOptions()
+    {
+        return $this->LabelOptions;
+    }
+
+    /**
+     * Sets the label options.
+     *
+     * @param LabelOptions $labelOptions The label options
+     *
+     * @return self
+     */
+    public function setLabelOptions(LabelOptions $labelOptions)
+    {
+        $this->LabelOptions = $labelOptions;
+        return $this;
+    }
+
 }
