@@ -75,12 +75,12 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
         /** @var SoapShipmentResponse $response */
         $response = $soapClientMock->__soapCall('createShipmentRequest', []);
 
-        self::assertInternalType('array', $response->getNotification());
+        self::assertIsArray($response->getNotification());
 
         foreach ($response->getNotification() as $notification) {
             self::assertInstanceOf(Notification::class, $notification);
-            self::assertInternalType('string', $notification->getMessage());
-            self::assertInternalType('int', $notification->getCode());
+            self::assertIsString($notification->getMessage());
+            self::assertIsInt($notification->getCode());
         }
 
         if ($response->getPackagesResult()) {
@@ -88,27 +88,27 @@ class ShipmentResponseTest extends \PHPUnit\Framework\TestCase
 
             foreach ($response->getPackagesResult()->getPackageResult() as $packageResult) {
                 self::assertInstanceOf(PackageResult::class, $packageResult);
-                self::assertInternalType('string', $packageResult->getTrackingNumber());
-                self::assertInternalType('int', $packageResult->getNumber());
+                self::assertIsString($packageResult->getTrackingNumber());
+                self::assertIsInt($packageResult->getNumber());
             }
         }
 
         if ($response->getLabelImage()) {
-            self::assertInternalType('array', $response->getLabelImage());
+            self::assertIsArray($response->getLabelImage());
 
             foreach ($response->getLabelImage() as $labelImage) {
                 self::assertInstanceOf(LabelImage::class, $labelImage);
-                self::assertInternalType('string', $labelImage->getLabelImageFormat());
-                self::assertInternalType('string', $labelImage->getGraphicImage());
+                self::assertIsString($labelImage->getLabelImageFormat());
+                self::assertIsString($labelImage->getGraphicImage());
             }
         }
 
         if ($response->getShipmentIdentificationNumber()) {
-            self::assertInternalType('string', $response->getShipmentIdentificationNumber());
+            self::assertIsString($response->getShipmentIdentificationNumber());
         }
 
         if ($response->getDispatchConfirmationNumber()) {
-            self::assertInternalType('string', $response->getDispatchConfirmationNumber());
+            self::assertIsString($response->getDispatchConfirmationNumber());
         }
     }
 }

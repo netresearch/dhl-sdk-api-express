@@ -33,7 +33,7 @@ class RateServiceTest extends TestCase
         /** @var LoggerInterface $logger */
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
 
-        /** @var RateServiceAdapter|MockObject|\PHPUnit_Framework_MockObject_MockObject $adapter */
+        /** @var RateServiceAdapter|MockObject $adapter */
         $adapter = $this->getMockBuilder(RateServiceAdapter::class)
             ->disableOriginalConstructor()
             ->getMock();

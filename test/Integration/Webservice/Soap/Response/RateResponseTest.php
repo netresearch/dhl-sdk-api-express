@@ -80,36 +80,36 @@ class RateResponseTest extends \PHPUnit\Framework\TestCase
         $response = $soapClientMock->__soapCall('getRateRequest', []);
 
         // Test mandatory types
-        self::assertInternalType('array', $response->getProvider());
+        self::assertIsArray($response->getProvider());
 
         foreach ($response->getProvider() as $provider) {
             self::assertInstanceOf(Provider::class, $provider);
-            self::assertInternalType('string', $provider->getCode());
+            self::assertIsString($provider->getCode());
 
             self::assertInstanceOf(Notification::class, $provider->getNotification());
-            self::assertInternalType('string', $provider->getNotification()->getMessage());
-            self::assertInternalType('int', $provider->getNotification()->getCode());
+            self::assertIsString($provider->getNotification()->getMessage());
+            self::assertIsInt($provider->getNotification()->getCode());
 
             $services = $provider->getService();
 
             if ($services) {
-                self::assertInternalType('array', $provider->getService());
+                self::assertIsArray($provider->getService());
 
                 foreach ($provider->getService() as $service) {
                     self::assertInstanceOf(Service::class, $service);
-                    self::assertInternalType('string', $service->getType());
+                    self::assertIsString($service->getType());
                     self::assertInstanceOf(TotalNet::class, $service->getTotalNet());
-                    self::assertInternalType('string', $service->getTotalNet()->getCurrency());
-                    self::assertInternalType('float', $service->getTotalNet()->getAmount());
+                    self::assertIsString($service->getTotalNet()->getCurrency());
+                    self::assertIsFloat($service->getTotalNet()->getAmount());
 
                     if ($service->getCharges()) {
                         self::assertInstanceOf(Charges::class, $service->getCharges());
-                        self::assertInternalType('string', $service->getCharges()->getCurrency());
+                        self::assertIsString($service->getCharges()->getCurrency());
 
                         foreach ($service->getCharges()->getCharge() as $charge) {
                             self::assertInstanceOf(Charge::class, $charge);
-                            self::assertInternalType('string', $charge->getChargeType());
-                            self::assertInternalType('float', $charge->getChargeAmount());
+                            self::assertIsString($charge->getChargeType());
+                            self::assertIsFloat($charge->getChargeAmount());
                         }
                     }
                 }

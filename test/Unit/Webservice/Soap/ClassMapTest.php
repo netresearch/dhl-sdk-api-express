@@ -19,11 +19,11 @@ class ClassMapTest extends \PHPUnit\Framework\TestCase
     {
         $types = ClassMap::get();
 
-        self::assertInternalType('array', $types);
+        self::assertIsArray($types);
         self::assertNotEmpty($types);
 
         foreach ($types as $type) {
-            self::assertInternalType('string', $type);
+            self::assertIsString($type);
             self::assertTrue(class_exists($type), "$type does not exist.");
         }
     }

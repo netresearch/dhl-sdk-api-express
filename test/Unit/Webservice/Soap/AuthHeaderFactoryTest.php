@@ -20,7 +20,7 @@ class AuthHeaderFactoryTest extends \PHPUnit\Framework\TestCase
      */
     public function wsseNamespacesAreAvailable()
     {
-        self::assertInternalType('string', AuthHeaderFactory::WSS_NS);
-        self::assertInternalType('string', AuthHeaderFactory::WSU_NS);
+        self::assertIsString(AuthHeaderFactory::WSS_NS);
+        self::assertIsString(AuthHeaderFactory::WSU_NS);
     }
 }
